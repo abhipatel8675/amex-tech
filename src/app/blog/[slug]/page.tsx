@@ -30,7 +30,7 @@ export default async function BlogPostPage({ params }: Props) {
   ).slice(0, 2);
 
   return (
-    <div className="bg-[#050505] text-white min-h-screen">
+    <div className="bg-[#0B0F19] text-white min-h-screen">
       <Navbar />
 
       {/* Hero */}

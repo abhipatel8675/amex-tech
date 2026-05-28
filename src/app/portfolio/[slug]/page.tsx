@@ -29,7 +29,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   if (!project) notFound();
 
   return (
-    <div className="bg-[#050505] text-white min-h-screen">
+    <div className="bg-[#0B0F19] text-white min-h-screen">
       <Navbar />
 
       {/* Hero */}

@@ -3,46 +3,18 @@
 import { motion } from "framer-motion";
 
 const steps = [
-  {
-    number: "01",
-    title: "Discovery",
-    desc: "We dig into your goals, constraints, and user needs. Every product decision starts here.",
-  },
-  {
-    number: "02",
-    title: "Planning",
-    desc: "Architecture decisions, tech stack selection, scope definition, and timeline with clear milestones.",
-  },
-  {
-    number: "03",
-    title: "UI/UX Design",
-    desc: "Wireframes and high-fidelity designs before a line of code is written. You approve, we build.",
-  },
-  {
-    number: "04",
-    title: "Development",
-    desc: "Iterative development with weekly demos. You always know what's been built and what's next.",
-  },
-  {
-    number: "05",
-    title: "Testing & QA",
-    desc: "Functional testing, edge case coverage, performance audits, and cross-device checks.",
-  },
-  {
-    number: "06",
-    title: "Deployment",
-    desc: "Zero-downtime deployment to production with CI/CD, monitoring, and rollback ready.",
-  },
-  {
-    number: "07",
-    title: "Maintenance",
-    desc: "Post-launch support, updates, performance monitoring, and iterating based on real user data.",
-  },
+  { number: "01", title: "Discovery", desc: "Deep dive into your goals, constraints, users, and success criteria." },
+  { number: "02", title: "Planning", desc: "Architecture, tech stack, scope definition, and milestone timeline." },
+  { number: "03", title: "Design", desc: "Wireframes and high-fidelity UI before a line of code is written." },
+  { number: "04", title: "Build", desc: "Iterative development with weekly demos and clear progress updates." },
+  { number: "05", title: "QA", desc: "Functional testing, performance audits, and cross-device coverage." },
+  { number: "06", title: "Deploy", desc: "Zero-downtime launch with CI/CD, monitoring, and rollback ready." },
+  { number: "07", title: "Support", desc: "Post-launch partnership: updates, performance, and feature iteration." },
 ];
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 border-t border-[#1a1a1a]">
+    <section className="py-28 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -50,44 +22,63 @@ export default function ProcessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-xl mb-16"
+          className="max-w-2xl mb-20"
         >
-          <p className="text-xs font-medium text-[#00dc82] uppercase tracking-widest mb-3">
+          <p className="text-xs font-semibold text-indigo-400 uppercase tracking-widest mb-3">
             How We Work
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight mb-4">
             A process designed for clarity and speed.
           </h2>
-          <p className="mt-4 text-[#555] text-base leading-relaxed">
-            No surprises. No scope creep. Just a structured process that delivers quality software on
-            time, every time.
+          <p className="text-slate-400 text-base leading-relaxed">
+            No surprises. No scope creep. A structured workflow that delivers quality software on time, every engagement.
           </p>
         </motion.div>
 
-        {/* Steps */}
-        <div className="relative">
-          {/* Connecting line (desktop) */}
-          <div className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1f1f1f] to-transparent" />
+        {/* Steps grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-7 gap-4 lg:gap-3">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              className="group relative"
+            >
+              {/* Connector line (desktop, not last) */}
+              {i < steps.length - 1 && (
+                <div
+                  className="hidden lg:block absolute top-6 left-[calc(50%+28px)] right-0 h-px"
+                  style={{ background: "linear-gradient(90deg, rgba(99,102,241,0.3), rgba(99,102,241,0.05))" }}
+                />
+              )}
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-7 gap-6 lg:gap-4">
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="relative flex flex-col"
-              >
-                {/* Step number bubble */}
-                <div className="relative z-10 w-16 h-16 rounded-2xl bg-[#0a0a0a] border border-[#1a1a1a] flex items-center justify-center mb-4 self-start lg:self-center">
-                  <span className="text-[#00dc82] font-bold text-sm">{step.number}</span>
+              <div className="flex flex-col items-center lg:items-center text-left lg:text-center gap-3">
+                {/* Number badge */}
+                <div
+                  className="relative w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 border transition-all duration-300 group-hover:scale-105"
+                  style={{
+                    background: "linear-gradient(145deg, #141E33 0%, #0F172A 100%)",
+                    borderColor: "rgba(99,102,241,0.3)",
+                    boxShadow: "0 0 20px rgba(99,102,241,0.1)",
+                  }}
+                >
+                  <span
+                    className="text-xs font-bold"
+                    style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
+                  >
+                    {step.number}
+                  </span>
                 </div>
-                <h3 className="text-sm font-semibold text-white mb-2 lg:text-center">{step.title}</h3>
-                <p className="text-xs text-[#555] leading-relaxed lg:text-center">{step.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+
+                <div>
+                  <h3 className="text-sm font-semibold text-white mb-1.5">{step.title}</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

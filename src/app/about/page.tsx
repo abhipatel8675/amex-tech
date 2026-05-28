@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#050505] text-white min-h-screen">
+    <div className="bg-[#0B0F19] text-white min-h-screen">
       <Navbar />
       <AboutPageContent />
       <CTASection />
