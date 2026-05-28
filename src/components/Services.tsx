@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Bug, Code2, Rocket, Smartphone, Bot, ArrowRight, Check, Sparkles } from "lucide-react";
 
@@ -85,86 +84,15 @@ const services = [
   },
 ];
 
-declare global {
-  interface Window {
-    Razorpay: new (options: Record<string, unknown>) => { open: () => void };
-  }
-}
-
-function loadRazorpayScript(): Promise<boolean> {
-  return new Promise((resolve) => {
-    if (document.getElementById("razorpay-script")) return resolve(true);
-    const script = document.createElement("script");
-    script.id = "razorpay-script";
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.onload = () => resolve(true);
-    script.onerror = () => resolve(false);
-    document.body.appendChild(script);
-  });
-}
-
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
   const Icon = service.icon;
-  const [loading, setLoading] = useState<string | null>(null);
 
-  const handleBuy = async (pkg: { name: string; price: string; amount: number; desc: string }) => {
-    setLoading(pkg.name);
-    try {
-      const loaded = await loadRazorpayScript();
-      if (!loaded) throw new Error("Razorpay failed to load");
-
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: pkg.name,
-          price: pkg.amount,
-          description: pkg.desc,
-          service: service.title,
-        }),
-      });
-      const data = await res.json();
-      if (!data.orderId) throw new Error("Order creation failed");
-
-      const options = {
-        key: data.keyId,
-        amount: data.amount,
-        currency: data.currency,
-        name: "Amex Technology",
-        description: `${service.title} — ${pkg.name}`,
-        order_id: data.orderId,
-        handler: async (response: { razorpay_payment_id: string; razorpay_order_id: string; razorpay_signature: string }) => {
-          const verifyRes = await fetch("/api/verify", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_signature: response.razorpay_signature,
-              service: service.title,
-              packageName: pkg.name,
-              price: pkg.amount,
-              clientEmail: "",
-            }),
-          });
-          const verifyData = await verifyRes.json();
-          if (verifyData.success) {
-            window.location.href = "/success";
-          } else {
-            alert("Payment verification failed. Contact support.");
-          }
-        },
-        prefill: { name: "", email: "", contact: "" },
-        theme: { color: "#00dc82" },
-        modal: { ondismiss: () => setLoading(null) },
-      };
-
-      const rzp = new window.Razorpay(options);
-      rzp.open();
-    } catch {
-      alert("Payment failed. Please try again.");
-      setLoading(null);
-    }
+  const handleBuy = (pkg: { name: string; price: string; amount: number; desc: string }) => {
+    const message = encodeURIComponent(
+      `Hi! I'm interested in the ${service.title} — ${pkg.name} package (${pkg.price}). ${pkg.desc}.`
+    );
+    window.location.href = `#contact?service=${encodeURIComponent(service.title)}&package=${encodeURIComponent(pkg.name)}&msg=${message}`;
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -207,8 +135,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           <button
             key={p.name}
             onClick={() => handleBuy(p)}
-            disabled={loading === p.name}
-            className={`rounded-xl p-3 border text-center transition-all hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100 ${
+            className={`rounded-xl p-3 border text-center transition-all hover:scale-105 ${
               i === 1
                 ? "border-[#00dc82]/40 bg-[#00dc82]/5 hover:bg-[#00dc82]/10"
                 : "border-[#1f1f1f] bg-[#0a0a0a] hover:border-[#2f2f2f]"
@@ -216,14 +143,14 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           >
             <div className="text-sm text-[#6b7280] mb-1">{p.name}</div>
             <div className="text-base font-bold" style={{ color: i === 1 ? service.accent : "#ededed" }}>
-              {loading === p.name ? "..." : p.price}
+              {p.price}
             </div>
             <div className="text-xs text-[#6b7280] mt-1">{p.delivery}</div>
           </button>
         ))}
       </div>
 
-      <p className="text-xs text-[#6b7280] text-center">Click a package to pay securely via Razorpay</p>
+      <p className="text-xs text-[#6b7280] text-center">Click a package to get in touch</p>
     </motion.div>
   );
 }
