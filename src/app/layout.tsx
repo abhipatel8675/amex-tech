@@ -13,10 +13,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Amex Technology | Full Stack Development & Bug Fixes",
+  title: {
+    default: "Amex Technology | Software Development Agency",
+    template: "%s | Amex Technology",
+  },
   description:
-    "Top Rated Plus developer. We build scalable web apps, fix bugs fast, deploy to production, and fix broken AI-generated apps.",
-  keywords: "full stack developer, bug fixes, Next.js, React, Supabase, web app development, deployment, AI app fix",
+    "Amex Technology is a premium software development agency. We build scalable web applications, mobile apps, SaaS platforms, and digital products for startups and enterprises.",
+  keywords:
+    "software development agency, web development, mobile app development, SaaS development, Next.js, React, TypeScript, API development, DevOps, UI/UX design",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://amex-tech.vercel.app",
+    siteName: "Amex Technology",
+    title: "Amex Technology | Software Development Agency",
+    description:
+      "We build scalable digital products for startups and modern businesses. Web apps, mobile apps, SaaS platforms, and more.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Amex Technology | Software Development Agency",
+    description:
+      "We build scalable digital products for startups and modern businesses.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

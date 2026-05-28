@@ -1,20 +1,26 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Process from "@/components/Process";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import Hero from "@/components/home/Hero";
+import StatsBar from "@/components/home/StatsBar";
+import ServicesPreview from "@/components/home/ServicesPreview";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
+import ProcessSection from "@/components/home/ProcessSection";
+import FeaturedProjects from "@/components/home/FeaturedProjects";
+import Testimonials from "@/components/home/Testimonials";
+import CTASection from "@/components/home/CTASection";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="bg-[#050505] text-white min-h-screen">
       <Navbar />
       <Hero />
-      <Services />
-      <Process />
+      <StatsBar />
+      <ServicesPreview />
+      <WhyChooseUs />
+      <ProcessSection />
+      <FeaturedProjects />
       <Testimonials />
-      <Contact />
+      <CTASection />
       <Footer />
     </div>
   );
