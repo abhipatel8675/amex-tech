@@ -17,74 +17,74 @@ export default function ContactPage() {
 
       {/* Hero */}
       <section className="pt-32 pb-16 max-w-6xl mx-auto px-6">
-        <p className="text-xs font-medium text-[#00dc82] uppercase tracking-widest mb-4">
+        <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
           Contact Us
         </p>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight max-w-xl mb-5">
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-2xl mb-6 leading-tight">
           Let's build something great together.
         </h1>
-        <p className="text-[#555] text-base md:text-lg max-w-xl leading-relaxed">
+        <p className="text-slate-300 text-xl max-w-xl leading-8">
           Tell us what you're working on. We'll come back with an honest assessment and a clear
           plan — within 24 hours.
         </p>
       </section>
 
       {/* Main content */}
-      <section className="pb-24 max-w-6xl mx-auto px-6">
+      <section className="pb-28 max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-12">
-          {/* Form — takes up more space */}
-          <div className="lg:col-span-3 bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl p-7 md:p-9">
-            <h2 className="text-lg font-bold text-white mb-6">Tell us about your project</h2>
+          {/* Form */}
+          <div className="lg:col-span-3 bg-white/[0.02] border border-white/[0.07] rounded-2xl p-8 md:p-10">
+            <h2 className="text-xl font-bold text-white mb-7">Tell us about your project</h2>
             <ContactForm />
           </div>
 
           {/* Info sidebar */}
           <div className="lg:col-span-2 flex flex-col gap-5">
             {/* Contact details */}
-            <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl p-6">
-              <h3 className="text-sm font-semibold text-white mb-5">Contact Info</h3>
-              <div className="flex flex-col gap-5">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#111] border border-[#1f1f1f] flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-3.5 h-3.5 text-[#00dc82]" />
+            <div className="bg-white/[0.02] border border-white/[0.07] rounded-2xl p-7">
+              <h3 className="text-base font-semibold text-white mb-6">Contact Info</h3>
+              <div className="flex flex-col gap-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
+                    <Mail className="w-4 h-4 text-indigo-400" />
                   </div>
                   <div>
-                    <p className="text-xs text-[#444] mb-0.5">Email</p>
+                    <p className="text-sm font-medium text-slate-500 mb-1">Email</p>
                     <a
                       href="mailto:contact@amextechnology.com"
-                      className="text-sm text-[#666] hover:text-white transition-colors"
+                      className="text-base text-slate-300 hover:text-white transition-colors"
                     >
                       contact@amextechnology.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#111] border border-[#1f1f1f] flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-3.5 h-3.5 text-[#00dc82]" />
+                <div className="flex items-start gap-4">
+                  <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
+                    <Clock className="w-4 h-4 text-indigo-400" />
                   </div>
                   <div>
-                    <p className="text-xs text-[#444] mb-0.5">Response Time</p>
-                    <p className="text-sm text-[#666]">Within 24 hours</p>
+                    <p className="text-sm font-medium text-slate-500 mb-1">Response Time</p>
+                    <p className="text-base text-slate-300">Within 24 hours</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#111] border border-[#1f1f1f] flex items-center justify-center flex-shrink-0">
-                    <MessageSquare className="w-3.5 h-3.5 text-[#00dc82]" />
+                <div className="flex items-start gap-4">
+                  <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
+                    <MessageSquare className="w-4 h-4 text-indigo-400" />
                   </div>
                   <div>
-                    <p className="text-xs text-[#444] mb-0.5">Availability</p>
-                    <p className="text-sm text-[#666]">Mon – Sat, 9am – 8pm IST</p>
+                    <p className="text-sm font-medium text-slate-500 mb-1">Availability</p>
+                    <p className="text-base text-slate-300">Mon – Sat, 9am – 8pm IST</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* FAQ */}
-            <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl p-6">
-              <h3 className="text-sm font-semibold text-white mb-5">Common Questions</h3>
-              <div className="flex flex-col gap-5">
+            <div className="bg-white/[0.02] border border-white/[0.07] rounded-2xl p-7">
+              <h3 className="text-base font-semibold text-white mb-6">Common Questions</h3>
+              <div className="flex flex-col gap-6">
                 {[
                   {
                     q: "How quickly can you start?",
@@ -104,8 +104,8 @@ export default function ContactPage() {
                   },
                 ].map((item) => (
                   <div key={item.q}>
-                    <p className="text-xs font-semibold text-white mb-1">{item.q}</p>
-                    <p className="text-xs text-[#555] leading-relaxed">{item.a}</p>
+                    <p className="text-sm font-semibold text-white mb-2">{item.q}</p>
+                    <p className="text-sm text-slate-400 leading-relaxed">{item.a}</p>
                   </div>
                 ))}
               </div>

@@ -48,9 +48,9 @@ export default function Navbar() {
                 backgroundClip: "text",
               }}
             >
-              amex
+              Amex
             </span>
-            <span className="text-[#E2E8F0] font-semibold text-lg tracking-tight">technology</span>
+            <span className="text-[#E2E8F0] font-semibold text-lg tracking-tight">Technology</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -131,7 +131,7 @@ export default function Navbar() {
               {/* Mobile header */}
               <div className="flex items-center justify-between px-6 h-16 border-b border-white/[0.06]">
                 <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-1">
-                  <span className="font-bold text-lg" style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>amex</span>
+                  <span className="font-bold text-lg" style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Amex</span>
                   <span className="text-white font-semibold text-lg">technology</span>
                 </Link>
                 <button onClick={() => setMobileOpen(false)} className="p-2 text-slate-400 hover:text-white transition-colors">

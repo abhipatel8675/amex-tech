@@ -43,23 +43,23 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="max-w-3xl mx-auto px-6">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1.5 text-sm text-[#555] hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-white transition-colors mb-8"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Blog
           </Link>
 
           <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="text-xs text-[#555] bg-[#111] border border-[#1a1a1a] px-2.5 py-1 rounded-lg">
+            <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.07] px-3 py-1 rounded-lg">
               {post.category}
             </span>
-            <span className="text-xs text-[#444] flex items-center gap-1">
-              <Clock className="w-3 h-3" /> {post.readTime}
+            <span className="text-sm text-slate-500 flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5" /> {post.readTime}
             </span>
-            <span className="text-xs text-[#444]">{post.publishedAt}</span>
+            <span className="text-sm text-slate-500">{post.publishedAt}</span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-5">{post.title}</h1>
-          <p className="text-[#555] text-lg leading-relaxed">{post.excerpt}</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">{post.title}</h1>
+          <p className="text-slate-300 text-xl leading-8">{post.excerpt}</p>
         </div>
       </section>
 
@@ -67,7 +67,7 @@ export default async function BlogPostPage({ params }: Props) {
       <article className="pb-24 max-w-3xl mx-auto px-6">
         {/* Visual banner */}
         <div
-          className="w-full h-48 rounded-2xl border border-[#1a1a1a] overflow-hidden mb-12 relative"
+          className="w-full h-52 rounded-2xl border border-white/[0.07] overflow-hidden mb-12 relative"
           style={{
             background: `linear-gradient(135deg, ${post.gradientFrom}20, ${post.gradientTo}20)`,
           }}
@@ -82,36 +82,36 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Prose content */}
         <div
-          className="prose prose-sm prose-invert max-w-none
+          className="prose prose-invert max-w-none
             prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
-            prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4
-            prose-h3:text-base prose-h3:mt-8 prose-h3:mb-3
-            prose-p:text-[#666] prose-p:leading-relaxed prose-p:my-4
-            prose-li:text-[#666] prose-li:leading-relaxed
+            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-5
+            prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
+            prose-p:text-slate-300 prose-p:leading-8 prose-p:my-5 prose-p:text-base
+            prose-li:text-slate-300 prose-li:leading-7 prose-li:text-base
             prose-strong:text-white prose-strong:font-semibold
-            prose-code:text-[#00dc82] prose-code:bg-[#111] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-xs
-            prose-pre:bg-[#0a0a0a] prose-pre:border prose-pre:border-[#1a1a1a] prose-pre:rounded-xl prose-pre:p-5
-            prose-blockquote:border-l-[#00dc82] prose-blockquote:text-[#555]
-            prose-a:text-[#00dc82] prose-a:no-underline hover:prose-a:underline"
+            prose-code:text-violet-300 prose-code:bg-white/[0.05] prose-code:border prose-code:border-white/[0.08] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+            prose-pre:bg-[#0D1220] prose-pre:border prose-pre:border-white/[0.07] prose-pre:rounded-xl prose-pre:p-6
+            prose-blockquote:border-l-indigo-500 prose-blockquote:text-slate-400
+            prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline"
           dangerouslySetInnerHTML={{ __html: markdownToHtml(post.content) }}
         />
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-[#1a1a1a]">
+        <div className="flex flex-wrap gap-2 mt-14 pt-8 border-t border-white/[0.06]">
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center gap-1 text-xs text-[#555] bg-[#111] border border-[#1a1a1a] px-2.5 py-1 rounded-lg"
+              className="inline-flex items-center gap-1.5 text-sm text-slate-400 bg-white/[0.04] border border-white/[0.07] px-3 py-1 rounded-lg"
             >
-              <Tag className="w-3 h-3" /> {tag}
+              <Tag className="w-3.5 h-3.5" /> {tag}
             </span>
           ))}
         </div>
 
         {/* Related posts */}
         {relatedPosts.length > 0 && (
-          <div className="mt-12">
-            <h3 className="text-sm font-semibold text-[#444] uppercase tracking-wider mb-5">
+          <div className="mt-14">
+            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6">
               Related Articles
             </h3>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -119,13 +119,13 @@ export default async function BlogPostPage({ params }: Props) {
                 <Link
                   key={related.slug}
                   href={`/blog/${related.slug}`}
-                  className="group p-4 rounded-xl border border-[#1a1a1a] bg-[#0a0a0a] hover:border-[#2a2a2a] transition-colors"
+                  className="group p-5 rounded-xl border border-white/[0.07] bg-white/[0.02] hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-200"
                 >
-                  <p className="text-sm font-semibold text-white group-hover:text-[#00dc82] transition-colors mb-1">
+                  <p className="text-base font-semibold text-white group-hover:text-indigo-300 transition-colors mb-2 leading-snug">
                     {related.title}
                   </p>
-                  <p className="text-xs text-[#444] flex items-center gap-1">
-                    <Clock className="w-3 h-3" /> {related.readTime}
+                  <p className="text-sm text-slate-500 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5" /> {related.readTime}
                   </p>
                 </Link>
               ))}

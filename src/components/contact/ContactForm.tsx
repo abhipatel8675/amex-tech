@@ -43,16 +43,16 @@ export default function ContactForm() {
     }
   };
 
-  const inputCls = "w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all duration-200";
+  const inputCls = "w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-base text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all duration-200";
 
   if (success) {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-        <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center">
-          <CheckCircle2 className="w-7 h-7 text-indigo-400" />
+      <div className="flex flex-col items-center justify-center gap-5 py-20 text-center">
+        <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center">
+          <CheckCircle2 className="w-8 h-8 text-indigo-400" />
         </div>
-        <h3 className="text-xl font-bold text-white">Message Received</h3>
-        <p className="text-sm text-slate-400 max-w-xs leading-relaxed">
+        <h3 className="text-2xl font-bold text-white">Message Received</h3>
+        <p className="text-base text-slate-400 max-w-xs leading-7">
           We'll review your project details and get back to you within 24 hours.
         </p>
       </div>
@@ -60,25 +60,25 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      <div className="grid sm:grid-cols-2 gap-4">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+      <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-xs font-medium text-slate-500 mb-2">Name <span className="text-indigo-400">*</span></label>
+          <label className="block text-sm font-medium text-slate-400 mb-2.5">Name <span className="text-indigo-400">*</span></label>
           <input required value={form.name} onChange={set("name")} placeholder="Your name" className={inputCls} />
         </div>
         <div>
-          <label className="block text-xs font-medium text-slate-500 mb-2">Email <span className="text-indigo-400">*</span></label>
+          <label className="block text-sm font-medium text-slate-400 mb-2.5">Email <span className="text-indigo-400">*</span></label>
           <input required type="email" value={form.email} onChange={set("email")} placeholder="you@company.com" className={inputCls} />
         </div>
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-slate-500 mb-2">Company / Project Name</label>
+        <label className="block text-sm font-medium text-slate-400 mb-2.5">Company / Project Name</label>
         <input value={form.company} onChange={set("company")} placeholder="Acme Inc. (optional)" className={inputCls} />
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-slate-500 mb-2">Service Needed <span className="text-indigo-400">*</span></label>
+        <label className="block text-sm font-medium text-slate-400 mb-2.5">Service Needed <span className="text-indigo-400">*</span></label>
         <select required value={form.service} onChange={set("service")} className={`${inputCls} appearance-none`}>
           <option value="" disabled>Select a service...</option>
           {services.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -86,17 +86,17 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-slate-500 mb-3">Approximate Budget</label>
-        <div className="flex flex-wrap gap-2">
+        <label className="block text-sm font-medium text-slate-400 mb-3.5">Approximate Budget</label>
+        <div className="flex flex-wrap gap-2.5">
           {budgets.map((b) => (
             <button
               key={b}
               type="button"
               onClick={() => setForm((p) => ({ ...p, budget: b }))}
-              className={`text-xs font-medium px-3.5 py-1.5 rounded-lg border transition-all duration-200 ${
+              className={`text-sm font-medium px-4 py-2 rounded-lg border transition-all duration-200 ${
                 form.budget === b
                   ? "bg-indigo-500/15 border-indigo-500/40 text-indigo-300"
-                  : "border-white/[0.08] text-slate-500 hover:border-white/[0.15] hover:text-slate-300"
+                  : "border-white/[0.08] text-slate-400 hover:border-white/[0.18] hover:text-slate-200"
               }`}
             >
               {b}
@@ -106,10 +106,10 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-slate-500 mb-2">Project Details <span className="text-indigo-400">*</span></label>
+        <label className="block text-sm font-medium text-slate-400 mb-2.5">Project Details <span className="text-indigo-400">*</span></label>
         <textarea
           required
-          rows={5}
+          rows={6}
           value={form.message}
           onChange={set("message")}
           placeholder="Tell us what you're building — the problem you're solving, key features, tech constraints, and your timeline..."
@@ -117,12 +117,12 @@ export default function ContactForm() {
         />
       </div>
 
-      {error && <p className="text-xs text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2">{error}</p>}
+      {error && <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">{error}</p>}
 
       <button
         type="submit"
         disabled={loading}
-        className="group flex items-center justify-center gap-2 text-sm font-semibold text-white py-3.5 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed btn-glow"
+        className="group flex items-center justify-center gap-2 text-base font-semibold text-white py-4 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed btn-glow"
         style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
       >
         {loading ? "Sending..." : (

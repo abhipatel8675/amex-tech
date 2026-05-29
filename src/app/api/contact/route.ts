@@ -19,7 +19,7 @@ export async function POST(req: Request) {
         subject: `New inquiry from ${name} — ${service}`,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
-            <h2 style="color:#00dc82">New Project Inquiry</h2>
+            <h2 style="color:#6366F1">New Project Inquiry</h2>
             <table style="width:100%;border-collapse:collapse">
               <tr><td style="padding:8px 0;color:#666;width:120px">Name</td><td style="padding:8px 0;font-weight:600">${name}</td></tr>
               <tr><td style="padding:8px 0;color:#666">Email</td><td style="padding:8px 0"><a href="mailto:${email}">${email}</a></td></tr>

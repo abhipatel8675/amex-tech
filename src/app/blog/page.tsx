@@ -22,13 +22,13 @@ export default function BlogPage() {
 
       {/* Hero */}
       <section className="pt-32 pb-16 max-w-6xl mx-auto px-6">
-        <p className="text-xs font-medium text-[#00dc82] uppercase tracking-widest mb-4">
+        <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
           From the Team
         </p>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight max-w-2xl mb-5">
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mb-6 leading-tight">
           Engineering insights and practical guides.
         </h1>
-        <p className="text-[#555] text-base md:text-lg max-w-xl leading-relaxed">
+        <p className="text-slate-300 text-xl max-w-xl leading-8">
           Architecture decisions, tech stack deep-dives, and lessons from building real products.
         </p>
       </section>
@@ -38,18 +38,18 @@ export default function BlogPage() {
         <section className="pb-12 max-w-6xl mx-auto px-6">
           <Link
             href={`/blog/${featured.slug}`}
-            className="group block rounded-2xl border border-[#1a1a1a] bg-[#0a0a0a] overflow-hidden hover:border-[#2a2a2a] transition-colors"
+            className="group block rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300"
           >
             <div className="grid md:grid-cols-5">
               {/* Visual */}
               <div
-                className="md:col-span-2 h-48 md:h-full min-h-[200px] relative overflow-hidden"
+                className="md:col-span-2 h-48 md:h-full min-h-[220px] relative overflow-hidden"
                 style={{
                   background: `linear-gradient(135deg, ${featured.gradientFrom}20, ${featured.gradientTo}20)`,
                 }}
               >
                 <div
-                  className="absolute inset-0 opacity-30"
+                  className="absolute inset-0 opacity-40"
                   style={{
                     background: `radial-gradient(ellipse at 30% 50%, ${featured.gradientFrom}80, transparent 70%)`,
                   }}
@@ -57,23 +57,23 @@ export default function BlogPage() {
               </div>
 
               {/* Content */}
-              <div className="md:col-span-3 p-7 md:p-9 flex flex-col justify-between">
+              <div className="md:col-span-3 p-8 md:p-10 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-xs text-[#555] bg-[#111] border border-[#1a1a1a] px-2.5 py-1 rounded-lg">
+                  <div className="flex items-center gap-3 mb-5">
+                    <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.08] px-3 py-1 rounded-lg">
                       {featured.category}
                     </span>
-                    <span className="text-xs text-[#444] flex items-center gap-1">
-                      <Clock className="w-3 h-3" /> {featured.readTime}
+                    <span className="text-sm text-slate-500 flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5" /> {featured.readTime}
                     </span>
                   </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-[#00dc82] transition-colors">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-indigo-300 transition-colors leading-snug">
                     {featured.title}
                   </h2>
-                  <p className="text-sm text-[#555] leading-relaxed">{featured.excerpt}</p>
+                  <p className="text-base text-slate-400 leading-7">{featured.excerpt}</p>
                 </div>
-                <div className="flex items-center gap-1.5 text-sm text-[#00dc82] mt-6">
-                  Read Article <ArrowRight className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-2 text-base font-semibold text-indigo-400 mt-7 group-hover:text-indigo-300 transition-colors">
+                  Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
             </div>
@@ -82,23 +82,23 @@ export default function BlogPage() {
       )}
 
       {/* Post grid */}
-      <section className="pb-24 max-w-6xl mx-auto px-6">
+      <section className="pb-28 max-w-6xl mx-auto px-6">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {rest.map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group rounded-2xl border border-[#1a1a1a] bg-[#0a0a0a] overflow-hidden hover:border-[#2a2a2a] transition-colors flex flex-col"
+              className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300 flex flex-col"
             >
               {/* Visual */}
               <div
-                className="h-36 relative overflow-hidden"
+                className="h-40 relative overflow-hidden"
                 style={{
                   background: `linear-gradient(135deg, ${post.gradientFrom}18, ${post.gradientTo}18)`,
                 }}
               >
                 <div
-                  className="absolute inset-0 opacity-25"
+                  className="absolute inset-0 opacity-30"
                   style={{
                     background: `radial-gradient(ellipse at 30% 60%, ${post.gradientFrom}70, transparent 70%)`,
                   }}
@@ -106,21 +106,21 @@ export default function BlogPage() {
               </div>
 
               {/* Content */}
-              <div className="p-5 flex flex-col gap-3 flex-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-[#555] bg-[#111] border border-[#1a1a1a] px-2 py-0.5 rounded">
+              <div className="p-6 flex flex-col gap-3.5 flex-1">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.07] px-2.5 py-1 rounded-lg">
                     {post.category}
                   </span>
-                  <span className="text-xs text-[#444] flex items-center gap-1">
-                    <Clock className="w-3 h-3" /> {post.readTime}
+                  <span className="text-sm text-slate-500 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5" /> {post.readTime}
                   </span>
                 </div>
-                <h3 className="text-sm font-semibold text-white group-hover:text-[#00dc82] transition-colors leading-snug">
+                <h3 className="text-base font-semibold text-white group-hover:text-indigo-300 transition-colors leading-snug">
                   {post.title}
                 </h3>
-                <p className="text-xs text-[#555] leading-relaxed flex-1">{post.excerpt}</p>
-                <div className="flex items-center gap-1 text-xs text-[#00dc82] mt-1">
-                  Read <ArrowRight className="w-3 h-3" />
+                <p className="text-sm text-slate-400 leading-relaxed flex-1">{post.excerpt}</p>
+                <div className="flex items-center gap-1.5 text-sm font-medium text-indigo-400 group-hover:text-indigo-300 transition-colors mt-1">
+                  Read <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
             </Link>

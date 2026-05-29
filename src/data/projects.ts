@@ -14,202 +14,186 @@ export type Project = {
   featured: boolean;
   liveUrl?: string;
   githubUrl?: string;
+  image?: string;
 };
 
 export const projects: Project[] = [
   {
-    slug: "ecommerce-platform",
-    title: "E-Commerce Platform",
-    category: "Web",
-    tags: ["Next.js", "Stripe", "Supabase"],
-    shortDesc: "Custom e-commerce platform with real-time inventory and analytics dashboard.",
-    description:
-      "A full-stack e-commerce solution built for a growing retail brand. Includes product management, order processing, real-time inventory tracking, and a custom analytics dashboard.",
-    problem:
-      "The client was on a legacy Shopify setup that couldn't handle custom business logic, had high transaction fees, and lacked proper analytics for their growing catalog.",
-    solution:
-      "Built a fully custom storefront with Next.js, Stripe for payments, and Supabase for data. Admin panel with real-time inventory, order management, and analytics.",
-    results: [
-      "40% reduction in cart abandonment",
-      "Real-time inventory updates",
-      "Custom analytics dashboard",
-      "3× faster page loads than legacy site",
-    ],
-    technologies: ["Next.js", "TypeScript", "Stripe", "Supabase", "Tailwind CSS", "Vercel"],
-    gradientFrom: "#3b82f6",
-    gradientTo: "#06b6d4",
-    featured: true,
-    liveUrl: "#",
-  },
-  {
-    slug: "saas-analytics-dashboard",
-    title: "SaaS Analytics Dashboard",
-    category: "SaaS",
-    tags: ["React", "Node.js", "PostgreSQL"],
-    shortDesc: "Multi-tenant analytics platform with real-time data visualization.",
-    description:
-      "A multi-tenant SaaS analytics platform serving B2B clients. Features real-time data ingestion, interactive chart dashboards, team collaboration, and role-based access control.",
-    problem:
-      "The startup needed a white-label analytics product that could onboard new clients fast while keeping each tenant's data isolated and secure.",
-    solution:
-      "Built a multi-tenant architecture with isolated schemas per tenant, a real-time WebSocket pipeline for data ingestion, and a dashboard builder with drag-and-drop widgets.",
-    results: [
-      "Onboarded 50+ tenants in first month",
-      "Sub-second data refresh rates",
-      "99.9% uptime since launch",
-      "White-label theming per tenant",
-    ],
-    technologies: ["React", "Node.js", "PostgreSQL", "Redis", "WebSockets", "AWS"],
-    gradientFrom: "#8b5cf6",
-    gradientTo: "#ec4899",
-    featured: true,
-    liveUrl: "#",
-  },
-  {
-    slug: "mobile-fintech-app",
-    title: "Mobile Finance App",
-    category: "Mobile",
-    tags: ["React Native", "Firebase", "Stripe"],
-    shortDesc: "Cross-platform personal finance app with budget tracking and insights.",
-    description:
-      "A cross-platform personal finance application for iOS and Android. Features expense tracking, budget goals, spending insights, and bank account sync via Plaid.",
-    problem:
-      "The client wanted to enter the personal finance market with an app that felt as polished as incumbents but with better UX and open banking features.",
-    solution:
-      "Built with React Native and Expo for a native feel on both platforms. Integrated Plaid for bank sync, custom charts for spending insights, and biometric auth.",
-    results: [
-      "4.7-star average rating on App Store",
-      "10,000+ downloads in 3 months",
-      "Plaid integration with 5,000+ banks",
-      "Zero security incidents",
-    ],
-    technologies: ["React Native", "Expo", "Firebase", "Plaid", "Stripe", "TypeScript"],
-    gradientFrom: "#10b981",
-    gradientTo: "#06b6d4",
-    featured: true,
-    liveUrl: "#",
-  },
-  {
-    slug: "restaurant-management-system",
-    title: "Restaurant Management System",
-    category: "Web",
-    tags: ["Next.js", "Supabase", "Realtime"],
-    shortDesc: "End-to-end restaurant platform with POS, ordering, and kitchen display.",
-    description:
-      "A complete restaurant management system with table-side ordering via QR codes, a kitchen display system (KDS), POS terminal, inventory management, and reporting.",
-    problem:
-      "A multi-location restaurant chain needed to replace their aging POS system and paper-based kitchen workflow with a modern, cloud-based alternative.",
-    solution:
-      "Built a real-time system with Supabase Realtime for instant order updates between front-of-house and kitchen. QR code ordering, mobile POS, and a unified reporting dashboard.",
-    results: [
-      "Order-to-kitchen time reduced by 60%",
-      "Zero order errors after go-live",
-      "Deployed across 4 locations",
-      "Integrated with delivery platforms",
-    ],
-    technologies: ["Next.js", "Supabase", "Realtime", "Tailwind CSS", "TypeScript", "Vercel"],
-    gradientFrom: "#f59e0b",
-    gradientTo: "#ef4444",
-    featured: false,
-    liveUrl: "#",
-  },
-  {
-    slug: "real-estate-platform",
-    title: "Real Estate Marketplace",
-    category: "Web",
-    tags: ["Next.js", "Maps API", "Supabase"],
-    shortDesc: "Property listing marketplace with maps, search, and agent portal.",
-    description:
-      "A property listing platform for a real estate agency. Features map-based search, advanced filters, mortgage calculator, agent dashboard, and lead management.",
-    problem:
-      "The agency relied on third-party listing portals that didn't let them own the lead relationship or customize the search experience for their market.",
-    solution:
-      "Built a full property marketplace with Google Maps integration, intelligent search with geo-filtering, an agent portal for listings, and a CRM for lead tracking.",
-    results: [
-      "200+ active listings at launch",
-      "Lead capture rate 3× industry average",
-      "Featured in local press",
-      "Agent productivity increased 40%",
-    ],
-    technologies: ["Next.js", "Google Maps API", "Supabase", "TypeScript", "Algolia"],
-    gradientFrom: "#10b981",
-    gradientTo: "#3b82f6",
-    featured: false,
-    liveUrl: "#",
-  },
-  {
-    slug: "lms-platform",
-    title: "Learning Management System",
-    category: "SaaS",
-    tags: ["Next.js", "Video", "Stripe"],
-    shortDesc: "Course platform with video hosting, progress tracking, and payments.",
-    description:
-      "A white-label LMS built for online course creators. Features video hosting via Cloudinary, quiz builder, progress tracking, certificate generation, and Stripe-powered payments.",
-    problem:
-      "An education startup needed a platform they could brand as their own rather than paying high fees on Teachable or Thinkific, while having flexibility to add custom features.",
-    solution:
-      "Built a fully custom LMS with course builder, chapter-by-chapter video player, quiz/assessment engine, certificate PDF generation, and multi-currency Stripe Checkout.",
-    results: [
-      "Launched 12 courses in first week",
-      "2,000+ enrolled students",
-      "Saved $3,000/month vs. Teachable",
-      "99.5% video playback reliability",
-    ],
-    technologies: ["Next.js", "Cloudinary", "Stripe", "Supabase", "PDF generation", "TypeScript"],
-    gradientFrom: "#8b5cf6",
-    gradientTo: "#3b82f6",
-    featured: false,
-    liveUrl: "#",
-  },
-  {
-    slug: "ai-content-platform",
-    title: "AI Content Platform",
+    slug: "molar-ai",
+    title: "Molar AI",
     category: "AI",
-    tags: ["OpenAI", "Next.js", "Streaming"],
-    shortDesc: "AI-powered content creation platform with team collaboration.",
+    tags: ["AI", "Social Media", "Dental Tech"],
+    shortDesc: "AI-powered social media automation built exclusively for dental practices.",
     description:
-      "A B2B AI writing platform that helps marketing teams create and iterate on content 10× faster. Features streaming AI generation, brand voice training, templates, and team workspaces.",
+      "Molar AI is an AI platform that fully automates social media content for dental practices — posting to Instagram and Facebook daily in any language, in the practice's authentic voice. Branded, converting, and completely hands-off.",
     problem:
-      "A marketing agency wanted to productize their AI content workflow but needed a proper multi-user platform with brand guidelines baked into every generation.",
+      "Dental practices know they need a consistent social media presence to attract patients, but they have no time to create content. Hiring social media managers is expensive, generic agencies produce lifeless posts, and DIY efforts burn out within weeks.",
     solution:
-      "Built with OpenAI streaming API for real-time output, a brand voice training system using fine-tuned prompts, template library, and team collaboration with version history.",
+      "We built Molar AI to make social media invisible work for dental practices. The platform generates on-brand, clinically credible content daily, schedules it automatically across Instagram and Facebook, and adapts to each practice's voice and patient demographics.",
     results: [
-      "Content production 8× faster",
-      "Sold to 20 agencies in beta",
-      "Average 92% user satisfaction score",
-      "Brand consistency improved markedly",
+      "Daily social media posts in any language, fully automated",
+      "Authentic, branded content that converts followers into booked patients",
+      "Zero time investment from the dental team after initial setup",
+      "Consistent online presence that compounds patient trust over time",
     ],
-    technologies: ["Next.js", "OpenAI API", "Supabase", "Stripe", "Vercel AI SDK", "TypeScript"],
-    gradientFrom: "#f59e0b",
+    technologies: ["Next.js", "TypeScript", "OpenAI", "Supabase", "Tailwind CSS", "Vercel"],
+    gradientFrom: "#6366f1",
     gradientTo: "#8b5cf6",
-    featured: false,
-    liveUrl: "#",
+    featured: true,
+    liveUrl: "https://molarai.studio",
+    image: "/images/portfolio/molar-ai.png",
   },
   {
-    slug: "logistics-tracker",
-    title: "Logistics Tracking App",
-    category: "Mobile",
-    tags: ["React Native", "Maps", "Real-time"],
-    shortDesc: "Real-time delivery tracking app with live driver location updates.",
+    slug: "periscope-email",
+    title: "Periscope Email",
+    category: "SaaS",
+    tags: ["AI Outreach", "B2B Sales", "SaaS"],
+    shortDesc: "Turns real-time news triggers into ready-to-send enterprise outreach in seconds.",
     description:
-      "A logistics mobile application for a delivery company. Features real-time driver location tracking, proof of delivery with photos, route optimization, and customer SMS notifications.",
+      "Periscope transforms breaking news about named accounts into researched contact lists and personalized, enterprise-grade emails — in seconds, not 30+ minutes. It gives B2B sales teams a revenue intelligence layer that acts on signals the moment they happen.",
     problem:
-      "The logistics company had no real-time visibility into driver locations and relied on phone calls for status updates, causing poor customer experience and dispatch inefficiency.",
+      "Enterprise sales teams are slow to react to buying signals. By the time reps research a news trigger, find contacts, and write a relevant email, the moment has passed. Existing tools give you the data but leave all the work to the rep.",
     solution:
-      "Built iOS/Android apps for drivers and a web dashboard for dispatch. Background location tracking, push notifications on delivery, photo proof-of-delivery, and route optimization via Google Maps.",
+      "We built Periscope as an end-to-end signal-to-send workflow. It monitors news across named accounts, automatically researches relevant contacts, and generates personalized, ready-to-send enterprise emails — collapsing 30+ minutes of rep work into seconds.",
     results: [
-      "On-time deliveries improved by 35%",
-      "Customer complaint rate dropped 70%",
-      "Dispatch team reduced calls by 80%",
-      "Route efficiency saved 20% fuel cost",
+      "Breaking news about target accounts converted to outreach in seconds",
+      "Researched contact lists generated automatically alongside each email",
+      "Enterprise-grade personalization at the speed of a news alert",
+      "Sales teams react to buying signals before the competition can",
     ],
-    technologies: ["React Native", "Google Maps", "Firebase", "Node.js", "WebSockets", "Expo"],
-    gradientFrom: "#ef4444",
-    gradientTo: "#f59e0b",
+    technologies: ["Next.js", "React", "Node.js", "TypeScript", "OpenAI", "Supabase"],
+    gradientFrom: "#eab308",
+    gradientTo: "#f97316",
+    featured: true,
+    liveUrl: "https://periscope.email",
+    image: "/images/portfolio/periscope-email.jpg",
+  },
+  {
+    slug: "hmd",
+    title: "HMD",
+    category: "SaaS",
+    tags: ["Medical Education", "E-Learning", "SaaS"],
+    shortDesc: "Elite medical education platform advancing physicians through evidence and leadership.",
+    description:
+      "HMD is a premium medical education platform delivering elite physician training, evidence-based programs, and physician-executive development to medical trainees, physicians, and institutions worldwide. Built around the principle of medicine via pristina — pure, rigorous, and leadership-driven.",
+    problem:
+      "Physicians seeking elite continuing education and executive development faced a fragmented landscape of low-quality platforms. Institutions needed a trusted, scalable home for structured medical programs that matched the prestige of the training itself.",
+    solution:
+      "We built HMD as a full-featured medical education SaaS — featuring structured program pathways, a curated library of clinical resources, a physician community hub (iConnect), and a clean, authoritative interface that reflects the caliber of the education delivered.",
+    results: [
+      "Integrated 4-year and 3-year physician programs delivered asynchronously online",
+      "100% asynchronous curriculum accessible globally for active physicians",
+      "iConnect community hub fostering peer collaboration among medical professionals",
+      "Institutional partnerships extending the reach of elite physician development",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS", "Vercel"],
+    gradientFrom: "#1e3a5f",
+    gradientTo: "#c9a227",
     featured: false,
-    liveUrl: "#",
+    liveUrl: "https://www.hmd.com.co",
+    image: "/images/portfolio/hmd.jpg",
+  },
+  {
+    slug: "herruby-app",
+    title: "Herruby",
+    category: "Mobile App",
+    tags: ["Women's Health", "Wellness", "Mobile"],
+    shortDesc: "Midlife wellness app helping Canadian women sustain energy, confidence, and performance.",
+    description:
+      "Herruby is a PIPEDA-compliant wellness platform built exclusively for Canadian women navigating midlife. It provides personalized tools, expert-backed resources, and a supportive community to help women sustain their energy, confidence, and performance through this life stage.",
+    problem:
+      "Women going through midlife — perimenopause, hormonal shifts, energy changes — had nowhere to turn for a dedicated, privacy-first digital health experience that understood their specific needs. Generic wellness apps were not built for them.",
+    solution:
+      "We designed and built Herruby as a mobile-first platform purpose-built for Canadian women in midlife. The product combines personalized wellness tracking, expert content, and community features, with full PIPEDA compliance baked into the architecture from day one.",
+    results: [
+      "First wellness platform purpose-built for Canadian women in midlife",
+      "Full PIPEDA compliance built into the data architecture from the ground up",
+      "Personalized energy, confidence, and performance tracking tailored to life stage",
+      "Expert-backed content library addressing the specific needs of midlife women",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS", "Vercel"],
+    gradientFrom: "#9f1239",
+    gradientTo: "#c2410c",
+    featured: true,
+    liveUrl: "https://herrubyapp.vercel.app",
+    image: "/images/portfolio/herruby-app.jpg",
+  },
+  {
+    slug: "zenscroll",
+    title: "ZenScroll",
+    category: "Mobile App",
+    tags: ["Digital Wellness", "React Native", "Mobile"],
+    shortDesc: "Mobile app that makes you earn your scroll — one breath of meditation at a time.",
+    description:
+      "ZenScroll balances social media with meditation. Every minute of mindfulness practice earns two to six minutes of scroll time — the ratio is yours to set, but the pause is non-negotiable. Available on iOS and Android.",
+    problem:
+      "Doomscrolling is effortless by design. Screen-time blockers fail because they fight willpower head-on. Users wanted a way to keep social media in their lives without it controlling them — something that built a genuine habit rather than just imposing restrictions.",
+    solution:
+      "We built ZenScroll around a single powerful mechanic: scroll time must be earned through meditation. The app guides users through breathing exercises, logs practice minutes, and unlocks proportional scroll time. Simple, fair, and impossible to game mindlessly.",
+    results: [
+      "Available on both App Store and Google Play",
+      "Earn-to-scroll mechanic creates a genuine mindfulness habit loop",
+      "Configurable meditation-to-scroll ratio gives users ownership of the balance",
+      "Dark, calming UI design that reinforces the app's meditative purpose",
+    ],
+    technologies: ["React Native", "Expo", "TypeScript", "Firebase", "Tailwind CSS"],
+    gradientFrom: "#7c2d12",
+    gradientTo: "#92400e",
+    featured: false,
+    liveUrl: "https://www.zenscrollapp.com",
+    image: "/images/portfolio/zenscroll.png",
+  },
+  {
+    slug: "expert-village-media",
+    title: "Expert Village Media",
+    category: "Web",
+    tags: ["Shopify", "E-Commerce", "Partner Agency"],
+    shortDesc: "Shopify Select Partner Agency building high-converting stores for growth-focused brands.",
+    description:
+      "Expert Village Media is a Shopify Select Partner Agency and Certified Expert that transforms e-commerce visions into high-converting Shopify stores. Spanning custom theme design, app integration, store migration, and performance optimization — they handle every aspect of a brand's Shopify journey.",
+    problem:
+      "Expert Village Media needed a web presence that established their authority as a leading Shopify development agency, clearly communicated their service offering, and generated consistent inbound leads from brands seeking serious e-commerce expertise.",
+    solution:
+      "We built a clean, conversion-focused agency website featuring service showcases, a portfolio of client work, partner credentials (Shopify, Google, Upwork), and a seamless schedule-a-call flow. The site positions Expert Village Media as the obvious choice for brands investing in Shopify.",
+    results: [
+      "Partner credentials (Shopify Select, Google, Upwork) prominently communicated",
+      "Portfolio and case studies converting visitors into qualified discovery calls",
+      "Clean, trust-building design that matches the caliber of their Shopify work",
+      "SEO-optimized structure driving organic discovery from Shopify-seeking brands",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Framer Motion"],
+    gradientFrom: "#2563eb",
+    gradientTo: "#7c3aed",
+    featured: false,
+    liveUrl: "https://expertvillagemedia.vercel.app",
+    image: "/images/portfolio/expert-village-media.jpg",
+  },
+  {
+    slug: "torqron",
+    title: "Torqron",
+    category: "Web",
+    tags: ["Industrial", "Petrochemical", "B2B"],
+    shortDesc: "Industrial web presence for a global petrochemical products and solutions provider.",
+    description:
+      "Torqron delivers industrial excellence to global petrochemical operations — precision granulation tools, advanced polymer additives, mission-critical spare parts, and integrated supply chain solutions. With 20+ years of engineering expertise across 28 facilities in 12 countries, they needed a web presence that communicated that authority.",
+    problem:
+      "Torqron's previous web presence failed to reflect their scale, engineering depth, or global reach. Enterprise procurement teams evaluating industrial suppliers expect a site that signals technical credibility and operational reliability — theirs did not.",
+    solution:
+      "We built a high-performance industrial website featuring detailed product and application pages, a clear services overview, and a Contact/RFQ flow built for enterprise buyers. The design language communicates precision and reliability — matching the quality of the products themselves.",
+    results: [
+      "20+ years of engineering expertise clearly communicated to enterprise buyers",
+      "Products, Applications, and Services architecture supports complex procurement journeys",
+      "RFQ flow converts high-intent visitors into qualified sales conversations",
+      "Site reflects the credibility of a supplier trusted by 28 major industrial facilities",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Framer Motion"],
+    gradientFrom: "#1d4ed8",
+    gradientTo: "#dc2626",
+    featured: false,
+    liveUrl: "https://torqron.com",
+    image: "/images/portfolio/torqron.jpg",
   },
 ];
 
-export const categories = ["All", "Web", "Mobile", "SaaS", "AI"] as const;
+export const categories = ["All", "Web", "Mobile App", "SaaS", "AI"] as const;
 export type Category = (typeof categories)[number];

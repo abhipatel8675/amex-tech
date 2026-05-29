@@ -30,10 +30,10 @@ export default function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 font-bold text-lg">
-          <div className="w-7 h-7 bg-[#00dc82] rounded-md flex items-center justify-center">
-            <Zap className="w-4 h-4 text-black" />
+          <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #6366F1, #8B5CF6)" }}>
+            <Zap className="w-4 h-4 text-white" />
           </div>
-          <span>Amex<span className="text-[#00dc82]">Technology</span></span>
+          <span>Amex<span className="text-indigo-400">Technology</span></span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -48,7 +48,8 @@ export default function Navbar() {
           ))}
           <a
             href="/contact"
-            className="text-sm bg-[#00dc82] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#00dc82]/90 transition-colors"
+            className="text-sm text-white font-semibold px-4 py-2 rounded-lg transition-colors"
+            style={{ background: "linear-gradient(135deg, #6366F1, #8B5CF6)" }}
           >
             Hire Us
           </a>
@@ -82,7 +83,8 @@ export default function Navbar() {
             ))}
             <a
               href="/contact"
-              className="text-sm bg-[#00dc82] text-black font-semibold px-4 py-2 rounded-lg text-center"
+              className="text-sm text-white font-semibold px-4 py-2 rounded-lg text-center"
+              style={{ background: "linear-gradient(135deg, #6366F1, #8B5CF6)" }}
               onClick={() => setOpen(false)}
             >
               Hire Us

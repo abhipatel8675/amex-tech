@@ -40,7 +40,7 @@ export default function Process() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 text-xs text-[#00dc82] bg-[#00dc82]/10 border border-[#00dc82]/20 px-3 py-1.5 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 text-xs text-indigo-400 bg-indigo-500/10 border border-[#6366F1]/20 px-3 py-1.5 rounded-full mb-4">
             How It Works
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple 4-Step Process</h2>
@@ -66,8 +66,8 @@ export default function Process() {
                 )}
                 <div className="bg-[#111111] border border-[#1f1f1f] rounded-2xl p-5">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 bg-[#00dc82]/10 rounded-lg flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-[#00dc82]" />
+                    <div className="w-9 h-9 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                      <Icon className="w-4 h-4 text-indigo-400" />
                     </div>
                     <span className="text-2xl font-bold text-[#1f1f1f]">{s.step}</span>
                   </div>

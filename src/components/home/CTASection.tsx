@@ -6,7 +6,7 @@ import { ArrowRight, Clock } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="py-28 border-t border-white/[0.06]">
+    <section className="py-32 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -27,28 +27,28 @@ export default function CTASection() {
           <div className="grid-pattern absolute inset-0 opacity-30 pointer-events-none" />
 
           {/* Content */}
-          <div className="relative z-10 px-10 py-16 md:px-16 md:py-20 text-center">
+          <div className="relative z-10 px-10 py-20 md:px-16 md:py-24 text-center">
             {/* Status badge */}
-            <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.10] rounded-full px-4 py-1.5 mb-8">
-              <Clock className="w-3.5 h-3.5 text-emerald-400" />
-              <span className="text-xs font-medium text-slate-400">Typically responds within 4 hours</span>
+            <div className="inline-flex items-center gap-2.5 bg-white/[0.06] border border-white/[0.10] rounded-full px-5 py-2 mb-10">
+              <Clock className="w-4 h-4 text-indigo-400" />
+              <span className="text-sm font-medium text-slate-300">Typically responds within 4 hours</span>
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-5 max-w-2xl mx-auto leading-tight">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 max-w-3xl mx-auto leading-tight">
               Ready to build your next{" "}
               <span style={{ background: "linear-gradient(135deg, #818CF8 0%, #A78BFA 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 digital product?
               </span>
             </h2>
-            <p className="text-slate-400 text-base md:text-lg max-w-lg mx-auto mb-10 leading-relaxed">
+            <p className="text-slate-300 text-xl max-w-xl mx-auto mb-12 leading-8">
               Tell us what you're building. We'll respond with a clear plan, honest scope estimate,
               and a timeline — no obligations.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-white px-7 py-3.5 rounded-xl transition-all duration-300 btn-glow"
+                className="group inline-flex items-center gap-2 text-base font-semibold text-white px-8 py-4 rounded-xl transition-all duration-300 btn-glow"
                 style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
               >
                 Start a Project
@@ -56,22 +56,22 @@ export default function CTASection() {
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 px-7 py-3.5 rounded-xl border border-white/[0.10] hover:border-white/[0.20] hover:bg-white/[0.04] hover:text-white transition-all duration-200"
+                className="inline-flex items-center gap-2 text-base font-semibold text-slate-300 px-8 py-4 rounded-xl border border-white/[0.12] hover:border-white/[0.22] hover:bg-white/[0.05] hover:text-white transition-all duration-200"
               >
                 View Our Work
               </Link>
             </div>
 
             {/* Trust strip */}
-            <div className="mt-10 pt-8 border-t border-white/[0.07] flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+            <div className="mt-12 pt-10 border-t border-white/[0.07] flex flex-wrap items-center justify-center gap-8 sm:gap-14">
               {[
                 { value: "No-commitment", label: "first call" },
                 { value: "24h", label: "response time" },
                 { value: "5+ years", label: "experience" },
               ].map((item) => (
-                <div key={item.label} className="flex items-baseline gap-1.5">
-                  <span className="text-sm font-semibold text-white">{item.value}</span>
-                  <span className="text-xs text-slate-500">{item.label}</span>
+                <div key={item.label} className="flex items-baseline gap-2">
+                  <span className="text-base font-semibold text-white">{item.value}</span>
+                  <span className="text-sm text-slate-500">{item.label}</span>
                 </div>
               ))}
             </div>

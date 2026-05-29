@@ -42,15 +42,15 @@ export default function Hero() {
             transition={{ duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
             {/* Agency badge */}
-            <div className="inline-flex items-center gap-2 bg-white/[0.05] border border-white/[0.09] rounded-full px-4 py-1.5 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-xs font-medium text-slate-400 tracking-wide">
+            <div className="inline-flex items-center gap-2.5 bg-white/[0.05] border border-white/[0.09] rounded-full px-4 py-2 mb-10">
+              <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
+              <span className="text-sm font-medium text-slate-300 tracking-wide">
                 Software Development Agency · Est. 2019
               </span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl lg:text-[68px] font-bold leading-[1.04] tracking-[-0.02em] mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold leading-[1.02] tracking-[-0.03em] mb-8">
               <span className="text-white">We Build</span>
               <br />
               <span
@@ -68,16 +68,16 @@ export default function Hero() {
             </h1>
 
             {/* Sub */}
-            <p className="text-base sm:text-lg text-slate-400 leading-[1.75] max-w-[480px] mb-10">
+            <p className="text-xl text-slate-300 leading-8 max-w-[500px] mb-12">
               From MVP to enterprise platform — we help startups and growing businesses ship
               reliable software that drives measurable results.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 mb-12">
+            <div className="flex flex-wrap items-center gap-4 mb-14">
               <Link
                 href="/portfolio"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-white px-6 py-3 rounded-xl transition-all duration-300 btn-glow"
+                className="group inline-flex items-center gap-2 text-base font-semibold text-white px-7 py-4 rounded-xl transition-all duration-300 btn-glow"
                 style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
               >
                 View Our Work
@@ -85,7 +85,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-slate-300 px-6 py-3 rounded-xl border border-white/[0.10] hover:border-white/[0.20] hover:bg-white/[0.04] hover:text-white transition-all duration-200"
+                className="group inline-flex items-center gap-2 text-base font-semibold text-slate-300 px-7 py-4 rounded-xl border border-white/[0.12] hover:border-white/[0.22] hover:bg-white/[0.05] hover:text-white transition-all duration-200"
               >
                 Start a Project
                 <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-slate-300 group-hover:translate-x-0.5 transition-all" />
@@ -93,27 +93,27 @@ export default function Hero() {
             </div>
 
             {/* Trust row */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <div className="flex flex-wrap items-center gap-5 sm:gap-7">
               {/* Stars */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <svg key={i} className="w-4.5 h-4.5 text-amber-400 fill-current" style={{ width: "18px", height: "18px" }} viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
-                <span className="text-xs text-slate-500 font-medium">100% satisfaction</span>
+                <span className="text-sm text-slate-400 font-medium">100% satisfaction</span>
               </div>
-              <span className="w-px h-4 bg-white/[0.08]" />
-              <div className="flex items-center gap-1.5">
-                <CircleCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="text-xs text-slate-500">5+ years experience</span>
+              <span className="w-px h-5 bg-white/[0.10]" />
+              <div className="flex items-center gap-2">
+                <CircleCheck className="w-4 h-4 text-violet-400" />
+                <span className="text-sm text-slate-400">5+ years experience</span>
               </div>
-              <span className="w-px h-4 bg-white/[0.08]" />
-              <div className="flex items-center gap-1.5">
-                <CircleCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="text-xs text-slate-500">10+ projects shipped</span>
+              <span className="w-px h-5 bg-white/[0.10]" />
+              <div className="flex items-center gap-2">
+                <CircleCheck className="w-4 h-4 text-violet-400" />
+                <span className="text-sm text-slate-400">200+ projects shipped</span>
               </div>
             </div>
           </motion.div>
@@ -134,7 +134,7 @@ export default function Hero() {
               <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/[0.06]">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/60" />
+                <span className="w-2.5 h-2.5 rounded-full bg-violet-500/60" />
                 <span className="ml-4 text-xs text-slate-600 font-mono">amex-dashboard — production</span>
               </div>
               {/* Dashboard mockup */}
@@ -149,7 +149,7 @@ export default function Hero() {
                     <div key={m.label} className="bg-white/[0.04] rounded-xl p-3 border border-white/[0.05]">
                       <p className="text-xs text-slate-500 mb-1">{m.label}</p>
                       <p className="text-base font-bold text-white leading-tight">{m.value}</p>
-                      <p className="text-xs text-emerald-400 mt-0.5">{m.change}</p>
+                      <p className="text-xs text-violet-400 mt-0.5">{m.change}</p>
                     </div>
                   ))}
                 </div>
@@ -171,7 +171,7 @@ export default function Hero() {
                   </div>
                   <div className="flex items-center justify-between mt-3">
                     <p className="text-xs text-slate-600">Monthly performance</p>
-                    <div className="flex items-center gap-1 text-xs text-emerald-400">
+                    <div className="flex items-center gap-1 text-xs text-violet-400">
                       <TrendingUp className="w-3 h-3" />
                       +32% vs last period
                     </div>
@@ -187,14 +187,14 @@ export default function Hero() {
               style={{ background: "rgba(20, 30, 51, 0.9)" }}
             >
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-                <span className="text-xs font-semibold text-white">Deployment Complete</span>
+                <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse shrink-0" />
+                <span className="text-sm font-semibold text-white">Deployment Complete</span>
               </div>
               <p className="text-xs text-slate-500 mb-2.5 font-mono">v2.4.1 → production</p>
               <div className="h-1 bg-white/[0.06] rounded-full overflow-hidden">
                 <div
                   className="h-1 rounded-full"
-                  style={{ width: "100%", background: "linear-gradient(90deg, #10B981, #34D399)" }}
+                  style={{ width: "100%", background: "linear-gradient(90deg, #6366F1, #8B5CF6)" }}
                 />
               </div>
               <p className="text-xs text-slate-600 mt-1.5">Build 2.4s · Live now</p>
@@ -203,37 +203,37 @@ export default function Hero() {
             {/* Floating card 2 – Rating */}
             <motion.div
               {...floatAnim(1.5, 6)}
-              className="absolute top-6 -right-4 w-48 rounded-2xl border border-white/[0.10] p-4 backdrop-blur-xl"
+              className="absolute top-6 -right-4 w-52 rounded-2xl border border-white/[0.10] p-4 backdrop-blur-xl"
               style={{ background: "rgba(20, 30, 51, 0.9)" }}
             >
-              <div className="flex items-center gap-1 mb-2">
+              <div className="flex items-center gap-1 mb-2.5">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-3 h-3 text-amber-400 fill-current" viewBox="0 0 20 20">
+                  <svg key={i} className="w-3.5 h-3.5 text-amber-400 fill-current" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed italic">
+              <p className="text-sm text-slate-200 leading-relaxed italic">
                 "Exceptional work, on time and within budget."
               </p>
-              <p className="text-xs text-slate-600 mt-2">— Sarah M., Founder</p>
+              <p className="text-xs text-slate-500 mt-2">— Sarah M., Founder</p>
             </motion.div>
 
             {/* Floating card 3 – Tech stack */}
             <motion.div
               {...floatAnim(0.8, 7)}
-              className="absolute bottom-36 -right-4 rounded-2xl border border-white/[0.10] p-3.5 backdrop-blur-xl"
+              className="absolute bottom-36 -right-4 rounded-2xl border border-white/[0.10] p-4 backdrop-blur-xl"
               style={{ background: "rgba(20, 30, 51, 0.9)" }}
             >
-              <div className="flex items-center gap-1.5 mb-2">
-                <Sparkles className="w-3 h-3 text-indigo-400" />
-                <span className="text-xs font-semibold text-white">Tech Stack</span>
+              <div className="flex items-center gap-1.5 mb-3">
+                <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+                <span className="text-sm font-semibold text-white">Tech Stack</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {["Next.js", "TypeScript", "Supabase", "AWS"].map((t) => (
                   <span
                     key={t}
-                    className="text-xs text-slate-400 bg-white/[0.06] border border-white/[0.07] px-2 py-0.5 rounded-md"
+                    className="text-xs text-slate-400 bg-white/[0.06] border border-white/[0.07] px-2.5 py-1 rounded-md"
                   >
                     {t}
                   </span>

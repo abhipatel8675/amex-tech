@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
@@ -19,21 +18,21 @@ export default function PortfolioPage() {
       {/* Hero */}
       <section className="pt-32 pb-16 max-w-6xl mx-auto px-6">
         <div>
-          <p className="text-xs font-medium text-[#00dc82] uppercase tracking-widest mb-4">
+          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
             Our Work
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight max-w-2xl mb-5">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mb-6 leading-tight">
             Projects that solve real business problems.
           </h1>
-          <p className="text-[#555] text-base md:text-lg max-w-xl leading-relaxed">
-            10+ projects delivered across web, mobile, SaaS, and AI. Browse by category or explore
+          <p className="text-slate-300 text-xl max-w-xl leading-8">
+            200+ projects delivered across web, mobile, SaaS, and AI. Browse by category or explore
             the full case studies.
           </p>
         </div>
       </section>
 
       {/* Grid with filter */}
-      <section className="pb-24 max-w-6xl mx-auto px-6">
+      <section className="pb-28 max-w-6xl mx-auto px-6">
         <ProjectGrid />
       </section>
 

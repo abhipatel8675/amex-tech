@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 const stats = [
   { value: "5+", label: "Years of Experience", detail: "Since 2019" },
-  { value: "10+", label: "Projects Delivered", detail: "Across 6 industries" },
+  { value: "200+", label: "Projects Delivered", detail: "Across 6 industries" },
   { value: "100%", label: "Client Satisfaction", detail: "Zero failed projects" },
-  { value: "<24h", label: "Response Time", detail: "Mon – Sat" },
+  // { value: "<24h", label: "Response Time", detail: "Mon – Sat" },
 ];
 
 export default function StatsBar() {
@@ -23,11 +23,11 @@ export default function StatsBar() {
       />
 
       <div
-        className="py-12"
+        className="py-14"
         style={{ background: "linear-gradient(180deg, rgba(99,102,241,0.04) 0%, rgba(99,102,241,0.02) 100%)" }}
       >
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-white/[0.06]">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-0 lg:divide-x lg:divide-white/[0.06]">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -38,7 +38,7 @@ export default function StatsBar() {
                 className="text-center lg:px-8"
               >
                 <p
-                  className="text-4xl font-bold tracking-tight mb-1"
+                  className="text-5xl font-bold tracking-tight mb-2"
                   style={{
                     background: "linear-gradient(135deg, #E2E8F0 0%, #94A3B8 100%)",
                     WebkitBackgroundClip: "text",
@@ -48,8 +48,8 @@ export default function StatsBar() {
                 >
                   {stat.value}
                 </p>
-                <p className="text-sm font-medium text-slate-300 mb-0.5">{stat.label}</p>
-                <p className="text-xs text-slate-600">{stat.detail}</p>
+                <p className="text-base font-semibold text-slate-300 mb-1">{stat.label}</p>
+                <p className="text-sm text-slate-500">{stat.detail}</p>
               </motion.div>
             ))}
           </div>

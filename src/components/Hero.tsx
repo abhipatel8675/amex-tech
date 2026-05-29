@@ -7,7 +7,7 @@ const stats = [
   { value: "$80K+", label: "Earned on Upwork" },
   { value: "100%", label: "Job Success Score" },
   { value: "5+", label: "Years Experience" },
-  { value: "100+", label: "Apps Delivered" },
+  { value: "200+", label: "Apps Delivered" },
 ];
 
 const badges = [
@@ -20,8 +20,8 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00dc82]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-[#00dc82]/3 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-indigo-500/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
         {/* Trust badges */}
@@ -34,7 +34,7 @@ export default function Hero() {
           {badges.map((b) => (
             <div
               key={b.text}
-              className="flex items-center gap-2 text-sm bg-[#111111] border border-[#1f1f1f] px-3 py-1.5 rounded-full text-[#00dc82]"
+              className="flex items-center gap-2 text-sm bg-[#111111] border border-[#1f1f1f] px-3 py-1.5 rounded-full text-indigo-400"
             >
               <b.icon className="w-3 h-3" />
               {b.text}
@@ -50,7 +50,7 @@ export default function Hero() {
           className="text-6xl md:text-8xl font-bold leading-tight tracking-tight mb-6"
         >
           Ship Your Web App{" "}
-          <span className="text-[#00dc82]">Bug-Free</span>,{" "}
+          <span className="text-indigo-400">Bug-Free</span>,{" "}
           <br className="hidden md:block" />
           On Time.
         </motion.h1>
@@ -62,7 +62,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="flex items-center justify-center gap-2 mb-6"
         >
-          <MapPin className="w-6 h-6 text-[#00dc82]" />
+          <MapPin className="w-6 h-6 text-indigo-400" />
           <span className="text-2xl md:text-3xl font-semibold text-white">
             Gardena, California, USA
           </span>
@@ -88,13 +88,13 @@ export default function Hero() {
         >
           <a
             href="#services"
-            className="flex items-center gap-2 bg-[#00dc82] text-black font-semibold px-6 py-3 rounded-xl hover:bg-[#00dc82]/90 transition-all hover:scale-105"
+            className="flex items-center gap-2 bg-indigo-500 text-black font-semibold px-6 py-3 rounded-xl hover:bg-indigo-500/90 transition-all hover:scale-105"
           >
             View Services <ArrowRight className="w-4 h-4" />
           </a>
           <a
             href="#contact"
-            className="flex items-center gap-2 border border-[#1f1f1f] text-white font-medium px-6 py-3 rounded-xl hover:border-[#00dc82]/50 hover:bg-[#00dc82]/5 transition-all"
+            className="flex items-center gap-2 border border-[#1f1f1f] text-white font-medium px-6 py-3 rounded-xl hover:border-[#6366F1]/50 hover:bg-indigo-500/5 transition-all"
           >
             Book Free Call
           </a>
@@ -112,7 +112,7 @@ export default function Hero() {
               key={s.label}
               className="bg-[#111111] border border-[#1f1f1f] rounded-2xl p-4 text-center"
             >
-              <div className="text-3xl md:text-4xl font-bold text-[#00dc82]">{s.value}</div>
+              <div className="text-3xl md:text-4xl font-bold text-indigo-400">{s.value}</div>
               <div className="text-sm text-[#6b7280] mt-1">{s.label}</div>
             </div>
           ))}

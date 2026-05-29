@@ -20,7 +20,7 @@ type Order = {
 const STATUS = {
   pending: { label: "Pending Details", color: "#f59e0b", icon: Clock },
   in_progress: { label: "In Progress", color: "#60a5fa", icon: Package },
-  completed: { label: "Completed", color: "#00dc82", icon: CheckCircle },
+  completed: { label: "Completed", color: "#818CF8", icon: CheckCircle },
   cancelled: { label: "Cancelled", color: "#ef4444", icon: AlertCircle },
 };
 
@@ -59,7 +59,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
         !showForm ? (
           <button
             onClick={() => setShowForm(true)}
-            className="w-full py-2 text-sm bg-[#00dc82]/10 border border-[#00dc82]/30 text-[#00dc82] rounded-lg hover:bg-[#00dc82]/20 transition-all"
+            className="w-full py-2 text-sm bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 rounded-lg hover:bg-indigo-500/20 transition-all"
           >
             Submit Project Details
           </button>
@@ -70,10 +70,15 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
               value={details}
               onChange={(e) => setDetails(e.target.value)}
               placeholder="Describe your project — what needs to be built or fixed, your tech stack, deadline, any relevant links..."
-              className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#00dc82]/50 resize-none"
+              className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-indigo-500/50 resize-none"
             />
             <div className="flex gap-2">
-              <button onClick={submit} disabled={saving || !details} className="flex-1 py-2 text-sm bg-[#00dc82] text-black font-semibold rounded-lg hover:bg-[#00dc82]/90 disabled:opacity-50">
+              <button
+                onClick={submit}
+                disabled={saving || !details}
+                className="flex-1 py-2 text-sm text-white font-semibold rounded-lg disabled:opacity-50"
+                style={{ background: "linear-gradient(135deg, #6366F1, #8B5CF6)" }}
+              >
                 {saving ? "Saving..." : "Submit"}
               </button>
               <button onClick={() => setShowForm(false)} className="px-4 py-2 text-sm border border-[#1f1f1f] rounded-lg hover:border-[#2f2f2f] text-[#6b7280]">
@@ -96,7 +101,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
           href={order.deliverable_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 w-full py-2 text-sm bg-[#00dc82]/10 border border-[#00dc82]/30 text-[#00dc82] rounded-lg hover:bg-[#00dc82]/20 transition-all justify-center"
+          className="flex items-center gap-2 w-full py-2 text-sm bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 rounded-lg hover:bg-indigo-500/20 transition-all justify-center"
         >
           <Download className="w-4 h-4" /> Download Deliverable
         </a>
@@ -132,10 +137,10 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
       <header className="border-b border-[#1f1f1f] bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2 font-bold">
-            <div className="w-7 h-7 bg-[#00dc82] rounded-md flex items-center justify-center">
-              <Zap className="w-4 h-4 text-black" />
+            <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #6366F1, #8B5CF6)" }}>
+              <Zap className="w-4 h-4 text-white" />
             </div>
-            Amex<span className="text-[#00dc82]">Technology</span>
+            Amex<span className="text-indigo-400">Technology</span>
           </a>
           <div className="flex items-center gap-4">
             <span className="text-sm text-[#6b7280] hidden sm:block">{user.email}</span>
@@ -157,7 +162,7 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
           {[
             { label: "Total Orders", value: stats.total, color: "#ededed" },
             { label: "In Progress", value: stats.active, color: "#60a5fa" },
-            { label: "Completed", value: stats.completed, color: "#00dc82" },
+            { label: "Completed", value: stats.completed, color: "#818CF8" },
           ].map((s) => (
             <div key={s.label} className="bg-[#111111] border border-[#1f1f1f] rounded-2xl p-4 text-center">
               <div className="text-3xl font-bold mb-1" style={{ color: s.color }}>{s.value}</div>
@@ -171,7 +176,11 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
             <Package className="w-12 h-12 text-[#2f2f2f] mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">No orders yet</h3>
             <p className="text-[#6b7280] mb-6">Purchase a service to get started.</p>
-            <a href="/services" className="bg-[#00dc82] text-black font-semibold px-5 py-2.5 rounded-xl hover:bg-[#00dc82]/90 transition-all text-sm">
+            <a
+              href="/services"
+              className="text-white font-semibold px-5 py-2.5 rounded-xl transition-all text-sm"
+              style={{ background: "linear-gradient(135deg, #6366F1, #8B5CF6)" }}
+            >
               Browse Services
             </a>
           </div>

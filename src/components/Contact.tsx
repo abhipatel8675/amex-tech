@@ -57,7 +57,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center gap-2 text-xs text-[#00dc82] bg-[#00dc82]/10 border border-[#00dc82]/20 px-3 py-1.5 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 text-xs text-indigo-400 bg-indigo-500/10 border border-[#6366F1]/20 px-3 py-1.5 rounded-full mb-4">
               Contact
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -70,7 +70,7 @@ export default function Contact() {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-sm text-[#9ca3af]">
                 <div className="w-8 h-8 bg-[#111111] border border-[#1f1f1f] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-4 h-4 text-[#00dc82]" />
+                  <Mail className="w-4 h-4 text-indigo-400" />
                 </div>
                 <div>
                   <div className="font-medium text-white">Email</div>
@@ -79,7 +79,7 @@ export default function Contact() {
               </div>
               <div className="flex items-center gap-3 text-sm text-[#9ca3af]">
                 <div className="w-8 h-8 bg-[#111111] border border-[#1f1f1f] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Calendar className="w-4 h-4 text-[#00dc82]" />
+                  <Calendar className="w-4 h-4 text-indigo-400" />
                 </div>
                 <div>
                   <div className="font-medium text-white">Book a Free Call</div>
@@ -88,7 +88,7 @@ export default function Contact() {
               </div>
               <div className="flex items-center gap-3 text-sm text-[#9ca3af]">
                 <div className="w-8 h-8 bg-[#111111] border border-[#1f1f1f] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MessageSquare className="w-4 h-4 text-[#00dc82]" />
+                  <MessageSquare className="w-4 h-4 text-indigo-400" />
                 </div>
                 <div>
                   <div className="font-medium text-white">Response Time</div>
@@ -114,7 +114,7 @@ export default function Contact() {
                   value={form.name}
                   onChange={(e) => set("name", e.target.value)}
                   placeholder="John Smith"
-                  className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-base text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#00dc82]/50 transition-colors"
+                  className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-base text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#6366F1]/50 transition-colors"
                 />
               </div>
               <div>
@@ -125,7 +125,7 @@ export default function Contact() {
                   value={form.email}
                   onChange={(e) => set("email", e.target.value)}
                   placeholder="john@company.com"
-                  className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-base text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#00dc82]/50 transition-colors"
+                  className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-base text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#6366F1]/50 transition-colors"
                 />
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function Contact() {
                 required
                 value={form.service}
                 onChange={(e) => set("service", e.target.value)}
-                className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-base text-white focus:outline-none focus:border-[#00dc82]/50 transition-colors"
+                className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-base text-white focus:outline-none focus:border-[#6366F1]/50 transition-colors"
               >
                 <option value="">Select a service...</option>
                 {services.map((s) => (
@@ -155,7 +155,7 @@ export default function Contact() {
                     onClick={() => set("budget", b)}
                     className={`text-sm px-3 py-1.5 rounded-lg border transition-all ${
                       form.budget === b
-                        ? "border-[#00dc82] bg-[#00dc82]/10 text-[#00dc82]"
+                        ? "border-[#6366F1] bg-indigo-500/10 text-indigo-400"
                         : "border-[#1f1f1f] text-[#6b7280] hover:border-[#2f2f2f]"
                     }`}
                   >
@@ -173,14 +173,14 @@ export default function Contact() {
                 value={form.message}
                 onChange={(e) => set("message", e.target.value)}
                 placeholder="Describe what you need — current stack, what's broken or what you want to build, deadline..."
-                className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-base text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#00dc82]/50 transition-colors resize-none"
+                className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-base text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#6366F1]/50 transition-colors resize-none"
               />
             </div>
 
             <button
               type="submit"
               disabled={status === "sending" || status === "sent"}
-              className="flex items-center justify-center gap-2 w-full bg-[#00dc82] text-black font-semibold py-3 rounded-xl hover:bg-[#00dc82]/90 transition-all hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
+              className="flex items-center justify-center gap-2 w-full bg-indigo-500 text-black font-semibold py-3 rounded-xl hover:bg-indigo-500/90 transition-all hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
             >
               {status === "sending" ? (
                 "Sending..."

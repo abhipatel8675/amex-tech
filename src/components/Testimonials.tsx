@@ -57,7 +57,7 @@ export default function Testimonials() {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <div className="inline-flex items-center gap-2 text-xs text-[#00dc82] bg-[#00dc82]/10 border border-[#00dc82]/20 px-3 py-1.5 rounded-full mb-4">
+        <div className="inline-flex items-center gap-2 text-xs text-indigo-400 bg-indigo-500/10 border border-[#6366F1]/20 px-3 py-1.5 rounded-full mb-4">
           Reviews
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-4">What Clients Say</h2>
@@ -76,7 +76,7 @@ export default function Testimonials() {
           >
             <div className="flex items-center gap-1 mb-3">
               {Array.from({ length: r.stars }).map((_, j) => (
-                <Star key={j} className="w-3.5 h-3.5 fill-[#00dc82] text-[#00dc82]" />
+                <Star key={j} className="w-3.5 h-3.5 fill-[#6366F1] text-indigo-400" />
               ))}
               <span className="ml-2 text-xs text-[#6b7280] bg-[#1a1a1a] px-2 py-0.5 rounded-full">
                 {r.platform}
@@ -106,7 +106,7 @@ export default function Testimonials() {
           ["1 Hour", "Avg Response Time"],
         ].map(([val, label]) => (
           <div key={label} className="text-center">
-            <div className="text-xl font-bold text-[#00dc82]">{val}</div>
+            <div className="text-xl font-bold text-indigo-400">{val}</div>
             <div className="text-sm text-[#6b7280]">{label}</div>
           </div>
         ))}

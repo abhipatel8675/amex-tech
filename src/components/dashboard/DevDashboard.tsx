@@ -23,7 +23,7 @@ const STATUSES = ["pending", "in_progress", "completed", "cancelled"] as const;
 const STATUS_META = {
   pending: { label: "Pending", color: "#f59e0b", icon: Clock },
   in_progress: { label: "In Progress", color: "#60a5fa", icon: Package },
-  completed: { label: "Completed", color: "#00dc82", icon: CheckCircle },
+  completed: { label: "Completed", color: "#818CF8", icon: CheckCircle },
   cancelled: { label: "Cancelled", color: "#ef4444", icon: AlertCircle },
 };
 
@@ -58,7 +58,7 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
           </div>
         </div>
         <div className="text-right flex-shrink-0">
-          <p className="font-bold text-[#00dc82]">${order.price}</p>
+          <p className="font-bold text-indigo-400">${order.price}</p>
           <p className="text-xs text-[#6b7280]">{new Date(order.created_at).toLocaleDateString()}</p>
         </div>
       </div>
@@ -80,7 +80,7 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as typeof status)}
-                className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#00dc82]/50"
+                className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
               >
                 {STATUSES.map((s) => (
                   <option key={s} value={s}>{STATUS_META[s].label}</option>
@@ -93,7 +93,7 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
                 value={deliverableUrl}
                 onChange={(e) => setDeliverableUrl(e.target.value)}
                 placeholder="https://github.com/..."
-                className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#00dc82]/50"
+                className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-indigo-500/50"
               />
             </div>
           </div>
@@ -102,7 +102,8 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
             <button
               onClick={save}
               disabled={saving}
-              className="bg-[#00dc82] text-black font-semibold px-5 py-2 rounded-lg text-sm hover:bg-[#00dc82]/90 transition-all disabled:opacity-50"
+              className="text-white font-semibold px-5 py-2 rounded-lg text-sm transition-all disabled:opacity-50"
+              style={{ background: "linear-gradient(135deg, #6366F1, #8B5CF6)" }}
             >
               {saving ? "Saving..." : "Save Changes"}
             </button>
@@ -143,12 +144,12 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <a href="/" className="flex items-center gap-2 font-bold">
-              <div className="w-7 h-7 bg-[#00dc82] rounded-md flex items-center justify-center">
-                <Zap className="w-4 h-4 text-black" />
+              <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #6366F1, #8B5CF6)" }}>
+                <Zap className="w-4 h-4 text-white" />
               </div>
-              Amex<span className="text-[#00dc82]">Technology</span>
+              Amex<span className="text-indigo-400">Technology</span>
             </a>
-            <span className="text-xs bg-[#00dc82]/10 border border-[#00dc82]/20 text-[#00dc82] px-2 py-0.5 rounded-full">Dev</span>
+            <span className="text-xs bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded-full">Dev</span>
           </div>
           <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-[#6b7280] hover:text-white transition-colors">
             <LogOut className="w-4 h-4" /> Sign Out
@@ -167,8 +168,8 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
           {[
             { label: "Total Orders", value: orders.length, color: "#ededed", icon: Package },
             { label: "Active", value: orders.filter(o => o.status === "in_progress").length, color: "#60a5fa", icon: TrendingUp },
-            { label: "Completed", value: orders.filter(o => o.status === "completed").length, color: "#00dc82", icon: CheckCircle },
-            { label: "Revenue", value: `$${totalRevenue}`, color: "#00dc82", icon: DollarSign },
+            { label: "Completed", value: orders.filter(o => o.status === "completed").length, color: "#818CF8", icon: CheckCircle },
+            { label: "Revenue", value: `$${totalRevenue}`, color: "#818CF8", icon: DollarSign },
           ].map((s) => {
             const Icon = s.icon;
             return (
@@ -189,7 +190,7 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
               onClick={() => setFilter(f)}
               className={`text-sm px-3 py-1.5 rounded-lg border transition-all ${
                 filter === f
-                  ? "border-[#00dc82] bg-[#00dc82]/10 text-[#00dc82]"
+                  ? "border-indigo-500 bg-indigo-500/10 text-indigo-400"
                   : "border-[#1f1f1f] text-[#6b7280] hover:border-[#2f2f2f]"
               }`}
             >

@@ -14,7 +14,7 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-28 border-t border-white/[0.06]">
+    <section className="py-32 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -24,19 +24,19 @@ export default function ProcessSection() {
           transition={{ duration: 0.5 }}
           className="max-w-2xl mb-20"
         >
-          <p className="text-xs font-semibold text-indigo-400 uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">
             How We Work
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-5">
             A process designed for clarity and speed.
           </h2>
-          <p className="text-slate-400 text-base leading-relaxed">
+          <p className="text-slate-300 text-lg leading-8">
             No surprises. No scope creep. A structured workflow that delivers quality software on time, every engagement.
           </p>
         </motion.div>
 
         {/* Steps grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-7 gap-4 lg:gap-3">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-7 gap-5 lg:gap-3">
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
@@ -54,10 +54,10 @@ export default function ProcessSection() {
                 />
               )}
 
-              <div className="flex flex-col items-center lg:items-center text-left lg:text-center gap-3">
+              <div className="flex flex-col items-center lg:items-center text-left lg:text-center gap-4">
                 {/* Number badge */}
                 <div
-                  className="relative w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 border transition-all duration-300 group-hover:scale-105"
+                  className="relative w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-105"
                   style={{
                     background: "linear-gradient(145deg, #141E33 0%, #0F172A 100%)",
                     borderColor: "rgba(99,102,241,0.3)",
@@ -73,8 +73,8 @@ export default function ProcessSection() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1.5">{step.title}</h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">{step.desc}</p>
+                  <h3 className="text-base font-semibold text-white mb-2">{step.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             </motion.div>

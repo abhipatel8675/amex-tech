@@ -15,7 +15,7 @@ const services = [
       { name: "Full Polish", price: "₹1,999", amount: 1999, delivery: "48hrs", desc: "Fix + deploy + optimization" },
       { name: "Complete", price: "₹4,999", amount: 4999, delivery: "72hrs", desc: "Full rewrite + deploy + 1 week support" },
     ],
-    accent: "#00dc82",
+    accent: "#6366F1",
   },
   {
     icon: Sparkles,
@@ -124,7 +124,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       <ul className="space-y-1.5 mb-6">
         {service.features.map((f) => (
           <li key={f} className="flex items-center gap-2 text-base text-[#9ca3af]">
-            <Check className="w-3.5 h-3.5 text-[#00dc82] flex-shrink-0" />
+            <Check className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
             {f}
           </li>
         ))}
@@ -137,7 +137,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
             onClick={() => handleBuy(p)}
             className={`rounded-xl p-3 border text-center transition-all hover:scale-105 ${
               i === 1
-                ? "border-[#00dc82]/40 bg-[#00dc82]/5 hover:bg-[#00dc82]/10"
+                ? "border-[#6366F1]/40 bg-indigo-500/5 hover:bg-indigo-500/10"
                 : "border-[#1f1f1f] bg-[#0a0a0a] hover:border-[#2f2f2f]"
             }`}
           >
@@ -164,7 +164,7 @@ export default function Services() {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <div className="inline-flex items-center gap-2 text-xs text-[#00dc82] bg-[#00dc82]/10 border border-[#00dc82]/20 px-3 py-1.5 rounded-full mb-4">
+        <div className="inline-flex items-center gap-2 text-xs text-indigo-400 bg-indigo-500/10 border border-[#6366F1]/20 px-3 py-1.5 rounded-full mb-4">
           Services
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-4">What We Build</h2>
@@ -183,10 +183,10 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-gradient-to-br from-[#00dc82]/10 to-[#00dc82]/5 border border-[#00dc82]/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center"
+          className="bg-gradient-to-br from-[#6366F1]/10 to-[#6366F1]/5 border border-[#6366F1]/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center"
         >
-          <div className="w-12 h-12 bg-[#00dc82]/20 rounded-xl flex items-center justify-center mb-4">
-            <Code2 className="w-6 h-6 text-[#00dc82]" />
+          <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-4">
+            <Code2 className="w-6 h-6 text-indigo-400" />
           </div>
           <h3 className="text-xl font-bold mb-2">Custom Project</h3>
           <p className="text-base text-[#6b7280] mb-6">
@@ -194,7 +194,7 @@ export default function Services() {
           </p>
           <a
             href="#contact"
-            className="flex items-center gap-2 bg-[#00dc82] text-black font-semibold px-5 py-2.5 rounded-xl hover:bg-[#00dc82]/90 transition-all hover:scale-105 text-sm"
+            className="flex items-center gap-2 bg-indigo-500 text-black font-semibold px-5 py-2.5 rounded-xl hover:bg-indigo-500/90 transition-all hover:scale-105 text-sm"
           >
             Get Custom Quote <ArrowRight className="w-4 h-4" />
           </a>

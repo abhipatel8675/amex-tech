@@ -39,10 +39,10 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <a href="/" className="inline-flex items-center gap-2 font-bold text-xl mb-6">
-            <div className="w-8 h-8 bg-[#00dc82] rounded-md flex items-center justify-center">
-              <Zap className="w-4 h-4 text-black" />
+            <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #6366F1, #8B5CF6)" }}>
+              <Zap className="w-4 h-4 text-white" />
             </div>
-            Amex<span className="text-[#00dc82]">Technology</span>
+            Amex<span className="text-indigo-400">Technology</span>
           </a>
           <h1 className="text-2xl font-bold mt-4">{isSignup ? "Create Account" : "Welcome Back"}</h1>
           <p className="text-[#6b7280] text-sm mt-1">
@@ -59,7 +59,7 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-base text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#00dc82]/50 transition-colors"
+              className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-base text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-indigo-500/50 transition-colors"
             />
           </div>
           <div>
@@ -71,7 +71,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 pr-10 text-base text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#00dc82]/50 transition-colors"
+                className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 pr-10 text-base text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-indigo-500/50 transition-colors"
               />
               <button
                 type="button"
@@ -84,12 +84,13 @@ export default function LoginPage() {
           </div>
 
           {error && <p className="text-sm text-red-400">{error}</p>}
-          {message && <p className="text-sm text-[#00dc82]">{message}</p>}
+          {message && <p className="text-sm text-indigo-400">{message}</p>}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#00dc82] text-black font-semibold py-2.5 rounded-xl hover:bg-[#00dc82]/90 transition-all disabled:opacity-60"
+            className="w-full text-white font-semibold py-2.5 rounded-xl transition-all disabled:opacity-60"
+            style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
           >
             {loading ? "Please wait..." : isSignup ? "Create Account" : "Sign In"}
           </button>
@@ -99,7 +100,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => { setIsSignup(!isSignup); setError(""); setMessage(""); }}
-              className="text-[#00dc82] hover:underline"
+              className="text-indigo-400 hover:underline"
             >
               {isSignup ? "Sign In" : "Sign Up"}
             </button>
