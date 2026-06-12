@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
@@ -66,33 +67,40 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Article content */}
       <article className="pb-24 max-w-3xl mx-auto px-6">
         {/* Visual banner */}
-        <div
-          className="w-full h-52 rounded-2xl border border-white/[0.07] overflow-hidden mb-12 relative"
-          style={{
-            background: `linear-gradient(135deg, ${post.gradientFrom}20, ${post.gradientTo}20)`,
-          }}
-        >
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{
-              background: `radial-gradient(ellipse at 30% 60%, ${post.gradientFrom}70, transparent 70%)`,
-            }}
-          />
+        <div className="w-full rounded-2xl border border-white/[0.07] overflow-hidden mb-12 relative">
+          {post.image ? (
+            <div className="relative w-full h-72">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                quality={95}
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            </div>
+          ) : (
+            <div
+              className="w-full h-52"
+              style={{
+                background: `linear-gradient(135deg, ${post.gradientFrom}20, ${post.gradientTo}20)`,
+              }}
+            >
+              <div
+                className="absolute inset-0 opacity-30"
+                style={{
+                  background: `radial-gradient(ellipse at 30% 60%, ${post.gradientFrom}70, transparent 70%)`,
+                }}
+              />
+            </div>
+          )}
         </div>
 
         {/* Prose content */}
         <div
-          className="prose prose-invert max-w-none
-            prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
-            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-5
-            prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
-            prose-p:text-slate-300 prose-p:leading-8 prose-p:my-5 prose-p:text-base
-            prose-li:text-slate-300 prose-li:leading-7 prose-li:text-base
-            prose-strong:text-white prose-strong:font-semibold
-            prose-code:text-violet-300 prose-code:bg-white/[0.05] prose-code:border prose-code:border-white/[0.08] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
-            prose-pre:bg-[#0D1220] prose-pre:border prose-pre:border-white/[0.07] prose-pre:rounded-xl prose-pre:p-6
-            prose-blockquote:border-l-indigo-500 prose-blockquote:text-slate-400
-            prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline"
+          className="blog-content"
           dangerouslySetInnerHTML={{ __html: markdownToHtml(post.content) }}
         />
 
@@ -141,16 +149,53 @@ export default async function BlogPostPage({ params }: Props) {
 }
 
 function markdownToHtml(markdown: string): string {
-  return markdown
-    .trim()
-    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+  const codeBlocks: string[] = [];
+
+  // Protect fenced code blocks — extract them so inner lines aren't mangled
+  let html = markdown.trim().replace(/```(?:\w+)?\n([\s\S]*?)```/g, (_m, code) => {
+    const idx = codeBlocks.length;
+    const escaped = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    codeBlocks.push(`<pre><code>${escaped}</code></pre>`);
+    return `\n\n__CB_${idx}__\n\n`;
+  });
+
+  // Inline formatting
+  html = html
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/`([^`\n]+)`/g, '<code>$1</code>')
-    .replace(/```(\w+)?\n([\s\S]+?)```/g, '<pre><code>$2</code></pre>')
-    .replace(/^- (.+)$/gm, '<li>$1</li>')
-    .replace(/(<li>[\s\S]+?<\/li>)/g, '<ul>$1</ul>')
-    .replace(/<\/ul>\s*<ul>/g, '')
-    .replace(/^(?!<[hup]|<\/|$)(.+)$/gm, '<p>$1</p>')
-    .replace(/\n{2,}/g, '\n');
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+
+  // Headings (### before ## so ## doesn't partially match ###)
+  html = html
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>');
+
+  // Ordered lists — capture consecutive numbered lines as one block
+  html = html.replace(/(?:^\d+\. .+$\n?)+/gm, (block) => {
+    const items = block.trim().split('\n')
+      .map(line => `<li>${line.replace(/^\d+\.\s*/, '')}</li>`)
+      .join('');
+    return `<ol>${items}</ol>\n`;
+  });
+
+  // Unordered lists — capture consecutive bullet lines as one block
+  html = html.replace(/(?:^- .+$\n?)+/gm, (block) => {
+    const items = block.trim().split('\n')
+      .map(line => `<li>${line.replace(/^-\s*/, '')}</li>`)
+      .join('');
+    return `<ul>${items}</ul>\n`;
+  });
+
+  // Wrap bare text lines in <p> (skip lines that are already HTML tags or placeholders)
+  html = html.replace(/^(?!<|__CB_|$)(.+)$/gm, '<p>$1</p>');
+
+  // Restore code blocks
+  codeBlocks.forEach((block, i) => {
+    html = html.replace(`__CB_${i}__`, block);
+  });
+
+  // Collapse extra blank lines
+  html = html.replace(/\n{2,}/g, '\n');
+
+  return html;
 }

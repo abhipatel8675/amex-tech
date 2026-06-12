@@ -1,3 +1,10 @@
+export type GalleryImage = {
+  src: string;
+  alt: string;
+  caption: string;
+  span?: "wide";
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -15,6 +22,7 @@ export type Project = {
   liveUrl?: string;
   githubUrl?: string;
   image?: string;
+  gallery?: GalleryImage[];
 };
 
 export const projects: Project[] = [
@@ -42,6 +50,39 @@ export const projects: Project[] = [
     featured: true,
     liveUrl: "https://molarai.studio",
     image: "/images/portfolio/molar-ai.png",
+    gallery: [
+      {
+        src: "/images/portfolio/molar-ai/before-profile.png",
+        alt: "Dental practice Instagram before Molar AI — 159 followers",
+        caption: "Before: A typical dental practice with 159 followers and no consistent content",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/molar-ai/metrics-90day-views.jpg",
+        alt: "90-day Instagram analytics dashboard showing explosive growth",
+        caption: "90-day performance — compounding reach with zero manual effort",
+      },
+      {
+        src: "/images/portfolio/molar-ai/after-profile-mobile.jpg",
+        alt: "Dental practice Instagram after Molar AI — 2,842 followers",
+        caption: "After: 2,842 followers and 1.3M views in 30 days",
+      },
+      {
+        src: "/images/portfolio/molar-ai/metrics-816k-views.jpg",
+        alt: "Instagram reel insights showing 816K views with zero ad spend",
+        caption: "816K views on a single reel — organic, no paid promotion",
+      },
+      {
+        src: "/images/portfolio/molar-ai/dm-testimonial.jpg",
+        alt: "Client DM testimonial from a dental practice owner",
+        caption: "Real feedback from dental practices using the platform",
+      },
+      {
+        src: "/images/portfolio/molar-ai/profile-photo.jpg",
+        alt: "Dr. Patricia Harrosch — featured Molar AI client",
+        caption: "Dr. Patricia Harrosch — 1.1M reach, 24K shares on a single post",
+      },
+    ],
   },
   {
     slug: "periscope-email",
@@ -67,6 +108,19 @@ export const projects: Project[] = [
     featured: true,
     liveUrl: "https://periscope.email",
     image: "/images/portfolio/periscope-email.jpg",
+    gallery: [
+      {
+        src: "/images/portfolio/periscope-email/flow-diagram.png",
+        alt: "Periscope Email full signal-to-send pipeline workflow",
+        caption: "The complete pipeline — 5 automated steps that collapse 30+ minutes of rep work into seconds",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/periscope-email/logo.png",
+        alt: "Periscope Email — real-time revenue intelligence platform",
+        caption: "Periscope turns breaking news into enterprise-grade outreach before the competition can react",
+      },
+    ],
   },
   {
     slug: "hmd",
@@ -92,6 +146,29 @@ export const projects: Project[] = [
     featured: false,
     liveUrl: "https://www.hmd.com.co",
     image: "/images/portfolio/hmd.jpg",
+    gallery: [
+      {
+        src: "/images/portfolio/hmd/hero-bg.jpg",
+        alt: "Medical professionals reviewing patient information on tablets in a hospital hallway",
+        caption: "Building the next generation of physician leaders — asynchronous, evidence-based, elite",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/hmd/md-adjunct.jpg",
+        alt: "HMD MD Adjunct program — physician in clinical setting",
+        caption: "MD Adjunct pathway — structured 4-year training for working clinicians worldwide",
+      },
+      {
+        src: "/images/portfolio/hmd/residency-adjunct.jpg",
+        alt: "HMD Residency Adjunct program — medical professional development",
+        caption: "Residency Adjunct — advancing trainees during active clinical years",
+      },
+      {
+        src: "/images/portfolio/hmd/journal-club.jpg",
+        alt: "Physicians collaborating in a boardroom — iConnect community hub",
+        caption: "iConnect — the physician community hub fostering peer collaboration and clinical dialogue",
+      },
+    ],
   },
   {
     slug: "herruby-app",
@@ -192,6 +269,39 @@ export const projects: Project[] = [
     featured: false,
     liveUrl: "https://torqron.com",
     image: "/images/portfolio/torqron.jpg",
+    gallery: [
+      {
+        src: "/images/portfolio/torqron/granulation-technology.png",
+        alt: "Torqron precision granulation technology for petrochemical operations",
+        caption: "Precision granulation technology — the backbone of global petrochemical processing",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/torqron/advanced-sealing.png",
+        alt: "Torqron advanced sealing technology for high-pressure industrial systems",
+        caption: "Mission-critical sealing technology engineered for extreme industrial conditions",
+      },
+      {
+        src: "/images/portfolio/torqron/industrial-filtration.png",
+        alt: "Torqron industrial filtration technology",
+        caption: "High-performance filtration across 28 major industrial facilities worldwide",
+      },
+      {
+        src: "/images/portfolio/torqron/additives.png",
+        alt: "Torqron polymer additives and specialty chemicals",
+        caption: "Advanced polymer additives enhancing performance in demanding environments",
+      },
+      {
+        src: "/images/portfolio/torqron/packaging-materials.png",
+        alt: "Torqron industrial packaging materials for petrochemical supply chains",
+        caption: "Industrial-grade packaging materials purpose-built for petrochemical supply chains",
+      },
+      {
+        src: "/images/portfolio/torqron/critical-parts.png",
+        alt: "Torqron critical spare parts — always on time",
+        caption: "Critical spare parts with market-atypical delivery speed — always on time",
+      },
+    ],
   },
 ];
 

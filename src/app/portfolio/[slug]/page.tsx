@@ -6,7 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
 import { projects } from "@/data/projects";
-import { ArrowLeft, ExternalLink, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ExternalLink, CheckCircle2, Images } from "lucide-react";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -199,6 +199,47 @@ export default async function ProjectDetailPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Gallery */}
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="pb-28 max-w-5xl mx-auto px-6">
+          <div className="flex items-center gap-3 mb-10">
+            <Images className="w-4 h-4 text-slate-500" />
+            <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-widest">
+              Product Gallery
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {project.gallery.map((img, i) => (
+              <div
+                key={i}
+                className={`group relative overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.02] flex flex-col ${
+                  img.span === "wide" ? "col-span-2 md:col-span-3" : ""
+                }`}
+              >
+                <div
+                  className={`relative overflow-hidden ${
+                    img.span === "wide" ? "aspect-[16/7]" : "aspect-[4/3]"
+                  }`}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes={img.span === "wide" ? "100vw" : "(max-width: 768px) 50vw, 33vw"}
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+                <div className="px-4 py-3 border-t border-white/[0.05]">
+                  <p className="text-xs text-slate-500 leading-relaxed">{img.caption}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <CTASection />
       <Footer />

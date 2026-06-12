@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
@@ -91,18 +92,31 @@ export default function BlogPage() {
               className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300 flex flex-col"
             >
               {/* Visual */}
-              <div
-                className="h-40 relative overflow-hidden"
-                style={{
-                  background: `linear-gradient(135deg, ${post.gradientFrom}18, ${post.gradientTo}18)`,
-                }}
-              >
-                <div
-                  className="absolute inset-0 opacity-30"
-                  style={{
-                    background: `radial-gradient(ellipse at 30% 60%, ${post.gradientFrom}70, transparent 70%)`,
-                  }}
-                />
+              <div className="h-44 relative overflow-hidden">
+                {post.image ? (
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    quality={95}
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: `linear-gradient(135deg, ${post.gradientFrom}18, ${post.gradientTo}18)`,
+                    }}
+                  >
+                    <div
+                      className="absolute inset-0 opacity-30"
+                      style={{
+                        background: `radial-gradient(ellipse at 30% 60%, ${post.gradientFrom}70, transparent 70%)`,
+                      }}
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Content */}
