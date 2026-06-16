@@ -4,13 +4,28 @@ import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import { blogPosts } from "@/data/blog";
 import { ArrowRight, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Engineering Blog",
   description:
-    "Engineering insights, architecture guides, and practical tutorials from the Amex Technology team.",
+    "Architecture decisions, tech stack deep-dives, and practical tutorials from the Amex Technology engineering team. Real lessons from building real products.",
+  alternates: {
+    canonical: "https://amextechnology.com/blog",
+  },
+  openGraph: {
+    title: "Engineering Blog | Amex Technology",
+    description:
+      "Architecture decisions, tech stack deep-dives, and practical tutorials from the Amex Technology engineering team.",
+    url: "https://amextechnology.com/blog",
+  },
+  twitter: {
+    title: "Engineering Blog | Amex Technology",
+    description:
+      "Architecture decisions, tech stack deep-dives, and practical tutorials from the Amex Technology engineering team.",
+  },
 };
 
 export default function BlogPage() {
@@ -20,9 +35,10 @@ export default function BlogPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
       <Navbar />
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 max-w-6xl mx-auto px-6">
+      <section className="pt-8 pb-16 max-w-6xl mx-auto px-6">
         <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
           From the Team
         </p>

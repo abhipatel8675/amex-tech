@@ -12,7 +12,7 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "web-development",
-    title: "Custom Website Development",
+    title: "Website Development",
     shortDesc: "High-performance websites built for conversion and growth.",
     description:
       "We craft pixel-perfect, blazing-fast websites that represent your brand professionally and convert visitors into clients. From landing pages to complex corporate portals, we deliver clean, maintainable code on modern frameworks.",

@@ -63,35 +63,74 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-medium text-slate-400 mb-2.5">Name <span className="text-indigo-400">*</span></label>
-          <input required value={form.name} onChange={set("name")} placeholder="Your name" className={inputCls} />
+          <label htmlFor="contact-name" className="block text-sm font-medium text-slate-400 mb-2.5">Full Name <span className="text-indigo-400">*</span></label>
+          <input
+            id="contact-name"
+            name="name"
+            required
+            autoComplete="name"
+            aria-label="Full name"
+            value={form.name}
+            onChange={set("name")}
+            placeholder="Your name"
+            className={inputCls}
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-400 mb-2.5">Email <span className="text-indigo-400">*</span></label>
-          <input required type="email" value={form.email} onChange={set("email")} placeholder="you@company.com" className={inputCls} />
+          <label htmlFor="contact-email" className="block text-sm font-medium text-slate-400 mb-2.5">Email <span className="text-indigo-400">*</span></label>
+          <input
+            id="contact-email"
+            name="email"
+            required
+            type="email"
+            autoComplete="email"
+            aria-label="Email address"
+            value={form.email}
+            onChange={set("email")}
+            placeholder="you@company.com"
+            className={inputCls}
+          />
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-400 mb-2.5">Company / Project Name</label>
-        <input value={form.company} onChange={set("company")} placeholder="Acme Inc. (optional)" className={inputCls} />
+        <label htmlFor="contact-company" className="block text-sm font-medium text-slate-400 mb-2.5">Company / Project Name</label>
+        <input
+          id="contact-company"
+          name="company"
+          autoComplete="organization"
+          aria-label="Company or project name"
+          value={form.company}
+          onChange={set("company")}
+          placeholder="Acme Inc. (optional)"
+          className={inputCls}
+        />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-400 mb-2.5">Service Needed <span className="text-indigo-400">*</span></label>
-        <select required value={form.service} onChange={set("service")} className={`${inputCls} appearance-none`}>
+        <label htmlFor="contact-service" className="block text-sm font-medium text-slate-400 mb-2.5">Project Type <span className="text-indigo-400">*</span></label>
+        <select
+          id="contact-service"
+          name="service"
+          required
+          aria-label="Project type"
+          value={form.service}
+          onChange={set("service")}
+          className={`${inputCls} appearance-none`}
+        >
           <option value="" disabled>Select a service...</option>
           {services.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-400 mb-3.5">Approximate Budget</label>
-        <div className="flex flex-wrap gap-2.5">
+        <label className="block text-sm font-medium text-slate-400 mb-3.5" id="budget-label">Budget Range</label>
+        <div role="group" aria-labelledby="budget-label" className="flex flex-wrap gap-2.5">
           {budgets.map((b) => (
             <button
               key={b}
               type="button"
+              aria-pressed={form.budget === b}
               onClick={() => setForm((p) => ({ ...p, budget: b }))}
               className={`text-sm font-medium px-4 py-2 rounded-lg border transition-all duration-200 ${
                 form.budget === b
@@ -106,10 +145,13 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-400 mb-2.5">Project Details <span className="text-indigo-400">*</span></label>
+        <label htmlFor="contact-message" className="block text-sm font-medium text-slate-400 mb-2.5">Project Details <span className="text-indigo-400">*</span></label>
         <textarea
+          id="contact-message"
+          name="message"
           required
           rows={6}
+          aria-label="Project details"
           value={form.message}
           onChange={set("message")}
           placeholder="Tell us what you're building — the problem you're solving, key features, tech constraints, and your timeline..."

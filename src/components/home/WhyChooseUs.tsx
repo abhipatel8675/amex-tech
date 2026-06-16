@@ -1,62 +1,165 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, ShieldCheck, Clock, Lock, GitMerge, HeartHandshake } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
-const reasons = [
+const codeLines = [
+  "const result = await db",
+  "  .from('users')",
+  "  .select('*')",
+  "  .eq('active', true);",
+  "",
+  "// Row-level security enforced",
+  "// Types auto-generated",
+  "return result.data ?? [];",
+];
+
+function CodeTyper() {
+  const [display, setDisplay] = useState<string[]>([]);
+  const [lineIdx, setLineIdx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  useEffect(() => {
+    if (lineIdx >= codeLines.length) {
+      timerRef.current = setTimeout(() => {
+        setDisplay([]);
+        setLineIdx(0);
+        setCharIdx(0);
+      }, 2400);
+      return;
+    }
+    const line = codeLines[lineIdx];
+    if (charIdx <= line.length) {
+      timerRef.current = setTimeout(() => {
+        setDisplay((prev) => {
+          const next = [...prev];
+          next[lineIdx] = line.slice(0, charIdx);
+          return next;
+        });
+        setCharIdx((c) => c + 1);
+      }, charIdx === 0 && line === "" ? 80 : 22);
+    } else {
+      timerRef.current = setTimeout(() => {
+        setLineIdx((l) => l + 1);
+        setCharIdx(0);
+      }, line === "" ? 0 : 60);
+    }
+    return () => clearTimeout(timerRef.current);
+  }, [lineIdx, charIdx]);
+
+  return (
+    <pre className="text-xs leading-6 font-mono text-left overflow-hidden" style={{ color: "#a5b4fc" }}>
+      {display.map((line, i) => (
+        <span key={i} className="block">
+          {line.startsWith("//") ? (
+            <span style={{ color: "rgba(100,116,139,0.7)" }}>{line}</span>
+          ) : line.startsWith("  ") ? (
+            <span>
+              {"  "}
+              <span style={{ color: "#93c5fd" }}>{line.slice(2)}</span>
+            </span>
+          ) : (
+            <span style={{ color: "#e2e8f0" }}>{line}</span>
+          )}
+        </span>
+      ))}
+      <span className="inline-block w-0.5 h-3.5 ml-0.5 align-middle bg-indigo-400 animate-pulse" />
+    </pre>
+  );
+}
+
+// Geometric SVG icons
+const HexagonIcon = ({ color }: { color: string }) => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
+    <path d="M14 2L25 8.5V19.5L14 26L3 19.5V8.5L14 2Z" stroke={color} strokeWidth="1.5" fill="none" />
+    <path d="M14 8L20 11.5V17.5L14 21L8 17.5V11.5L14 8Z" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1" />
+  </svg>
+);
+
+const ClockIcon = ({ color }: { color: string }) => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
+    <circle cx="14" cy="14" r="11" stroke={color} strokeWidth="1.5" />
+    <path d="M14 8V14L18 17" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="14" cy="14" r="1.5" fill={color} />
+  </svg>
+);
+
+const CircuitIcon = ({ color }: { color: string }) => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
+    <rect x="3" y="3" width="8" height="8" rx="1.5" stroke={color} strokeWidth="1.5" />
+    <rect x="17" y="3" width="8" height="8" rx="1.5" stroke={color} strokeWidth="1.5" />
+    <rect x="3" y="17" width="8" height="8" rx="1.5" stroke={color} strokeWidth="1.5" />
+    <rect x="17" y="17" width="8" height="8" rx="1.5" stroke={color} strokeWidth="1.5" />
+    <path d="M11 7H17M21 11V17M7 11V17M11 21H17" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+    <circle cx="14" cy="14" r="2" fill={color} fillOpacity="0.3" stroke={color} strokeWidth="1" />
+  </svg>
+);
+
+const RocketIcon = ({ color }: { color: string }) => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
+    <path d="M14 4C14 4 9 10 9 16C9 19.3 11.7 22 15 22H15C18.3 22 21 19.3 21 16C21 10 16 4 14 4Z" stroke={color} strokeWidth="1.5" fill={color} fillOpacity="0.1" />
+    <circle cx="14" cy="15" r="2.5" fill={color} fillOpacity="0.2" stroke={color} strokeWidth="1" />
+    <path d="M9 18L6 22M19 18L22 22" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M11 22H17" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+const features = [
   {
-    icon: Code2,
+    id: "code",
     title: "Clean, Maintainable Code",
-    desc: "We write code for the next engineer, not just for today's deadline. Every project is well-structured, documented, and easy to extend.",
-    gradient: "from-indigo-500/20 to-purple-500/20",
-    border: "border-indigo-500/20",
-    iconColor: "#818CF8",
+    desc: "We write code for the next engineer, not just today's deadline. Every project ships well-structured, documented, and easy to extend.",
+    accent: "#818CF8",
+    size: "large",
   },
   {
-    icon: ShieldCheck,
-    title: "Modern Tech Stack",
-    desc: "We use battle-tested, actively maintained technologies — chosen for reliability and long-term viability, not hype.",
-    gradient: "from-violet-500/20 to-fuchsia-500/20",
-    border: "border-violet-500/20",
-    iconColor: "#A78BFA",
-  },
-  {
-    icon: Clock,
-    title: "On-Time Delivery",
-    desc: "We respect your timeline. Clear milestones, regular demos, and transparent communication throughout every engagement.",
-    gradient: "from-sky-500/20 to-cyan-500/20",
-    border: "border-sky-500/20",
-    iconColor: "#38BDF8",
-  },
-  {
-    icon: Lock,
+    id: "security",
     title: "Secure by Default",
-    desc: "Security is never bolted on after the fact. Auth, data isolation, input validation, and OWASP standards are built in from day one.",
-    gradient: "from-violet-500/20 to-purple-500/20",
-    border: "border-violet-500/20",
-    iconColor: "#A78BFA",
+    desc: "Auth, data isolation, input validation, and OWASP standards — baked in from day one, not bolted on after.",
+    accent: "#A78BFA",
+    size: "normal",
+    icon: HexagonIcon,
   },
   {
-    icon: GitMerge,
+    id: "delivery",
+    title: "On-Time Delivery",
+    desc: "Clear milestones, weekly demos, transparent communication. We respect your timeline.",
+    accent: "#38BDF8",
+    size: "normal",
+    icon: ClockIcon,
+  },
+  {
+    id: "tech",
+    title: "Modern Tech Stack",
+    desc: "Battle-tested, actively maintained technologies chosen for reliability and long-term viability.",
+    accent: "#34D399",
+    size: "normal",
+    icon: CircuitIcon,
+  },
+  {
+    id: "cicd",
     title: "CI/CD From Day One",
-    desc: "Automated deployments, staging environments, and rollback capability. Your team ships with confidence, not fear.",
-    gradient: "from-orange-500/20 to-amber-500/20",
-    border: "border-orange-500/20",
-    iconColor: "#FB923C",
+    desc: "Automated deployments, staging environments, rollback capability. Your team ships with confidence.",
+    accent: "#FB923C",
+    size: "normal",
+    icon: RocketIcon,
   },
   {
-    icon: HeartHandshake,
+    id: "partnership",
     title: "Long-Term Partnership",
-    desc: "We think beyond the handoff. Our best client relationships are ongoing — iterating, improving, and scaling together.",
-    gradient: "from-pink-500/20 to-rose-500/20",
-    border: "border-pink-500/20",
-    iconColor: "#F472B6",
+    desc: "We think beyond the handoff. Our best relationships are ongoing — iterating, improving, scaling together.",
+    accent: "#F472B6",
+    size: "wide",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-32" style={{ background: "linear-gradient(180deg, #0B0F19 0%, #0D1220 50%, #0B0F19 100%)" }}>
+    <section
+      className="py-28 md:py-36"
+      style={{ background: "linear-gradient(180deg, #0B0F19 0%, #0D1220 50%, #0B0F19 100%)" }}
+    >
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -64,50 +167,179 @@ export default function WhyChooseUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-2xl mb-16"
+          className="max-w-2xl mb-14"
         >
-          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">
+          <p
+            className="mb-4 font-semibold uppercase"
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
+          >
             Why Choose Us
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-5">
-            Built for businesses, not just demos.
+          <h2
+            className="text-4xl md:text-5xl font-bold text-white leading-tight mb-5"
+            style={{ letterSpacing: "-0.025em" }}
+          >
+            Built for businesses, not demos.
           </h2>
-          <p className="text-slate-300 text-lg leading-8">
-            These aren't just values — they're commitments we make to every client on every project.
+          <p className="text-lg leading-8" style={{ color: "rgba(203,213,225,0.75)" }}>
+            These aren&apos;t just values — they&apos;re commitments we make to every client on every project.
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {reasons.map((reason, i) => {
-            const Icon = reason.icon;
-            return (
-              <motion.div
-                key={reason.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.07 }}
-                className={`group relative p-7 rounded-2xl border bg-gradient-to-br ${reason.gradient} ${reason.border} hover:scale-[1.01] transition-all duration-300 overflow-hidden`}
-              >
-                {/* Subtle glow on hover */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
-                  style={{ background: `radial-gradient(ellipse at 30% 30%, ${reason.iconColor}10, transparent 70%)` }}
-                />
-                <div
-                  className="relative w-11 h-11 rounded-xl flex items-center justify-center mb-6 border"
-                  style={{ background: `${reason.iconColor}15`, borderColor: `${reason.iconColor}30` }}
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-auto">
+
+          {/* Large card: Clean Code with code typer */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0 }}
+            className="group relative lg:col-span-2 rounded-2xl border border-white/[0.07] p-7 overflow-hidden"
+            style={{ background: "linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.06) 100%)" }}
+          >
+            <div
+              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{ boxShadow: "inset 0 0 0 1px rgba(129,140,248,0.2)" }}
+            />
+            <div className="grid sm:grid-cols-2 gap-8 items-start">
+              <div>
+                <h3
+                  className="text-xl font-bold text-white mb-3 leading-snug"
+                  style={{ letterSpacing: "-0.015em" }}
                 >
-                  <Icon style={{ color: reason.iconColor, width: "20px", height: "20px" }} />
+                  Clean, Maintainable Code
+                </h3>
+                <p className="text-sm leading-7" style={{ color: "rgba(148,163,184,0.8)" }}>
+                  We write code for the next engineer, not just today&apos;s deadline. Every project is well-structured, documented, and easy to extend — because software outlives the sprint.
+                </p>
+              </div>
+              <div
+                className="rounded-xl p-4 border border-white/[0.06] overflow-hidden"
+                style={{ background: "rgba(10,14,26,0.8)" }}
+              >
+                <CodeTyper />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Security */}
+          <BentoCell feature={features[1]} delay={0.07} />
+
+          {/* Delivery */}
+          <BentoCell feature={features[2]} delay={0.14} />
+
+          {/* Tech Stack */}
+          <BentoCell feature={features[3]} delay={0.21} />
+
+          {/* CI/CD */}
+          <BentoCell feature={features[4]} delay={0.28} />
+
+          {/* Wide card: Long-Term Partnership with timeline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="group relative lg:col-span-3 rounded-2xl border border-white/[0.07] p-7 overflow-hidden"
+            style={{ background: "linear-gradient(135deg, rgba(244,114,182,0.07) 0%, rgba(168,85,247,0.05) 100%)" }}
+          >
+            <div
+              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{ boxShadow: "inset 0 0 0 1px rgba(244,114,182,0.2)" }}
+            />
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <h3
+                  className="text-xl font-bold text-white mb-3 leading-snug"
+                  style={{ letterSpacing: "-0.015em" }}
+                >
+                  Long-Term Partnership
+                </h3>
+                <p className="text-sm leading-7" style={{ color: "rgba(148,163,184,0.8)" }}>
+                  We think beyond the handoff. Our best client relationships are ongoing — iterating, improving, and scaling together. We&apos;re your technical co-founder for the long run.
+                </p>
+              </div>
+              {/* Timeline */}
+              <div className="flex items-center gap-0 overflow-x-auto pb-1">
+                {["2019", "2020", "2021", "2022", "2023", "2024", "2025"].map((year, i, arr) => (
+                  <div key={year} className="flex items-center">
+                    <div className="flex flex-col items-center gap-2 shrink-0">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1, type: "spring", stiffness: 300 }}
+                        className="w-3 h-3 rounded-full border-2"
+                        style={{
+                          borderColor: "#F472B6",
+                          background: i === arr.length - 1 ? "#F472B6" : "transparent",
+                        }}
+                      />
+                      <span className="text-xs text-slate-500 font-mono">{year}</span>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <motion.div
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 + 0.05, duration: 0.3 }}
+                        className="h-px w-10 sm:w-14 origin-left shrink-0"
+                        style={{ background: "linear-gradient(90deg, #F472B6, rgba(244,114,182,0.2))" }}
+                      />
+                    )}
+                  </div>
+                ))}
+                <div className="ml-2 shrink-0">
+                  <span className="text-xs font-semibold text-pink-400">Present</span>
                 </div>
-                <h3 className="text-base font-semibold text-white mb-3 leading-snug">{reason.title}</h3>
-                <p className="text-sm text-slate-300 leading-7">{reason.desc}</p>
-              </motion.div>
-            );
-          })}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
+  );
+}
+
+function BentoCell({
+  feature,
+  delay,
+}: {
+  feature: { id: string; title: string; desc: string; accent: string; icon?: React.ComponentType<{ color: string }> };
+  delay: number;
+}) {
+  const Icon = feature.icon;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45, delay }}
+      className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6 overflow-hidden transition-all duration-300"
+    >
+      {/* Hover glow border */}
+      <div
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{ boxShadow: `inset 0 0 0 1px ${feature.accent}30` }}
+      />
+      {/* Hover bg glow */}
+      <div
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{ background: `radial-gradient(ellipse at 20% 20%, ${feature.accent}08, transparent 60%)` }}
+      />
+      {Icon && (
+        <div
+          className="relative w-10 h-10 rounded-xl flex items-center justify-center mb-5 border transition-transform duration-300 group-hover:scale-105"
+          style={{ background: `${feature.accent}12`, borderColor: `${feature.accent}25` }}
+        >
+          <Icon color={feature.accent} />
+        </div>
+      )}
+      <h3 className="relative text-base font-bold text-white mb-2.5 leading-snug">{feature.title}</h3>
+      <p className="relative text-sm leading-6.5" style={{ color: "rgba(148,163,184,0.75)" }}>
+        {feature.desc}
+      </p>
+    </motion.div>
   );
 }

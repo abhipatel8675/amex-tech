@@ -34,7 +34,7 @@ export default function AboutPageContent() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-36 pb-24 overflow-hidden">
+      <section className="relative pt-12 pb-24 overflow-hidden">
         <div className="grid-pattern absolute inset-0 opacity-50 pointer-events-none" />
         <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full opacity-8 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #6366F1, transparent 70%)" }} />
         <motion.div

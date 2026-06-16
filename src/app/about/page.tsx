@@ -3,17 +3,33 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
 import AboutPageContent from "@/components/about/AboutPageContent";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Us — Founded 2019",
   description:
-    "Learn about Amex Technology — who we are, how we work, and why clients trust us to build their most important software.",
+    "Amex Technology was founded in 2019 with a mission to build software that matters. Our team of engineers and designers has delivered 200+ projects for clients across North America, Europe, and beyond.",
+  alternates: {
+    canonical: "https://amextechnology.com/about",
+  },
+  openGraph: {
+    title: "About Amex Technology — Founded 2019",
+    description:
+      "Founded in 2019, Amex Technology has delivered 200+ software projects for startups and enterprises across North America, Europe, and beyond.",
+    url: "https://amextechnology.com/about",
+  },
+  twitter: {
+    title: "About Amex Technology — Founded 2019",
+    description:
+      "Founded in 2019, Amex Technology has delivered 200+ software projects for startups and enterprises across North America, Europe, and beyond.",
+  },
 };
 
 export default function AboutPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
       <Navbar />
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
       <AboutPageContent />
       <CTASection />
       <Footer />

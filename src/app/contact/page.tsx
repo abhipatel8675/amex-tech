@@ -2,21 +2,37 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/contact/ContactForm";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import { Mail, Clock, MessageSquare } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Start a Project — Get a Free Quote",
   description:
-    "Start a project with Amex Technology. Tell us what you're building and we'll respond within 24 hours.",
+    "Ready to build something great? Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 24 hours with an honest plan.",
+  alternates: {
+    canonical: "https://amextechnology.com/contact",
+  },
+  openGraph: {
+    title: "Start a Project — Get a Free Quote | Amex Technology",
+    description:
+      "Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 24 hours.",
+    url: "https://amextechnology.com/contact",
+  },
+  twitter: {
+    title: "Start a Project — Get a Free Quote | Amex Technology",
+    description:
+      "Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 24 hours.",
+  },
 };
 
 export default function ContactPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
       <Navbar />
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 max-w-6xl mx-auto px-6">
+      <section className="pt-8 pb-16 max-w-6xl mx-auto px-6">
         <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
           Contact Us
         </p>

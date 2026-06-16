@@ -4,6 +4,20 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CircleCheck, TrendingUp, Sparkles } from "lucide-react";
 
+// Word-by-word stagger for the heading
+function WordSpan({ word, index }: { word: string; index: number }) {
+  return (
+    <motion.span
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
+      className="inline-block mr-[0.25em]"
+    >
+      {word}
+    </motion.span>
+  );
+}
+
 const floatAnim = (delay = 0, range = 10) => ({
   animate: { y: [0, -range, 0] },
   transition: { duration: 5 + delay, repeat: Infinity, ease: "easeInOut" as const, delay },
@@ -36,22 +50,26 @@ export default function Hero() {
         <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 xl:gap-20 items-center">
 
           {/* ─── LEFT: Content ─── */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] }}
-          >
+          <div>
             {/* Agency badge */}
-            <div className="inline-flex items-center gap-2.5 bg-white/[0.05] border border-white/[0.09] rounded-full px-4 py-2 mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.05 }}
+              className="inline-flex items-center gap-2.5 bg-white/[0.05] border border-white/[0.09] rounded-full px-4 py-2 mb-10"
+            >
               <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
               <span className="text-sm font-medium text-slate-300 tracking-wide">
                 Software Development Agency · Est. 2019
               </span>
-            </div>
+            </motion.div>
 
-            {/* Headline */}
+            {/* Headline — word by word */}
             <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold leading-[1.02] tracking-[-0.03em] mb-8">
-              <span className="text-white">We Build</span>
+              <span className="text-white">
+                <WordSpan word="We" index={0} />
+                <WordSpan word="Build" index={1} />
+              </span>
               <br />
               <span
                 style={{
@@ -61,27 +79,50 @@ export default function Hero() {
                   backgroundClip: "text",
                 }}
               >
-                Digital Products
+                <WordSpan word="Digital" index={2} />
+                <WordSpan word="Products" index={3} />
               </span>
               <br />
-              <span className="text-white">That Scale.</span>
+              <span className="text-white">
+                <WordSpan word="That" index={4} />
+                <WordSpan word="Scale." index={5} />
+              </span>
             </h1>
 
             {/* Sub */}
-            <p className="text-xl text-slate-300 leading-8 max-w-[500px] mb-12">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.55 }}
+              className="text-xl leading-8 max-w-[500px] mb-12"
+              style={{ color: "rgba(203,213,225,0.78)" }}
+            >
               From MVP to enterprise platform — we help startups and growing businesses ship
               reliable software that drives measurable results.
-            </p>
+            </motion.p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.7 }}
+              className="flex flex-wrap items-center gap-4 mb-14"
+            >
               <Link
                 href="/portfolio"
-                className="group inline-flex items-center gap-2 text-base font-semibold text-white px-7 py-4 rounded-xl transition-all duration-300 btn-glow"
+                className="group relative inline-flex items-center gap-2 text-base font-semibold text-white px-7 py-4 rounded-xl transition-all duration-300 btn-glow overflow-hidden"
                 style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
               >
+                {/* Shimmer sweep */}
+                <span
+                  className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)",
+                    animation: "shimmer 0.6s ease-out",
+                  }}
+                />
                 View Our Work
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform relative z-10" />
               </Link>
               <Link
                 href="/contact"
@@ -90,33 +131,44 @@ export default function Hero() {
                 Start a Project
                 <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-slate-300 group-hover:translate-x-0.5 transition-all" />
               </Link>
-            </div>
+              <Link
+                href="/blog"
+                className="group inline-flex items-center gap-2 text-base font-medium text-slate-500 hover:text-slate-300 transition-colors"
+              >
+                Read our blog
+                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            </motion.div>
 
             {/* Trust row */}
-            <div className="flex flex-wrap items-center gap-5 sm:gap-7">
-              {/* Stars */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.85 }}
+              className="flex flex-wrap items-center gap-5 sm:gap-7"
+            >
               <div className="flex items-center gap-2.5">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4.5 h-4.5 text-amber-400 fill-current" style={{ width: "18px", height: "18px" }} viewBox="0 0 20 20">
+                    <svg key={i} style={{ width: "18px", height: "18px", fill: "#FBBF24" }} viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
-                <span className="text-sm text-slate-400 font-medium">100% satisfaction</span>
+                <span className="text-sm font-medium" style={{ color: "rgba(148,163,184,0.8)" }}>100% satisfaction</span>
               </div>
               <span className="w-px h-5 bg-white/[0.10]" />
               <div className="flex items-center gap-2">
                 <CircleCheck className="w-4 h-4 text-violet-400" />
-                <span className="text-sm text-slate-400">5+ years experience</span>
+                <span className="text-sm" style={{ color: "rgba(148,163,184,0.8)" }}>5+ years experience</span>
               </div>
               <span className="w-px h-5 bg-white/[0.10]" />
               <div className="flex items-center gap-2">
                 <CircleCheck className="w-4 h-4 text-violet-400" />
-                <span className="text-sm text-slate-400">200+ projects shipped</span>
+                <span className="text-sm" style={{ color: "rgba(148,163,184,0.8)" }}>200+ projects shipped</span>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* ─── RIGHT: Visual ─── */}
           <motion.div
