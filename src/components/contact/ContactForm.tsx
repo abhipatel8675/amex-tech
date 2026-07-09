@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Send, CheckCircle2 } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Send, CheckCircle2, ChevronDown } from "lucide-react";
 
 const services = [
   "Custom Website Development", "Web Application Development", "Mobile App Development",
@@ -18,6 +18,18 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [serviceOpen, setServiceOpen] = useState(false);
+  const serviceRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (serviceRef.current && !serviceRef.current.contains(e.target as Node)) {
+        setServiceOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   const set = (field: keyof FormState) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
@@ -108,19 +120,45 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="contact-service" className="block text-sm font-medium text-slate-400 mb-2.5">Project Type <span className="text-indigo-400">*</span></label>
-        <select
-          id="contact-service"
-          name="service"
-          required
-          aria-label="Project type"
-          value={form.service}
-          onChange={set("service")}
-          className={`${inputCls} appearance-none`}
-        >
-          <option value="" disabled>Select a service...</option>
-          {services.map((s) => <option key={s} value={s}>{s}</option>)}
-        </select>
+        <label className="block text-sm font-medium text-slate-400 mb-2.5">Project Type <span className="text-indigo-400">*</span></label>
+        <div ref={serviceRef} className="relative">
+          <button
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded={serviceOpen}
+            onClick={() => setServiceOpen((o) => !o)}
+            className={`${inputCls} flex items-center justify-between text-left ${form.service ? "text-white" : "text-slate-500"}`}
+          >
+            <span>{form.service || "Select a service..."}</span>
+            <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${serviceOpen ? "rotate-180" : ""}`} />
+          </button>
+
+          {serviceOpen && (
+            <ul
+              role="listbox"
+              aria-label="Project type"
+              className="absolute z-50 w-full mt-1.5 rounded-xl border border-white/[0.1] bg-[#0d0d1a] shadow-2xl overflow-hidden"
+            >
+              {services.map((s) => (
+                <li
+                  key={s}
+                  role="option"
+                  aria-selected={form.service === s}
+                  onClick={() => { setForm((p) => ({ ...p, service: s })); setServiceOpen(false); }}
+                  className={`px-4 py-3 text-sm cursor-pointer transition-colors duration-150 ${
+                    form.service === s
+                      ? "bg-indigo-500/20 text-indigo-300"
+                      : "text-slate-300 hover:bg-white/[0.06] hover:text-white"
+                  }`}
+                >
+                  {s}
+                </li>
+              ))}
+            </ul>
+          )}
+          {/* hidden input to satisfy form required validation */}
+          <input type="hidden" name="service" value={form.service} required />
+        </div>
       </div>
 
       <div>
