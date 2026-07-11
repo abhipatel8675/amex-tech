@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
+        disallow: ["/api/", "/_next/", "/dashboard/", "/login", "/success"],
       },
     ],
     sitemap: "https://amextechnology.com/sitemap.xml",

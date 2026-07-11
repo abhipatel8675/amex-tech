@@ -30,12 +30,21 @@ export const metadata: Metadata = {
     title: "Amex Technology — Software Development Agency",
     description:
       "We build scalable digital products for startups and modern businesses. Web apps, mobile apps, SaaS platforms, and more.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Amex Technology — Software Development Agency",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Amex Technology — Software Development Agency",
     description:
       "We build scalable digital products for startups and modern businesses.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
