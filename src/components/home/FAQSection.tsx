@@ -40,7 +40,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section aria-label="Frequently asked questions" className="py-24 max-w-3xl mx-auto px-6">
+    <section aria-label="Frequently asked questions" className="py-24 max-w-4xl mx-auto px-6">
       <div className="text-center mb-14">
         <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">FAQ</p>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">

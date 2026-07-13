@@ -7,21 +7,23 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Software Development Services",
+  keywords:
+    "software development services, web app development, mobile app development, SaaS development, SEO services, AI automation services, n8n automation, Zapier workflows, technical SEO, on-page SEO",
   description:
-    "Full-stack software development services: web apps, mobile apps, SaaS platforms, API development, DevOps, and UI/UX design. Trusted by startups and enterprises worldwide.",
+    "Full-stack software development services: web apps, mobile apps, SaaS platforms, API development, DevOps, UI/UX design, SEO services, and AI automation. Trusted by startups and enterprises worldwide.",
   alternates: {
     canonical: "https://amextechnology.com/services",
   },
   openGraph: {
     title: "Software Development Services | Amex Technology",
     description:
-      "Full-stack software development services: web apps, mobile apps, SaaS platforms, API development, DevOps, and UI/UX design.",
+      "Full-stack software development services: web apps, mobile apps, SaaS platforms, API development, DevOps, UI/UX design, SEO services, and AI automation.",
     url: "https://amextechnology.com/services",
   },
   twitter: {
     title: "Software Development Services | Amex Technology",
     description:
-      "Full-stack software development services: web apps, mobile apps, SaaS platforms, API development, DevOps, and UI/UX design.",
+      "Full-stack software development services: web apps, mobile apps, SaaS platforms, SEO services, and AI automation.",
   },
 };
 
@@ -47,6 +49,8 @@ const servicesSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "API Development and Integration" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "DevOps and Deployment" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "UI/UX Design" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO Services" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI and Automation Services" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Maintenance and Support" } },
     ],
   },

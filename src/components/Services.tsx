@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bug, Code2, Rocket, Smartphone, Bot, ArrowRight, Check, Sparkles } from "lucide-react";
+import { Bug, Code2, Rocket, Smartphone, Bot, ArrowRight, Check, Sparkles, Search, Brain } from "lucide-react";
 
 const services = [
   {
@@ -68,6 +68,32 @@ const services = [
       { name: "Premium", price: "₹6,499", amount: 6499, delivery: "3 days", desc: "Full DevOps setup + monitoring" },
     ],
     accent: "#f59e0b",
+  },
+  {
+    icon: Search,
+    tag: "Growth",
+    title: "SEO Services",
+    desc: "Rank higher, get found, and drive organic traffic. We handle technical SEO, content strategy, and on-page optimization.",
+    features: ["Technical SEO audit & fixes", "On-page optimization", "Content & keyword strategy", "Core Web Vitals optimization"],
+    packages: [
+      { name: "Audit", price: "₹1,499", amount: 1499, delivery: "2 days", desc: "Full SEO audit report" },
+      { name: "On-Page", price: "₹3,999", amount: 3999, delivery: "1 week", desc: "Full on-page SEO setup" },
+      { name: "Growth", price: "₹8,999", amount: 8999, delivery: "monthly", desc: "Ongoing SEO + content strategy" },
+    ],
+    accent: "#22c55e",
+  },
+  {
+    icon: Brain,
+    tag: "🤖 AI-Powered",
+    title: "AI Services",
+    desc: "Custom AI solutions for your business — automation, intelligent workflows, and AI-powered tools built to save time and scale fast.",
+    features: ["AI workflow automation", "Custom GPT & agent builds", "AI content & image generation", "Business process automation"],
+    packages: [
+      { name: "Starter", price: "₹2,999", amount: 2999, delivery: "3 days", desc: "1 AI automation workflow" },
+      { name: "Business", price: "₹7,999", amount: 7999, delivery: "1 week", desc: "Custom AI tool + integrations" },
+      { name: "Enterprise", price: "₹19,999", amount: 19999, delivery: "3 weeks", desc: "Full AI system build" },
+    ],
+    accent: "#a855f7",
   },
   {
     icon: Smartphone,
@@ -157,7 +183,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 max-w-6xl mx-auto px-6">
+    <section id="services" className="py-24 max-w-7xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

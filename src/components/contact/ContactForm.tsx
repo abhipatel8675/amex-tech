@@ -6,7 +6,8 @@ import { Send, CheckCircle2, ChevronDown } from "lucide-react";
 const services = [
   "Custom Website Development", "Web Application Development", "Mobile App Development",
   "SaaS Development", "API Development & Integration", "Backend Development",
-  "DevOps & Deployment", "UI/UX Design", "Maintenance & Support", "Other / Not Sure",
+  "DevOps & Deployment", "UI/UX Design", "SEO Services", "AI & Automation Services",
+  "Maintenance & Support", "Other / Not Sure",
 ];
 
 const budgets = ["Under $1,000", "$1,000 – $5,000", "$5,000 – $15,000", "$15,000 – $50,000", "$50,000+"];
@@ -49,7 +50,7 @@ export default function ContactForm() {
       if (!res.ok) throw new Error();
       setSuccess(true);
     } catch {
-      setError("Something went wrong. Email us at contact@amextechnology.com");
+      setError("Something went wrong. Email us at abhipatel8675@gmail.com");
     } finally {
       setLoading(false);
     }

@@ -32,7 +32,7 @@ export default function ContactPage() {
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
 
       {/* Hero */}
-      <section className="pt-8 pb-16 max-w-6xl mx-auto px-6">
+      <section className="pt-8 pb-16 max-w-7xl mx-auto px-6">
         <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
           Contact Us
         </p>
@@ -46,7 +46,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main content */}
-      <section className="pb-28 max-w-6xl mx-auto px-6">
+      <section className="pb-28 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Form */}
           <div className="lg:col-span-3 bg-white/[0.02] border border-white/[0.07] rounded-2xl p-8 md:p-10">
@@ -67,10 +67,10 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm font-medium text-slate-500 mb-1">Email</p>
                     <a
-                      href="mailto:contact@amextechnology.com"
+                      href="mailto:abhipatel8675@gmail.com"
                       className="text-base text-slate-300 hover:text-white transition-colors"
                     >
-                      contact@amextechnology.com
+                      abhipatel8675@gmail.com
                     </a>
                   </div>
                 </div>

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Globe, LayoutDashboard, Smartphone, Layers, Rocket, Palette } from "lucide-react";
+import { ArrowRight, Globe, LayoutDashboard, Smartphone, Layers, Rocket, Palette, Search, Brain } from "lucide-react";
 
 const services = [
   {
@@ -54,6 +54,22 @@ const services = [
     href: "/services#ui-ux-design",
     accent: "#D946EF",
   },
+  {
+    icon: Search,
+    title: "SEO Services",
+    desc: "Rank higher, get found, and drive compounding organic traffic. We handle technical SEO, on-page optimization, and content strategy from audit to execution.",
+    technologies: ["Technical SEO", "On-Page SEO", "Content Strategy", "Core Web Vitals", "Schema Markup", "Link Building"],
+    href: "/services#seo-services",
+    accent: "#22C55E",
+  },
+  {
+    icon: Brain,
+    title: "AI Services",
+    desc: "Custom AI automation and intelligent workflows that save time, cut costs, and scale your operations — from no-code automations to full AI-powered product builds.",
+    technologies: ["n8n", "Zapier", "Make", "OpenAI", "LangChain", "Custom AI Agents"],
+    href: "/services#ai-services",
+    accent: "#A855F7",
+  },
 ];
 
 export default function ServicesPreview() {
@@ -96,7 +112,7 @@ export default function ServicesPreview() {
         }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16">
           <motion.div
@@ -113,7 +129,7 @@ export default function ServicesPreview() {
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-lg"
               style={{ letterSpacing: "-0.025em" }}>
-              Six Ways We Build<br />Your Product.
+              Eight Ways We Build<br />Your Product.
             </h2>
           </motion.div>
           <Link

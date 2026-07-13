@@ -40,17 +40,18 @@ export default function BrowserMockup({
         </div>
       </div>
       {/* Viewport */}
-      <div className="relative overflow-hidden" style={{ aspectRatio }}>
+      <div className="relative overflow-hidden">
         {src ? (
           <Image
             src={src}
             alt={alt}
-            fill
-            className="object-cover object-top"
+            width={1280}
+            height={800}
+            style={{ width: "100%", height: "auto", display: "block" }}
             unoptimized={src.startsWith("http")}
           />
         ) : (
-          children
+          <div style={{ aspectRatio }}>{children}</div>
         )}
       </div>
     </div>

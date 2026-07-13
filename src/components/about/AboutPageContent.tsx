@@ -41,7 +41,7 @@ export default function AboutPageContent() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative max-w-6xl mx-auto px-6"
+          className="relative max-w-7xl mx-auto px-6"
         >
           <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">About Us</p>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-7 leading-tight max-w-3xl">
@@ -58,7 +58,7 @@ export default function AboutPageContent() {
 
       {/* Stats strip */}
       <section className="border-y border-white/[0.06]" style={{ background: "linear-gradient(180deg, rgba(99,102,241,0.04), rgba(99,102,241,0.02))" }}>
-        <div className="max-w-6xl mx-auto px-6 py-14">
+        <div className="max-w-7xl mx-auto px-6 py-14">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-0 md:divide-x md:divide-white/[0.06]">
             {[
               { value: "2019", label: "Founded", sub: "Est. 6 years ago" },
@@ -84,7 +84,7 @@ export default function AboutPageContent() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-32 max-w-6xl mx-auto px-6">
+      <section className="py-32 max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-6">
           {[
             {
@@ -118,7 +118,7 @@ export default function AboutPageContent() {
 
       {/* Expertise + Values */}
       <section className="py-32 border-t border-white/[0.06]" style={{ background: "linear-gradient(180deg, #0B0F19, #0D1220, #0B0F19)" }}>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             {/* Expertise */}
             <motion.div
@@ -173,7 +173,7 @@ export default function AboutPageContent() {
 
       {/* Tech Stack */}
       <section className="py-32 border-t border-white/[0.06]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -12,7 +12,7 @@ type BreadcrumbProps = {
 
 export default function Breadcrumb({ items }: BreadcrumbProps) {
   return (
-    <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-6 pt-20 pb-0">
+    <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-6 pt-20 pb-0">
       <ol className="flex flex-wrap items-center gap-1 text-xs text-slate-500">
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-1">

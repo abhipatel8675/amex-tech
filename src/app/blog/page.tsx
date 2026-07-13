@@ -38,7 +38,7 @@ export default function BlogPage() {
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
       {/* Hero */}
-      <section className="pt-8 pb-16 max-w-6xl mx-auto px-6">
+      <section className="pt-8 pb-16 max-w-7xl mx-auto px-6">
         <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
           From the Team
         </p>
@@ -52,7 +52,7 @@ export default function BlogPage() {
 
       {/* Featured post */}
       {featured && (
-        <section className="pb-12 max-w-6xl mx-auto px-6">
+        <section className="pb-12 max-w-7xl mx-auto px-6">
           <Link
             href={`/blog/${featured.slug}`}
             className="group block rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300"
@@ -99,7 +99,7 @@ export default function BlogPage() {
       )}
 
       {/* Post grid */}
-      <section className="pb-28 max-w-6xl mx-auto px-6">
+      <section className="pb-28 max-w-7xl mx-auto px-6">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {rest.map((post) => (
             <Link

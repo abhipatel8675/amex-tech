@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     template: "%s | Amex Technology",
   },
   description:
-    "Amex Technology is a premium software development agency with 5+ years of experience and 200+ projects delivered. We build scalable web apps, mobile apps, and SaaS platforms for startups and enterprises.",
+    "Amex Technology is a premium software development agency with 5+ years of experience and 200+ projects delivered. We build scalable web apps, mobile apps, SaaS platforms, and provide SEO services and AI automation for startups and enterprises.",
   keywords:
-    "software development agency, web development, mobile app development, SaaS development, Next.js, React, TypeScript, API development, DevOps, UI/UX design",
+    "software development agency, web development, mobile app development, SaaS development, Next.js, React, TypeScript, API development, DevOps, UI/UX design, SEO services, AI automation, n8n, Zapier, workflow automation, technical SEO, search engine optimization",
   authors: [{ name: "Amex Technology" }],
   openGraph: {
     type: "website",
@@ -64,7 +64,7 @@ const organizationSchema = {
   url: "https://amextechnology.com",
   logo: "https://amextechnology.com/images/logo.png",
   foundingDate: "2019",
-  email: "contact@amextechnology.com",
+  email: "abhipatel8675@gmail.com",
   address: {
     "@type": "PostalAddress",
     addressCountry: "IN",
@@ -76,11 +76,6 @@ const organizationSchema = {
       opens: "09:00",
       closes: "20:00",
     },
-  ],
-  sameAs: [
-    "https://www.linkedin.com/company/amextechnology",
-    "https://github.com/amextechnology",
-    "https://twitter.com/amextechnology",
   ],
 };
 

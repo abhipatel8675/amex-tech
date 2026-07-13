@@ -26,7 +26,7 @@ export default function StatsBar() {
         className="py-14"
         style={{ background: "linear-gradient(180deg, rgba(99,102,241,0.04) 0%, rgba(99,102,241,0.02) 100%)" }}
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-0 lg:divide-x lg:divide-white/[0.06]">
             {stats.map((stat, i) => (
               <motion.div

@@ -39,17 +39,18 @@ export default function PhoneMockup({
           </div>
         </div>
         {/* Screen */}
-        <div className="relative overflow-hidden" style={{ aspectRatio: "9/16" }}>
+        <div className="relative overflow-hidden">
           {src ? (
             <Image
               src={src}
               alt={alt}
-              fill
-              className="object-cover object-top"
+              width={390}
+              height={844}
+              style={{ width: "100%", height: "auto", display: "block" }}
               unoptimized={src.startsWith("http")}
             />
           ) : (
-            children
+            <div style={{ aspectRatio: "9/16" }}>{children}</div>
           )}
         </div>
         {/* Home bar */}

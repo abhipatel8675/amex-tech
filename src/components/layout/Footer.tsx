@@ -17,6 +17,8 @@ const serviceLinks = [
   { label: "SaaS Development", href: "/services#saas-development" },
   { label: "DevOps & Cloud", href: "/services#devops-deployment" },
   { label: "UI/UX Design", href: "/services#ui-ux-design" },
+  { label: "SEO Services", href: "/services#seo-services" },
+  { label: "AI Services", href: "/services#ai-services" },
 ];
 
 export default function Footer() {
@@ -32,7 +34,7 @@ export default function Footer() {
           style={{ background: "linear-gradient(90deg, transparent, #6366F1, transparent)" }}
         />
 
-        <div className="relative max-w-6xl mx-auto px-6 pt-16 pb-10">
+        <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-10">
           {/* Main grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
 
@@ -120,11 +122,11 @@ export default function Footer() {
                     Email
                   </p>
                   <a
-                    href="mailto:contact@amextechnology.com"
+                    href="mailto:abhipatel8675@gmail.com"
                     className="text-sm flex items-center gap-1.5 transition-colors group"
                     style={{ color: "rgba(148,163,184,0.65)" }}
                   >
-                    contact@amextechnology.com
+                    abhipatel8675@gmail.com
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </div>
