@@ -46,7 +46,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-20 lg:py-28">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 lg:py-28">
         <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 xl:gap-20 items-center">
 
           {/* ─── LEFT: Content ─── */}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 
-// Only the 6 main services
+// Main services shown on the page
 const mainServiceSlugs = [
   "web-development",
   "web-app-development",
@@ -12,6 +12,8 @@ const mainServiceSlugs = [
   "saas-development",
   "devops-deployment",
   "ui-ux-design",
+  "seo-services",
+  "ai-services",
 ];
 
 // Inline SVG illustrations per service
@@ -193,6 +195,73 @@ function UIUXIllustration() {
   );
 }
 
+function SEOIllustration() {
+  return (
+    <svg viewBox="0 0 280 180" fill="none" className="w-full h-full" aria-hidden>
+      {/* Search bar */}
+      <rect x="20" y="20" width="200" height="28" rx="14" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.25)" strokeWidth="1.5" />
+      <circle cx="38" cy="34" r="7" stroke="rgba(34,197,94,0.5)" strokeWidth="1.5" fill="none" />
+      <line x1="43" y1="39" x2="47" y2="43" stroke="rgba(34,197,94,0.5)" strokeWidth="1.5" strokeLinecap="round" />
+      <rect x="54" y="28" width="80" height="12" rx="3" fill="rgba(34,197,94,0.12)" />
+      {/* Rank #1 badge */}
+      <rect x="234" y="20" width="28" height="28" rx="8" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)" strokeWidth="1.5" />
+      <text x="248" y="38" textAnchor="middle" style={{ fontSize: 12, fill: "#22c55e", fontWeight: 700 }}>#1</text>
+      {/* Search result rows */}
+      {[60, 90, 120, 150].map((y, i) => (
+        <g key={y}>
+          <rect x="20" y={y} width="240" height="22" rx="4" fill={i === 0 ? "rgba(34,197,94,0.07)" : "rgba(255,255,255,0.02)"} stroke={i === 0 ? "rgba(34,197,94,0.2)" : "rgba(255,255,255,0.05)"} strokeWidth="1" />
+          <rect x="28" y={y + 7} width={i === 0 ? 100 : 80 - i * 10} height="8" rx="2" fill={i === 0 ? "rgba(34,197,94,0.35)" : "rgba(255,255,255,0.08)"} />
+          <rect x="28" y={y + 7} width="6" height="8" rx="1" fill={i === 0 ? "rgba(34,197,94,0.6)" : "rgba(255,255,255,0.12)"} />
+          <text x="30" y={y + 15} style={{ fontSize: 7, fill: i === 0 ? "#22c55e" : "rgba(100,116,139,0.6)" }}>#{i + 1}</text>
+        </g>
+      ))}
+      {/* Upward trend arrow */}
+      <motion.path
+        d="M220 155 L235 135 L250 125"
+        stroke="rgba(34,197,94,0.6)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeDasharray="4 4"
+        animate={{ strokeDashoffset: [0, -8] }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
+      />
+      <circle cx="250" cy="125" r="4" fill="rgba(34,197,94,0.5)" />
+    </svg>
+  );
+}
+
+function AIIllustration() {
+  return (
+    <svg viewBox="0 0 280 180" fill="none" className="w-full h-full" aria-hidden>
+      {/* Central brain/AI node */}
+      <circle cx="140" cy="90" r="28" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.3)" strokeWidth="1.5" />
+      <circle cx="140" cy="90" r="16" fill="rgba(168,85,247,0.12)" stroke="rgba(168,85,247,0.4)" strokeWidth="1" />
+      <text x="140" y="95" textAnchor="middle" style={{ fontSize: 14, fill: "rgba(168,85,247,0.9)" }}>AI</text>
+      {/* Tool nodes around it */}
+      {[
+        { cx: 55,  cy: 45,  label: "n8n",    color: "#a855f7" },
+        { cx: 225, cy: 45,  label: "Zapier", color: "#a855f7" },
+        { cx: 30,  cy: 130, label: "Make",   color: "#a855f7" },
+        { cx: 250, cy: 130, label: "GPT",    color: "#a855f7" },
+        { cx: 140, cy: 155, label: "Agents", color: "#a855f7" },
+      ].map(({ cx, cy, label, color }, i) => (
+        <g key={i}>
+          <motion.line
+            x1={cx} y1={cy} x2={140} y2={90}
+            stroke={`rgba(168,85,247,0.2)`}
+            strokeWidth="1"
+            strokeDasharray="4 4"
+            animate={{ strokeDashoffset: [0, -8] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: "linear", delay: i * 0.2 }}
+          />
+          <rect x={cx - 22} y={cy - 12} width={44} height={24} rx="6" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.25)" strokeWidth="1" />
+          <text x={cx} y={cy + 5} textAnchor="middle" style={{ fontSize: 8, fill: color, opacity: 0.9 }}>{label}</text>
+        </g>
+      ))}
+    </svg>
+  );
+}
+
 const serviceIllustrations: Record<string, React.ComponentType> = {
   "web-development": WebsiteIllustration,
   "web-app-development": WebAppIllustration,
@@ -200,6 +269,8 @@ const serviceIllustrations: Record<string, React.ComponentType> = {
   "saas-development": SaaSIllustration,
   "devops-deployment": DevOpsIllustration,
   "ui-ux-design": UIUXIllustration,
+  "seo-services": SEOIllustration,
+  "ai-services": AIIllustration,
 };
 
 import { services } from "@/data/services";
@@ -217,7 +288,7 @@ export default function ServicesPageContent() {
           style={{ background: "radial-gradient(ellipse, #6366F1, transparent 70%)" }}
         />
 
-        <div className="relative max-w-6xl mx-auto px-6">
+        <div className="relative max-w-7xl mx-auto px-6">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -230,7 +301,7 @@ export default function ServicesPageContent() {
         </div>
 
         {/* Display heading */}
-        <div className="max-w-6xl mx-auto px-6 mb-5">
+        <div className="max-w-7xl mx-auto px-6 mb-5">
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -245,7 +316,7 @@ export default function ServicesPageContent() {
           </motion.h1>
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-6 pb-8">
+        <div className="relative max-w-7xl mx-auto px-6 pb-8">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -259,7 +330,7 @@ export default function ServicesPageContent() {
       </section>
 
       {/* Services — alternating layout */}
-      <section className="pb-32 max-w-6xl mx-auto px-6">
+      <section className="pb-32 max-w-7xl mx-auto px-6">
         <div className="flex flex-col gap-0">
           {mainServices.map((service, i) => {
             const Illustration = serviceIllustrations[service.slug];

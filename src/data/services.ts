@@ -139,6 +139,38 @@ export const services: Service[] = [
     iconName: "Palette",
   },
   {
+    slug: "seo-services",
+    title: "SEO Services",
+    shortDesc: "Rank higher, get found, and drive compounding organic traffic.",
+    description:
+      "We handle the full SEO lifecycle — from deep technical audits and on-page optimization to content strategy and link building. Whether you're starting from scratch or scaling an existing presence, we build the foundation for sustainable organic growth.",
+    technologies: ["Technical SEO", "On-Page SEO", "Content Strategy", "Core Web Vitals", "Schema Markup", "Google Search Console"],
+    benefits: [
+      "Technical SEO audit & issue remediation",
+      "On-page optimization across all key pages",
+      "Content and keyword strategy built around intent",
+      "Core Web Vitals and page speed optimization",
+    ],
+    accentColor: "#22c55e",
+    iconName: "Search",
+  },
+  {
+    slug: "ai-services",
+    title: "AI Services",
+    shortDesc: "Custom AI automation and intelligent workflows that scale your operations.",
+    description:
+      "We design and build AI-powered systems that eliminate repetitive work, automate complex workflows, and create intelligent tools unique to your business. From no-code automation with n8n, Zapier, and Make to full custom AI agent builds — we bridge the gap between AI capability and business value.",
+    technologies: ["n8n", "Zapier", "Make", "OpenAI API", "LangChain", "Custom AI Agents"],
+    benefits: [
+      "End-to-end workflow automation with n8n, Zapier & Make",
+      "Custom GPT and AI agent builds tailored to your business",
+      "AI-powered content, email, and data processing pipelines",
+      "Seamless integration with your existing tools and CRMs",
+    ],
+    accentColor: "#a855f7",
+    iconName: "Brain",
+  },
+  {
     slug: "maintenance-support",
     title: "Maintenance & Support",
     shortDesc: "Ongoing technical support to keep your product healthy.",

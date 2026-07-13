@@ -7,7 +7,7 @@ import { ArrowRight, Clock } from "lucide-react";
 export default function CTASection() {
   return (
     <section className="py-32 border-t border-white/[0.06]">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -349,7 +349,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
       {/* ─── Gallery ─── */}
       {project.gallery && project.gallery.length > 0 && (
-        <section className="pb-28 max-w-5xl mx-auto px-6">
+        <section className="pb-28 max-w-6xl mx-auto px-6">
           <CaseStudyGallery
             gallery={project.gallery}
             isMobile={isMobile}

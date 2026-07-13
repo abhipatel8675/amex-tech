@@ -52,7 +52,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
         </div>
 
         {isMobile ? (
-          <div className="flex justify-center py-4">
+          <div className="flex justify-center items-end h-72 overflow-hidden">
             <motion.div style={{ y: imgY }}>
               <PhoneMockup
                 src={project.image}
@@ -62,8 +62,8 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
             </motion.div>
           </div>
         ) : (
-          <div className="relative overflow-hidden rounded-t-lg">
-            <motion.div style={{ y: imgY }}>
+          <div className="relative overflow-hidden rounded-t-lg h-72 flex items-end">
+            <motion.div style={{ y: imgY }} className="w-full">
               <BrowserMockup
                 src={project.image}
                 alt={project.title}
@@ -127,7 +127,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
 export default function FeaturedProjects() {
   return (
     <section className="py-28 md:py-36 border-t border-white/[0.06]">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

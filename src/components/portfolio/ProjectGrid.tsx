@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
@@ -15,6 +16,7 @@ function isMobileProject(category: string) {
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   const [hovered, setHovered] = useState(false);
   const mobile = isMobileProject(project.category);
+  const router = useRouter();
 
   return (
     <motion.div
@@ -23,9 +25,10 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.22 }}
-      className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden flex flex-col transition-all duration-300"
+      className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden flex flex-col transition-all duration-300 cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => router.push(`/portfolio/${project.slug}`)}
       style={{
         boxShadow: hovered ? "0 20px 50px rgba(0,0,0,0.45)" : undefined,
         borderColor: hovered ? "rgba(255,255,255,0.13)" : undefined,
@@ -138,6 +141,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center gap-1.5 text-sm font-semibold px-4 py-2.5 rounded-xl border"
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
@@ -185,6 +189,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         <div className="flex items-center justify-between pt-4 mt-auto border-t border-white/[0.06]">
           <Link
             href={`/portfolio/${project.slug}`}
+            onClick={(e) => e.stopPropagation()}
             className="flex items-center gap-1.5 text-sm font-semibold group/cs"
             style={{ color: "rgba(148,163,184,0.8)" }}
           >
@@ -197,6 +202,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

@@ -114,14 +114,14 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
                 onClick={() => setLightboxIdx(i + 1)}
                 className="group relative rounded-xl overflow-hidden border border-white/[0.07] cursor-zoom-in focus:outline-none"
               >
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                </div>
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={800}
+                  height={600}
+                  style={{ width: "100%", height: "auto", display: "block" }}
+                  className="transition-transform duration-500 group-hover:scale-[1.02]"
+                />
               </button>
             ))}
             {hasBeforeAfter && (
@@ -171,19 +171,21 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
 
       {/* Tier 4: Supporting gallery (masonry) */}
       {supporting.length > 0 && (
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className={`grid gap-4 ${isMobile ? "grid-cols-2 sm:grid-cols-3" : "sm:grid-cols-2"}`}>
           {supporting.map((img, i) => (
             <button
               key={i}
               onClick={() => setLightboxIdx(i + (isMobile ? 1 : 3))}
-              className="group relative rounded-xl overflow-hidden border border-white/[0.07] text-left cursor-zoom-in focus:outline-none"
+              className="group relative rounded-xl overflow-hidden border border-white/[0.07] text-left cursor-zoom-in focus:outline-none flex flex-col"
             >
-              <div className="relative aspect-[4/3]">
+              <div className="relative overflow-hidden">
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                  width={isMobile ? 390 : 800}
+                  height={isMobile ? 844 : 600}
+                  style={{ width: "100%", height: "auto", display: "block" }}
+                  className="transition-transform duration-500 group-hover:scale-[1.02]"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
