@@ -29,7 +29,7 @@ export default function TermsPage() {
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Terms of Service" }]} />
 
       {/* Hero */}
-      <section className="pt-8 pb-10 max-w-3xl mx-auto px-6">
+      <section className="pt-8 pb-10 max-w-[92rem] mx-auto px-6">
         <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
           Legal
         </p>
@@ -42,7 +42,7 @@ export default function TermsPage() {
       </section>
 
       {/* Content */}
-      <article className="pb-28 max-w-3xl mx-auto px-6">
+      <article className="pb-28 max-w-[92rem] mx-auto px-6">
         <div className="border-t border-white/[0.06] pt-10 flex flex-col gap-12">
 
           {/* 1 — Acceptance */}

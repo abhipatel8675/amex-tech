@@ -169,9 +169,7 @@ export default async function BlogPostPage({ params }: Props) {
           )}
         </div>
 
-        {/* Prose content + inline sections — constrained reading width */}
-        <div className="max-w-3xl mx-auto">
-          <BlogPostContent html={markdownToHtml(post.content)} />
+        <BlogPostContent html={markdownToHtml(post.content)} />
 
           {/* Related Services */}
           {getRelatedServices(post.tags, post.category).length > 0 && (
@@ -219,7 +217,6 @@ export default async function BlogPostPage({ params }: Props) {
               Start a Project <ArrowLeft className="w-3.5 h-3.5 rotate-180" />
             </Link>
           </div>
-        </div>
 
         {/* Related posts */}
         {relatedPosts.length > 0 && (
