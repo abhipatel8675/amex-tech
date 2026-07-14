@@ -93,13 +93,13 @@ export default function Hero() {
             </motion.div>
 
             {/* Headline — word by word */}
-            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold leading-[1.04] tracking-[-0.03em] mb-8">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-[-0.03em] mb-8">
               <span className="block text-white">
                 <WordSpan word="We" index={0} />
                 <WordSpan word="Build" index={1} />
               </span>
               <span
-                className="block"
+                className="block pb-[0.12em]"
                 style={{
                   background: "linear-gradient(135deg, #818CF8 0%, #A78BFA 50%, #C4B5FD 100%)",
                   WebkitBackgroundClip: "text",

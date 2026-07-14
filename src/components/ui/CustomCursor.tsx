@@ -58,15 +58,15 @@ export default function CustomCursor() {
     >
       <motion.div
         animate={{
-          width: hovered ? 40 : 16,
-          height: hovered ? 40 : 16,
+          width: hovered ? 38 : 12,
+          height: hovered ? 38 : 12,
           opacity: visible ? 1 : 0,
-          backgroundColor: hovered ? "rgba(255,255,255,0.12)" : "rgba(99,102,241,0.7)",
-          borderColor: hovered ? "rgba(255,255,255,0.3)" : "rgba(99,102,241,0.4)",
+          backgroundColor: hovered ? "rgba(129,140,248,0)" : "rgba(129,140,248,0.75)",
+          borderColor: hovered ? "rgba(165,180,252,0.6)" : "rgba(129,140,248,0)",
+          borderWidth: hovered ? 1.5 : 0,
         }}
         transition={{ type: "spring", stiffness: 400, damping: 28 }}
-        className="rounded-full border"
-        style={{ backdropFilter: hovered ? "blur(4px)" : undefined }}
+        className="rounded-full border border-solid"
       />
     </motion.div>
   );

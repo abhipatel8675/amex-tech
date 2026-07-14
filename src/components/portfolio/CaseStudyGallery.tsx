@@ -71,9 +71,15 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
       {/* Tier 1: Feature showcase */}
       <div className="space-y-4">
         {isMobile ? (
-          <div className="flex justify-center gap-8">
-            <PhoneMockup src={featureItem.src} alt={featureItem.alt} tiltDeg={-5} />
-            {sideBySide[0] && <PhoneMockup src={sideBySide[0].src} alt={sideBySide[0].alt} tiltDeg={5} />}
+          <div className="flex justify-center gap-6 sm:gap-8">
+            <div className="shrink-0">
+              <PhoneMockup src={featureItem.src} alt={featureItem.alt} tiltDeg={-5} />
+            </div>
+            {sideBySide[0] && (
+              <div className="shrink-0">
+                <PhoneMockup src={sideBySide[0].src} alt={sideBySide[0].alt} tiltDeg={5} />
+              </div>
+            )}
           </div>
         ) : (
           <BrowserMockup

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
+import { LogoMark } from "@/components/ui/Logo";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -86,19 +87,22 @@ export default function Footer() {
 
             {/* Brand column */}
             <div>
-              <Link href="/" className="flex items-center gap-1 mb-5">
-                <span
-                  className="font-bold text-xl tracking-tight"
-                  style={{
-                    background: "linear-gradient(135deg, #818CF8, #A78BFA)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  Amex
+              <Link href="/" className="flex items-center gap-2 mb-5">
+                <LogoMark size={32} />
+                <span className="flex items-baseline gap-1">
+                  <span
+                    className="font-bold text-xl tracking-tight"
+                    style={{
+                      background: "linear-gradient(135deg, #818CF8, #A78BFA)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    Amex
+                  </span>
+                  <span className="text-white font-semibold text-xl tracking-tight">Technology</span>
                 </span>
-                <span className="text-white font-semibold text-xl tracking-tight">Technology</span>
               </Link>
               <p className="text-sm leading-7 mb-5 max-w-[220px]" style={{ color: "rgba(148,163,184,0.7)" }}>
                 Building digital products that drive real business growth.
