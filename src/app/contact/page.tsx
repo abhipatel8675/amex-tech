@@ -8,7 +8,7 @@ import { Mail, Clock, MessageSquare, ShieldCheck, Gift, ChevronRight } from "luc
 export const metadata: Metadata = {
   title: "Start a Project — Get a Free Quote",
   description:
-    "Ready to build something great? Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 4 hours with an honest plan.",
+    "Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 4 hours.",
   alternates: {
     canonical: "https://amextechnology.com/contact",
   },
@@ -32,6 +32,31 @@ const breadcrumbSchema = {
     { "@type": "ListItem", position: 1, name: "Home", item: "https://amextechnology.com" },
     { "@type": "ListItem", position: 2, name: "Contact", item: "https://amextechnology.com/contact" },
   ],
+};
+
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Amex Technology",
+  url: "https://amextechnology.com/contact",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Amex Technology",
+    url: "https://amextechnology.com",
+    email: "abhipatel8675@gmail.com",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: "abhipatel8675@gmail.com",
+      availableLanguage: "English",
+      hoursAvailable: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "09:00",
+        closes: "20:00",
+      },
+    },
+  },
 };
 
 const trustItems = [
@@ -82,10 +107,22 @@ const faqItems = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function ContactPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
 

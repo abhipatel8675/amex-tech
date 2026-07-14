@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
 import ProjectGrid from "@/components/portfolio/ProjectGrid";
 import Breadcrumb from "@/components/ui/Breadcrumb";
+import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Portfolio — Client Case Studies",
@@ -34,10 +35,27 @@ const breadcrumbSchema = {
   ],
 };
 
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Portfolio — Client Case Studies",
+  url: "https://amextechnology.com/portfolio",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: projects.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://amextechnology.com/portfolio/${p.slug}`,
+      name: p.title,
+    })),
+  },
+};
+
 export default function PortfolioPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <Navbar />
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Portfolio" }]} />
 
@@ -60,12 +78,12 @@ export default function PortfolioPage() {
               letterSpacing: "-0.03em",
             }}
           >
-            Selected Work.
+            Software Development Case Studies.
           </h1>
         </div>
         <div className="max-w-[92rem] mx-auto px-6 pb-12">
           <p className="text-xl max-w-xl leading-8" style={{ color: "rgba(203,213,225,0.75)" }}>
-            7 projects shipped across SaaS, AI, mobile, and web — each one solving a real business problem for a real client.
+            {projects.length} projects shipped across SaaS, AI, mobile, and web — each one solving a real business problem for a real client.
           </p>
         </div>
       </section>

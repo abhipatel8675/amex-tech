@@ -13,9 +13,9 @@ import CTASection from "@/components/home/CTASection";
 import FAQSection from "@/components/home/FAQSection";
 
 export const metadata: Metadata = {
-  title: "Amex Technology — Software Development Agency",
+  title: { absolute: "Amex Technology — Software Development Agency" },
   description:
-    "Amex Technology is a software development agency with 5+ years of experience and 200+ projects delivered. We build web apps, mobile apps, and SaaS platforms for startups and enterprises.",
+    "Software development agency with 5+ years' experience and 200+ projects delivered — web apps, mobile apps and SaaS platforms for startups and enterprises.",
   alternates: {
     canonical: "https://amextechnology.com",
   },

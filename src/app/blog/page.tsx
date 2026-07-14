@@ -37,6 +37,24 @@ const breadcrumbSchema = {
   ],
 };
 
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Engineering Blog — Guides & Tutorials",
+  description:
+    "Architecture decisions, tech stack deep-dives, and practical tutorials from the Amex Technology engineering team.",
+  url: "https://amextechnology.com/blog",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: blogPosts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://amextechnology.com/blog/${post.slug}`,
+      name: post.title,
+    })),
+  },
+};
+
 export default function BlogPage() {
   const featured = blogPosts.find((p) => p.featured);
   const rest = blogPosts.filter((p) => !p.featured);
@@ -44,6 +62,7 @@ export default function BlogPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <Navbar />
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
@@ -53,7 +72,7 @@ export default function BlogPage() {
           From the Team
         </p>
         <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mb-6 leading-tight">
-          Engineering insights and practical guides.
+          Engineering Blog — Guides & Tutorials
         </h1>
         <p className="text-slate-300 text-xl max-w-xl leading-8">
           Architecture decisions, tech stack deep-dives, and lessons from building real products.

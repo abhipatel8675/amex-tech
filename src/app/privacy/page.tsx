@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "July 11, 2026";
-const CONTACT_EMAIL = "contact@amextechnology.com";
+const CONTACT_EMAIL = "abhipatel8675@gmail.com";
 
 export default function PrivacyPage() {
   return (

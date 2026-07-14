@@ -20,10 +20,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
-  if (!project) return { title: "Project Not Found" };
+  if (!project) return { title: "Project Not Found", robots: { index: false, follow: false } };
   return {
     title: `${project.title} — Case Study`,
     description: `${project.shortDesc} See how Amex Technology built ${project.title} — problem, solution, tech stack, and outcomes.`,
+    keywords: project.tags,
     alternates: {
       canonical: `https://amextechnology.com/portfolio/${slug}`,
     },
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${project.title} Case Study | Amex Technology`,
       description: `${project.shortDesc} See how Amex Technology built ${project.title}.`,
       url: `https://amextechnology.com/portfolio/${slug}`,
+      type: "article",
     },
     twitter: {
       title: `${project.title} Case Study | Amex Technology`,
@@ -67,9 +69,30 @@ export default async function ProjectDetailPage({ params }: Props) {
     ],
   };
 
+  const creativeWorkSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    headline: `${project.title} — Case Study`,
+    description: project.shortDesc,
+    url: `https://amextechnology.com/portfolio/${slug}`,
+    image: project.image
+      ? `https://amextechnology.com${project.image}`
+      : `https://amextechnology.com/portfolio/${slug}/opengraph-image`,
+    keywords: project.tags.join(", "),
+    ...(project.liveUrl ? { sameAs: project.liveUrl } : {}),
+    creator: {
+      "@type": "Organization",
+      name: "Amex Technology",
+      url: "https://amextechnology.com",
+    },
+    about: project.technologies,
+  };
+
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeWorkSchema) }} />
       <Navbar />
       <Breadcrumb
         items={[
@@ -158,7 +181,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             <div className="flex justify-center gap-8 pb-4">
               <PhoneMockup
                 src={project.image}
-                alt={`${project.title} app screenshot`}
+                alt={`${project.title} — ${project.shortDesc}`}
                 tiltDeg={-4}
                 className="shadow-2xl"
               />
@@ -174,7 +197,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           ) : (
             <BrowserMockup
               src={project.image}
-              alt={`${project.title} screenshot`}
+              alt={`${project.title} — ${project.shortDesc}`}
               url={project.liveUrl?.replace("https://", "") ?? "project.app"}
               aspectRatio="16/9"
               className="shadow-2xl"

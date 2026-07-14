@@ -11,6 +11,12 @@ export type BlogPost = {
   gradientTo: string;
   featured: boolean;
   image?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  keywords?: string[];
+  author?: { name: string; url?: string };
+  updatedAt?: string;
+  faq?: { question: string; answer: string }[];
 };
 
 export const blogPosts: BlogPost[] = [
@@ -236,6 +242,33 @@ Explore our work and get in touch through the [Portfolio](/portfolio) or reach o
     gradientTo: "#ec4899",
     featured: false,
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-01-18",
+    keywords: ["Replit", "Developer Tools", "Workflow", "download ZIP from Replit", "export Replit project"],
+    metaTitle: "Download a ZIP File From Replit: Step-by-Step Guide",
+    metaDescription: "Export your Replit project as a ZIP using the UI or Git. Step-by-step methods, what's inside the download, and how to fix common errors.",
+    faq: [
+      {
+        question: "Can I download a Repl I don't own?",
+        answer: "No. The download ZIP option is only available to the Repl's owner. If you're a collaborator, ask the owner to export and share the archive with you.",
+      },
+      {
+        question: "Does the ZIP include my Git history?",
+        answer: "No. The ZIP is a snapshot of the current file state, not a Git repository. If you want Git history, use Method 2 (push to GitHub and clone).",
+      },
+      {
+        question: "Will the downloaded project work exactly the same as on Replit?",
+        answer: "Mostly, but not always. Replit may have configured specific environment variables, custom Nix packages, or system-level dependencies that aren't part of the ZIP. Check the .replit and replit.nix files to understand what the Replit environment was providing.",
+      },
+      {
+        question: "How do I keep the local copy in sync with Replit going forward?",
+        answer: "Use GitHub as the source of truth. Push from Replit to GitHub, then pull from GitHub to your local machine. This gives you a proper workflow instead of downloading ZIPs repeatedly.",
+      },
+      {
+        question: "What happens to my Replit Deployments when I move locally?",
+        answer: "Nothing — they keep running. Exporting a ZIP doesn't affect your live Replit Deployments. You'd need to manually take them down from the Replit dashboard if you want to shut them off.",
+      },
+    ],
   },
   {
     slug: "connect-vercel-app-godaddy-domain",
@@ -450,6 +483,33 @@ Explore our work at the [Portfolio](/portfolio) page or get in touch directly vi
     gradientTo: "#6366f1",
     featured: false,
     image: "https://images.unsplash.com/photo-1762163516269-3c143e04175c?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-02-10",
+    keywords: ["Vercel", "GoDaddy", "DNS", "Deployment", "connect GoDaddy domain to Vercel", "custom domain"],
+    metaTitle: "Connect a GoDaddy Domain to Vercel in 5 Minutes",
+    metaDescription: "Point your GoDaddy domain to a Vercel app: exact DNS records, SSL setup, and how to fix propagation issues. A clear 5-minute walkthrough.",
+    faq: [
+      {
+        question: "How long does DNS propagation really take with GoDaddy?",
+        answer: "In most cases, 15–60 minutes. GoDaddy's default TTL is 1 hour, so once your changes are saved, it takes at most one TTL cycle for most resolvers to pick up the change. Setting TTL to the minimum (600 seconds / 10 minutes) before making changes can speed this up.",
+      },
+      {
+        question: "Do I need to transfer my domain from GoDaddy to Vercel?",
+        answer: "No. Vercel does not require you to transfer your domain. You keep your domain registered at GoDaddy and simply point the DNS records at Vercel's infrastructure. Transfers are optional and generally not worth the hassle unless you want everything in one place.",
+      },
+      {
+        question: "Can I connect multiple domains to the same Vercel project?",
+        answer: "Yes. You can add as many custom domains as you like under Settings → Domains in your Vercel project. All of them will serve the same deployment, and each gets its own SSL certificate.",
+      },
+      {
+        question: "What if I'm on Vercel's free (Hobby) plan?",
+        answer: "Custom domains are fully supported on Vercel's free Hobby plan. You can connect one custom domain per project with automatic SSL at no cost. Vercel's paid plans add features like more team members and analytics, but custom domains are not behind a paywall.",
+      },
+      {
+        question: "What happens to my Vercel .vercel.app URL after I add a custom domain?",
+        answer: "It keeps working. Adding a custom domain does not remove your .vercel.app URL — both will serve your project. This is useful for testing during propagation. If you want to disable the .vercel.app URL for security reasons (to prevent direct access), you can do so from the Vercel project settings.",
+      },
+    ],
   },
   {
     slug: "how-to-setup-cloudflare-dns",
@@ -679,6 +739,33 @@ Explore our work at the [Portfolio](/portfolio) page or get in touch directly vi
     gradientTo: "#0ea5e9",
     featured: false,
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=3840&q=100&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-03-05",
+    keywords: ["Cloudflare", "DNS", "Security", "Performance", "Cloudflare DNS setup", "nameservers"],
+    metaTitle: "Cloudflare DNS Setup: Step-by-Step Guide (2026)",
+    metaDescription: "Set up Cloudflare DNS from scratch: add your site, update nameservers, configure SSL/TLS, security, and performance. Full 2026 walkthrough.",
+    faq: [
+      {
+        question: "Do I need to transfer my domain to Cloudflare to use it?",
+        answer: "No. Cloudflare Registrar is optional. You can keep your domain registered anywhere (GoDaddy, Namecheap, Google Domains) and simply update the nameservers to point to Cloudflare. The registrar and the DNS provider are separate roles.",
+      },
+      {
+        question: "Will Cloudflare affect my Google Search Console verification?",
+        answer: "TXT records used for domain verification pass through Cloudflare DNS without issue. As long as the verification TXT record was imported (or you add it manually), Search Console verification works normally.",
+      },
+      {
+        question: "Can I use Cloudflare on a subdomain only?",
+        answer: "Yes, through a feature called Cloudflare for SaaS or by using CNAME setup (available on Business/Enterprise plans). The standard free plan requires you to proxy at the root domain level. For most use cases, adding the full domain is the simpler path.",
+      },
+      {
+        question: "Does enabling the orange cloud hide my real server IP?",
+        answer: "Yes. When a record is proxied, Cloudflare's IP addresses are returned in DNS queries instead of your origin IP. This is one of the key security benefits — it prevents attackers from targeting your origin directly.",
+      },
+      {
+        question: "Is the free plan enough for a production site?",
+        answer: "For most sites, yes. The free plan includes unlimited bandwidth, DDoS protection, the global CDN, free SSL, Bot Fight Mode, and basic firewall rules. The paid plans add more advanced WAF rules, image optimization, analytics, and support. Start with free and upgrade when you hit a specific limitation.",
+      },
+    ],
   },
   {
     slug: "how-to-export-code-from-lovable",
@@ -878,6 +965,33 @@ Explore our work at the [Portfolio](/portfolio) page or get in touch directly vi
     gradientTo: "#8b5cf6",
     featured: false,
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=3840&q=100&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-03-28",
+    keywords: ["Lovable", "No-Code", "GitHub", "Developer Tools", "export code from Lovable", "self-host"],
+    metaTitle: "How to Export Code From Lovable to GitHub",
+    metaDescription: "Export your Lovable project to GitHub or run it locally so you can self-host, extend, or hand it to a developer. Step-by-step guide.",
+    faq: [
+      {
+        question: "Does exporting from Lovable cost anything?",
+        answer: "Exporting to GitHub is available on Lovable's paid plans. Check Lovable's current pricing page for the exact tier that includes GitHub export — it's typically included in the Pro plan.",
+      },
+      {
+        question: "Will my Lovable app keep working after I export?",
+        answer: "Yes. Exporting the code to GitHub doesn't remove or disable your Lovable project. Both the Lovable-hosted version and your exported copy exist independently. You can continue editing in Lovable and syncing to GitHub as needed.",
+      },
+      {
+        question: "Can a developer continue building in Lovable after I export?",
+        answer: "Yes. Because Lovable pushes to a real GitHub repo, a developer can clone the repo, work locally in VS Code or any editor, and push changes back to GitHub. The Lovable editor can also pull those changes back in (with some limitations on heavily customized code).",
+      },
+      {
+        question: "Do I need to keep paying for Lovable after I self-host?",
+        answer: "No. Once you've exported the code and deployed it to your own infrastructure, your app runs independently of Lovable. You only need an active Lovable subscription if you want to continue using the AI editor to make changes.",
+      },
+      {
+        question: "What's the difference between the Lovable export and a Bolt.new or v0.dev export?",
+        answer: "All three generate React code you can export. Lovable's exports tend to be more complete full-stack applications with Supabase integration. Bolt and v0.dev are stronger for UI prototypes. The underlying React/Vite/Tailwind stack is similar across all three.",
+      },
+    ],
   },
   {
     slug: "how-to-setup-resend-email",
@@ -1211,6 +1325,33 @@ If you're building a product that needs reliable email, explore our work at the 
     gradientTo: "#0ea5e9",
     featured: false,
     image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=3840&q=100&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-04-14",
+    keywords: ["Resend", "Email", "Next.js", "Transactional Email", "SPF DKIM DMARC", "React Email"],
+    metaTitle: "Set Up Resend for Transactional Email: Full Guide",
+    metaDescription: "Configure Resend end to end: domain verification, SPF/DKIM DNS records, and sending your first email with Next.js and React Email.",
+    faq: [
+      {
+        question: "Can I use Resend to send marketing emails, not just transactional ones?",
+        answer: "Resend is primarily designed for transactional email — messages triggered by user actions. For bulk marketing campaigns (newsletters, promotional blasts), dedicated platforms like Loops, Buttondown, or ConvertKit are better suited. Resend's terms of service and infrastructure are optimized for transactional volume.",
+      },
+      {
+        question: "Do I need my own domain to use Resend?",
+        answer: "No — you can send from onboarding@resend.dev immediately after creating an account. However, for production use you must add and verify your own domain. Emails from Resend's shared domain will be flagged as suspicious by many email clients for any message that looks like it comes from your product.",
+      },
+      {
+        question: "How does Resend compare to SendGrid on price?",
+        answer: "Resend's free tier (3,000/month) is more generous than SendGrid's (100/day). Resend's paid plans are also simpler and cheaper for most developer use cases. SendGrid has a larger feature set for enterprise scenarios (dedicated IPs, advanced analytics, marketing automation), but for a typical web application Resend's API is cleaner and more affordable.",
+      },
+      {
+        question: "Can I send attachments with Resend?",
+        answer: "Yes. The resend.emails.send method accepts an attachments array where each item has a filename and content (base64-encoded string or Buffer). PDFs, images, and other binary files all work — just keep attachment sizes reasonable to avoid triggering spam filters.",
+      },
+      {
+        question: "What happens to emails in the queue if my server goes down during a send?",
+        answer: "Resend handles delivery retries internally once a message is accepted by their API. If your server crashes before the API call completes, the email is not queued on Resend's side. For guaranteed delivery, consider using a background job queue (BullMQ, Inngest, Trigger.dev) to persist the send intent before making the Resend API call.",
+      },
+    ],
   },
   {
     slug: "connect-nextjs-react-with-supabase",
@@ -1605,7 +1746,34 @@ Explore our work at the [Portfolio](/portfolio) page or get in touch directly vi
     publishedAt: "2025-05-20",
     gradientFrom: "#22c55e",
     gradientTo: "#3b82f6",
-    featured: false,
+    featured: true,
     image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=3840&q=100&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-05-20",
+    keywords: ["Next.js", "React", "Supabase", "Database", "Authentication", "Row Level Security"],
+    metaTitle: "Connect Next.js to Supabase: 2026 Complete Guide",
+    metaDescription: "Integrate Supabase with Next.js or React: database queries, auth, Row Level Security, and real-time subscriptions. Complete 2026 guide.",
+    faq: [
+      {
+        question: "Is the anon key safe to commit to a public repository?",
+        answer: "The anon key is designed to be public — it identifies your project, not your access level. It's safe to expose it in client-side code. What makes it safe is RLS. Without RLS on your tables, the anon key grants full read/write access to all rows, which is why enabling RLS is non-negotiable for any production application.",
+      },
+      {
+        question: "What's the difference between createClient from @supabase/supabase-js and from @supabase/ssr?",
+        answer: "The base createClient stores the session in localStorage, which doesn't work in server environments. The @supabase/ssr variants (createBrowserClient and createServerClient) use cookies instead, enabling the session to be read by both browser and server code in Next.js.",
+      },
+      {
+        question: "Can I use Supabase with a React app that isn't Next.js?",
+        answer: "Yes. The base @supabase/supabase-js client works in any JavaScript environment — Vite, Create React App, React Native, or plain HTML. The @supabase/ssr package is specifically for server-rendering frameworks like Next.js, Remix, and SvelteKit.",
+      },
+      {
+        question: "How do I handle database migrations as my schema changes?",
+        answer: "Supabase integrates with the Supabase CLI and supports migration files that you can version control alongside your application code. Run supabase db diff to generate a migration from schema changes, then supabase db push to apply it. For teams, this is the recommended approach over manually editing tables in the dashboard.",
+      },
+      {
+        question: "Does Supabase support full-text search?",
+        answer: "Yes. PostgreSQL has built-in full-text search using tsvector and tsquery. Supabase exposes this through the .textSearch() method on the query builder. For more advanced search (fuzzy matching, relevance ranking, multi-language), you can use the pg_trgm extension, which Supabase supports out of the box.",
+      },
+    ],
   }
 ];
