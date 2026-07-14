@@ -635,6 +635,141 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "ultra-windows",
+    title: "Ultra Windows",
+    category: "Web",
+    tags: ["Web App", "B2B", "Manufacturing"],
+    shortDesc:
+      "An end-to-end quoting and operations platform for a UK aluminium windows & doors manufacturer.",
+    description:
+      "Ultra Windows is a complete B2B operations platform for a UK aluminium windows-and-doors fabricator. Trade customers and staff configure bespoke products — bifolds, sliders, rooflights, bay windows and more — with live 3D previews and instant pricing, then convert quotes to orders that flow straight into production scheduling, delivery routing, a driver app, stock, and Sage accounting.",
+    problem:
+      "Bespoke window and door manufacturers rely on manual, error-prone quoting in spreadsheets and email, disconnected from pricing, production, delivery and accounting. Complex configurations make accurate quotes slow, and there's no self-serve channel for trade customers or real-time visibility for drivers and office staff.",
+    solution:
+      "We designed and built a unified platform where accurate, visual, priced configurations are produced right in the browser with live 3D previews, then flow straight into orders — driving production scheduling, delivery routing and driver dispatch, and Sage 200 accounting. Role-scoped access serves office staff, trade customers and drivers, all backed by Supabase with row-level security.",
+    results: [
+      "In-browser configurators with live 3D previews for 13+ bespoke product types",
+      "Instant, customer-specific pricing and one-click quote-to-order conversion",
+      "Route Master logistics with Mapbox route planning and a dedicated driver app",
+      "Sage 200 accounting integration plus a self-serve trade customer portal",
+    ],
+    technologies: ["React", "TypeScript", "Vite", "Supabase", "Three.js", "Tailwind CSS", "Mapbox"],
+    gradientFrom: "#f97316",
+    gradientTo: "#c2410c",
+    featured: false,
+    liveUrl: "https://ultrawindows.co.uk",
+    image: "/images/portfolio/ultra-windows.png",
+    gallery: [
+      {
+        src: "/images/portfolio/ultra-windows/ss-1.png",
+        alt: "Ultra Windows — branded, print-ready quote sheet with line items, VAT and total",
+        caption: "Branded, print-ready quotes generated straight from the configurator",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/ultra-windows/ss-2.png",
+        alt: "Ultra Windows — window configurator: dimensions, frame system and window-style grid",
+        caption: "Bespoke window configurator — dimensions, frame system and style grid",
+      },
+      {
+        src: "/images/portfolio/ultra-windows/ss-3.png",
+        alt: "Ultra Windows — per-pane options: opening direction, RAL frame colours and cill",
+        caption: "Per-pane options — opening direction, RAL frame colours and cill",
+      },
+      {
+        src: "/images/portfolio/ultra-windows/ss-4.png",
+        alt: "Ultra Windows — glass type, u-values, blinds and glazing add-ons",
+        caption: "Glazing choices — glass type, u-values, blinds and add-ons",
+      },
+      {
+        src: "/images/portfolio/ultra-windows/ss-5.png",
+        alt: "Ultra Windows — full style grid with multi-pane configuration and per-pane sizing",
+        caption: "Full style grid with multi-pane configuration and per-pane sizing",
+      },
+      {
+        src: "/images/portfolio/ultra-windows/ss-6.png",
+        alt: "Ultra Windows — bay-window configurator with angle and survey inputs",
+        caption: "Bay-window configurator with angle and on-site survey inputs",
+      },
+    ],
+  },
+  {
+    slug: "wolfe-property",
+    title: "Wolfe Property Portal",
+    category: "Web",
+    tags: ["Web App", "PropTech", "FinTech"],
+    shortDesc:
+      "A gated client portal and property-investment calculator for a New Zealand property-coaching firm.",
+    description:
+      "Wolfe Property Portal is a client portal for a New Zealand property-investment coaching business. It guides prospects through a qualification funnel and gives approved clients an interactive calculator that models 15-year cash flow, top-ups, yield and ROI for rental deals — comparing an 'as-is' scenario against an optimized 'Cashflow Hacking' one.",
+    problem:
+      "The coaching business ran its property-investment math in a Google Sheet — not scalable, not client-friendly, and impossible to gate behind qualification. Prospects also needed to be qualified on usable equity before consuming valuable coaching time.",
+    solution:
+      "We built a Next.js portal that reproduces the spreadsheet's calculations exactly — verified to within ±$1 by a 26-test suite — inside an interactive live-preview UI, and wrapped it in a funnel that captures leads, auto-computes equity qualification and programme tier, and routes clients through admin approval before granting dashboard access. Client records and approvals live in Notion so non-technical staff can run it.",
+    results: [
+      "Spreadsheet-parity investment calculator verified to ±$1 across a 26-test suite",
+      "15-year cash-flow model with NZ tax, GST and depreciation, and a two-scenario comparison",
+      "Equity-qualification onboarding funnel with automatic programme tiering",
+      "Passwordless magic-link auth with admin approval gating and a Notion-backed CRM",
+    ],
+    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "Notion API", "Tailwind CSS"],
+    gradientFrom: "#db2777",
+    gradientTo: "#111827",
+    featured: false,
+    liveUrl: "https://portal.wolfeproperty.co.nz",
+    image: "/images/portfolio/wolfe-property.png",
+  },
+  {
+    slug: "emigo",
+    title: "EmiGo",
+    category: "Mobile App",
+    tags: ["Mobile App", "Accessibility", "Events"],
+    shortDesc:
+      "An accessibility-first events app that helps people find and RSVP to genuinely accessible experiences.",
+    description:
+      "EmiGo is a mobile app that makes accessibility a first-class part of discovering local events. Attendees browse, search and filter events by accessibility features — wheelchair access, ASL, sensory-friendly, free — RSVP with their specific needs and group size, and save favorites. Organizers get their own side of the app to publish accessibility-aware events and manage RSVPs.",
+    problem:
+      "Finding events that genuinely accommodate accessibility needs is hard. Standard event apps rarely say whether a venue is wheelchair-accessible, ASL-interpreted, sensory-friendly or free — leaving people to guess, call ahead, or miss out entirely.",
+    solution:
+      "We built EmiGo around accessibility as core metadata, not an afterthought. Every event surfaces accessibility badges and can be filtered by them, attendees RSVP with specific accessibility requests and group details, and organizers publish accessibility-aware events and receive those requests directly — all in a fast, native mobile experience.",
+    results: [
+      "Accessibility-first discovery — filter by wheelchair, ASL, sensory-friendly, free and more",
+      "Group RSVP capturing per-request accessibility needs and notes",
+      "Organizer dashboard to create events and manage incoming RSVPs",
+      "Native maps, saved events and an upcoming-events view",
+    ],
+    technologies: ["React Native", "Expo", "TypeScript", "Firebase", "React Query"],
+    gradientFrom: "#38bdf8",
+    gradientTo: "#6366f1",
+    featured: false,
+    image: "/images/portfolio/emigo.png",
+  },
+  {
+    slug: "cyber7",
+    title: "Cyber7 MDR Alerts",
+    category: "Mobile App",
+    tags: ["Mobile App", "Cybersecurity", "MDR"],
+    shortDesc:
+      "Real-time managed-detection-and-response security alerts, pushed straight to your phone.",
+    description:
+      "Cyber7 MDR Alerts is a mobile app for an Australian managed security provider that turns critical security incidents into instant push notifications. It pulls High and Critical tickets from ConnectWise (fed by Rapid7 threat detection) and lets analysts and clients view, acknowledge, resolve and annotate incidents from their phone — with role-based access so each client sees only their own company's alerts.",
+    problem:
+      "Managed-detection incidents live inside ConnectWise ticketing, where they're easy to miss. SOC analysts and their clients need immediate, prioritized, mobile visibility into critical threats — not another desktop tool they have to keep checking.",
+    solution:
+      "We built a dedicated mobile app with a Node/Express + MongoDB backend that continuously polls ConnectWise for High/Critical tickets and dispatches tone-differentiated push notifications. Users triage incidents in-app — acknowledge, resolve, reprioritize and add notes — and every change syncs back to ConnectWise. Admins see all clients; each client sees only their own alerts.",
+    results: [
+      "Real-time push alerts for High/Critical incidents with selectable alert tones",
+      "In-app triage — acknowledge, resolve, reprioritize and annotate, synced to ConnectWise",
+      "Role-based access: SOC admins see all clients, clients see only their own",
+      "ConnectWise + Rapid7 detection pipeline surfaced on mobile within seconds",
+    ],
+    technologies: ["React Native", "Expo", "Node.js", "Express", "MongoDB", "ConnectWise API"],
+    gradientFrom: "#ef4444",
+    gradientTo: "#f97316",
+    featured: false,
+    image: "/images/portfolio/cyber7.png",
+  },
 ];
 
 export const categories = ["All", "Web", "Mobile App", "SaaS", "AI"] as const;
