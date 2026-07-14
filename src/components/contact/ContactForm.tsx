@@ -42,13 +42,29 @@ export default function ContactForm() {
     setLoading(true);
     const fullMessage = [form.message, form.company ? `Company: ${form.company}` : "", form.budget ? `Budget: ${form.budget}` : ""].filter(Boolean).join("\n\n");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: form.name, email: form.email, service: form.service || "Not specified", message: fullMessage }),
+        body: JSON.stringify({
+          access_key: "034118ee-2ebc-45db-813d-1d54e5dff988",
+          subject: `New inquiry from ${form.name} — ${form.service || "Not specified"}`,
+          from_name: form.name,
+          replyto: form.email,
+          name: form.name,
+          email: form.email,
+          service: form.service || "Not specified",
+          message: fullMessage,
+        }),
       });
-      if (!res.ok) throw new Error();
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message);
       setSuccess(true);
+      // GA4 conversion tracking
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).gtag("event", "generate_lead", { event_category: "contact", event_label: form.service });
+      }
     } catch {
       setError("Something went wrong. Email us at abhipatel8675@gmail.com");
     } finally {

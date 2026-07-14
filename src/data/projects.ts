@@ -170,7 +170,7 @@ export const projects: Project[] = [
     gradientTo: "#c9a227",
     featured: false,
     liveUrl: "https://www.hmd.com.co",
-    image: "/images/portfolio/hmd.png",
+    image: "/images/portfolio/hmd/ss-8.png",
     gallery: [
       {
         src: "/images/portfolio/hmd/ss-4.png",
@@ -231,7 +231,7 @@ export const projects: Project[] = [
     technologies: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS", "Vercel"],
     gradientFrom: "#9f1239",
     gradientTo: "#c2410c",
-    featured: true,
+    featured: false,
     liveUrl: "https://herrubyapp.vercel.app",
     image: "/images/portfolio/herruby-app.png",
     gallery: [
@@ -290,27 +290,56 @@ export const projects: Project[] = [
   {
     slug: "zenscroll",
     title: "ZenScroll",
-    category: "Mobile App",
-    tags: ["Digital Wellness", "React Native", "Mobile"],
-    shortDesc: "Mobile app that makes you earn your scroll — one breath of meditation at a time.",
+    category: "Web",
+    tags: ["Digital Wellness", "Web Design", "Mindfulness"],
+    shortDesc: "Marketing website for the app that makes you earn your scroll — one breath at a time.",
     description:
-      "ZenScroll balances social media with meditation. Every minute of mindfulness practice earns two to six minutes of scroll time — the ratio is yours to set, but the pause is non-negotiable. Available on iOS and Android.",
+      "ZenScroll is a digital wellness platform and marketing website for an app that balances social media with meditation. Every minute of mindfulness practice earns two to six minutes of scroll time — the ratio is yours to set, but the pause is non-negotiable. We designed and built the full website to communicate this concept with clarity, calm, and conviction.",
     problem:
-      "Doomscrolling is effortless by design. Screen-time blockers fail because they fight willpower head-on. Users wanted a way to keep social media in their lives without it controlling them — something that built a genuine habit rather than just imposing restrictions.",
+      "ZenScroll had a genuinely novel product idea — earning scroll time through meditation — but needed a website that could explain an unfamiliar mechanic quickly, build trust with skeptical users, and convert visitors into app downloads without feeling preachy or restrictive.",
     solution:
-      "We built ZenScroll around a single powerful mechanic: scroll time must be earned through meditation. The app guides users through breathing exercises, logs practice minutes, and unlocks proportional scroll time. Simple, fair, and impossible to game mindlessly.",
+      "We crafted a dark, immersive marketing website built around a single, powerful message: breathe first, then the feed opens. The design language — deep browns, nature photography, warm typography — reinforces the meditative purpose of the product. The copy leads with the mechanic, not the mission, making it immediately legible to anyone who has ever doomscrolled.",
     results: [
-      "Available on both App Store and Google Play",
-      "Earn-to-scroll mechanic creates a genuine mindfulness habit loop",
-      "Configurable meditation-to-scroll ratio gives users ownership of the balance",
-      "Dark, calming UI design that reinforces the app's meditative purpose",
+      "Conversion-focused landing page driving App Store and Google Play downloads",
+      "Earn-to-scroll mechanic communicated clearly through structured 3-step flow section",
+      "Testimonials section ('Voices') builds social proof with real user outcomes",
+      "Dark, calming aesthetic that matches the product's meditative identity",
+      "CTA section — 'Begin with a single breath' — drives installs with zero friction",
     ],
-    technologies: ["React Native", "Expo", "TypeScript", "Firebase", "Tailwind CSS"],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
     gradientFrom: "#7c2d12",
     gradientTo: "#92400e",
     featured: false,
     liveUrl: "https://www.zenscrollapp.com",
-    image: "/images/portfolio/zenscroll.png",
+    image: "/images/portfolio/zenscroll/ss-1.png",
+    gallery: [
+      {
+        src: "/images/portfolio/zenscroll/ss-1.png",
+        alt: "ZenScroll — Hero section: Scrolling, earned one breath at a time",
+        caption: "Hero — \"Scrolling, earned one breath at a time.\" Every minute of meditation earns 2–6 minutes of scroll. App Store & Google Play CTAs above the fold.",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/zenscroll/ss-2.png",
+        alt: "ZenScroll — How it works: Breathe first. Then the feed opens.",
+        caption: "How it works — \"Breathe first. Then the feed opens.\" Three-step flow: choose apps to balance → sit for a guided session → scroll with intention.",
+      },
+      {
+        src: "/images/portfolio/zenscroll/ss-3.png",
+        alt: "ZenScroll — Benefits: A calmer relationship with the phone in your hand",
+        caption: "Benefits — \"A calmer relationship with the phone in your hand.\" Sharper focus · Quieter mind · Better sleep — illustrated with nature photography.",
+      },
+      {
+        src: "/images/portfolio/zenscroll/ss-4.png",
+        alt: "ZenScroll — Voices section: Small practice. Surprising shifts.",
+        caption: "Voices — \"Small practice. Surprising shifts.\" Real user stories: Maya R. (47 days), Daniel K. (3 months), Priya S. (5 months, screen time down 62%).",
+      },
+      {
+        src: "/images/portfolio/zenscroll/ss-5.png",
+        alt: "ZenScroll — CTA: Begin with a single breath",
+        caption: "CTA — \"Begin with a single breath.\" Aerial forest visual reinforces calm. Free to start, no ads, no dark patterns — App Store & Google Play download buttons.",
+      },
+    ],
   },
   {
     slug: "expert-village-media",
@@ -333,7 +362,7 @@ export const projects: Project[] = [
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Framer Motion"],
     gradientFrom: "#2563eb",
     gradientTo: "#7c3aed",
-    featured: false,
+    featured: true,
     liveUrl: "https://expertvillagemedia.vercel.app",
     image: "/images/portfolio/expert-village-media.png",
     gallery: [

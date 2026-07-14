@@ -12,11 +12,11 @@ type BreadcrumbProps = {
 
 export default function Breadcrumb({ items }: BreadcrumbProps) {
   return (
-    <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-6 pt-20 pb-0">
-      <ol className="flex flex-wrap items-center gap-1 text-xs text-slate-500">
+    <nav aria-label="Breadcrumb" className="max-w-[92rem] mx-auto px-6 pt-24 pb-0">
+      <ol className="flex flex-wrap items-center gap-1.5 text-sm text-slate-500">
         {items.map((item, i) => (
-          <li key={i} className="flex items-center gap-1">
-            {i > 0 && <ChevronRight className="w-3 h-3 text-slate-600 shrink-0" />}
+          <li key={i} className="flex items-center gap-1.5">
+            {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-600 shrink-0" />}
             {item.href ? (
               <Link
                 href={item.href}
@@ -25,7 +25,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
                 {item.label}
               </Link>
             ) : (
-              <span className="text-slate-400" aria-current="page">
+              <span className="text-slate-300 font-medium" aria-current="page">
                 {item.label}
               </span>
             )}

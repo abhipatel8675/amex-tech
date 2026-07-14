@@ -81,7 +81,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
       {/* ─── Hero ─── */}
       <section
-        className="relative pt-6 pb-0 overflow-hidden"
+        className="relative pt-6 pb-0"
         style={{ background: heroBg }}
       >
         <div
@@ -96,7 +96,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           style={{ background: `radial-gradient(ellipse, ${project.gradientFrom}, transparent 70%)` }}
         />
 
-        <div className="relative max-w-4xl mx-auto px-6">
+        <div className="relative max-w-[92rem] mx-auto px-6">
           <Link
             href="/portfolio"
             className="inline-flex items-center gap-1.5 text-sm mb-8 transition-colors hover:text-white"
@@ -153,7 +153,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         </div>
 
         {/* Device mockup — floats into content below */}
-        <div className="relative max-w-4xl mx-auto px-6 -mb-16 z-10">
+        <div className="relative max-w-[92rem] mx-auto px-6 -mb-16 z-10">
           {isMobile ? (
             <div className="flex justify-center gap-8 pb-4">
               <PhoneMockup
@@ -184,7 +184,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       </section>
 
       {/* ─── Case Study Content ─── */}
-      <section className="pb-28 max-w-4xl mx-auto px-6 pt-24">
+      <section className="pb-28 max-w-[92rem] mx-auto px-6 pt-24">
         <div className="grid md:grid-cols-3 gap-12">
 
           {/* Main column */}
@@ -349,7 +349,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
       {/* ─── Gallery ─── */}
       {project.gallery && project.gallery.length > 0 && (
-        <section className="pb-28 max-w-6xl mx-auto px-6">
+        <section className="pb-28 max-w-[92rem] mx-auto px-6">
           <CaseStudyGallery
             gallery={project.gallery}
             isMobile={isMobile}

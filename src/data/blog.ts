@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: "how-to-download-zip-file-from-replit",
-    title: "How to Download a ZIP File From Replit (Complete 2025 Guide)",
+    title: "How to Download a ZIP File From Replit (Complete 2026 Guide)",
     excerpt:
       "Step-by-step guide to downloading your project as a ZIP file from Replit — covering the UI method, Git method, and how to handle common errors.",
     content: `
@@ -453,7 +453,7 @@ Explore our work at the [Portfolio](/portfolio) page or get in touch directly vi
   },
   {
     slug: "how-to-setup-cloudflare-dns",
-    title: "How to Set Up Cloudflare DNS: Complete Step-by-Step Guide (2025)",
+    title: "How to Set Up Cloudflare DNS: Complete Step-by-Step Guide (2026)",
     excerpt:
       "Learn how to set up Cloudflare DNS — from adding your site and updating nameservers, to configuring SSL, security, and performance settings.",
     content: `
@@ -1214,7 +1214,7 @@ If you're building a product that needs reliable email, explore our work at the 
   },
   {
     slug: "connect-nextjs-react-with-supabase",
-    title: "How to Connect Next.js / React with Supabase (2025 Complete Guide)",
+    title: "How to Connect Next.js / React with Supabase (2026 Complete Guide)",
     excerpt:
       "A comprehensive guide to integrating Supabase with Next.js or React — covering database queries, authentication, Row Level Security, and real-time subscriptions.",
     content: `

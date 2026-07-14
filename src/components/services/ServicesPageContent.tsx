@@ -343,7 +343,7 @@ export default function ServicesPageContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="group py-16 border-b border-white/[0.06] last:border-0"
+                className="group py-10 border-b border-white/[0.06] last:border-0"
               >
                 <div
                   className={`grid md:grid-cols-2 gap-12 lg:gap-20 items-center ${
@@ -416,7 +416,7 @@ export default function ServicesPageContent() {
                       className="relative rounded-2xl border border-white/[0.07] overflow-hidden transition-all duration-500 group-hover:border-white/[0.14]"
                       style={{
                         background: `linear-gradient(135deg, ${service.accentColor}06 0%, transparent 60%)`,
-                        height: 200,
+                        aspectRatio: "4/3",
                       }}
                     >
                       <div

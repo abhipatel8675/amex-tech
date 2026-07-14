@@ -95,7 +95,7 @@ export default function ServicesPreview() {
 
   return (
     <section
-      className="relative py-28 md:py-36 overflow-hidden"
+      className="relative py-10 md:py-16 overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -112,9 +112,9 @@ export default function ServicesPreview() {
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-[92rem] mx-auto px-6">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -190,10 +190,10 @@ export default function ServicesPreview() {
                 />
                 {/* Icon */}
                 <div
-                  className="relative w-14 h-14 rounded-2xl flex items-center justify-center mb-8 border"
+                  className="relative w-16 h-16 rounded-2xl flex items-center justify-center mb-8 border"
                   style={{ background: `${current.accent}15`, borderColor: `${current.accent}30` }}
                 >
-                  <Icon style={{ color: current.accent, width: 26, height: 26 }} />
+                  <Icon style={{ color: current.accent, width: 28, height: 28 }} />
                 </div>
                 <h3 className="relative text-2xl font-bold text-white mb-4">{current.title}</h3>
                 <p className="relative text-slate-300 leading-8 mb-8" style={{ opacity: 0.85 }}>{current.desc}</p>
