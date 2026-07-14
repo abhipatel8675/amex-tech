@@ -575,6 +575,66 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "east-end-vintage-sale",
+    title: "East End Vintage Sale",
+    category: "Web",
+    tags: ["Web Design", "Branding", "Event"],
+    shortDesc:
+      "A bold retro event microsite and brand system for a Toronto sidewalk vintage sale.",
+    description:
+      "East End Vintage Sale is a community sidewalk vintage-clothing sale in East York, Toronto. We designed a bold, retro-inspired event microsite and brand system to launch its second edition — a pink-and-white striped, halftone-photo, crumpled-paper aesthetic that captures the laid-back Sunday-market vibe and drives turnout.",
+    problem:
+      "A one-day, word-of-mouth pop-up lives or dies on turnout. The organizers needed to rebuild hype for a second edition, communicate the essentials — date, place, what to expect — at a glance, and stand out on social, all without a big budget or a permanent website.",
+    solution:
+      "We crafted a scroll-through event landing experience with a distinctive vintage brand system: a striped-paper hero, halftone photo cut-outs, and hand-drawn accents. Each section answers a single question — the details, the vibe, drinks, and location — and the whole thing closes on a shareable 'Come early, bring a tote, tell a friend' call to action tied to their social handles.",
+    results: [
+      "Cohesive retro brand system — striped paper, halftone photography, hand-drawn accents",
+      "Scannable 'everything in one glance' details: date, address, and rain-or-shine",
+      "Sectioned storytelling that sells the experience — the details, the vibe, drinks, and location",
+      "Shareable closing call-to-action driving RSVPs to @eastendvintagesale",
+    ],
+    technologies: ["Figma", "Web Design", "Branding", "Social Campaign"],
+    gradientFrom: "#f9a8d4",
+    gradientTo: "#1e293b",
+    featured: false,
+    liveUrl: "https://www.instagram.com/eastendvintagesale",
+    image: "/images/portfolio/east-end-vintage-sale.png",
+    gallery: [
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-1.png",
+        alt: "East End Vintage Sale — landing hero: The Sidewalk Sale Returns for the Second Time, Sunday Aug 9",
+        caption:
+          "The sidewalk sale returns — a striped-paper hero with halftone photography and the key date front and center",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-2.png",
+        alt: "East End Vintage Sale — The Details: date, address and weather at a glance",
+        caption: "Everything you need in one glance — date, address, and rain-or-shine",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-3.png",
+        alt: "East End Vintage Sale — The Vibe: more than shopping, it's a Sunday scene",
+        caption: "The vibe — more than shopping, it's a Sunday scene",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-4.png",
+        alt: "East End Vintage Sale — Drinks section",
+        caption: "Freshly made lemonade and good music — part of the day-out experience",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-5.png",
+        alt: "East End Vintage Sale — Location: 275 Glebemount Ave, East York",
+        caption: "Location made effortless — 275 Glebemount Ave, East York",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-6.png",
+        alt: "East End Vintage Sale — closing CTA: come early, bring a tote, tell a friend",
+        caption: "Come early. Bring a tote. Tell a friend — a shareable close tied to their socials",
+      },
+    ],
+  },
 ];
 
 export const categories = ["All", "Web", "Mobile App", "SaaS", "AI"] as const;
