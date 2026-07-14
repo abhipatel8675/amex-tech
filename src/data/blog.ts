@@ -231,7 +231,7 @@ Explore our work and get in touch through the [Portfolio](/portfolio) or reach o
     category: "Tutorial",
     tags: ["Replit", "Developer Tools", "Workflow"],
     readTime: "6 min read",
-    publishedAt: "2025-01-18",
+    publishedAt: "2026-07-12",
     gradientFrom: "#f97316",
     gradientTo: "#ec4899",
     featured: false,

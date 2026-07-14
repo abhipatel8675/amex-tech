@@ -13,19 +13,10 @@ const navLinks = [
   { label: "About", href: "/about" },
 ];
 
-const ANNOUNCEMENT_KEY = "amex-announcement-closed-q3-2026";
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [announcementVisible, setAnnouncementVisible] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    // Check localStorage after mount (avoids SSR mismatch)
-    const closed = localStorage.getItem(ANNOUNCEMENT_KEY);
-    if (!closed) setAnnouncementVisible(true);
-  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -33,56 +24,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setMobileOpen(false); }, [pathname]);
-
-  function closeAnnouncement() {
-    setAnnouncementVisible(false);
-    localStorage.setItem(ANNOUNCEMENT_KEY, "1");
-  }
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <>
-      {/* Announcement bar — desktop only */}
-      <AnimatePresence>
-        {announcementVisible && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 32, opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="hidden md:flex fixed top-0 left-0 right-0 z-[60] items-center justify-center overflow-hidden"
-            style={{
-              background:
-                "linear-gradient(90deg, #0B0F19 0%, #10142a 40%, #11163000 50%, #10142a 60%, #0B0F19 100%)",
-              borderBottom: "1px solid rgba(99,102,241,0.15)",
-            }}
-            role="banner"
-            aria-label="Announcement"
-          >
-            <p className="text-xs text-slate-400 flex items-center gap-1.5">
-              <span>🚀 Now accepting projects for Q3 2026 —</span>
-              <Link
-                href="/contact"
-                className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors underline-offset-2 hover:underline"
-              >
-                Get started →
-              </Link>
-            </p>
-            <button
-              onClick={closeAnnouncement}
-              aria-label="Dismiss announcement"
-              className="absolute right-4 text-slate-500 hover:text-slate-300 transition-colors text-base leading-none"
-            >
-              ×
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <header
-        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
-          announcementVisible ? "top-8" : "top-0"
-        } ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 top-0 ${
           scrolled
             ? "bg-[#0B0F19]/85 backdrop-blur-2xl border-b border-indigo-500/20"
             : "bg-transparent"
