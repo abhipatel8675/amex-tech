@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -47,19 +50,62 @@ function GitHubIcon() {
 }
 
 export default function Footer() {
+  // TODO: wire up newsletter subscription (e.g. via ConvertKit / Mailchimp API or a route handler)
+  const [email, setEmail] = useState("");
+
   return (
     <>
       <footer
-        className="relative border-t border-white/[0.06] overflow-hidden"
+        className="relative overflow-hidden"
         style={{ background: "linear-gradient(180deg, #0B0F19 0%, #080C14 100%)" }}
       >
-        {/* Subtle top glow */}
+        {/* Top gradient border line */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[1px] opacity-30"
-          style={{ background: "linear-gradient(90deg, transparent, #6366F1, transparent)" }}
+          className="absolute top-0 left-0 right-0 h-px"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.5) 50%, transparent 100%)",
+          }}
+          aria-hidden="true"
         />
 
         <div className="relative max-w-[92rem] mx-auto px-6 pt-16 pb-10">
+
+          {/* Newsletter strip */}
+          <div className="mb-14 rounded-2xl border border-white/[0.07] bg-white/[0.025] px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div>
+              <p className="text-sm font-semibold text-white mb-0.5">Get development tips in your inbox</p>
+              <p className="text-xs" style={{ color: "rgba(148,163,184,0.55)" }}>
+                Practical insights on web, mobile, and product — no spam, ever.
+              </p>
+            </div>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                // TODO: implement newsletter subscription
+              }}
+              className="flex items-center gap-2 w-full sm:w-auto"
+              aria-label="Newsletter signup"
+            >
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                required
+                aria-label="Email address"
+                className="flex-1 sm:w-56 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-2.5 text-slate-300 placeholder-slate-600 outline-none transition-all focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/30"
+              />
+              <button
+                type="submit"
+                className="text-sm font-semibold text-white px-4 py-2.5 rounded-xl transition-all btn-glow flex-shrink-0"
+                style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+
           {/* Main grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.4fr_1fr] gap-10 mb-14">
 
@@ -80,7 +126,7 @@ export default function Footer() {
                 <span className="text-white font-semibold text-xl tracking-tight">Technology</span>
               </Link>
               <p className="text-sm leading-7 mb-5 max-w-[220px]" style={{ color: "rgba(148,163,184,0.7)" }}>
-                Premium software development for startups and enterprises. From MVP to scale — built to last.
+                Building digital products that drive real business growth.
               </p>
               <p className="text-xs mb-6" style={{ color: "rgba(100,116,139,0.6)" }}>
                 Based in India · Serving clients globally · Est. 2019
@@ -98,7 +144,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/[0.08] text-slate-500 hover:text-slate-200 hover:border-white/[0.18] hover:bg-white/[0.05] transition-all duration-200"
+                    className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/[0.08] text-slate-500 transition-all duration-200 hover:text-indigo-300 hover:border-indigo-500/40 hover:bg-indigo-500/10 hover:scale-110 hover:shadow-[0_0_12px_rgba(99,102,241,0.35)]"
                   >
                     {icon}
                   </a>
@@ -188,7 +234,7 @@ export default function Footer() {
                   </p>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <p className="text-sm" style={{ color: "rgba(148,163,184,0.65)" }}>Within 24 hours</p>
+                    <p className="text-sm" style={{ color: "rgba(148,163,184,0.65)" }}>Within 4 hours</p>
                   </div>
                 </div>
               </div>
@@ -202,11 +248,17 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Separator */}
+          {/* Separator + bottom bar */}
           <div className="border-t border-white/[0.06] pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs" style={{ color: "rgba(100,116,139,0.55)" }}>
-              © {new Date().getFullYear()} Amex Technology. All rights reserved.
-            </p>
+            <div className="flex items-center gap-4">
+              <p className="text-xs" style={{ color: "rgba(100,116,139,0.55)" }}>
+                © {new Date().getFullYear()} Amex Technology. All rights reserved.
+              </p>
+              <span className="text-xs" style={{ color: "rgba(100,116,139,0.4)" }}>·</span>
+              <p className="text-xs" style={{ color: "rgba(100,116,139,0.45)" }}>
+                Made with ❤️ in India
+              </p>
+            </div>
             <div className="flex items-center gap-6">
               <Link
                 href="/privacy"

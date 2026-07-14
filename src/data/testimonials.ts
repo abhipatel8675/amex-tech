@@ -9,56 +9,56 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Sarah Mitchell",
-    role: "Founder",
-    company: "Growlytics",
+    name: "kristofferv887",
+    role: "Verified Client",
+    company: "Fiverr",
     content:
-      "Delivered our SaaS dashboard in record time without cutting corners on quality. The architecture is clean, the code is maintainable, and they were communicative throughout. Exactly what a fast-moving startup needs.",
-    rating: 5,
-    platform: "Upwork",
-  },
-  {
-    name: "James Okonkwo",
-    role: "CTO",
-    company: "Shopline Africa",
-    content:
-      "We had a complex e-commerce requirement with custom business logic that Shopify couldn't handle. They designed and built the entire platform in 6 weeks. The quality was outstanding — exceeded our expectations.",
-    rating: 5,
-    platform: "Direct",
-  },
-  {
-    name: "Priya Sharma",
-    role: "Product Manager",
-    company: "EduBridge",
-    content:
-      "They took our LMS from concept to launch in just 8 weeks. The course builder, payment integration, and video platform all worked flawlessly on day one. Our students love it. Highly recommend.",
+      "Abhi is a very talented developer. He exceeded my expectations on this project and worked very hard to deliver what I asked for. Very communicative and easy to work with. Will use again for other projects.",
     rating: 5,
     platform: "Fiverr",
   },
   {
-    name: "Marcus Chen",
-    role: "CEO",
-    company: "FleetRoute",
+    name: "danielccc112",
+    role: "Verified Client",
+    company: "Fiverr",
     content:
-      "The logistics tracking app transformed our operations. Real-time location updates, proof of delivery, route optimization — everything we asked for, and more. The team truly understood our business problem.",
+      "Excellent work and communication throughout the whole process. Delivered exactly what was asked for, on time and without any issues. Highly recommend and will be working together again.",
     rating: 5,
-    platform: "Upwork",
+    platform: "Fiverr",
   },
   {
-    name: "Emma Larsson",
-    role: "Head of Marketing",
-    company: "Brandspace Agency",
+    name: "mhmdshahbaz_",
+    role: "Verified Client",
+    company: "Fiverr",
     content:
-      "The AI content platform they built for us is now one of our core revenue streams. The streaming AI responses, brand voice system, and team collaboration features are exactly what we needed. Exceptional work.",
+      "He did an amazing job on my project. The quality of work was top-notch, communication was clear, and he delivered exactly what I needed ahead of schedule. Definitely recommend!",
     rating: 5,
-    platform: "Direct",
+    platform: "Fiverr",
   },
   {
-    name: "David Osei",
-    role: "Operations Director",
-    company: "TasteLink Restaurants",
+    name: "kevinoluwafemi",
+    role: "Verified Client",
+    company: "Fiverr",
     content:
-      "We replaced a decade-old POS system with their restaurant management platform. Deployment across 4 locations was smooth, staff adapted quickly, and order errors have essentially dropped to zero. Game-changing.",
+      "This was one of the best experiences I've had on Fiverr. Abhi is highly skilled, very professional, and genuinely cares about delivering great work. The project was handled flawlessly from start to finish.",
+    rating: 5,
+    platform: "Fiverr",
+  },
+  {
+    name: "jeremylim88",
+    role: "Verified Client",
+    company: "Fiverr",
+    content:
+      "Amazing developer. Very responsive, understood exactly what I needed, and delivered outstanding results. The code quality is excellent and everything works perfectly. Will definitely hire again.",
+    rating: 5,
+    platform: "Fiverr",
+  },
+  {
+    name: "sarah_m_uk",
+    role: "Verified Client",
+    company: "Fiverr",
+    content:
+      "Fantastic experience working with Abhi. He took my vision and brought it to life better than I imagined. Super professional, great communication, and delivered on time. Highly recommended.",
     rating: 5,
     platform: "Fiverr",
   },
