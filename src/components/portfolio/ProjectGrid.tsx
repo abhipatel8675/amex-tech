@@ -3,19 +3,13 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { projects, categories, type Category } from "@/data/projects";
-import LaptopMockup from "@/components/ui/LaptopMockup";
-import PhoneMockup from "@/components/ui/PhoneMockup";
-
-function isMobileProject(category: string) {
-  return category === "Mobile App";
-}
 
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   const [hovered, setHovered] = useState(false);
-  const mobile = isMobileProject(project.category);
   const router = useRouter();
 
   return (
@@ -34,33 +28,86 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         borderColor: hovered ? "rgba(255,255,255,0.13)" : undefined,
       }}
     >
-      {/* ── Mockup area — fixed height so all rows match ── */}
-      <div className="relative px-4 pt-3 pb-0 overflow-hidden h-[240px]">
+      {/* ── Image area ── */}
+      <div className="relative overflow-hidden h-[220px]">
+        {project.image ? (
+          project.category === "Mobile App" ? (
+            <>
+              {/* Tinted gradient background for portrait screenshots */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(160deg, ${project.gradientFrom}28 0%, rgba(11,15,25,0.95) 100%)`,
+                }}
+              />
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-contain object-center transition-transform duration-700 px-8 pt-4"
+                style={{ transform: hovered ? "scale(1.04)" : "scale(1)" }}
+                unoptimized={project.image.startsWith("http")}
+              />
+            </>
+          ) : (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover object-center transition-transform duration-700"
+              style={{ transform: hovered ? "scale(1.04)" : "scale(1)" }}
+              unoptimized={project.image.startsWith("http")}
+            />
+          )
+        ) : (
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(135deg, ${project.gradientFrom}22, ${project.gradientTo}22)`,
+            }}
+          />
+        )}
+
+        {/* Bottom fade */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, transparent, rgba(11,15,25,0.9))" }}
+        />
+
+        {/* Hover color glow */}
+        <div
+          className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+          style={{
+            opacity: hovered ? 1 : 0,
+            background: `radial-gradient(ellipse at 50% 100%, ${project.gradientFrom}1a 0%, transparent 70%)`,
+          }}
+        />
+
         {/* Category badge */}
-        <div className="absolute top-5 left-6 z-20">
+        <div className="absolute top-4 left-4 z-20">
           <span
-            className="text-xs font-semibold px-2.5 py-1 rounded-full border backdrop-blur-sm"
+            className="text-xs font-semibold px-2.5 py-1 rounded-full border backdrop-blur-md"
             style={{
               color: project.gradientFrom,
-              borderColor: `${project.gradientFrom}30`,
-              background: `${project.gradientFrom}12`,
+              borderColor: `${project.gradientFrom}40`,
+              background: "rgba(11,15,25,0.65)",
             }}
           >
             {project.category}
           </span>
         </div>
 
-        {/* Live badge — top-right, clickable */}
+        {/* Live badge */}
         {project.liveUrl && (
           <motion.a
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="absolute top-5 right-6 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full border backdrop-blur-sm"
+            className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full border backdrop-blur-md"
             style={{
-              background: "rgba(16,140,107,0.14)",
-              borderColor: "rgba(52,211,153,0.28)",
+              background: "rgba(11,15,25,0.65)",
+              borderColor: "rgba(52,211,153,0.35)",
             }}
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.96 }}
@@ -68,35 +115,6 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
             <span className="text-[10px] font-semibold text-emerald-400 tracking-wide">LIVE</span>
           </motion.a>
-        )}
-
-        {mobile ? (
-          /*
-           * Phone — scaled to 0.625 so the full phone (≈227px visual) fits
-           * inside the 228px content area (h-240 minus pt-3=12px).
-           * transformOrigin "top center" keeps the top pinned while scaling down.
-           */
-          <div className="flex justify-center items-start h-full overflow-hidden">
-            <motion.div
-              animate={{
-                scale: hovered ? 0.640 : 0.625,
-                rotate: hovered ? 2 : 0,
-              }}
-              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              style={{ transformOrigin: "top center" }}
-            >
-              <PhoneMockup src={project.image} alt={project.title} />
-            </motion.div>
-          </div>
-        ) : (
-          /* Laptop — 88% card width, screen (16/9) ≈167px + hinge 4px + base 44px = 215px */
-          <motion.div
-            animate={{ scale: hovered ? 1.015 : 1 }}
-            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="h-full"
-          >
-            <LaptopMockup src={project.image} alt={project.title} className="h-full" />
-          </motion.div>
         )}
       </div>
 

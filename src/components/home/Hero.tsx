@@ -46,7 +46,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 lg:py-28">
+      <div className="relative z-10 w-full max-w-[92rem] mx-auto px-6 py-14 lg:py-20">
         <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 xl:gap-20 items-center">
 
           {/* ─── LEFT: Content ─── */}
@@ -65,13 +65,13 @@ export default function Hero() {
             </motion.div>
 
             {/* Headline — word by word */}
-            <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold leading-[1.02] tracking-[-0.03em] mb-8">
-              <span className="text-white">
+            <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold leading-[1.08] tracking-[-0.03em] mb-8">
+              <span className="block text-white">
                 <WordSpan word="We" index={0} />
                 <WordSpan word="Build" index={1} />
               </span>
-              <br />
               <span
+                className="block"
                 style={{
                   background: "linear-gradient(135deg, #818CF8 0%, #A78BFA 50%, #C4B5FD 100%)",
                   WebkitBackgroundClip: "text",
@@ -82,8 +82,7 @@ export default function Hero() {
                 <WordSpan word="Digital" index={2} />
                 <WordSpan word="Products" index={3} />
               </span>
-              <br />
-              <span className="text-white">
+              <span className="block text-white">
                 <WordSpan word="That" index={4} />
                 <WordSpan word="Scale." index={5} />
               </span>
@@ -150,22 +149,50 @@ export default function Hero() {
               <div className="flex items-center gap-2.5">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} style={{ width: "18px", height: "18px", fill: "#FBBF24" }} viewBox="0 0 20 20">
+                    <svg key={i} style={{ width: "16px", height: "16px", fill: "#FBBF24" }} viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
                 <span className="text-sm font-medium" style={{ color: "rgba(148,163,184,0.8)" }}>100% satisfaction</span>
               </div>
-              <span className="w-px h-5 bg-white/[0.10]" />
+              <span className="w-px h-4 bg-white/[0.10]" />
               <div className="flex items-center gap-2">
-                <CircleCheck className="w-4 h-4 text-violet-400" />
+                <CircleCheck className="w-3.5 h-3.5 text-violet-400" />
                 <span className="text-sm" style={{ color: "rgba(148,163,184,0.8)" }}>5+ years experience</span>
               </div>
-              <span className="w-px h-5 bg-white/[0.10]" />
+              <span className="w-px h-4 bg-white/[0.10]" />
               <div className="flex items-center gap-2">
-                <CircleCheck className="w-4 h-4 text-violet-400" />
+                <CircleCheck className="w-3.5 h-3.5 text-violet-400" />
                 <span className="text-sm" style={{ color: "rgba(148,163,184,0.8)" }}>200+ projects shipped</span>
+              </div>
+            </motion.div>
+
+            {/* Tech marquee */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1.0 }}
+              className="mt-10 pt-8 border-t border-white/[0.06]"
+            >
+              <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: "rgba(100,116,139,0.6)", letterSpacing: "0.12em" }}>
+                Powered by modern technology
+              </p>
+              <div className="relative overflow-hidden">
+                <div className="marquee-track flex gap-8 items-center w-max">
+                  {["Next.js", "TypeScript", "React", "Node.js", "AWS", "Supabase", "Stripe", "Docker", "Tailwind", "Vercel", "PostgreSQL", "Figma",
+                    "Next.js", "TypeScript", "React", "Node.js", "AWS", "Supabase", "Stripe", "Docker", "Tailwind", "Vercel", "PostgreSQL", "Figma"].map((tech, i) => (
+                    <span
+                      key={i}
+                      className="text-xs font-medium text-slate-500 whitespace-nowrap shrink-0 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.05]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                {/* Fade edges */}
+                <div className="absolute inset-y-0 left-0 w-12 pointer-events-none" style={{ background: "linear-gradient(to right, #0B0F19, transparent)" }} />
+                <div className="absolute inset-y-0 right-0 w-12 pointer-events-none" style={{ background: "linear-gradient(to left, #0B0F19, transparent)" }} />
               </div>
             </motion.div>
           </div>

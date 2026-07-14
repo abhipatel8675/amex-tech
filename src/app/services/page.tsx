@@ -27,6 +27,15 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://amextechnology.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://amextechnology.com/services" },
+  ],
+};
+
 const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -54,15 +63,6 @@ const servicesSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Maintenance and Support" } },
     ],
   },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://amextechnology.com" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://amextechnology.com/services" },
-  ],
 };
 
 export default function ServicesPage() {

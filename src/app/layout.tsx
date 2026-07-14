@@ -4,12 +4,13 @@ import Script from "next/script";
 import "./globals.css";
 import CustomCursor from "@/components/ui/CustomCursor";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -93,7 +94,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0B0F19" />
         {/* Google Search Console verification — replace content value with your verification code */}
         {/* <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_CODE" /> */}
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -103,6 +104,7 @@ export default function RootLayout({
         <ScrollProgress />
         <CustomCursor />
         {children}
+        <SpeedInsights />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-RLBM20P7Z4"
           strategy="afterInteractive"
