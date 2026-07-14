@@ -121,7 +121,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
-              className="text-xl leading-8 max-w-[500px] mb-12"
+              className="text-xl sm:text-2xl leading-8 sm:leading-9 max-w-[560px] mb-12"
               style={{ color: "rgba(203,213,225,0.78)" }}
             >
               From MVP to enterprise platform — we help startups and growing businesses ship
