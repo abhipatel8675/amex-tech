@@ -521,6 +521,60 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "buttercream-bus",
+    title: "Buttercream Bus",
+    category: "Web",
+    tags: ["Web", "E-Commerce", "Food & Beverage"],
+    shortDesc:
+      "A playful web experience for a mobile bakery — live truck tracking, pre-ordering, event booking and an AI cake designer.",
+    description:
+      "Buttercream Bus is 'Fresh Baked Dreams on Wheels' — a mobile bakery food truck. We built a warm, playful website that lets customers track the wandering oven in real time, pre-order signature treats to skip the line, book the bus for weddings and events, sign up for baking classes, and even generate custom cake concepts with an AI cake designer.",
+    problem:
+      "A food truck's biggest challenge is that customers never know where it is. On top of that, walk-up lines cost sales, event bookings lived in DMs and spreadsheets, and there was no way to showcase the menu or capture demand between stops.",
+    solution:
+      "We designed and shipped a single friendly hub for the whole business: real-time GPS truck tracking with a neighborhood voting system to unlock pop-up stops, a pre-order 'Baker's Box' flow, an events booking calendar with availability checks, a classes catalog, and an AI 'Cake Architect' that turns a prompt into visual cake concepts — all wrapped in the brand's warm buttercream palette.",
+    results: [
+      "Real-time bus tracking with 'Get Notified' alerts so fans never miss a stop",
+      "Pre-order flow that lets customers skip the line and lock in favorites",
+      "Self-serve event booking for weddings, birthdays and corporate catering",
+      "AI Cake Architect that generates custom cake design concepts on demand",
+    ],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Lovable"],
+    gradientFrom: "#f59e0b",
+    gradientTo: "#d97706",
+    featured: false,
+    liveUrl: "https://thebuttercreambus.shop",
+    image: "/images/portfolio/buttercream-bus.jpg",
+    gallery: [
+      {
+        src: "/images/portfolio/buttercream-bus/ss-1.png",
+        alt: "Buttercream Bus — homepage hero: Fresh Baked Dreams on Wheels with live 'Now at' location",
+        caption:
+          "Fresh Baked Dreams on Wheels — track the wandering oven, pre-order, and book the bus, all from the hero",
+      },
+      {
+        src: "/images/portfolio/buttercream-bus/cupcakes.jpg",
+        alt: "Buttercream Bus — gourmet cupcakes",
+        caption: "Gourmet cupcakes — one of four signature treats on the menu",
+      },
+      {
+        src: "/images/portfolio/buttercream-bus/cinnamon-rolls.jpg",
+        alt: "Buttercream Bus — fresh cinnamon rolls",
+        caption: "Fresh-baked cinnamon rolls, available for pre-order in the Baker's Box",
+      },
+      {
+        src: "/images/portfolio/buttercream-bus/cookies.jpg",
+        alt: "Buttercream Bus — jumbo cookies",
+        caption: "Jumbo cookies — bake-fresh favorites",
+      },
+      {
+        src: "/images/portfolio/buttercream-bus/wedding-cake.jpg",
+        alt: "Buttercream Bus — custom wedding cake for event bookings",
+        caption: "Custom cakes for weddings and events, bookable straight from the site",
+      },
+    ],
+  },
 ];
 
 export const categories = ["All", "Web", "Mobile App", "SaaS", "AI"] as const;
