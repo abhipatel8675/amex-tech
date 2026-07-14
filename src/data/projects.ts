@@ -770,6 +770,32 @@ export const projects: Project[] = [
     featured: false,
     image: "/images/portfolio/cyber7.png",
   },
+  {
+    slug: "dialogix",
+    title: "Dialogix",
+    category: "AI",
+    tags: ["AI", "Sales Automation", "SaaS"],
+    shortDesc:
+      "An AI sales-automation platform that calls, emails, texts and messages prospects in 6 languages — 24/7.",
+    description:
+      "Dialogix is an AI-powered sales command center — 'Your Sales Team Never Sleeps.' It deploys AI agents that call, email, text and message prospects across channels in six languages, finding leads, booking demos and nurturing deals around the clock so founders and sales teams can focus on closing.",
+    problem:
+      "Scaling outbound sales usually means hiring and managing more SDRs — expensive, slow, and hard to keep consistent across channels and time zones. Manual prospecting caps how many leads a team can reach, and follow-up routinely falls through the cracks.",
+    solution:
+      "We built Dialogix as an AI sales command center that runs outreach autonomously across phone, email, SMS and LinkedIn in six languages. AI voice agents qualify leads on calls, behavior-adaptive email and SMS sequences follow up intelligently, and campaigns run 24/7 — with tiered plans ranging from self-serve SaaS to a fully managed revenue-cycle service.",
+    results: [
+      "AI agents across four channels — phone calls, email, SMS and LinkedIn",
+      "Multilingual outreach in 6 languages (English, Spanish, Mandarin, French, Portuguese, Italian)",
+      "24/7 autonomous prospecting, demo booking and intelligent follow-up",
+      "Flexible plans from $97/mo self-serve to a fully managed revenue-cycle service",
+    ],
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "AI Voice Agents"],
+    gradientFrom: "#14b8a6",
+    gradientTo: "#0891b2",
+    featured: false,
+    liveUrl: "https://mydialogix.com",
+    image: "/images/portfolio/dialogix.png",
+  },
 ];
 
 export const categories = ["All", "Web", "Mobile App", "SaaS", "AI"] as const;
