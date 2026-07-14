@@ -26,8 +26,31 @@ const serviceLinks = [
 ];
 
 export default function Footer() {
-  // TODO: wire up newsletter subscription (e.g. via ConvertKit / Mailchimp API or a route handler)
   const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [feedback, setFeedback] = useState("");
+
+  async function handleSubscribe(e: React.FormEvent) {
+    e.preventDefault();
+    if (status === "loading") return;
+    setStatus("loading");
+    setFeedback("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      setStatus("success");
+      setFeedback("You're subscribed! 🎉");
+      setEmail("");
+    } catch (err) {
+      setStatus("error");
+      setFeedback(err instanceof Error ? err.message : "Something went wrong.");
+    }
+  }
 
   return (
     <>
@@ -55,31 +78,45 @@ export default function Footer() {
                 Practical insights on web, mobile, and product — no spam, ever.
               </p>
             </div>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                // TODO: implement newsletter subscription
-              }}
-              className="flex items-center gap-2 w-full sm:w-auto"
-              aria-label="Newsletter signup"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                required
-                aria-label="Email address"
-                className="flex-1 sm:w-56 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-2.5 text-slate-300 placeholder-slate-600 outline-none transition-all focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/30"
-              />
-              <button
-                type="submit"
-                className="text-sm font-semibold text-white px-4 py-2.5 rounded-xl transition-all btn-glow flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+            <div className="w-full sm:w-auto">
+              <form
+                onSubmit={handleSubscribe}
+                className="flex items-center gap-2 w-full sm:w-auto"
+                aria-label="Newsletter signup"
               >
-                Subscribe
-              </button>
-            </form>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (status !== "idle") setStatus("idle");
+                  }}
+                  placeholder="you@example.com"
+                  required
+                  disabled={status === "loading"}
+                  aria-label="Email address"
+                  className="flex-1 sm:w-56 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-2.5 text-slate-300 placeholder-slate-600 outline-none transition-all focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/30 disabled:opacity-60"
+                />
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="text-sm font-semibold text-white px-4 py-2.5 rounded-xl transition-all btn-glow flex-shrink-0 disabled:opacity-70 disabled:cursor-not-allowed"
+                  style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+                >
+                  {status === "loading" ? "Subscribing…" : "Subscribe"}
+                </button>
+              </form>
+              {feedback && (
+                <p
+                  role="status"
+                  aria-live="polite"
+                  className="text-xs mt-2 text-left sm:text-right"
+                  style={{ color: status === "error" ? "#f87171" : "#34d399" }}
+                >
+                  {feedback}
+                </p>
+              )}
+            </div>
           </div>
 
           {/* Main grid */}

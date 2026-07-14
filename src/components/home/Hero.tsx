@@ -93,7 +93,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Headline — word by word */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-[-0.03em] mb-8">
+            <h1 className="text-[clamp(2.25rem,7vw,6rem)] font-bold leading-[1.1] tracking-[-0.03em] mb-8 break-words">
               <span className="block text-white">
                 <WordSpan word="We" index={0} />
                 <WordSpan word="Build" index={1} />
@@ -205,21 +205,15 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 1.0 }}
               className="mt-10"
             >
-              <div className="relative overflow-hidden">
-                <div className="marquee-track flex gap-6 items-center w-max">
-                  {["Next.js", "TypeScript", "React", "Node.js", "AWS", "Supabase", "Stripe", "Docker", "Tailwind CSS", "Vercel", "PostgreSQL", "Figma",
-                    "Next.js", "TypeScript", "React", "Node.js", "AWS", "Supabase", "Stripe", "Docker", "Tailwind CSS", "Vercel", "PostgreSQL", "Figma"].map((tech, i) => (
-                    <span
-                      key={i}
-                      className="text-sm font-medium text-slate-400 whitespace-nowrap shrink-0 px-4 py-2 rounded-lg bg-white/[0.04] border border-white/[0.07]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                {/* Fade edges */}
-                <div className="absolute inset-y-0 left-0 w-16 pointer-events-none" style={{ background: "linear-gradient(to right, #0B0F19, transparent)" }} />
-                <div className="absolute inset-y-0 right-0 w-16 pointer-events-none" style={{ background: "linear-gradient(to left, #0B0F19, transparent)" }} />
+              <div className="flex flex-wrap gap-2.5">
+                {["Next.js", "TypeScript", "React", "Node.js", "AWS", "Supabase", "Stripe", "Docker", "Tailwind CSS", "Vercel", "PostgreSQL", "Figma"].map((tech, i) => (
+                  <span
+                    key={i}
+                    className="text-sm font-medium text-slate-400 whitespace-nowrap px-4 py-2 rounded-lg bg-white/[0.04] border border-white/[0.07]"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
             </motion.div>
           </div>
