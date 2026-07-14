@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Globe, LayoutDashboard, Smartphone, Layers, Rocket, Palette, Search, Brain } from "lucide-react";
@@ -74,20 +74,11 @@ const services = [
 
 export default function ServicesPreview() {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined);
 
-  useEffect(() => {
-    if (paused) return;
-    intervalRef.current = setInterval(() => {
-      setActive((prev) => (prev + 1) % services.length);
-    }, 4000);
-    return () => clearInterval(intervalRef.current);
-  }, [paused]);
-
+  // Selection is user-driven only — no auto-advance, so the layout
+  // never shifts on its own (avoids the page scrolling up/down by itself).
   const handleSelect = (i: number) => {
     setActive(i);
-    setPaused(true);
   };
 
   const current = services[active];
@@ -96,8 +87,6 @@ export default function ServicesPreview() {
   return (
     <section
       className="relative py-10 md:py-16 overflow-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       {/* Section background */}
       <div
