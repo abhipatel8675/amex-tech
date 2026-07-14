@@ -232,7 +232,7 @@ Exporting from Replit is just the first step. Once you have your project running
 
 At **Amex Technology**, we work with developers and businesses to take projects from prototype to production. Whether you're migrating an existing Replit project or starting fresh, our team can help you architect a setup that grows with you.
 
-Explore our work and get in touch through the [Portfolio](/portfolio) or reach out directly via the [Contact](/contact) page.
+Explore our [web development services](/services#web-development), browse our [Portfolio](/portfolio), or reach out via the [Contact](/contact) page.
     `,
     category: "Tutorial",
     tags: ["Replit", "Developer Tools", "Workflow"],
@@ -473,7 +473,7 @@ Connecting a custom domain is a foundational step — but a production-grade dep
 
 At **Amex Technology**, we help teams build the full deployment pipeline — from domain configuration to CI/CD automation to performance observability. If you're looking to harden your Vercel setup or take a project from proof-of-concept to production-ready, we'd be glad to help.
 
-Explore our work at the [Portfolio](/portfolio) page or get in touch directly via the [Contact](/contact) page.
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
     `,
     category: "DevOps",
     tags: ["Vercel", "GoDaddy", "DNS", "Deployment", "Domain Setup"],
@@ -729,7 +729,7 @@ Setting up Cloudflare correctly is the foundation of a resilient, performant web
 
 At **Amex Technology**, we help teams build and optimize the full deployment stack — from DNS and CDN configuration to CI/CD pipelines and observability. If you're setting up a new project or hardening an existing one, we'd be glad to review your setup.
 
-Explore our work at the [Portfolio](/portfolio) page or get in touch directly via the [Contact](/contact) page.
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
     `,
     category: "DevOps",
     tags: ["Cloudflare", "DNS", "Security", "Performance", "DevOps"],
@@ -955,7 +955,7 @@ Exporting from Lovable is the bridge between a fast prototype and a production a
 
 At **Amex Technology**, we specialize in taking Lovable and other no-code prototypes and turning them into production-grade applications. Whether you need a developer to extend your exported codebase, a team to rebuild it on a more scalable architecture, or help setting up the deployment and monitoring infrastructure, we can help.
 
-Explore our work at the [Portfolio](/portfolio) page or get in touch directly via the [Contact](/contact) page.
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
     `,
     category: "Tutorial",
     tags: ["Lovable", "No-Code", "GitHub", "Developer Tools", "Deployment"],
@@ -1315,7 +1315,7 @@ Resend makes the initial setup straightforward, but building a truly robust emai
 
 At **Amex Technology**, we integrate production-grade transactional email into every application we build — from the DNS verification and React Email template system to the webhook infrastructure that handles bounces and complaints automatically.
 
-If you're building a product that needs reliable email, explore our work at the [Portfolio](/portfolio) page or reach out directly via the [Contact](/contact) page.
+If you're building a product that needs reliable email, explore our [web app development services](/services#web-app-development), see our [Portfolio](/portfolio), or reach out via the [Contact](/contact) page.
     `,
     category: "Engineering",
     tags: ["Resend", "Email", "Next.js", "API", "Transactional Email"],
@@ -1738,7 +1738,7 @@ Setting up Supabase correctly is the beginning. A production application needs a
 
 At **Amex Technology**, we design and build full-stack applications on the Next.js and Supabase stack — from schema design and RLS policy architecture to the deployment pipeline and observability layer. If you're starting a new project or scaling an existing one, we'd be glad to help you get it right from the foundation.
 
-Explore our work at the [Portfolio](/portfolio) page or get in touch directly via the [Contact](/contact) page.
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
     `,
     category: "Engineering",
     tags: ["Next.js", "React", "Supabase", "Database", "Authentication", "Full Stack"],
