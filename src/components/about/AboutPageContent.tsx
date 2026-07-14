@@ -84,7 +84,7 @@ export default function AboutPageContent() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-32 max-w-7xl mx-auto px-6">
+      <section className="py-16 md:py-20 max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-6">
           {[
             {
@@ -106,8 +106,9 @@ export default function AboutPageContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="p-9 rounded-2xl border border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.11] transition-all duration-300"
+              className="relative p-9 rounded-2xl border border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.11] transition-all duration-300 overflow-hidden"
             >
+              <div className="absolute top-0 inset-x-8 h-px" style={{ background: `linear-gradient(90deg, transparent, ${item.accent}80, transparent)` }} />
               <p className="text-sm font-semibold uppercase tracking-widest mb-5" style={{ color: item.accent }}>{item.label}</p>
               <h2 className="text-2xl font-bold text-white mb-5 leading-snug">{item.heading}</h2>
               <p className="text-base text-slate-300 leading-7">{item.body}</p>
@@ -117,7 +118,7 @@ export default function AboutPageContent() {
       </section>
 
       {/* Expertise + Values */}
-      <section className="py-32 border-t border-white/[0.06]" style={{ background: "linear-gradient(180deg, #0B0F19, #0D1220, #0B0F19)" }}>
+      <section className="py-16 md:py-24 border-t border-white/[0.06]" style={{ background: "linear-gradient(180deg, #0B0F19, #0D1220, #0B0F19)" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             {/* Expertise */}
@@ -172,7 +173,7 @@ export default function AboutPageContent() {
       </section>
 
       {/* Tech Stack */}
-      <section className="py-32 border-t border-white/[0.06]">
+      <section className="py-16 md:py-20 border-t border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}

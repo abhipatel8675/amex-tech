@@ -25,14 +25,24 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://amextechnology.com" },
+    { "@type": "ListItem", position: 2, name: "Contact", item: "https://amextechnology.com/contact" },
+  ],
+};
+
 export default function ContactPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
 
       {/* Hero */}
-      <section className="pt-8 pb-16 max-w-7xl mx-auto px-6">
+      <section className="pt-8 pb-16 max-w-[92rem] mx-auto px-6">
         <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
           Contact Us
         </p>
@@ -46,7 +56,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main content */}
-      <section className="pb-28 max-w-7xl mx-auto px-6">
+      <section className="pb-16 max-w-[92rem] mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Form */}
           <div className="lg:col-span-3 bg-white/[0.02] border border-white/[0.07] rounded-2xl p-8 md:p-10">

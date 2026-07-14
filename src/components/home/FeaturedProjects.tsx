@@ -1,17 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
-import BrowserMockup from "@/components/ui/BrowserMockup";
-import PhoneMockup from "@/components/ui/PhoneMockup";
 import { useRef } from "react";
 
 const featured = projects.filter((p) => p.featured).slice(0, 3);
 
 function ProjectCard({ project, index }: { project: (typeof featured)[0]; index: number }) {
-  const isMobile = project.category === "Mobile App";
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
@@ -35,51 +33,80 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
         {String(index + 1).padStart(2, "0")}
       </span>
 
-      {/* Mockup area */}
-      <div className="relative p-4 pb-0">
+      {/* Image area */}
+      <div className="relative overflow-hidden" style={{ height: 224 }}>
+        {project.image ? (
+          project.category === "Mobile App" ? (
+            <>
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(160deg, ${project.gradientFrom}28 0%, rgba(11,15,25,0.95) 100%)`,
+                }}
+              />
+              <motion.div style={{ y: imgY }} className="absolute inset-0">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-contain object-center group-hover:scale-[1.03] transition-transform duration-700 px-8 pt-4"
+                  unoptimized={project.image.startsWith("http")}
+                />
+              </motion.div>
+            </>
+          ) : (
+            <motion.div style={{ y: imgY }} className="absolute inset-0">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700"
+                unoptimized={project.image.startsWith("http")}
+              />
+            </motion.div>
+          )
+        ) : (
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(135deg, ${project.gradientFrom}22, ${project.gradientTo}22)`,
+            }}
+          />
+        )}
+
+        {/* Bottom fade into card */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, transparent, rgba(11,15,25,0.85))" }}
+        />
+
         {/* Category badge */}
-        <div className="absolute top-6 left-6 z-20">
+        <div className="absolute top-4 left-4 z-20">
           <span
-            className="text-xs font-semibold px-2.5 py-1 rounded-full border backdrop-blur-sm"
+            className="text-xs font-semibold px-2.5 py-1 rounded-full border backdrop-blur-md"
             style={{
               color: project.gradientFrom,
-              borderColor: `${project.gradientFrom}30`,
-              background: `${project.gradientFrom}12`,
+              borderColor: `${project.gradientFrom}40`,
+              background: `rgba(11,15,25,0.65)`,
             }}
           >
             {project.category}
           </span>
         </div>
 
-        {isMobile ? (
-          <div className="flex justify-center items-end h-72 overflow-hidden">
-            <motion.div style={{ y: imgY }}>
-              <PhoneMockup
-                src={project.image}
-                alt={project.title}
-                className="group-hover:scale-[1.025] transition-transform duration-500"
-              />
-            </motion.div>
-          </div>
-        ) : (
-          <div className="relative overflow-hidden rounded-t-lg h-72 flex items-end">
-            <motion.div style={{ y: imgY }} className="w-full">
-              <BrowserMockup
-                src={project.image}
-                alt={project.title}
-                url={project.liveUrl?.replace("https://", "") ?? "project.app"}
-                aspectRatio="16/9"
-                className="group-hover:scale-[1.01] transition-transform duration-500"
-              />
-            </motion.div>
-          </div>
-        )}
+        {/* Accent glow on hover */}
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+          style={{
+            background: `radial-gradient(ellipse at 50% 100%, ${project.gradientFrom}18 0%, transparent 70%)`,
+          }}
+        />
       </div>
 
       {/* Card content */}
       <div className="p-6 pt-5">
         <h3
-          className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-indigo-300 transition-colors"
+          className="text-lg font-bold text-white mb-2 leading-snug transition-all duration-300"
           style={{ letterSpacing: "-0.015em" }}
         >
           {project.title}
@@ -113,9 +140,10 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-slate-500 hover:text-white transition-colors"
+              className="text-xs font-medium text-slate-400 hover:text-indigo-300 transition-colors flex items-center gap-1 group/live"
             >
-              View Live ↗
+              View Live
+              <span className="opacity-60 group-hover/live:opacity-100 group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5 transition-all duration-200">↗</span>
             </a>
           )}
         </div>
@@ -126,8 +154,8 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
 
 export default function FeaturedProjects() {
   return (
-    <section className="py-28 md:py-36 border-t border-white/[0.06]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-12 md:py-16 border-t border-white/[0.06]">
+      <div className="max-w-[92rem] mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

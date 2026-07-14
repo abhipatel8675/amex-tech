@@ -18,15 +18,15 @@ export default function ProcessSection() {
   const isInView = useInView(lineRef, { once: true, margin: "-20% 0px" });
 
   return (
-    <section className="py-28 md:py-36 border-t border-white/[0.06] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-10 md:py-16 border-t border-white/[0.06] overflow-hidden">
+      <div className="max-w-[92rem] mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-2xl mb-20"
+          className="max-w-2xl mb-14"
         >
           <p
             className="mb-4 font-semibold uppercase"
@@ -77,7 +77,7 @@ export default function ProcessSection() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.08 + 0.3, type: "spring", stiffness: 300, damping: 20 }}
-                    className="relative w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-110 z-10"
+                    className="relative w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] z-10"
                     style={{
                       background: "linear-gradient(145deg, #141E33 0%, #0F172A 100%)",
                       borderColor: "rgba(99,102,241,0.4)",

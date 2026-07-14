@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: Props) {
           background: `linear-gradient(180deg, ${post.gradientFrom}08 0%, transparent 100%)`,
         }}
       >
-        <div className="max-w-3xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <Link
             href="/blog"
             className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-white transition-colors mb-8"
@@ -136,7 +136,7 @@ export default async function BlogPostPage({ params }: Props) {
       </section>
 
       {/* Article content */}
-      <article className="pb-24 max-w-3xl mx-auto px-6">
+      <article className="pb-24 max-w-7xl mx-auto px-6">
         {/* Visual banner */}
         <div className="w-full rounded-2xl border border-white/[0.07] overflow-hidden mb-12 relative">
           {post.image ? (
@@ -326,6 +326,24 @@ function markdownToHtml(markdown: string): string {
       .map(line => `<li>${line.replace(/^-\s*/, '')}</li>`)
       .join('');
     return `<ul>${items}</ul>\n`;
+  });
+
+  // Tables — capture header + separator + rows
+  html = html.replace(/(?:^\|.+\|\n?)+/gm, (block) => {
+    const lines = block.trim().split('\n').filter(l => l.trim());
+    const isSeparator = (l: string) => /^\|[\s|:-]+\|$/.test(l.trim());
+    const parseRow = (l: string) =>
+      l.trim().replace(/^\||\|$/g, '').split('|').map(c => c.trim());
+
+    const headerLine = lines[0];
+    const bodyLines = lines.filter((_, i) => i > 0 && !isSeparator(lines[i]));
+
+    const headerCells = parseRow(headerLine).map(c => `<th>${c}</th>`).join('');
+    const bodyRows = bodyLines
+      .map(l => `<tr>${parseRow(l).map(c => `<td>${c}</td>`).join('')}</tr>`)
+      .join('');
+
+    return `<table><thead><tr>${headerCells}</tr></thead><tbody>${bodyRows}</tbody></table>\n`;
   });
 
   // Wrap bare text lines in <p> (skip lines that are already HTML tags or placeholders)

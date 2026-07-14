@@ -157,17 +157,17 @@ const features = [
 export default function WhyChooseUs() {
   return (
     <section
-      className="py-28 md:py-36"
+      className="py-10 md:py-16"
       style={{ background: "linear-gradient(180deg, #0B0F19 0%, #0D1220 50%, #0B0F19 100%)" }}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-[92rem] mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-2xl mb-14"
+          className="max-w-2xl mb-10"
         >
           <p
             className="mb-4 font-semibold uppercase"
@@ -318,6 +318,11 @@ function BentoCell({
       transition={{ duration: 0.45, delay }}
       className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6 overflow-hidden transition-all duration-300"
     >
+      {/* Top accent line */}
+      <div
+        className="absolute top-0 inset-x-6 h-px rounded-full opacity-50"
+        style={{ background: `linear-gradient(90deg, transparent, ${feature.accent}, transparent)` }}
+      />
       {/* Hover glow border */}
       <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"

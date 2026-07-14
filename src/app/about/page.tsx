@@ -25,9 +25,19 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://amextechnology.com" },
+    { "@type": "ListItem", position: 2, name: "About", item: "https://amextechnology.com/about" },
+  ],
+};
+
 export default function AboutPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
       <AboutPageContent />

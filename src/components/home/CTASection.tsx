@@ -6,8 +6,8 @@ import { ArrowRight, Clock } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="py-32 border-t border-white/[0.06]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-10 md:py-14 border-t border-white/[0.06]">
+      <div className="max-w-[92rem] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ export default function CTASection() {
           <div className="grid-pattern absolute inset-0 opacity-30 pointer-events-none" />
 
           {/* Content */}
-          <div className="relative z-10 px-10 py-20 md:px-16 md:py-24 text-center">
+          <div className="relative z-10 px-8 py-14 md:px-14 md:py-20 text-center">
             {/* Status badge */}
             <div className="inline-flex items-center gap-2.5 bg-white/[0.06] border border-white/[0.10] rounded-full px-5 py-2 mb-10">
               <Clock className="w-4 h-4 text-indigo-400" />

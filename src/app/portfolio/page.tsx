@@ -25,15 +25,25 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://amextechnology.com" },
+    { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://amextechnology.com/portfolio" },
+  ],
+};
+
 export default function PortfolioPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Portfolio" }]} />
 
       {/* Hero — large editorial header */}
       <section className="pt-8 pb-0 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[92rem] mx-auto px-6">
           <p
             className="mb-6 font-semibold uppercase"
             style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
@@ -42,7 +52,7 @@ export default function PortfolioPage() {
           </p>
         </div>
         {/* Display heading */}
-        <div className="max-w-7xl mx-auto px-6 mb-5">
+        <div className="max-w-[92rem] mx-auto px-6 mb-5">
           <h1
             className="font-bold text-white leading-tight"
             style={{
@@ -53,7 +63,7 @@ export default function PortfolioPage() {
             Selected Work.
           </h1>
         </div>
-        <div className="max-w-7xl mx-auto px-6 pb-12">
+        <div className="max-w-[92rem] mx-auto px-6 pb-12">
           <p className="text-xl max-w-xl leading-8" style={{ color: "rgba(203,213,225,0.75)" }}>
             7 projects shipped across SaaS, AI, mobile, and web — each one solving a real business problem for a real client.
           </p>
@@ -61,7 +71,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Grid with filter */}
-      <section className="pb-28 max-w-7xl mx-auto px-6">
+      <section className="pb-16 max-w-[92rem] mx-auto px-6">
         <ProjectGrid />
       </section>
 

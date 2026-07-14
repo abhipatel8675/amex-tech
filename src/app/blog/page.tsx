@@ -28,17 +28,27 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://amextechnology.com" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://amextechnology.com/blog" },
+  ],
+};
+
 export default function BlogPage() {
   const featured = blogPosts.find((p) => p.featured);
   const rest = blogPosts.filter((p) => !p.featured);
 
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
       {/* Hero */}
-      <section className="pt-8 pb-16 max-w-7xl mx-auto px-6">
+      <section className="pt-8 pb-16 max-w-[92rem] mx-auto px-6">
         <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
           From the Team
         </p>
@@ -52,7 +62,7 @@ export default function BlogPage() {
 
       {/* Featured post */}
       {featured && (
-        <section className="pb-12 max-w-7xl mx-auto px-6">
+        <section className="pb-12 max-w-[92rem] mx-auto px-6">
           <Link
             href={`/blog/${featured.slug}`}
             className="group block rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300"
@@ -99,7 +109,7 @@ export default function BlogPage() {
       )}
 
       {/* Post grid */}
-      <section className="pb-28 max-w-7xl mx-auto px-6">
+      <section className="pb-28 max-w-[92rem] mx-auto px-6">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {rest.map((post) => (
             <Link
