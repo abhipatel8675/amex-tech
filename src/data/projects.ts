@@ -467,6 +467,60 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "hoursheets",
+    title: "HourSheets",
+    category: "SaaS",
+    tags: ["SaaS", "Time Tracking", "Project Management"],
+    shortDesc:
+      "Time-tracking and project management built for small architecture firms.",
+    description:
+      "HourSheets is a clean, focused workspace for small architectural firms to log time, monitor project progress, and keep the studio running on schedule. Administrators manage projects, the team directory and firm-wide reports, while team members log their own hours against the projects they contribute to.",
+    problem:
+      "Small architecture studios bleed billable time. Hours get tracked in scattered spreadsheets, project budgets drift without anyone noticing, and partners have no real-time view of where staff time is actually going — making it hard to price work, catch overruns, or bill accurately.",
+    solution:
+      "We built HourSheets as an OpenAPI-first web app with a fast, keyboard-friendly interface. Every hour is logged against a project and an employee, dashboards compute firm-wide aggregates directly in SQL, and admins get budget-vs-spent tracking, a staged approval workflow, daily task assignment, and per-project and per-employee breakdowns — all in one drafting-paper-clean UI.",
+    results: [
+      "Firm-wide dashboard: active projects, staff count and hours logged this week/month at a glance",
+      "Per-project budget vs. spent vs. remaining — with fee, cost and profit tracked automatically",
+      "Staged project-approval workflow with nested sub-tasks and per-stage assignees",
+      "Filterable time log and role-based access (admin vs. team member)",
+    ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Express",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "TanStack Query",
+    ],
+    gradientFrom: "#f59e0b",
+    gradientTo: "#b45309",
+    featured: false,
+    liveUrl: "https://www.hoursheets.org",
+    image: "/images/portfolio/hoursheets.jpg",
+    gallery: [
+      {
+        src: "/images/portfolio/hoursheets/ss-1.png",
+        alt: "HourSheets — Projects list with budget, spent, remaining, fee, cost and profit per project",
+        caption:
+          "Every project tracked from budget to profit — spent, remaining, fee, cost and margin at a glance",
+      },
+      {
+        src: "/images/portfolio/hoursheets/ss-2.png",
+        alt: "HourSheets — Daily Task Assignment view with status, assignee, priority and deadline per project",
+        caption:
+          "Assign today's work to the team — status, assignee, priority and deadline per project",
+      },
+      {
+        src: "/images/portfolio/hoursheets/ss-3.png",
+        alt: "HourSheets — Project Approval Process with staged progress and nested sub-tasks",
+        caption:
+          "A staged approval workflow with nested sub-tasks and per-stage assignees",
+      },
+    ],
+  },
 ];
 
 export const categories = ["All", "Web", "Mobile App", "SaaS", "AI"] as const;
