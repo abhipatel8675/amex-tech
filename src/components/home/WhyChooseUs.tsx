@@ -4,14 +4,16 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const codeLines = [
-  "const result = await db",
-  "  .from('users')",
-  "  .select('*')",
-  "  .eq('active', true);",
+  "// app/dashboard/page.tsx",
+  "import { getServerSession } from 'next-auth';",
   "",
-  "// Row-level security enforced",
-  "// Types auto-generated",
-  "return result.data ?? [];",
+  "export default async function Dashboard() {",
+  "  const session = await getServerSession();",
+  "  const data = await db.query.metrics",
+  "    .findMany({ where: eq(userId, session.id) });",
+  "",
+  "  return <MetricsGrid data={data} />;",
+  "}",
 ];
 
 function CodeTyper() {
@@ -26,7 +28,7 @@ function CodeTyper() {
         setDisplay([]);
         setLineIdx(0);
         setCharIdx(0);
-      }, 2400);
+      }, 2800);
       return;
     }
     const line = codeLines[lineIdx];
@@ -38,27 +40,46 @@ function CodeTyper() {
           return next;
         });
         setCharIdx((c) => c + 1);
-      }, charIdx === 0 && line === "" ? 80 : 22);
+      }, charIdx === 0 && line === "" ? 80 : 18);
     } else {
       timerRef.current = setTimeout(() => {
         setLineIdx((l) => l + 1);
         setCharIdx(0);
-      }, line === "" ? 0 : 60);
+      }, line === "" ? 0 : 50);
     }
     return () => clearTimeout(timerRef.current);
   }, [lineIdx, charIdx]);
 
   return (
-    <pre className="text-xs leading-6 font-mono text-left overflow-hidden" style={{ color: "#a5b4fc" }}>
+    <pre className="text-xs leading-[1.7] font-mono text-left overflow-hidden" style={{ color: "#a5b4fc" }}>
       {display.map((line, i) => (
         <span key={i} className="block">
           {line.startsWith("//") ? (
-            <span style={{ color: "rgba(100,116,139,0.7)" }}>{line}</span>
+            <span style={{ color: "rgba(100,116,139,0.65)" }}>{line}</span>
+          ) : line.startsWith("import") ? (
+            <span>
+              <span style={{ color: "#7dd3fc" }}>import</span>
+              <span style={{ color: "#e2e8f0" }}>{line.slice(6)}</span>
+            </span>
+          ) : line.startsWith("export") ? (
+            <span>
+              <span style={{ color: "#7dd3fc" }}>export default </span>
+              <span style={{ color: "#a78bfa" }}>async function </span>
+              <span style={{ color: "#fbbf24" }}>{line.slice(24)}</span>
+            </span>
+          ) : line.startsWith("  return") ? (
+            <span>
+              {"  "}
+              <span style={{ color: "#7dd3fc" }}>return </span>
+              <span style={{ color: "#34d399" }}>{line.slice(9)}</span>
+            </span>
           ) : line.startsWith("  ") ? (
             <span>
               {"  "}
               <span style={{ color: "#93c5fd" }}>{line.slice(2)}</span>
             </span>
+          ) : line === "}" ? (
+            <span style={{ color: "#e2e8f0" }}>{line}</span>
           ) : (
             <span style={{ color: "#e2e8f0" }}>{line}</span>
           )}
@@ -73,7 +94,7 @@ function CodeTyper() {
 const HexagonIcon = ({ color }: { color: string }) => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
     <path d="M14 2L25 8.5V19.5L14 26L3 19.5V8.5L14 2Z" stroke={color} strokeWidth="1.5" fill="none" />
-    <path d="M14 8L20 11.5V17.5L14 21L8 17.5V11.5L14 8Z" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1" />
+    <path d="M14 8L20 11.5V17.5L14 21L8 17.5V11.5L14 8Z" fill={color} fillOpacity="0.2" stroke={color} strokeWidth="1" />
   </svg>
 );
 
@@ -92,14 +113,14 @@ const CircuitIcon = ({ color }: { color: string }) => (
     <rect x="3" y="17" width="8" height="8" rx="1.5" stroke={color} strokeWidth="1.5" />
     <rect x="17" y="17" width="8" height="8" rx="1.5" stroke={color} strokeWidth="1.5" />
     <path d="M11 7H17M21 11V17M7 11V17M11 21H17" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-    <circle cx="14" cy="14" r="2" fill={color} fillOpacity="0.3" stroke={color} strokeWidth="1" />
+    <circle cx="14" cy="14" r="2" fill={color} fillOpacity="0.35" stroke={color} strokeWidth="1" />
   </svg>
 );
 
 const RocketIcon = ({ color }: { color: string }) => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
-    <path d="M14 4C14 4 9 10 9 16C9 19.3 11.7 22 15 22H15C18.3 22 21 19.3 21 16C21 10 16 4 14 4Z" stroke={color} strokeWidth="1.5" fill={color} fillOpacity="0.1" />
-    <circle cx="14" cy="15" r="2.5" fill={color} fillOpacity="0.2" stroke={color} strokeWidth="1" />
+    <path d="M14 4C14 4 9 10 9 16C9 19.3 11.7 22 15 22H15C18.3 22 21 19.3 21 16C21 10 16 4 14 4Z" stroke={color} strokeWidth="1.5" fill={color} fillOpacity="0.12" />
+    <circle cx="14" cy="15" r="2.5" fill={color} fillOpacity="0.25" stroke={color} strokeWidth="1" />
     <path d="M9 18L6 22M19 18L22 22" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
     <path d="M11 22H17" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
   </svg>
@@ -109,14 +130,14 @@ const features = [
   {
     id: "code",
     title: "Clean, Maintainable Code",
-    desc: "We write code for the next engineer, not just today's deadline. Every project ships well-structured, documented, and easy to extend.",
+    desc: "We write code for the next engineer, not just today's deadline. Every project ships well-structured, documented, and easy to extend — because software outlives the sprint.",
     accent: "#818CF8",
     size: "large",
   },
   {
     id: "security",
     title: "Secure by Default",
-    desc: "Auth, data isolation, input validation, and OWASP standards — baked in from day one, not bolted on after.",
+    desc: "Auth, row-level data isolation, input sanitization, and OWASP Top 10 protections — built in from day one. You never pay to retrofit security.",
     accent: "#A78BFA",
     size: "normal",
     icon: HexagonIcon,
@@ -124,7 +145,7 @@ const features = [
   {
     id: "delivery",
     title: "On-Time Delivery",
-    desc: "Clear milestones, weekly demos, transparent communication. We respect your timeline.",
+    desc: "Clear milestones, weekly demos, and async updates. Your launch date isn't a target — it's a commitment we make at kick-off.",
     accent: "#38BDF8",
     size: "normal",
     icon: ClockIcon,
@@ -132,7 +153,7 @@ const features = [
   {
     id: "tech",
     title: "Modern Tech Stack",
-    desc: "Battle-tested, actively maintained technologies chosen for reliability and long-term viability.",
+    desc: "We choose battle-tested, actively maintained frameworks — not trend-chasing. Your codebase stays upgradeable and hireable for years.",
     accent: "#34D399",
     size: "normal",
     icon: CircuitIcon,
@@ -140,7 +161,7 @@ const features = [
   {
     id: "cicd",
     title: "CI/CD From Day One",
-    desc: "Automated deployments, staging environments, rollback capability. Your team ships with confidence.",
+    desc: "Automated pipelines, staging environments, and one-click rollback — so your team ships fearlessly without waiting on manual deploys.",
     accent: "#FB923C",
     size: "normal",
     icon: RocketIcon,
@@ -148,11 +169,14 @@ const features = [
   {
     id: "partnership",
     title: "Long-Term Partnership",
-    desc: "We think beyond the handoff. Our best relationships are ongoing — iterating, improving, scaling together.",
+    desc: "We think past the handoff. Our best client relationships are ongoing — iterating, scaling, and improving together as your business grows.",
     accent: "#F472B6",
     size: "wide",
   },
 ];
+
+// Timeline years 2019–2026
+const timelineYears = ["2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"];
 
 export default function WhyChooseUs() {
   return (
@@ -170,10 +194,10 @@ export default function WhyChooseUs() {
           className="max-w-2xl mb-10"
         >
           <p
-            className="mb-4 font-semibold uppercase"
+            className="mb-3 font-semibold uppercase"
             style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
           >
-            Why Choose Us
+            Why Clients Choose Us
           </p>
           <h2
             className="text-4xl md:text-5xl font-bold text-white leading-tight mb-5"
@@ -195,12 +219,18 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0 }}
-            className="group relative lg:col-span-2 rounded-2xl border border-white/[0.07] p-7 overflow-hidden"
+            className="group relative lg:col-span-2 rounded-2xl border border-white/[0.07] p-7 overflow-hidden transition-all duration-300 hover:border-indigo-500/30"
             style={{ background: "linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.06) 100%)" }}
           >
+            {/* Top accent line */}
+            <div
+              className="absolute top-0 inset-x-8 h-px rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ background: "linear-gradient(90deg, transparent, #818CF8, transparent)" }}
+            />
+            {/* Hover glow */}
             <div
               className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={{ boxShadow: "inset 0 0 0 1px rgba(129,140,248,0.2)" }}
+              style={{ boxShadow: "0 0 0 1px rgba(129,140,248,0.25), 0 0 32px rgba(99,102,241,0.08) inset" }}
             />
             <div className="grid sm:grid-cols-2 gap-8 items-start">
               <div>
@@ -216,7 +246,7 @@ export default function WhyChooseUs() {
               </div>
               <div
                 className="rounded-xl p-4 border border-white/[0.06] overflow-hidden"
-                style={{ background: "rgba(10,14,26,0.8)" }}
+                style={{ background: "rgba(10,14,26,0.85)" }}
               >
                 <CodeTyper />
               </div>
@@ -241,12 +271,18 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.35 }}
-            className="group relative lg:col-span-3 rounded-2xl border border-white/[0.07] p-7 overflow-hidden"
+            className="group relative lg:col-span-3 rounded-2xl border border-white/[0.07] p-7 overflow-hidden transition-all duration-300 hover:border-pink-500/30"
             style={{ background: "linear-gradient(135deg, rgba(244,114,182,0.07) 0%, rgba(168,85,247,0.05) 100%)" }}
           >
+            {/* Top accent line */}
+            <div
+              className="absolute top-0 inset-x-8 h-px rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ background: "linear-gradient(90deg, transparent, #F472B6, transparent)" }}
+            />
+            {/* Hover glow */}
             <div
               className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={{ boxShadow: "inset 0 0 0 1px rgba(244,114,182,0.2)" }}
+              style={{ boxShadow: "0 0 0 1px rgba(244,114,182,0.22), 0 0 32px rgba(244,114,182,0.06) inset" }}
             />
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
@@ -257,23 +293,24 @@ export default function WhyChooseUs() {
                   Long-Term Partnership
                 </h3>
                 <p className="text-sm leading-7" style={{ color: "rgba(148,163,184,0.8)" }}>
-                  We think beyond the handoff. Our best client relationships are ongoing — iterating, improving, and scaling together. We&apos;re your technical co-founder for the long run.
+                  We think beyond the handoff. Our best client relationships are ongoing — iterating, improving, and scaling together. We&apos;re your technical partner for the long run.
                 </p>
               </div>
-              {/* Timeline */}
+              {/* Timeline 2019–2026 */}
               <div className="flex items-center gap-0 overflow-x-auto pb-1">
-                {["2019", "2020", "2021", "2022", "2023", "2024", "2025"].map((year, i, arr) => (
+                {timelineYears.map((year, i, arr) => (
                   <div key={year} className="flex items-center">
                     <div className="flex flex-col items-center gap-2 shrink-0">
                       <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.1, type: "spring", stiffness: 300 }}
+                        transition={{ delay: i * 0.09, type: "spring", stiffness: 300 }}
                         className="w-3 h-3 rounded-full border-2"
                         style={{
                           borderColor: "#F472B6",
                           background: i === arr.length - 1 ? "#F472B6" : "transparent",
+                          boxShadow: i === arr.length - 1 ? "0 0 8px rgba(244,114,182,0.6)" : "none",
                         }}
                       />
                       <span className="text-xs text-slate-500 font-mono">{year}</span>
@@ -283,8 +320,8 @@ export default function WhyChooseUs() {
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 + 0.05, duration: 0.3 }}
-                        className="h-px w-10 sm:w-14 origin-left shrink-0"
+                        transition={{ delay: i * 0.09 + 0.05, duration: 0.3 }}
+                        className="h-px w-8 sm:w-12 origin-left shrink-0"
                         style={{ background: "linear-gradient(90deg, #F472B6, rgba(244,114,182,0.2))" }}
                       />
                     )}
@@ -316,33 +353,38 @@ function BentoCell({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, delay }}
-      className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6 overflow-hidden transition-all duration-300"
+      className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-7 overflow-hidden transition-all duration-300"
+      style={
+        {
+          "--accent": feature.accent,
+        } as React.CSSProperties
+      }
     >
       {/* Top accent line */}
       <div
-        className="absolute top-0 inset-x-6 h-px rounded-full opacity-50"
+        className="absolute top-0 inset-x-6 h-px rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300"
         style={{ background: `linear-gradient(90deg, transparent, ${feature.accent}, transparent)` }}
       />
       {/* Hover glow border */}
       <div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ boxShadow: `inset 0 0 0 1px ${feature.accent}30` }}
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-400 pointer-events-none"
+        style={{ boxShadow: `0 0 0 1px ${feature.accent}40, 0 0 28px ${feature.accent}0a inset` }}
       />
       {/* Hover bg glow */}
       <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ background: `radial-gradient(ellipse at 20% 20%, ${feature.accent}08, transparent 60%)` }}
+        style={{ background: `radial-gradient(ellipse at 15% 15%, ${feature.accent}0a, transparent 60%)` }}
       />
       {Icon && (
         <div
           className="relative w-10 h-10 rounded-xl flex items-center justify-center mb-5 border transition-transform duration-300 group-hover:scale-105"
-          style={{ background: `${feature.accent}12`, borderColor: `${feature.accent}25` }}
+          style={{ background: `${feature.accent}14`, borderColor: `${feature.accent}28` }}
         >
           <Icon color={feature.accent} />
         </div>
       )}
       <h3 className="relative text-base font-bold text-white mb-2.5 leading-snug">{feature.title}</h3>
-      <p className="relative text-sm leading-6.5" style={{ color: "rgba(148,163,184,0.75)" }}>
+      <p className="relative text-sm leading-7" style={{ color: "rgba(148,163,184,0.78)" }}>
         {feature.desc}
       </p>
     </motion.div>

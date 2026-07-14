@@ -3,25 +3,25 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/contact/ContactForm";
 import Breadcrumb from "@/components/ui/Breadcrumb";
-import { Mail, Clock, MessageSquare } from "lucide-react";
+import { Mail, Clock, MessageSquare, ShieldCheck, Gift, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Start a Project — Get a Free Quote",
   description:
-    "Ready to build something great? Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 24 hours with an honest plan.",
+    "Ready to build something great? Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 4 hours with an honest plan.",
   alternates: {
     canonical: "https://amextechnology.com/contact",
   },
   openGraph: {
     title: "Start a Project — Get a Free Quote | Amex Technology",
     description:
-      "Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 24 hours.",
+      "Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 4 hours.",
     url: "https://amextechnology.com/contact",
   },
   twitter: {
     title: "Start a Project — Get a Free Quote | Amex Technology",
     description:
-      "Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 24 hours.",
+      "Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 4 hours.",
   },
 };
 
@@ -34,6 +34,54 @@ const breadcrumbSchema = {
   ],
 };
 
+const trustItems = [
+  {
+    icon: Clock,
+    title: "4-hour response time",
+    desc: "We typically respond within 4 hours during business hours — not 24.",
+    color: "#818CF8",
+  },
+  {
+    icon: Gift,
+    title: "Free, no-obligation consultation",
+    desc: "Our initial scoping call is completely free. You get honest advice either way.",
+    color: "#A78BFA",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Secure & confidential",
+    desc: "Your project details stay private. We never share client information with third parties.",
+    color: "#38BDF8",
+  },
+  {
+    icon: MessageSquare,
+    title: "Mon–Sat, 9am–8pm IST",
+    desc: "We're available across time zones and can schedule calls to suit your schedule.",
+    color: "#F472B6",
+  },
+];
+
+const nextSteps = [
+  { step: "01", label: "We review your submission", desc: "Our team reads every inquiry carefully — no auto-replies." },
+  { step: "02", label: "We reach out within 4 hours", desc: "Expect a direct reply from a real engineer, not a sales rep." },
+  { step: "03", label: "Discovery call", desc: "We align on scope, timeline, and budget — then send a clear proposal." },
+];
+
+const faqItems = [
+  {
+    q: "How quickly can you start?",
+    a: "Typically within 1–3 business days of scoping alignment, depending on current workload.",
+  },
+  {
+    q: "Do you work with early-stage startups?",
+    a: "Yes. We've helped founders go from idea to live product and understand the constraints of pre-seed budgets.",
+  },
+  {
+    q: "What does the process look like?",
+    a: "Discovery → Proposal → Design → Build → QA → Deploy. We keep you informed every step of the way.",
+  },
+];
+
 export default function ContactPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
@@ -42,100 +90,116 @@ export default function ContactPage() {
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
 
       {/* Hero */}
-      <section className="pt-8 pb-16 max-w-[92rem] mx-auto px-6">
-        <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
-          Contact Us
-        </p>
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-2xl mb-6 leading-tight">
-          Let's build something great together.
-        </h1>
-        <p className="text-slate-300 text-xl max-w-xl leading-8">
-          Tell us what you're working on. We'll come back with an honest assessment and a clear
-          plan — within 24 hours.
-        </p>
+      <section className="relative pt-8 pb-12 overflow-hidden">
+        <div className="grid-pattern absolute inset-0 opacity-40 pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-80 h-80 rounded-full opacity-6 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #6366F1, transparent 70%)" }} />
+        <div className="relative max-w-7xl mx-auto px-6">
+          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">Contact Us</p>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-3xl mb-6 leading-[1.05]">
+            Let&apos;s build something{" "}
+            <span style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              great together.
+            </span>
+          </h1>
+          <p className="text-slate-300 text-xl max-w-xl leading-8">
+            Tell us what you&apos;re working on. We&apos;ll come back with an honest assessment and a clear plan — within 4 hours.
+          </p>
+        </div>
       </section>
 
       {/* Main content */}
-      <section className="pb-16 max-w-[92rem] mx-auto px-6">
-        <div className="grid lg:grid-cols-5 gap-12">
-          {/* Form */}
-          <div className="lg:col-span-3 bg-white/[0.02] border border-white/[0.07] rounded-2xl p-8 md:p-10">
-            <h2 className="text-xl font-bold text-white mb-7">Tell us about your project</h2>
-            <ContactForm />
-          </div>
+      <section className="pb-16 max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-5 gap-10 items-start">
 
-          {/* Info sidebar */}
-          <div className="lg:col-span-2 flex flex-col gap-5">
-            {/* Contact details */}
-            <div className="bg-white/[0.02] border border-white/[0.07] rounded-2xl p-7">
-              <h3 className="text-base font-semibold text-white mb-6">Contact Info</h3>
+          {/* Left column: trust + next steps */}
+          <div className="lg:col-span-2 flex flex-col gap-6">
+            {/* Trust items */}
+            <div className="relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-7 overflow-hidden">
+              <div className="absolute top-0 inset-x-8 h-px" style={{ background: "linear-gradient(90deg, transparent, #818CF870, transparent)" }} />
+              <h2 className="text-base font-semibold text-white mb-7">Why work with us</h2>
               <div className="flex flex-col gap-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
-                    <Mail className="w-4 h-4 text-indigo-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-slate-500 mb-1">Email</p>
-                    <a
-                      href="mailto:abhipatel8675@gmail.com"
-                      className="text-base text-slate-300 hover:text-white transition-colors"
-                    >
-                      abhipatel8675@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
-                    <Clock className="w-4 h-4 text-indigo-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-slate-500 mb-1">Response Time</p>
-                    <p className="text-base text-slate-300">Within 24 hours</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
-                    <MessageSquare className="w-4 h-4 text-indigo-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-slate-500 mb-1">Availability</p>
-                    <p className="text-base text-slate-300">Mon – Sat, 9am – 8pm IST</p>
-                  </div>
-                </div>
+                {trustItems.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.title} className="flex items-start gap-4">
+                      <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border" style={{ background: `${item.color}12`, borderColor: `${item.color}28` }}>
+                        <Icon style={{ color: item.color, width: "16px", height: "16px" }} />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-white mb-1">{item.title}</p>
+                        <p className="text-sm text-slate-400 leading-6">{item.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
-            {/* FAQ */}
-            <div className="bg-white/[0.02] border border-white/[0.07] rounded-2xl p-7">
-              <h3 className="text-base font-semibold text-white mb-6">Common Questions</h3>
-              <div className="flex flex-col gap-6">
-                {[
-                  {
-                    q: "How quickly can you start?",
-                    a: "Typically within 1–3 business days of scoping alignment, depending on current workload.",
-                  },
-                  {
-                    q: "Do you work with early-stage startups?",
-                    a: "Yes. We've helped founders go from idea to live product and understand the constraints of pre-seed budgets.",
-                  },
-                  {
-                    q: "What does the process look like?",
-                    a: "Discovery → Proposal → Design → Build → QA → Deploy. We keep you informed every step of the way.",
-                  },
-                  {
-                    q: "Do you offer ongoing maintenance?",
-                    a: "Yes — we offer retainer-based support plans after project completion.",
-                  },
-                ].map((item) => (
-                  <div key={item.q}>
-                    <p className="text-sm font-semibold text-white mb-2">{item.q}</p>
-                    <p className="text-sm text-slate-400 leading-relaxed">{item.a}</p>
+            {/* What happens next */}
+            <div className="relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-7 overflow-hidden">
+              <div className="absolute top-0 inset-x-8 h-px" style={{ background: "linear-gradient(90deg, transparent, #A78BFA70, transparent)" }} />
+              <h2 className="text-base font-semibold text-white mb-7">What happens next</h2>
+              <div className="flex flex-col gap-5">
+                {nextSteps.map((item, i) => (
+                  <div key={item.step} className="flex gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className="w-8 h-8 rounded-full bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center shrink-0">
+                        <span className="text-xs font-bold text-indigo-400">{item.step}</span>
+                      </div>
+                      {i < nextSteps.length - 1 && <div className="w-px flex-1 bg-white/[0.06] mt-2" />}
+                    </div>
+                    <div className="pb-5">
+                      <p className="text-sm font-semibold text-white mb-1">{item.label}</p>
+                      <p className="text-sm text-slate-400 leading-6">{item.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
+
+            {/* Email direct */}
+            <div className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-7">
+              <h2 className="text-base font-semibold text-white mb-4">Or email us directly</h2>
+              <a
+                href="mailto:abhipatel8675@gmail.com"
+                className="group inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300 transition-colors font-medium"
+              >
+                <Mail className="w-4 h-4" />
+                abhipatel8675@gmail.com
+                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right column: form */}
+          <div className="lg:col-span-3 relative rounded-2xl border border-white/[0.1] bg-white/[0.025] p-8 md:p-10 overflow-hidden">
+            <div className="absolute top-0 inset-x-8 h-px" style={{ background: "linear-gradient(90deg, transparent, #6366F180, transparent)" }} />
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.05), transparent 60%)" }} />
+            <div className="relative">
+              <h2 className="text-xl font-bold text-white mb-2">Tell us about your project</h2>
+              <p className="text-sm text-slate-400 mb-8">Fill in the details below and we&apos;ll get back to you within 4 hours.</p>
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ strip */}
+      <section className="pb-20 max-w-7xl mx-auto px-6">
+        <div className="border-t border-white/[0.06] pt-14">
+          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">FAQ</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-10 tracking-tight">Common questions</h2>
+          <div className="grid md:grid-cols-3 gap-5">
+            {faqItems.map((item) => (
+              <div
+                key={item.q}
+                className="relative p-6 rounded-2xl border border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.11] transition-all duration-200 overflow-hidden"
+              >
+                <div className="absolute top-0 inset-x-6 h-px" style={{ background: "linear-gradient(90deg, transparent, #818CF840, transparent)" }} />
+                <p className="text-sm font-semibold text-white mb-3">{item.q}</p>
+                <p className="text-sm text-slate-400 leading-6">{item.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

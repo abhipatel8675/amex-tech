@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import CTASection from "@/components/home/CTASection";
 import AboutPageContent from "@/components/about/AboutPageContent";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 
@@ -41,7 +40,6 @@ export default function AboutPage() {
       <Navbar />
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
       <AboutPageContent />
-      <CTASection />
       <Footer />
     </div>
   );

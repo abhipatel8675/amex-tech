@@ -64,28 +64,47 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: {
   setOpenIndex: (i: number | null) => void;
 }) {
   const isOpen = openIndex === index;
+  const num = String(index + 1).padStart(2, "0");
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.35, delay: index * 0.04 }}
-      className="border-b border-white/[0.06] last:border-b-0"
+      className={`border-b border-white/[0.06] last:border-b-0 rounded-xl transition-colors duration-300 ${isOpen ? "bg-indigo-500/[0.04]" : ""}`}
     >
       <button
         onClick={() => setOpenIndex(isOpen ? null : index)}
         aria-expanded={isOpen}
-        className="w-full flex items-start justify-between gap-4 py-5 text-left group"
+        className="w-full flex items-start justify-between gap-4 py-5 px-3 text-left group"
       >
-        <h3 className="text-[15px] font-semibold text-white group-hover:text-indigo-300 transition-colors leading-snug">
-          {faq.question}
-        </h3>
+        <div className="flex items-start gap-3">
+          {/* Number badge */}
+          <span
+            className="shrink-0 mt-0.5 text-[11px] font-bold tabular-nums px-1.5 py-0.5 rounded-md"
+            style={{
+              color: isOpen ? "#818CF8" : "#4B5568",
+              background: isOpen ? "rgba(99,102,241,0.12)" : "rgba(255,255,255,0.04)",
+              border: `1px solid ${isOpen ? "rgba(99,102,241,0.25)" : "rgba(255,255,255,0.06)"}`,
+              transition: "all 0.2s",
+            }}
+          >
+            {num}
+          </span>
+          <h3 className="text-base font-semibold text-white group-hover:text-indigo-300 transition-colors leading-snug">
+            {faq.question}
+          </h3>
+        </div>
         <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="shrink-0 mt-0.5 w-6 h-6 rounded-full border border-white/[0.10] flex items-center justify-center bg-white/[0.03] group-hover:border-indigo-500/40 group-hover:bg-indigo-500/5 transition-all duration-200"
+          className={`shrink-0 mt-0.5 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-200 ${
+            isOpen
+              ? "border-indigo-500/50 bg-indigo-500/10 ring-2 ring-indigo-500/10"
+              : "border-white/[0.10] bg-white/[0.03] group-hover:border-indigo-500/40 group-hover:bg-indigo-500/5 group-hover:ring-2 group-hover:ring-indigo-500/10"
+          }`}
         >
-          <Plus className="w-3 h-3 text-slate-400 group-hover:text-indigo-400 transition-colors" />
+          <Plus className={`w-3.5 h-3.5 transition-colors ${isOpen ? "text-indigo-400" : "text-slate-400 group-hover:text-indigo-400"}`} />
         </motion.div>
       </button>
       <AnimatePresence initial={false}>
@@ -97,7 +116,7 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: {
             transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-slate-400 leading-7 text-[14px]">{faq.answer}</p>
+            <p className="pb-5 px-3 pl-12 text-slate-400 leading-7 text-[14px]">{faq.answer}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -123,10 +142,10 @@ export default function FAQSection() {
           className="max-w-2xl mb-10"
         >
           <p
-            className="mb-4 font-semibold uppercase"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
+            className="mb-4 font-semibold uppercase text-indigo-400"
+            style={{ fontSize: 11, letterSpacing: "0.15em" }}
           >
-            FAQ
+            Common Questions
           </p>
           <h2
             className="text-4xl md:text-5xl font-bold text-white leading-tight mb-5"

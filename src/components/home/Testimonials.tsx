@@ -13,6 +13,18 @@ const avatarGradients = [
   ["#8B5CF6", "#A78BFA"],
 ];
 
+function FiverrBadge() {
+  return (
+    <span
+      className="inline-flex items-center justify-center w-6 h-6 rounded-md text-white font-bold text-xs select-none"
+      style={{ background: "#1DBF73", fontSize: 13, lineHeight: 1 }}
+      aria-label="Fiverr"
+    >
+      f
+    </span>
+  );
+}
+
 export default function Testimonials() {
   return (
     <section
@@ -50,17 +62,26 @@ export default function Testimonials() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="group relative flex flex-col gap-5 p-7 rounded-2xl border border-white/[0.07] bg-white/[0.025] hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+                className="group relative flex flex-col gap-5 p-7 rounded-2xl border border-white/[0.07] bg-white/[0.025] hover:bg-white/[0.04] hover:border-indigo-500/30 hover:border-l-indigo-500/70 transition-all duration-300"
+                style={{ borderLeftWidth: "1px" }}
               >
-                {/* Decorative quote */}
-                <div className="absolute top-5 right-6 opacity-[0.06]">
-                  <Quote className="w-12 h-12 text-indigo-400 fill-indigo-400" />
+                {/* Hover left border accent */}
+                <div
+                  className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: "linear-gradient(180deg, #6366F1, #8B5CF6)" }}
+                />
+
+                {/* Fiverr badge top-right */}
+                <div className="absolute top-5 right-6 flex items-center gap-2">
+                  <FiverrBadge />
+                  {/* Decorative quote behind badge */}
+                  <Quote className="w-10 h-10 text-indigo-400 fill-indigo-400 opacity-[0.05] absolute right-0 top-0" />
                 </div>
 
                 {/* Stars */}
                 <div className="flex gap-1">
                   {Array.from({ length: t.rating }).map((_, j) => (
-                    <Star key={j} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
 
@@ -72,10 +93,10 @@ export default function Testimonials() {
                 {/* Author */}
                 <div className="flex items-center justify-between gap-3 pt-4 border-t border-white/[0.07]">
                   <div className="flex items-center gap-3">
-                    {/* Premium avatar */}
+                    {/* Avatar */}
                     <div className="relative shrink-0">
                       <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white"
+                        className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white uppercase"
                         style={{ background: `linear-gradient(135deg, ${gradFrom}, ${gradTo})` }}
                       >
                         {t.name.charAt(0)}
@@ -88,7 +109,7 @@ export default function Testimonials() {
                     <div>
                       <p className="text-sm font-semibold text-white leading-tight">{t.name}</p>
                       <p className="text-xs text-slate-500 mt-0.5">
-                        {t.role}, {t.company}
+                        {t.role} &middot; {t.company}
                       </p>
                     </div>
                   </div>
@@ -107,14 +128,21 @@ export default function Testimonials() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 pt-10 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-0"
+          className="mt-12 pt-10 border-t border-white/[0.06] relative flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-0"
         >
+          {/* Subtle glow behind bar */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(99,102,241,0.07), transparent 70%)",
+            }}
+          />
           {[
             { value: "5.0", label: "Average Rating", color: "#FBBF24" },
             { value: "100%", label: "Satisfaction Rate", color: "#34D399" },
             { value: "100+", label: "Clients Served", color: "#818CF8" },
           ].map((m, i) => (
-            <div key={m.label} className="flex items-center gap-0">
+            <div key={m.label} className="relative flex items-center gap-0">
               {i > 0 && <span className="hidden sm:block w-px h-10 bg-white/[0.07] mx-10" />}
               <div className="text-center">
                 <p className="text-3xl font-bold mb-1" style={{ color: m.color }}>{m.value}</p>

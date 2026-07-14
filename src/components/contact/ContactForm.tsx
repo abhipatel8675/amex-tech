@@ -72,7 +72,7 @@ export default function ContactForm() {
     }
   };
 
-  const inputCls = "w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-base text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all duration-200";
+  const inputCls = "w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3.5 text-base text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/60 focus:bg-white/[0.07] focus:ring-1 focus:ring-indigo-500/20 transition-all duration-200";
 
   if (success) {
     return (
@@ -82,7 +82,7 @@ export default function ContactForm() {
         </div>
         <h3 className="text-2xl font-bold text-white">Message Received</h3>
         <p className="text-base text-slate-400 max-w-xs leading-7">
-          We'll review your project details and get back to you within 24 hours.
+          We&apos;ll review your project details and get back to you within 4 hours.
         </p>
       </div>
     );
@@ -101,7 +101,7 @@ export default function ContactForm() {
             aria-label="Full name"
             value={form.name}
             onChange={set("name")}
-            placeholder="Your name"
+            placeholder="Jane Smith"
             className={inputCls}
           />
         </div>
@@ -219,7 +219,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="group flex items-center justify-center gap-2 text-base font-semibold text-white py-4 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed btn-glow"
+        className="group w-full flex items-center justify-center gap-2 text-base font-semibold text-white py-4 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed btn-glow mt-1"
         style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
       >
         {loading ? "Sending..." : (
