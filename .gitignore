@@ -42,3 +42,6 @@ next-env.d.ts
 
 # agents / skills
 .agents/
+
+# blog images (large files, managed outside git)
+/public/images/blog/
