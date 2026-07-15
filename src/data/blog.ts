@@ -17,13 +17,14 @@ export type BlogPost = {
   author?: { name: string; url?: string };
   updatedAt?: string;
   faq?: { question: string; answer: string }[];
+  imagePosition?: string;
 };
 
 export const blogPosts: BlogPost[] = [
 
   {
     slug: "how-to-download-zip-file-from-replit",
-    title: "How to Download a ZIP File From Replit (Complete 2026 Guide)",
+    title: "How to Download a ZIP File From Replit (3 Methods, 2026 Guide)",
     excerpt:
       "Step-by-step guide to downloading your project as a ZIP file from Replit — covering the UI method, Git method, and how to handle common errors.",
     content: `
@@ -53,14 +54,18 @@ If you're on a newer version of the Replit UI, the menu may be accessible via a 
 
 From the dropdown, click **Download as zip**. Replit will package your entire project directory into a \`.zip\` archive and your browser will begin downloading it immediately.
 
-The file will be named after your Repl (e.g., \`my-project.zip\`). Depending on project size, the download may take a few seconds to a minute.
+The file will be named after your Repl (e.g., \`my-project.zip\`). Depending on project size, 
 
-**What if I don't see the option?**
+![Replit three-dot menu showing the 'Download as ZIP' export option](/images/blog/how-to-download-zip-file-from-replit/2.png)
+
 
 If the option is missing, check:
 - You are the owner of the Repl (not just a collaborator with view access)
 - You're logged in (the option is not available to anonymous visitors)
 - You're in the editor view, not the cover page
+
+
+![Replit IDE with project files open — ready for ZIP export or GitHub push](/images/blog/how-to-download-zip-file-from-replit/3.png)
 
 ## Method 2: Push to GitHub, Then Clone Locally
 
@@ -106,6 +111,8 @@ The \`.replit\` and \`replit.nix\` files in the ZIP are Replit-specific configur
 ## Running Your Project Locally After Downloading
 
 ### Step 1: Extract the ZIP
+
+![Extracting a Replit ZIP archive — project files unzipped and opened in VS Code locally](/images/blog/how-to-download-zip-file-from-replit/4.png)
 
 On Mac or Windows, double-click the \`.zip\` file to extract it. On Linux or in a terminal:
 
@@ -241,7 +248,7 @@ Explore our [web development services](/services#web-development), browse our [P
     gradientFrom: "#f97316",
     gradientTo: "#ec4899",
     featured: false,
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=3840&q=95&auto=format&fit=crop",
+    image: "/images/blog/how-to-download-zip-file-from-replit/1.png",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-01-18",
     keywords: ["Replit", "Developer Tools", "Workflow", "download ZIP from Replit", "export Replit project"],
@@ -272,7 +279,7 @@ Explore our [web development services](/services#web-development), browse our [P
   },
   {
     slug: "connect-vercel-app-godaddy-domain",
-    title: "Connect Your Vercel App to a GoDaddy Domain in 5 Minutes",
+    title: "How to Connect a GoDaddy Domain to Vercel (2026 Step-by-Step Guide)",
     excerpt:
       "Step-by-step guide to pointing your GoDaddy domain to a Vercel deployment — including DNS records, SSL, and fixing propagation issues.",
     content: `
@@ -308,6 +315,8 @@ For most projects, choosing **"Redirect www to root"** is the cleanest setup. Us
 After selecting your preference, click **Add**. Vercel will now show you the exact DNS records you need to configure.
 
 ## Step 2: The DNS Records Vercel Requires
+
+![Complete step-by-step infographic for connecting a GoDaddy domain to Vercel with DNS records and SSL](/images/blog/connect-vercel-app-godaddy-domain/2.png)
 
 Vercel will show you two records (sometimes three, depending on your setup). The standard records for a root + www configuration are:
 
@@ -371,6 +380,8 @@ GoDaddy will show a confirmation dialog asking you to review the changes. Confir
 
 ## Step 4: Wait for DNS Propagation
 
+![DNS propagation world map — changes spreading from your registrar to global DNS servers](/images/blog/connect-vercel-app-godaddy-domain/4.png)
+
 DNS changes do not apply instantly — they propagate across global DNS servers over time. The propagation window is technically up to **48 hours**, but in practice most DNS resolvers pick up changes within **15–60 minutes**.
 
 During propagation, different users around the world may see different results depending on which DNS server their ISP is using. This is normal.
@@ -395,6 +406,8 @@ dig yourdomain.com A +short
 When this returns \`76.76.21.21\`, your A record has propagated to your local DNS resolver.
 
 ## Step 5: SSL Certificate — Automatic via Let's Encrypt
+
+![Vercel Domains dashboard showing SSL certificate automatically provisioned via Let's Encrypt](/images/blog/connect-vercel-app-godaddy-domain/5.png)
 
 One of Vercel's best features is **automatic SSL provisioning**. You do not need to buy or configure a certificate separately.
 
@@ -482,7 +495,8 @@ Explore our [software development services](/services), see our [Portfolio](/por
     gradientFrom: "#0ea5e9",
     gradientTo: "#6366f1",
     featured: false,
-    image: "https://images.unsplash.com/photo-1762163516269-3c143e04175c?w=3840&q=95&auto=format&fit=crop",
+    image: "/images/blog/connect-vercel-app-godaddy-domain/heroimage.png",
+    imagePosition: "object-top",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-02-10",
     keywords: ["Vercel", "GoDaddy", "DNS", "Deployment", "connect GoDaddy domain to Vercel", "custom domain"],
@@ -544,6 +558,8 @@ The orange/grey distinction is the most common source of confusion for new Cloud
 
 ## Step 1: Create a Cloudflare Account and Add Your Site
 
+![Cloudflare Add a Site dashboard — Step 1 of 4: Enter your root domain to get started](/images/blog/how-to-setup-cloudflare-dns/1.png)
+
 ### Create the Account
 
 Go to [cloudflare.com](https://cloudflare.com) and sign up for a free account. The free plan covers everything you need to get started, including the CDN, DDoS protection, SSL, and basic security rules.
@@ -557,6 +573,8 @@ After logging in, click **Add a Site** from your dashboard. Enter your root doma
 Cloudflare will prompt you to choose a plan. Select **Free** unless you have a specific reason to upgrade. The free plan covers the features in this guide. Click **Continue**.
 
 ## Step 2: Review Your Imported DNS Records
+
+![Cloudflare DNS Manager showing imported A, CNAME, MX and TXT records with proxy status](/images/blog/how-to-setup-cloudflare-dns/2.png)
 
 Cloudflare performs an automatic scan of your domain's existing DNS records. This is one of its most useful features — it gives you a pre-populated record set to review rather than requiring you to enter everything from scratch.
 
@@ -578,6 +596,8 @@ By default, Cloudflare may set some records as DNS-only. Go through each A and C
 Once you've reviewed and corrected the records, click **Continue**.
 
 ## Step 3: Update Your Nameservers at Your Registrar
+
+![Diagram showing how to replace registrar nameservers with Cloudflare nameservers (abby.ns and ben.ns)](/images/blog/how-to-setup-cloudflare-dns/3.png)
 
 Cloudflare will give you two custom nameserver addresses — something like:
 
@@ -738,7 +758,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     gradientFrom: "#f97316",
     gradientTo: "#0ea5e9",
     featured: false,
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=3840&q=100&auto=format&fit=crop",
+    image: "/images/blog/how-to-setup-cloudflare-dns/4.png",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-03-05",
     keywords: ["Cloudflare", "DNS", "Security", "Performance", "Cloudflare DNS setup", "nameservers"],
@@ -769,7 +789,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
   },
   {
     slug: "how-to-export-code-from-lovable",
-    title: "How to Export Code From Lovable (Step-by-Step Guide)",
+    title: "How to Export Code From Lovable to GitHub or Local (2026 Guide)",
     excerpt:
       "Learn how to export your Lovable project to GitHub or run it locally — so you can self-host, extend, or hand off to a developer.",
     content: `
@@ -807,6 +827,8 @@ In the settings panel, look for the **GitHub** section. If you haven't connected
 
 ### Step 3: Create and Push the Repository
 
+![Publishing a Lovable project repository to GitHub remote — Publish Workflow dialog](/images/blog/how-to-export-code-from-lovable/2.png)
+
 Once connected, give your repository a name and select whether it should be public or private. Click **Push to GitHub**. Lovable will initialize a Git repository from your project and push all the generated code to a new GitHub repo under your account.
 
 Visit your GitHub profile to confirm the repository exists. You should see all the files — the \`src/\` directory, \`package.json\`, \`vite.config.ts\`, \`tailwind.config.ts\`, and more.
@@ -814,6 +836,8 @@ Visit your GitHub profile to confirm the repository exists. You should see all t
 Going forward, changes you make in the Lovable editor can be synced back to GitHub with a single click from the same settings panel.
 
 ## Cloning the Repo and Running Locally
+
+![Clone repository, install dependencies, and run dev server — complete local setup workflow](/images/blog/how-to-export-code-from-lovable/3.png)
 
 With your code on GitHub, getting it running locally takes four commands.
 
@@ -964,7 +988,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     gradientFrom: "#ec4899",
     gradientTo: "#8b5cf6",
     featured: false,
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=3840&q=100&auto=format&fit=crop",
+    image: "/images/blog/how-to-export-code-from-lovable/1.png",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-03-28",
     keywords: ["Lovable", "No-Code", "GitHub", "Developer Tools", "export code from Lovable", "self-host"],
@@ -995,7 +1019,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
   },
   {
     slug: "how-to-setup-resend-email",
-    title: "How to Set Up Resend for Transactional Email (Complete Guide)",
+    title: "How to Set Up Resend Transactional Email in Next.js (2026 Guide)",
     excerpt:
       "Complete guide to setting up Resend — from domain verification and DNS records to sending your first email with Next.js and React Email templates.",
     content: `
@@ -1010,6 +1034,8 @@ This is why developers reach for email delivery services. For years, SendGrid an
 **Resend** is the modern alternative. Built specifically for developers, it has a clean REST API, first-class React Email integration for building templates, and an excellent free tier (3,000 emails per month, 100/day) that covers most side projects and early-stage products.
 
 ## Creating a Resend Account and Getting Your API Key
+
+![Resend API Keys dashboard — Create API Key button and existing development key](/images/blog/how-to-setup-resend-email/1.png)
 
 Go to [resend.com](https://resend.com) and sign up with your GitHub account or email. The onboarding flow is fast — you're in the dashboard within two minutes.
 
@@ -1027,6 +1053,8 @@ RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
 On Vercel or any deployment platform, add this as a secret environment variable. Locally, add it to your \`.env.local\` file (which should be in \`.gitignore\`).
 
 ## Adding and Verifying Your Sending Domain
+
+![Resend Domains dashboard showing SPF, DKIM, and DMARC DNS verification records for a verified domain](/images/blog/how-to-setup-resend-email/3.png)
 
 You can send from Resend's shared domain (\`onboarding@resend.dev\`) immediately, but for production you must send from your own domain. This is both a deliverability requirement (Gmail and Outlook increasingly filter mail from shared sender pools) and a branding requirement.
 
@@ -1083,6 +1111,8 @@ npm install resend
 That's the only dependency needed for sending emails. For React Email templates (covered below), you'll install additional packages.
 
 ## Sending Your First Email With the SDK
+
+![Resend dashboard showing an API POST request and live email preview delivered successfully](/images/blog/how-to-setup-resend-email/2.png)
 
 With the SDK installed and your API key in environment variables, sending an email takes five lines:
 
@@ -1167,6 +1197,8 @@ const html = await render(<WelcomeEmail name="Jane" loginUrl="https://app.exampl
 \`\`\`
 
 ## Integrating Resend in a Next.js App Router API Route
+
+![Next.js and Resend developer workflow — API route, email template, dashboard, and Gmail inbox](/images/blog/how-to-setup-resend-email/5.png)
 
 Here is a complete, production-ready API route at \`src/app/api/send/route.ts\`:
 
@@ -1324,7 +1356,8 @@ If you're building a product that needs reliable email, explore our [web app dev
     gradientFrom: "#10b981",
     gradientTo: "#0ea5e9",
     featured: false,
-    image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=3840&q=100&auto=format&fit=crop",
+    image: "/images/blog/how-to-setup-resend-email/4.png",
+    imagePosition: "object-top",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-04-14",
     keywords: ["Resend", "Email", "Next.js", "Transactional Email", "SPF DKIM DMARC", "React Email"],
@@ -1355,7 +1388,7 @@ If you're building a product that needs reliable email, explore our [web app dev
   },
   {
     slug: "connect-nextjs-react-with-supabase",
-    title: "How to Connect Next.js / React with Supabase (2026 Complete Guide)",
+    title: "How to Connect Next.js with Supabase: Auth, Database & Real-Time (2026)",
     excerpt:
       "A comprehensive guide to integrating Supabase with Next.js or React — covering database queries, authentication, Row Level Security, and real-time subscriptions.",
     content: `
@@ -1383,6 +1416,8 @@ The free tier (500 MB database, 1 GB storage, 50,000 monthly active users) is ge
 
 ## Step 1: Create a Supabase Project and Get Your Credentials
 
+![Supabase new organization creation screen — Name, Type, and Plan selection](/images/blog/connect-nextjs-react-with-supabase/pasted-image.png)
+
 Go to [supabase.com](https://supabase.com), sign in, and click **New Project**. Give it a name, choose a region close to your users, and set a strong database password (save this — you'll need it for direct Postgres connections).
 
 Once the project is provisioned (about 30 seconds), navigate to **Settings → API**. You'll find two values you need:
@@ -1393,6 +1428,10 @@ Once the project is provisioned (about 30 seconds), navigate to **Settings → A
 Keep the **service_role key** secret. It bypasses RLS entirely and should only be used in server-side code where you explicitly need admin access to the database.
 
 ## Step 2: Install the SDK and Configure Environment Variables
+
+![Supabase project API Settings showing Project URL, anon public key, and service role key](/images/blog/connect-nextjs-react-with-supabase/image-2.png)
+
+![VS Code editor with .env.local file open — NEXT_PUBLIC_SUPABASE_URL and keys configured](/images/blog/connect-nextjs-react-with-supabase/pasted-image-3.png)
 
 \`\`\`bash
 npm install @supabase/supabase-js
@@ -1671,6 +1710,8 @@ Before subscriptions work, you must enable replication on the table in the Supab
 
 ## Step 9: File Uploads With Supabase Storage
 
+![Supabase Storage dashboard alongside real-time database update workflow diagram](/images/blog/connect-nextjs-react-with-supabase/4.png)
+
 Create a storage bucket in **Storage → New Bucket**. Set it to private unless files need to be publicly accessible.
 
 \`\`\`typescript
@@ -1747,7 +1788,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     gradientFrom: "#22c55e",
     gradientTo: "#3b82f6",
     featured: true,
-    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=3840&q=100&auto=format&fit=crop",
+    image: "/images/blog/connect-nextjs-react-with-supabase/mainimage.webp",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-05-20",
     keywords: ["Next.js", "React", "Supabase", "Database", "Authentication", "Row Level Security"],
@@ -1778,7 +1819,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
   },
   {
     slug: "how-to-connect-github-with-lovable",
-    title: "How to Connect GitHub With Lovable (Step-by-Step Guide)",
+    title: "How to Connect GitHub With Lovable (2026 Step-by-Step Guide)",
     excerpt:
       "Sync your Lovable project to GitHub in a few clicks — set up two-way sync, work locally, and keep real version control. A clear step-by-step guide.",
     content: `
@@ -1808,11 +1849,15 @@ Click it to start the connection flow. The first time, Lovable will ask you to a
 
 ## Step 2: Authorize Lovable on GitHub
 
+![GitHub authorization screen requesting Lovable repository permissions — Authorize Lovable button](/images/blog/how-to-connect-github-with-lovable/2.png)
+
 You'll be redirected to GitHub to install and authorize the Lovable app. GitHub asks which account or organization to install it on, and whether to grant access to **all repositories** or **only select repositories**.
 
 Choosing "only select repositories" is the safer option — grant access to a single repo now and add more later. Approve the permissions and you'll be sent back to Lovable.
 
 ## Step 3: Create or Select a Repository
+
+![Lovable Create New Repository screen — repository name, Public/Private toggle, and Create Repository button](/images/blog/how-to-connect-github-with-lovable/3.png)
 
 Back in Lovable, you can now either:
 
@@ -1823,6 +1868,8 @@ Pick a name, choose public or private, and confirm. Lovable performs the first c
 
 ## Step 4: How Two-Way Sync Works
 
+![Two-way synchronization workflow between Lovable, GitHub, and your local developer machine](/images/blog/how-to-connect-github-with-lovable/4.png)
+
 After connecting, Lovable and GitHub stay in sync automatically:
 
 - Edits you make **in Lovable** are committed and pushed to the connected branch.
@@ -1831,6 +1878,8 @@ After connecting, Lovable and GitHub stay in sync automatically:
 This is what makes a hybrid workflow possible — non-technical teammates keep prompting in Lovable while developers work in a proper local environment, and both sides see the same code.
 
 ## Working Locally After Connecting
+
+![Complete workflow: Lovable Project → Connect GitHub → Clone Repository → Develop Locally → Push → Auto-Sync to Lovable](/images/blog/how-to-connect-github-with-lovable/5.png)
 
 To edit the project on your own machine, clone the repository:
 
@@ -1891,7 +1940,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     gradientFrom: "#8b5cf6",
     gradientTo: "#ec4899",
     featured: false,
-    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=3840&q=95&auto=format&fit=crop",
+    image: "/images/blog/how-to-connect-github-with-lovable/1.png",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2026-07-12",
     keywords: ["Lovable", "GitHub", "Version Control", "connect GitHub to Lovable", "Lovable GitHub sync"],
@@ -1922,7 +1971,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
   },
   {
     slug: "how-to-connect-custom-domain-with-lovable",
-    title: "How to Connect a Custom Domain to Lovable (2026 Guide)",
+    title: "How to Connect a Custom Domain to Lovable (2026 Step-by-Step Guide)",
     excerpt:
       "Point your custom domain to a Lovable project — publish, connect the domain, set the DNS records, and enable HTTPS. A clear step-by-step walkthrough.",
     content: `
@@ -1948,11 +1997,15 @@ In the Lovable editor, click **Publish** (top-right). This pushes your project l
 
 ## Step 2: Add Your Domain in Lovable
 
+![Lovable Domains & Branding screen — Connect Custom Domain button with CNAME and TXT DNS records](/images/blog/how-to-connect-custom-domain-with-lovable/2.png)
+
 Open **Project Settings** and find the **Domains** section. Click **Connect domain** (or **Add custom domain**) and enter the exact domain you want to use — for example \`yourbrand.com\` or \`www.yourbrand.com\`.
 
 Lovable then shows you the **exact DNS records** to add. Leave this screen open — you'll copy these values into your registrar next. The values Lovable displays are the source of truth; use those rather than any generic ones.
 
 ## Step 3: Add the DNS Records at Your Registrar
+
+![DNS records diagram for custom domain: A Record, CNAME, DNS Verification TXT, and SSL Certificate](/images/blog/how-to-connect-custom-domain-with-lovable/3.png)
 
 Log into your domain registrar and open its **DNS management** page. Add the records Lovable gave you. Typically that means one of:
 
@@ -1965,11 +2018,15 @@ If your registrar is Cloudflare, set the record to **DNS only** (grey cloud) whi
 
 ## Step 4: Verify and Wait for HTTPS
 
+![Lovable Domain Status dashboard showing Verified & Active with SSL Certificate and HTTPS Enabled](/images/blog/how-to-connect-custom-domain-with-lovable/4.png)
+
 Back in Lovable, the domain status moves to **verifying**. Once the DNS records are detected, Lovable issues an SSL certificate automatically and your site becomes available over **https://** at your custom domain.
 
 DNS changes can take anywhere from a few minutes to 48 hours to propagate, though in practice it's usually under an hour.
 
 ## Verifying It Works
+
+![Lovable publishing workflow: Publish Project → Add Custom Domain → Configure DNS → Verify Domain → Enable HTTPS → Website Live](/images/blog/how-to-connect-custom-domain-with-lovable/5.png)
 
 Open your domain in a browser. You should see your Lovable site load with a padlock (valid HTTPS). To confirm the record has propagated, check it with a tool like whatsmydns.net and make sure it resolves to the value Lovable gave you.
 
@@ -2015,7 +2072,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     gradientFrom: "#0ea5e9",
     gradientTo: "#6366f1",
     featured: false,
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=3840&q=95&auto=format&fit=crop",
+    image: "/images/blog/how-to-connect-custom-domain-with-lovable/1.png",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2026-07-14",
     keywords: ["Lovable", "Custom Domain", "DNS", "connect custom domain to Lovable", "Lovable custom domain"],

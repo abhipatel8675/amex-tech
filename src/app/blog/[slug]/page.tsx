@@ -176,17 +176,17 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Visual banner */}
         <div className="w-full rounded-2xl border border-white/[0.07] overflow-hidden mb-12 relative">
           {post.image ? (
-            <div className="relative w-full h-56">
+            <div className="relative w-full" style={{ aspectRatio: "16/7", minHeight: 320 }}>
               <Image
                 src={post.image}
                 alt={`${post.title} — guide by Amex Technology`}
                 fill
                 quality={95}
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 768px"
+                className={`object-cover ${post.imagePosition ?? "object-center"}`}
+                sizes="(max-width: 768px) 100vw, 1280px"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </div>
           ) : (
             <div
