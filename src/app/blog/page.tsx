@@ -143,7 +143,7 @@ export default function BlogPage() {
       {/* Post grid */}
       <section className="pb-28 max-w-[92rem] mx-auto px-6">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {rest.map((post) => (
+          {rest.map((post, i) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
@@ -156,7 +156,8 @@ export default function BlogPage() {
                     src={post.image}
                     alt={post.title}
                     fill
-                    quality={95}
+                    quality={80}
+                    priority={i < 3}
                     className={`object-cover ${post.imagePosition ?? "object-center"} transition-transform duration-500 group-hover:scale-105`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
