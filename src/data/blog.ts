@@ -252,7 +252,7 @@ Explore our [web development services](/services#web-development), browse our [P
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-01-18",
     keywords: ["Replit", "Developer Tools", "Workflow", "download ZIP from Replit", "export Replit project"],
-    metaTitle: "Download a ZIP File From Replit: Step-by-Step Guide",
+    metaTitle: "How to Download a ZIP From Replit (3 Methods, 2026)",
     metaDescription: "Export your Replit project as a ZIP using the UI or Git. Step-by-step methods, what's inside the download, and how to fix common errors.",
     faq: [
       {
@@ -500,7 +500,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-02-10",
     keywords: ["Vercel", "GoDaddy", "DNS", "Deployment", "connect GoDaddy domain to Vercel", "custom domain"],
-    metaTitle: "Connect a GoDaddy Domain to Vercel in 5 Minutes",
+    metaTitle: "How to Connect GoDaddy Domain to Vercel (2026 Guide)",
     metaDescription: "Point your GoDaddy domain to a Vercel app: exact DNS records, SSL setup, and how to fix propagation issues. A clear 5-minute walkthrough.",
     faq: [
       {
@@ -762,7 +762,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-03-05",
     keywords: ["Cloudflare", "DNS", "Security", "Performance", "Cloudflare DNS setup", "nameservers"],
-    metaTitle: "Cloudflare DNS Setup: Step-by-Step Guide (2026)",
+    metaTitle: "How to Set Up Cloudflare DNS: Step-by-Step Guide (2026)",
     metaDescription: "Set up Cloudflare DNS from scratch: add your site, update nameservers, configure SSL/TLS, security, and performance. Full 2026 walkthrough.",
     faq: [
       {
@@ -992,7 +992,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-03-28",
     keywords: ["Lovable", "No-Code", "GitHub", "Developer Tools", "export code from Lovable", "self-host"],
-    metaTitle: "How to Export Code From Lovable to GitHub",
+    metaTitle: "How to Export Code From Lovable to GitHub (2026 Guide)",
     metaDescription: "Export your Lovable project to GitHub or run it locally so you can self-host, extend, or hand it to a developer. Step-by-step guide.",
     faq: [
       {
@@ -1361,7 +1361,7 @@ If you're building a product that needs reliable email, explore our [web app dev
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-04-14",
     keywords: ["Resend", "Email", "Next.js", "Transactional Email", "SPF DKIM DMARC", "React Email"],
-    metaTitle: "Set Up Resend for Transactional Email: Full Guide",
+    metaTitle: "How to Set Up Resend Email in Next.js (2026 Guide)",
     metaDescription: "Configure Resend end to end: domain verification, SPF/DKIM DNS records, and sending your first email with Next.js and React Email.",
     faq: [
       {
@@ -1792,7 +1792,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2025-05-20",
     keywords: ["Next.js", "React", "Supabase", "Database", "Authentication", "Row Level Security"],
-    metaTitle: "Connect Next.js to Supabase: 2026 Complete Guide",
+    metaTitle: "How to Connect Next.js to Supabase (2026 Complete Guide)",
     metaDescription: "Integrate Supabase with Next.js or React: database queries, auth, Row Level Security, and real-time subscriptions. Complete 2026 guide.",
     faq: [
       {
@@ -1944,7 +1944,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2026-07-12",
     keywords: ["Lovable", "GitHub", "Version Control", "connect GitHub to Lovable", "Lovable GitHub sync"],
-    metaTitle: "How to Connect GitHub With Lovable (Step-by-Step)",
+    metaTitle: "How to Connect GitHub to Lovable (2026 Step-by-Step)",
     metaDescription: "Connect your Lovable project to GitHub for two-way sync and real version control. Step-by-step setup, how the sync works, and common fixes.",
     faq: [
       {
@@ -2076,7 +2076,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2026-07-14",
     keywords: ["Lovable", "Custom Domain", "DNS", "connect custom domain to Lovable", "Lovable custom domain"],
-    metaTitle: "Connect a Custom Domain to Lovable: Step-by-Step",
+    metaTitle: "How to Add a Custom Domain to Lovable (2026 Guide)",
     metaDescription: "Add a custom domain to your Lovable project: publish, connect the domain, set A/CNAME DNS records, enable HTTPS, and fix propagation issues.",
     faq: [
       {
