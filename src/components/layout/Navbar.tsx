@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
+import { LogoMark } from "@/components/ui/Logo";
 
 const navLinks = [
   { label: "Services", href: "/services" },
@@ -41,19 +42,22 @@ export default function Navbar() {
         <nav className="max-w-[92rem] mx-auto px-6 h-16 flex items-center justify-between gap-8">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-1 flex-shrink-0 group">
-            <span
-              className="font-bold text-lg tracking-tight"
-              style={{
-                background: "linear-gradient(135deg, #818CF8, #A78BFA)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Amex
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0 group" aria-label="Amex Technology — home">
+            <LogoMark size={30} className="transition-transform duration-300 group-hover:scale-105" />
+            <span className="flex items-baseline gap-1">
+              <span
+                className="font-bold text-lg tracking-tight"
+                style={{
+                  background: "linear-gradient(135deg, #818CF8, #A78BFA)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Amex
+              </span>
+              <span className="text-[#E2E8F0] font-semibold text-lg tracking-tight">Technology</span>
             </span>
-            <span className="text-[#E2E8F0] font-semibold text-lg tracking-tight">Technology</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -149,9 +153,12 @@ export default function Navbar() {
             >
               {/* Mobile header */}
               <div className="flex items-center justify-between px-6 h-16 border-b border-white/[0.06]">
-                <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-1">
-                  <span className="font-bold text-lg" style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Amex</span>
-                  <span className="text-white font-semibold text-lg">technology</span>
+                <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
+                  <LogoMark size={28} />
+                  <span className="flex items-baseline gap-1">
+                    <span className="font-bold text-lg" style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Amex</span>
+                    <span className="text-white font-semibold text-lg">Technology</span>
+                  </span>
                 </Link>
                 <button onClick={() => setMobileOpen(false)} className="p-2 text-slate-400 hover:text-white transition-colors" aria-label="Close navigation menu">
                   <X className="w-5 h-5" />

@@ -19,23 +19,32 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
-  if (!post) return { title: "Post Not Found" };
-  const description = post.excerpt.slice(0, 155) + (post.excerpt.length > 155 ? "…" : "");
+  if (!post) return { title: "Post Not Found", robots: { index: false, follow: false } };
+  const fallbackDescription = post.excerpt.slice(0, 155) + (post.excerpt.length > 155 ? "…" : "");
+  const title = post.metaTitle ?? post.title;
+  const description = post.metaDescription ?? fallbackDescription;
+  const authors = [{ name: post.author?.name ?? "Amex Technology" }];
   return {
-    title: post.title,
+    title: { absolute: title },
     description,
+    keywords: post.keywords,
+    authors,
     alternates: {
       canonical: `https://amextechnology.com/blog/${slug}`,
     },
     openGraph: {
-      title: `${post.title} | Amex Technology`,
+      title: `${title} | Amex Technology`,
       description,
       url: `https://amextechnology.com/blog/${slug}`,
       type: "article",
       publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt ?? post.publishedAt,
+      authors: authors.map((a) => a.name),
+      tags: post.tags,
+      section: post.category,
     },
     twitter: {
-      title: `${post.title} | Amex Technology`,
+      title: `${title} | Amex Technology`,
       description,
     },
   };
@@ -55,16 +64,25 @@ export default async function BlogPostPage({ params }: Props) {
 
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
     datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
-    author: {
-      "@type": "Organization",
-      name: "Amex Technology",
-      url: "https://amextechnology.com",
-    },
+    dateModified: post.updatedAt ?? post.publishedAt,
+    image: post.image ?? `https://amextechnology.com/blog/${slug}/opengraph-image`,
+    keywords: (post.keywords ?? post.tags).join(", "),
+    wordCount,
+    author: post.author
+      ? {
+          "@type": "Person",
+          name: post.author.name,
+          url: post.author.url,
+        }
+      : {
+          "@type": "Organization",
+          name: "Amex Technology",
+          url: "https://amextechnology.com",
+        },
     publisher: {
       "@type": "Organization",
       name: "Amex Technology",
@@ -78,6 +96,21 @@ export default async function BlogPostPage({ params }: Props) {
       "@id": `https://amextechnology.com/blog/${slug}`,
     },
   };
+
+  const faqSchema = post.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faq.map((q) => ({
+          "@type": "Question",
+          name: q.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: q.answer,
+          },
+        })),
+      }
+    : null;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -93,6 +126,9 @@ export default async function BlogPostPage({ params }: Props) {
     <div className="bg-[#0B0F19] text-white min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
       <Navbar />
       <Breadcrumb
         items={[
@@ -143,7 +179,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="relative w-full h-56">
               <Image
                 src={post.image}
-                alt={post.title}
+                alt={`${post.title} — guide by Amex Technology`}
                 fill
                 quality={95}
                 className="object-cover object-top"

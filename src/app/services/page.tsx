@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   keywords:
     "software development services, web app development, mobile app development, SaaS development, SEO services, AI automation services, n8n automation, Zapier workflows, technical SEO, on-page SEO",
   description:
-    "Full-stack software development services: web apps, mobile apps, SaaS platforms, API development, DevOps, UI/UX design, SEO services, and AI automation. Trusted by startups and enterprises worldwide.",
+    "Full-stack software development: web & mobile apps, SaaS, APIs, DevOps, UI/UX, SEO, and AI automation. Trusted by startups and enterprises worldwide.",
   alternates: {
     canonical: "https://amextechnology.com/services",
   },
@@ -42,11 +42,6 @@ const servicesSchema = {
   name: "Amex Technology",
   url: "https://amextechnology.com",
   description: "Full-stack software development agency specializing in web apps, mobile apps, SaaS platforms, and more.",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "100",
-  },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Software Development Services",

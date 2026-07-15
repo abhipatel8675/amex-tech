@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 export const metadata: Metadata = {
   title: "About Us — Founded 2019",
   description:
-    "Amex Technology was founded in 2019 with a mission to build software that matters. Our team of engineers and designers has delivered 200+ projects for clients across North America, Europe, and beyond.",
+    "Amex Technology is a software agency founded in 2019. Our engineers and designers have shipped 200+ projects for startups and enterprises worldwide.",
   alternates: {
     canonical: "https://amextechnology.com/about",
   },
@@ -33,10 +33,28 @@ const breadcrumbSchema = {
   ],
 };
 
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Amex Technology",
+  url: "https://amextechnology.com/about",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Amex Technology",
+    url: "https://amextechnology.com",
+    logo: "https://amextechnology.com/images/logo.png",
+    foundingDate: "2019",
+    description:
+      "Software development agency building web apps, mobile apps and SaaS platforms for startups and enterprises.",
+    sameAs: ["https://www.fiverr.com/abhipatel956"],
+  },
+};
+
 export default function AboutPage() {
   return (
     <div className="bg-[#0B0F19] text-white min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
       <Navbar />
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
       <AboutPageContent />

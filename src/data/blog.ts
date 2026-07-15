@@ -11,6 +11,12 @@ export type BlogPost = {
   gradientTo: string;
   featured: boolean;
   image?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  keywords?: string[];
+  author?: { name: string; url?: string };
+  updatedAt?: string;
+  faq?: { question: string; answer: string }[];
 };
 
 export const blogPosts: BlogPost[] = [
@@ -226,7 +232,7 @@ Exporting from Replit is just the first step. Once you have your project running
 
 At **Amex Technology**, we work with developers and businesses to take projects from prototype to production. Whether you're migrating an existing Replit project or starting fresh, our team can help you architect a setup that grows with you.
 
-Explore our work and get in touch through the [Portfolio](/portfolio) or reach out directly via the [Contact](/contact) page.
+Explore our [web development services](/services#web-development), browse our [Portfolio](/portfolio), or reach out via the [Contact](/contact) page.
     `,
     category: "Tutorial",
     tags: ["Replit", "Developer Tools", "Workflow"],
@@ -236,6 +242,33 @@ Explore our work and get in touch through the [Portfolio](/portfolio) or reach o
     gradientTo: "#ec4899",
     featured: false,
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-01-18",
+    keywords: ["Replit", "Developer Tools", "Workflow", "download ZIP from Replit", "export Replit project"],
+    metaTitle: "Download a ZIP File From Replit: Step-by-Step Guide",
+    metaDescription: "Export your Replit project as a ZIP using the UI or Git. Step-by-step methods, what's inside the download, and how to fix common errors.",
+    faq: [
+      {
+        question: "Can I download a Repl I don't own?",
+        answer: "No. The download ZIP option is only available to the Repl's owner. If you're a collaborator, ask the owner to export and share the archive with you.",
+      },
+      {
+        question: "Does the ZIP include my Git history?",
+        answer: "No. The ZIP is a snapshot of the current file state, not a Git repository. If you want Git history, use Method 2 (push to GitHub and clone).",
+      },
+      {
+        question: "Will the downloaded project work exactly the same as on Replit?",
+        answer: "Mostly, but not always. Replit may have configured specific environment variables, custom Nix packages, or system-level dependencies that aren't part of the ZIP. Check the .replit and replit.nix files to understand what the Replit environment was providing.",
+      },
+      {
+        question: "How do I keep the local copy in sync with Replit going forward?",
+        answer: "Use GitHub as the source of truth. Push from Replit to GitHub, then pull from GitHub to your local machine. This gives you a proper workflow instead of downloading ZIPs repeatedly.",
+      },
+      {
+        question: "What happens to my Replit Deployments when I move locally?",
+        answer: "Nothing — they keep running. Exporting a ZIP doesn't affect your live Replit Deployments. You'd need to manually take them down from the Replit dashboard if you want to shut them off.",
+      },
+    ],
   },
   {
     slug: "connect-vercel-app-godaddy-domain",
@@ -440,7 +473,7 @@ Connecting a custom domain is a foundational step — but a production-grade dep
 
 At **Amex Technology**, we help teams build the full deployment pipeline — from domain configuration to CI/CD automation to performance observability. If you're looking to harden your Vercel setup or take a project from proof-of-concept to production-ready, we'd be glad to help.
 
-Explore our work at the [Portfolio](/portfolio) page or get in touch directly via the [Contact](/contact) page.
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
     `,
     category: "DevOps",
     tags: ["Vercel", "GoDaddy", "DNS", "Deployment", "Domain Setup"],
@@ -450,6 +483,33 @@ Explore our work at the [Portfolio](/portfolio) page or get in touch directly vi
     gradientTo: "#6366f1",
     featured: false,
     image: "https://images.unsplash.com/photo-1762163516269-3c143e04175c?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-02-10",
+    keywords: ["Vercel", "GoDaddy", "DNS", "Deployment", "connect GoDaddy domain to Vercel", "custom domain"],
+    metaTitle: "Connect a GoDaddy Domain to Vercel in 5 Minutes",
+    metaDescription: "Point your GoDaddy domain to a Vercel app: exact DNS records, SSL setup, and how to fix propagation issues. A clear 5-minute walkthrough.",
+    faq: [
+      {
+        question: "How long does DNS propagation really take with GoDaddy?",
+        answer: "In most cases, 15–60 minutes. GoDaddy's default TTL is 1 hour, so once your changes are saved, it takes at most one TTL cycle for most resolvers to pick up the change. Setting TTL to the minimum (600 seconds / 10 minutes) before making changes can speed this up.",
+      },
+      {
+        question: "Do I need to transfer my domain from GoDaddy to Vercel?",
+        answer: "No. Vercel does not require you to transfer your domain. You keep your domain registered at GoDaddy and simply point the DNS records at Vercel's infrastructure. Transfers are optional and generally not worth the hassle unless you want everything in one place.",
+      },
+      {
+        question: "Can I connect multiple domains to the same Vercel project?",
+        answer: "Yes. You can add as many custom domains as you like under Settings → Domains in your Vercel project. All of them will serve the same deployment, and each gets its own SSL certificate.",
+      },
+      {
+        question: "What if I'm on Vercel's free (Hobby) plan?",
+        answer: "Custom domains are fully supported on Vercel's free Hobby plan. You can connect one custom domain per project with automatic SSL at no cost. Vercel's paid plans add features like more team members and analytics, but custom domains are not behind a paywall.",
+      },
+      {
+        question: "What happens to my Vercel .vercel.app URL after I add a custom domain?",
+        answer: "It keeps working. Adding a custom domain does not remove your .vercel.app URL — both will serve your project. This is useful for testing during propagation. If you want to disable the .vercel.app URL for security reasons (to prevent direct access), you can do so from the Vercel project settings.",
+      },
+    ],
   },
   {
     slug: "how-to-setup-cloudflare-dns",
@@ -669,7 +729,7 @@ Setting up Cloudflare correctly is the foundation of a resilient, performant web
 
 At **Amex Technology**, we help teams build and optimize the full deployment stack — from DNS and CDN configuration to CI/CD pipelines and observability. If you're setting up a new project or hardening an existing one, we'd be glad to review your setup.
 
-Explore our work at the [Portfolio](/portfolio) page or get in touch directly via the [Contact](/contact) page.
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
     `,
     category: "DevOps",
     tags: ["Cloudflare", "DNS", "Security", "Performance", "DevOps"],
@@ -679,6 +739,33 @@ Explore our work at the [Portfolio](/portfolio) page or get in touch directly vi
     gradientTo: "#0ea5e9",
     featured: false,
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=3840&q=100&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-03-05",
+    keywords: ["Cloudflare", "DNS", "Security", "Performance", "Cloudflare DNS setup", "nameservers"],
+    metaTitle: "Cloudflare DNS Setup: Step-by-Step Guide (2026)",
+    metaDescription: "Set up Cloudflare DNS from scratch: add your site, update nameservers, configure SSL/TLS, security, and performance. Full 2026 walkthrough.",
+    faq: [
+      {
+        question: "Do I need to transfer my domain to Cloudflare to use it?",
+        answer: "No. Cloudflare Registrar is optional. You can keep your domain registered anywhere (GoDaddy, Namecheap, Google Domains) and simply update the nameservers to point to Cloudflare. The registrar and the DNS provider are separate roles.",
+      },
+      {
+        question: "Will Cloudflare affect my Google Search Console verification?",
+        answer: "TXT records used for domain verification pass through Cloudflare DNS without issue. As long as the verification TXT record was imported (or you add it manually), Search Console verification works normally.",
+      },
+      {
+        question: "Can I use Cloudflare on a subdomain only?",
+        answer: "Yes, through a feature called Cloudflare for SaaS or by using CNAME setup (available on Business/Enterprise plans). The standard free plan requires you to proxy at the root domain level. For most use cases, adding the full domain is the simpler path.",
+      },
+      {
+        question: "Does enabling the orange cloud hide my real server IP?",
+        answer: "Yes. When a record is proxied, Cloudflare's IP addresses are returned in DNS queries instead of your origin IP. This is one of the key security benefits — it prevents attackers from targeting your origin directly.",
+      },
+      {
+        question: "Is the free plan enough for a production site?",
+        answer: "For most sites, yes. The free plan includes unlimited bandwidth, DDoS protection, the global CDN, free SSL, Bot Fight Mode, and basic firewall rules. The paid plans add more advanced WAF rules, image optimization, analytics, and support. Start with free and upgrade when you hit a specific limitation.",
+      },
+    ],
   },
   {
     slug: "how-to-export-code-from-lovable",
@@ -868,7 +955,7 @@ Exporting from Lovable is the bridge between a fast prototype and a production a
 
 At **Amex Technology**, we specialize in taking Lovable and other no-code prototypes and turning them into production-grade applications. Whether you need a developer to extend your exported codebase, a team to rebuild it on a more scalable architecture, or help setting up the deployment and monitoring infrastructure, we can help.
 
-Explore our work at the [Portfolio](/portfolio) page or get in touch directly via the [Contact](/contact) page.
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
     `,
     category: "Tutorial",
     tags: ["Lovable", "No-Code", "GitHub", "Developer Tools", "Deployment"],
@@ -878,6 +965,33 @@ Explore our work at the [Portfolio](/portfolio) page or get in touch directly vi
     gradientTo: "#8b5cf6",
     featured: false,
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=3840&q=100&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-03-28",
+    keywords: ["Lovable", "No-Code", "GitHub", "Developer Tools", "export code from Lovable", "self-host"],
+    metaTitle: "How to Export Code From Lovable to GitHub",
+    metaDescription: "Export your Lovable project to GitHub or run it locally so you can self-host, extend, or hand it to a developer. Step-by-step guide.",
+    faq: [
+      {
+        question: "Does exporting from Lovable cost anything?",
+        answer: "Exporting to GitHub is available on Lovable's paid plans. Check Lovable's current pricing page for the exact tier that includes GitHub export — it's typically included in the Pro plan.",
+      },
+      {
+        question: "Will my Lovable app keep working after I export?",
+        answer: "Yes. Exporting the code to GitHub doesn't remove or disable your Lovable project. Both the Lovable-hosted version and your exported copy exist independently. You can continue editing in Lovable and syncing to GitHub as needed.",
+      },
+      {
+        question: "Can a developer continue building in Lovable after I export?",
+        answer: "Yes. Because Lovable pushes to a real GitHub repo, a developer can clone the repo, work locally in VS Code or any editor, and push changes back to GitHub. The Lovable editor can also pull those changes back in (with some limitations on heavily customized code).",
+      },
+      {
+        question: "Do I need to keep paying for Lovable after I self-host?",
+        answer: "No. Once you've exported the code and deployed it to your own infrastructure, your app runs independently of Lovable. You only need an active Lovable subscription if you want to continue using the AI editor to make changes.",
+      },
+      {
+        question: "What's the difference between the Lovable export and a Bolt.new or v0.dev export?",
+        answer: "All three generate React code you can export. Lovable's exports tend to be more complete full-stack applications with Supabase integration. Bolt and v0.dev are stronger for UI prototypes. The underlying React/Vite/Tailwind stack is similar across all three.",
+      },
+    ],
   },
   {
     slug: "how-to-setup-resend-email",
@@ -1201,7 +1315,7 @@ Resend makes the initial setup straightforward, but building a truly robust emai
 
 At **Amex Technology**, we integrate production-grade transactional email into every application we build — from the DNS verification and React Email template system to the webhook infrastructure that handles bounces and complaints automatically.
 
-If you're building a product that needs reliable email, explore our work at the [Portfolio](/portfolio) page or reach out directly via the [Contact](/contact) page.
+If you're building a product that needs reliable email, explore our [web app development services](/services#web-app-development), see our [Portfolio](/portfolio), or reach out via the [Contact](/contact) page.
     `,
     category: "Engineering",
     tags: ["Resend", "Email", "Next.js", "API", "Transactional Email"],
@@ -1211,6 +1325,33 @@ If you're building a product that needs reliable email, explore our work at the 
     gradientTo: "#0ea5e9",
     featured: false,
     image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=3840&q=100&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-04-14",
+    keywords: ["Resend", "Email", "Next.js", "Transactional Email", "SPF DKIM DMARC", "React Email"],
+    metaTitle: "Set Up Resend for Transactional Email: Full Guide",
+    metaDescription: "Configure Resend end to end: domain verification, SPF/DKIM DNS records, and sending your first email with Next.js and React Email.",
+    faq: [
+      {
+        question: "Can I use Resend to send marketing emails, not just transactional ones?",
+        answer: "Resend is primarily designed for transactional email — messages triggered by user actions. For bulk marketing campaigns (newsletters, promotional blasts), dedicated platforms like Loops, Buttondown, or ConvertKit are better suited. Resend's terms of service and infrastructure are optimized for transactional volume.",
+      },
+      {
+        question: "Do I need my own domain to use Resend?",
+        answer: "No — you can send from onboarding@resend.dev immediately after creating an account. However, for production use you must add and verify your own domain. Emails from Resend's shared domain will be flagged as suspicious by many email clients for any message that looks like it comes from your product.",
+      },
+      {
+        question: "How does Resend compare to SendGrid on price?",
+        answer: "Resend's free tier (3,000/month) is more generous than SendGrid's (100/day). Resend's paid plans are also simpler and cheaper for most developer use cases. SendGrid has a larger feature set for enterprise scenarios (dedicated IPs, advanced analytics, marketing automation), but for a typical web application Resend's API is cleaner and more affordable.",
+      },
+      {
+        question: "Can I send attachments with Resend?",
+        answer: "Yes. The resend.emails.send method accepts an attachments array where each item has a filename and content (base64-encoded string or Buffer). PDFs, images, and other binary files all work — just keep attachment sizes reasonable to avoid triggering spam filters.",
+      },
+      {
+        question: "What happens to emails in the queue if my server goes down during a send?",
+        answer: "Resend handles delivery retries internally once a message is accepted by their API. If your server crashes before the API call completes, the email is not queued on Resend's side. For guaranteed delivery, consider using a background job queue (BullMQ, Inngest, Trigger.dev) to persist the send intent before making the Resend API call.",
+      },
+    ],
   },
   {
     slug: "connect-nextjs-react-with-supabase",
@@ -1597,7 +1738,7 @@ Setting up Supabase correctly is the beginning. A production application needs a
 
 At **Amex Technology**, we design and build full-stack applications on the Next.js and Supabase stack — from schema design and RLS policy architecture to the deployment pipeline and observability layer. If you're starting a new project or scaling an existing one, we'd be glad to help you get it right from the foundation.
 
-Explore our work at the [Portfolio](/portfolio) page or get in touch directly via the [Contact](/contact) page.
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
     `,
     category: "Engineering",
     tags: ["Next.js", "React", "Supabase", "Database", "Authentication", "Full Stack"],
@@ -1605,7 +1746,302 @@ Explore our work at the [Portfolio](/portfolio) page or get in touch directly vi
     publishedAt: "2025-05-20",
     gradientFrom: "#22c55e",
     gradientTo: "#3b82f6",
-    featured: false,
+    featured: true,
     image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=3840&q=100&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2025-05-20",
+    keywords: ["Next.js", "React", "Supabase", "Database", "Authentication", "Row Level Security"],
+    metaTitle: "Connect Next.js to Supabase: 2026 Complete Guide",
+    metaDescription: "Integrate Supabase with Next.js or React: database queries, auth, Row Level Security, and real-time subscriptions. Complete 2026 guide.",
+    faq: [
+      {
+        question: "Is the anon key safe to commit to a public repository?",
+        answer: "The anon key is designed to be public — it identifies your project, not your access level. It's safe to expose it in client-side code. What makes it safe is RLS. Without RLS on your tables, the anon key grants full read/write access to all rows, which is why enabling RLS is non-negotiable for any production application.",
+      },
+      {
+        question: "What's the difference between createClient from @supabase/supabase-js and from @supabase/ssr?",
+        answer: "The base createClient stores the session in localStorage, which doesn't work in server environments. The @supabase/ssr variants (createBrowserClient and createServerClient) use cookies instead, enabling the session to be read by both browser and server code in Next.js.",
+      },
+      {
+        question: "Can I use Supabase with a React app that isn't Next.js?",
+        answer: "Yes. The base @supabase/supabase-js client works in any JavaScript environment — Vite, Create React App, React Native, or plain HTML. The @supabase/ssr package is specifically for server-rendering frameworks like Next.js, Remix, and SvelteKit.",
+      },
+      {
+        question: "How do I handle database migrations as my schema changes?",
+        answer: "Supabase integrates with the Supabase CLI and supports migration files that you can version control alongside your application code. Run supabase db diff to generate a migration from schema changes, then supabase db push to apply it. For teams, this is the recommended approach over manually editing tables in the dashboard.",
+      },
+      {
+        question: "Does Supabase support full-text search?",
+        answer: "Yes. PostgreSQL has built-in full-text search using tsvector and tsquery. Supabase exposes this through the .textSearch() method on the query builder. For more advanced search (fuzzy matching, relevance ranking, multi-language), you can use the pg_trgm extension, which Supabase supports out of the box.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-connect-github-with-lovable",
+    title: "How to Connect GitHub With Lovable (Step-by-Step Guide)",
+    excerpt:
+      "Sync your Lovable project to GitHub in a few clicks — set up two-way sync, work locally, and keep real version control. A clear step-by-step guide.",
+    content: `
+## Why Connect Lovable to GitHub
+
+Lovable lets you build a full app from a chat prompt, but by default that code lives inside Lovable's editor. Connecting your project to GitHub gives the code a real, version-controlled home that you own.
+
+Once connected, every change you make in Lovable is committed to your repository, and any change you push to GitHub flows back into Lovable. You can work locally in your own editor, collaborate with other developers, review changes as pull requests, and keep a full history.
+
+If you plan to grow the project beyond a prototype, this is the first step. This guide covers connecting Lovable to GitHub, how the two-way sync works, and how to fix the issues people hit most.
+
+## Before You Start
+
+Make sure you have:
+
+- A **Lovable project** you want to sync
+- A **GitHub account** (the free plan is fine)
+- Permission to create repositories on the account or organization you want to use
+
+You don't need to know Git commands to connect the two — Lovable handles the initial setup for you.
+
+## Step 1: Open the GitHub Integration in Lovable
+
+Open your project in Lovable. In the top-right of the editor, find the **GitHub** button (or open the project menu and choose the GitHub / version control option).
+
+Click it to start the connection flow. The first time, Lovable will ask you to authorize its GitHub app.
+
+## Step 2: Authorize Lovable on GitHub
+
+You'll be redirected to GitHub to install and authorize the Lovable app. GitHub asks which account or organization to install it on, and whether to grant access to **all repositories** or **only select repositories**.
+
+Choosing "only select repositories" is the safer option — grant access to a single repo now and add more later. Approve the permissions and you'll be sent back to Lovable.
+
+## Step 3: Create or Select a Repository
+
+Back in Lovable, you can now either:
+
+- **Create a new repository** — Lovable creates a fresh repo under your account and pushes the current project into it, or
+- **Connect an existing repository** — link the project to a repo you already have
+
+Pick a name, choose public or private, and confirm. Lovable performs the first commit and push, and within a few seconds your code appears on GitHub.
+
+## Step 4: How Two-Way Sync Works
+
+After connecting, Lovable and GitHub stay in sync automatically:
+
+- Edits you make **in Lovable** are committed and pushed to the connected branch.
+- Commits pushed **to GitHub** (from your machine or a teammate) are pulled back into Lovable.
+
+This is what makes a hybrid workflow possible — non-technical teammates keep prompting in Lovable while developers work in a proper local environment, and both sides see the same code.
+
+## Working Locally After Connecting
+
+To edit the project on your own machine, clone the repository:
+
+\`\`\`bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+npm install
+npm run dev
+\`\`\`
+
+Make your changes, then commit and push:
+
+\`\`\`bash
+git add .
+git commit -m "Update landing page copy"
+git push origin main
+\`\`\`
+
+Your push flows straight back into Lovable. If you'd rather take the code out entirely instead of syncing, see our guide on [how to export code from Lovable](/blog/how-to-export-code-from-lovable).
+
+## Common Issues and Fixes
+
+**"Lovable can't see my repository."** Re-check the GitHub app permissions — if you chose "only select repositories," the target repo must be in that list. Add it under GitHub → Settings → Applications → Lovable.
+
+**Changes aren't syncing.** Confirm both sides are on the same branch (usually \`main\`). Lovable syncs to the connected branch only.
+
+**Merge conflicts.** If you and Lovable edit the same lines, Git can conflict. Resolve it locally, commit, and push — Lovable picks up the resolved version.
+
+## Frequently Asked Questions
+
+**Do I need to know Git to connect Lovable to GitHub?**
+No. Lovable sets up the repository and the first commit for you. You only need Git if you want to work locally, and even then the basic clone, commit, and push commands are enough.
+
+**Is the GitHub sync two-way?**
+Yes. Changes in Lovable are pushed to GitHub, and changes pushed to GitHub are pulled back into Lovable automatically, as long as they're on the connected branch.
+
+**Can I connect a private repository?**
+Yes. When creating the repo you can choose private, or connect an existing private repo — just grant the Lovable GitHub app access to it.
+
+**What happens to my code if I disconnect GitHub?**
+Your code stays in both places. Disconnecting stops the sync, but the GitHub repository and the Lovable project both keep their current code.
+
+**Can multiple developers work on the same Lovable project through GitHub?**
+Yes. That's the main benefit — developers work through GitHub with branches and pull requests while the project stays editable in Lovable.
+
+## Take Your Projects Further With Amex Technology
+
+Connecting Lovable to GitHub is the bridge between a prototype and a production codebase. From there you'll want proper branching, CI/CD, staging environments, and a deployment setup that scales.
+
+At **Amex Technology**, we help teams take Lovable and no-code projects into professional, maintainable production apps. Whether you're wiring up GitHub, adding a [custom domain to Lovable](/blog/how-to-connect-custom-domain-with-lovable), or rebuilding for scale, we can help.
+
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
+    `,
+    category: "Tutorial",
+    tags: ["Lovable", "GitHub", "Version Control"],
+    readTime: "6 min read",
+    publishedAt: "2026-07-12",
+    gradientFrom: "#8b5cf6",
+    gradientTo: "#ec4899",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-12",
+    keywords: ["Lovable", "GitHub", "Version Control", "connect GitHub to Lovable", "Lovable GitHub sync"],
+    metaTitle: "How to Connect GitHub With Lovable (Step-by-Step)",
+    metaDescription: "Connect your Lovable project to GitHub for two-way sync and real version control. Step-by-step setup, how the sync works, and common fixes.",
+    faq: [
+      {
+        question: "Do I need to know Git to connect Lovable to GitHub?",
+        answer: "No. Lovable sets up the repository and the first commit for you. You only need Git if you want to work locally, and even then the basic clone, commit, and push commands are enough.",
+      },
+      {
+        question: "Is the GitHub sync two-way?",
+        answer: "Yes. Changes in Lovable are pushed to GitHub, and changes pushed to GitHub are pulled back into Lovable automatically, as long as they're on the connected branch.",
+      },
+      {
+        question: "Can I connect a private repository?",
+        answer: "Yes. When creating the repo you can choose private, or connect an existing private repo — just grant the Lovable GitHub app access to it.",
+      },
+      {
+        question: "What happens to my code if I disconnect GitHub?",
+        answer: "Your code stays in both places. Disconnecting stops the sync, but the GitHub repository and the Lovable project both keep their current code.",
+      },
+      {
+        question: "Can multiple developers work on the same Lovable project through GitHub?",
+        answer: "Yes. That's the main benefit — developers work through GitHub with branches and pull requests while the project stays editable in Lovable.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-connect-custom-domain-with-lovable",
+    title: "How to Connect a Custom Domain to Lovable (2026 Guide)",
+    excerpt:
+      "Point your custom domain to a Lovable project — publish, connect the domain, set the DNS records, and enable HTTPS. A clear step-by-step walkthrough.",
+    content: `
+## Why Use a Custom Domain
+
+By default, a Lovable project lives on a \`.lovable.app\` subdomain. That's fine for testing, but a custom domain — your own \`yourbrand.com\` — is what makes the project look professional, builds trust, and helps with SEO and brand recall.
+
+The good news: connecting a domain to Lovable takes just a few steps. You publish the project, tell Lovable which domain to use, add a couple of DNS records at your registrar, and wait for HTTPS to switch on. This guide covers the whole process and the issues people hit most.
+
+## Before You Start
+
+You'll need:
+
+- A **published Lovable project** (custom domains only work after publishing)
+- A **domain** you own, registered at any registrar (GoDaddy, Namecheap, Cloudflare, and so on)
+- Access to that registrar's **DNS settings** — this is where you'll add records
+
+You don't need to transfer your domain to Lovable. You keep it where it is and simply point the DNS at Lovable.
+
+## Step 1: Publish Your Lovable Project
+
+In the Lovable editor, click **Publish** (top-right). This pushes your project live on its default \`.lovable.app\` URL. Confirm the site loads there before moving on — the custom domain simply points at this published version.
+
+## Step 2: Add Your Domain in Lovable
+
+Open **Project Settings** and find the **Domains** section. Click **Connect domain** (or **Add custom domain**) and enter the exact domain you want to use — for example \`yourbrand.com\` or \`www.yourbrand.com\`.
+
+Lovable then shows you the **exact DNS records** to add. Leave this screen open — you'll copy these values into your registrar next. The values Lovable displays are the source of truth; use those rather than any generic ones.
+
+## Step 3: Add the DNS Records at Your Registrar
+
+Log into your domain registrar and open its **DNS management** page. Add the records Lovable gave you. Typically that means one of:
+
+- **Root / apex domain** (\`yourbrand.com\`) — an **A record** pointing to the IP address Lovable shows.
+- **Subdomain** (\`www.yourbrand.com\`) — a **CNAME record** pointing to the target Lovable shows.
+
+Enter each record exactly as displayed (host/name, type, and value). If you want both the root and \`www\` to work, add both records, then save.
+
+If your registrar is Cloudflare, set the record to **DNS only** (grey cloud) while connecting so the proxy doesn't block verification. For a full Cloudflare walkthrough, see our [Cloudflare DNS setup guide](/blog/how-to-setup-cloudflare-dns).
+
+## Step 4: Verify and Wait for HTTPS
+
+Back in Lovable, the domain status moves to **verifying**. Once the DNS records are detected, Lovable issues an SSL certificate automatically and your site becomes available over **https://** at your custom domain.
+
+DNS changes can take anywhere from a few minutes to 48 hours to propagate, though in practice it's usually under an hour.
+
+## Verifying It Works
+
+Open your domain in a browser. You should see your Lovable site load with a padlock (valid HTTPS). To confirm the record has propagated, check it with a tool like whatsmydns.net and make sure it resolves to the value Lovable gave you.
+
+## Common Issues and Fixes
+
+**Domain stuck on "verifying."** The DNS records probably don't match. Re-open the Lovable domains screen and compare each value character-for-character with your registrar. A stray dot or the wrong record type is the usual culprit.
+
+**Site works on \`www\` but not the root (or vice versa).** You only added one of the two records. Add both the apex (A) and \`www\` (CNAME), and set your preferred version as the primary.
+
+**No HTTPS or certificate error.** SSL is issued after DNS verifies, so give it time. On Cloudflare, keep the record DNS-only during setup so the certificate can validate.
+
+**Old site still showing.** That's browser or DNS caching. Try an incognito window, flush your DNS, and let propagation finish.
+
+## Frequently Asked Questions
+
+**Do I have to transfer my domain to Lovable?**
+No. You keep your domain at its current registrar and just point the DNS records at Lovable. Nothing about ownership changes.
+
+**How long does it take for the domain to work?**
+Usually under an hour, but DNS propagation can officially take up to 48 hours. HTTPS turns on automatically once Lovable verifies the records.
+
+**Do I need to buy an SSL certificate?**
+No. Lovable provisions and renews a free SSL certificate for your custom domain automatically once the DNS is verified.
+
+**Can I use both the root domain and www?**
+Yes. Add the A record for the root domain and a CNAME for \`www\`, then choose which one is primary — the other redirects to it.
+
+**My domain is at GoDaddy — does that work?**
+Yes, any registrar works. Add the records in GoDaddy's DNS manager. If you also deploy elsewhere, our [Vercel + GoDaddy guide](/blog/connect-vercel-app-godaddy-domain) covers the same DNS concepts step by step.
+
+## Take Your Projects Further With Amex Technology
+
+A custom domain makes your Lovable project feel real — but a professional launch also means analytics, SEO, performance, and a plan for when the app outgrows no-code.
+
+At **Amex Technology**, we help founders and businesses take Lovable projects to production — from [connecting GitHub](/blog/how-to-connect-github-with-lovable) and custom domains to full rebuilds.
+
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
+    `,
+    category: "DevOps",
+    tags: ["Lovable", "Custom Domain", "DNS"],
+    readTime: "7 min read",
+    publishedAt: "2026-07-14",
+    gradientFrom: "#0ea5e9",
+    gradientTo: "#6366f1",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-14",
+    keywords: ["Lovable", "Custom Domain", "DNS", "connect custom domain to Lovable", "Lovable custom domain"],
+    metaTitle: "Connect a Custom Domain to Lovable: Step-by-Step",
+    metaDescription: "Add a custom domain to your Lovable project: publish, connect the domain, set A/CNAME DNS records, enable HTTPS, and fix propagation issues.",
+    faq: [
+      {
+        question: "Do I have to transfer my domain to Lovable?",
+        answer: "No. You keep your domain at its current registrar and just point the DNS records at Lovable. Nothing about ownership changes.",
+      },
+      {
+        question: "How long does it take for the domain to work?",
+        answer: "Usually under an hour, but DNS propagation can officially take up to 48 hours. HTTPS turns on automatically once Lovable verifies the records.",
+      },
+      {
+        question: "Do I need to buy an SSL certificate?",
+        answer: "No. Lovable provisions and renews a free SSL certificate for your custom domain automatically once the DNS is verified.",
+      },
+      {
+        question: "Can I use both the root domain and www?",
+        answer: "Yes. Add the A record for the root domain and a CNAME for www, then choose which one is primary — the other redirects to it.",
+      },
+      {
+        question: "My domain is at GoDaddy — does that work?",
+        answer: "Yes, any registrar works. Add the records in GoDaddy's DNS manager. The DNS concepts are the same across registrars.",
+      },
+    ],
   }
 ];
