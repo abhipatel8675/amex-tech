@@ -88,7 +88,7 @@ export default function BlogPage() {
           >
             <div className="flex flex-col md:flex-row">
               {/* Visual */}
-              <div className="w-full md:w-2/5 h-56 md:h-[unset] md:aspect-video relative overflow-hidden flex-shrink-0">
+              <div className="w-full md:w-2/5 h-56 md:h-72 relative overflow-hidden flex-shrink-0">
                 {featured.image ? (
                   <Image
                     src={featured.image}
