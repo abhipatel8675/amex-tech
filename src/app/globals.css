@@ -294,14 +294,20 @@
 
 /* ── Blog figure / SVG diagram ── */
 .blog-figure {
-  margin: 2rem auto 0.5rem;
-  max-width: 760px;
-  border-radius: 10px;
+  margin: 2.5rem auto 2rem;
+  max-width: 860px;
+  border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.04) inset;
   cursor: zoom-in;
   position: relative;
+  background: rgba(255,255,255,0.015);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.blog-figure:hover {
+  box-shadow: 0 12px 56px rgba(0,0,0,0.65), 0 1px 0 rgba(255,255,255,0.06) inset;
+  transform: translateY(-1px);
 }
 .blog-figure img { width: 100%; max-width: 100%; height: auto; display: block; }
 .blog-figure svg { width: 100%; height: auto; display: block; }
@@ -311,7 +317,7 @@
   font-style: italic;
   color: rgba(148,163,184,0.55);
   text-align: center;
-  background: rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.2);
 }
 
 /* ── Blog table ── */

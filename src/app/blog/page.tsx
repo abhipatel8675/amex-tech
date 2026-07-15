@@ -86,24 +86,37 @@ export default function BlogPage() {
             href={`/blog/${featured.slug}`}
             className="group block rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300"
           >
-            <div className="grid md:grid-cols-5">
+            <div className="flex flex-col md:flex-row">
               {/* Visual */}
-              <div
-                className="md:col-span-2 h-48 md:h-full min-h-[220px] relative overflow-hidden"
-                style={{
-                  background: `linear-gradient(135deg, ${featured.gradientFrom}20, ${featured.gradientTo}20)`,
-                }}
-              >
-                <div
-                  className="absolute inset-0 opacity-40"
-                  style={{
-                    background: `radial-gradient(ellipse at 30% 50%, ${featured.gradientFrom}80, transparent 70%)`,
-                  }}
-                />
+              <div className="w-full md:w-2/5 h-56 md:h-[unset] md:aspect-video relative overflow-hidden flex-shrink-0">
+                {featured.image ? (
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    quality={90}
+                    className={`object-cover ${featured.imagePosition ?? "object-center"}`}
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                  />
+                ) : (
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: `linear-gradient(135deg, ${featured.gradientFrom}20, ${featured.gradientTo}20)`,
+                    }}
+                  >
+                    <div
+                      className="absolute inset-0 opacity-40"
+                      style={{
+                        background: `radial-gradient(ellipse at 30% 50%, ${featured.gradientFrom}80, transparent 70%)`,
+                      }}
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Content */}
-              <div className="md:col-span-3 p-8 md:p-10 flex flex-col justify-between">
+              <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-3 mb-5">
                     <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.08] px-3 py-1 rounded-lg">
@@ -144,7 +157,7 @@ export default function BlogPage() {
                     alt={post.title}
                     fill
                     quality={95}
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`object-cover ${post.imagePosition ?? "object-center"} transition-transform duration-500 group-hover:scale-105`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 ) : (
