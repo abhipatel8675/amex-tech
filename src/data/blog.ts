@@ -23,6 +23,147 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
 
   {
+    slug: "bolt-new-review",
+    title: "Bolt.new Review 2026: Can It Really Ship Production-Ready Apps?",
+    excerpt:
+      "An honest, developer-led Bolt.new review — how StackBlitz's AI app builder works, its pricing and token model, what it nails, and where you still need a real developer.",
+    content: `
+## What Is Bolt.new?
+
+Bolt.new is an AI app builder from StackBlitz that turns a plain-English prompt into a working web app right in your browser. You describe what you want, and Bolt writes the code and shows a live preview in seconds — no local setup, no servers.
+
+Under the hood it runs on StackBlitz's WebContainer technology: a full Node.js environment that executes entirely in the browser. The result is real, standard code you can read, edit, export, and own — not a locked-in no-code black box.
+
+## How Bolt.new Works
+
+The workflow is refreshingly simple:
+
+1. Write a prompt — for example, *"Build a booking dashboard for a dental clinic with a calendar and patient list."*
+2. Bolt scaffolds the project and streams a live preview as it builds.
+3. Refine it in chat ("add dark mode", "make the sidebar collapsible") and Bolt edits the code in place.
+4. Open the file tree, edit directly, connect a backend, and deploy.
+
+A basic React dashboard with routing and placeholder data renders in about 30–60 seconds. A more complex multi-page app with forms usually appears in 2–5 minutes.
+
+## What's New in Bolt.new for 2026
+
+Bolt has shipped fast over the past year. The biggest additions:
+
+- **Bolt Cloud** — built-in database, hosting, authentication, analytics, and file storage, so you can go from prompt to deployed full-stack app without leaving the platform.
+- **Figma import** — turn a Figma design into working code.
+- **Expo integration** — generate native mobile apps, not just web.
+- **Broad framework support** — React, Vue, Svelte, Angular, Next.js, Astro, and Remix, the widest range of any major AI builder.
+
+Bolt's codebase is also open-source, so teams can self-host to avoid token costs or run custom deployments.
+
+## Bolt.new Pricing and the Token Model
+
+Bolt runs on tokens. Every generation and edit spends them, so heavy iteration burns your allowance faster than you'd expect. This is the part most new users misjudge.
+
+The 2026 tiers:
+
+- **Free** — $0, roughly 1M tokens/month. Fine for trying it and small experiments.
+- **Pro** — around $25/month, 10M+ tokens with rollover. The realistic tier for regular building.
+- **Teams** — around $30/member/month with admin controls.
+- **Enterprise** — custom pricing.
+
+The honest takeaway: the price looks low, but vague prompts that force constant regeneration are what quietly run up your bill. Write specific prompts and you'll stretch tokens much further.
+
+## What Bolt.new Does Really Well
+
+- **Speed to a working prototype.** Nothing gets you to a clickable demo faster.
+- **MVPs and internal tools.** Dashboards, admin panels, landing pages, and simple CRUD apps are squarely in its wheelhouse.
+- **Real, exportable code.** Because it writes standard code, you're never trapped — much like how you can [export a project out of Lovable](/blog/how-to-export-code-from-lovable) and keep building elsewhere.
+- **Design-to-code starts.** Figma import meaningfully shortens the first mile of a build.
+
+## Where Bolt.new Falls Short
+
+This is where real client work informs the review. The demo ends; the product begins.
+
+- **Production hardening.** Security, input validation, proper auth, and edge cases are where generated code gets thin. A charming prototype is not the same as an app that safely holds customer data.
+- **Complex business logic.** Payments, permissions, and multi-step workflows quickly exceed what prompt-driven generation handles cleanly.
+- **Scale and performance.** Generated code is rarely optimized for load. Database design, indexing, and caching need deliberate engineering.
+- **Maintainability.** As a project grows, AI-generated code drifts. Without a clear architecture, iteration slows to a crawl.
+
+None of this makes Bolt bad. It makes it a starting point, not a finish line.
+
+## Bolt.new vs Lovable vs v0 vs Windsurf
+
+The vibe-coding space is crowded in 2026. The short version:
+
+- **Bolt.new** — best for full-stack prototypes across many frameworks, with real code you own.
+- **Lovable** — polished and beginner-friendly for building complete apps from chat. (See our guides on [connecting Lovable to GitHub](/blog/how-to-connect-github-with-lovable) and [adding a custom domain to Lovable](/blog/how-to-connect-custom-domain-with-lovable).)
+- **v0 by Vercel** — strongest for clean, production-leaning React UI components.
+- **Windsurf** — an agentic AI IDE for developers who want AI inside their existing workflow.
+
+For non-developers who want a working full-stack app fast, Bolt and Lovable lead. For developers, v0 and Windsurf slot into an existing stack.
+
+## Is Bolt.new Worth It? Our Verdict
+
+Yes — for the right job. For prototypes, MVPs, and internal tools, Bolt.new is one of the most useful tools available in 2026, and we happily use it to move fast.
+
+But the last 20% of a project — security, scale, integrations, maintainability — is 80% of the value, and that's exactly where AI builders hand off to real engineering. Use Bolt to move fast, then bring in a developer to ship something solid.
+
+## Frequently Asked Questions
+
+**Is Bolt.new free?**
+Yes, there's a free tier with about 1M tokens per month — enough to build and test small projects. Regular use fits the Pro tier at around $25/month.
+
+**Is Bolt.new good for production apps?**
+It's excellent for prototypes and MVPs. For a real production app with sensitive data, payments, or complex logic, have an experienced developer harden and extend the generated code before launch.
+
+**Can Bolt.new build full-stack apps with a database?**
+Yes. With Bolt Cloud you get a built-in database, authentication, hosting, and storage, so you can build and deploy full-stack apps in one place.
+
+**Bolt.new vs Lovable — which is better?**
+Both are strong. Bolt supports more frameworks and gives you more direct control over real code; Lovable is more opinionated and beginner-friendly. Choose based on how much control versus hand-holding you want.
+
+**Do I own the code Bolt.new generates?**
+Yes. Bolt produces standard code you can edit and export, and its platform is open-source, so you're not locked in.
+
+## From Prototype to Production With Amex Technology
+
+Built something promising in Bolt.new and hit a wall? That's exactly what we do. At **Amex Technology**, we take AI-generated prototypes and turn them into secure, scalable, production-ready web and mobile apps — clean architecture, real integrations, and code you can grow on.
+
+Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
+    `,
+    category: "Engineering",
+    tags: ["Bolt.new", "AI App Builder", "Vibe Coding", "StackBlitz"],
+    readTime: "9 min read",
+    publishedAt: "2026-07-21",
+    gradientFrom: "#f59e0b",
+    gradientTo: "#f97316",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-21",
+    keywords: ["Bolt.new", "Bolt.new review", "Bolt.new pricing", "is Bolt.new good", "Bolt.new vs Lovable", "vibe coding", "AI app builder"],
+    metaTitle: "Bolt.new Review 2026: Is It Ready for Real Apps?",
+    metaDescription: "An honest Bolt.new review for 2026 — how StackBlitz's AI app builder works, pricing and tokens, what it nails, and where you still need a developer.",
+    faq: [
+      {
+        question: "Is Bolt.new free?",
+        answer: "Yes, there's a free tier with about 1M tokens per month — enough to build and test small projects. Regular use fits the Pro tier at around $25/month.",
+      },
+      {
+        question: "Is Bolt.new good for production apps?",
+        answer: "It's excellent for prototypes and MVPs. For a real production app with sensitive data, payments, or complex logic, have an experienced developer harden and extend the generated code before launch.",
+      },
+      {
+        question: "Can Bolt.new build full-stack apps with a database?",
+        answer: "Yes. With Bolt Cloud you get a built-in database, authentication, hosting, and storage, so you can build and deploy full-stack apps in one place.",
+      },
+      {
+        question: "Bolt.new vs Lovable — which is better?",
+        answer: "Both are strong. Bolt supports more frameworks and gives you more direct control over real code, while Lovable is more opinionated and beginner-friendly. Choose based on how much control versus hand-holding you want.",
+      },
+      {
+        question: "Do I own the code Bolt.new generates?",
+        answer: "Yes. Bolt produces standard code you can edit and export, and its platform is open-source, so you're not locked in.",
+      },
+    ],
+  },
+  {
     slug: "how-to-download-zip-file-from-replit",
     title: "How to Download a ZIP File From Replit (3 Methods, 2026 Guide)",
     excerpt:
