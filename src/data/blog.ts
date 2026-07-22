@@ -23,6 +23,402 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
 
   {
+    slug: "fix-new-row-violates-row-level-security-policy-supabase",
+    title: "Fix: \"new row violates row-level security policy\" in Supabase",
+    excerpt:
+      "The Supabase \"new row violates row-level security policy\" error means RLS blocked your insert. Here's exactly why it happens and how to fix it, with SQL examples.",
+    content: `
+## What This Error Means
+
+The Supabase error \`new row violates row-level security policy\` means your INSERT (or UPDATE) was blocked because no Row-Level Security policy allowed it. RLS is enabled on the table, but no policy's \`WITH CHECK\` condition passes for the row you're trying to write.
+
+In short: RLS defaults to deny. Enable it without a matching INSERT policy and every write fails with this exact message.
+
+## The Most Common Causes
+
+1. **RLS is on, but there's no INSERT policy.** Enabling RLS blocks everything until you add explicit policies.
+2. **The \`WITH CHECK\` condition fails.** A policy exists, but the row's values don't satisfy it — usually \`user_id\` not matching \`auth.uid()\`.
+3. **\`auth.uid()\` is null.** The request isn't authenticated, so any policy comparing to \`auth.uid()\` fails.
+4. **You're inserting a \`user_id\` that isn't the current user.** The policy correctly rejects it.
+
+## How to Fix It
+
+### 1. Add an INSERT policy
+
+Most tables holding per-user data need a policy like this:
+
+\`\`\`sql
+alter table posts enable row level security;
+
+create policy "Users can insert their own posts"
+on posts for insert
+to authenticated
+with check (auth.uid() = user_id);
+\`\`\`
+
+The \`with check\` clause is what INSERT and UPDATE validate against. If it evaluates to false, you get the error.
+
+### 2. Set user_id on insert
+
+Because the policy checks \`auth.uid() = user_id\`, the row must include the current user's id:
+
+\`\`\`ts
+const { data: { user } } = await supabase.auth.getUser();
+
+await supabase.from('posts').insert({
+  title: 'Hello',
+  user_id: user.id, // must match auth.uid()
+});
+\`\`\`
+
+Better yet, set it at the database level with a column default of \`auth.uid()\` so the client can't get it wrong.
+
+### 3. Confirm the request is authenticated
+
+If \`auth.uid()\` is null, you're calling Supabase without a valid session. Make sure the user is logged in and you're using the authenticated client — see our guide on [connecting Supabase to Next.js](/blog/connect-nextjs-react-with-supabase).
+
+### 4. Don't test only in the SQL editor
+
+The Supabase SQL editor runs as a superuser and bypasses RLS, so your insert "works" there while real users still fail. Always test as an authenticated user through your app.
+
+## How to Prevent It
+
+- Add policies in the same migration where you enable RLS.
+- Default \`user_id\` to \`auth.uid()\` at the database level.
+- Write separate, explicit policies for SELECT, INSERT, UPDATE, and DELETE.
+
+## Frequently Asked Questions
+
+**Why does the insert work in the SQL editor but fail from my app?**
+The SQL editor runs as the postgres superuser and bypasses RLS. Your app uses the anon or authenticated role, which RLS actually enforces.
+
+**Do I need a SELECT policy too?**
+If you return the inserted row with \`.select()\`, yes — a SELECT policy must allow reading it back, or the call still errors.
+
+**What's the difference between USING and WITH CHECK?**
+USING filters which existing rows a query can see or affect; WITH CHECK validates the values of new or updated rows.
+
+**Can I temporarily disable RLS to debug?**
+Yes, \`alter table posts disable row level security;\` — but only in development. Never ship a production table with RLS off.
+
+## Need Supabase Set Up Properly?
+
+RLS bugs are usually a sign the auth and data layer needs a careful once-over. At **Amex Technology**, we design secure Supabase schemas, policies, and auth flows that just work. Explore our [development services](/services) or [get in touch](/contact).
+    `,
+    category: "Engineering",
+    tags: ["Supabase", "Row-Level Security", "Postgres", "Troubleshooting"],
+    readTime: "6 min read",
+    publishedAt: "2026-07-21",
+    gradientFrom: "#ef4444",
+    gradientTo: "#f97316",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-21",
+    keywords: ["new row violates row-level security policy", "Supabase RLS error", "Supabase row level security", "Supabase insert blocked", "Supabase WITH CHECK", "fix Supabase RLS"],
+    metaTitle: "Fix: New Row Violates RLS Policy (Supabase)",
+    metaDescription: "The Supabase \"new row violates row-level security policy\" error explained — why RLS blocks your insert and how to fix it fast with SQL policy examples.",
+    faq: [
+      {
+        question: "Why does the insert work in the SQL editor but fail from my app?",
+        answer: "The SQL editor runs as the postgres superuser and bypasses RLS. Your app uses the anon or authenticated role, which RLS actually enforces, so a policy that's missing or failing blocks the write.",
+      },
+      {
+        question: "Do I need a SELECT policy as well as an INSERT policy?",
+        answer: "If you return the inserted row with .select(), yes. A SELECT policy must allow reading the row back, otherwise the call still errors even after the insert succeeds.",
+      },
+      {
+        question: "What is the difference between USING and WITH CHECK?",
+        answer: "USING filters which existing rows a query can see or affect. WITH CHECK validates the values of new or updated rows. INSERT uses WITH CHECK; UPDATE uses both.",
+      },
+      {
+        question: "Can I disable RLS to fix this quickly?",
+        answer: "You can run ALTER TABLE table_name DISABLE ROW LEVEL SECURITY for local debugging, but never in production — it makes every row publicly accessible through the API.",
+      },
+    ],
+  },
+  {
+    slug: "fix-cors-error-supabase-edge-functions",
+    title: "How to Fix CORS Errors in Supabase Edge Functions (2026)",
+    excerpt:
+      "Getting a CORS error calling a Supabase Edge Function from the browser? Here's why it happens and the exact code to handle the preflight request and fix it.",
+    content: `
+## The Problem
+
+If your browser console shows \`Access to fetch ... has been blocked by CORS policy\` when calling a Supabase Edge Function, the function isn't returning the right CORS headers. The function often runs fine — the browser just refuses to let your page read the response.
+
+## Why It Happens
+
+Before the real request, the browser sends a **preflight \`OPTIONS\` request** to any cross-origin function. If the function doesn't answer \`OPTIONS\` with the correct \`Access-Control-Allow-*\` headers, the browser blocks the actual call. Supabase Edge Functions do not add these headers for you.
+
+## The Fix
+
+### 1. Define CORS headers and handle the OPTIONS request
+
+\`\`\`ts
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+};
+
+Deno.serve(async (req) => {
+  // Answer the preflight request first
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: corsHeaders });
+  }
+
+  const data = { message: 'Hello from the edge' };
+  return new Response(JSON.stringify(data), {
+    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+  });
+});
+\`\`\`
+
+### 2. Add the headers to every response — including errors
+
+A common mistake is returning error responses without CORS headers. Spread \`corsHeaders\` into every \`Response\` you return, success or failure, or errors will surface as confusing CORS failures.
+
+### 3. Lock the origin down in production
+
+\`'*'\` is fine while testing, but in production set \`Access-Control-Allow-Origin\` to your real domain, for example \`https://amextechnology.com\`, so only your site can call the function.
+
+## Frequently Asked Questions
+
+**Does my function still run if I see a CORS error?**
+Usually yes. The function executes and may even succeed — the browser simply blocks your page from reading the response because the headers are missing.
+
+**Why does it work in Postman or curl but not the browser?**
+CORS is a browser-only security mechanism. Non-browser clients like curl and Postman ignore it entirely.
+
+**Do I need CORS headers for same-origin calls?**
+No. CORS only applies to cross-origin requests. If your frontend and function share an origin, you don't need it.
+
+**Can I configure CORS in the Supabase dashboard instead of code?**
+No. For Edge Functions you handle CORS in the function code itself, as shown above.
+
+## Want Your Supabase Backend Done Right?
+
+Edge Functions, auth, and APIs have sharp edges like this. **Amex Technology** builds production-grade Supabase backends that handle CORS, security, and errors properly from day one. See our [services](/services) or [get in touch](/contact).
+    `,
+    category: "Engineering",
+    tags: ["Supabase", "Edge Functions", "CORS", "Troubleshooting"],
+    readTime: "5 min read",
+    publishedAt: "2026-07-21",
+    gradientFrom: "#8b5cf6",
+    gradientTo: "#6366f1",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-21",
+    keywords: ["Supabase Edge Function CORS", "CORS error Supabase", "fix CORS Supabase", "Supabase Edge Function preflight", "Access-Control-Allow-Origin Supabase"],
+    metaTitle: "Fix CORS Errors in Supabase Edge Functions",
+    metaDescription: "Fix the CORS error when calling Supabase Edge Functions from the browser. Learn why the preflight fails and the exact code to add the right headers.",
+    faq: [
+      {
+        question: "Does my Edge Function still run if I see a CORS error?",
+        answer: "Usually yes. The function executes and may succeed, but the browser blocks your page from reading the response because the required CORS headers are missing.",
+      },
+      {
+        question: "Why does it work in Postman or curl but not in the browser?",
+        answer: "CORS is a browser-only security feature. Non-browser clients like curl and Postman don't enforce it, so the same request succeeds there.",
+      },
+      {
+        question: "Do I need CORS headers for same-origin requests?",
+        answer: "No. CORS only applies to cross-origin requests. If your frontend and Edge Function share the same origin, you don't need the headers.",
+      },
+      {
+        question: "Can I set CORS in the Supabase dashboard?",
+        answer: "No. For Edge Functions you must set the CORS headers in the function code and handle the OPTIONS preflight request yourself.",
+      },
+    ],
+  },
+  {
+    slug: "fix-vercel-build-fails-supabase-env-variables",
+    title: "Fix: Vercel Build Fails After Adding Supabase Env Variables",
+    excerpt:
+      "Your app builds locally but Vercel fails after adding Supabase? It's almost always environment variables. Here's how to fix it in a few minutes.",
+    content: `
+## What's Happening
+
+Your app builds locally but the **Vercel build fails after you add Supabase**, often with \`supabaseUrl is required\` or \`Missing environment variable\`. The cause is almost always environment variables that exist on your machine but were never added to Vercel.
+
+## Common Causes and Fixes
+
+### 1. The env vars aren't set in Vercel
+
+Your \`.env.local\` file is not deployed — it stays on your machine. Add the variables in **Vercel → Project → Settings → Environment Variables**:
+
+- \`NEXT_PUBLIC_SUPABASE_URL\`
+- \`NEXT_PUBLIC_SUPABASE_ANON_KEY\`
+
+Set them for **Production, Preview, and Development**, then redeploy.
+
+### 2. Missing NEXT_PUBLIC_ prefix
+
+Any variable used in client-side code **must** start with \`NEXT_PUBLIC_\`. Without the prefix, the value is \`undefined\` in the browser bundle and the Supabase client throws during build or render.
+
+### 3. You didn't redeploy
+
+Vercel only picks up new environment variables on the **next** build. Adding them does not retro-apply to the current deployment — trigger a fresh redeploy after saving.
+
+### 4. The client is created at build time
+
+If you initialize the Supabase client at the top level of a module, it can run during prerendering. Guard against missing values, or create the client lazily inside a function/component so it runs at request time.
+
+### 5. Wrong environment scope
+
+If you added the variable only to "Production" but the failing build is a Preview (pull-request) deploy, that build won't have it. Tick all three environments.
+
+## How to Prevent It
+
+- Keep a committed \`.env.example\` listing every required key (no real values).
+- Match variable names exactly — they are case-sensitive.
+- Store secrets like the service-role key **without** the \`NEXT_PUBLIC_\` prefix so they stay server-side.
+
+If you're also wiring up the domain, our [GoDaddy-to-Vercel guide](/blog/connect-vercel-app-godaddy-domain) covers that next step.
+
+## Frequently Asked Questions
+
+**Why does it build locally but not on Vercel?**
+Locally, Next.js reads \`.env.local\`. Vercel doesn't have that file — you must add the same variables in the Vercel dashboard and redeploy.
+
+**What's the difference between NEXT_PUBLIC and server-only variables?**
+\`NEXT_PUBLIC_\` variables are exposed to the browser. Keep secrets such as the Supabase service-role key without the prefix so they stay on the server only.
+
+**Do I need to redeploy after changing an environment variable?**
+Yes. Env var changes only take effect on the next build, so trigger a redeploy every time you add or change one.
+
+**Where do I find my Supabase URL and keys?**
+In the Supabase dashboard under Project Settings → API.
+
+## Deploying Something Important?
+
+We ship production apps on Next.js, Supabase, and Vercel every week. If you want your deploy pipeline set up cleanly — env management, previews, and all — **Amex Technology** can help. See our [services](/services) or [get in touch](/contact).
+    `,
+    category: "DevOps",
+    tags: ["Vercel", "Supabase", "Next.js", "Environment Variables"],
+    readTime: "6 min read",
+    publishedAt: "2026-07-21",
+    gradientFrom: "#22c55e",
+    gradientTo: "#0ea5e9",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-21",
+    keywords: ["Vercel build fails Supabase", "supabaseUrl is required", "Vercel environment variables Supabase", "NEXT_PUBLIC_SUPABASE_URL undefined", "fix Vercel Supabase env"],
+    metaTitle: "Fix: Vercel Build Fails on Supabase Env Vars",
+    metaDescription: "Vercel build failing after adding Supabase? It's your environment variables. Fix NEXT_PUBLIC prefixes, scopes, and redeploys in a few minutes.",
+    faq: [
+      {
+        question: "Why does my app build locally but fail on Vercel?",
+        answer: "Locally Next.js reads your .env.local file. Vercel doesn't have it, so you must add the same variables in Vercel's dashboard and redeploy for the build to find them.",
+      },
+      {
+        question: "What is the difference between NEXT_PUBLIC and server-only variables?",
+        answer: "NEXT_PUBLIC_ variables are bundled into the browser. Keep secrets like the Supabase service-role key without the prefix so they remain server-side only.",
+      },
+      {
+        question: "Do I have to redeploy after adding an environment variable?",
+        answer: "Yes. Vercel only applies environment variables on the next build, so trigger a redeploy every time you add or change one.",
+      },
+      {
+        question: "Where do I get my Supabase URL and anon key?",
+        answer: "In the Supabase dashboard under Project Settings → API. Copy the Project URL and the anon public key.",
+      },
+    ],
+  },
+  {
+    slug: "fix-lovable-white-screen-build-failed-after-publish",
+    title: "Fix: Lovable White Screen or Build Failed After Publish",
+    excerpt:
+      "Published a Lovable app and got a blank white screen or build error? Here's how to find the real cause in 30 seconds and the most common fixes.",
+    content: `
+## The Symptom
+
+You hit **Publish** in Lovable and the live site shows a **blank white screen** or a "build failed" message — even though the preview looked perfect. This almost always comes down to a build error, a missing environment variable, or a runtime JavaScript error that only appears in production.
+
+## Diagnose It in 30 Seconds
+
+Open the published site, then open your browser's **DevTools → Console** (right-click anywhere → Inspect → Console). The red error message there tells you which of the causes below you're hitting. Don't skip this step — it turns guessing into a two-minute fix.
+
+## Common Causes and Fixes
+
+### 1. Missing environment variables
+
+The preview can use values that were never set for the published build. Add your keys — Supabase URL and key, API keys, and so on — in Lovable's project/environment settings, then republish.
+
+### 2. A case-sensitive import
+
+Production servers are case-sensitive. \`import Button from './components/button'\` fails if the file is actually \`Button.tsx\`. Match the file name's case exactly.
+
+### 3. A runtime error on load
+
+Calling something on \`undefined\` crashes the render and leaves a white screen. The console points to the exact line — add optional chaining or a guard, for example \`user?.name\` instead of \`user.name\`.
+
+### 4. Using browser APIs too early
+
+Referencing \`window\` or \`localStorage\` during the initial render can break the published build. Access them inside an effect or event handler instead.
+
+### 5. A stale cache
+
+If you already fixed the issue but still see white, hard-refresh with Cmd/Ctrl + Shift + R, or open the site in an incognito window.
+
+## Still Stuck? Debug Locally
+
+If Lovable's editor hides the real error, [export your code from Lovable](/blog/how-to-export-code-from-lovable), run it locally with \`npm run dev\`, and your terminal and console will show the exact stack trace. Nine times out of ten, the fix is obvious once you can see the real error.
+
+## Frequently Asked Questions
+
+**Why does the preview work but the published site doesn't?**
+Preview and production are built differently — production applies optimizations, is case-sensitive, and needs its own environment variables. A value that exists in preview may be missing in production.
+
+**Where do I actually see the error?**
+Open the published URL, then your browser's DevTools Console. The red error message names the file and line causing the white screen.
+
+**Could a custom domain be the cause?**
+If the site only breaks on your domain, it's likely DNS or HTTPS, not the code. See our guide on [connecting a custom domain to Lovable](/blog/how-to-connect-custom-domain-with-lovable).
+
+**Will I lose my work if I republish?**
+No. Republishing redeploys the same project. Your code and data are not affected.
+
+## Outgrowing Lovable?
+
+A white screen after publish is often the moment a no-code project needs real engineering. **Amex Technology** takes Lovable apps to stable, production-ready code — from debugging to full rebuilds. Explore our [services](/services) or [get in touch](/contact).
+    `,
+    category: "Tutorial",
+    tags: ["Lovable", "Troubleshooting", "Deployment", "Debugging"],
+    readTime: "5 min read",
+    publishedAt: "2026-07-21",
+    gradientFrom: "#ec4899",
+    gradientTo: "#8b5cf6",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-21",
+    keywords: ["Lovable white screen", "Lovable build failed", "Lovable blank page after publish", "Lovable published site not working", "fix Lovable publish error"],
+    metaTitle: "Fix: Lovable White Screen After Publish",
+    metaDescription: "Lovable app showing a white screen or build failed after publish? Find the real cause in the console and fix the most common issues in minutes.",
+    faq: [
+      {
+        question: "Why does the Lovable preview work but the published site is blank?",
+        answer: "Preview and production build differently. Production is case-sensitive, applies optimizations, and needs its own environment variables, so a value present in preview may be missing when published.",
+      },
+      {
+        question: "Where do I see the actual error causing the white screen?",
+        answer: "Open the published URL and your browser's DevTools Console. The red error message names the exact file and line responsible for the blank screen.",
+      },
+      {
+        question: "Could my custom domain be causing the white screen?",
+        answer: "If the site only fails on your domain but works on the .lovable.app URL, the issue is usually DNS or HTTPS, not your code.",
+      },
+      {
+        question: "Will I lose my work if I republish?",
+        answer: "No. Republishing simply redeploys the same project. Your code and data are not affected.",
+      },
+    ],
+  },
+  {
     slug: "bolt-new-review",
     title: "Bolt.new Review 2026: Can It Really Ship Production-Ready Apps?",
     excerpt:
