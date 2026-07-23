@@ -22,6 +22,1536 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
 
+{
+    slug: "fix-supabase-invalid-api-key",
+    title: "Fix: Invalid API Key Error in Supabase",
+    excerpt:
+      "Seeing 'Invalid API key' from Supabase? Here's exactly why it happens and how to get your keys and env vars right.",
+    content: `
+## The Problem
+
+The "Invalid API key" error means Supabase rejected the \`apikey\` header on your request because it doesn't match a valid key for your project. This is a client-side configuration issue, not a Supabase outage: the wrong key, a key from another project, or a malformed environment variable are the usual suspects.
+
+## Why It Happens
+
+Every Supabase project has two public-facing keys: the \`anon\` key and the \`service_role\` key. The error shows up when your app sends a key that Supabase can't validate against the project it's pointed at.
+
+Common causes:
+
+- **Wrong key type** - using the \`service_role\` key where an \`anon\` key is expected, or vice versa.
+- **Key from a different project** - copy-pasted from an old project or a teammate's \`.env\` file.
+- **Env var not loaded or typo'd** - the variable name is misspelled, or the file isn't picked up by your build tool.
+- **Using the JWT secret instead of the anon key** - the JWT secret is a signing secret, not an API key, and Supabase will reject it outright.
+- **Extra whitespace or a trailing newline** - pasting a key from a password manager or terminal often adds an invisible character that breaks the string.
+
+## The Fix
+
+### 1. Get the correct keys from Project Settings
+
+In the Supabase dashboard, go to **Project Settings > API**. You'll see the **Project URL**, the **anon public** key, and the **service_role** key. Copy the \`anon\` key for anything that runs in the browser.
+
+### 2. Set your environment variables correctly
+
+In a Next.js project, set both values in \`.env.local\`:
+
+\`\`\`bash
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+\`\`\`
+
+Make sure there are no quotes, no trailing spaces, and no line breaks inside the key value. Then initialize the client with those variables:
+
+\`\`\`ts
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+\`\`\`
+
+### 3. Restart the dev server
+
+Next.js only reads \`.env.local\` on startup. If you edited the file while the server was running, stop it and run \`npm run dev\` again - a hot reload is not enough.
+
+### 4. Never mix up anon and service_role
+
+The \`anon\` key is safe to expose in the browser and respects Row Level Security. The \`service_role\` key bypasses RLS entirely and must only be used in server-side code (API routes, Edge Functions, cron jobs) - never in client components, and never prefixed with \`NEXT_PUBLIC_\`.
+
+### 5. Check for hidden whitespace
+
+If you copied the key from a terminal or a shared doc, log its length to check for stray characters:
+
+\`\`\`ts
+console.log(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.length);
+\`\`\`
+
+A Supabase anon key is a JWT and should be a single continuous string with no line breaks.
+
+## How to Prevent It
+
+- Keep a single source of truth for keys in your team's password manager, tagged by project name.
+- Add a startup check that throws a clear error if required env vars are missing.
+- Never commit \`.env.local\` - use \`.env.example\` with placeholder values instead.
+- Re-copy keys directly from the dashboard rather than reusing ones from memory or old notes.
+
+## Frequently Asked Questions
+
+**Why does my key work locally but not in production?**
+Your production environment (Vercel, Netlify, etc.) has its own environment variable settings that are separate from your local \`.env.local\` file - double-check they're set there too.
+
+**Is it safe to expose the anon key in my frontend code?**
+Yes, the anon key is designed to be public and is protected by Row Level Security policies on your tables; the service_role key is the one that must stay secret.
+
+**Can rotating my Supabase keys fix this error?**
+Rotating keys in Project Settings > API generates new values, which helps if a key was leaked or corrupted, but you must update every place that key is used or the error will return.
+
+**Does an expired session cause 'Invalid API key' too?**
+No - an expired session produces a "JWT expired" error, not "Invalid API key"; the two errors point to different problems.
+
+## Need Help With Supabase?
+
+If your Supabase setup keeps throwing configuration errors, we can help you get authentication and environment variables set up correctly the first time. Explore our [development services](/services) or [get in touch](/contact). If you're wiring Supabase into a new app, see our guide on [connecting Next.js and React with Supabase](/blog/connect-nextjs-react-with-supabase).
+    `,
+    category: "Engineering",
+    tags: ["Supabase", "API Keys", "Environment Variables", "Troubleshooting"],
+    readTime: "6 min read",
+    publishedAt: "2026-07-08",
+    gradientFrom: "#ef4444",
+    gradientTo: "#f97316",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-08",
+    keywords: ["supabase invalid api key", "invalid api key supabase", "supabase anon key error"],
+    metaTitle: "Fix: Invalid API Key Error in Supabase",
+    metaDescription: "Fix the Supabase 'Invalid API key' error by identifying the wrong key, bad env vars, or anon vs service_role mix-ups.",
+    faq: [
+      {
+        question: "Why does my key work locally but not in production?",
+        answer: "Your production environment (Vercel, Netlify, etc.) has its own environment variable settings that are separate from your local .env.local file - double-check they're set there too.",
+      },
+      {
+        question: "Is it safe to expose the anon key in my frontend code?",
+        answer: "Yes, the anon key is designed to be public and is protected by Row Level Security policies on your tables; the service_role key is the one that must stay secret.",
+      },
+      {
+        question: "Can rotating my Supabase keys fix this error?",
+        answer: "Rotating keys in Project Settings > API generates new values, which helps if a key was leaked or corrupted, but you must update every place that key is used or the error will return.",
+      },
+      {
+        question: "Does an expired session cause 'Invalid API key' too?",
+        answer: "No - an expired session produces a 'JWT expired' error, not 'Invalid API key'; the two errors point to different problems.",
+      },
+    ],
+  },
+  {
+    slug: "fix-supabase-jwt-expired",
+    title: "Fix: JWT Expired Error in Supabase Auth",
+    excerpt:
+      "Getting a 'JWT expired' error from Supabase Auth? Here's why sessions expire and how to make refresh actually work.",
+    content: `
+## The Problem
+
+"JWT expired" means the access token your app sent with a request has passed its expiry time and Supabase rejected it. It's not a bug in your database or RLS policies - it's a session management issue, and it's almost always fixable by making sure tokens get refreshed correctly.
+
+## Why It Happens
+
+Supabase access tokens are short-lived JWTs (by default valid for one hour) paired with a longer-lived refresh token. The client library is supposed to refresh the access token automatically before it expires, but that only works under the right conditions.
+
+Common causes:
+
+- **Session not auto-refreshed** - the Supabase client was created without \`autoRefreshToken\` enabled, or the tab was inactive long enough that the refresh timer never fired.
+- **Using a stale token server-side** - a token was captured once and reused in later server requests instead of being re-read from the current session.
+- **Clock skew** - the server or client's system clock is off, so a still-valid token looks expired (or vice versa).
+- **Not using the SSR client for cookie-based sessions** - in Next.js, using the browser-only \`supabase-js\` client for server-rendered pages means cookies never get refreshed by the server.
+
+## The Fix
+
+### 1. Let supabase-js handle auto refresh
+
+By default, \`createClient\` from \`@supabase/supabase-js\` refreshes tokens automatically as long as the client stays alive. Make sure you haven't disabled it:
+
+\`\`\`ts
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+  },
+});
+\`\`\`
+
+### 2. Use @supabase/ssr in Next.js
+
+For server components, route handlers, and middleware, use \`@supabase/ssr\` so the session lives in cookies and gets refreshed on the server, not just in the browser:
+
+\`\`\`ts
+import { createServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
+
+export function createClient() {
+  const cookieStore = cookies();
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            cookieStore.set(name, value, options)
+          );
+        },
+      },
+    }
+  );
+}
+\`\`\`
+
+Pair this with middleware that calls \`supabase.auth.getUser()\` on every request so expired cookies get refreshed before they reach your pages.
+
+### 3. Call getSession or refreshSession explicitly
+
+If you're managing a long-running server process (a cron job, a worker) rather than a request/response cycle, refresh the session manually before using it:
+
+\`\`\`ts
+const { data, error } = await supabase.auth.refreshSession();
+\`\`\`
+
+### 4. Handle a 401 by refreshing and retrying once
+
+For any code path that calls the Supabase REST or Storage API directly (not through supabase-js), catch a 401 with a "JWT expired" message, refresh the session, and retry the request a single time before failing.
+
+## How to Prevent It
+
+- Always create the Supabase client through \`@supabase/ssr\` in server contexts, not the plain browser client.
+- Keep the Supabase auth middleware running on every route so tokens refresh proactively.
+- Sync system clocks (NTP) on any custom server infrastructure to avoid false expirations.
+- Avoid caching a token value outside of the Supabase client's own session storage.
+
+## Frequently Asked Questions
+
+**How long does a Supabase access token last by default?**
+One hour by default, though this is configurable in Project Settings > Auth; the refresh token lasts much longer and is used to silently obtain new access tokens.
+
+**Why does the error appear after the browser tab was idle for a while?**
+Inactive tabs can miss the refresh timer, so the token expires before the app requests a new one; calling \`getSession()\` on page focus forces a check and refresh if needed.
+
+**Does logging the user out and back in fix it permanently?**
+It fixes the immediate error, but if auto-refresh isn't configured correctly the same expiration will recur - fix the client setup rather than relying on re-logins.
+
+**Is 'JWT expired' the same as 'Invalid API key'?**
+No - "Invalid API key" is about the project's apikey header being wrong, while "JWT expired" is about a valid but time-expired user session token.
+
+## Need Help With Supabase?
+
+If session expiration keeps breaking your app's auth flow, we can help you set up a reliable Supabase Auth architecture in Next.js. Explore our [development services](/services) or [get in touch](/contact). For the full setup, see our guide on [connecting Next.js and React with Supabase](/blog/connect-nextjs-react-with-supabase).
+    `,
+    category: "Engineering",
+    tags: ["Supabase", "Auth", "JWT", "Troubleshooting"],
+    readTime: "6 min read",
+    publishedAt: "2026-07-09",
+    gradientFrom: "#f59e0b",
+    gradientTo: "#ef4444",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-09",
+    keywords: ["supabase jwt expired", "jwt expired supabase", "supabase auth session refresh"],
+    metaTitle: "Fix: JWT Expired Error in Supabase Auth",
+    metaDescription: "Fix the Supabase 'JWT expired' error with proper session auto-refresh and the @supabase/ssr client for Next.js.",
+    faq: [
+      {
+        question: "How long does a Supabase access token last by default?",
+        answer: "One hour by default, though this is configurable in Project Settings > Auth; the refresh token lasts much longer and is used to silently obtain new access tokens.",
+      },
+      {
+        question: "Why does the error appear after the browser tab was idle for a while?",
+        answer: "Inactive tabs can miss the refresh timer, so the token expires before the app requests a new one; calling getSession() on page focus forces a check and refresh if needed.",
+      },
+      {
+        question: "Does logging the user out and back in fix it permanently?",
+        answer: "It fixes the immediate error, but if auto-refresh isn't configured correctly the same expiration will recur - fix the client setup rather than relying on re-logins.",
+      },
+      {
+        question: "Is 'JWT expired' the same as 'Invalid API key'?",
+        answer: "No - 'Invalid API key' is about the project's apikey header being wrong, while 'JWT expired' is about a valid but time-expired user session token.",
+      },
+    ],
+  },
+  {
+    slug: "fix-supabase-relation-does-not-exist",
+    title: "Fix: relation does not exist in Supabase",
+    excerpt:
+      "Supabase or Postgres saying a table's relation does not exist? Here's how to find the real cause and fix it fast.",
+    content: `
+## The Problem
+
+The error \`relation "table_name" does not exist\` is a Postgres error meaning the query referenced a table (or view) that Postgres can't find in the schema it's looking in. In Supabase this almost always comes down to a missing migration, a typo, or the table sitting in a schema that isn't exposed to the API.
+
+## Why It Happens
+
+Postgres resolves table names against a specific schema search path, and Supabase's API only exposes schemas you've explicitly allowed. The error surfaces for a few distinct reasons that look identical on the surface.
+
+Common causes:
+
+- **Migration not run** - the table was defined in a migration file that was never applied to this database (common when working against a fresh branch or a different environment).
+- **Typo in the table name** - a simple mismatch between the name in your query and the actual table name.
+- **Table in a different schema** - the table exists, but in a schema other than \`public\`, and that schema hasn't been exposed through Supabase's API settings.
+- **Case-sensitivity with quoted identifiers** - Postgres lowercases unquoted identifiers automatically; if the table was created with quotes and mixed case (e.g. \`"Users"\`), you must query it with the exact same quoting and case.
+- **Querying before the table is created** - a race condition where application code runs against a database that hasn't finished migrating.
+
+## The Fix
+
+### 1. Confirm the migration actually ran
+
+Check your migration history against the target database:
+
+\`\`\`bash
+supabase migration list
+\`\`\`
+
+If the table's migration isn't listed as applied, push it:
+
+\`\`\`bash
+supabase db push
+\`\`\`
+
+### 2. Check the table name and schema in the Table Editor
+
+Open the Supabase dashboard's **Table Editor** and confirm the table exists, its exact spelling, and which schema it lives in. If you expected \`public.orders\` but see it under a custom schema like \`app\`, that's your answer.
+
+### 3. Expose the schema in API settings
+
+By default, Supabase's REST and client libraries only expose the \`public\` schema. If your table lives elsewhere, go to **Project Settings > API > Exposed schemas** and add the schema name, then query it explicitly:
+
+\`\`\`ts
+const { data, error } = await supabase
+  .schema('app')
+  .from('orders')
+  .select('*');
+\`\`\`
+
+### 4. Match case and quoting exactly
+
+If a table was created with a quoted, mixed-case name, reference it the same way in raw SQL:
+
+\`\`\`sql
+SELECT * FROM "Orders";
+\`\`\`
+
+In general, prefer creating tables with lowercase, unquoted names to avoid this entirely.
+
+### 5. Verify from the SQL editor directly
+
+Run a quick check to see what actually exists before debugging application code further:
+
+\`\`\`sql
+SELECT table_schema, table_name
+FROM information_schema.tables
+WHERE table_name = 'orders';
+\`\`\`
+
+This tells you definitively whether the table exists and in which schema, removing the guesswork.
+
+## How to Prevent It
+
+- Keep migrations under version control and run them as part of your deploy pipeline, not manually.
+- Stick to lowercase, unquoted table names to avoid case-sensitivity surprises.
+- Default new tables to the \`public\` schema unless you have a clear reason to isolate them, and document any schema you do expose.
+- Add a startup or CI check that confirms expected tables exist before deploying application code that depends on them.
+
+## Frequently Asked Questions
+
+**Why does the table show up in the Table Editor but not in my API query?**
+It's likely in a schema that isn't exposed to the API - check Project Settings > API > Exposed schemas and add it, or explicitly call \`.schema('your_schema')\` from the client.
+
+**Why does this happen only in production and not locally?**
+Your local database usually has migrations auto-applied, while production requires an explicit \`supabase db push\` or deploy step - confirm the migration actually ran against the production project.
+
+**Does restarting Supabase or my app fix this error?**
+No - this is a schema state issue, not a caching issue, so restarting won't help until the table is actually created or exposed correctly.
+
+**Is this the same as a 'permission denied for table' error?**
+No - "relation does not exist" means Postgres can't find the table at all, while "permission denied" means the table exists but your role or Row Level Security policy is blocking access.
+
+## Need Help With Supabase?
+
+If migrations and schema exposure keep tripping up your Supabase project, we can help you set up a clean, reliable database workflow. Explore our [development services](/services) or [get in touch](/contact). If you're just getting Supabase connected to your app, check out our guide on [connecting Next.js and React with Supabase](/blog/connect-nextjs-react-with-supabase).
+    `,
+    category: "Engineering",
+    tags: ["Supabase", "Postgres", "Database", "Troubleshooting"],
+    readTime: "6 min read",
+    publishedAt: "2026-07-10",
+    gradientFrom: "#0ea5e9",
+    gradientTo: "#6366f1",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-10",
+    keywords: ["supabase relation does not exist", "relation does not exist postgres", "postgres table not found"],
+    metaTitle: "Fix: relation does not exist in Supabase",
+    metaDescription: "Fix Postgres 'relation does not exist' in Supabase by checking migrations, table names, and exposed schemas.",
+    faq: [
+      {
+        question: "Why does the table show up in the Table Editor but not in my API query?",
+        answer: "It's likely in a schema that isn't exposed to the API - check Project Settings > API > Exposed schemas and add it, or explicitly call .schema('your_schema') from the client.",
+      },
+      {
+        question: "Why does this happen only in production and not locally?",
+        answer: "Your local database usually has migrations auto-applied, while production requires an explicit supabase db push or deploy step - confirm the migration actually ran against the production project.",
+      },
+      {
+        question: "Does restarting Supabase or my app fix this error?",
+        answer: "No - this is a schema state issue, not a caching issue, so restarting won't help until the table is actually created or exposed correctly.",
+      },
+      {
+        question: "Is this the same as a 'permission denied for table' error?",
+        answer: "No - 'relation does not exist' means Postgres can't find the table at all, while 'permission denied' means the table exists but your role or Row Level Security policy is blocking access.",
+      },
+    ],
+  },
+{
+    slug: "fix-supabase-failed-to-fetch",
+    title: "Fix: Supabase 'Failed to fetch' Error",
+    excerpt:
+      "Seeing 'Failed to fetch' when your app calls Supabase? Here's how to diagnose the real cause and fix it fast.",
+    content: `
+## The Problem
+
+If your app throws \`TypeError: Failed to fetch\` (or a plain 'Failed to fetch' error) when calling Supabase, the request is failing before it ever reaches Supabase's servers. This is a browser-level network error, not an error returned by Supabase itself, so the fix almost always lives in your environment, not your query logic.
+
+## Why It Happens
+
+The 'Failed to fetch' error in Supabase shows up for a handful of predictable reasons:
+
+- **Wrong or missing Supabase URL** - a typo, trailing slash, or unset \`NEXT_PUBLIC_SUPABASE_URL\` environment variable.
+- **Missing \`https://\`** - the fetch API silently fails on malformed URLs.
+- **Project is paused** - free-tier Supabase projects auto-pause after a period of inactivity.
+- **Network or DNS issues** - a flaky connection, VPN, or corporate firewall blocking the Supabase domain.
+- **CORS misconfiguration** - especially common if you're calling Supabase from a custom domain.
+- **Ad blockers or browser extensions** - some ad blockers flag \`supabase.co\` requests as trackers.
+
+## The Fix
+
+### 1. Verify your Supabase URL and anon key
+
+Open your Supabase dashboard, go to Project Settings > API, and copy the exact Project URL and anon key. Compare them character-for-character against your environment variables.
+
+\`\`\`ts
+// .env.local
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+\`\`\`
+
+Then confirm the client is reading them correctly:
+
+\`\`\`ts
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables');
+}
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+\`\`\`
+
+Adding that guard clause turns a silent 'Failed to fetch' into a clear, actionable error message during development.
+
+### 2. Check if your project is paused
+
+Free-tier Supabase projects pause automatically after roughly a week of no activity. A paused project will not respond to any request, which surfaces as 'Failed to fetch' in the browser. Log into the dashboard - if you see a "Restore project" button, that's your problem. Click it and wait a couple of minutes for the database to come back online.
+
+### 3. Inspect the Network tab
+
+Open your browser's DevTools, go to the Network tab, and re-trigger the request. Look at the failed request:
+
+- **Status shows "(failed) net::ERR_NAME_NOT_RESOLVED"** - your URL is wrong or DNS can't resolve it.
+- **Status shows "(blocked:other")** - an extension or ad blocker is intercepting the request.
+- **No request appears at all** - the code is throwing before \`fetch\` is even called, so check for a bad import or thrown error earlier in the stack.
+
+### 4. Rule out ad blockers and browser extensions
+
+Open your app in an incognito/private window with extensions disabled, or test in a different browser entirely. If the request succeeds there, an extension is the cause. Ad blockers such as uBlock Origin sometimes include filter lists that flag \`*.supabase.co\` as an analytics endpoint.
+
+### 5. Fix CORS on a custom domain
+
+If you're proxying Supabase behind a custom domain or calling it from a different origin, confirm your Supabase project's CORS/Auth settings allow that origin, and that any reverse proxy forwards headers correctly. If you're building on Next.js, see our guide on how to [connect Next.js and React with Supabase](/blog/connect-nextjs-react-with-supabase) for a clean setup that avoids this entirely.
+
+## How to Prevent It
+
+- Always validate required Supabase environment variables at startup instead of letting them fail silently.
+- Add a simple uptime check or cron ping if you're on the free tier, so your project never auto-pauses in production.
+- Wrap Supabase calls in a try/catch and log the underlying error to distinguish network failures from Supabase API errors.
+- Test in an incognito window whenever you see unexplained network failures, to quickly rule out extensions.
+
+## Frequently Asked Questions
+
+**What does 'Failed to fetch' actually mean in Supabase?**
+It means the browser's \`fetch\` call never received a response - the request failed at the network layer before reaching Supabase's API, usually due to a bad URL, a paused project, or a blocked request.
+
+**Is 'Failed to fetch' a bug in Supabase?**
+No. It's a generic browser error thrown by the \`fetch\` API itself, not an error code returned by Supabase. The cause is almost always in your app's environment or network path.
+
+**Why does my Supabase project keep pausing?**
+Free-tier projects pause automatically after about a week without any database activity. Upgrading to a paid plan or scheduling a periodic request prevents this.
+
+**How do I know if it's a CORS issue versus a network issue?**
+Check the Network tab in DevTools. A CORS error usually shows a response with a CORS-related message in the console, while a pure network failure shows no response at all or a DNS resolution error.
+
+## Need Help?
+
+If you're still stuck after checking your environment variables, project status, and network tab, our team can help you debug it. Explore our [development services](/services) or [get in touch](/contact).
+    `,
+    category: "Engineering",
+    tags: ["Supabase", "Next.js", "Troubleshooting"],
+    readTime: "6 min read",
+    publishedAt: "2026-07-11",
+    gradientFrom: "#06b6d4",
+    gradientTo: "#3b82f6",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-11",
+    keywords: ["supabase failed to fetch", "failed to fetch supabase"],
+    metaTitle: "Fix: Supabase 'Failed to fetch' Error",
+    metaDescription: "Learn why Supabase throws a Failed to fetch error and the exact steps to diagnose and resolve it in minutes.",
+    faq: [
+      { question: "What does 'Failed to fetch' actually mean in Supabase?", answer: "It means the browser's fetch call never received a response - the request failed at the network layer before reaching Supabase's API, usually due to a bad URL, a paused project, or a blocked request." },
+      { question: "Is 'Failed to fetch' a bug in Supabase?", answer: "No. It's a generic browser error thrown by the fetch API itself, not an error code returned by Supabase. The cause is almost always in your app's environment or network path." },
+      { question: "Why does my Supabase project keep pausing?", answer: "Free-tier projects pause automatically after about a week without any database activity. Upgrading to a paid plan or scheduling a periodic request prevents this." },
+      { question: "How do I know if it's a CORS issue versus a network issue?", answer: "Check the Network tab in DevTools. A CORS error usually shows a response with a CORS-related message in the console, while a pure network failure shows no response at all or a DNS resolution error." },
+    ],
+  },
+  {
+    slug: "fix-supabase-session-missing-after-refresh",
+    title: "Fix: Supabase Session Missing After Page Refresh",
+    excerpt:
+      "Users getting logged out every time they refresh the page? Here's why Supabase session state disappears and how to fix it in Next.js.",
+    content: `
+## The Problem
+
+If a Supabase session goes missing after a page refresh - the user appears logged out even though they just signed in - the root cause is almost always a mismatch between where the session is stored and where it's being read from. This is especially common in Next.js apps that mix client-side and server-side rendering.
+
+## Why It Happens
+
+- **Session stored only in \`localStorage\`** - the default Supabase JS client keeps the session in the browser's local storage, which server components and middleware can't read.
+- **Not using \`@supabase/ssr\`** - the older \`@supabase/auth-helpers-nextjs\` or a manually configured client often fails to sync cookies between server and client in the App Router.
+- **No middleware refreshing the session** - without middleware, expired access tokens never get refreshed, so the session silently disappears.
+- **\`persistSession\` disabled** - if this option is turned off, the session is never saved between page loads.
+- **Cookies not being set or read correctly** - misconfigured cookie options (domain, path, \`sameSite\`) can prevent the session cookie from surviving a refresh.
+
+## The Fix
+
+### 1. Use \`@supabase/ssr\` instead of \`localStorage\`-only clients
+
+The \`@supabase/ssr\` package stores the session in cookies, so both the browser and the server can read it. Install it alongside \`@supabase/supabase-js\`:
+
+\`\`\`bash
+npm install @supabase/ssr @supabase/supabase-js
+\`\`\`
+
+Create a browser client for Client Components:
+
+\`\`\`ts
+// utils/supabase/client.ts
+import { createBrowserClient } from '@supabase/ssr';
+
+export function createClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+}
+\`\`\`
+
+And a server client for Server Components and Route Handlers:
+
+\`\`\`ts
+// utils/supabase/server.ts
+import { createServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
+
+export async function createClient() {
+  const cookieStore = await cookies();
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            cookieStore.set(name, value, options)
+          );
+        },
+      },
+    }
+  );
+}
+\`\`\`
+
+### 2. Add middleware to refresh the session
+
+Without middleware, an expired access token is never refreshed, so the session appears missing after a refresh once the token expires. Add a \`middleware.ts\` file at your project root:
+
+\`\`\`ts
+// middleware.ts
+import { createServerClient } from '@supabase/ssr';
+import { NextResponse, type NextRequest } from 'next/server';
+
+export async function middleware(request: NextRequest) {
+  let response = NextResponse.next({ request });
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) =>
+            request.cookies.set(name, value)
+          );
+          response = NextResponse.next({ request });
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, options)
+          );
+        },
+      },
+    }
+  );
+
+  await supabase.auth.getUser();
+
+  return response;
+}
+
+export const config = {
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+};
+\`\`\`
+
+This runs on every request, checks the session cookie, and refreshes it automatically before it expires.
+
+### 3. Confirm \`persistSession\` is enabled
+
+If you're configuring the client manually, make sure session persistence is not disabled:
+
+\`\`\`ts
+const supabase = createBrowserClient(url, anonKey, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+  },
+});
+\`\`\`
+
+### 4. Always call \`getUser()\`, not \`getSession()\`, on the server
+
+On the server, \`getSession()\` reads the cookie without validating it, which can return a stale or tampered session. Use \`getUser()\` in Server Components and middleware - it revalidates the token against Supabase's Auth server on every call.
+
+Pairing this with our guide on how to [connect Next.js and React with Supabase](/blog/connect-nextjs-react-with-supabase) will give you a full, correctly wired auth setup from the start.
+
+## How to Prevent It
+
+- Standardize on \`@supabase/ssr\` for any Next.js project using the App Router - never mix it with a plain \`localStorage\`-based client.
+- Always add the middleware step, even if your app feels "simple" today.
+- Use \`getUser()\` server-side and \`getSession()\` only for quick client-side checks.
+- Double-check cookie settings if you're deploying behind a custom domain or subdomain.
+
+## Frequently Asked Questions
+
+**Why does my Supabase session disappear only after a refresh, not on the initial load?**
+On the initial load, the client that logged the user in still has the session in memory. On refresh, that memory is cleared, and if the session was only stored in \`localStorage\` (not cookies), server-rendered pages can't see it, which looks like a missing session.
+
+**Do I need middleware if I'm only using Client Components?**
+It's still strongly recommended. Without it, expired tokens won't refresh automatically, and users will eventually get logged out mid-session even in a client-only app.
+
+**What's the difference between \`getSession()\` and \`getUser()\`?**
+\`getSession()\` reads the session from cookies without verifying it against Supabase, which is fast but not fully trustworthy on the server. \`getUser()\` makes a network call to validate the token, making it safe for authorization checks.
+
+**Is \`@supabase/auth-helpers-nextjs\` deprecated?**
+Yes, it has been superseded by \`@supabase/ssr\`, which is the officially recommended package for Next.js and other SSR frameworks going forward.
+
+## Need Help?
+
+Auth and session handling is one of the most common places Next.js and Supabase projects go wrong. Explore our [development services](/services) or [get in touch](/contact) if you'd like a second pair of eyes on your setup.
+    `,
+    category: "Engineering",
+    tags: ["Supabase", "Next.js", "Auth", "Troubleshooting"],
+    readTime: "7 min read",
+    publishedAt: "2026-07-12",
+    gradientFrom: "#8b5cf6",
+    gradientTo: "#6366f1",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-12",
+    keywords: ["supabase session missing", "supabase logged out on refresh"],
+    metaTitle: "Fix: Supabase Session Missing on Refresh",
+    metaDescription: "Fix Supabase session missing after page refresh in Next.js using @supabase/ssr, middleware, and correct cookie setup.",
+    faq: [
+      { question: "Why does my Supabase session disappear only after a refresh, not on the initial load?", answer: "On the initial load, the client that logged the user in still has the session in memory. On refresh, that memory is cleared, and if the session was only stored in localStorage (not cookies), server-rendered pages can't see it, which looks like a missing session." },
+      { question: "Do I need middleware if I'm only using Client Components?", answer: "It's still strongly recommended. Without it, expired tokens won't refresh automatically, and users will eventually get logged out mid-session even in a client-only app." },
+      { question: "What's the difference between getSession() and getUser()?", answer: "getSession() reads the session from cookies without verifying it against Supabase, which is fast but not fully trustworthy on the server. getUser() makes a network call to validate the token, making it safe for authorization checks." },
+      { question: "Is @supabase/auth-helpers-nextjs deprecated?", answer: "Yes, it has been superseded by @supabase/ssr, which is the officially recommended package for Next.js and other SSR frameworks going forward." },
+    ],
+  },
+  {
+    slug: "fix-supabase-email-rate-limit-exceeded",
+    title: "Fix: Supabase 'Email Rate Limit Exceeded'",
+    excerpt:
+      "Signups or password resets failing with 'email rate limit exceeded'? Here's why Supabase's default email service is capped and how to fix it.",
+    content: `
+## The Problem
+
+The 'email rate limit exceeded' error appears when Supabase's built-in email service hits its sending cap, blocking signup confirmations, password resets, and magic links. It's not a bug - it's a hard limit on the default email provider, and the fix is to configure a custom SMTP provider.
+
+## Why It Happens
+
+- **Supabase's default email service has very low limits** - it's meant for development and testing, not production traffic, typically capping out at a small number of emails per hour.
+- **Repeated test signups** - creating and deleting test accounts during development burns through the limit quickly.
+- **No custom SMTP configured** - if you haven't connected your own provider, every auth email goes through Supabase's shared, rate-limited sender.
+- **Shared IP reputation** - because the default sender is shared across many Supabase projects, limits exist to prevent abuse and protect deliverability for everyone.
+
+## The Fix
+
+### 1. Understand the default limits
+
+Supabase's built-in email service is explicitly documented as unsuitable for production. It exists so you can test auth flows without setup, but it is rate-limited aggressively and emails may be delayed or land in spam. Once you see 'email rate limit exceeded', that's your signal to move to a real provider.
+
+### 2. Set up a custom SMTP provider
+
+Go to your Supabase dashboard, then Authentication > Emails > SMTP Settings, and enable custom SMTP. Providers like Resend, SendGrid, or Postmark all work well. At minimum you'll need:
+
+\`\`\`text
+Host: smtp.resend.com
+Port: 465 (or 587)
+Username: resend
+Password: your-api-key
+Sender email: no-reply@yourdomain.com
+Sender name: Your App Name
+\`\`\`
+
+If you're using Resend specifically, our step-by-step walkthrough on how to [set up Resend email](/blog/how-to-setup-resend-email) covers domain verification and SMTP credentials in detail.
+
+### 3. Verify your sending domain
+
+Most providers require you to verify domain ownership via DNS records (SPF, DKIM, and sometimes DMARC) before they'll relay email reliably. Skipping this step often results in emails being marked as spam even after SMTP is configured correctly.
+
+### 4. Throttle test signups during development
+
+While developing locally, avoid creating dozens of test accounts in quick succession against your production project. Instead:
+
+- Use a separate Supabase project for local development and testing.
+- Reuse the same test account and simply resend the confirmation link rather than signing up repeatedly.
+- Check the Auth logs in your dashboard to see how close you are to the current limit.
+
+### 5. Confirm the change took effect
+
+After saving custom SMTP settings, send a test signup or password reset and check the email headers - it should now show your SMTP provider (for example, Resend or SendGrid) instead of Supabase's default sender.
+
+\`\`\`ts
+const { error } = await supabase.auth.signUp({
+  email: 'test@yourdomain.com',
+  password: 'a-strong-password',
+});
+
+if (error) {
+  console.error('Signup error:', error.message);
+}
+\`\`\`
+
+If the 'email rate limit exceeded' error persists after configuring SMTP, double-check that the SMTP toggle is actually enabled and saved, since a misconfigured provider silently falls back to the default limited sender in some setups.
+
+## How to Prevent It
+
+- Never rely on Supabase's default email service past initial development.
+- Set up custom SMTP before you launch, not after you hit the limit in front of real users.
+- Keep separate Supabase projects for development, staging, and production to avoid burning through limits during testing.
+- Monitor your email provider's dashboard for bounce and complaint rates, which affect deliverability over time.
+
+## Frequently Asked Questions
+
+**What triggers the 'email rate limit exceeded' error in Supabase?**
+It's triggered when the number of auth emails sent through Supabase's default email service exceeds its built-in cap, which is intentionally low because that service isn't meant for production use.
+
+**Does upgrading my Supabase plan increase the email limit?**
+Plan upgrades increase some platform limits, but the recommended and most reliable fix is still connecting your own SMTP provider, since the default sender is shared infrastructure regardless of plan.
+
+**Which SMTP provider should I use with Supabase?**
+Resend, SendGrid, and Postmark are all commonly used and well-documented with Supabase. Choose based on your existing stack and pricing needs; all three support the custom SMTP settings Supabase requires.
+
+**Will switching to custom SMTP fix delayed or spam-filtered emails too?**
+Yes, in most cases. The default email service is both rate-limited and more likely to be flagged as spam. A verified custom domain with proper SPF/DKIM records generally resolves both issues at once.
+
+## Need Help?
+
+Setting up transactional email correctly the first time saves hours of debugging later. Explore our [development services](/services) or [get in touch](/contact) if you'd like help configuring SMTP and auth flows for your project.
+    `,
+    category: "Engineering",
+    tags: ["Supabase", "Auth", "Email", "Troubleshooting"],
+    readTime: "6 min read",
+    publishedAt: "2026-07-13",
+    gradientFrom: "#f59e0b",
+    gradientTo: "#ef4444",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-13",
+    keywords: ["supabase email rate limit exceeded", "supabase email rate limit"],
+    metaTitle: "Fix: Supabase Email Rate Limit Exceeded",
+    metaDescription: "Fix Supabase's 'email rate limit exceeded' error by setting up custom SMTP with Resend, SendGrid, or Postmark.",
+    faq: [
+      { question: "What triggers the 'email rate limit exceeded' error in Supabase?", answer: "It's triggered when the number of auth emails sent through Supabase's default email service exceeds its built-in cap, which is intentionally low because that service isn't meant for production use." },
+      { question: "Does upgrading my Supabase plan increase the email limit?", answer: "Plan upgrades increase some platform limits, but the recommended and most reliable fix is still connecting your own SMTP provider, since the default sender is shared infrastructure regardless of plan." },
+      { question: "Which SMTP provider should I use with Supabase?", answer: "Resend, SendGrid, and Postmark are all commonly used and well-documented with Supabase. Choose based on your existing stack and pricing needs; all three support the custom SMTP settings Supabase requires." },
+      { question: "Will switching to custom SMTP fix delayed or spam-filtered emails too?", answer: "Yes, in most cases. The default email service is both rate-limited and more likely to be flagged as spam. A verified custom domain with proper SPF/DKIM records generally resolves both issues at once." },
+    ],
+  },
+{
+    slug: "fix-firestore-missing-or-insufficient-permissions",
+    title: "Fix: Firestore 'Missing or Insufficient Permissions'",
+    excerpt:
+      "Getting Missing or insufficient permissions in Firestore? Here's exactly why it happens and how to fix your security rules.",
+    content: `
+## The Problem
+
+If Firestore throws **Missing or insufficient permissions**, your security rules are blocking the read or write your app just tried to make. This is not a bug in Firestore — it is Firestore doing its job and rejecting a request that does not satisfy your rules. The fix is almost always to update your \`firestore.rules\` file or the authentication state of the request.
+
+## Why It Happens
+
+There are four common causes behind the missing or insufficient permissions error:
+
+**Default locked rules.** New Firestore databases start in "locked mode," where every read and write is denied by default until you explicitly allow it.
+
+**\`request.auth\` is null.** If the user is not signed in when the request fires, \`request.auth\` is \`null\`, so any rule that checks \`request.auth != null\` or \`request.auth.uid\` will fail.
+
+**Rules don't match the path.** A rule written for \`/users/{userId}\` will not apply to \`/users/{userId}/orders/{orderId}\` unless you explicitly nest a matching rule.
+
+**Test mode expired.** Firestore's "test mode" rules only allow open access for 30 days, then automatically flip to deny-all.
+
+## The Fix
+
+### 1. Check your current security rules
+
+Open the Firebase console under Firestore Database > Rules, or your local \`firestore.rules\` file. A locked default looks like this:
+
+\`\`\`js
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+\`\`\`
+
+That \`if false\` blocks everything, which is exactly what produces missing or insufficient permissions on every request.
+
+### 2. Write rules scoped to authenticated users
+
+Replace the blanket deny with rules that check \`request.auth\` and match your actual data model:
+
+\`\`\`js
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+\`\`\`
+
+This allows a signed-in user to read and write only their own \`/users/{userId}\` document, using \`request.auth.uid\` to compare against the document ID.
+
+### 3. Confirm the user is actually signed in
+
+If \`request.auth\` is null in your rules, the client is querying before authentication resolves. Guard your query with an auth state check:
+
+\`\`\`js
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth, db } from './firebase';
+import { doc, getDoc } from 'firebase/firestore';
+
+onAuthStateChanged(auth, async (user) => {
+  if (!user) return; // avoid querying while unauthenticated
+  const snap = await getDoc(doc(db, 'users', user.uid));
+  console.log(snap.data());
+});
+\`\`\`
+
+### 4. Match rules to nested collection paths
+
+Rules do not cascade automatically. If your data lives in a subcollection, add a nested match:
+
+\`\`\`js
+match /users/{userId} {
+  allow read, write: if request.auth.uid == userId;
+
+  match /orders/{orderId} {
+    allow read, write: if request.auth.uid == userId;
+  }
+}
+\`\`\`
+
+### 5. Watch for expired test mode
+
+If your rules still say \`allow read, write: if request.time < timestamp.date(2026, 1, 1);\`, the date has likely passed. Replace it with production rules like the ones above instead of extending the deadline.
+
+## How to Prevent It
+
+- Never ship to production with test-mode rules
+- Always scope rules with \`request.auth.uid\` instead of leaving collections open
+- Use the Firestore Rules Playground in the console to simulate requests before deploying
+- Write nested \`match\` blocks for every subcollection you query
+- Add rules unit tests with the Firebase Emulator Suite so permission changes are caught in CI
+
+## Frequently Asked Questions
+
+**Why does Firestore say missing or insufficient permissions even though I'm logged in?**
+Your rules may not reference \`request.auth\` correctly, or the path in your query doesn't match a rule you've defined. Log \`request.auth\` in the Rules Playground to confirm it isn't null.
+
+**Does test mode expire automatically?**
+Yes. Firestore test mode rules include a hardcoded expiration date and switch to deny-all 30 days after the database is created.
+
+**Can I allow read access to everyone but restrict writes?**
+Yes, split the conditions: \`allow read: if true; allow write: if request.auth != null;\` — though open reads are rarely appropriate for production data.
+
+**How do I debug which rule is blocking a specific request?**
+Use the Firestore Rules Playground in the Firebase console, or enable debug logging in the Firebase Emulator Suite to see exactly which rule evaluated to false.
+
+## Need Help?
+
+If your security rules keep breaking as your data model grows, our team can audit and rebuild them properly. Explore our [development services](/services) or [get in touch](/contact).
+    `,
+    category: "Engineering",
+    tags: ["Firebase", "Firestore", "Troubleshooting"],
+    readTime: "6 min read",
+    publishedAt: "2026-07-15",
+    gradientFrom: "#f59e0b",
+    gradientTo: "#f97316",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-15",
+    keywords: ["firestore missing or insufficient permissions", "firebase permission denied"],
+    metaTitle: "Fix: Firestore Missing Permissions Error",
+    metaDescription: "Firestore Missing or insufficient permissions error explained, with working security rules examples to fix it fast.",
+    faq: [
+      { question: "Why does Firestore say missing or insufficient permissions even though I'm logged in?", answer: "Your rules may not reference request.auth correctly, or the path in your query doesn't match a rule you've defined. Log request.auth in the Rules Playground to confirm it isn't null." },
+      { question: "Does test mode expire automatically?", answer: "Yes. Firestore test mode rules include a hardcoded expiration date and switch to deny-all 30 days after the database is created." },
+      { question: "Can I allow read access to everyone but restrict writes?", answer: "Yes, split the conditions: allow read: if true; allow write: if request.auth != null; though open reads are rarely appropriate for production data." },
+      { question: "How do I debug which rule is blocking a specific request?", answer: "Use the Firestore Rules Playground in the Firebase console, or enable debug logging in the Firebase Emulator Suite to see exactly which rule evaluated to false." },
+    ],
+  },
+  {
+    slug: "fix-firestore-query-requires-an-index",
+    title: "Fix: Firestore 'The Query Requires an Index'",
+    excerpt:
+      "Firestore says the query requires an index? Learn why composite queries need one and how to create it in minutes.",
+    content: `
+## The Problem
+
+**The query requires an index** is Firestore telling you that a composite query — one combining a filter with an \`orderBy\`, or multiple range filters — needs a composite index that doesn't exist yet. Firestore can only run these queries efficiently against a pre-built index, so it refuses the request instead of scanning every document.
+
+## Why It Happens
+
+Firestore automatically indexes every field individually, but it does not automatically build indexes for combinations of fields. The query requires an index error shows up when you:
+
+- Filter on one field and \`orderBy\` a different field
+- Use \`where()\` on two or more fields with range operators (\`<\`, \`<=\`, \`>\`, \`>=\`)
+- Combine \`array-contains\` or \`in\` with another filter and an \`orderBy\`
+
+Any of these shapes needs a composite index defined ahead of time.
+
+## The Fix
+
+### 1. Use the link in the error message
+
+The fastest fix: Firestore's error message includes a direct console link that pre-fills the exact composite index your query needs.
+
+\`\`\`text
+FirebaseError: The query requires an index. You can create it here:
+https://console.firebase.google.com/project/YOUR_PROJECT/firestore/indexes?create_composite=...
+\`\`\`
+
+Click the link, confirm the fields, and hit **Create Index**.
+
+### 2. Define indexes in \`firestore.indexes.json\`
+
+For reproducible deploys, define the same index in your indexes file instead of relying on console clicks:
+
+\`\`\`js
+{
+  "indexes": [
+    {
+      "collectionGroup": "orders",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    }
+  ]
+}
+\`\`\`
+
+Deploy it with the Firebase CLI:
+
+\`\`\`js
+firebase deploy --only firestore:indexes
+\`\`\`
+
+### 3. Wait for the index to finish building
+
+New indexes take time to build over existing data — anywhere from seconds to several minutes depending on collection size. Check status under Firestore Database > Indexes in the console before retrying the query; a status of "Building" means it isn't ready yet.
+
+### 4. Simplify the query if you don't actually need a composite index
+
+Sometimes the query requires an index error is a sign the query itself is doing too much. Consider:
+
+\`\`\`js
+// Instead of filtering and ordering on different fields:
+query(collection(db, 'orders'), where('status', '==', 'paid'), orderBy('createdAt', 'desc'));
+
+// Split into a client-side sort if the result set is small:
+const snap = await getDocs(query(collection(db, 'orders'), where('status', '==', 'paid')));
+const sorted = snap.docs.map((d) => d.data()).sort((a, b) => b.createdAt - a.createdAt);
+\`\`\`
+
+## How to Prevent It
+
+- Check \`firestore.indexes.json\` into version control so indexes ship with every deploy
+- Run \`firebase deploy --only firestore:indexes\` as part of CI/CD, not just locally
+- Avoid unnecessary composite queries — denormalize data if you find yourself combining many filters
+- Review the Indexes tab periodically and delete unused indexes to keep write costs down
+
+## Frequently Asked Questions
+
+**Why doesn't Firestore build composite indexes automatically like single-field ones?**
+Composite indexes multiply storage and write costs, so Firestore requires you to opt in explicitly rather than building every possible combination automatically.
+
+**How long does it take for a new index to become active?**
+It depends on the size of the collection — small collections index in seconds, while large ones can take minutes. The console shows a live "Building" status.
+
+**Can I create the index without clicking the link in the error?**
+Yes, add the field combination to \`firestore.indexes.json\` and run \`firebase deploy --only firestore:indexes\`.
+
+**Will an index fix a query with more than one \`array-contains\` filter?**
+No. Firestore only allows one \`array-contains\` or \`array-contains-any\` clause per query regardless of indexing — you'll need to restructure the query.
+
+## Need Help?
+
+If your app's queries keep hitting index errors as your data grows, we can help you design a schema and index strategy that scales. Explore our [development services](/services) or [get in touch](/contact).
+    `,
+    category: "Engineering",
+    tags: ["Firebase", "Firestore", "Troubleshooting"],
+    readTime: "5 min read",
+    publishedAt: "2026-07-16",
+    gradientFrom: "#fbbf24",
+    gradientTo: "#f59e0b",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-16",
+    keywords: ["firestore query requires an index", "the query requires an index"],
+    metaTitle: "Fix: Firestore Query Requires an Index",
+    metaDescription: "Firestore The query requires an index error explained, with the fastest fix and a firestore.indexes.json example.",
+    faq: [
+      { question: "Why doesn't Firestore build composite indexes automatically like single-field ones?", answer: "Composite indexes multiply storage and write costs, so Firestore requires you to opt in explicitly rather than building every possible combination automatically." },
+      { question: "How long does it take for a new index to become active?", answer: "It depends on the size of the collection — small collections index in seconds, while large ones can take minutes. The console shows a live Building status." },
+      { question: "Can I create the index without clicking the link in the error?", answer: "Yes, add the field combination to firestore.indexes.json and run firebase deploy --only firestore:indexes." },
+      { question: "Will an index fix a query with more than one array-contains filter?", answer: "No. Firestore only allows one array-contains or array-contains-any clause per query regardless of indexing, so you'll need to restructure the query." },
+    ],
+  },
+  {
+    slug: "fix-firebase-default-app-already-exists",
+    title: "Fix: Firebase '[DEFAULT] Already Exists' Error",
+    excerpt:
+      "Seeing Firebase App named DEFAULT already exists? Here's the exact guard clause that stops it for good.",
+    content: `
+## The Problem
+
+**Firebase: Firebase App named '[DEFAULT]' already exists (app/duplicate-app)** happens when \`initializeApp()\` runs more than once for the same app instance. It is extremely common in Next.js because hot module reloading and repeated module imports can re-execute your Firebase setup file multiple times during development.
+
+## Why It Happens
+
+Firebase only allows one app registered under the name \`[DEFAULT]\` at a time. The error fires when:
+
+- \`initializeApp()\` is called in a module that gets re-imported or re-evaluated, such as during Next.js Fast Refresh
+- Firebase setup code runs in both a client component and a server component, initializing twice
+- A shared config file is imported from multiple places without memoizing the app instance
+
+## The Fix
+
+### 1. Guard initialization with \`getApps()\`
+
+Check whether an app already exists before calling \`initializeApp()\` again:
+
+\`\`\`js
+import { initializeApp, getApps, getApp } from 'firebase/app';
+
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+};
+
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+
+export { app };
+\`\`\`
+
+\`getApps()\` returns every initialized app; if the array is empty, it's safe to initialize, otherwise reuse the existing one with \`getApp()\`.
+
+### 2. Export a single shared instance
+
+Put this in one file, such as \`lib/firebase.ts\`, and import the exported instances everywhere instead of calling \`initializeApp()\` again:
+
+\`\`\`js
+// lib/firebase.ts
+import { initializeApp, getApps, getApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+};
+
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+export default app;
+\`\`\`
+
+### 3. Import from the shared file everywhere
+
+\`\`\`js
+import { db, auth } from '@/lib/firebase';
+\`\`\`
+
+Never call \`initializeApp()\` a second time in a component, API route, or server action — always import the shared \`app\`, \`db\`, and \`auth\` exports.
+
+### 4. Check for duplicate setup across client and server
+
+If you have separate Firebase setup for server components (e.g. Firebase Admin SDK) and client components (Firebase JS SDK), make sure they use different app names or are kept in fully separate modules — the admin SDK's \`initializeApp\` and the client SDK's \`initializeApp\` do not share the same app registry, but each can still throw this error internally if called twice within its own SDK.
+
+## How to Prevent It
+
+- Centralize Firebase initialization in a single module and import from it everywhere
+- Always guard with \`getApps().length\` before calling \`initializeApp()\`
+- Never call \`initializeApp()\` inside a component body or a function that runs on every render
+- For the Admin SDK, apply the same guard using \`admin.apps.length\` before \`admin.initializeApp()\`
+
+## Frequently Asked Questions
+
+**Why does this error only show up in development, not production?**
+Next.js Fast Refresh re-executes modules on file changes during development, which is what triggers repeated \`initializeApp()\` calls. Production builds don't hot-reload, so the duplicate call rarely happens there.
+
+**Does this fix work for the Firebase Admin SDK too?**
+Yes, use the equivalent guard: \`const app = admin.apps.length ? admin.app() : admin.initializeApp(config);\`
+
+**Can I name a second app instead of reusing the default one?**
+Yes, pass a second argument to \`initializeApp(config, 'secondaryApp')\` to register additional named apps, then retrieve them with \`getApp('secondaryApp')\`.
+
+**Is it safe to call \`getApps()\` on every import?**
+Yes, \`getApps()\` is a cheap synchronous lookup against Firebase's internal registry and is the recommended pattern for this exact scenario.
+
+## Need Help?
+
+If Firebase setup issues keep slowing down your Next.js builds, we can restructure your project's initialization so it just works. Explore our [development services](/services) or [get in touch](/contact).
+    `,
+    category: "Engineering",
+    tags: ["Firebase", "Next.js", "Troubleshooting"],
+    readTime: "5 min read",
+    publishedAt: "2026-07-17",
+    gradientFrom: "#f97316",
+    gradientTo: "#ef4444",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-17",
+    keywords: ["firebase default app already exists", "firebase app already exists"],
+    metaTitle: "Fix: Firebase [DEFAULT] Already Exists",
+    metaDescription: "Firebase App named DEFAULT already exists error explained, with a getApps() guard clause that fixes it in Next.js.",
+    faq: [
+      { question: "Why does this error only show up in development, not production?", answer: "Next.js Fast Refresh re-executes modules on file changes during development, which is what triggers repeated initializeApp() calls. Production builds don't hot-reload, so the duplicate call rarely happens there." },
+      { question: "Does this fix work for the Firebase Admin SDK too?", answer: "Yes, use the equivalent guard: const app = admin.apps.length ? admin.app() : admin.initializeApp(config);" },
+      { question: "Can I name a second app instead of reusing the default one?", answer: "Yes, pass a second argument to initializeApp(config, 'secondaryApp') to register additional named apps, then retrieve them with getApp('secondaryApp')." },
+      { question: "Is it safe to call getApps() on every import?", answer: "Yes, getApps() is a cheap synchronous lookup against Firebase's internal registry and is the recommended pattern for this exact scenario." },
+    ],
+  },
+{
+    slug: "fix-firebase-auth-invalid-api-key",
+    title: "Fix: Firebase auth/invalid-api-key Error",
+    excerpt:
+      "Seeing auth/invalid-api-key in Firebase? Here's why it happens and the exact fix.",
+    content: `
+## The Problem
+
+If you're seeing \`Firebase: Error (auth/invalid-api-key)\` when your app tries to initialize Firebase Authentication, it means the \`apiKey\` value in your \`firebaseConfig\` object is missing, undefined, or doesn't match a real Firebase project. The fix almost always comes down to how your environment variables are named and loaded.
+
+## Why It Happens
+
+The \`auth/invalid-api-key\` error is thrown by the Firebase SDK when it can't validate the \`apiKey\` field passed into \`initializeApp()\`. A handful of root causes account for nearly every case:
+
+- The \`apiKey\` was copied from the wrong Firebase project, or was truncated when pasted.
+- Environment variables aren't loaded because they're missing the \`NEXT_PUBLIC_\` prefix required by Next.js for client-side code.
+- The dev server wasn't restarted after adding or changing \`.env.local\`, so old (empty) values are still cached.
+- The \`firebaseConfig\` object references a variable that resolves to \`undefined\` at build time, so Firebase receives an empty string instead of a real key.
+
+Because Firebase Authentication runs in the browser, any config value it needs must be exposed to client-side JavaScript. In Next.js, that only happens for variables prefixed with \`NEXT_PUBLIC_\`.
+
+## The Fix
+
+### 1. Copy the correct config from the Firebase console
+
+Go to **Project settings** in the Firebase console, scroll to **Your apps**, and copy the config snippet for your web app. Double-check you're in the correct project if you manage multiple environments.
+
+\`\`\`js
+const firebaseConfig = {
+  apiKey: 'AIzaSyD-your-real-key-here',
+  authDomain: 'your-project.firebaseapp.com',
+  projectId: 'your-project',
+  storageBucket: 'your-project.appspot.com',
+  messagingSenderId: '1234567890',
+  appId: '1:1234567890:web:abcdef123456',
+};
+\`\`\`
+
+### 2. Set environment variables with the NEXT_PUBLIC_ prefix
+
+In Next.js, only variables starting with \`NEXT_PUBLIC_\` are bundled into client-side code. Add them to \`.env.local\`:
+
+\`\`\`bash
+NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSyD-your-real-key-here
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=1234567890
+NEXT_PUBLIC_FIREBASE_APP_ID=1:1234567890:web:abcdef123456
+\`\`\`
+
+Then reference them in your config file:
+
+\`\`\`js
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+};
+\`\`\`
+
+### 3. Restart the dev server
+
+Next.js only reads \`.env.local\` on startup. After adding or editing environment variables, stop and restart:
+
+\`\`\`bash
+npm run dev
+\`\`\`
+
+Saving the file alone is not enough, the running process still holds the old (or missing) values in memory.
+
+### 4. Verify the config object at runtime
+
+Add a temporary log right before \`initializeApp(firebaseConfig)\` to confirm every value is defined, not \`undefined\`:
+
+\`\`\`js
+console.log('Firebase config check:', firebaseConfig);
+\`\`\`
+
+If any field prints as \`undefined\`, the corresponding environment variable is either misspelled or missing the \`NEXT_PUBLIC_\` prefix.
+
+## How to Prevent It
+
+- Store separate \`.env.local\` files (or Vercel environment variable groups) for each Firebase project you use.
+- Always prefix client-exposed Firebase variables with \`NEXT_PUBLIC_\`.
+- Add a startup check that throws a clear error if any Firebase config value is \`undefined\`.
+- Never commit real API keys, use \`.env.example\` with placeholder values for onboarding.
+
+## Frequently Asked Questions
+
+**What causes the Firebase auth/invalid-api-key error?**
+It's almost always a missing, mistyped, or undefined \`apiKey\` value in your \`firebaseConfig\` object, usually because the environment variable feeding it wasn't loaded.
+
+**Why does this happen only in production or after deployment?**
+If environment variables are set locally but not in your hosting provider's dashboard, the build won't have access to them, so \`apiKey\` resolves to \`undefined\` in production even though it works locally.
+
+**Do I need the NEXT_PUBLIC_ prefix for Firebase env variables in Next.js?**
+Yes. Firebase Authentication runs in the browser, so any config value it needs must be exposed to client-side code, and Next.js only does that for variables prefixed with \`NEXT_PUBLIC_\`.
+
+**How do I verify my Firebase config values are loading correctly?**
+Temporarily log the \`firebaseConfig\` object right before calling \`initializeApp()\` and confirm none of the fields print as \`undefined\` or an empty string.
+
+## Need Help?
+
+Debugging Firebase configuration issues across environments can eat up hours. Explore our [development services](/services) or [get in touch](/contact) if you'd like a second pair of eyes on your setup.
+    `,
+    category: "Engineering",
+    tags: ["Firebase", "Next.js", "Troubleshooting"],
+    readTime: "5 min read",
+    publishedAt: "2026-07-18",
+    gradientFrom: "#f59e0b",
+    gradientTo: "#ef4444",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-18",
+    keywords: ["firebase auth/invalid-api-key", "firebase invalid api key"],
+    metaTitle: "Fix: Firebase auth/invalid-api-key Error",
+    metaDescription: "Fix Firebase auth/invalid-api-key fast: correct config, NEXT_PUBLIC_ env vars, and a restart checklist for Next.js apps.",
+    faq: [
+      { question: "What causes the Firebase auth/invalid-api-key error?", answer: "It's almost always a missing, mistyped, or undefined apiKey value in your firebaseConfig object, usually because the environment variable feeding it wasn't loaded." },
+      { question: "Why does this happen only in production or after deployment?", answer: "If environment variables are set locally but not in your hosting provider's dashboard, the build won't have access to them, so apiKey resolves to undefined in production even though it works locally." },
+      { question: "Do I need the NEXT_PUBLIC_ prefix for Firebase env variables in Next.js?", answer: "Yes. Firebase Authentication runs in the browser, so any config value it needs must be exposed to client-side code, and Next.js only does that for variables prefixed with NEXT_PUBLIC_." },
+      { question: "How do I verify my Firebase config values are loading correctly?", answer: "Temporarily log the firebaseConfig object right before calling initializeApp() and confirm none of the fields print as undefined or an empty string." },
+    ],
+  },
+  {
+    slug: "fix-nextjs-image-hostname-not-configured",
+    title: "Fix: Next.js Image 'hostname not configured' Error",
+    excerpt:
+      "Getting hostname is not configured under images in next.config.js? Here's the fix.",
+    content: `
+## The Problem
+
+If Next.js throws \`Invalid src prop on next/image, hostname "X" is not configured under images in your next.config.js\`, it means you're loading an external image whose domain hasn't been allowlisted. Add that hostname to \`images.remotePatterns\` in \`next.config.js\` and the error goes away.
+
+## Why It Happens
+
+The \`next/image\` component optimizes and serves images through a built-in loader for performance and security. To prevent arbitrary external URLs from being proxied through your server, Next.js requires you to explicitly allowlist every hostname you load images from outside your own domain.
+
+This error commonly shows up when:
+
+- You add a new image source (CDN, CMS, Unsplash, S3 bucket, etc.) without updating \`next.config.js\`.
+- You migrated from the older \`domains\` array to \`remotePatterns\` and missed a host.
+- The hostname in your code doesn't exactly match what's configured (subdomain mismatch, \`http\` vs \`https\`).
+- You edited \`next.config.js\` but never restarted the dev server.
+
+## The Fix
+
+### 1. Add the hostname to images.remotePatterns
+
+\`remotePatterns\` is the modern, more precise way to allowlist external image sources, since it lets you control protocol, hostname, port, and path.
+
+\`\`\`js
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+};
+\`\`\`
+
+Update \`hostname\` to match the exact domain shown in your error message.
+
+### 2. Or use the simpler domains array (legacy)
+
+For quick fixes, the older \`domains\` array still works but offers less control:
+
+\`\`\`js
+module.exports = {
+  images: {
+    domains: ['images.unsplash.com'],
+  },
+};
+\`\`\`
+
+Prefer \`remotePatterns\` for new projects, it's the approach Next.js recommends going forward.
+
+### 3. Restart and redeploy
+
+\`next.config.js\` changes are only picked up on server start:
+
+\`\`\`bash
+npm run dev
+\`\`\`
+
+If the error only appears in production, push your change and trigger a fresh deploy so the updated config is built into the deployment.
+
+## How to Prevent It
+
+- Keep a running list of every external image domain your app uses and check it into \`next.config.js\` as you add new ones.
+- Prefer \`remotePatterns\` over \`domains\` for tighter, more explicit control.
+- Add a code review checklist item: "new image source added? update next.config.js."
+- Test image-heavy pages against a fresh \`next build\` before merging, not just \`next dev\`.
+
+## Frequently Asked Questions
+
+**What does "hostname is not configured" mean in Next.js?**
+It means the external domain you're loading an image from with \`next/image\` isn't listed in \`images.remotePatterns\` (or \`images.domains\`) in your \`next.config.js\`.
+
+**What's the difference between domains and remotePatterns?**
+\`domains\` only lets you allowlist a hostname. \`remotePatterns\` lets you also control protocol, port, and path, giving you more precise and secure control over which images can be optimized.
+
+**Do I need to redeploy after changing next.config.js?**
+Yes. Config changes are baked in at build time, so you need to restart your dev server locally and redeploy to production for the fix to take effect.
+
+**Can I allow all external image hostnames?**
+Technically yes with a wildcard pattern, but it's discouraged since it defeats the security purpose of the allowlist. Explicitly listing known hostnames is safer.
+
+## Need Help?
+
+Image configuration errors are quick to fix once you know where to look. Explore our [development services](/services) or [get in touch](/contact) if you want help auditing your Next.js image pipeline.
+    `,
+    category: "DevOps",
+    tags: ["Next.js", "Vercel", "Troubleshooting"],
+    readTime: "4 min read",
+    publishedAt: "2026-07-19",
+    gradientFrom: "#0ea5e9",
+    gradientTo: "#6366f1",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-19",
+    keywords: ["nextjs image hostname not configured", "next image hostname is not configured"],
+    metaTitle: "Fix: Next.js Image Hostname Not Configured",
+    metaDescription: "Fix the Next.js image hostname not configured error with images.remotePatterns, a config example, and a redeploy checklist.",
+    faq: [
+      { question: "What does 'hostname is not configured' mean in Next.js?", answer: "It means the external domain you're loading an image from with next/image isn't listed in images.remotePatterns (or images.domains) in your next.config.js." },
+      { question: "What's the difference between domains and remotePatterns?", answer: "domains only lets you allowlist a hostname. remotePatterns lets you also control protocol, port, and path, giving you more precise and secure control over which images can be optimized." },
+      { question: "Do I need to redeploy after changing next.config.js?", answer: "Yes. Config changes are baked in at build time, so you need to restart your dev server locally and redeploy to production for the fix to take effect." },
+      { question: "Can I allow all external image hostnames?", answer: "Technically yes with a wildcard pattern, but it's discouraged since it defeats the security purpose of the allowlist. Explicitly listing known hostnames is safer." },
+    ],
+  },
+  {
+    slug: "fix-vercel-404-not-found-after-deploy",
+    title: "Fix: Vercel 404 NOT_FOUND After Deploy",
+    excerpt:
+      "Deployed to Vercel and getting 404: NOT_FOUND? Here's why, and how to fix it.",
+    content: `
+## The Problem
+
+If you deploy to Vercel and get \`404: NOT_FOUND\` (sometimes shown as \`DEPLOYMENT_NOT_FOUND\`), it usually means Vercel can't find the build output or routes it expects, not that your app crashed. Most cases trace back to an incorrect framework preset, output directory, or a missing rewrite rule for client-side routing.
+
+## Why It Happens
+
+A \`404: NOT_FOUND\` on Vercel almost always comes down to one of these:
+
+- **Wrong output directory or framework preset**: Vercel looks in a specific folder based on the detected framework. If it's misdetected, it won't find your built pages.
+- **Missing routes for client-side routing**: Single-page apps that handle routing entirely in the browser need an explicit rewrite rule, otherwise Vercel returns 404 for any path that isn't a real file.
+- **Case-sensitive file paths**: Vercel's file system is case-sensitive even if your local OS isn't, so \`About.tsx\` and \`about.tsx\` are treated as different files in production.
+- **Wrong root directory in a monorepo**: If your project lives in a subfolder (like \`apps/web\`), Vercel needs to be told that's the root, or it will try to build from the repo root and fail to find your app.
+- **Missing index route**: If there's no page at the root path, hitting your domain directly returns 404 even though other routes work.
+
+## The Fix
+
+### 1. Confirm the framework preset and output directory
+
+In your Vercel project settings, go to **Settings > General** and check that **Framework Preset** matches your actual framework (Next.js, Vite, Create React App, etc.). Vercel usually auto-detects this correctly, but a custom build setup can throw it off.
+
+### 2. Add rewrites for client-side routing
+
+For SPAs that aren't using a framework with built-in routing (like plain React with \`react-router\`), add a catch-all rewrite in \`vercel.json\` so every path serves your \`index.html\`:
+
+\`\`\`json
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
+\`\`\`
+
+Without this, refreshing any route other than the homepage returns 404.
+
+### 3. Check file casing
+
+Search your project for filename casing mismatches between imports and actual files:
+
+\`\`\`bash
+find . -iname '*about*'
+\`\`\`
+
+Rename files so the casing on disk exactly matches every import and route reference.
+
+### 4. Set the correct root directory in a monorepo
+
+In **Settings > General > Root Directory**, point Vercel at the subfolder containing your app, for example \`apps/web\`. This tells Vercel where to run the build and find the output.
+
+### 5. Redeploy
+
+After any of the above changes, trigger a fresh deployment rather than relying on a cached build:
+
+\`\`\`bash
+vercel --prod
+\`\`\`
+
+## How to Prevent It
+
+- Keep framework preset and root directory settings documented for every project, especially in monorepos.
+- Use consistent, lowercase file and folder naming to avoid case-sensitivity surprises between local and production environments.
+- Add a \`vercel.json\` rewrite rule up front for any SPA that handles its own client-side routing.
+- Test a production build locally before deploying, so missing routes surface before they hit Vercel.
+
+## Frequently Asked Questions
+
+**What does Vercel 404 NOT_FOUND mean?**
+It means Vercel couldn't match the requested path to a built page, static file, or route, usually because of an incorrect output directory, framework preset, or missing rewrite rule.
+
+**Why do I get 404 only on some routes, not the homepage?**
+This is the classic sign of a missing SPA rewrite rule. Client-side routes that only exist in the browser's JavaScript router need a catch-all rewrite to \`index.html\`, otherwise direct visits or refreshes 404.
+
+**Why does my monorepo project 404 after deploying?**
+Vercel builds from the repo root by default. If your app actually lives in a subfolder, you need to set the correct **Root Directory** in project settings so Vercel builds and serves the right output.
+
+**Do I need a vercel.json rewrite for a single-page app?**
+Yes, if your app relies on client-side routing without server-rendered routes for each path. Without a catch-all rewrite, any URL that isn't the exact entry file returns 404.
+
+## Need Help?
+
+Deployment issues are frustrating because everything looks fine locally. Explore our [development services](/services) or [get in touch](/contact) if you need help diagnosing a stubborn Vercel deployment.
+    `,
+    category: "DevOps",
+    tags: ["Vercel", "Next.js", "Troubleshooting"],
+    readTime: "6 min read",
+    publishedAt: "2026-07-20",
+    gradientFrom: "#64748b",
+    gradientTo: "#0ea5e9",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=3840&q=95&auto=format&fit=crop",
+    author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
+    updatedAt: "2026-07-20",
+    keywords: ["vercel 404 not found", "vercel deployment not found"],
+    metaTitle: "Fix: Vercel 404 NOT_FOUND After Deploy",
+    metaDescription: "Fix Vercel 404 NOT_FOUND after deploy: check framework preset, add SPA rewrites, fix file casing, and set the right root directory.",
+    faq: [
+      { question: "What does Vercel 404 NOT_FOUND mean?", answer: "It means Vercel couldn't match the requested path to a built page, static file, or route, usually because of an incorrect output directory, framework preset, or missing rewrite rule." },
+      { question: "Why do I get 404 only on some routes, not the homepage?", answer: "This is the classic sign of a missing SPA rewrite rule. Client-side routes that only exist in the browser's JavaScript router need a catch-all rewrite to index.html, otherwise direct visits or refreshes 404." },
+      { question: "Why does my monorepo project 404 after deploying?", answer: "Vercel builds from the repo root by default. If your app actually lives in a subfolder, you need to set the correct Root Directory in project settings so Vercel builds and serves the right output." },
+      { question: "Do I need a vercel.json rewrite for a single-page app?", answer: "Yes, if your app relies on client-side routing without server-rendered routes for each path. Without a catch-all rewrite, any URL that isn't the exact entry file returns 404." },
+    ],
+  },
+
+
   {
     slug: "fix-new-row-violates-row-level-security-policy-supabase",
     title: "Fix: \"new row violates row-level security policy\" in Supabase",
