@@ -1,7 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { CircleCheck } from "lucide-react";
 import { AnimatedLogoDraw } from "@/components/ui/AnimatedLogoDraw";
+
+const cleanCodeChecklist = [
+  "Well-documented codebases",
+  "Modular, testable architecture",
+  "Peer-reviewed before every ship",
+];
+
+const checklistContainerVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
+};
+
+const checklistItemVariants = {
+  hidden: { opacity: 0, y: 8 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
 
 // Geometric SVG icons
 const HexagonIcon = ({ color }: { color: string }) => (
@@ -158,10 +175,30 @@ export default function WhyChooseUs() {
                 </p>
               </div>
               <div
-                className="rounded-xl p-4 border border-white/[0.06] overflow-hidden flex items-center justify-center"
+                className="rounded-xl p-5 border border-white/[0.06] overflow-hidden flex flex-col gap-4 justify-center"
                 style={{ background: "rgba(10,14,26,0.85)" }}
               >
-                <AnimatedLogoDraw size={32} textClassName="text-lg" />
+                <AnimatedLogoDraw size={28} textClassName="text-base" />
+                <motion.div
+                  variants={checklistContainerVariants}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  className="flex flex-col gap-2.5"
+                >
+                  {cleanCodeChecklist.map((item) => (
+                    <motion.div
+                      key={item}
+                      variants={checklistItemVariants}
+                      className="flex items-center gap-2.5"
+                    >
+                      <CircleCheck className="w-4 h-4 shrink-0" style={{ color: "#818CF8" }} />
+                      <span className="text-sm" style={{ color: "rgba(203,213,225,0.85)" }}>
+                        {item}
+                      </span>
+                    </motion.div>
+                  ))}
+                </motion.div>
               </div>
             </div>
           </motion.div>
