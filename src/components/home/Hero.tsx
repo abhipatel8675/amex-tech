@@ -231,7 +231,7 @@ export default function Hero() {
               className="rounded-2xl border border-white/[0.09] overflow-hidden flex items-center justify-center py-14"
               style={{ background: "linear-gradient(145deg, #0F1729 0%, #0B0F19 100%)" }}
             >
-              <AnimatedLogoDraw size={140} />
+              <AnimatedLogoDraw size={56} textClassName="text-5xl" />
             </div>
 
             {/* Client review card */}

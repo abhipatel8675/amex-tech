@@ -161,7 +161,7 @@ export default function WhyChooseUs() {
                 className="rounded-xl p-4 border border-white/[0.06] overflow-hidden flex items-center justify-center"
                 style={{ background: "rgba(10,14,26,0.85)" }}
               >
-                <AnimatedLogoDraw size={72} />
+                <AnimatedLogoDraw size={32} textClassName="text-lg" />
               </div>
             </div>
           </motion.div>

@@ -1,31 +1,44 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { animate, createDrawable } from "animejs";
+import { animate, createDrawable, splitText, stagger } from "animejs";
 
 /**
- * Animated line-drawing of the Amex Technology brand mark (see LogoMark in
- * Logo.tsx). Draws its strokes on once when scrolled into view, then holds.
- * Falls back to a fully-drawn static mark when prefers-reduced-motion is set.
+ * Animated brand reveal: the Amex Technology mark (see LogoMark in Logo.tsx)
+ * draws its strokes on while the word "Amex" fades/slides in letter by
+ * letter, once when scrolled into view. Falls back to a fully-shown static
+ * lockup when prefers-reduced-motion is set.
  */
 export function AnimatedLogoDraw({
-  size = 96,
+  size = 40,
+  textClassName = "text-2xl",
   className = "",
 }: {
   size?: number;
+  textClassName?: string;
   className?: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+  const textRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
     const svgEl = svgRef.current;
-    if (!container || !svgEl) return;
+    const textEl = textRef.current;
+    if (!container || !svgEl || !textEl) return;
+
+    const splitter = splitText(textEl, { chars: true });
+    const chars = splitter.chars as HTMLElement[];
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
+      return () => splitter.revert();
     }
+
+    chars.forEach((c) => {
+      c.style.opacity = "0";
+      c.style.transform = "translateY(12px)";
+    });
 
     const paths = svgEl.querySelectorAll<SVGPathElement>(".draw-path");
     const drawables = createDrawable(paths);
@@ -38,8 +51,15 @@ export function AnimatedLogoDraw({
           animate(drawables, {
             draw: ["0 0", "0 1"],
             ease: "inOutQuad",
-            duration: 900,
+            duration: 800,
             delay: (_, i) => (i ?? 0) * 150,
+          });
+          animate(chars, {
+            opacity: [0, 1],
+            translateY: [12, 0],
+            duration: 500,
+            delay: stagger(45, { start: 350 }),
+            ease: "outQuad",
           });
           observer.disconnect();
         }
@@ -48,11 +68,14 @@ export function AnimatedLogoDraw({
     );
     observer.observe(container);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      splitter.revert();
+    };
   }, []);
 
   return (
-    <div ref={containerRef} className={className}>
+    <div ref={containerRef} className={`inline-flex items-center gap-3 ${className}`}>
       <svg
         ref={svgRef}
         width={size}
@@ -101,6 +124,13 @@ export function AnimatedLogoDraw({
           className="draw-path"
         />
       </svg>
+      <span
+        ref={textRef}
+        className={`font-bold tracking-tight ${textClassName}`}
+        style={{ color: "#A78BFA" }}
+      >
+        Amex
+      </span>
     </div>
   );
 }
