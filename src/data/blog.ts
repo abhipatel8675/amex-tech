@@ -2562,7 +2562,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     gradientFrom: "#0ea5e9",
     gradientTo: "#6366f1",
     featured: false,
-    image: "/images/blog/connect-vercel-app-godaddy-domain/heroimage.png",
+    image: "/images/blog/connect-vercel-app-godaddy-domain/heroimage.webp",
     imagePosition: "object-top",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2026-07-15",
