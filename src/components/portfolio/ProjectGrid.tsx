@@ -44,7 +44,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
                 src={project.image}
                 alt={project.title}
                 fill
-                className="object-contain object-center transition-transform duration-700 px-8 pt-4"
+                className={`object-contain ${project.imagePosition ?? "object-center"} transition-transform duration-700 px-8 pt-4`}
                 style={{ transform: hovered ? "scale(1.04)" : "scale(1)" }}
                 unoptimized={project.image.startsWith("http")}
               />
@@ -54,7 +54,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover object-center transition-transform duration-700"
+              className={`object-cover ${project.imagePosition ?? "object-center"} transition-transform duration-700`}
               style={{ transform: hovered ? "scale(1.04)" : "scale(1)" }}
               unoptimized={project.image.startsWith("http")}
             />

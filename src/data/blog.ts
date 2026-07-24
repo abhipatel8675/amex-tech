@@ -3949,7 +3949,7 @@ Explore our [software development services](/services), see our [Portfolio](/por
     gradientFrom: "#22c55e",
     gradientTo: "#3b82f6",
     featured: true,
-    image: "/images/blog/connect-nextjs-react-with-supabase/mainimage.webp",
+    image: "/images/blog/connect-nextjs-react-with-supabase/mainimage-v2.webp",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
     updatedAt: "2026-07-15",
     keywords: ["Next.js", "React", "Supabase", "Database", "Authentication", "Row Level Security"],

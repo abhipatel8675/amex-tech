@@ -22,6 +22,7 @@ export type Project = {
   liveUrl?: string;
   githubUrl?: string;
   image?: string;
+  imagePosition?: string;
   gallery?: GalleryImage[];
 };
 
@@ -660,6 +661,7 @@ export const projects: Project[] = [
     featured: false,
     liveUrl: "https://ultrawindows.co.uk",
     image: "/images/portfolio/ultra-windows.png",
+    imagePosition: "object-top",
     gallery: [
       {
         src: "/images/portfolio/ultra-windows/ss-1.png",
@@ -719,6 +721,7 @@ export const projects: Project[] = [
     featured: false,
     liveUrl: "https://portal.wolfeproperty.co.nz",
     image: "/images/portfolio/wolfe-property.png",
+    imagePosition: "object-top",
   },
   {
     slug: "emigo",

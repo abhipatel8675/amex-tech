@@ -75,8 +75,10 @@ const services = [
 export default function ServicesPreview() {
   const [active, setActive] = useState(0);
 
-  // Selection is user-driven only — no auto-advance, so the layout
-  // never shifts on its own (avoids the page scrolling up/down by itself).
+  // Selection is user-driven only — no timer-based auto-advance, so the
+  // layout never shifts on its own (avoids the page scrolling up/down by
+  // itself). On desktop, hover/focus over a service name drives selection
+  // directly (instant preview); click is kept as a fallback trigger.
   const handleSelect = (i: number) => {
     setActive(i);
   };
@@ -177,6 +179,8 @@ export default function ServicesPreview() {
               <button
                 key={service.title}
                 onClick={() => handleSelect(i)}
+                onMouseEnter={() => handleSelect(i)}
+                onFocus={() => handleSelect(i)}
                 className="group relative flex items-center py-5 pl-7 text-left border-l-2 transition-all duration-300 focus:outline-none"
                 style={{
                   borderColor: active === i ? service.accent : "rgba(255,255,255,0.07)",
