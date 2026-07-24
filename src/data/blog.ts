@@ -36,6 +36,8 @@ The "Invalid API key" error means Supabase rejected the \`apikey\` header on you
 
 Every Supabase project has two public-facing keys: the \`anon\` key and the \`service_role\` key. The error shows up when your app sends a key that Supabase can't validate against the project it's pointed at.
 
+![Broken or missing Supabase API key causing "Database Access Denied"](/images/blog/fix-supabase-invalid-api-key/3.webp)
+
 Common causes:
 
 - **Wrong key type** - using the \`service_role\` key where an \`anon\` key is expected, or vice versa.
@@ -49,6 +51,8 @@ Common causes:
 ### 1. Get the correct keys from Project Settings
 
 In the Supabase dashboard, go to **Project Settings > API**. You'll see the **Project URL**, the **anon public** key, and the **service_role** key. Copy the \`anon\` key for anything that runs in the browser.
+
+![Before and after: missing keys in .env.local versus active keys in the Supabase API console](/images/blog/fix-supabase-invalid-api-key/4.webp)
 
 ### 2. Set your environment variables correctly
 
@@ -69,6 +73,8 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 \`\`\`
+
+![.env.local file open in the editor with NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY flagged as missing](/images/blog/fix-supabase-invalid-api-key/2.webp)
 
 ### 3. Restart the dev server
 
@@ -159,6 +165,8 @@ If your Supabase setup keeps throwing configuration errors, we can help you get 
 
 Supabase access tokens are short-lived JWTs (by default valid for one hour) paired with a longer-lived refresh token. The client library is supposed to refresh the access token automatically before it expires, but that only works under the right conditions.
 
+![Expired access token being renewed into a fresh, valid access and refresh token pair](/images/blog/fix-supabase-jwt-expired/1.webp)
+
 Common causes:
 
 - **Session not auto-refreshed** - the Supabase client was created without \`autoRefreshToken\` enabled, or the tab was inactive long enough that the refresh timer never fired.
@@ -215,6 +223,8 @@ export function createClient() {
 
 Pair this with middleware that calls \`supabase.auth.getUser()\` on every request so expired cookies get refreshed before they reach your pages.
 
+![Client-side and server-side session handling split, showing an expired client token blocking access until the server renews it](/images/blog/fix-supabase-jwt-expired/4.webp)
+
 ### 3. Call getSession or refreshSession explicitly
 
 If you're managing a long-running server process (a cron job, a worker) rather than a request/response cycle, refresh the session manually before using it:
@@ -222,6 +232,8 @@ If you're managing a long-running server process (a cron job, a worker) rather t
 \`\`\`ts
 const { data, error } = await supabase.auth.refreshSession();
 \`\`\`
+
+![Supabase Auth regenerating a new access token and refresh token after the old session expired](/images/blog/fix-supabase-jwt-expired/3.webp)
 
 ### 4. Handle a 401 by refreshing and retrying once
 
@@ -294,9 +306,13 @@ If session expiration keeps breaking your app's auth flow, we can help you set u
 
 The error \`relation "table_name" does not exist\` is a Postgres error meaning the query referenced a table (or view) that Postgres can't find in the schema it's looking in. In Supabase this almost always comes down to a missing migration, a typo, or the table sitting in a schema that isn't exposed to the API.
 
+![Broken database relation with a "does not exist" error blocking a Supabase auth query](/images/blog/fix-supabase-relation-does-not-exist/1.webp)
+
 ## Why It Happens
 
 Postgres resolves table names against a specific schema search path, and Supabase's API only exposes schemas you've explicitly allowed. The error surfaces for a few distinct reasons that look identical on the surface.
+
+![Terminal showing "relation posts does not exist" error 42P01 from a failed Supabase query](/images/blog/fix-supabase-relation-does-not-exist/3.webp)
 
 Common causes:
 
@@ -321,6 +337,8 @@ If the table's migration isn't listed as applied, push it:
 \`\`\`bash
 supabase db push
 \`\`\`
+
+![VS Code showing a CREATE TABLE IF NOT EXISTS migration that resolves the missing relation](/images/blog/fix-supabase-relation-does-not-exist/2.webp)
 
 ### 2. Check the table name and schema in the Table Editor
 
@@ -541,7 +559,11 @@ If you're still stuck after checking your environment variables, project status,
 
 If a Supabase session goes missing after a page refresh - the user appears logged out even though they just signed in - the root cause is almost always a mismatch between where the session is stored and where it's being read from. This is especially common in Next.js apps that mix client-side and server-side rendering.
 
+![Dashboard showing a logged-in user before a page refresh and a logged-out state after the refresh](/images/blog/fix-supabase-session-missing-after-refresh/3.webp)
+
 ## Why It Happens
+
+![Browser localStorage session unable to reach the server-side session, causing the mismatch](/images/blog/fix-supabase-session-missing-after-refresh/4.webp)
 
 - **Session stored only in \`localStorage\`** - the default Supabase JS client keeps the session in the browser's local storage, which server components and middleware can't read.
 - **Not using \`@supabase/ssr\`** - the older \`@supabase/auth-helpers-nextjs\` or a manually configured client often fails to sync cookies between server and client in the App Router.
@@ -601,6 +623,8 @@ export async function createClient() {
   );
 }
 \`\`\`
+
+![Session token synced between the browser cookie and the @supabase/ssr server client](/images/blog/fix-supabase-session-missing-after-refresh/2.webp)
 
 ### 2. Add middleware to refresh the session
 
@@ -721,7 +745,11 @@ Auth and session handling is one of the most common places Next.js and Supabase 
 
 The 'email rate limit exceeded' error appears when Supabase's built-in email service hits its sending cap, blocking signup confirmations, password resets, and magic links. It's not a bug - it's a hard limit on the default email provider, and the fix is to configure a custom SMTP provider.
 
+![Supabase email queue hitting the default service limit and blocking outgoing emails](/images/blog/fix-supabase-email-rate-limit-exceeded/3.webp)
+
 ## Why It Happens
+
+![Supabase API request logs showing repeated 429 Too Many Requests errors for auth email calls](/images/blog/fix-supabase-email-rate-limit-exceeded/4.webp)
 
 - **Supabase's default email service has very low limits** - it's meant for development and testing, not production traffic, typically capping out at a small number of emails per hour.
 - **Repeated test signups** - creating and deleting test accounts during development burns through the limit quickly.
@@ -748,6 +776,8 @@ Sender name: Your App Name
 \`\`\`
 
 If you're using Resend specifically, our step-by-step walkthrough on how to [set up Resend email](/blog/how-to-setup-resend-email) covers domain verification and SMTP credentials in detail.
+
+![Email routed through a custom SMTP provider like Resend or SendGrid instead of Supabase's rate-limited default service](/images/blog/fix-supabase-email-rate-limit-exceeded/2.webp)
 
 ### 3. Verify your sending domain
 
@@ -864,6 +894,8 @@ service cloud.firestore {
 
 That \`if false\` blocks everything, which is exactly what produces missing or insufficient permissions on every request.
 
+![Firestore security rules code with a locked "allow read, write: if false" rule blocking every request](/images/blog/fix-firestore-missing-or-insufficient-permissions/2.webp)
+
 ### 2. Write rules scoped to authenticated users
 
 Replace the blanket deny with rules that check \`request.auth\` and match your actual data model:
@@ -897,6 +929,8 @@ onAuthStateChanged(auth, async (user) => {
 });
 \`\`\`
 
+![Authenticated user key unlocking access after request.auth resolves to a signed-in user](/images/blog/fix-firestore-missing-or-insufficient-permissions/3.webp)
+
 ### 4. Match rules to nested collection paths
 
 Rules do not cascade automatically. If your data lives in a subcollection, add a nested match:
@@ -910,6 +944,8 @@ match /users/{userId} {
   }
 }
 \`\`\`
+
+![Nested users and posts collections each with their own request.auth != null rule](/images/blog/fix-firestore-missing-or-insufficient-permissions/4.webp)
 
 ### 5. Watch for expired test mode
 
@@ -994,6 +1030,8 @@ https://console.firebase.google.com/project/YOUR_PROJECT/firestore/indexes?creat
 
 Click the link, confirm the fields, and hit **Create Index**.
 
+![Firestore Index Manager pre-filled with the collectionGroup, author_id, and timestamp fields for a composite index](/images/blog/fix-firestore-query-requires-an-index/2.webp)
+
 ### 2. Define indexes in \`firestore.indexes.json\`
 
 For reproducible deploys, define the same index in your indexes file instead of relying on console clicks:
@@ -1023,6 +1061,8 @@ firebase deploy --only firestore:indexes
 
 New indexes take time to build over existing data — anywhere from seconds to several minutes depending on collection size. Check status under Firestore Database > Indexes in the console before retrying the query; a status of "Building" means it isn't ready yet.
 
+![Firestore database rebuilding its index in the background before the query can run](/images/blog/fix-firestore-query-requires-an-index/4.webp)
+
 ### 4. Simplify the query if you don't actually need a composite index
 
 Sometimes the query requires an index error is a sign the query itself is doing too much. Consider:
@@ -1035,6 +1075,8 @@ query(collection(db, 'orders'), where('status', '==', 'paid'), orderBy('createdA
 const snap = await getDocs(query(collection(db, 'orders'), where('status', '==', 'paid')));
 const sorted = snap.docs.map((d) => d.data()).sort((a, b) => b.createdAt - a.createdAt);
 \`\`\`
+
+![Complex multi-filter query next to a simplified single-filter query with orderBy](/images/blog/fix-firestore-query-requires-an-index/3.webp)
 
 ## How to Prevent It
 
@@ -1091,6 +1133,8 @@ If your app's queries keep hitting index errors as your data grows, we can help 
 
 **Firebase: Firebase App named '[DEFAULT]' already exists (app/duplicate-app)** happens when \`initializeApp()\` runs more than once for the same app instance. It is extremely common in Next.js because hot module reloading and repeated module imports can re-execute your Firebase setup file multiple times during development.
 
+![Developer staring at a "FIREBASE ERROR: [DEFAULT] ALREADY EXISTS" message during Fast Refresh](/images/blog/fix-firebase-default-app-already-exists/3.webp)
+
 ## Why It Happens
 
 Firebase only allows one app registered under the name \`[DEFAULT]\` at a time. The error fires when:
@@ -1120,6 +1164,8 @@ export { app };
 \`\`\`
 
 \`getApps()\` returns every initialized app; if the array is empty, it's safe to initialize, otherwise reuse the existing one with \`getApp()\`.
+
+![Guard clause reusing getApp() when getApps().length is truthy instead of calling initializeApp() again](/images/blog/fix-firebase-default-app-already-exists/2.webp)
 
 ### 2. Export a single shared instance
 
@@ -1151,6 +1197,8 @@ import { db, auth } from '@/lib/firebase';
 \`\`\`
 
 Never call \`initializeApp()\` a second time in a component, API route, or server action — always import the shared \`app\`, \`db\`, and \`auth\` exports.
+
+![Two windows sharing the same Firebase app instance across auth context and Firestore context](/images/blog/fix-firebase-default-app-already-exists/4.webp)
 
 ### 4. Check for duplicate setup across client and server
 
@@ -1285,6 +1333,8 @@ console.log('Firebase config check:', firebaseConfig);
 
 If any field prints as \`undefined\`, the corresponding environment variable is either misspelled or missing the \`NEXT_PUBLIC_\` prefix.
 
+![Old broken Firebase config next to a fixed config, with apiKey flagged as undefined before the fix](/images/blog/fix-firebase-auth-invalid-api-key/2.webp)
+
 ## How to Prevent It
 
 - Store separate \`.env.local\` files (or Vercel environment variable groups) for each Firebase project you use.
@@ -1340,6 +1390,8 @@ Debugging Firebase configuration issues across environments can eat up hours. Ex
 
 If Next.js throws \`Invalid src prop on next/image, hostname "X" is not configured under images in your next.config.js\`, it means you're loading an external image whose domain hasn't been allowlisted. Add that hostname to \`images.remotePatterns\` in \`next.config.js\` and the error goes away.
 
+![Broken next/image render showing "Error: Hostname not configured (images.unsplash.com)"](/images/blog/fix-nextjs-image-hostname-not-configured/3.webp)
+
 ## Why It Happens
 
 The \`next/image\` component optimizes and serves images through a built-in loader for performance and security. To prevent arbitrary external URLs from being proxied through your server, Next.js requires you to explicitly allowlist every hostname you load images from outside your own domain.
@@ -1374,6 +1426,8 @@ module.exports = {
 
 Update \`hostname\` to match the exact domain shown in your error message.
 
+![next.config.js with the images.remotePatterns array highlighted, allowlisting images.unsplash.com](/images/blog/fix-nextjs-image-hostname-not-configured/2.webp)
+
 ### 2. Or use the simpler domains array (legacy)
 
 For quick fixes, the older \`domains\` array still works but offers less control:
@@ -1397,6 +1451,8 @@ npm run dev
 \`\`\`
 
 If the error only appears in production, push your change and trigger a fresh deploy so the updated config is built into the deployment.
+
+![Terminal showing npm run dev restarted and ready after the next.config.js change](/images/blog/fix-nextjs-image-hostname-not-configured/4.webp)
 
 ## How to Prevent It
 
@@ -1469,6 +1525,8 @@ A \`404: NOT_FOUND\` on Vercel almost always comes down to one of these:
 
 In your Vercel project settings, go to **Settings > General** and check that **Framework Preset** matches your actual framework (Next.js, Vite, Create React App, etc.). Vercel usually auto-detects this correctly, but a custom build setup can throw it off.
 
+![Vercel Build & Development Settings with the Framework Preset dropdown open, showing Next.js, Nuxt.js, and Remix](/images/blog/fix-vercel-404-not-found-after-deploy/2.webp)
+
 ### 2. Add rewrites for client-side routing
 
 For SPAs that aren't using a framework with built-in routing (like plain React with \`react-router\`), add a catch-all rewrite in \`vercel.json\` so every path serves your \`index.html\`:
@@ -1483,6 +1541,8 @@ For SPAs that aren't using a framework with built-in routing (like plain React w
 
 Without this, refreshing any route other than the homepage returns 404.
 
+![vercel.json rewrites array routing every path to index.html for client-side routing](/images/blog/fix-vercel-404-not-found-after-deploy/4.webp)
+
 ### 3. Check file casing
 
 Search your project for filename casing mismatches between imports and actual files:
@@ -1496,6 +1556,8 @@ Rename files so the casing on disk exactly matches every import and route refere
 ### 4. Set the correct root directory in a monorepo
 
 In **Settings > General > Root Directory**, point Vercel at the subfolder containing your app, for example \`apps/web\`. This tells Vercel where to run the build and find the output.
+
+![Broken /apps/web path when the monorepo root directory isn't set correctly in Vercel](/images/blog/fix-vercel-404-not-found-after-deploy/3.webp)
 
 ### 5. Redeploy
 
@@ -1564,6 +1626,8 @@ The Supabase error \`new row violates row-level security policy\` means your INS
 
 In short: RLS defaults to deny. Enable it without a matching INSERT policy and every write fails with this exact message.
 
+![PostgreSQL insert blocked by a Supabase row-level security STOP check](/images/blog/fix-new-row-violates-row-level-security-policy-supabase/hero.webp)
+
 ## The Most Common Causes
 
 1. **RLS is on, but there's no INSERT policy.** Enabling RLS blocks everything until you add explicit policies.
@@ -1588,6 +1652,8 @@ with check (auth.uid() = user_id);
 
 The \`with check\` clause is what INSERT and UPDATE validate against. If it evaluates to false, you get the error.
 
+![Supabase SQL Editor with an INSERT policy checking auth.uid() against user_id, RLS policy active on the posts table](/images/blog/fix-new-row-violates-row-level-security-policy-supabase/2.webp)
+
 ### 2. Set user_id on insert
 
 Because the policy checks \`auth.uid() = user_id\`, the row must include the current user's id:
@@ -1603,9 +1669,13 @@ await supabase.from('posts').insert({
 
 Better yet, set it at the database level with a column default of \`auth.uid()\` so the client can't get it wrong.
 
+![Client insert call with user_id set to user.id so it matches the RLS policy's auth.uid() check](/images/blog/fix-new-row-violates-row-level-security-policy-supabase/3.webp)
+
 ### 3. Confirm the request is authenticated
 
 If \`auth.uid()\` is null, you're calling Supabase without a valid session. Make sure the user is logged in and you're using the authenticated client — see our guide on [connecting Supabase to Next.js](/blog/connect-nextjs-react-with-supabase).
+
+![RLS policy check flow: an incoming insert request either fails as unauthenticated or passes when auth.uid() matches user_id](/images/blog/fix-new-row-violates-row-level-security-policy-supabase/4.webp)
 
 ### 4. Don't test only in the SQL editor
 
@@ -1681,6 +1751,8 @@ If your browser console shows \`Access to fetch ... has been blocked by CORS pol
 
 Before the real request, the browser sends a **preflight \`OPTIONS\` request** to any cross-origin function. If the function doesn't answer \`OPTIONS\` with the correct \`Access-Control-Allow-*\` headers, the browser blocks the actual call. Supabase Edge Functions do not add these headers for you.
 
+![Browser client sending a preflight OPTIONS request and the server responding with Access-Control-Allow headers](/images/blog/fix-cors-error-supabase-edge-functions/2.webp)
+
 ## The Fix
 
 ### 1. Define CORS headers and handle the OPTIONS request
@@ -1705,6 +1777,8 @@ Deno.serve(async (req) => {
 });
 \`\`\`
 
+![Deno.serve handler checking for an OPTIONS request and returning the corsHeaders](/images/blog/fix-cors-error-supabase-edge-functions/3.webp)
+
 ### 2. Add the headers to every response — including errors
 
 A common mistake is returning error responses without CORS headers. Spread \`corsHeaders\` into every \`Response\` you return, success or failure, or errors will surface as confusing CORS failures.
@@ -1712,6 +1786,8 @@ A common mistake is returning error responses without CORS headers. Spread \`cor
 ### 3. Lock the origin down in production
 
 \`'*'\` is fine while testing, but in production set \`Access-Control-Allow-Origin\` to your real domain, for example \`https://amextechnology.com\`, so only your site can call the function.
+
+![corsHeaders locked down to a specific Access-Control-Allow-Origin domain for production](/images/blog/fix-cors-error-supabase-edge-functions/4.webp)
 
 ## Frequently Asked Questions
 
@@ -1784,6 +1860,8 @@ Your \`.env.local\` file is not deployed — it stays on your machine. Add the v
 
 Set them for **Production, Preview, and Development**, then redeploy.
 
+![.env.local with Supabase keys set locally next to an empty Vercel Environment Variables dashboard](/images/blog/fix-vercel-build-fails-supabase-env-variables/2.webp)
+
 ### 2. Missing NEXT_PUBLIC_ prefix
 
 Any variable used in client-side code **must** start with \`NEXT_PUBLIC_\`. Without the prefix, the value is \`undefined\` in the browser bundle and the Supabase client throws during build or render.
@@ -1792,6 +1870,8 @@ Any variable used in client-side code **must** start with \`NEXT_PUBLIC_\`. With
 
 Vercel only picks up new environment variables on the **next** build. Adding them does not retro-apply to the current deployment — trigger a fresh redeploy after saving.
 
+![Terminal running vercel --prod with a successful deployment confirmation](/images/blog/fix-vercel-build-fails-supabase-env-variables/3.webp)
+
 ### 4. The client is created at build time
 
 If you initialize the Supabase client at the top level of a module, it can run during prerendering. Guard against missing values, or create the client lazily inside a function/component so it runs at request time.
@@ -1799,6 +1879,8 @@ If you initialize the Supabase client at the top level of a module, it can run d
 ### 5. Wrong environment scope
 
 If you added the variable only to "Production" but the failing build is a Preview (pull-request) deploy, that build won't have it. Tick all three environments.
+
+![Vercel Environment Variables settings still empty because the scope wasn't applied to every environment](/images/blog/fix-vercel-build-fails-supabase-env-variables/4.webp)
 
 ## How to Prevent It
 
@@ -1872,15 +1954,21 @@ You hit **Publish** in Lovable and the live site shows a **blank white screen** 
 
 Open the published site, then open your browser's **DevTools → Console** (right-click anywhere → Inspect → Console). The red error message there tells you which of the causes below you're hitting. Don't skip this step — it turns guessing into a two-minute fix.
 
+![Browser DevTools console showing an Uncaught SyntaxError in a minified production script](/images/blog/fix-lovable-white-screen-build-failed-after-publish/2.webp)
+
 ## Common Causes and Fixes
 
 ### 1. Missing environment variables
 
 The preview can use values that were never set for the published build. Add your keys — Supabase URL and key, API keys, and so on — in Lovable's project/environment settings, then republish.
 
+![Preview environment variables all resolved next to a production build missing VITE_SUPABASE_URL](/images/blog/fix-lovable-white-screen-build-failed-after-publish/3.webp)
+
 ### 2. A case-sensitive import
 
 Production servers are case-sensitive. \`import Button from './components/button'\` fails if the file is actually \`Button.tsx\`. Match the file name's case exactly.
+
+![Case-sensitive import error highlighted next to a file explorer showing the actual Button.tsx filename](/images/blog/fix-lovable-white-screen-build-failed-after-publish/4.webp)
 
 ### 3. A runtime error on load
 
@@ -1971,6 +2059,8 @@ The workflow is refreshingly simple:
 
 A basic React dashboard with routing and placeholder data renders in about 30–60 seconds. A more complex multi-page app with forms usually appears in 2–5 minutes.
 
+![Bolt.new flowchart: a prompt goes in, the AI processes it and generates code, then shows an instant live preview](/images/blog/bolt-new-review/2.webp)
+
 ## What's New in Bolt.new for 2026
 
 Bolt has shipped fast over the past year. The biggest additions:
@@ -1995,6 +2085,8 @@ The 2026 tiers:
 
 The honest takeaway: the price looks low, but vague prompts that force constant regeneration are what quietly run up your bill. Write specific prompts and you'll stretch tokens much further.
 
+![Token usage gauge nearing its limit, illustrating how quickly heavy iteration burns through Bolt.new's token allowance](/images/blog/bolt-new-review/3.webp)
+
 ## What Bolt.new Does Really Well
 
 - **Speed to a working prototype.** Nothing gets you to a clickable demo faster.
@@ -2012,6 +2104,8 @@ This is where real client work informs the review. The demo ends; the product be
 - **Maintainability.** As a project grows, AI-generated code drifts. Without a clear architecture, iteration slows to a crawl.
 
 None of this makes Bolt bad. It makes it a starting point, not a finish line.
+
+![Side-by-side comparison: Bolt.new is strong for MVPs and rapid prototyping but weak for highly complex, scalable enterprise apps](/images/blog/bolt-new-review/4.webp)
 
 ## Bolt.new vs Lovable vs v0 vs Windsurf
 
