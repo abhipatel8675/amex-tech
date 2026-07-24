@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CircleCheck } from "lucide-react";
+import { AnimatedLogoDraw } from "@/components/ui/AnimatedLogoDraw";
 
 // Word-by-word stagger for the heading
 function WordSpan({ word, index }: { word: string; index: number }) {
@@ -225,55 +226,12 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="relative hidden lg:flex flex-col gap-4"
           >
-            {/* Terminal window */}
+            {/* Brand mark draw-on */}
             <div
-              className="rounded-2xl border border-white/[0.09] overflow-hidden"
+              className="rounded-2xl border border-white/[0.09] overflow-hidden flex items-center justify-center py-14"
               style={{ background: "linear-gradient(145deg, #0F1729 0%, #0B0F19 100%)" }}
             >
-              {/* Window bar */}
-              <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/[0.06]">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                <span className="w-2.5 h-2.5 rounded-full bg-violet-500/60" />
-                <span className="ml-4 text-xs text-slate-500 font-mono">~/amex-project — zsh</span>
-              </div>
-              {/* Terminal content */}
-              <div className="p-5 font-mono text-sm space-y-2">
-                <div className="flex gap-2">
-                  <span className="text-violet-400">❯</span>
-                  <span className="text-slate-300">npx create-next-app@latest my-app</span>
-                </div>
-                <div className="text-slate-500 pl-4">✔ TypeScript — Yes</div>
-                <div className="text-slate-500 pl-4">✔ Tailwind CSS — Yes</div>
-                <div className="text-slate-500 pl-4">✔ App Router — Yes</div>
-                <div className="flex gap-2 mt-2">
-                  <span className="text-violet-400">❯</span>
-                  <span className="text-slate-300">git push origin main</span>
-                </div>
-                <div className="text-emerald-400 pl-4">✔ Deployed to production in 28s</div>
-                <div className="flex gap-2 mt-2">
-                  <span className="text-violet-400">❯</span>
-                  <span className="text-indigo-300 animate-pulse">_</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Project stats row */}
-            <div className="grid grid-cols-3 gap-3">
-              {[
-                { label: "Projects", value: "200+", change: "delivered", accent: "#818CF8" },
-                { label: "Uptime", value: "99.9%", change: "guaranteed", accent: "#34D399" },
-                { label: "Response", value: "4h", change: "avg reply", accent: "#F59E0B" },
-              ].map((m) => (
-                <div
-                  key={m.label}
-                  className="rounded-xl p-4 border border-white/[0.07] bg-white/[0.03] flex flex-col"
-                >
-                  <p className="text-xs text-slate-500 mb-1">{m.label}</p>
-                  <p className="text-2xl font-bold leading-tight" style={{ color: m.accent }}>{m.value}</p>
-                  <p className="text-xs text-slate-600 mt-0.5">{m.change}</p>
-                </div>
-              ))}
+              <AnimatedLogoDraw size={140} />
             </div>
 
             {/* Client review card */}

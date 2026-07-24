@@ -1,94 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-
-const codeLines = [
-  "// app/dashboard/page.tsx",
-  "import { getServerSession } from 'next-auth';",
-  "",
-  "export default async function Dashboard() {",
-  "  const session = await getServerSession();",
-  "  const data = await db.query.metrics",
-  "    .findMany({ where: eq(userId, session.id) });",
-  "",
-  "  return <MetricsGrid data={data} />;",
-  "}",
-];
-
-function CodeTyper() {
-  const [display, setDisplay] = useState<string[]>([]);
-  const [lineIdx, setLineIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
-
-  useEffect(() => {
-    if (lineIdx >= codeLines.length) {
-      timerRef.current = setTimeout(() => {
-        setDisplay([]);
-        setLineIdx(0);
-        setCharIdx(0);
-      }, 2800);
-      return;
-    }
-    const line = codeLines[lineIdx];
-    if (charIdx <= line.length) {
-      timerRef.current = setTimeout(() => {
-        setDisplay((prev) => {
-          const next = [...prev];
-          next[lineIdx] = line.slice(0, charIdx);
-          return next;
-        });
-        setCharIdx((c) => c + 1);
-      }, charIdx === 0 && line === "" ? 80 : 18);
-    } else {
-      timerRef.current = setTimeout(() => {
-        setLineIdx((l) => l + 1);
-        setCharIdx(0);
-      }, line === "" ? 0 : 50);
-    }
-    return () => clearTimeout(timerRef.current);
-  }, [lineIdx, charIdx]);
-
-  return (
-    <pre className="text-xs leading-[1.7] font-mono text-left overflow-hidden" style={{ color: "#a5b4fc" }}>
-      {display.map((line, i) => (
-        <span key={i} className="block">
-          {line.startsWith("//") ? (
-            <span style={{ color: "rgba(100,116,139,0.65)" }}>{line}</span>
-          ) : line.startsWith("import") ? (
-            <span>
-              <span style={{ color: "#7dd3fc" }}>import</span>
-              <span style={{ color: "#e2e8f0" }}>{line.slice(6)}</span>
-            </span>
-          ) : line.startsWith("export") ? (
-            <span>
-              <span style={{ color: "#7dd3fc" }}>export default </span>
-              <span style={{ color: "#a78bfa" }}>async function </span>
-              <span style={{ color: "#fbbf24" }}>{line.slice(24)}</span>
-            </span>
-          ) : line.startsWith("  return") ? (
-            <span>
-              {"  "}
-              <span style={{ color: "#7dd3fc" }}>return </span>
-              <span style={{ color: "#34d399" }}>{line.slice(9)}</span>
-            </span>
-          ) : line.startsWith("  ") ? (
-            <span>
-              {"  "}
-              <span style={{ color: "#93c5fd" }}>{line.slice(2)}</span>
-            </span>
-          ) : line === "}" ? (
-            <span style={{ color: "#e2e8f0" }}>{line}</span>
-          ) : (
-            <span style={{ color: "#e2e8f0" }}>{line}</span>
-          )}
-        </span>
-      ))}
-      <span className="inline-block w-0.5 h-3.5 ml-0.5 align-middle bg-indigo-400 animate-pulse" />
-    </pre>
-  );
-}
+import { AnimatedLogoDraw } from "@/components/ui/AnimatedLogoDraw";
 
 // Geometric SVG icons
 const HexagonIcon = ({ color }: { color: string }) => (
@@ -245,10 +158,10 @@ export default function WhyChooseUs() {
                 </p>
               </div>
               <div
-                className="rounded-xl p-4 border border-white/[0.06] overflow-hidden"
+                className="rounded-xl p-4 border border-white/[0.06] overflow-hidden flex items-center justify-center"
                 style={{ background: "rgba(10,14,26,0.85)" }}
               >
-                <CodeTyper />
+                <AnimatedLogoDraw size={72} />
               </div>
             </div>
           </motion.div>
