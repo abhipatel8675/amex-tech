@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight, Globe, LayoutDashboard, Smartphone, Layers, Rocket, Palette, Search, Brain } from "lucide-react";
 
 const services = [
@@ -84,9 +84,26 @@ export default function ServicesPreview() {
   const current = services[active];
   const Icon = current.icon;
 
+  // Cursor-following spotlight, scoped to this section only.
+  const spotX = useMotionValue(0);
+  const spotY = useMotionValue(0);
+  const spotOpacity = useMotionValue(0);
+  const springX = useSpring(spotX, { stiffness: 150, damping: 22, mass: 0.5 });
+  const springY = useSpring(spotY, { stiffness: 150, damping: 22, mass: 0.5 });
+  const springOpacity = useSpring(spotOpacity, { duration: 0.25 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    spotX.set(e.clientX - rect.left);
+    spotY.set(e.clientY - rect.top);
+  };
+
   return (
     <section
       className="relative py-10 md:py-16 overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => spotOpacity.set(1)}
+      onMouseLeave={() => spotOpacity.set(0)}
     >
       {/* Section background */}
       <div
@@ -98,6 +115,29 @@ export default function ServicesPreview() {
         style={{
           backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0)",
           backgroundSize: "28px 28px",
+        }}
+      />
+      {/* Aurora glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(600px circle at 12% 15%, rgba(99,102,241,0.12), transparent 60%), radial-gradient(600px circle at 88% 85%, rgba(139,92,246,0.10), transparent 60%)",
+          filter: "blur(60px)",
+        }}
+      />
+      {/* Cursor-following spotlight */}
+      <motion.div
+        className="absolute w-[520px] h-[520px] rounded-full pointer-events-none"
+        style={{
+          left: springX,
+          top: springY,
+          x: "-50%",
+          y: "-50%",
+          opacity: springOpacity,
+          background:
+            "radial-gradient(circle, rgba(99,102,241,0.10) 0%, rgba(139,92,246,0.05) 40%, transparent 70%)",
+          filter: "blur(30px)",
         }}
       />
 
@@ -138,7 +178,10 @@ export default function ServicesPreview() {
                 key={service.title}
                 onClick={() => handleSelect(i)}
                 className="group relative flex items-center py-5 pl-7 text-left border-l-2 transition-all duration-300 focus:outline-none"
-                style={{ borderColor: active === i ? service.accent : "rgba(255,255,255,0.07)" }}
+                style={{
+                  borderColor: active === i ? service.accent : "rgba(255,255,255,0.07)",
+                  boxShadow: active === i ? `-6px 0 20px -4px ${service.accent}35` : "none",
+                }}
               >
                 {active === i && (
                   <motion.div
@@ -170,7 +213,8 @@ export default function ServicesPreview() {
                 animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, x: -10, filter: "blur(4px)" }}
                 transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="relative rounded-2xl border border-white/[0.08] bg-white/[0.025] p-8 overflow-hidden"
+                className="relative rounded-2xl border border-white/[0.12] bg-white/[0.025] p-8 overflow-hidden transition-shadow duration-300"
+                style={{ boxShadow: `0 8px 40px -12px ${current.accent}35, 0 1px 0 rgba(255,255,255,0.03)` }}
               >
                 {/* Accent glow */}
                 <div
