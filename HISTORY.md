@@ -4,6 +4,55 @@ A chronological record of all commits, features, and changes made to the amextec
 
 ---
 
+## [v0.6] — July 13–24, 2026 · Premium Redesign, Blog Expansion, Image Pipeline & Homepage Animation
+
+### Premium redesign & UI polish (`4feab95`, `14aec23`, `5c294b0`, `5de020c`, `aadba8a`, `b939980`, `4fb90f3`, `3af12a6`, `74a8a83`, `5265dd2`, `d661197`)
+- Homepage, services, about, contact, blog and navbar redesigned for a more premium look
+- Section spacing reduced, layouts expanded, FAQs updated, favicon fixed
+- Full-width layout fix for blog prose, privacy and terms pages
+- Brand logo mark (`LogoMark`) and favicon added
+- Fluid hero heading sizing, static tech list, working newsletter signup
+- `ServicesPreview` auto-advance removed (was causing the page to scroll on its own)
+- Framer Motion `ease` array cast to a tuple to fix a TypeScript build error
+
+### Portfolio expansion (`90e28db`, `fa39321`, `28f327f`, `1b3fcf5`, `9133133`)
+- Added HourSheets, Buttercream Bus, East End Vintage Sale, Ultra Windows, Wolfe Property Portal, EmiGo, Cyber7, and Dialogix as new case studies in `src/data/projects.ts`, each with gallery screenshots under `public/images/portfolio/`
+
+### Blog content expansion (`a5cff81`, `b7e6529`, `4364efb`, `72b5194`, `3d2af2e`)
+- Added ~20 new SEO-targeted troubleshooting posts across Supabase, Firebase, Vercel, Lovable, Replit, GoDaddy/DNS and Bolt.new topics, each with matching hero + body images
+- `0853c32` — added internal links to `/services` across every existing post
+- `1ac41d0` — blog schema/metadata overhaul as part of a page-audit pass
+- `0381fcd`, `a421b22` — blog `metaTitle` tags optimized for Google ranking; sitemap `lastModified`/`updatedAt` refreshed across all posts
+
+### Blog image pipeline fixes (`5c21ea0`, `9170bd4`, `8179a2d`, `775839f`, `0012ebb`, `3342ccf`, `aa2c86a`, `f9a6036`)
+- Fixed blog image cropping and container height issues for the featured card's `next/image fill` usage
+- Root-caused a recurring "blog images not loading" bug: several card thumbnails were 4.5–6.6MB raw RGBA PNG screenshots that Next.js's image optimizer failed/timed out on in production — re-encoded to WebP (quality 80, alpha flattened), cutting them to under 250KB each
+- Root-caused a second variant of the same bug on the GoDaddy card and the Supabase+Next.js featured card: the source file was fine, but the `_next/image` URL had been served once while broken and cached `immutable` for a year — fixed by renaming the source file so the URL (and therefore the cache key) changes
+- All secondary in-post blog images embedded inline and converted to WebP
+
+### Homepage animation redesign (this session — `ae58227`, `4a77073`, `2d45abc`, `923acff`, `3971629`)
+- Replaced developer-facing code/terminal visuals (a typing code snippet and a fake terminal window) in the Hero and the "Clean, Maintainable Code" bento card — reasoning: the site's audience is non-technical buyers who could find raw code intimidating rather than reassuring
+- Added `animejs` and built `AnimatedLogoDraw`, a shared component that line-draws the existing brand mark's strokes via `svg.createDrawable()`, then reveals the word "Amex" letter-by-letter via `splitText`/`stagger`, once on scroll into view, with a `prefers-reduced-motion` fallback
+- First pass (lone icon+word in an empty panel) read as too sparse; researched brightdata.com's design language for a second pass and replaced it with `CapabilityStack` — three staggered, gradient-bordered cards (Full-Stack Development / Cloud & DevOps / AI-Powered Features) — and a matching checklist in the bento card, both filling the space with real content instead of empty space
+
+### Technical SEO audit (this session — `27bb0e0`)
+- Added a `<main>` landmark to every public page (previously only the dashboard had one)
+- Portfolio case-study body: `<section>` → `<article>`, consistent with blog/legal pages
+- Linked the `Organization` and `LocalBusiness`/`ProfessionalService` JSON-LD nodes via a shared `@id` so they read as one entity; `WebSite` schema's `publisher` now points to it
+- Added `BreadcrumbList` schema to `/privacy` and `/terms` (visible breadcrumb existed but had no matching schema)
+- Added dedicated `opengraph-image` routes for `/blog`, `/portfolio`, `/about`, `/services`, `/contact` (previously fell back to the generic homepage OG card)
+- Added `robots: { index: false }` to all three `/dashboard` routes
+- `sitemap.ts`: static pages and portfolio entries now use a fixed date instead of `new Date()`, which was resetting the freshness signal on every deploy regardless of whether content changed
+- Replaced one blog post's external Unsplash hotlink with a self-hosted WebP
+
+### UX fixes (this session — `673573a`, `a4c39b2`)
+- Added an aurora background glow and a cursor-following spotlight effect to the Services section
+- `ServicesPreview`: desktop service list now switches on hover/focus instead of requiring a click (mobile accordion untouched — no hover on touch)
+- Fixed the blog featured card ("How to Connect Next.js with Supabase") rendering blank — same immutable-cache pattern as the GoDaddy card, fixed by renaming the source image
+- Fixed portfolio grid cards for Ultra Windows and Wolfe Property Portal center-cropping their square screenshots and hiding the actual hero content — added a per-project `imagePosition` field (mirroring the existing blog post pattern) and wired it into `ProjectGrid`'s image classes
+
+---
+
 ## [v0.5] — July 11, 2026 · SEO, Legal Pages & Analytics
 
 ### `26d0695` — feat: add Google Analytics (G-RLBM20P7Z4)
