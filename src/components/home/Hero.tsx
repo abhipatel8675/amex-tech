@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CircleCheck } from "lucide-react";
 import { AnimatedLogoDraw } from "@/components/ui/AnimatedLogoDraw";
+import { CapabilityStack } from "@/components/ui/CapabilityStack";
 
 // Word-by-word stagger for the heading
 function WordSpan({ word, index }: { word: string; index: number }) {
@@ -226,12 +227,13 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="relative hidden lg:flex flex-col gap-4"
           >
-            {/* Brand mark draw-on */}
+            {/* Capability stack */}
             <div
-              className="rounded-2xl border border-white/[0.09] overflow-hidden flex items-center justify-center py-14"
+              className="rounded-2xl border border-white/[0.09] overflow-hidden p-6"
               style={{ background: "linear-gradient(145deg, #0F1729 0%, #0B0F19 100%)" }}
             >
-              <AnimatedLogoDraw size={56} textClassName="text-5xl" />
+              <AnimatedLogoDraw size={24} textClassName="text-base" className="mb-5" />
+              <CapabilityStack />
             </div>
 
             {/* Client review card */}
