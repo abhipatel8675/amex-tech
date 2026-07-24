@@ -61,6 +61,7 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://amextechnology.com/#organization",
   name: "Amex Technology",
   url: "https://amextechnology.com",
   logo: "https://amextechnology.com/images/logo.png",

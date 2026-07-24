@@ -56,8 +56,10 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
       <Navbar />
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
-      <AboutPageContent />
+      <main>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
+        <AboutPageContent />
+      </main>
       <Footer />
     </div>
   );

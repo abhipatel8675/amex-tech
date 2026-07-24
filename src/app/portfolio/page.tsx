@@ -57,43 +57,45 @@ export default function PortfolioPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <Navbar />
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Portfolio" }]} />
+      <main>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Portfolio" }]} />
 
-      {/* Hero — large editorial header */}
-      <section className="pt-8 pb-0 overflow-hidden">
-        <div className="max-w-[92rem] mx-auto px-6">
-          <p
-            className="mb-6 font-semibold uppercase"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
-          >
-            Our Work
-          </p>
-        </div>
-        {/* Display heading */}
-        <div className="max-w-[92rem] mx-auto px-6 mb-5">
-          <h1
-            className="font-bold text-white leading-tight"
-            style={{
-              fontSize: "clamp(40px, 4.5vw, 68px)",
-              letterSpacing: "-0.03em",
-            }}
-          >
-            Software Development Case Studies.
-          </h1>
-        </div>
-        <div className="max-w-[92rem] mx-auto px-6 pb-12">
-          <p className="text-xl max-w-xl leading-8" style={{ color: "rgba(203,213,225,0.75)" }}>
-            {projects.length} projects shipped across SaaS, AI, mobile, and web — each one solving a real business problem for a real client.
-          </p>
-        </div>
-      </section>
+        {/* Hero — large editorial header */}
+        <section className="pt-8 pb-0 overflow-hidden">
+          <div className="max-w-[92rem] mx-auto px-6">
+            <p
+              className="mb-6 font-semibold uppercase"
+              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
+            >
+              Our Work
+            </p>
+          </div>
+          {/* Display heading */}
+          <div className="max-w-[92rem] mx-auto px-6 mb-5">
+            <h1
+              className="font-bold text-white leading-tight"
+              style={{
+                fontSize: "clamp(40px, 4.5vw, 68px)",
+                letterSpacing: "-0.03em",
+              }}
+            >
+              Software Development Case Studies.
+            </h1>
+          </div>
+          <div className="max-w-[92rem] mx-auto px-6 pb-12">
+            <p className="text-xl max-w-xl leading-8" style={{ color: "rgba(203,213,225,0.75)" }}>
+              {projects.length} projects shipped across SaaS, AI, mobile, and web — each one solving a real business problem for a real client.
+            </p>
+          </div>
+        </section>
 
-      {/* Grid with filter */}
-      <section className="pb-16 max-w-[92rem] mx-auto px-6">
-        <ProjectGrid />
-      </section>
+        {/* Grid with filter */}
+        <section className="pb-16 max-w-[92rem] mx-auto px-6">
+          <ProjectGrid />
+        </section>
 
-      <CTASection />
+        <CTASection />
+      </main>
       <Footer />
     </div>
   );

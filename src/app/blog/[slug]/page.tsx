@@ -130,157 +130,159 @@ export default async function BlogPostPage({ params }: Props) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
       <Navbar />
-      <Breadcrumb
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Blog", href: "/blog" },
-          { label: post.title },
-        ]}
-      />
+      <main>
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: post.title },
+          ]}
+        />
 
-      {/* Hero */}
-      <section
-        className="pt-8 pb-12 relative overflow-hidden"
-        style={{
-          background: `linear-gradient(180deg, ${post.gradientFrom}08 0%, transparent 100%)`,
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-white transition-colors mb-8"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to Blog
-          </Link>
+        {/* Hero */}
+        <section
+          className="pt-8 pb-12 relative overflow-hidden"
+          style={{
+            background: `linear-gradient(180deg, ${post.gradientFrom}08 0%, transparent 100%)`,
+          }}
+        >
+          <div className="max-w-7xl mx-auto px-6">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-white transition-colors mb-8"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" /> Back to Blog
+            </Link>
 
-          <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.07] px-3 py-1 rounded-lg">
-              {post.category}
-            </span>
-            <span className="text-sm text-slate-500 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5" /> {readingMinutes} min read
-            </span>
-            <time className="text-sm text-slate-500" dateTime={post.publishedAt}>
-              {new Date(post.publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-            </time>
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.07] px-3 py-1 rounded-lg">
+                {post.category}
+              </span>
+              <span className="text-sm text-slate-500 flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5" /> {readingMinutes} min read
+              </span>
+              <time className="text-sm text-slate-500" dateTime={post.publishedAt}>
+                {new Date(post.publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+              </time>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">{post.title}</h1>
+            <p className="text-slate-300 text-xl leading-8 mb-5">{post.excerpt}</p>
+            <p className="text-sm text-slate-500">By the <strong className="text-slate-400">Amex Technology</strong> Team</p>
+          </div>
+        </section>
+
+        {/* Article content */}
+        <article className="pb-24 max-w-7xl mx-auto px-6">
+          {/* Visual banner */}
+          <div className="w-full rounded-2xl border border-white/[0.07] overflow-hidden mb-12 relative">
+            {post.image ? (
+              <div className="relative w-full" style={{ aspectRatio: "16/7", minHeight: 320 }}>
+                <Image
+                  src={post.image}
+                  alt={`${post.title} — guide by Amex Technology`}
+                  fill
+                  quality={95}
+                  className={`object-cover ${post.imagePosition ?? "object-center"}`}
+                  sizes="(max-width: 768px) 100vw, 1280px"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            ) : (
+              <div
+                className="w-full h-52"
+                style={{
+                  background: `linear-gradient(135deg, ${post.gradientFrom}20, ${post.gradientTo}20)`,
+                }}
+              >
+                <div
+                  className="absolute inset-0 opacity-30"
+                  style={{
+                    background: `radial-gradient(ellipse at 30% 60%, ${post.gradientFrom}70, transparent 70%)`,
+                  }}
+                />
+              </div>
+            )}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">{post.title}</h1>
-          <p className="text-slate-300 text-xl leading-8 mb-5">{post.excerpt}</p>
-          <p className="text-sm text-slate-500">By the <strong className="text-slate-400">Amex Technology</strong> Team</p>
-        </div>
-      </section>
+          <BlogPostContent html={markdownToHtml(post.content)} />
 
-      {/* Article content */}
-      <article className="pb-24 max-w-7xl mx-auto px-6">
-        {/* Visual banner */}
-        <div className="w-full rounded-2xl border border-white/[0.07] overflow-hidden mb-12 relative">
-          {post.image ? (
-            <div className="relative w-full" style={{ aspectRatio: "16/7", minHeight: 320 }}>
-              <Image
-                src={post.image}
-                alt={`${post.title} — guide by Amex Technology`}
-                fill
-                quality={95}
-                className={`object-cover ${post.imagePosition ?? "object-center"}`}
-                sizes="(max-width: 768px) 100vw, 1280px"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            {/* Related Services */}
+            {getRelatedServices(post.tags, post.category).length > 0 && (
+              <div className="mt-14 pt-8 border-t border-white/[0.06]">
+                <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-5">
+                  Related Services
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {getRelatedServices(post.tags, post.category).map((svc) => (
+                    <Link
+                      key={svc.href}
+                      href={svc.href}
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-400 hover:text-indigo-300 border border-indigo-500/30 px-3.5 py-1.5 rounded-lg transition-colors bg-indigo-500/[0.05] hover:bg-indigo-500/[0.1]"
+                    >
+                      {svc.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mt-8 pt-8 border-t border-white/[0.06]">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center gap-1.5 text-sm text-slate-400 bg-white/[0.04] border border-white/[0.07] px-3 py-1 rounded-lg"
+                >
+                  <Tag className="w-3.5 h-3.5" /> {tag}
+                </span>
+              ))}
             </div>
-          ) : (
-            <div
-              className="w-full h-52"
-              style={{
-                background: `linear-gradient(135deg, ${post.gradientFrom}20, ${post.gradientTo}20)`,
-              }}
-            >
-              <div
-                className="absolute inset-0 opacity-30"
-                style={{
-                  background: `radial-gradient(ellipse at 30% 60%, ${post.gradientFrom}70, transparent 70%)`,
-                }}
-              />
+
+            {/* CTA block */}
+            <div className="mt-14 p-8 rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.05]">
+              <h3 className="text-xl font-bold text-white mb-3">Need help building this?</h3>
+              <p className="text-slate-300 mb-5 leading-relaxed">
+                Our team specializes in exactly this kind of work. Get a free quote and honest assessment within 24 hours.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white px-5 py-2.5 rounded-xl transition-all btn-glow"
+                style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+              >
+                Start a Project <ArrowLeft className="w-3.5 h-3.5 rotate-180" />
+              </Link>
             </div>
-          )}
-        </div>
 
-        <BlogPostContent html={markdownToHtml(post.content)} />
-
-          {/* Related Services */}
-          {getRelatedServices(post.tags, post.category).length > 0 && (
-            <div className="mt-14 pt-8 border-t border-white/[0.06]">
-              <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-5">
-                Related Services
+          {/* Related posts */}
+          {relatedPosts.length > 0 && (
+            <div className="mt-14">
+              <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6">
+                Related Articles
               </h3>
-              <div className="flex flex-wrap gap-3">
-                {getRelatedServices(post.tags, post.category).map((svc) => (
+              <div className="grid sm:grid-cols-2 gap-4">
+                {relatedPosts.map((related) => (
                   <Link
-                    key={svc.href}
-                    href={svc.href}
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-400 hover:text-indigo-300 border border-indigo-500/30 px-3.5 py-1.5 rounded-lg transition-colors bg-indigo-500/[0.05] hover:bg-indigo-500/[0.1]"
+                    key={related.slug}
+                    href={`/blog/${related.slug}`}
+                    className="group p-5 rounded-xl border border-white/[0.07] bg-white/[0.02] hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-200"
                   >
-                    {svc.label}
+                    <p className="text-base font-semibold text-white group-hover:text-indigo-300 transition-colors mb-2 leading-snug">
+                      {related.title}
+                    </p>
+                    <p className="text-sm text-slate-500 flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5" /> {related.readTime}
+                    </p>
                   </Link>
                 ))}
               </div>
             </div>
           )}
+        </article>
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-8 pt-8 border-t border-white/[0.06]">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex items-center gap-1.5 text-sm text-slate-400 bg-white/[0.04] border border-white/[0.07] px-3 py-1 rounded-lg"
-              >
-                <Tag className="w-3.5 h-3.5" /> {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* CTA block */}
-          <div className="mt-14 p-8 rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.05]">
-            <h3 className="text-xl font-bold text-white mb-3">Need help building this?</h3>
-            <p className="text-slate-300 mb-5 leading-relaxed">
-              Our team specializes in exactly this kind of work. Get a free quote and honest assessment within 24 hours.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white px-5 py-2.5 rounded-xl transition-all btn-glow"
-              style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
-            >
-              Start a Project <ArrowLeft className="w-3.5 h-3.5 rotate-180" />
-            </Link>
-          </div>
-
-        {/* Related posts */}
-        {relatedPosts.length > 0 && (
-          <div className="mt-14">
-            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6">
-              Related Articles
-            </h3>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {relatedPosts.map((related) => (
-                <Link
-                  key={related.slug}
-                  href={`/blog/${related.slug}`}
-                  className="group p-5 rounded-xl border border-white/[0.07] bg-white/[0.02] hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-200"
-                >
-                  <p className="text-base font-semibold text-white group-hover:text-indigo-300 transition-colors mb-2 leading-snug">
-                    {related.title}
-                  </p>
-                  <p className="text-sm text-slate-500 flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5" /> {related.readTime}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </article>
-
-      <CTASection />
+        <CTASection />
+      </main>
       <Footer />
     </div>
   );

@@ -64,144 +64,146 @@ export default function BlogPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <Navbar />
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
+      <main>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
-      {/* Hero */}
-      <section className="pt-8 pb-16 max-w-[92rem] mx-auto px-6">
-        <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
-          From the Team
-        </p>
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mb-6 leading-tight">
-          Engineering Blog — Guides & Tutorials
-        </h1>
-        <p className="text-slate-300 text-xl max-w-xl leading-8">
-          Architecture decisions, tech stack deep-dives, and lessons from building real products.
-        </p>
-      </section>
-
-      {/* Featured post */}
-      {featured && (
-        <section className="pb-12 max-w-[92rem] mx-auto px-6">
-          <Link
-            href={`/blog/${featured.slug}`}
-            className="group block rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300"
-          >
-            <div className="flex flex-col md:flex-row">
-              {/* Visual */}
-              <div className="w-full md:w-2/5 h-56 md:h-72 relative overflow-hidden flex-shrink-0">
-                {featured.image ? (
-                  <Image
-                    src={featured.image}
-                    alt={featured.title}
-                    fill
-                    quality={90}
-                    className={`object-cover ${featured.imagePosition ?? "object-center"}`}
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                  />
-                ) : (
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${featured.gradientFrom}20, ${featured.gradientTo}20)`,
-                    }}
-                  >
-                    <div
-                      className="absolute inset-0 opacity-40"
-                      style={{
-                        background: `radial-gradient(ellipse at 30% 50%, ${featured.gradientFrom}80, transparent 70%)`,
-                      }}
-                    />
-                  </div>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-3 mb-5">
-                    <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.08] px-3 py-1 rounded-lg">
-                      {featured.category}
-                    </span>
-                    <span className="text-sm text-slate-500 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5" /> {featured.readTime}
-                    </span>
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-indigo-300 transition-colors leading-snug">
-                    {featured.title}
-                  </h2>
-                  <p className="text-base text-slate-400 leading-7">{featured.excerpt}</p>
-                </div>
-                <div className="flex items-center gap-2 text-base font-semibold text-indigo-400 mt-7 group-hover:text-indigo-300 transition-colors">
-                  Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              </div>
-            </div>
-          </Link>
+        {/* Hero */}
+        <section className="pt-8 pb-16 max-w-[92rem] mx-auto px-6">
+          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
+            From the Team
+          </p>
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mb-6 leading-tight">
+            Engineering Blog — Guides & Tutorials
+          </h1>
+          <p className="text-slate-300 text-xl max-w-xl leading-8">
+            Architecture decisions, tech stack deep-dives, and lessons from building real products.
+          </p>
         </section>
-      )}
 
-      {/* Post grid */}
-      <section className="pb-28 max-w-[92rem] mx-auto px-6">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {rest.map((post, i) => (
+        {/* Featured post */}
+        {featured && (
+          <section className="pb-12 max-w-[92rem] mx-auto px-6">
             <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300 flex flex-col"
+              href={`/blog/${featured.slug}`}
+              className="group block rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300"
             >
-              {/* Visual */}
-              <div className="h-44 relative overflow-hidden">
-                {post.image ? (
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    quality={80}
-                    priority={i < 3}
-                    className={`object-cover ${post.imagePosition ?? "object-center"} transition-transform duration-500 group-hover:scale-105`}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                ) : (
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${post.gradientFrom}18, ${post.gradientTo}18)`,
-                    }}
-                  >
-                    <div
-                      className="absolute inset-0 opacity-30"
-                      style={{
-                        background: `radial-gradient(ellipse at 30% 60%, ${post.gradientFrom}70, transparent 70%)`,
-                      }}
+              <div className="flex flex-col md:flex-row">
+                {/* Visual */}
+                <div className="w-full md:w-2/5 h-56 md:h-72 relative overflow-hidden flex-shrink-0">
+                  {featured.image ? (
+                    <Image
+                      src={featured.image}
+                      alt={featured.title}
+                      fill
+                      quality={90}
+                      className={`object-cover ${featured.imagePosition ?? "object-center"}`}
+                      sizes="(max-width: 768px) 100vw, 40vw"
                     />
-                  </div>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className="p-6 flex flex-col gap-3.5 flex-1">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.07] px-2.5 py-1 rounded-lg">
-                    {post.category}
-                  </span>
-                  <span className="text-sm text-slate-500 flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5" /> {post.readTime}
-                  </span>
+                  ) : (
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(135deg, ${featured.gradientFrom}20, ${featured.gradientTo}20)`,
+                      }}
+                    >
+                      <div
+                        className="absolute inset-0 opacity-40"
+                        style={{
+                          background: `radial-gradient(ellipse at 30% 50%, ${featured.gradientFrom}80, transparent 70%)`,
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
-                <h3 className="text-base font-semibold text-white group-hover:text-indigo-300 transition-colors leading-snug">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-slate-400 leading-relaxed flex-1">{post.excerpt}</p>
-                <div className="flex items-center gap-1.5 text-sm font-medium text-indigo-400 group-hover:text-indigo-300 transition-colors mt-1">
-                  Read <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+
+                {/* Content */}
+                <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-5">
+                      <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.08] px-3 py-1 rounded-lg">
+                        {featured.category}
+                      </span>
+                      <span className="text-sm text-slate-500 flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5" /> {featured.readTime}
+                      </span>
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-indigo-300 transition-colors leading-snug">
+                      {featured.title}
+                    </h2>
+                    <p className="text-base text-slate-400 leading-7">{featured.excerpt}</p>
+                  </div>
+                  <div className="flex items-center gap-2 text-base font-semibold text-indigo-400 mt-7 group-hover:text-indigo-300 transition-colors">
+                    Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
                 </div>
               </div>
             </Link>
-          ))}
-        </div>
-      </section>
+          </section>
+        )}
 
-      <CTASection />
+        {/* Post grid */}
+        <section className="pb-28 max-w-[92rem] mx-auto px-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {rest.map((post, i) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300 flex flex-col"
+              >
+                {/* Visual */}
+                <div className="h-44 relative overflow-hidden">
+                  {post.image ? (
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      quality={80}
+                      priority={i < 3}
+                      className={`object-cover ${post.imagePosition ?? "object-center"} transition-transform duration-500 group-hover:scale-105`}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(135deg, ${post.gradientFrom}18, ${post.gradientTo}18)`,
+                      }}
+                    >
+                      <div
+                        className="absolute inset-0 opacity-30"
+                        style={{
+                          background: `radial-gradient(ellipse at 30% 60%, ${post.gradientFrom}70, transparent 70%)`,
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex flex-col gap-3.5 flex-1">
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.07] px-2.5 py-1 rounded-lg">
+                      {post.category}
+                    </span>
+                    <span className="text-sm text-slate-500 flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5" /> {post.readTime}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-semibold text-white group-hover:text-indigo-300 transition-colors leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-slate-400 leading-relaxed flex-1">{post.excerpt}</p>
+                  <div className="flex items-center gap-1.5 text-sm font-medium text-indigo-400 group-hover:text-indigo-300 transition-colors mt-1">
+                    Read <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <CTASection />
+      </main>
       <Footer />
     </div>
   );

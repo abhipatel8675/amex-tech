@@ -38,11 +38,13 @@ const websiteSchema = {
   "@type": "WebSite",
   name: "Amex Technology",
   url: "https://amextechnology.com",
+  publisher: { "@id": "https://amextechnology.com/#organization" },
 };
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ProfessionalService"],
+  "@id": "https://amextechnology.com/#organization",
   name: "Amex Technology",
   url: "https://amextechnology.com",
   email: "abhipatel8675@gmail.com",
@@ -190,15 +192,17 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
       <Navbar />
-      <Hero />
-      <StatsBar />
-      <ServicesPreview />
-      <WhyChooseUs />
-      <ProcessSection />
-      <FeaturedProjects />
-      <Testimonials />
-      <FAQSection />
-      <CTASection />
+      <main>
+        <Hero />
+        <StatsBar />
+        <ServicesPreview />
+        <WhyChooseUs />
+        <ProcessSection />
+        <FeaturedProjects />
+        <Testimonials />
+        <FAQSection />
+        <CTASection />
+      </main>
       <Footer />
     </div>
   );

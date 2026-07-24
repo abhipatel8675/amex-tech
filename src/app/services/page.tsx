@@ -66,9 +66,11 @@ export default function ServicesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
-      <ServicesPageContent />
-      <CTASection />
+      <main>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
+        <ServicesPageContent />
+        <CTASection />
+      </main>
       <Footer />
     </div>
   );
