@@ -5,12 +5,12 @@ import { Star, Quote } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
 
 const avatarGradients = [
-  ["#6366F1", "#8B5CF6"],
+  ["#D4AF37", "#B89225"],
   ["#3B82F6", "#06B6D4"],
   ["#EC4899", "#F472B6"],
   ["#10B981", "#34D399"],
   ["#F59E0B", "#FBBF24"],
-  ["#8B5CF6", "#A78BFA"],
+  ["#B89225", "#D4AF37"],
 ];
 
 function FiverrBadge() {
@@ -40,7 +40,7 @@ export default function Testimonials() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="text-xs font-semibold text-indigo-400 uppercase tracking-widest mb-4" style={{ letterSpacing: "0.15em" }}>
+          <p className="text-xs font-semibold text-[#E1BC4A] uppercase tracking-widest mb-4" style={{ letterSpacing: "0.15em" }}>
             Client Voices
           </p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
@@ -62,20 +62,20 @@ export default function Testimonials() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="group relative flex flex-col gap-5 p-7 rounded-2xl border border-white/[0.07] bg-white/[0.025] hover:bg-white/[0.04] hover:border-indigo-500/30 hover:border-l-indigo-500/70 transition-all duration-300"
+                className="group relative flex flex-col gap-5 p-7 rounded-2xl border border-white/[0.07] bg-white/[0.025] hover:bg-white/[0.04] hover:border-[#D4AF37]/30 hover:border-l-[#D4AF37]/70 transition-all duration-300"
                 style={{ borderLeftWidth: "1px" }}
               >
                 {/* Hover left border accent */}
                 <div
                   className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "linear-gradient(180deg, #6366F1, #8B5CF6)" }}
+                  style={{ background: "linear-gradient(180deg, #D4AF37, #B89225)" }}
                 />
 
                 {/* Fiverr badge top-right */}
                 <div className="absolute top-5 right-6 flex items-center gap-2">
                   <FiverrBadge />
                   {/* Decorative quote behind badge */}
-                  <Quote className="w-10 h-10 text-indigo-400 fill-indigo-400 opacity-[0.05] absolute right-0 top-0" />
+                  <Quote className="w-10 h-10 text-[#E1BC4A] fill-[#E1BC4A] opacity-[0.05] absolute right-0 top-0" />
                 </div>
 
                 {/* Stars */}
@@ -134,13 +134,13 @@ export default function Testimonials() {
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(99,102,241,0.07), transparent 70%)",
+              background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,175,55,0.07), transparent 70%)",
             }}
           />
           {[
             { value: "5.0", label: "Average Rating", color: "#FBBF24" },
             { value: "100%", label: "Satisfaction Rate", color: "#34D399" },
-            { value: "100+", label: "Clients Served", color: "#818CF8" },
+            { value: "100+", label: "Clients Served", color: "#E1BC4A" },
           ].map((m, i) => (
             <div key={m.label} className="relative flex items-center gap-0">
               {i > 0 && <span className="hidden sm:block w-px h-10 bg-white/[0.07] mx-10" />}

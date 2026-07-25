@@ -22,7 +22,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
       viewport={{ once: true }}
       transition={{ duration: 0.55, delay: index * 0.1 }}
       className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.14] transition-all duration-300"
-      style={{ boxShadow: "0 0 0 0 rgba(99,102,241,0)" }}
+      style={{ boxShadow: "0 0 0 0 rgba(212,175,55,0)" }}
       whileHover={{ y: -4, boxShadow: "0 20px 60px rgba(0,0,0,0.5)" }}
     >
       {/* Large decorative counter */}
@@ -131,7 +131,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
         <div className="flex items-center justify-between pt-4 border-t border-white/[0.06]">
           <Link
             href={`/portfolio/${project.slug}`}
-            className="text-sm font-semibold text-slate-400 hover:text-indigo-400 transition-colors flex items-center gap-1.5"
+            className="text-sm font-semibold text-slate-400 hover:text-[#E1BC4A] transition-colors flex items-center gap-1.5"
           >
             Case Study <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -140,7 +140,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-medium text-slate-400 hover:text-indigo-300 transition-colors flex items-center gap-1 group/live"
+              className="text-xs font-medium text-slate-400 hover:text-[#E1BC4A] transition-colors flex items-center gap-1 group/live"
             >
               View Live
               <span className="opacity-60 group-hover/live:opacity-100 group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5 transition-all duration-200">↗</span>
@@ -167,7 +167,7 @@ export default function FeaturedProjects() {
           <div>
             <p
               className="mb-4 font-semibold uppercase"
-              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
+              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
             >
               Selected Work
             </p>
@@ -184,7 +184,7 @@ export default function FeaturedProjects() {
         <div className="mb-12 h-px bg-white/[0.06] relative overflow-hidden">
           <motion.div
             className="absolute left-0 top-0 h-full"
-            style={{ background: "linear-gradient(90deg, #6366F1, #A78BFA)" }}
+            style={{ background: "linear-gradient(90deg, #D4AF37, #D4AF37)" }}
             initial={{ width: "0%" }}
             whileInView={{ width: "100%" }}
             viewport={{ once: true }}
@@ -217,7 +217,7 @@ export default function FeaturedProjects() {
             <motion.span
               animate={{ x: [0, 4, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="text-indigo-400 text-xl"
+              className="text-[#E1BC4A] text-xl"
             >
               →
             </motion.span>

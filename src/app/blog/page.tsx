@@ -69,7 +69,7 @@ export default function BlogPage() {
 
         {/* Hero */}
         <section className="pt-8 pb-16 max-w-[92rem] mx-auto px-6">
-          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
+          <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">
             From the Team
           </p>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mb-6 leading-tight">
@@ -127,12 +127,12 @@ export default function BlogPage() {
                         <Clock className="w-3.5 h-3.5" /> {featured.readTime}
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-indigo-300 transition-colors leading-snug">
+                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-[#D4AF37] transition-colors leading-snug">
                       {featured.title}
                     </h2>
                     <p className="text-base text-slate-400 leading-7">{featured.excerpt}</p>
                   </div>
-                  <div className="flex items-center gap-2 text-base font-semibold text-indigo-400 mt-7 group-hover:text-indigo-300 transition-colors">
+                  <div className="flex items-center gap-2 text-base font-semibold text-[#E1BC4A] mt-7 group-hover:text-[#D4AF37] transition-colors">
                     Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
@@ -189,11 +189,11 @@ export default function BlogPage() {
                       <Clock className="w-3.5 h-3.5" /> {post.readTime}
                     </span>
                   </div>
-                  <h3 className="text-base font-semibold text-white group-hover:text-indigo-300 transition-colors leading-snug">
+                  <h3 className="text-base font-semibold text-white group-hover:text-[#D4AF37] transition-colors leading-snug">
                     {post.title}
                   </h3>
                   <p className="text-sm text-slate-400 leading-relaxed flex-1">{post.excerpt}</p>
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-indigo-400 group-hover:text-indigo-300 transition-colors mt-1">
+                  <div className="flex items-center gap-1.5 text-sm font-medium text-[#E1BC4A] group-hover:text-[#D4AF37] transition-colors mt-1">
                     Read <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>

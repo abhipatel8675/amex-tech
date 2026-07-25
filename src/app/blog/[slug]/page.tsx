@@ -219,7 +219,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <Link
                       key={svc.href}
                       href={svc.href}
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-400 hover:text-indigo-300 border border-indigo-500/30 px-3.5 py-1.5 rounded-lg transition-colors bg-indigo-500/[0.05] hover:bg-indigo-500/[0.1]"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-[#E1BC4A] hover:text-[#D4AF37] border border-[#D4AF37]/30 px-3.5 py-1.5 rounded-lg transition-colors bg-[#D4AF37]/[0.05] hover:bg-[#D4AF37]/[0.1]"
                     >
                       {svc.label}
                     </Link>
@@ -241,7 +241,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {/* CTA block */}
-            <div className="mt-14 p-8 rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.05]">
+            <div className="mt-14 p-8 rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/[0.05]">
               <h3 className="text-xl font-bold text-white mb-3">Need help building this?</h3>
               <p className="text-slate-300 mb-5 leading-relaxed">
                 Our team specializes in exactly this kind of work. Get a free quote and honest assessment within 24 hours.
@@ -249,7 +249,7 @@ export default async function BlogPostPage({ params }: Props) {
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-white px-5 py-2.5 rounded-xl transition-all btn-glow"
-                style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+                style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
               >
                 Start a Project <ArrowLeft className="w-3.5 h-3.5 rotate-180" />
               </Link>
@@ -268,7 +268,7 @@ export default async function BlogPostPage({ params }: Props) {
                     href={`/blog/${related.slug}`}
                     className="group p-5 rounded-xl border border-white/[0.07] bg-white/[0.02] hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-200"
                   >
-                    <p className="text-base font-semibold text-white group-hover:text-indigo-300 transition-colors mb-2 leading-snug">
+                    <p className="text-base font-semibold text-white group-hover:text-[#D4AF37] transition-colors mb-2 leading-snug">
                       {related.title}
                     </p>
                     <p className="text-sm text-slate-500 flex items-center gap-1.5">

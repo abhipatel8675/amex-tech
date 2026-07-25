@@ -63,7 +63,7 @@ export default function Footer() {
           className="absolute top-0 left-0 right-0 h-px"
           style={{
             background:
-              "linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.5) 50%, transparent 100%)",
+              "linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.5) 50%, transparent 100%)",
           }}
           aria-hidden="true"
         />
@@ -95,13 +95,13 @@ export default function Footer() {
                   required
                   disabled={status === "loading"}
                   aria-label="Email address"
-                  className="flex-1 sm:w-56 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-2.5 text-slate-300 placeholder-slate-600 outline-none transition-all focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/30 disabled:opacity-60"
+                  className="flex-1 sm:w-56 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-2.5 text-slate-300 placeholder-slate-600 outline-none transition-all focus:border-[#D4AF37]/60 focus:ring-1 focus:ring-[#D4AF37]/30 disabled:opacity-60"
                 />
                 <button
                   type="submit"
                   disabled={status === "loading"}
                   className="text-sm font-semibold text-white px-4 py-2.5 rounded-xl transition-all btn-glow flex-shrink-0 disabled:opacity-70 disabled:cursor-not-allowed"
-                  style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+                  style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
                 >
                   {status === "loading" ? "Subscribing…" : "Subscribe"}
                 </button>
@@ -130,7 +130,7 @@ export default function Footer() {
                   <span
                     className="font-bold text-xl tracking-tight"
                     style={{
-                      background: "linear-gradient(135deg, #818CF8, #A78BFA)",
+                      background: "linear-gradient(135deg, #E1BC4A, #D4AF37)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
@@ -237,7 +237,7 @@ export default function Footer() {
               </div>
               <Link
                 href="/contact"
-                className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition-colors group"
+                className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-[#E1BC4A] hover:text-[#D4AF37] transition-colors group"
               >
                 Start a project
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

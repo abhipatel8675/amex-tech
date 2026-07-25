@@ -61,14 +61,14 @@ const features = [
     id: "code",
     title: "Clean, Maintainable Code",
     desc: "We write code for the next engineer, not just today's deadline. Every project ships well-structured, documented, and easy to extend — because software outlives the sprint.",
-    accent: "#818CF8",
+    accent: "#E1BC4A",
     size: "large",
   },
   {
     id: "security",
     title: "Secure by Default",
     desc: "Auth, row-level data isolation, input sanitization, and OWASP Top 10 protections — built in from day one. You never pay to retrofit security.",
-    accent: "#A78BFA",
+    accent: "#D4AF37",
     size: "normal",
     icon: HexagonIcon,
   },
@@ -125,7 +125,7 @@ export default function WhyChooseUs() {
         >
           <p
             className="mb-3 font-semibold uppercase"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
           >
             Why Clients Choose Us
           </p>
@@ -149,18 +149,18 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0 }}
-            className="group relative lg:col-span-2 rounded-2xl border border-white/[0.07] p-7 overflow-hidden transition-all duration-300 hover:border-indigo-500/30"
-            style={{ background: "linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.06) 100%)" }}
+            className="group relative lg:col-span-2 rounded-2xl border border-white/[0.07] p-7 overflow-hidden transition-all duration-300 hover:border-[#D4AF37]/30"
+            style={{ background: "linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(184,146,37,0.06) 100%)" }}
           >
             {/* Top accent line */}
             <div
               className="absolute top-0 inset-x-8 h-px rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ background: "linear-gradient(90deg, transparent, #818CF8, transparent)" }}
+              style={{ background: "linear-gradient(90deg, transparent, #E1BC4A, transparent)" }}
             />
             {/* Hover glow */}
             <div
               className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={{ boxShadow: "0 0 0 1px rgba(129,140,248,0.25), 0 0 32px rgba(99,102,241,0.08) inset" }}
+              style={{ boxShadow: "0 0 0 1px rgba(225,188,74,0.25), 0 0 32px rgba(212,175,55,0.08) inset" }}
             />
             <div className="grid sm:grid-cols-2 gap-8 items-start">
               <div>
@@ -192,7 +192,7 @@ export default function WhyChooseUs() {
                       variants={checklistItemVariants}
                       className="flex items-center gap-2.5"
                     >
-                      <CircleCheck className="w-4 h-4 shrink-0" style={{ color: "#818CF8" }} />
+                      <CircleCheck className="w-4 h-4 shrink-0" style={{ color: "#E1BC4A" }} />
                       <span className="text-sm" style={{ color: "rgba(203,213,225,0.85)" }}>
                         {item}
                       </span>

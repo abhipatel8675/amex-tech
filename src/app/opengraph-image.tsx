@@ -29,7 +29,7 @@ export default function OgImage() {
             left: 0,
             right: 0,
             height: "4px",
-            background: "linear-gradient(90deg, #6366F1, #8B5CF6)",
+            background: "linear-gradient(90deg, #D4AF37, #B89225)",
           }}
         />
 
@@ -39,7 +39,7 @@ export default function OgImage() {
             style={{
               fontSize: "28px",
               fontWeight: "700",
-              background: "linear-gradient(135deg, #818CF8, #A78BFA)",
+              background: "linear-gradient(135deg, #E1BC4A, #D4AF37)",
               backgroundClip: "text",
               color: "transparent",
             }}
@@ -93,9 +93,9 @@ export default function OgImage() {
             style={{
               padding: "8px 18px",
               borderRadius: "8px",
-              background: "rgba(99, 102, 241, 0.15)",
-              border: "1px solid rgba(99, 102, 241, 0.3)",
-              color: "#818CF8",
+              background: "rgba(201, 162, 39, 0.15)",
+              border: "1px solid rgba(201, 162, 39, 0.3)",
+              color: "#E1BC4A",
               fontSize: "16px",
               fontWeight: "600",
             }}

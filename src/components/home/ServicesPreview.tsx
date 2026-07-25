@@ -124,7 +124,7 @@ export default function ServicesPreview() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(600px circle at 12% 15%, rgba(99,102,241,0.12), transparent 60%), radial-gradient(600px circle at 88% 85%, rgba(139,92,246,0.10), transparent 60%)",
+            "radial-gradient(600px circle at 12% 15%, rgba(212,175,55,0.12), transparent 60%), radial-gradient(600px circle at 88% 85%, rgba(184,146,37,0.10), transparent 60%)",
           filter: "blur(60px)",
         }}
       />
@@ -138,7 +138,7 @@ export default function ServicesPreview() {
           y: "-50%",
           opacity: springOpacity,
           background:
-            "radial-gradient(circle, rgba(99,102,241,0.10) 0%, rgba(139,92,246,0.05) 40%, transparent 70%)",
+            "radial-gradient(circle, rgba(212,175,55,0.10) 0%, rgba(184,146,37,0.05) 40%, transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -154,7 +154,7 @@ export default function ServicesPreview() {
           >
             <p
               className="mb-4 font-semibold uppercase"
-              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
+              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
             >
               OUR EXPERTISE
             </p>

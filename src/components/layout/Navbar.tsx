@@ -35,7 +35,7 @@ export default function Navbar() {
       <header
         className={`fixed left-0 right-0 z-50 transition-all duration-500 top-0 ${
           scrolled
-            ? "bg-[#0B0F19]/85 backdrop-blur-2xl border-b border-indigo-500/20"
+            ? "bg-[#0B0F19]/85 backdrop-blur-2xl border-b border-[#D4AF37]/20"
             : "bg-transparent"
         }`}
       >
@@ -48,7 +48,7 @@ export default function Navbar() {
               <span
                 className="font-bold text-lg tracking-tight"
                 style={{
-                  background: "linear-gradient(135deg, #818CF8, #A78BFA)",
+                  background: "linear-gradient(135deg, #E1BC4A, #D4AF37)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -86,7 +86,7 @@ export default function Navbar() {
                   {/* Hover dot indicator */}
                   {!isActive && (
                     <span
-                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#E1BC4A] opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                       aria-hidden="true"
                     />
                   )}
@@ -107,7 +107,7 @@ export default function Navbar() {
               href="/contact"
               className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-white px-4 py-2 rounded-xl transition-all duration-200 btn-glow"
               style={{
-                background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)",
+                background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)",
               }}
             >
               Get Free Quote
@@ -156,7 +156,7 @@ export default function Navbar() {
                 <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
                   <LogoMark size={28} />
                   <span className="flex items-baseline gap-1">
-                    <span className="font-bold text-lg" style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Amex</span>
+                    <span className="font-bold text-lg" style={{ background: "linear-gradient(135deg, #E1BC4A, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Amex</span>
                     <span className="text-white font-semibold text-lg">Technology</span>
                   </span>
                 </Link>
@@ -203,7 +203,7 @@ export default function Navbar() {
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center gap-2 w-full text-sm font-semibold text-white py-3 rounded-xl transition-all btn-glow"
-                  style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+                  style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
                 >
                   Get Free Quote <ArrowRight className="w-3.5 h-3.5" />
                 </Link>

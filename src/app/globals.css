@@ -56,27 +56,27 @@
   --card-foreground: #E2E8F0;
   --popover: #111827;
   --popover-foreground: #E2E8F0;
-  --primary: #6366F1;
+  --primary: #D4AF37;
   --primary-foreground: #ffffff;
   --secondary: #1E293B;
   --secondary-foreground: #E2E8F0;
   --muted: #1E293B;
   --muted-foreground: #64748B;
-  --accent: #6366F1;
+  --accent: #D4AF37;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.704 0.191 22.216);
   --border: rgba(255,255,255,0.07);
   --input: #1E293B;
-  --ring: #6366F1;
+  --ring: #D4AF37;
   --radius: 0.75rem;
   --sidebar: #111827;
   --sidebar-foreground: #E2E8F0;
-  --sidebar-primary: #6366F1;
+  --sidebar-primary: #D4AF37;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #1E293B;
   --sidebar-accent-foreground: #E2E8F0;
   --sidebar-border: rgba(255,255,255,0.07);
-  --sidebar-ring: #6366F1;
+  --sidebar-ring: #D4AF37;
 }
 
 @layer base {
@@ -116,7 +116,7 @@
 
 /* Premium selection */
 ::selection {
-  background: rgba(99, 102, 241, 0.25);
+  background: rgba(201, 162, 39, 0.25);
   color: #E2E8F0;
 }
 
@@ -129,7 +129,7 @@
 }
 
 .text-gradient-indigo {
-  background: linear-gradient(135deg, #818CF8 0%, #A78BFA 100%);
+  background: linear-gradient(135deg, #E1BC4A 0%, #D4AF37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -147,10 +147,10 @@
 
 /* Glow effect for CTA buttons */
 .btn-glow {
-  box-shadow: 0 0 20px rgba(99,102,241,0.35), 0 4px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 0 20px rgba(212,175,55,0.35), 0 4px 12px rgba(0,0,0,0.4);
 }
 .btn-glow:hover {
-  box-shadow: 0 0 32px rgba(99,102,241,0.5), 0 8px 24px rgba(0,0,0,0.5);
+  box-shadow: 0 0 32px rgba(212,175,55,0.5), 0 8px 24px rgba(0,0,0,0.5);
 }
 
 /* Subtle grid pattern */
@@ -233,7 +233,7 @@
   font-weight: 600;
 }
 .blog-content a {
-  color: #818cf8;
+  color: #E1BC4A;
   text-decoration: none;
 }
 .blog-content a:hover {
@@ -242,7 +242,7 @@
 .blog-content code {
   font-family: ui-monospace, "SF Mono", "Fira Code", monospace;
   font-size: 0.85em;
-  color: #c4b5fd;
+  color: #D4AF37;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.09);
   padding: 0.15em 0.4em;
@@ -352,7 +352,7 @@
   font-size: 14px;
 }
 .blog-table th {
-  background: rgba(99,102,241,0.12);
+  background: rgba(212,175,55,0.12);
   color: #E2E8F0;
   font-weight: 600;
   padding: 11px 16px;
@@ -364,7 +364,7 @@
   color: #CBD5E1;
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-.blog-table tr.hl td { border-left: 3px solid #6366F1; }
+.blog-table tr.hl td { border-left: 3px solid #D4AF37; }
 .blog-table tr:last-child td { border-bottom: none; }
 .blog-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
 

@@ -27,7 +27,7 @@ const stats = [
     suffix: "+",
     label: "Projects Delivered",
     detail: "Across 6 industries",
-    accent: "#818CF8",
+    accent: "#E1BC4A",
   },
   {
     icon: Clock,
@@ -35,7 +35,7 @@ const stats = [
     suffix: "+",
     label: "Years Experience",
     detail: "Founded in 2019",
-    accent: "#A78BFA",
+    accent: "#D4AF37",
   },
   {
     icon: Users,
@@ -120,15 +120,15 @@ export default function StatsBar() {
       {/* Top gradient border — full width accent line */}
       <div
         className="absolute top-0 inset-x-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.6) 30%, rgba(139,92,246,0.7) 50%, rgba(99,102,241,0.6) 70%, transparent 100%)" }}
+        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.6) 30%, rgba(184,146,37,0.7) 50%, rgba(212,175,55,0.6) 70%, transparent 100%)" }}
       />
       <div
         className="absolute bottom-0 inset-x-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.12) 50%, transparent 100%)" }}
+        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.12) 50%, transparent 100%)" }}
       />
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(180deg, rgba(99,102,241,0.04) 0%, rgba(99,102,241,0.01) 100%)" }}
+        style={{ background: "linear-gradient(180deg, rgba(212,175,55,0.04) 0%, rgba(212,175,55,0.01) 100%)" }}
       />
 
       <div className="relative max-w-[92rem] mx-auto px-6">

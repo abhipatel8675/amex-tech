@@ -88,11 +88,11 @@ export function HeroBlogList() {
                 {post.readTime}
               </span>
             </div>
-            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-white transition-colors group-hover:text-indigo-300">
+            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-white transition-colors group-hover:text-[#D4AF37]">
               {post.title}
             </h4>
           </div>
-          <ArrowRight className="h-4 w-4 shrink-0 text-indigo-400 transition-transform group-hover:translate-x-0.5" />
+          <ArrowRight className="h-4 w-4 shrink-0 text-[#E1BC4A] transition-transform group-hover:translate-x-0.5" />
         </Link>
       ))}
     </div>

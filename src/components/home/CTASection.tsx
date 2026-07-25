@@ -13,7 +13,7 @@ export default function CTASection() {
           <div
             className="absolute inset-0 -z-10 pointer-events-none"
             style={{
-              background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(99,102,241,0.14), transparent 70%)",
+              background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(212,175,55,0.14), transparent 70%)",
             }}
           />
 
@@ -30,7 +30,7 @@ export default function CTASection() {
               className="absolute inset-0 rounded-3xl pointer-events-none"
               style={{
                 padding: "1px",
-                background: "linear-gradient(135deg, rgba(99,102,241,0.7) 0%, rgba(139,92,246,0.4) 50%, rgba(99,102,241,0.2) 100%)",
+                background: "linear-gradient(135deg, rgba(212,175,55,0.7) 0%, rgba(184,146,37,0.4) 50%, rgba(212,175,55,0.2) 100%)",
                 WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                 WebkitMaskComposite: "xor",
                 maskComposite: "exclude",
@@ -38,8 +38,8 @@ export default function CTASection() {
             />
 
             {/* Glow effects */}
-            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full opacity-25 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #6366F1, transparent 70%)" }} />
-            <div className="absolute -bottom-16 right-1/4 w-[300px] h-[200px] rounded-full opacity-12 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #8B5CF6, transparent 70%)" }} />
+            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full opacity-25 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #D4AF37, transparent 70%)" }} />
+            <div className="absolute -bottom-16 right-1/4 w-[300px] h-[200px] rounded-full opacity-12 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #B89225, transparent 70%)" }} />
 
             {/* Grid pattern inside */}
             <div className="grid-pattern absolute inset-0 opacity-30 pointer-events-none" />
@@ -48,13 +48,13 @@ export default function CTASection() {
             <div className="relative z-10 px-8 py-14 md:px-14 md:py-20 text-center">
               {/* Status badge */}
               <div className="inline-flex items-center gap-2.5 bg-white/[0.06] border border-white/[0.10] rounded-full px-5 py-2 mb-10">
-                <Clock className="w-4 h-4 text-indigo-400" />
+                <Clock className="w-4 h-4 text-[#E1BC4A]" />
                 <span className="text-sm font-medium text-slate-300">Typically responds within 4 hours</span>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6 max-w-3xl mx-auto leading-tight">
                 Ready to build your next{" "}
-                <span style={{ background: "linear-gradient(135deg, #818CF8 0%, #A78BFA 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                <span style={{ background: "linear-gradient(135deg, #E1BC4A 0%, #D4AF37 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                   digital product?
                 </span>
               </h2>
@@ -71,8 +71,8 @@ export default function CTASection() {
                   "4-hour response",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
-                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-indigo-500/15 border border-indigo-500/30">
-                      <Check className="w-3 h-3 text-indigo-400" strokeWidth={2.5} />
+                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30">
+                      <Check className="w-3 h-3 text-[#E1BC4A]" strokeWidth={2.5} />
                     </span>
                     <span className="text-sm text-slate-300">{item}</span>
                   </div>
@@ -84,8 +84,8 @@ export default function CTASection() {
                   href="/contact"
                   className="group inline-flex items-center gap-2 text-base font-semibold text-white px-8 py-4 rounded-xl transition-all duration-300 btn-glow"
                   style={{
-                    background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)",
-                    boxShadow: "0 0 32px rgba(99,102,241,0.45), 0 0 8px rgba(139,92,246,0.3)",
+                    background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)",
+                    boxShadow: "0 0 32px rgba(212,175,55,0.45), 0 0 8px rgba(184,146,37,0.3)",
                   }}
                 >
                   Start a Project

@@ -37,15 +37,15 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full opacity-30"
-          style={{ background: "radial-gradient(ellipse, #6366F1 0%, transparent 65%)" }}
+          style={{ background: "radial-gradient(ellipse, #D4AF37 0%, transparent 65%)" }}
         />
         <div
           className="absolute top-[5%] right-[-15%] w-[650px] h-[650px] rounded-full opacity-20"
-          style={{ background: "radial-gradient(ellipse, #8B5CF6 0%, transparent 65%)" }}
+          style={{ background: "radial-gradient(ellipse, #B89225 0%, transparent 65%)" }}
         />
         <div
           className="absolute top-[40%] right-[10%] w-[350px] h-[350px] rounded-full opacity-15"
-          style={{ background: "radial-gradient(ellipse, #A78BFA 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, #D4AF37 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-[5%] left-[-5%] w-[500px] h-[500px] rounded-full opacity-12"
@@ -53,7 +53,7 @@ export default function Hero() {
         />
         <div
           className="absolute bottom-[20%] left-[30%] w-[300px] h-[300px] rounded-full opacity-10"
-          style={{ background: "radial-gradient(ellipse, #6366F1 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, #D4AF37 0%, transparent 70%)" }}
         />
       </div>
 
@@ -72,13 +72,13 @@ export default function Hero() {
               <span
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border"
                 style={{
-                  background: "linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.12) 100%)",
-                  borderColor: "rgba(99,102,241,0.35)",
-                  color: "#A5B4FC",
+                  background: "linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(184,146,37,0.12) 100%)",
+                  borderColor: "rgba(212,175,55,0.35)",
+                  color: "#E1BC4A",
                   letterSpacing: "0.1em",
                 }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
                 Full-Stack Development Agency
               </span>
             </motion.div>
@@ -104,7 +104,7 @@ export default function Hero() {
               <span
                 className="block pb-[0.12em]"
                 style={{
-                  background: "linear-gradient(135deg, #818CF8 0%, #A78BFA 50%, #C4B5FD 100%)",
+                  background: "linear-gradient(135deg, #E1BC4A 0%, #D4AF37 50%, #B89225 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -141,7 +141,7 @@ export default function Hero() {
               <Link
                 href="/portfolio"
                 className="group relative inline-flex items-center gap-2 text-base font-semibold text-white px-7 py-4 rounded-xl transition-all duration-300 btn-glow overflow-hidden"
-                style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+                style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
               >
                 {/* Shimmer sweep */}
                 <span
@@ -190,12 +190,12 @@ export default function Hero() {
               </div>
               <span className="w-px h-4 bg-white/[0.10]" />
               <div className="flex items-center gap-2">
-                <CircleCheck className="w-3.5 h-3.5 text-violet-400" />
+                <CircleCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span className="text-sm" style={{ color: "rgba(148,163,184,0.8)" }}>5+ years experience</span>
               </div>
               <span className="w-px h-4 bg-white/[0.10]" />
               <div className="flex items-center gap-2">
-                <CircleCheck className="w-3.5 h-3.5 text-violet-400" />
+                <CircleCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span className="text-sm" style={{ color: "rgba(148,163,184,0.8)" }}>200+ projects shipped</span>
               </div>
             </div>
@@ -242,7 +242,7 @@ export default function Hero() {
             <div className="flex flex-1 flex-col">
               <p
                 className="mb-3 font-semibold uppercase"
-                style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
+                style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
               >
                 From the Blog
               </p>

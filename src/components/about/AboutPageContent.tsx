@@ -12,8 +12,8 @@ const techStack = [
 ];
 
 const values = [
-  { icon: Code2, title: "Honesty Over Hype", desc: "We tell you what's feasible before you commit — not after. If your timeline is tight or scope too large for budget, we say so.", color: "#818CF8" },
-  { icon: ShieldCheck, title: "Code as Craft", desc: "We don't ship code we're embarrassed by. Clean architecture, readable code, and thoughtful structure are non-negotiable.", color: "#A78BFA" },
+  { icon: Code2, title: "Honesty Over Hype", desc: "We tell you what's feasible before you commit — not after. If your timeline is tight or scope too large for budget, we say so.", color: "#E1BC4A" },
+  { icon: ShieldCheck, title: "Code as Craft", desc: "We don't ship code we're embarrassed by. Clean architecture, readable code, and thoughtful structure are non-negotiable.", color: "#D4AF37" },
   { icon: Clock, title: "Outcomes, Not Hours", desc: "Our success is measured by whether your product drives business goals — not by ticket velocity or billable hours.", color: "#38BDF8" },
   { icon: HeartHandshake, title: "Long-Term Thinking", desc: "We build for the codebase you'll have in two years. Maintainability and scalability are features, not nice-to-haves.", color: "#F472B6" },
 ];
@@ -44,14 +44,14 @@ const processSteps = [
     step: "01",
     title: "Discover",
     desc: "We start with a deep-dive into your goals, users, and constraints. No assumptions — just honest scoping.",
-    color: "#818CF8",
+    color: "#E1BC4A",
   },
   {
     icon: Layers,
     step: "02",
     title: "Build",
     desc: "Design and engineering in tight loops. You see real progress every week, not a big-bang reveal at the end.",
-    color: "#A78BFA",
+    color: "#D4AF37",
   },
   {
     icon: Rocket,
@@ -68,17 +68,17 @@ export default function AboutPageContent() {
       {/* Hero */}
       <section className="relative pt-12 pb-16 overflow-hidden">
         <div className="grid-pattern absolute inset-0 opacity-50 pointer-events-none" />
-        <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full opacity-8 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #6366F1, transparent 70%)" }} />
+        <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full opacity-8 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #D4AF37, transparent 70%)" }} />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="relative max-w-7xl mx-auto px-6"
         >
-          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">About Us</p>
+          <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">About Us</p>
           <h1 className="text-[clamp(2.5rem,10vw,6rem)] md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 leading-[1.05] max-w-3xl break-words">
             We build software that{" "}
-            <span style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg, #E1BC4A, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               works in the real world.
             </span>
           </h1>
@@ -96,7 +96,7 @@ export default function AboutPageContent() {
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.07 }}
                 className="flex items-baseline gap-2"
               >
-                <span className="text-3xl font-bold text-white" style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{s.value}</span>
+                <span className="text-3xl font-bold text-white" style={{ background: "linear-gradient(135deg, #E1BC4A, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{s.value}</span>
                 <span className="text-sm text-slate-400 font-medium">{s.label}</span>
               </motion.div>
             ))}
@@ -105,7 +105,7 @@ export default function AboutPageContent() {
       </section>
 
       {/* Stats strip */}
-      <section className="border-y border-white/[0.06]" style={{ background: "linear-gradient(180deg, rgba(99,102,241,0.04), rgba(99,102,241,0.02))" }}>
+      <section className="border-y border-white/[0.06]" style={{ background: "linear-gradient(180deg, rgba(212,175,55,0.04), rgba(212,175,55,0.02))" }}>
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-0 md:divide-x md:divide-white/[0.06]">
             {[
@@ -139,13 +139,13 @@ export default function AboutPageContent() {
               label: "Our Mission",
               heading: "Help businesses build technology that creates real value.",
               body: "Most agencies optimize for the demo. We optimize for production. Our goal is to deliver software that businesses can rely on — secure, scalable, maintainable, and designed to actually solve the problems it was built for.",
-              accent: "#818CF8",
+              accent: "#E1BC4A",
             },
             {
               label: "Our Vision",
               heading: "Be the technical partner every founder wishes they had.",
               body: "The best founders focus on product and customers, not infrastructure. We want to be the engineering team that earns trust through consistent, high-quality delivery and honest advice.",
-              accent: "#A78BFA",
+              accent: "#D4AF37",
             },
           ].map((item, i) => (
             <motion.div
@@ -176,13 +176,13 @@ export default function AboutPageContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">Expertise</p>
+              <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">Expertise</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-10 leading-tight">What we do exceptionally well.</h2>
               <ul className="flex flex-col gap-4">
                 {expertise.map((item) => (
                   <li key={item} className="flex items-start gap-4">
-                    <div className="w-6 h-6 rounded-full bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-indigo-400" />
+                    <div className="w-6 h-6 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/25 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-[#E1BC4A]" />
                     </div>
                     <span className="text-base text-slate-300 leading-7">{item}</span>
                   </li>
@@ -197,7 +197,7 @@ export default function AboutPageContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">Values</p>
+              <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">Values</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-10 leading-tight">The principles that guide every project.</h2>
               <div className="flex flex-col gap-4">
                 {values.map((value) => {
@@ -231,7 +231,7 @@ export default function AboutPageContent() {
             transition={{ duration: 0.5 }}
             className="mb-14 text-center"
           >
-            <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">How We Work</p>
+            <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-4">How We Work</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">From idea to live product.</h2>
             <p className="text-slate-400 text-lg max-w-xl mx-auto leading-8">
               A straightforward process built around transparency, fast feedback loops, and zero surprises.
@@ -281,7 +281,7 @@ export default function AboutPageContent() {
             transition={{ duration: 0.5 }}
             className="mb-12"
           >
-            <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Technology</p>
+            <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-4">Technology</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Our technology stack.</h2>
             <p className="text-slate-300 text-lg max-w-xl leading-8">
               Modern, battle-tested tools chosen for reliability and long-term viability — not whatever is trending this week.
@@ -295,7 +295,7 @@ export default function AboutPageContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25, delay: i * 0.02 }}
-                className="text-sm font-medium text-slate-300 bg-white/[0.03] border border-white/[0.07] px-4 py-2 rounded-xl hover:border-indigo-500/30 hover:text-slate-100 hover:bg-indigo-500/5 transition-all duration-200 cursor-default"
+                className="text-sm font-medium text-slate-300 bg-white/[0.03] border border-white/[0.07] px-4 py-2 rounded-xl hover:border-[#D4AF37]/30 hover:text-slate-100 hover:bg-[#D4AF37]/5 transition-all duration-200 cursor-default"
               >
                 {tech}
               </motion.span>
@@ -314,9 +314,9 @@ export default function AboutPageContent() {
             transition={{ duration: 0.5 }}
             className="relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-12 md:p-16 text-center overflow-hidden"
           >
-            <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #818CF880, transparent)" }} />
-            <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.08), transparent 70%)" }} />
-            <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5 relative">Ready to build?</p>
+            <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #E1BC4A80, transparent)" }} />
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.08), transparent 70%)" }} />
+            <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5 relative">Ready to build?</p>
             <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight relative">
               Let's turn your idea into a product<br className="hidden md:block" /> people actually use.
             </h2>
@@ -327,7 +327,7 @@ export default function AboutPageContent() {
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 text-base font-semibold text-white px-8 py-4 rounded-xl transition-all duration-200 btn-glow"
-                style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+                style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
               >
                 Start a Project
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

@@ -65,7 +65,7 @@ export default function PortfolioPage() {
           <div className="max-w-[92rem] mx-auto px-6">
             <p
               className="mb-6 font-semibold uppercase"
-              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
+              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
             >
               Our Work
             </p>

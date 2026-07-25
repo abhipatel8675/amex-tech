@@ -41,7 +41,7 @@ export default function TermsPage() {
 
         {/* Hero */}
         <section className="pt-8 pb-10 max-w-[92rem] mx-auto px-6">
-          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">
+          <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">
             Legal
           </p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
@@ -60,7 +60,7 @@ export default function TermsPage() {
             <Section id="acceptance" title="1. Acceptance of Terms">
               <p>
                 By accessing or using{" "}
-                <a href="https://amextechnology.com" className="text-indigo-400 hover:text-indigo-300 transition-colors">
+                <a href="https://amextechnology.com" className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors">
                   amextechnology.com
                 </a>{" "}
                 (the &ldquo;Site&rdquo;) or any services offered by Amex Technology (&ldquo;we,&rdquo;
@@ -116,7 +116,7 @@ export default function TermsPage() {
                   You agree to notify us immediately at{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                    className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors"
                   >
                     {CONTACT_EMAIL}
                   </a>{" "}
@@ -255,7 +255,7 @@ export default function TermsPage() {
                 Before initiating any formal legal proceedings, you agree to first contact us at{" "}
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                  className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors"
                 >
                   {CONTACT_EMAIL}
                 </a>{" "}
@@ -289,7 +289,7 @@ export default function TermsPage() {
                   Email:{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                    className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors"
                   >
                     {CONTACT_EMAIL}
                   </a>
@@ -303,7 +303,7 @@ export default function TermsPage() {
             <div className="pt-4 border-t border-white/[0.06]">
               <p className="text-sm text-slate-500">
                 Also see our{" "}
-                <Link href="/privacy" className="text-indigo-400 hover:text-indigo-300 transition-colors">
+                <Link href="/privacy" className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors">
                   Privacy Policy
                 </Link>
                 .
@@ -333,7 +333,7 @@ function Section({
       <h2 className="text-xl font-bold text-white" style={{ letterSpacing: "-0.015em" }}>
         {title}
       </h2>
-      <div className="flex flex-col gap-4 text-base leading-8 text-slate-400 [&_strong]:text-slate-300 [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-indigo-500">
+      <div className="flex flex-col gap-4 text-base leading-8 text-slate-400 [&_strong]:text-slate-300 [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#D4AF37]">
         {children}
       </div>
     </section>

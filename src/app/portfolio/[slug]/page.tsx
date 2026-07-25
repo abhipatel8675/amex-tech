@@ -362,7 +362,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <Link
                   href="/contact"
                   className="flex items-center justify-center gap-2 text-sm font-semibold text-white py-3 rounded-xl transition-all duration-200 btn-glow"
-                  style={{ background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)" }}
+                  style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
                 >
                   Start a Project
                 </Link>

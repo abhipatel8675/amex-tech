@@ -108,7 +108,7 @@ export default function ServicesPageContent() {
         <div className="grid-pattern absolute inset-0 opacity-40 pointer-events-none" />
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] opacity-10 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, #6366F1, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, #D4AF37, transparent 70%)" }}
         />
 
         <div className="relative max-w-7xl mx-auto px-6">
@@ -117,7 +117,7 @@ export default function ServicesPageContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="font-semibold uppercase mb-5"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
           >
             Our Services
           </motion.p>

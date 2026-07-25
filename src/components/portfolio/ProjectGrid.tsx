@@ -211,8 +211,8 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             className="flex items-center gap-1.5 text-sm font-semibold group/cs"
             style={{ color: "rgba(148,163,184,0.8)" }}
           >
-            <span className="group-hover/cs:text-indigo-400 transition-colors">Case Study</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover/cs:translate-x-0.5 group-hover/cs:text-indigo-400 transition-all" />
+            <span className="group-hover/cs:text-[#E1BC4A] transition-colors">Case Study</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover/cs:translate-x-0.5 group-hover/cs:text-[#E1BC4A] transition-all" />
           </Link>
 
           {project.liveUrl && (
@@ -261,8 +261,8 @@ export default function ProjectGrid() {
               activeCategory === cat
                 ? {
                     color: "white",
-                    borderColor: "rgba(99,102,241,0.5)",
-                    background: "rgba(99,102,241,0.12)",
+                    borderColor: "rgba(212,175,55,0.5)",
+                    background: "rgba(212,175,55,0.12)",
                   }
                 : {
                     color: "rgba(148,163,184,0.7)",
