@@ -76,7 +76,7 @@ export default function AboutPageContent() {
           className="relative max-w-7xl mx-auto px-6"
         >
           <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">About Us</p>
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 leading-[1.05] max-w-3xl">
+          <h1 className="text-[clamp(2.5rem,10vw,6rem)] md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 leading-[1.05] max-w-3xl break-words">
             We build software that{" "}
             <span style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               works in the real world.
@@ -122,7 +122,7 @@ export default function AboutPageContent() {
                 transition={{ duration: 0.4, delay: i * 0.07 }}
                 className="text-center md:px-8"
               >
-                <p className="text-5xl font-bold mb-2" style={{ background: "linear-gradient(135deg, #E2E8F0, #94A3B8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{stat.value}</p>
+                <p className="text-3xl sm:text-5xl font-bold mb-2" style={{ background: "linear-gradient(135deg, #E2E8F0, #94A3B8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{stat.value}</p>
                 <p className="text-base font-semibold text-slate-300 mb-1">{stat.label}</p>
                 <p className="text-sm text-slate-500">{stat.sub}</p>
               </motion.div>

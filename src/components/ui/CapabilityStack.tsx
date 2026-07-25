@@ -60,16 +60,21 @@ export function CapabilityStack({ className = "" }: { className?: string }) {
       {capabilities.map(({ label, accent, Icon }, i) => (
         <div
           key={label}
-          className="capability-card flex items-center gap-3 rounded-xl border px-5 py-4"
+          className="capability-card flex items-center gap-3 rounded-xl border px-5 py-4 backdrop-blur-md"
           style={{
             borderColor: `${accent}33`,
-            background: `linear-gradient(135deg, ${accent}14 0%, transparent 70%)`,
+            background: `linear-gradient(135deg, ${accent}1a 0%, rgba(255,255,255,0.03) 70%)`,
+            boxShadow: `inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 20px -12px ${accent}40`,
             marginLeft: i === 1 ? "1.5rem" : i === 2 ? "0.75rem" : "0",
           }}
         >
           <div
-            className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-            style={{ background: `${accent}1f`, border: `1px solid ${accent}40` }}
+            className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 backdrop-blur-sm"
+            style={{
+              background: `${accent}26`,
+              border: `1px solid ${accent}4d`,
+              boxShadow: `0 0 16px -2px ${accent}80`,
+            }}
           >
             <Icon size={18} style={{ color: accent }} />
           </div>

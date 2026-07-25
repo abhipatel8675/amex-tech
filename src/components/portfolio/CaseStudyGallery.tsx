@@ -243,7 +243,7 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
               {/* Controls */}
               <button
                 onClick={close}
-                className="absolute -top-12 right-0 p-2 text-slate-400 hover:text-white transition-colors"
+                className="absolute top-2 right-2 sm:-top-12 sm:right-0 p-2 rounded-full bg-black/40 sm:bg-transparent text-slate-300 hover:text-white transition-colors"
                 aria-label="Close"
               >
                 <X className="w-6 h-6" />
@@ -251,19 +251,19 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
               {lightboxIdx > 0 && (
                 <button
                   onClick={prev}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 p-2 text-slate-400 hover:text-white transition-colors"
+                  className="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 sm:-translate-x-14 p-2 rounded-full bg-black/40 sm:bg-transparent text-slate-300 hover:text-white transition-colors"
                   aria-label="Previous"
                 >
-                  <ChevronLeft className="w-8 h-8" />
+                  <ChevronLeft className="w-7 h-7 sm:w-8 sm:h-8" />
                 </button>
               )}
               {lightboxIdx < gallery.length - 1 && (
                 <button
                   onClick={next}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 p-2 text-slate-400 hover:text-white transition-colors"
+                  className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 sm:translate-x-14 p-2 rounded-full bg-black/40 sm:bg-transparent text-slate-300 hover:text-white transition-colors"
                   aria-label="Next"
                 >
-                  <ChevronRight className="w-8 h-8" />
+                  <ChevronRight className="w-7 h-7 sm:w-8 sm:h-8" />
                 </button>
               )}
             </motion.div>

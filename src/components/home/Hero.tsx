@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CircleCheck } from "lucide-react";
 import { AnimatedLogoDraw } from "@/components/ui/AnimatedLogoDraw";
 import { CapabilityStack } from "@/components/ui/CapabilityStack";
+import { HeroBlogList } from "@/components/ui/HeroBlogList";
 
 // Word-by-word stagger for the heading
 function WordSpan({ word, index }: { word: string; index: number }) {
@@ -57,7 +58,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-[92rem] mx-auto px-6 py-14 lg:py-20">
-        <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 xl:gap-20 items-start">
+        <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 xl:gap-20 items-stretch">
 
           {/* ─── LEFT: Content ─── */}
           <div>
@@ -206,7 +207,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="relative hidden lg:flex flex-col gap-5"
+            className="relative hidden lg:flex h-full flex-col gap-5"
           >
             {/* Capability stack */}
             <div
@@ -220,8 +221,8 @@ export default function Hero() {
             {/* Client review card */}
             <motion.div
               {...floatAnim(1.2, 5)}
-              className="rounded-2xl border border-white/[0.10] p-6 backdrop-blur-xl"
-              style={{ background: "rgba(15, 23, 41, 0.85)" }}
+              className="rounded-2xl border border-white/[0.09] p-6"
+              style={{ background: "linear-gradient(145deg, #0F1729 0%, #0B0F19 100%)" }}
             >
               <div className="flex items-center gap-1 mb-3">
                 {[...Array(5)].map((_, i) => (
@@ -236,6 +237,17 @@ export default function Hero() {
               </p>
               <p className="text-xs text-slate-500 mt-3">— Sarah M., Founder at TechStart</p>
             </motion.div>
+
+            {/* Featured blog posts — fills remaining column height */}
+            <div className="flex flex-1 flex-col">
+              <p
+                className="mb-3 font-semibold uppercase"
+                style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
+              >
+                From the Blog
+              </p>
+              <HeroBlogList />
+            </div>
           </motion.div>
         </div>
       </div>

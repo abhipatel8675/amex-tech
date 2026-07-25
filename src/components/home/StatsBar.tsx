@@ -95,7 +95,7 @@ function StatCard({
       </div>
       {/* Value */}
       <p
-        className="text-5xl font-bold tracking-tight mb-1.5 tabular-nums"
+        className="text-3xl sm:text-5xl font-bold tracking-tight mb-1.5 tabular-nums"
         style={{
           background: "linear-gradient(135deg, #E2E8F0 0%, #94A3B8 100%)",
           WebkitBackgroundClip: "text",

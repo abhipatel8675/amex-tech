@@ -90,12 +90,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
     font-size: 16px;
     line-height: 1.6;
+    overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight leading-tight;
@@ -162,6 +164,15 @@
 @keyframes shimmer {
   from { transform: translateX(-100%); }
   to   { transform: translateX(200%); }
+}
+
+/* Breathing glow blob behind glass cards */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.98); }
+  50%      { opacity: 0.75; transform: scale(1.03); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
 }
 
 /* Reduced motion: disable all animations */
@@ -260,14 +271,24 @@
 }
 
 /* ── Blog tables ── */
+.blog-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 1.75rem;
+  border-radius: 0.75rem;
+  -webkit-overflow-scrolling: touch;
+}
 .blog-content table {
   width: 100%;
+  min-width: 480px;
   border-collapse: collapse;
-  margin-bottom: 1.75rem;
   font-size: 0.9rem;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 0.75rem;
   overflow: hidden;
+}
+.blog-table-scroll table {
+  margin-bottom: 0;
 }
 .blog-content thead {
   background: rgba(255,255,255,0.04);

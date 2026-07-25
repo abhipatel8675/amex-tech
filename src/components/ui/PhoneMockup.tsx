@@ -19,7 +19,10 @@ export default function PhoneMockup({
   return (
     <div
       className={`relative mx-auto ${className}`}
-      style={{ transform: tiltDeg ? `rotate(${tiltDeg}deg)` : undefined, width: 180 }}
+      style={{
+        transform: tiltDeg ? `rotate(${tiltDeg}deg)` : undefined,
+        width: "clamp(120px, 34vw, 180px)",
+      }}
     >
       <div
         className="relative rounded-[2rem] overflow-hidden border-[3px] border-white/[0.15] shadow-2xl"

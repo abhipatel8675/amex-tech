@@ -57,7 +57,17 @@ export default function TechMarquee() {
 
   return (
     <section className="relative py-10 md:py-14 overflow-hidden border-t border-white/[0.06] bg-[#0B0F19]">
-      <div className="max-w-[92rem] mx-auto px-6 mb-7">
+      {/* Ambient glow behind the marquee */}
+      <div
+        className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-40 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 45% 100% at 50% 50%, rgba(99,102,241,0.14) 0%, transparent 70%)",
+          filter: "blur(30px)",
+        }}
+      />
+
+      <div className="relative max-w-[92rem] mx-auto px-6 mb-7">
         <p
           className="font-semibold uppercase text-center"
           style={{ fontSize: 11, letterSpacing: "0.15em", color: "#818CF8" }}
@@ -77,8 +87,20 @@ export default function TechMarquee() {
           {[...technologies, ...technologies].map((tech, i) => (
             <span
               key={i}
-              className="shrink-0 whitespace-nowrap rounded-lg border border-white/[0.07] bg-white/[0.04] px-4 py-2 text-sm font-medium text-slate-400"
+              className="group relative shrink-0 whitespace-nowrap rounded-xl border border-white/[0.10] px-4 py-2 text-sm font-medium text-slate-300 backdrop-blur-md transition-all duration-300 hover:text-white hover:border-indigo-300/40 hover:-translate-y-0.5"
+              style={{
+                background: "linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 1px rgba(255,255,255,0.03)",
+              }}
             >
+              {/* Hover glow */}
+              <span
+                className="absolute -inset-1.5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -z-10"
+                style={{
+                  background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)",
+                  filter: "blur(14px)",
+                }}
+              />
               {tech}
             </span>
           ))}

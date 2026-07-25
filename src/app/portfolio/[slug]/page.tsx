@@ -179,7 +179,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {/* Device mockup — floats into content below */}
           <div className="relative max-w-[92rem] mx-auto px-6 -mb-16 z-10">
             {isMobile ? (
-              <div className="flex justify-center gap-8 pb-4">
+              <div className="flex justify-center gap-4 sm:gap-8 pb-4">
                 <PhoneMockup
                   src={project.image}
                   alt={`${project.title} — ${project.shortDesc}`}

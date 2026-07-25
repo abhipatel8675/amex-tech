@@ -44,17 +44,17 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
   return (
     <div className="bg-[#111111] border border-[#1f1f1f] rounded-2xl overflow-hidden hover:border-[#2f2f2f] transition-all">
       <div
-        className="flex items-center justify-between p-5 cursor-pointer"
+        className="flex flex-wrap items-center justify-between gap-3 p-5 cursor-pointer"
         onClick={() => setExpanded(!expanded)}
       >
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 min-w-0">
           <div className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full border flex-shrink-0" style={{ borderColor: `${s.color}40`, color: s.color, background: `${s.color}10` }}>
             <Icon className="w-3 h-3" />
             {s.label}
           </div>
-          <div>
-            <p className="font-semibold text-sm">{order.service} — {order.package_name}</p>
-            <p className="text-xs text-[#6b7280]">{order.client_email}</p>
+          <div className="min-w-0">
+            <p className="font-semibold text-sm truncate">{order.service} — {order.package_name}</p>
+            <p className="text-xs text-[#6b7280] truncate">{order.client_email}</p>
           </div>
         </div>
         <div className="text-right flex-shrink-0">

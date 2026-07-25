@@ -385,7 +385,7 @@ function markdownToHtml(markdown: string): string {
       .map(l => `<tr>${parseRow(l).map(c => `<td>${c}</td>`).join('')}</tr>`)
       .join('');
 
-    return `<table><thead><tr>${headerCells}</tr></thead><tbody>${bodyRows}</tbody></table>\n`;
+    return `<div class="blog-table-scroll"><table><thead><tr>${headerCells}</tr></thead><tbody>${bodyRows}</tbody></table></div>\n`;
   });
 
   // Wrap bare text lines in <p> (skip lines that are already HTML tags or placeholders)

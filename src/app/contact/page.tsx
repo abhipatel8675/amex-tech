@@ -133,7 +133,7 @@ export default function ContactPage() {
           <div className="absolute top-0 right-1/4 w-80 h-80 rounded-full opacity-6 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #6366F1, transparent 70%)" }} />
           <div className="relative max-w-7xl mx-auto px-6">
             <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-5">Contact Us</p>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-3xl mb-6 leading-[1.05]">
+            <h1 className="text-[clamp(2.25rem,9vw,4.5rem)] md:text-6xl lg:text-7xl font-bold tracking-tight max-w-3xl mb-6 leading-[1.05] break-words">
               Let&apos;s build something{" "}
               <span style={{ background: "linear-gradient(135deg, #818CF8, #A78BFA)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 great together.
