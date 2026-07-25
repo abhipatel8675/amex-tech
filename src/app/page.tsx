@@ -3,6 +3,7 @@ import { testimonials } from "@/data/testimonials";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
+import TechMarquee from "@/components/home/TechMarquee";
 import StatsBar from "@/components/home/StatsBar";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -194,6 +195,7 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <TechMarquee />
         <StatsBar />
         <ServicesPreview />
         <WhyChooseUs />

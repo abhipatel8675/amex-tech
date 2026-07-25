@@ -57,7 +57,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-[92rem] mx-auto px-6 py-14 lg:py-20">
-        <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 xl:gap-20 items-center">
+        <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 xl:gap-20 items-start">
 
           {/* ─── LEFT: Content ─── */}
           <div>
@@ -199,25 +199,6 @@ export default function Hero() {
               </div>
             </div>
             </motion.div>
-
-            {/* Tech marquee */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1.0 }}
-              className="mt-10"
-            >
-              <div className="flex flex-wrap gap-2.5">
-                {["Next.js", "TypeScript", "React", "Node.js", "AWS", "Supabase", "Stripe", "Docker", "Tailwind CSS", "Vercel", "PostgreSQL", "Figma"].map((tech, i) => (
-                  <span
-                    key={i}
-                    className="text-sm font-medium text-slate-400 whitespace-nowrap px-4 py-2 rounded-lg bg-white/[0.04] border border-white/[0.07]"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
           </div>
 
           {/* ─── RIGHT: Terminal / project stats mockup ─── */}
@@ -225,21 +206,21 @@ export default function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="relative hidden lg:flex flex-col gap-4"
+            className="relative hidden lg:flex flex-col gap-5"
           >
             {/* Capability stack */}
             <div
-              className="rounded-2xl border border-white/[0.09] overflow-hidden p-6"
+              className="rounded-2xl border border-white/[0.09] overflow-hidden p-7"
               style={{ background: "linear-gradient(145deg, #0F1729 0%, #0B0F19 100%)" }}
             >
-              <AnimatedLogoDraw size={24} textClassName="text-base" className="mb-5" />
+              <AnimatedLogoDraw size={26} textClassName="text-lg" className="mb-6" />
               <CapabilityStack />
             </div>
 
             {/* Client review card */}
             <motion.div
               {...floatAnim(1.2, 5)}
-              className="rounded-2xl border border-white/[0.10] p-5 backdrop-blur-xl"
+              className="rounded-2xl border border-white/[0.10] p-6 backdrop-blur-xl"
               style={{ background: "rgba(15, 23, 41, 0.85)" }}
             >
               <div className="flex items-center gap-1 mb-3">
@@ -254,19 +235,6 @@ export default function Hero() {
                 "Exceptional work — on time, within budget, and the quality exceeded our expectations."
               </p>
               <p className="text-xs text-slate-500 mt-3">— Sarah M., Founder at TechStart</p>
-            </motion.div>
-
-            {/* Deployment live badge */}
-            <motion.div
-              {...floatAnim(0.4, 6)}
-              className="absolute -top-4 -right-4 rounded-2xl border border-white/[0.12] px-4 py-3 backdrop-blur-xl flex items-center gap-3"
-              style={{ background: "rgba(15, 23, 41, 0.9)" }}
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-              <div>
-                <p className="text-xs font-semibold text-white">v2.4.1 live</p>
-                <p className="text-xs text-slate-500 font-mono">Build 2.4s</p>
-              </div>
             </motion.div>
           </motion.div>
         </div>
