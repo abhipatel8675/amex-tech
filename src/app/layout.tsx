@@ -67,7 +67,11 @@ const organizationSchema = {
   logo: "https://amextechnology.com/images/logo.png",
   foundingDate: "2019",
   email: "abhipatel8675@gmail.com",
-  sameAs: ["https://www.fiverr.com/abhipatel956"],
+  sameAs: [
+    "https://www.fiverr.com/abhipatel956",
+    "https://www.instagram.com/amextechnology/",
+    "https://www.upwork.com/agencies/2067871097204619852/",
+  ],
   address: {
     "@type": "PostalAddress",
     addressCountry: "IN",
