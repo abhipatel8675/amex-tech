@@ -71,6 +71,7 @@ const organizationSchema = {
     "https://www.fiverr.com/abhipatel956",
     "https://www.instagram.com/amextechnology/",
     "https://www.upwork.com/agencies/2067871097204619852/",
+    "https://www.linkedin.com/company/amex-technology/",
   ],
   address: {
     "@type": "PostalAddress",
