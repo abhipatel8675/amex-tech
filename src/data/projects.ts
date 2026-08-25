@@ -799,6 +799,55 @@ export const projects: Project[] = [
     liveUrl: "https://mydialogix.com",
     image: "/images/portfolio/dialogix.png",
   },
+  {
+    slug: "wide-eyed-giant",
+    title: "Wide Eyed Giant",
+    category: "Web",
+    tags: ["Web", "Food & Recipes", "Editorial"],
+    shortDesc:
+      "An editorial recipe website with a warm, magazine-style design across breakfast, mains and desserts.",
+    description:
+      "Wide Eyed Giant is a seasonal, high-protein recipe website built around creator Kelsey's food content. We designed and built an editorial-style site — a warm cream homepage for browsing, bold black category pages for structure, and a searchable recipe finder — that turns her recipes into a cohesive, magazine-quality experience.",
+    problem:
+      "Recipe content spread across social media is easy to lose and hard to browse. Kelsey needed a dedicated home for her seasonal, high-protein recipes that felt as considered and beautiful as the food itself, with an easy way for visitors to find recipes by category or craving.",
+    solution:
+      "We built a two-tone editorial site: a light, warm homepage anchored by a fresh-post hero and category navigation, contrasting black category and search pages for visual rhythm, and a keyword-driven recipe finder across breakfast, mains, snacks, desserts and sides. An about page introduces Kelsey and the philosophy behind the recipes — seasonal, high protein, and beautiful enough to look at before you eat it.",
+    results: [
+      "Editorial homepage hero showcasing the latest recipe with a warm, magazine feel",
+      "Category pages (breakfast, mains, desserts) with a striking light/dark contrast",
+      "Keyword-searchable recipe finder across five categories",
+      "About page building a personal connection with the creator behind the recipes",
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    gradientFrom: "#c9a227",
+    gradientTo: "#1a1a1a",
+    featured: false,
+    liveUrl: "https://wideeyedgiant.com",
+    image: "/images/portfolio/wide-eyed-giant/ss-1.png",
+    gallery: [
+      {
+        src: "/images/portfolio/wide-eyed-giant/ss-1.png",
+        alt: "Wide Eyed Giant — homepage hero: High Protein Cottage Cheese Pancakes with Raspberry Whip and Berry Compote",
+        caption: "Editorial homepage hero — fresh post spotlighting a seasonal, high-protein recipe",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/wide-eyed-giant/ss-2.png",
+        alt: "Wide Eyed Giant — View All Mains category page with Lunch, Dinner, Salads and Side Dishes",
+        caption: "Bold black category pages — Lunch, Dinner, Salads and Side Dishes at a glance",
+      },
+      {
+        src: "/images/portfolio/wide-eyed-giant/ss-3.png",
+        alt: "Wide Eyed Giant — About page: Hey, I'm Kelsey",
+        caption: "About page — introducing Kelsey and the seasonal, high-protein philosophy behind every recipe",
+      },
+      {
+        src: "/images/portfolio/wide-eyed-giant/ss-4.png",
+        alt: "Wide Eyed Giant — recipe finder with keyword search across Breakfast, Mains, Snacks, Desserts and Sides",
+        caption: "Keyword-searchable recipe finder — Breakfast, Mains, Snacks, Desserts and Sides",
+      },
+    ],
+  },
 ];
 
 export const categories = ["All", "Web", "Mobile App", "SaaS", "AI"] as const;
