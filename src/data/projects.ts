@@ -28,186 +28,562 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "molar-ai",
-    title: "Molar AI",
-    category: "AI",
-    tags: ["AI", "Social Media", "Dental Tech"],
-    shortDesc: "AI-powered social media automation built exclusively for dental practices.",
+    slug: "wide-eyed-giant",
+    title: "Wide Eyed Giant",
+    category: "Web",
+    tags: ["Web", "Food & Recipes", "Editorial"],
+    shortDesc:
+      "An editorial recipe website with a warm, magazine-style design across breakfast, mains and desserts.",
     description:
-      "Molar AI is an AI platform that fully automates social media content for dental practices — posting to Instagram and Facebook daily in any language, in the practice's authentic voice. Branded, converting, and completely hands-off.",
+      "Wide Eyed Giant is a seasonal, high-protein recipe website built around creator Kelsey's food content. We designed and built an editorial-style site — a warm cream homepage for browsing, bold black category pages for structure, and a searchable recipe finder — that turns her recipes into a cohesive, magazine-quality experience.",
     problem:
-      "Dental practices know they need a consistent social media presence to attract patients, but they have no time to create content. Hiring social media managers is expensive, generic agencies produce lifeless posts, and DIY efforts burn out within weeks.",
+      "Recipe content spread across social media is easy to lose and hard to browse. Kelsey needed a dedicated home for her seasonal, high-protein recipes that felt as considered and beautiful as the food itself, with an easy way for visitors to find recipes by category or craving.",
     solution:
-      "We built Molar AI to make social media invisible work for dental practices. The platform generates on-brand, clinically credible content daily, schedules it automatically across Instagram and Facebook, and adapts to each practice's voice and patient demographics.",
+      "We built a two-tone editorial site: a light, warm homepage anchored by a fresh-post hero and category navigation, contrasting black category and search pages for visual rhythm, and a keyword-driven recipe finder across breakfast, mains, snacks, desserts and sides. An about page introduces Kelsey and the philosophy behind the recipes — seasonal, high protein, and beautiful enough to look at before you eat it.",
     results: [
-      "Daily social media posts in any language, fully automated",
-      "Authentic, branded content that converts followers into booked patients",
-      "Zero time investment from the dental team after initial setup",
-      "Consistent online presence that compounds patient trust over time",
+      "Editorial homepage hero showcasing the latest recipe with a warm, magazine feel",
+      "Category pages (breakfast, mains, desserts) with a striking light/dark contrast",
+      "Keyword-searchable recipe finder across five categories",
+      "About page building a personal connection with the creator behind the recipes",
     ],
-    technologies: ["Next.js", "TypeScript", "OpenAI", "Supabase", "Tailwind CSS", "Vercel"],
-    gradientFrom: "#6366f1",
-    gradientTo: "#8b5cf6",
-    featured: true,
-    liveUrl: "https://molarai.studio",
-    image: "/images/portfolio/molar-ai.png",
-    gallery: [
-      {
-        src: "/images/portfolio/molar-ai/ss-1.png",
-        alt: "Molar AI — homepage hero: The Easiest Way to Educate Patients Online",
-        caption: "5.8M+ organic views generated — the easiest way to educate patients online",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-2.png",
-        alt: "Molar AI — AI-generated dental content reels in multiple languages",
-        caption: "Branded reels across dentistry topics — multilingual, high-engagement, zero filming",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-3.png",
-        alt: "Molar AI — One Platform, Five Continents. Five Steps to Full Automation.",
-        caption: "One platform, five continents — live in as little as 24 hours",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-4.png",
-        alt: "Molar AI — Customized at Scale: Reels, Carousels, Before & Afters, Case Studies",
-        caption: "Every content grid is unique — built around your brand, your patients, your city",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-5.png",
-        alt: "Molar AI — Dr. Patricia Harrosch before (159 followers) vs after (10.2K followers)",
-        caption: "Dr. Patricia Harrosch: 159 followers → 10.2K followers — trusted by Quebec's smile makeover expert",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-6.png",
-        alt: "Molar AI vs. Agencies comparison — $497/mo vs $3,000–5,000/mo",
-        caption: "Molar AI vs agencies: $497/mo, 24-hour content speed, no contracts, all languages",
-      },
-    ],
-  },
-  {
-    slug: "periscope-email",
-    title: "Periscope Email",
-    category: "SaaS",
-    tags: ["AI Outreach", "B2B Sales", "SaaS"],
-    shortDesc: "Turns real-time news triggers into ready-to-send enterprise outreach in seconds.",
-    description:
-      "Periscope transforms breaking news about named accounts into researched contact lists and personalized, enterprise-grade emails — in seconds, not 30+ minutes. It gives B2B sales teams a revenue intelligence layer that acts on signals the moment they happen.",
-    problem:
-      "Enterprise sales teams are slow to react to buying signals. By the time reps research a news trigger, find contacts, and write a relevant email, the moment has passed. Existing tools give you the data but leave all the work to the rep.",
-    solution:
-      "We built Periscope as an end-to-end signal-to-send workflow. It monitors news across named accounts, automatically researches relevant contacts, and generates personalized, ready-to-send enterprise emails — collapsing 30+ minutes of rep work into seconds.",
-    results: [
-      "Breaking news about target accounts converted to outreach in seconds",
-      "Researched contact lists generated automatically alongside each email",
-      "Enterprise-grade personalization at the speed of a news alert",
-      "Sales teams react to buying signals before the competition can",
-    ],
-    technologies: ["Next.js", "React", "Node.js", "TypeScript", "OpenAI", "Supabase"],
-    gradientFrom: "#eab308",
-    gradientTo: "#f97316",
-    featured: true,
-    liveUrl: "https://periscope.email",
-    image: "/images/portfolio/periscope-email.png",
-    gallery: [
-      {
-        src: "/images/portfolio/periscope-email/ss-1.png",
-        alt: "Periscope Email — homepage: Real-Time News Triggers → Ready-to-Send Enterprise Outreach",
-        caption: "Real-time news triggers → ready-to-send enterprise outreach, in seconds not 30+ minutes",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-2.png",
-        alt: "Periscope Email — Never Miss a Revenue Moment Again",
-        caption: "News Headlines → Verified Contacts → Opportunity Created → Meetings Booked",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-3.png",
-        alt: "Periscope Email — What Periscope Does: 5-step pipeline",
-        caption: "5 automated steps: monitor news, detect triggers, find contacts, generate email, deliver",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-4.png",
-        alt: "Periscope Email — pricing and plans",
-        caption: "Flexible plans for solo reps and enterprise sales teams",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-5.png",
-        alt: "Periscope Email — use cases and integrations",
-        caption: "Built for enterprise AEs and SDRs across any industry vertical",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-6.png",
-        alt: "Periscope Email — security and compliance",
-        caption: "Enterprise-grade security — your data stays yours",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-7.png",
-        alt: "Periscope Email — sign up and onboarding flow",
-        caption: "Get started in minutes — connect accounts and go live immediately",
-      },
-    ],
-  },
-  {
-    slug: "hmd",
-    title: "HMD",
-    category: "SaaS",
-    tags: ["Medical Education", "E-Learning", "SaaS"],
-    shortDesc: "Elite medical education platform advancing physicians through evidence and leadership.",
-    description:
-      "HMD is a premium medical education platform delivering elite physician training, evidence-based programs, and physician-executive development to medical trainees, physicians, and institutions worldwide. Built around the principle of medicine via pristina — pure, rigorous, and leadership-driven.",
-    problem:
-      "Physicians seeking elite continuing education and executive development faced a fragmented landscape of low-quality platforms. Institutions needed a trusted, scalable home for structured medical programs that matched the prestige of the training itself.",
-    solution:
-      "We built HMD as a full-featured medical education SaaS — featuring structured program pathways, a curated library of clinical resources, a physician community hub (iConnect), and a clean, authoritative interface that reflects the caliber of the education delivered.",
-    results: [
-      "Integrated 4-year and 3-year physician programs delivered asynchronously online",
-      "100% asynchronous curriculum accessible globally for active physicians",
-      "iConnect community hub fostering peer collaboration among medical professionals",
-      "Institutional partnerships extending the reach of elite physician development",
-    ],
-    technologies: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS", "Vercel"],
-    gradientFrom: "#1e3a5f",
-    gradientTo: "#c9a227",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    gradientFrom: "#c9a227",
+    gradientTo: "#1a1a1a",
     featured: false,
-    liveUrl: "https://www.hmd.com.co",
-    image: "/images/portfolio/hmd/ss-8.png",
+    liveUrl: "https://wideeyedgiant.com",
+    image: "/images/portfolio/wide-eyed-giant/ss-1.png",
     gallery: [
       {
-        src: "/images/portfolio/hmd/ss-4.png",
-        alt: "HMD — Evidence Summary library: curated clinical research papers across specialties",
-        caption: "Evidence Summary library — curated RCTs, meta-analyses, and guidelines across every specialty",
+        src: "/images/portfolio/wide-eyed-giant/ss-1.png",
+        alt: "Wide Eyed Giant — homepage hero: High Protein Cottage Cheese Pancakes with Raspberry Whip and Berry Compote",
+        caption: "Editorial homepage hero — fresh post spotlighting a seasonal, high-protein recipe",
         span: "wide",
       },
       {
-        src: "/images/portfolio/hmd/ss-5.png",
-        alt: "HMD — Evidence Summary article: ADA Standards of Care in Diabetes 2026",
-        caption: "Deep-dive evidence summaries with HMD faculty appraisals and graded evidence ratings",
+        src: "/images/portfolio/wide-eyed-giant/ss-2.png",
+        alt: "Wide Eyed Giant — View All Mains category page with Lunch, Dinner, Salads and Side Dishes",
+        caption: "Bold black category pages — Lunch, Dinner, Salads and Side Dishes at a glance",
       },
       {
-        src: "/images/portfolio/hmd/ss-6.png",
-        alt: "HMD — Key Quotable Insight and clinical practice point from an evidence summary",
-        caption: "Key Quotable Insights — ready for executive briefs, slide decks, and policy discussions",
+        src: "/images/portfolio/wide-eyed-giant/ss-3.png",
+        alt: "Wide Eyed Giant — About page: Hey, I'm Kelsey",
+        caption: "About page — introducing Kelsey and the seasonal, high-protein philosophy behind every recipe",
       },
       {
-        src: "/images/portfolio/hmd/ss-1.png",
-        alt: "HMD — physician dashboard: Good afternoon, Colleague. Upcoming journal clubs and recommendations.",
-        caption: "Physician dashboard — personalized learning, upcoming journal clubs, and iConnect activity",
+        src: "/images/portfolio/wide-eyed-giant/ss-4.png",
+        alt: "Wide Eyed Giant — recipe finder with keyword search across Breakfast, Mains, Snacks, Desserts and Sides",
+        caption: "Keyword-searchable recipe finder — Breakfast, Mains, Snacks, Desserts and Sides",
+      },
+    ],
+  },
+  {
+    slug: "dialogix",
+    title: "Dialogix",
+    category: "AI",
+    tags: ["AI", "Sales Automation", "SaaS"],
+    shortDesc:
+      "An AI sales-automation platform that calls, emails, texts and messages prospects in 6 languages — 24/7.",
+    description:
+      "Dialogix is an AI-powered sales command center — 'Your Sales Team Never Sleeps.' It deploys AI agents that call, email, text and message prospects across channels in six languages, finding leads, booking demos and nurturing deals around the clock so founders and sales teams can focus on closing.",
+    problem:
+      "Scaling outbound sales usually means hiring and managing more SDRs — expensive, slow, and hard to keep consistent across channels and time zones. Manual prospecting caps how many leads a team can reach, and follow-up routinely falls through the cracks.",
+    solution:
+      "We built Dialogix as an AI sales command center that runs outreach autonomously across phone, email, SMS and LinkedIn in six languages. AI voice agents qualify leads on calls, behavior-adaptive email and SMS sequences follow up intelligently, and campaigns run 24/7 — with tiered plans ranging from self-serve SaaS to a fully managed revenue-cycle service.",
+    results: [
+      "AI agents across four channels — phone calls, email, SMS and LinkedIn",
+      "Multilingual outreach in 6 languages (English, Spanish, Mandarin, French, Portuguese, Italian)",
+      "24/7 autonomous prospecting, demo booking and intelligent follow-up",
+      "Flexible plans from $97/mo self-serve to a fully managed revenue-cycle service",
+    ],
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "AI Voice Agents"],
+    gradientFrom: "#14b8a6",
+    gradientTo: "#0891b2",
+    featured: false,
+    liveUrl: "https://mydialogix.com",
+    image: "/images/portfolio/dialogix.png",
+  },
+  {
+    slug: "cyber7",
+    title: "Cyber7 MDR Alerts",
+    category: "Mobile App",
+    tags: ["Mobile App", "Cybersecurity", "MDR"],
+    shortDesc:
+      "Real-time managed-detection-and-response security alerts, pushed straight to your phone.",
+    description:
+      "Cyber7 MDR Alerts is a mobile app for an Australian managed security provider that turns critical security incidents into instant push notifications. It pulls High and Critical tickets from ConnectWise (fed by Rapid7 threat detection) and lets analysts and clients view, acknowledge, resolve and annotate incidents from their phone — with role-based access so each client sees only their own company's alerts.",
+    problem:
+      "Managed-detection incidents live inside ConnectWise ticketing, where they're easy to miss. SOC analysts and their clients need immediate, prioritized, mobile visibility into critical threats — not another desktop tool they have to keep checking.",
+    solution:
+      "We built a dedicated mobile app with a Node/Express + MongoDB backend that continuously polls ConnectWise for High/Critical tickets and dispatches tone-differentiated push notifications. Users triage incidents in-app — acknowledge, resolve, reprioritize and add notes — and every change syncs back to ConnectWise. Admins see all clients; each client sees only their own alerts.",
+    results: [
+      "Real-time push alerts for High/Critical incidents with selectable alert tones",
+      "In-app triage — acknowledge, resolve, reprioritize and annotate, synced to ConnectWise",
+      "Role-based access: SOC admins see all clients, clients see only their own",
+      "ConnectWise + Rapid7 detection pipeline surfaced on mobile within seconds",
+    ],
+    technologies: ["React Native", "Expo", "Node.js", "Express", "MongoDB", "ConnectWise API"],
+    gradientFrom: "#ef4444",
+    gradientTo: "#f97316",
+    featured: false,
+    image: "/images/portfolio/cyber7.png",
+  },
+  {
+    slug: "emigo",
+    title: "EmiGo",
+    category: "Mobile App",
+    tags: ["Mobile App", "Accessibility", "Events"],
+    shortDesc:
+      "An accessibility-first events app that helps people find and RSVP to genuinely accessible experiences.",
+    description:
+      "EmiGo is a mobile app that makes accessibility a first-class part of discovering local events. Attendees browse, search and filter events by accessibility features — wheelchair access, ASL, sensory-friendly, free — RSVP with their specific needs and group size, and save favorites. Organizers get their own side of the app to publish accessibility-aware events and manage RSVPs.",
+    problem:
+      "Finding events that genuinely accommodate accessibility needs is hard. Standard event apps rarely say whether a venue is wheelchair-accessible, ASL-interpreted, sensory-friendly or free — leaving people to guess, call ahead, or miss out entirely.",
+    solution:
+      "We built EmiGo around accessibility as core metadata, not an afterthought. Every event surfaces accessibility badges and can be filtered by them, attendees RSVP with specific accessibility requests and group details, and organizers publish accessibility-aware events and receive those requests directly — all in a fast, native mobile experience.",
+    results: [
+      "Accessibility-first discovery — filter by wheelchair, ASL, sensory-friendly, free and more",
+      "Group RSVP capturing per-request accessibility needs and notes",
+      "Organizer dashboard to create events and manage incoming RSVPs",
+      "Native maps, saved events and an upcoming-events view",
+    ],
+    technologies: ["React Native", "Expo", "TypeScript", "Firebase", "React Query"],
+    gradientFrom: "#38bdf8",
+    gradientTo: "#6366f1",
+    featured: false,
+    image: "/images/portfolio/emigo.png",
+  },
+  {
+    slug: "wolfe-property",
+    title: "Wolfe Property Portal",
+    category: "Web",
+    tags: ["Web App", "PropTech", "FinTech"],
+    shortDesc:
+      "A gated client portal and property-investment calculator for a New Zealand property-coaching firm.",
+    description:
+      "Wolfe Property Portal is a client portal for a New Zealand property-investment coaching business. It guides prospects through a qualification funnel and gives approved clients an interactive calculator that models 15-year cash flow, top-ups, yield and ROI for rental deals — comparing an 'as-is' scenario against an optimized 'Cashflow Hacking' one.",
+    problem:
+      "The coaching business ran its property-investment math in a Google Sheet — not scalable, not client-friendly, and impossible to gate behind qualification. Prospects also needed to be qualified on usable equity before consuming valuable coaching time.",
+    solution:
+      "We built a Next.js portal that reproduces the spreadsheet's calculations exactly — verified to within ±$1 by a 26-test suite — inside an interactive live-preview UI, and wrapped it in a funnel that captures leads, auto-computes equity qualification and programme tier, and routes clients through admin approval before granting dashboard access. Client records and approvals live in Notion so non-technical staff can run it.",
+    results: [
+      "Spreadsheet-parity investment calculator verified to ±$1 across a 26-test suite",
+      "15-year cash-flow model with NZ tax, GST and depreciation, and a two-scenario comparison",
+      "Equity-qualification onboarding funnel with automatic programme tiering",
+      "Passwordless magic-link auth with admin approval gating and a Notion-backed CRM",
+    ],
+    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "Notion API", "Tailwind CSS"],
+    gradientFrom: "#db2777",
+    gradientTo: "#111827",
+    featured: false,
+    liveUrl: "https://portal.wolfeproperty.co.nz",
+    image: "/images/portfolio/wolfe-property.png",
+    imagePosition: "object-top",
+  },
+  {
+    slug: "ultra-windows",
+    title: "Ultra Windows",
+    category: "Web",
+    tags: ["Web App", "B2B", "Manufacturing"],
+    shortDesc:
+      "An end-to-end quoting and operations platform for a UK aluminium windows & doors manufacturer.",
+    description:
+      "Ultra Windows is a complete B2B operations platform for a UK aluminium windows-and-doors fabricator. Trade customers and staff configure bespoke products — bifolds, sliders, rooflights, bay windows and more — with live 3D previews and instant pricing, then convert quotes to orders that flow straight into production scheduling, delivery routing, a driver app, stock, and Sage accounting.",
+    problem:
+      "Bespoke window and door manufacturers rely on manual, error-prone quoting in spreadsheets and email, disconnected from pricing, production, delivery and accounting. Complex configurations make accurate quotes slow, and there's no self-serve channel for trade customers or real-time visibility for drivers and office staff.",
+    solution:
+      "We designed and built a unified platform where accurate, visual, priced configurations are produced right in the browser with live 3D previews, then flow straight into orders — driving production scheduling, delivery routing and driver dispatch, and Sage 200 accounting. Role-scoped access serves office staff, trade customers and drivers, all backed by Supabase with row-level security.",
+    results: [
+      "In-browser configurators with live 3D previews for 13+ bespoke product types",
+      "Instant, customer-specific pricing and one-click quote-to-order conversion",
+      "Route Master logistics with Mapbox route planning and a dedicated driver app",
+      "Sage 200 accounting integration plus a self-serve trade customer portal",
+    ],
+    technologies: ["React", "TypeScript", "Vite", "Supabase", "Three.js", "Tailwind CSS", "Mapbox"],
+    gradientFrom: "#f97316",
+    gradientTo: "#c2410c",
+    featured: false,
+    liveUrl: "https://ultrawindows.co.uk",
+    image: "/images/portfolio/ultra-windows.png",
+    imagePosition: "object-top",
+    gallery: [
+      {
+        src: "/images/portfolio/ultra-windows/ss-1.png",
+        alt: "Ultra Windows — branded, print-ready quote sheet with line items, VAT and total",
+        caption: "Branded, print-ready quotes generated straight from the configurator",
+        span: "wide",
       },
       {
-        src: "/images/portfolio/hmd/ss-2.png",
-        alt: "HMD — iConnect social feed with live journal club session and medical news",
-        caption: "iConnect — live journal club sessions, breaking medical news, and peer updates in one feed",
+        src: "/images/portfolio/ultra-windows/ss-2.png",
+        alt: "Ultra Windows — window configurator: dimensions, frame system and window-style grid",
+        caption: "Bespoke window configurator — dimensions, frame system and style grid",
       },
       {
-        src: "/images/portfolio/hmd/ss-3.png",
-        alt: "HMD — iConnect Network: physician connection cards with specialty and verification badges",
-        caption: "iConnect Network — connect and follow verified physicians across every specialty worldwide",
+        src: "/images/portfolio/ultra-windows/ss-3.png",
+        alt: "Ultra Windows — per-pane options: opening direction, RAL frame colours and cill",
+        caption: "Per-pane options — opening direction, RAL frame colours and cill",
       },
       {
-        src: "/images/portfolio/hmd/ss-7.png",
-        alt: "HMD — ResumePro: AI-powered physician CV builder with clinical experience and publications",
-        caption: "ResumePro — AI-powered CV builder designed specifically for medical students, residents, and physicians",
+        src: "/images/portfolio/ultra-windows/ss-4.png",
+        alt: "Ultra Windows — glass type, u-values, blinds and glazing add-ons",
+        caption: "Glazing choices — glass type, u-values, blinds and add-ons",
+      },
+      {
+        src: "/images/portfolio/ultra-windows/ss-5.png",
+        alt: "Ultra Windows — full style grid with multi-pane configuration and per-pane sizing",
+        caption: "Full style grid with multi-pane configuration and per-pane sizing",
+      },
+      {
+        src: "/images/portfolio/ultra-windows/ss-6.png",
+        alt: "Ultra Windows — bay-window configurator with angle and survey inputs",
+        caption: "Bay-window configurator with angle and on-site survey inputs",
+      },
+    ],
+  },
+  {
+    slug: "east-end-vintage-sale",
+    title: "East End Vintage Sale",
+    category: "Web",
+    tags: ["Web Design", "Branding", "Event"],
+    shortDesc:
+      "A bold retro event microsite and brand system for a Toronto sidewalk vintage sale.",
+    description:
+      "East End Vintage Sale is a community sidewalk vintage-clothing sale in East York, Toronto. We designed a bold, retro-inspired event microsite and brand system to launch its second edition — a pink-and-white striped, halftone-photo, crumpled-paper aesthetic that captures the laid-back Sunday-market vibe and drives turnout.",
+    problem:
+      "A one-day, word-of-mouth pop-up lives or dies on turnout. The organizers needed to rebuild hype for a second edition, communicate the essentials — date, place, what to expect — at a glance, and stand out on social, all without a big budget or a permanent website.",
+    solution:
+      "We crafted a scroll-through event landing experience with a distinctive vintage brand system: a striped-paper hero, halftone photo cut-outs, and hand-drawn accents. Each section answers a single question — the details, the vibe, drinks, and location — and the whole thing closes on a shareable 'Come early, bring a tote, tell a friend' call to action tied to their social handles.",
+    results: [
+      "Cohesive retro brand system — striped paper, halftone photography, hand-drawn accents",
+      "Scannable 'everything in one glance' details: date, address, and rain-or-shine",
+      "Sectioned storytelling that sells the experience — the details, the vibe, drinks, and location",
+      "Shareable closing call-to-action driving RSVPs to @eastendvintagesale",
+    ],
+    technologies: ["Figma", "Web Design", "Branding", "Social Campaign"],
+    gradientFrom: "#f9a8d4",
+    gradientTo: "#1e293b",
+    featured: false,
+    liveUrl: "https://www.instagram.com/eastendvintagesale",
+    image: "/images/portfolio/east-end-vintage-sale.png",
+    gallery: [
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-1.png",
+        alt: "East End Vintage Sale — landing hero: The Sidewalk Sale Returns for the Second Time, Sunday Aug 9",
+        caption:
+          "The sidewalk sale returns — a striped-paper hero with halftone photography and the key date front and center",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-2.png",
+        alt: "East End Vintage Sale — The Details: date, address and weather at a glance",
+        caption: "Everything you need in one glance — date, address, and rain-or-shine",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-3.png",
+        alt: "East End Vintage Sale — The Vibe: more than shopping, it's a Sunday scene",
+        caption: "The vibe — more than shopping, it's a Sunday scene",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-4.png",
+        alt: "East End Vintage Sale — Drinks section",
+        caption: "Freshly made lemonade and good music — part of the day-out experience",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-5.png",
+        alt: "East End Vintage Sale — Location: 275 Glebemount Ave, East York",
+        caption: "Location made effortless — 275 Glebemount Ave, East York",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/ss-6.png",
+        alt: "East End Vintage Sale — closing CTA: come early, bring a tote, tell a friend",
+        caption: "Come early. Bring a tote. Tell a friend — a shareable close tied to their socials",
+      },
+    ],
+  },
+  {
+    slug: "buttercream-bus",
+    title: "Buttercream Bus",
+    category: "Web",
+    tags: ["Web", "E-Commerce", "Food & Beverage"],
+    shortDesc:
+      "A playful web experience for a mobile bakery — live truck tracking, pre-ordering, event booking and an AI cake designer.",
+    description:
+      "Buttercream Bus is 'Fresh Baked Dreams on Wheels' — a mobile bakery food truck. We built a warm, playful website that lets customers track the wandering oven in real time, pre-order signature treats to skip the line, book the bus for weddings and events, sign up for baking classes, and even generate custom cake concepts with an AI cake designer.",
+    problem:
+      "A food truck's biggest challenge is that customers never know where it is. On top of that, walk-up lines cost sales, event bookings lived in DMs and spreadsheets, and there was no way to showcase the menu or capture demand between stops.",
+    solution:
+      "We designed and shipped a single friendly hub for the whole business: real-time GPS truck tracking with a neighborhood voting system to unlock pop-up stops, a pre-order 'Baker's Box' flow, an events booking calendar with availability checks, a classes catalog, and an AI 'Cake Architect' that turns a prompt into visual cake concepts — all wrapped in the brand's warm buttercream palette.",
+    results: [
+      "Real-time bus tracking with 'Get Notified' alerts so fans never miss a stop",
+      "Pre-order flow that lets customers skip the line and lock in favorites",
+      "Self-serve event booking for weddings, birthdays and corporate catering",
+      "AI Cake Architect that generates custom cake design concepts on demand",
+    ],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Lovable"],
+    gradientFrom: "#f59e0b",
+    gradientTo: "#d97706",
+    featured: false,
+    liveUrl: "https://thebuttercreambus.shop",
+    image: "/images/portfolio/buttercream-bus.jpg",
+    gallery: [
+      {
+        src: "/images/portfolio/buttercream-bus/ss-1.png",
+        alt: "Buttercream Bus — homepage hero: Fresh Baked Dreams on Wheels with live 'Now at' location",
+        caption:
+          "Fresh Baked Dreams on Wheels — track the wandering oven, pre-order, and book the bus, all from the hero",
+      },
+      {
+        src: "/images/portfolio/buttercream-bus/cupcakes.jpg",
+        alt: "Buttercream Bus — gourmet cupcakes",
+        caption: "Gourmet cupcakes — one of four signature treats on the menu",
+      },
+      {
+        src: "/images/portfolio/buttercream-bus/cinnamon-rolls.jpg",
+        alt: "Buttercream Bus — fresh cinnamon rolls",
+        caption: "Fresh-baked cinnamon rolls, available for pre-order in the Baker's Box",
+      },
+      {
+        src: "/images/portfolio/buttercream-bus/cookies.jpg",
+        alt: "Buttercream Bus — jumbo cookies",
+        caption: "Jumbo cookies — bake-fresh favorites",
+      },
+      {
+        src: "/images/portfolio/buttercream-bus/wedding-cake.jpg",
+        alt: "Buttercream Bus — custom wedding cake for event bookings",
+        caption: "Custom cakes for weddings and events, bookable straight from the site",
+      },
+    ],
+  },
+  {
+    slug: "hoursheets",
+    title: "HourSheets",
+    category: "SaaS",
+    tags: ["SaaS", "Time Tracking", "Project Management"],
+    shortDesc:
+      "Time-tracking and project management built for small architecture firms.",
+    description:
+      "HourSheets is a clean, focused workspace for small architectural firms to log time, monitor project progress, and keep the studio running on schedule. Administrators manage projects, the team directory and firm-wide reports, while team members log their own hours against the projects they contribute to.",
+    problem:
+      "Small architecture studios bleed billable time. Hours get tracked in scattered spreadsheets, project budgets drift without anyone noticing, and partners have no real-time view of where staff time is actually going — making it hard to price work, catch overruns, or bill accurately.",
+    solution:
+      "We built HourSheets as an OpenAPI-first web app with a fast, keyboard-friendly interface. Every hour is logged against a project and an employee, dashboards compute firm-wide aggregates directly in SQL, and admins get budget-vs-spent tracking, a staged approval workflow, daily task assignment, and per-project and per-employee breakdowns — all in one drafting-paper-clean UI.",
+    results: [
+      "Firm-wide dashboard: active projects, staff count and hours logged this week/month at a glance",
+      "Per-project budget vs. spent vs. remaining — with fee, cost and profit tracked automatically",
+      "Staged project-approval workflow with nested sub-tasks and per-stage assignees",
+      "Filterable time log and role-based access (admin vs. team member)",
+    ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Express",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "TanStack Query",
+    ],
+    gradientFrom: "#f59e0b",
+    gradientTo: "#b45309",
+    featured: false,
+    liveUrl: "https://www.hoursheets.org",
+    image: "/images/portfolio/hoursheets.jpg",
+    gallery: [
+      {
+        src: "/images/portfolio/hoursheets/ss-1.png",
+        alt: "HourSheets — Projects list with budget, spent, remaining, fee, cost and profit per project",
+        caption:
+          "Every project tracked from budget to profit — spent, remaining, fee, cost and margin at a glance",
+      },
+      {
+        src: "/images/portfolio/hoursheets/ss-2.png",
+        alt: "HourSheets — Daily Task Assignment view with status, assignee, priority and deadline per project",
+        caption:
+          "Assign today's work to the team — status, assignee, priority and deadline per project",
+      },
+      {
+        src: "/images/portfolio/hoursheets/ss-3.png",
+        alt: "HourSheets — Project Approval Process with staged progress and nested sub-tasks",
+        caption:
+          "A staged approval workflow with nested sub-tasks and per-stage assignees",
+      },
+    ],
+  },
+  {
+    slug: "torqron",
+    title: "Torqron",
+    category: "Web",
+    tags: ["Industrial", "Petrochemical", "B2B"],
+    shortDesc: "Industrial web presence for a global petrochemical products and solutions provider.",
+    description:
+      "Torqron delivers industrial excellence to global petrochemical operations — precision granulation tools, advanced polymer additives, mission-critical spare parts, and integrated supply chain solutions. With 20+ years of engineering expertise across 28 facilities in 12 countries, they needed a web presence that communicated that authority.",
+    problem:
+      "Torqron's previous web presence failed to reflect their scale, engineering depth, or global reach. Enterprise procurement teams evaluating industrial suppliers expect a site that signals technical credibility and operational reliability — theirs did not.",
+    solution:
+      "We built a high-performance industrial website featuring detailed product and application pages, a clear services overview, and a Contact/RFQ flow built for enterprise buyers. The design language communicates precision and reliability — matching the quality of the products themselves.",
+    results: [
+      "20+ years of engineering expertise clearly communicated to enterprise buyers",
+      "Products, Applications, and Services architecture supports complex procurement journeys",
+      "RFQ flow converts high-intent visitors into qualified sales conversations",
+      "Site reflects the credibility of a supplier trusted by 28 major industrial facilities",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Framer Motion"],
+    gradientFrom: "#1d4ed8",
+    gradientTo: "#dc2626",
+    featured: false,
+    liveUrl: "https://torqron.com",
+    image: "/images/portfolio/torqron.png",
+    gallery: [
+      {
+        src: "/images/portfolio/torqron/ss-1.png",
+        alt: "Torqron — homepage hero: Industrial Excellence for Global Petrochemical Operations",
+        caption: "Trusted by leading petrochemical plants — 20+ years of engineering expertise across 12 countries",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/torqron/ss-2.png",
+        alt: "Torqron — Why Procurement Teams Choose Torqron: 6 key differentiators",
+        caption: "Market-atypical delivery speed · OEM-grade quality · Custom-engineering capability · Integrated supply chain",
+      },
+      {
+        src: "/images/portfolio/torqron/ss-3.png",
+        alt: "Torqron — products catalogue: granulation tools, polymer additives, spare parts",
+        caption: "Precision granulation tools, advanced polymer additives, and mission-critical spare parts",
+      },
+      {
+        src: "/images/portfolio/torqron/ss-4.png",
+        alt: "Torqron — applications across petrochemical sectors",
+        caption: "Industrial applications supporting 28 major facilities across global petrochemical operations",
+      },
+      {
+        src: "/images/portfolio/torqron/ss-5.png",
+        alt: "Torqron — services and integrated supply chain solutions",
+        caption: "Integrated supply chain solutions with dependable delivery and OEM-grade quality",
+      },
+      {
+        src: "/images/portfolio/torqron/ss-6.png",
+        alt: "Torqron — Contact / RFQ flow for enterprise procurement teams",
+        caption: "Enterprise RFQ flow built for procurement teams — always on time, always on spec",
+      },
+    ],
+  },
+  {
+    slug: "expert-village-media",
+    title: "Expert Village Media",
+    category: "Web",
+    tags: ["Shopify", "E-Commerce", "Partner Agency"],
+    shortDesc: "Shopify Select Partner Agency building high-converting stores for growth-focused brands.",
+    description:
+      "Expert Village Media is a Shopify Select Partner Agency and Certified Expert that transforms e-commerce visions into high-converting Shopify stores. Spanning custom theme design, app integration, store migration, and performance optimization — they handle every aspect of a brand's Shopify journey.",
+    problem:
+      "Expert Village Media needed a web presence that established their authority as a leading Shopify development agency, clearly communicated their service offering, and generated consistent inbound leads from brands seeking serious e-commerce expertise.",
+    solution:
+      "We built a clean, conversion-focused agency website featuring service showcases, a portfolio of client work, partner credentials (Shopify, Google, Upwork), and a seamless schedule-a-call flow. The site positions Expert Village Media as the obvious choice for brands investing in Shopify.",
+    results: [
+      "Partner credentials (Shopify Select, Google, Upwork) prominently communicated",
+      "Portfolio and case studies converting visitors into qualified discovery calls",
+      "Clean, trust-building design that matches the caliber of their Shopify work",
+      "SEO-optimized structure driving organic discovery from Shopify-seeking brands",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Framer Motion"],
+    gradientFrom: "#2563eb",
+    gradientTo: "#7c3aed",
+    featured: true,
+    liveUrl: "https://expertvillagemedia.vercel.app",
+    image: "/images/portfolio/expert-village-media.png",
+    gallery: [
+      {
+        src: "/images/portfolio/expert-village-media/ss-1.png",
+        alt: "Expert Village Media — homepage: We Are The Leading Shopify Development Company",
+        caption: "Shopify Select Partner Agency · Google · Upwork · Shopify Certified Expert",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/expert-village-media/ss-2.png",
+        alt: "Expert Village Media — services section",
+        caption: "Custom theme design, app integration, store migration, and performance optimization",
+      },
+      {
+        src: "/images/portfolio/expert-village-media/ss-3.png",
+        alt: "Expert Village Media — portfolio of client Shopify stores",
+        caption: "High-converting Shopify stores built for fashion, beauty, electronics, and home décor brands",
+      },
+      {
+        src: "/images/portfolio/expert-village-media/ss-4.png",
+        alt: "Expert Village Media — client results and case studies",
+        caption: "Case studies and results converting visitors into qualified discovery calls",
+      },
+      {
+        src: "/images/portfolio/expert-village-media/ss-5.png",
+        alt: "Expert Village Media — services detail page",
+        caption: "End-to-end Shopify services from design and development to launch and growth",
+      },
+      {
+        src: "/images/portfolio/expert-village-media/ss-6.png",
+        alt: "Expert Village Media — partner credentials and certifications",
+        caption: "Backed by Shopify, Google, and Upwork credentials that establish instant authority",
+      },
+      {
+        src: "/images/portfolio/expert-village-media/ss-7.png",
+        alt: "Expert Village Media — schedule a call and contact flow",
+        caption: "Frictionless schedule-a-call flow converting high-intent visitors into booked discovery calls",
+      },
+      {
+        src: "/images/portfolio/expert-village-media/ss-8.png",
+        alt: "Expert Village Media — resources and blog section",
+        caption: "SEO-optimized content strategy driving organic discovery from Shopify-seeking brands",
+      },
+    ],
+  },
+  {
+    slug: "zenscroll",
+    title: "ZenScroll",
+    category: "Web",
+    tags: ["Digital Wellness", "Web Design", "Mindfulness"],
+    shortDesc: "Marketing website for the app that makes you earn your scroll — one breath at a time.",
+    description:
+      "ZenScroll is a digital wellness platform and marketing website for an app that balances social media with meditation. Every minute of mindfulness practice earns two to six minutes of scroll time — the ratio is yours to set, but the pause is non-negotiable. We designed and built the full website to communicate this concept with clarity, calm, and conviction.",
+    problem:
+      "ZenScroll had a genuinely novel product idea — earning scroll time through meditation — but needed a website that could explain an unfamiliar mechanic quickly, build trust with skeptical users, and convert visitors into app downloads without feeling preachy or restrictive.",
+    solution:
+      "We crafted a dark, immersive marketing website built around a single, powerful message: breathe first, then the feed opens. The design language — deep browns, nature photography, warm typography — reinforces the meditative purpose of the product. The copy leads with the mechanic, not the mission, making it immediately legible to anyone who has ever doomscrolled.",
+    results: [
+      "Conversion-focused landing page driving App Store and Google Play downloads",
+      "Earn-to-scroll mechanic communicated clearly through structured 3-step flow section",
+      "Testimonials section ('Voices') builds social proof with real user outcomes",
+      "Dark, calming aesthetic that matches the product's meditative identity",
+      "CTA section — 'Begin with a single breath' — drives installs with zero friction",
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+    gradientFrom: "#7c2d12",
+    gradientTo: "#92400e",
+    featured: false,
+    liveUrl: "https://www.zenscrollapp.com",
+    image: "/images/portfolio/zenscroll/ss-1.png",
+    gallery: [
+      {
+        src: "/images/portfolio/zenscroll/ss-1.png",
+        alt: "ZenScroll — Hero section: Scrolling, earned one breath at a time",
+        caption: "Hero — \"Scrolling, earned one breath at a time.\" Every minute of meditation earns 2–6 minutes of scroll. App Store & Google Play CTAs above the fold.",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/zenscroll/ss-2.png",
+        alt: "ZenScroll — How it works: Breathe first. Then the feed opens.",
+        caption: "How it works — \"Breathe first. Then the feed opens.\" Three-step flow: choose apps to balance → sit for a guided session → scroll with intention.",
+      },
+      {
+        src: "/images/portfolio/zenscroll/ss-3.png",
+        alt: "ZenScroll — Benefits: A calmer relationship with the phone in your hand",
+        caption: "Benefits — \"A calmer relationship with the phone in your hand.\" Sharper focus · Quieter mind · Better sleep — illustrated with nature photography.",
+      },
+      {
+        src: "/images/portfolio/zenscroll/ss-4.png",
+        alt: "ZenScroll — Voices section: Small practice. Surprising shifts.",
+        caption: "Voices — \"Small practice. Surprising shifts.\" Real user stories: Maya R. (47 days), Daniel K. (3 months), Priya S. (5 months, screen time down 62%).",
+      },
+      {
+        src: "/images/portfolio/zenscroll/ss-5.png",
+        alt: "ZenScroll — CTA: Begin with a single breath",
+        caption: "CTA — \"Begin with a single breath.\" Aerial forest visual reinforces calm. Free to start, no ads, no dark patterns — App Store & Google Play download buttons.",
       },
     ],
   },
@@ -289,565 +665,190 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "zenscroll",
-    title: "ZenScroll",
-    category: "Web",
-    tags: ["Digital Wellness", "Web Design", "Mindfulness"],
-    shortDesc: "Marketing website for the app that makes you earn your scroll — one breath at a time.",
-    description:
-      "ZenScroll is a digital wellness platform and marketing website for an app that balances social media with meditation. Every minute of mindfulness practice earns two to six minutes of scroll time — the ratio is yours to set, but the pause is non-negotiable. We designed and built the full website to communicate this concept with clarity, calm, and conviction.",
-    problem:
-      "ZenScroll had a genuinely novel product idea — earning scroll time through meditation — but needed a website that could explain an unfamiliar mechanic quickly, build trust with skeptical users, and convert visitors into app downloads without feeling preachy or restrictive.",
-    solution:
-      "We crafted a dark, immersive marketing website built around a single, powerful message: breathe first, then the feed opens. The design language — deep browns, nature photography, warm typography — reinforces the meditative purpose of the product. The copy leads with the mechanic, not the mission, making it immediately legible to anyone who has ever doomscrolled.",
-    results: [
-      "Conversion-focused landing page driving App Store and Google Play downloads",
-      "Earn-to-scroll mechanic communicated clearly through structured 3-step flow section",
-      "Testimonials section ('Voices') builds social proof with real user outcomes",
-      "Dark, calming aesthetic that matches the product's meditative identity",
-      "CTA section — 'Begin with a single breath' — drives installs with zero friction",
-    ],
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
-    gradientFrom: "#7c2d12",
-    gradientTo: "#92400e",
-    featured: false,
-    liveUrl: "https://www.zenscrollapp.com",
-    image: "/images/portfolio/zenscroll/ss-1.png",
-    gallery: [
-      {
-        src: "/images/portfolio/zenscroll/ss-1.png",
-        alt: "ZenScroll — Hero section: Scrolling, earned one breath at a time",
-        caption: "Hero — \"Scrolling, earned one breath at a time.\" Every minute of meditation earns 2–6 minutes of scroll. App Store & Google Play CTAs above the fold.",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/zenscroll/ss-2.png",
-        alt: "ZenScroll — How it works: Breathe first. Then the feed opens.",
-        caption: "How it works — \"Breathe first. Then the feed opens.\" Three-step flow: choose apps to balance → sit for a guided session → scroll with intention.",
-      },
-      {
-        src: "/images/portfolio/zenscroll/ss-3.png",
-        alt: "ZenScroll — Benefits: A calmer relationship with the phone in your hand",
-        caption: "Benefits — \"A calmer relationship with the phone in your hand.\" Sharper focus · Quieter mind · Better sleep — illustrated with nature photography.",
-      },
-      {
-        src: "/images/portfolio/zenscroll/ss-4.png",
-        alt: "ZenScroll — Voices section: Small practice. Surprising shifts.",
-        caption: "Voices — \"Small practice. Surprising shifts.\" Real user stories: Maya R. (47 days), Daniel K. (3 months), Priya S. (5 months, screen time down 62%).",
-      },
-      {
-        src: "/images/portfolio/zenscroll/ss-5.png",
-        alt: "ZenScroll — CTA: Begin with a single breath",
-        caption: "CTA — \"Begin with a single breath.\" Aerial forest visual reinforces calm. Free to start, no ads, no dark patterns — App Store & Google Play download buttons.",
-      },
-    ],
-  },
-  {
-    slug: "expert-village-media",
-    title: "Expert Village Media",
-    category: "Web",
-    tags: ["Shopify", "E-Commerce", "Partner Agency"],
-    shortDesc: "Shopify Select Partner Agency building high-converting stores for growth-focused brands.",
-    description:
-      "Expert Village Media is a Shopify Select Partner Agency and Certified Expert that transforms e-commerce visions into high-converting Shopify stores. Spanning custom theme design, app integration, store migration, and performance optimization — they handle every aspect of a brand's Shopify journey.",
-    problem:
-      "Expert Village Media needed a web presence that established their authority as a leading Shopify development agency, clearly communicated their service offering, and generated consistent inbound leads from brands seeking serious e-commerce expertise.",
-    solution:
-      "We built a clean, conversion-focused agency website featuring service showcases, a portfolio of client work, partner credentials (Shopify, Google, Upwork), and a seamless schedule-a-call flow. The site positions Expert Village Media as the obvious choice for brands investing in Shopify.",
-    results: [
-      "Partner credentials (Shopify Select, Google, Upwork) prominently communicated",
-      "Portfolio and case studies converting visitors into qualified discovery calls",
-      "Clean, trust-building design that matches the caliber of their Shopify work",
-      "SEO-optimized structure driving organic discovery from Shopify-seeking brands",
-    ],
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Framer Motion"],
-    gradientFrom: "#2563eb",
-    gradientTo: "#7c3aed",
-    featured: true,
-    liveUrl: "https://expertvillagemedia.vercel.app",
-    image: "/images/portfolio/expert-village-media.png",
-    gallery: [
-      {
-        src: "/images/portfolio/expert-village-media/ss-1.png",
-        alt: "Expert Village Media — homepage: We Are The Leading Shopify Development Company",
-        caption: "Shopify Select Partner Agency · Google · Upwork · Shopify Certified Expert",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/expert-village-media/ss-2.png",
-        alt: "Expert Village Media — services section",
-        caption: "Custom theme design, app integration, store migration, and performance optimization",
-      },
-      {
-        src: "/images/portfolio/expert-village-media/ss-3.png",
-        alt: "Expert Village Media — portfolio of client Shopify stores",
-        caption: "High-converting Shopify stores built for fashion, beauty, electronics, and home décor brands",
-      },
-      {
-        src: "/images/portfolio/expert-village-media/ss-4.png",
-        alt: "Expert Village Media — client results and case studies",
-        caption: "Case studies and results converting visitors into qualified discovery calls",
-      },
-      {
-        src: "/images/portfolio/expert-village-media/ss-5.png",
-        alt: "Expert Village Media — services detail page",
-        caption: "End-to-end Shopify services from design and development to launch and growth",
-      },
-      {
-        src: "/images/portfolio/expert-village-media/ss-6.png",
-        alt: "Expert Village Media — partner credentials and certifications",
-        caption: "Backed by Shopify, Google, and Upwork credentials that establish instant authority",
-      },
-      {
-        src: "/images/portfolio/expert-village-media/ss-7.png",
-        alt: "Expert Village Media — schedule a call and contact flow",
-        caption: "Frictionless schedule-a-call flow converting high-intent visitors into booked discovery calls",
-      },
-      {
-        src: "/images/portfolio/expert-village-media/ss-8.png",
-        alt: "Expert Village Media — resources and blog section",
-        caption: "SEO-optimized content strategy driving organic discovery from Shopify-seeking brands",
-      },
-    ],
-  },
-  {
-    slug: "torqron",
-    title: "Torqron",
-    category: "Web",
-    tags: ["Industrial", "Petrochemical", "B2B"],
-    shortDesc: "Industrial web presence for a global petrochemical products and solutions provider.",
-    description:
-      "Torqron delivers industrial excellence to global petrochemical operations — precision granulation tools, advanced polymer additives, mission-critical spare parts, and integrated supply chain solutions. With 20+ years of engineering expertise across 28 facilities in 12 countries, they needed a web presence that communicated that authority.",
-    problem:
-      "Torqron's previous web presence failed to reflect their scale, engineering depth, or global reach. Enterprise procurement teams evaluating industrial suppliers expect a site that signals technical credibility and operational reliability — theirs did not.",
-    solution:
-      "We built a high-performance industrial website featuring detailed product and application pages, a clear services overview, and a Contact/RFQ flow built for enterprise buyers. The design language communicates precision and reliability — matching the quality of the products themselves.",
-    results: [
-      "20+ years of engineering expertise clearly communicated to enterprise buyers",
-      "Products, Applications, and Services architecture supports complex procurement journeys",
-      "RFQ flow converts high-intent visitors into qualified sales conversations",
-      "Site reflects the credibility of a supplier trusted by 28 major industrial facilities",
-    ],
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Framer Motion"],
-    gradientFrom: "#1d4ed8",
-    gradientTo: "#dc2626",
-    featured: false,
-    liveUrl: "https://torqron.com",
-    image: "/images/portfolio/torqron.png",
-    gallery: [
-      {
-        src: "/images/portfolio/torqron/ss-1.png",
-        alt: "Torqron — homepage hero: Industrial Excellence for Global Petrochemical Operations",
-        caption: "Trusted by leading petrochemical plants — 20+ years of engineering expertise across 12 countries",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-2.png",
-        alt: "Torqron — Why Procurement Teams Choose Torqron: 6 key differentiators",
-        caption: "Market-atypical delivery speed · OEM-grade quality · Custom-engineering capability · Integrated supply chain",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-3.png",
-        alt: "Torqron — products catalogue: granulation tools, polymer additives, spare parts",
-        caption: "Precision granulation tools, advanced polymer additives, and mission-critical spare parts",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-4.png",
-        alt: "Torqron — applications across petrochemical sectors",
-        caption: "Industrial applications supporting 28 major facilities across global petrochemical operations",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-5.png",
-        alt: "Torqron — services and integrated supply chain solutions",
-        caption: "Integrated supply chain solutions with dependable delivery and OEM-grade quality",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-6.png",
-        alt: "Torqron — Contact / RFQ flow for enterprise procurement teams",
-        caption: "Enterprise RFQ flow built for procurement teams — always on time, always on spec",
-      },
-    ],
-  },
-  {
-    slug: "hoursheets",
-    title: "HourSheets",
+    slug: "hmd",
+    title: "HMD",
     category: "SaaS",
-    tags: ["SaaS", "Time Tracking", "Project Management"],
-    shortDesc:
-      "Time-tracking and project management built for small architecture firms.",
+    tags: ["Medical Education", "E-Learning", "SaaS"],
+    shortDesc: "Elite medical education platform advancing physicians through evidence and leadership.",
     description:
-      "HourSheets is a clean, focused workspace for small architectural firms to log time, monitor project progress, and keep the studio running on schedule. Administrators manage projects, the team directory and firm-wide reports, while team members log their own hours against the projects they contribute to.",
+      "HMD is a premium medical education platform delivering elite physician training, evidence-based programs, and physician-executive development to medical trainees, physicians, and institutions worldwide. Built around the principle of medicine via pristina — pure, rigorous, and leadership-driven.",
     problem:
-      "Small architecture studios bleed billable time. Hours get tracked in scattered spreadsheets, project budgets drift without anyone noticing, and partners have no real-time view of where staff time is actually going — making it hard to price work, catch overruns, or bill accurately.",
+      "Physicians seeking elite continuing education and executive development faced a fragmented landscape of low-quality platforms. Institutions needed a trusted, scalable home for structured medical programs that matched the prestige of the training itself.",
     solution:
-      "We built HourSheets as an OpenAPI-first web app with a fast, keyboard-friendly interface. Every hour is logged against a project and an employee, dashboards compute firm-wide aggregates directly in SQL, and admins get budget-vs-spent tracking, a staged approval workflow, daily task assignment, and per-project and per-employee breakdowns — all in one drafting-paper-clean UI.",
+      "We built HMD as a full-featured medical education SaaS — featuring structured program pathways, a curated library of clinical resources, a physician community hub (iConnect), and a clean, authoritative interface that reflects the caliber of the education delivered.",
     results: [
-      "Firm-wide dashboard: active projects, staff count and hours logged this week/month at a glance",
-      "Per-project budget vs. spent vs. remaining — with fee, cost and profit tracked automatically",
-      "Staged project-approval workflow with nested sub-tasks and per-stage assignees",
-      "Filterable time log and role-based access (admin vs. team member)",
+      "Integrated 4-year and 3-year physician programs delivered asynchronously online",
+      "100% asynchronous curriculum accessible globally for active physicians",
+      "iConnect community hub fostering peer collaboration among medical professionals",
+      "Institutional partnerships extending the reach of elite physician development",
     ],
-    technologies: [
-      "React",
-      "TypeScript",
-      "Vite",
-      "Express",
-      "PostgreSQL",
-      "Drizzle ORM",
-      "TanStack Query",
-    ],
-    gradientFrom: "#f59e0b",
-    gradientTo: "#b45309",
+    technologies: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS", "Vercel"],
+    gradientFrom: "#1e3a5f",
+    gradientTo: "#c9a227",
     featured: false,
-    liveUrl: "https://www.hoursheets.org",
-    image: "/images/portfolio/hoursheets.jpg",
+    liveUrl: "https://www.hmd.com.co",
+    image: "/images/portfolio/hmd/ss-8.png",
     gallery: [
       {
-        src: "/images/portfolio/hoursheets/ss-1.png",
-        alt: "HourSheets — Projects list with budget, spent, remaining, fee, cost and profit per project",
-        caption:
-          "Every project tracked from budget to profit — spent, remaining, fee, cost and margin at a glance",
-      },
-      {
-        src: "/images/portfolio/hoursheets/ss-2.png",
-        alt: "HourSheets — Daily Task Assignment view with status, assignee, priority and deadline per project",
-        caption:
-          "Assign today's work to the team — status, assignee, priority and deadline per project",
-      },
-      {
-        src: "/images/portfolio/hoursheets/ss-3.png",
-        alt: "HourSheets — Project Approval Process with staged progress and nested sub-tasks",
-        caption:
-          "A staged approval workflow with nested sub-tasks and per-stage assignees",
-      },
-    ],
-  },
-  {
-    slug: "buttercream-bus",
-    title: "Buttercream Bus",
-    category: "Web",
-    tags: ["Web", "E-Commerce", "Food & Beverage"],
-    shortDesc:
-      "A playful web experience for a mobile bakery — live truck tracking, pre-ordering, event booking and an AI cake designer.",
-    description:
-      "Buttercream Bus is 'Fresh Baked Dreams on Wheels' — a mobile bakery food truck. We built a warm, playful website that lets customers track the wandering oven in real time, pre-order signature treats to skip the line, book the bus for weddings and events, sign up for baking classes, and even generate custom cake concepts with an AI cake designer.",
-    problem:
-      "A food truck's biggest challenge is that customers never know where it is. On top of that, walk-up lines cost sales, event bookings lived in DMs and spreadsheets, and there was no way to showcase the menu or capture demand between stops.",
-    solution:
-      "We designed and shipped a single friendly hub for the whole business: real-time GPS truck tracking with a neighborhood voting system to unlock pop-up stops, a pre-order 'Baker's Box' flow, an events booking calendar with availability checks, a classes catalog, and an AI 'Cake Architect' that turns a prompt into visual cake concepts — all wrapped in the brand's warm buttercream palette.",
-    results: [
-      "Real-time bus tracking with 'Get Notified' alerts so fans never miss a stop",
-      "Pre-order flow that lets customers skip the line and lock in favorites",
-      "Self-serve event booking for weddings, birthdays and corporate catering",
-      "AI Cake Architect that generates custom cake design concepts on demand",
-    ],
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Lovable"],
-    gradientFrom: "#f59e0b",
-    gradientTo: "#d97706",
-    featured: false,
-    liveUrl: "https://thebuttercreambus.shop",
-    image: "/images/portfolio/buttercream-bus.jpg",
-    gallery: [
-      {
-        src: "/images/portfolio/buttercream-bus/ss-1.png",
-        alt: "Buttercream Bus — homepage hero: Fresh Baked Dreams on Wheels with live 'Now at' location",
-        caption:
-          "Fresh Baked Dreams on Wheels — track the wandering oven, pre-order, and book the bus, all from the hero",
-      },
-      {
-        src: "/images/portfolio/buttercream-bus/cupcakes.jpg",
-        alt: "Buttercream Bus — gourmet cupcakes",
-        caption: "Gourmet cupcakes — one of four signature treats on the menu",
-      },
-      {
-        src: "/images/portfolio/buttercream-bus/cinnamon-rolls.jpg",
-        alt: "Buttercream Bus — fresh cinnamon rolls",
-        caption: "Fresh-baked cinnamon rolls, available for pre-order in the Baker's Box",
-      },
-      {
-        src: "/images/portfolio/buttercream-bus/cookies.jpg",
-        alt: "Buttercream Bus — jumbo cookies",
-        caption: "Jumbo cookies — bake-fresh favorites",
-      },
-      {
-        src: "/images/portfolio/buttercream-bus/wedding-cake.jpg",
-        alt: "Buttercream Bus — custom wedding cake for event bookings",
-        caption: "Custom cakes for weddings and events, bookable straight from the site",
-      },
-    ],
-  },
-  {
-    slug: "east-end-vintage-sale",
-    title: "East End Vintage Sale",
-    category: "Web",
-    tags: ["Web Design", "Branding", "Event"],
-    shortDesc:
-      "A bold retro event microsite and brand system for a Toronto sidewalk vintage sale.",
-    description:
-      "East End Vintage Sale is a community sidewalk vintage-clothing sale in East York, Toronto. We designed a bold, retro-inspired event microsite and brand system to launch its second edition — a pink-and-white striped, halftone-photo, crumpled-paper aesthetic that captures the laid-back Sunday-market vibe and drives turnout.",
-    problem:
-      "A one-day, word-of-mouth pop-up lives or dies on turnout. The organizers needed to rebuild hype for a second edition, communicate the essentials — date, place, what to expect — at a glance, and stand out on social, all without a big budget or a permanent website.",
-    solution:
-      "We crafted a scroll-through event landing experience with a distinctive vintage brand system: a striped-paper hero, halftone photo cut-outs, and hand-drawn accents. Each section answers a single question — the details, the vibe, drinks, and location — and the whole thing closes on a shareable 'Come early, bring a tote, tell a friend' call to action tied to their social handles.",
-    results: [
-      "Cohesive retro brand system — striped paper, halftone photography, hand-drawn accents",
-      "Scannable 'everything in one glance' details: date, address, and rain-or-shine",
-      "Sectioned storytelling that sells the experience — the details, the vibe, drinks, and location",
-      "Shareable closing call-to-action driving RSVPs to @eastendvintagesale",
-    ],
-    technologies: ["Figma", "Web Design", "Branding", "Social Campaign"],
-    gradientFrom: "#f9a8d4",
-    gradientTo: "#1e293b",
-    featured: false,
-    liveUrl: "https://www.instagram.com/eastendvintagesale",
-    image: "/images/portfolio/east-end-vintage-sale.png",
-    gallery: [
-      {
-        src: "/images/portfolio/east-end-vintage-sale/ss-1.png",
-        alt: "East End Vintage Sale — landing hero: The Sidewalk Sale Returns for the Second Time, Sunday Aug 9",
-        caption:
-          "The sidewalk sale returns — a striped-paper hero with halftone photography and the key date front and center",
+        src: "/images/portfolio/hmd/ss-4.png",
+        alt: "HMD — Evidence Summary library: curated clinical research papers across specialties",
+        caption: "Evidence Summary library — curated RCTs, meta-analyses, and guidelines across every specialty",
         span: "wide",
       },
       {
-        src: "/images/portfolio/east-end-vintage-sale/ss-2.png",
-        alt: "East End Vintage Sale — The Details: date, address and weather at a glance",
-        caption: "Everything you need in one glance — date, address, and rain-or-shine",
+        src: "/images/portfolio/hmd/ss-5.png",
+        alt: "HMD — Evidence Summary article: ADA Standards of Care in Diabetes 2026",
+        caption: "Deep-dive evidence summaries with HMD faculty appraisals and graded evidence ratings",
       },
       {
-        src: "/images/portfolio/east-end-vintage-sale/ss-3.png",
-        alt: "East End Vintage Sale — The Vibe: more than shopping, it's a Sunday scene",
-        caption: "The vibe — more than shopping, it's a Sunday scene",
+        src: "/images/portfolio/hmd/ss-6.png",
+        alt: "HMD — Key Quotable Insight and clinical practice point from an evidence summary",
+        caption: "Key Quotable Insights — ready for executive briefs, slide decks, and policy discussions",
       },
       {
-        src: "/images/portfolio/east-end-vintage-sale/ss-4.png",
-        alt: "East End Vintage Sale — Drinks section",
-        caption: "Freshly made lemonade and good music — part of the day-out experience",
+        src: "/images/portfolio/hmd/ss-1.png",
+        alt: "HMD — physician dashboard: Good afternoon, Colleague. Upcoming journal clubs and recommendations.",
+        caption: "Physician dashboard — personalized learning, upcoming journal clubs, and iConnect activity",
       },
       {
-        src: "/images/portfolio/east-end-vintage-sale/ss-5.png",
-        alt: "East End Vintage Sale — Location: 275 Glebemount Ave, East York",
-        caption: "Location made effortless — 275 Glebemount Ave, East York",
+        src: "/images/portfolio/hmd/ss-2.png",
+        alt: "HMD — iConnect social feed with live journal club session and medical news",
+        caption: "iConnect — live journal club sessions, breaking medical news, and peer updates in one feed",
       },
       {
-        src: "/images/portfolio/east-end-vintage-sale/ss-6.png",
-        alt: "East End Vintage Sale — closing CTA: come early, bring a tote, tell a friend",
-        caption: "Come early. Bring a tote. Tell a friend — a shareable close tied to their socials",
+        src: "/images/portfolio/hmd/ss-3.png",
+        alt: "HMD — iConnect Network: physician connection cards with specialty and verification badges",
+        caption: "iConnect Network — connect and follow verified physicians across every specialty worldwide",
+      },
+      {
+        src: "/images/portfolio/hmd/ss-7.png",
+        alt: "HMD — ResumePro: AI-powered physician CV builder with clinical experience and publications",
+        caption: "ResumePro — AI-powered CV builder designed specifically for medical students, residents, and physicians",
       },
     ],
   },
   {
-    slug: "ultra-windows",
-    title: "Ultra Windows",
-    category: "Web",
-    tags: ["Web App", "B2B", "Manufacturing"],
-    shortDesc:
-      "An end-to-end quoting and operations platform for a UK aluminium windows & doors manufacturer.",
+    slug: "periscope-email",
+    title: "Periscope Email",
+    category: "SaaS",
+    tags: ["AI Outreach", "B2B Sales", "SaaS"],
+    shortDesc: "Turns real-time news triggers into ready-to-send enterprise outreach in seconds.",
     description:
-      "Ultra Windows is a complete B2B operations platform for a UK aluminium windows-and-doors fabricator. Trade customers and staff configure bespoke products — bifolds, sliders, rooflights, bay windows and more — with live 3D previews and instant pricing, then convert quotes to orders that flow straight into production scheduling, delivery routing, a driver app, stock, and Sage accounting.",
+      "Periscope transforms breaking news about named accounts into researched contact lists and personalized, enterprise-grade emails — in seconds, not 30+ minutes. It gives B2B sales teams a revenue intelligence layer that acts on signals the moment they happen.",
     problem:
-      "Bespoke window and door manufacturers rely on manual, error-prone quoting in spreadsheets and email, disconnected from pricing, production, delivery and accounting. Complex configurations make accurate quotes slow, and there's no self-serve channel for trade customers or real-time visibility for drivers and office staff.",
+      "Enterprise sales teams are slow to react to buying signals. By the time reps research a news trigger, find contacts, and write a relevant email, the moment has passed. Existing tools give you the data but leave all the work to the rep.",
     solution:
-      "We designed and built a unified platform where accurate, visual, priced configurations are produced right in the browser with live 3D previews, then flow straight into orders — driving production scheduling, delivery routing and driver dispatch, and Sage 200 accounting. Role-scoped access serves office staff, trade customers and drivers, all backed by Supabase with row-level security.",
+      "We built Periscope as an end-to-end signal-to-send workflow. It monitors news across named accounts, automatically researches relevant contacts, and generates personalized, ready-to-send enterprise emails — collapsing 30+ minutes of rep work into seconds.",
     results: [
-      "In-browser configurators with live 3D previews for 13+ bespoke product types",
-      "Instant, customer-specific pricing and one-click quote-to-order conversion",
-      "Route Master logistics with Mapbox route planning and a dedicated driver app",
-      "Sage 200 accounting integration plus a self-serve trade customer portal",
+      "Breaking news about target accounts converted to outreach in seconds",
+      "Researched contact lists generated automatically alongside each email",
+      "Enterprise-grade personalization at the speed of a news alert",
+      "Sales teams react to buying signals before the competition can",
     ],
-    technologies: ["React", "TypeScript", "Vite", "Supabase", "Three.js", "Tailwind CSS", "Mapbox"],
-    gradientFrom: "#f97316",
-    gradientTo: "#c2410c",
-    featured: false,
-    liveUrl: "https://ultrawindows.co.uk",
-    image: "/images/portfolio/ultra-windows.png",
-    imagePosition: "object-top",
-    gallery: [
-      {
-        src: "/images/portfolio/ultra-windows/ss-1.png",
-        alt: "Ultra Windows — branded, print-ready quote sheet with line items, VAT and total",
-        caption: "Branded, print-ready quotes generated straight from the configurator",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/ultra-windows/ss-2.png",
-        alt: "Ultra Windows — window configurator: dimensions, frame system and window-style grid",
-        caption: "Bespoke window configurator — dimensions, frame system and style grid",
-      },
-      {
-        src: "/images/portfolio/ultra-windows/ss-3.png",
-        alt: "Ultra Windows — per-pane options: opening direction, RAL frame colours and cill",
-        caption: "Per-pane options — opening direction, RAL frame colours and cill",
-      },
-      {
-        src: "/images/portfolio/ultra-windows/ss-4.png",
-        alt: "Ultra Windows — glass type, u-values, blinds and glazing add-ons",
-        caption: "Glazing choices — glass type, u-values, blinds and add-ons",
-      },
-      {
-        src: "/images/portfolio/ultra-windows/ss-5.png",
-        alt: "Ultra Windows — full style grid with multi-pane configuration and per-pane sizing",
-        caption: "Full style grid with multi-pane configuration and per-pane sizing",
-      },
-      {
-        src: "/images/portfolio/ultra-windows/ss-6.png",
-        alt: "Ultra Windows — bay-window configurator with angle and survey inputs",
-        caption: "Bay-window configurator with angle and on-site survey inputs",
-      },
-    ],
-  },
-  {
-    slug: "wolfe-property",
-    title: "Wolfe Property Portal",
-    category: "Web",
-    tags: ["Web App", "PropTech", "FinTech"],
-    shortDesc:
-      "A gated client portal and property-investment calculator for a New Zealand property-coaching firm.",
-    description:
-      "Wolfe Property Portal is a client portal for a New Zealand property-investment coaching business. It guides prospects through a qualification funnel and gives approved clients an interactive calculator that models 15-year cash flow, top-ups, yield and ROI for rental deals — comparing an 'as-is' scenario against an optimized 'Cashflow Hacking' one.",
-    problem:
-      "The coaching business ran its property-investment math in a Google Sheet — not scalable, not client-friendly, and impossible to gate behind qualification. Prospects also needed to be qualified on usable equity before consuming valuable coaching time.",
-    solution:
-      "We built a Next.js portal that reproduces the spreadsheet's calculations exactly — verified to within ±$1 by a 26-test suite — inside an interactive live-preview UI, and wrapped it in a funnel that captures leads, auto-computes equity qualification and programme tier, and routes clients through admin approval before granting dashboard access. Client records and approvals live in Notion so non-technical staff can run it.",
-    results: [
-      "Spreadsheet-parity investment calculator verified to ±$1 across a 26-test suite",
-      "15-year cash-flow model with NZ tax, GST and depreciation, and a two-scenario comparison",
-      "Equity-qualification onboarding funnel with automatic programme tiering",
-      "Passwordless magic-link auth with admin approval gating and a Notion-backed CRM",
-    ],
-    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "Notion API", "Tailwind CSS"],
-    gradientFrom: "#db2777",
-    gradientTo: "#111827",
-    featured: false,
-    liveUrl: "https://portal.wolfeproperty.co.nz",
-    image: "/images/portfolio/wolfe-property.png",
-    imagePosition: "object-top",
-  },
-  {
-    slug: "emigo",
-    title: "EmiGo",
-    category: "Mobile App",
-    tags: ["Mobile App", "Accessibility", "Events"],
-    shortDesc:
-      "An accessibility-first events app that helps people find and RSVP to genuinely accessible experiences.",
-    description:
-      "EmiGo is a mobile app that makes accessibility a first-class part of discovering local events. Attendees browse, search and filter events by accessibility features — wheelchair access, ASL, sensory-friendly, free — RSVP with their specific needs and group size, and save favorites. Organizers get their own side of the app to publish accessibility-aware events and manage RSVPs.",
-    problem:
-      "Finding events that genuinely accommodate accessibility needs is hard. Standard event apps rarely say whether a venue is wheelchair-accessible, ASL-interpreted, sensory-friendly or free — leaving people to guess, call ahead, or miss out entirely.",
-    solution:
-      "We built EmiGo around accessibility as core metadata, not an afterthought. Every event surfaces accessibility badges and can be filtered by them, attendees RSVP with specific accessibility requests and group details, and organizers publish accessibility-aware events and receive those requests directly — all in a fast, native mobile experience.",
-    results: [
-      "Accessibility-first discovery — filter by wheelchair, ASL, sensory-friendly, free and more",
-      "Group RSVP capturing per-request accessibility needs and notes",
-      "Organizer dashboard to create events and manage incoming RSVPs",
-      "Native maps, saved events and an upcoming-events view",
-    ],
-    technologies: ["React Native", "Expo", "TypeScript", "Firebase", "React Query"],
-    gradientFrom: "#38bdf8",
-    gradientTo: "#6366f1",
-    featured: false,
-    image: "/images/portfolio/emigo.png",
-  },
-  {
-    slug: "cyber7",
-    title: "Cyber7 MDR Alerts",
-    category: "Mobile App",
-    tags: ["Mobile App", "Cybersecurity", "MDR"],
-    shortDesc:
-      "Real-time managed-detection-and-response security alerts, pushed straight to your phone.",
-    description:
-      "Cyber7 MDR Alerts is a mobile app for an Australian managed security provider that turns critical security incidents into instant push notifications. It pulls High and Critical tickets from ConnectWise (fed by Rapid7 threat detection) and lets analysts and clients view, acknowledge, resolve and annotate incidents from their phone — with role-based access so each client sees only their own company's alerts.",
-    problem:
-      "Managed-detection incidents live inside ConnectWise ticketing, where they're easy to miss. SOC analysts and their clients need immediate, prioritized, mobile visibility into critical threats — not another desktop tool they have to keep checking.",
-    solution:
-      "We built a dedicated mobile app with a Node/Express + MongoDB backend that continuously polls ConnectWise for High/Critical tickets and dispatches tone-differentiated push notifications. Users triage incidents in-app — acknowledge, resolve, reprioritize and add notes — and every change syncs back to ConnectWise. Admins see all clients; each client sees only their own alerts.",
-    results: [
-      "Real-time push alerts for High/Critical incidents with selectable alert tones",
-      "In-app triage — acknowledge, resolve, reprioritize and annotate, synced to ConnectWise",
-      "Role-based access: SOC admins see all clients, clients see only their own",
-      "ConnectWise + Rapid7 detection pipeline surfaced on mobile within seconds",
-    ],
-    technologies: ["React Native", "Expo", "Node.js", "Express", "MongoDB", "ConnectWise API"],
-    gradientFrom: "#ef4444",
+    technologies: ["Next.js", "React", "Node.js", "TypeScript", "OpenAI", "Supabase"],
+    gradientFrom: "#eab308",
     gradientTo: "#f97316",
-    featured: false,
-    image: "/images/portfolio/cyber7.png",
-  },
-  {
-    slug: "dialogix",
-    title: "Dialogix",
-    category: "AI",
-    tags: ["AI", "Sales Automation", "SaaS"],
-    shortDesc:
-      "An AI sales-automation platform that calls, emails, texts and messages prospects in 6 languages — 24/7.",
-    description:
-      "Dialogix is an AI-powered sales command center — 'Your Sales Team Never Sleeps.' It deploys AI agents that call, email, text and message prospects across channels in six languages, finding leads, booking demos and nurturing deals around the clock so founders and sales teams can focus on closing.",
-    problem:
-      "Scaling outbound sales usually means hiring and managing more SDRs — expensive, slow, and hard to keep consistent across channels and time zones. Manual prospecting caps how many leads a team can reach, and follow-up routinely falls through the cracks.",
-    solution:
-      "We built Dialogix as an AI sales command center that runs outreach autonomously across phone, email, SMS and LinkedIn in six languages. AI voice agents qualify leads on calls, behavior-adaptive email and SMS sequences follow up intelligently, and campaigns run 24/7 — with tiered plans ranging from self-serve SaaS to a fully managed revenue-cycle service.",
-    results: [
-      "AI agents across four channels — phone calls, email, SMS and LinkedIn",
-      "Multilingual outreach in 6 languages (English, Spanish, Mandarin, French, Portuguese, Italian)",
-      "24/7 autonomous prospecting, demo booking and intelligent follow-up",
-      "Flexible plans from $97/mo self-serve to a fully managed revenue-cycle service",
-    ],
-    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "AI Voice Agents"],
-    gradientFrom: "#14b8a6",
-    gradientTo: "#0891b2",
-    featured: false,
-    liveUrl: "https://mydialogix.com",
-    image: "/images/portfolio/dialogix.png",
-  },
-  {
-    slug: "wide-eyed-giant",
-    title: "Wide Eyed Giant",
-    category: "Web",
-    tags: ["Web", "Food & Recipes", "Editorial"],
-    shortDesc:
-      "An editorial recipe website with a warm, magazine-style design across breakfast, mains and desserts.",
-    description:
-      "Wide Eyed Giant is a seasonal, high-protein recipe website built around creator Kelsey's food content. We designed and built an editorial-style site — a warm cream homepage for browsing, bold black category pages for structure, and a searchable recipe finder — that turns her recipes into a cohesive, magazine-quality experience.",
-    problem:
-      "Recipe content spread across social media is easy to lose and hard to browse. Kelsey needed a dedicated home for her seasonal, high-protein recipes that felt as considered and beautiful as the food itself, with an easy way for visitors to find recipes by category or craving.",
-    solution:
-      "We built a two-tone editorial site: a light, warm homepage anchored by a fresh-post hero and category navigation, contrasting black category and search pages for visual rhythm, and a keyword-driven recipe finder across breakfast, mains, snacks, desserts and sides. An about page introduces Kelsey and the philosophy behind the recipes — seasonal, high protein, and beautiful enough to look at before you eat it.",
-    results: [
-      "Editorial homepage hero showcasing the latest recipe with a warm, magazine feel",
-      "Category pages (breakfast, mains, desserts) with a striking light/dark contrast",
-      "Keyword-searchable recipe finder across five categories",
-      "About page building a personal connection with the creator behind the recipes",
-    ],
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    gradientFrom: "#c9a227",
-    gradientTo: "#1a1a1a",
-    featured: false,
-    liveUrl: "https://wideeyedgiant.com",
-    image: "/images/portfolio/wide-eyed-giant/ss-1.png",
+    featured: true,
+    liveUrl: "https://periscope.email",
+    image: "/images/portfolio/periscope-email.png",
     gallery: [
       {
-        src: "/images/portfolio/wide-eyed-giant/ss-1.png",
-        alt: "Wide Eyed Giant — homepage hero: High Protein Cottage Cheese Pancakes with Raspberry Whip and Berry Compote",
-        caption: "Editorial homepage hero — fresh post spotlighting a seasonal, high-protein recipe",
+        src: "/images/portfolio/periscope-email/ss-1.png",
+        alt: "Periscope Email — homepage: Real-Time News Triggers → Ready-to-Send Enterprise Outreach",
+        caption: "Real-time news triggers → ready-to-send enterprise outreach, in seconds not 30+ minutes",
         span: "wide",
       },
       {
-        src: "/images/portfolio/wide-eyed-giant/ss-2.png",
-        alt: "Wide Eyed Giant — View All Mains category page with Lunch, Dinner, Salads and Side Dishes",
-        caption: "Bold black category pages — Lunch, Dinner, Salads and Side Dishes at a glance",
+        src: "/images/portfolio/periscope-email/ss-2.png",
+        alt: "Periscope Email — Never Miss a Revenue Moment Again",
+        caption: "News Headlines → Verified Contacts → Opportunity Created → Meetings Booked",
       },
       {
-        src: "/images/portfolio/wide-eyed-giant/ss-3.png",
-        alt: "Wide Eyed Giant — About page: Hey, I'm Kelsey",
-        caption: "About page — introducing Kelsey and the seasonal, high-protein philosophy behind every recipe",
+        src: "/images/portfolio/periscope-email/ss-3.png",
+        alt: "Periscope Email — What Periscope Does: 5-step pipeline",
+        caption: "5 automated steps: monitor news, detect triggers, find contacts, generate email, deliver",
       },
       {
-        src: "/images/portfolio/wide-eyed-giant/ss-4.png",
-        alt: "Wide Eyed Giant — recipe finder with keyword search across Breakfast, Mains, Snacks, Desserts and Sides",
-        caption: "Keyword-searchable recipe finder — Breakfast, Mains, Snacks, Desserts and Sides",
+        src: "/images/portfolio/periscope-email/ss-4.png",
+        alt: "Periscope Email — pricing and plans",
+        caption: "Flexible plans for solo reps and enterprise sales teams",
+      },
+      {
+        src: "/images/portfolio/periscope-email/ss-5.png",
+        alt: "Periscope Email — use cases and integrations",
+        caption: "Built for enterprise AEs and SDRs across any industry vertical",
+      },
+      {
+        src: "/images/portfolio/periscope-email/ss-6.png",
+        alt: "Periscope Email — security and compliance",
+        caption: "Enterprise-grade security — your data stays yours",
+      },
+      {
+        src: "/images/portfolio/periscope-email/ss-7.png",
+        alt: "Periscope Email — sign up and onboarding flow",
+        caption: "Get started in minutes — connect accounts and go live immediately",
       },
     ],
   },
+  {
+    slug: "molar-ai",
+    title: "Molar AI",
+    category: "AI",
+    tags: ["AI", "Social Media", "Dental Tech"],
+    shortDesc: "AI-powered social media automation built exclusively for dental practices.",
+    description:
+      "Molar AI is an AI platform that fully automates social media content for dental practices — posting to Instagram and Facebook daily in any language, in the practice's authentic voice. Branded, converting, and completely hands-off.",
+    problem:
+      "Dental practices know they need a consistent social media presence to attract patients, but they have no time to create content. Hiring social media managers is expensive, generic agencies produce lifeless posts, and DIY efforts burn out within weeks.",
+    solution:
+      "We built Molar AI to make social media invisible work for dental practices. The platform generates on-brand, clinically credible content daily, schedules it automatically across Instagram and Facebook, and adapts to each practice's voice and patient demographics.",
+    results: [
+      "Daily social media posts in any language, fully automated",
+      "Authentic, branded content that converts followers into booked patients",
+      "Zero time investment from the dental team after initial setup",
+      "Consistent online presence that compounds patient trust over time",
+    ],
+    technologies: ["Next.js", "TypeScript", "OpenAI", "Supabase", "Tailwind CSS", "Vercel"],
+    gradientFrom: "#6366f1",
+    gradientTo: "#8b5cf6",
+    featured: true,
+    liveUrl: "https://molarai.studio",
+    image: "/images/portfolio/molar-ai.png",
+    gallery: [
+      {
+        src: "/images/portfolio/molar-ai/ss-1.png",
+        alt: "Molar AI — homepage hero: The Easiest Way to Educate Patients Online",
+        caption: "5.8M+ organic views generated — the easiest way to educate patients online",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/molar-ai/ss-2.png",
+        alt: "Molar AI — AI-generated dental content reels in multiple languages",
+        caption: "Branded reels across dentistry topics — multilingual, high-engagement, zero filming",
+      },
+      {
+        src: "/images/portfolio/molar-ai/ss-3.png",
+        alt: "Molar AI — One Platform, Five Continents. Five Steps to Full Automation.",
+        caption: "One platform, five continents — live in as little as 24 hours",
+      },
+      {
+        src: "/images/portfolio/molar-ai/ss-4.png",
+        alt: "Molar AI — Customized at Scale: Reels, Carousels, Before & Afters, Case Studies",
+        caption: "Every content grid is unique — built around your brand, your patients, your city",
+      },
+      {
+        src: "/images/portfolio/molar-ai/ss-5.png",
+        alt: "Molar AI — Dr. Patricia Harrosch before (159 followers) vs after (10.2K followers)",
+        caption: "Dr. Patricia Harrosch: 159 followers → 10.2K followers — trusted by Quebec's smile makeover expert",
+      },
+      {
+        src: "/images/portfolio/molar-ai/ss-6.png",
+        alt: "Molar AI vs. Agencies comparison — $497/mo vs $3,000–5,000/mo",
+        caption: "Molar AI vs agencies: $497/mo, 24-hour content speed, no contracts, all languages",
+      },
+    ],
+  },
+
 ];
 
 export const categories = ["All", "Web", "Mobile App", "SaaS", "AI"] as const;
