@@ -46,7 +46,12 @@ const aboutSchema = {
     foundingDate: "2019",
     description:
       "Software development agency building web apps, mobile apps and SaaS platforms for startups and enterprises.",
-    sameAs: ["https://www.fiverr.com/abhipatel956"],
+    sameAs: [
+      "https://www.fiverr.com/abhipatel956",
+      "https://www.instagram.com/amextechnology/",
+      "https://www.upwork.com/agencies/2067871097204619852/",
+      "https://www.linkedin.com/company/amex-technology/",
+    ],
   },
 };
 
