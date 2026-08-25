@@ -28,6 +28,60 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "tiancheng-development-group",
+    title: "TianCheng Development Group",
+    category: "Web",
+    tags: ["Web", "Real Estate", "B2B"],
+    shortDesc:
+      "Corporate site for an integrated real estate development group, from first drawing to finished building.",
+    description:
+      "TianCheng Development Group is a real estate development company that carries projects end-to-end — feasibility, design, entitlements, construction and delivery — under one accountable team. We built a corporate website that presents their services, project portfolio, client roster and a direct line for new site and building inquiries.",
+    problem:
+      "Property owners and investors evaluating a developer want proof of scale and process before they hand over a site. TianCheng needed a credible web presence that laid out their full service range, showcased completed projects, and named the caliber of clients they'd already delivered for.",
+    solution:
+      "We built a clean, dark-toned corporate site anchored by a full-bleed city skyline hero, a services section walking through the feasibility-to-delivery process, a projects showcase with individual project pages, and a clients page naming enterprise partners. A contact page with an embedded map and inquiry form gives prospects a direct path to reach the team.",
+    results: [
+      "Services section framing the full feasibility-to-delivery development process",
+      "Individual project pages showcasing completed developments like Aura Boutique Hotel & Lounge",
+      "Client roster naming enterprise partners including Hilton, Marriott and Chevron",
+      "Contact page with embedded map and inquiry form for new site and building leads",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    gradientFrom: "#1e293b",
+    gradientTo: "#334155",
+    featured: false,
+    liveUrl: "https://cdieng.vercel.app",
+    image: "/images/portfolio/tiancheng/ss-1.png",
+    gallery: [
+      {
+        src: "/images/portfolio/tiancheng/ss-1.png",
+        alt: "TianCheng Development Group — homepage hero: Integrated real estate development, from first drawing to finished building",
+        caption: "Full-bleed skyline hero — integrated real estate development, from first drawing to finished building",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/tiancheng/ss-2.png",
+        alt: "TianCheng Development Group — Discover Our Services section over a construction site photo",
+        caption: "Discover Our Services — feasibility to delivery under one accountable team",
+      },
+      {
+        src: "/images/portfolio/tiancheng/ss-5.png",
+        alt: "TianCheng Development Group — Aura Boutique Hotel & Lounge project page, Santa Monica CA",
+        caption: "Project pages — Aura Boutique Hotel & Lounge, a premium 45-room boutique hotel and dining lounge",
+      },
+      {
+        src: "/images/portfolio/tiancheng/ss-4.png",
+        alt: "TianCheng Development Group — Clients page with Hilton, Marriott, Denny's, Wendy's, Chevron and Fender logos",
+        caption: "Clients page — enterprise partners including Hilton, Marriott, Chevron and Fender",
+      },
+      {
+        src: "/images/portfolio/tiancheng/ss-3.png",
+        alt: "TianCheng Development Group — Contact page with embedded map and inquiry form",
+        caption: "Contact page with embedded map and a direct inquiry form for new site and building leads",
+      },
+    ],
+  },
+  {
     slug: "wide-eyed-giant",
     title: "Wide Eyed Giant",
     category: "Web",
