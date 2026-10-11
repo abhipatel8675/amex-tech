@@ -127,7 +127,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-[#111111] border border-[#1f1f1f] rounded-2xl p-6 hover:border-[#2f2f2f] transition-all group"
+      className="bg-white border border-slate-200 rounded-2xl p-6 hover:border-slate-300 transition-all group"
     >
       <div className="flex items-start justify-between mb-4">
         <div
@@ -145,11 +145,11 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       </div>
 
       <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-      <p className="text-base text-[#6b7280] mb-4">{service.desc}</p>
+      <p className="text-base text-slate-500 mb-4">{service.desc}</p>
 
       <ul className="space-y-1.5 mb-6">
         {service.features.map((f) => (
-          <li key={f} className="flex items-center gap-2 text-base text-[#9ca3af]">
+          <li key={f} className="flex items-center gap-2 text-base text-slate-500">
             <Check className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
             {f}
           </li>
@@ -164,19 +164,19 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
             className={`rounded-xl p-3 border text-center transition-all hover:scale-105 ${
               i === 1
                 ? "border-[#6366F1]/40 bg-indigo-500/5 hover:bg-indigo-500/10"
-                : "border-[#1f1f1f] bg-[#0a0a0a] hover:border-[#2f2f2f]"
+                : "border-slate-200 bg-white hover:border-slate-300"
             }`}
           >
-            <div className="text-sm text-[#6b7280] mb-1">{p.name}</div>
+            <div className="text-sm text-slate-500 mb-1">{p.name}</div>
             <div className="text-base font-bold" style={{ color: i === 1 ? service.accent : "#ededed" }}>
               {p.price}
             </div>
-            <div className="text-xs text-[#6b7280] mt-1">{p.delivery}</div>
+            <div className="text-xs text-slate-500 mt-1">{p.delivery}</div>
           </button>
         ))}
       </div>
 
-      <p className="text-xs text-[#6b7280] text-center">Click a package to get in touch</p>
+      <p className="text-xs text-slate-500 text-center">Click a package to get in touch</p>
     </motion.div>
   );
 }
@@ -194,7 +194,7 @@ export default function Services() {
           Services
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-4">What We Build</h2>
-        <p className="text-lg text-[#6b7280] max-w-xl mx-auto">
+        <p className="text-lg text-slate-500 max-w-xl mx-auto">
           Pick a package or get a custom quote. Every project includes clear communication, clean code, and on-time delivery.
         </p>
       </motion.div>
@@ -215,7 +215,7 @@ export default function Services() {
             <Code2 className="w-6 h-6 text-indigo-400" />
           </div>
           <h3 className="text-xl font-bold mb-2">Custom Project</h3>
-          <p className="text-base text-[#6b7280] mb-6">
+          <p className="text-base text-slate-500 mb-6">
             Have something specific in mind? Tell us your requirements and get a custom quote within 24 hours.
           </p>
           <a

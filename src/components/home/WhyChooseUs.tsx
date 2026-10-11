@@ -112,7 +112,7 @@ export default function WhyChooseUs() {
   return (
     <section
       className="py-10 md:py-16"
-      style={{ background: "linear-gradient(180deg, #0B0F19 0%, #0D1220 50%, #0B0F19 100%)" }}
+      style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #FFFFFF 100%)" }}
     >
       <div className="max-w-[92rem] mx-auto px-6">
         {/* Header */}
@@ -125,17 +125,17 @@ export default function WhyChooseUs() {
         >
           <p
             className="mb-3 font-semibold uppercase"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
           >
             Why Clients Choose Us
           </p>
           <h2
-            className="text-4xl md:text-5xl font-bold text-white leading-tight mb-5"
+            className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5"
             style={{ letterSpacing: "-0.025em" }}
           >
             Built for businesses, not demos.
           </h2>
-          <p className="text-lg leading-8" style={{ color: "rgba(203,213,225,0.75)" }}>
+          <p className="text-lg leading-8" style={{ color: "#475569" }}>
             These aren&apos;t just values — they&apos;re commitments we make to every client on every project.
           </p>
         </motion.div>
@@ -149,7 +149,7 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0 }}
-            className="group relative lg:col-span-2 rounded-2xl border border-white/[0.07] p-7 overflow-hidden transition-all duration-300 hover:border-[#D4AF37]/30"
+            className="group relative lg:col-span-2 rounded-2xl border border-slate-200 p-7 overflow-hidden transition-all duration-300 hover:border-[#D4AF37]/30"
             style={{ background: "linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(184,146,37,0.06) 100%)" }}
           >
             {/* Top accent line */}
@@ -165,18 +165,18 @@ export default function WhyChooseUs() {
             <div className="grid sm:grid-cols-2 gap-8 items-start">
               <div>
                 <h3
-                  className="text-xl font-bold text-white mb-3 leading-snug"
+                  className="text-xl font-bold text-slate-900 mb-3 leading-snug"
                   style={{ letterSpacing: "-0.015em" }}
                 >
                   Clean, Maintainable Code
                 </h3>
-                <p className="text-sm leading-7" style={{ color: "rgba(148,163,184,0.8)" }}>
+                <p className="text-sm leading-7" style={{ color: "#64748B" }}>
                   We write code for the next engineer, not just today&apos;s deadline. Every project is well-structured, documented, and easy to extend — because software outlives the sprint.
                 </p>
               </div>
               <div
-                className="rounded-xl p-5 border border-white/[0.06] overflow-hidden flex flex-col gap-4 justify-center"
-                style={{ background: "rgba(10,14,26,0.85)" }}
+                className="rounded-xl p-5 border border-slate-200 overflow-hidden flex flex-col gap-4 justify-center"
+                style={{ background: "rgba(255,255,255,0.9)" }}
               >
                 <AnimatedLogoDraw size={28} textClassName="text-base" />
                 <motion.div
@@ -192,8 +192,8 @@ export default function WhyChooseUs() {
                       variants={checklistItemVariants}
                       className="flex items-center gap-2.5"
                     >
-                      <CircleCheck className="w-4 h-4 shrink-0" style={{ color: "#E1BC4A" }} />
-                      <span className="text-sm" style={{ color: "rgba(203,213,225,0.85)" }}>
+                      <CircleCheck className="w-4 h-4 shrink-0" style={{ color: "#9A7614" }} />
+                      <span className="text-sm" style={{ color: "#475569" }}>
                         {item}
                       </span>
                     </motion.div>
@@ -221,7 +221,7 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.35 }}
-            className="group relative lg:col-span-3 rounded-2xl border border-white/[0.07] p-7 overflow-hidden transition-all duration-300 hover:border-pink-500/30"
+            className="group relative lg:col-span-3 rounded-2xl border border-slate-200 p-7 overflow-hidden transition-all duration-300 hover:border-pink-500/30"
             style={{ background: "linear-gradient(135deg, rgba(244,114,182,0.07) 0%, rgba(168,85,247,0.05) 100%)" }}
           >
             {/* Top accent line */}
@@ -237,12 +237,12 @@ export default function WhyChooseUs() {
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <h3
-                  className="text-xl font-bold text-white mb-3 leading-snug"
+                  className="text-xl font-bold text-slate-900 mb-3 leading-snug"
                   style={{ letterSpacing: "-0.015em" }}
                 >
                   Long-Term Partnership
                 </h3>
-                <p className="text-sm leading-7" style={{ color: "rgba(148,163,184,0.8)" }}>
+                <p className="text-sm leading-7" style={{ color: "#64748B" }}>
                   We think beyond the handoff. Our best client relationships are ongoing — iterating, improving, and scaling together. We&apos;re your technical partner for the long run.
                 </p>
               </div>
@@ -303,7 +303,7 @@ function BentoCell({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, delay }}
-      className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-7 overflow-hidden transition-all duration-300"
+      className="group relative rounded-2xl border border-slate-200 bg-slate-50 p-7 overflow-hidden transition-all duration-300"
       style={
         {
           "--accent": feature.accent,
@@ -333,8 +333,8 @@ function BentoCell({
           <Icon color={feature.accent} />
         </div>
       )}
-      <h3 className="relative text-base font-bold text-white mb-2.5 leading-snug">{feature.title}</h3>
-      <p className="relative text-sm leading-7" style={{ color: "rgba(148,163,184,0.78)" }}>
+      <h3 className="relative text-base font-bold text-slate-900 mb-2.5 leading-snug">{feature.title}</h3>
+      <p className="relative text-sm leading-7" style={{ color: "#64748B" }}>
         {feature.desc}
       </p>
     </motion.div>

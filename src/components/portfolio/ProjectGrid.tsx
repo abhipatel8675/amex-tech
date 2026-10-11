@@ -19,13 +19,13 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.22 }}
-      className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden flex flex-col transition-all duration-300 cursor-pointer"
+      className="group relative rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden flex flex-col transition-all duration-300 cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={() => router.push(`/portfolio/${project.slug}`)}
       style={{
-        boxShadow: hovered ? "0 20px 50px rgba(0,0,0,0.45)" : undefined,
-        borderColor: hovered ? "rgba(255,255,255,0.13)" : undefined,
+        boxShadow: hovered ? "0 20px 50px rgba(15,23,42,0.113)" : undefined,
+        borderColor: hovered ? "rgba(15,23,42,0.13)" : undefined,
       }}
     >
       {/* ── Image area ── */}
@@ -126,7 +126,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             animate={{ y: "0%" }}
             exit={{ y: "100%" }}
             transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="absolute inset-x-0 bottom-0 z-20 p-5 rounded-b-2xl border-t border-white/[0.08]"
+            className="absolute inset-x-0 bottom-0 z-20 p-5 rounded-b-2xl border-t border-slate-200"
             style={{
               background:
                 "linear-gradient(0deg, rgba(11,15,25,0.98) 0%, rgba(11,15,25,0.94) 100%)",
@@ -139,7 +139,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             >
               {project.category}
             </p>
-            <h3 className="text-base font-bold text-white mb-4 leading-snug">
+            <h3 className="text-base font-bold text-slate-900 mb-4 leading-snug">
               {project.title}
             </h3>
             <div className="flex items-center gap-2.5">
@@ -147,9 +147,9 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
                 href={`/portfolio/${project.slug}`}
                 className="flex-1 inline-flex items-center justify-center gap-1.5 text-sm font-semibold px-4 py-2.5 rounded-xl border transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
-                  color: "white",
-                  borderColor: "rgba(255,255,255,0.12)",
-                  background: "rgba(255,255,255,0.06)",
+                  color: "#0F172A",
+                  borderColor: "rgba(15,23,42,0.12)",
+                  background: "rgba(15,23,42,0.06)",
                 }}
               >
                 Case Study <ArrowRight className="w-3.5 h-3.5" />
@@ -164,7 +164,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
                   style={{
-                    color: "#34d399",
+                    color: "#059669",
                     borderColor: "rgba(52,211,153,0.3)",
                     background: "rgba(52,211,153,0.08)",
                   }}
@@ -181,14 +181,14 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
       {/* ── Static card content ── */}
       <div className="p-5 pt-4 flex flex-col flex-1">
         <h3
-          className="text-base font-bold text-white mb-1.5 leading-snug"
+          className="text-base font-bold text-slate-900 mb-1.5 leading-snug"
           style={{ letterSpacing: "-0.01em" }}
         >
           {project.title}
         </h3>
         <p
           className="text-sm leading-relaxed mb-4"
-          style={{ color: "rgba(148,163,184,0.7)" }}
+          style={{ color: "#64748B" }}
         >
           {project.shortDesc}
         </p>
@@ -196,7 +196,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="text-xs text-slate-400 bg-white/[0.04] border border-white/[0.06] px-2 py-0.5 rounded-md"
+              className="text-xs text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md"
             >
               {tag}
             </span>
@@ -204,15 +204,15 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         </div>
 
         {/* Always-visible action row */}
-        <div className="flex items-center justify-between pt-4 mt-auto border-t border-white/[0.06]">
+        <div className="flex items-center justify-between pt-4 mt-auto border-t border-slate-200">
           <Link
             href={`/portfolio/${project.slug}`}
             onClick={(e) => e.stopPropagation()}
             className="flex items-center gap-1.5 text-sm font-semibold group/cs"
-            style={{ color: "rgba(148,163,184,0.8)" }}
+            style={{ color: "#64748B" }}
           >
-            <span className="group-hover/cs:text-[#E1BC4A] transition-colors">Case Study</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover/cs:translate-x-0.5 group-hover/cs:text-[#E1BC4A] transition-all" />
+            <span className="group-hover/cs:text-[#9A7614] transition-colors">Case Study</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover/cs:translate-x-0.5 group-hover/cs:text-[#9A7614] transition-all" />
           </Link>
 
           {project.liveUrl && (
@@ -225,7 +225,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               style={{
-                color: "#34d399",
+                color: "#059669",
                 borderColor: "rgba(52,211,153,0.2)",
                 background: "rgba(52,211,153,0.06)",
               }}
@@ -260,13 +260,13 @@ export default function ProjectGrid() {
             style={
               activeCategory === cat
                 ? {
-                    color: "white",
+                    color: "#7A5D0F",
                     borderColor: "rgba(212,175,55,0.5)",
                     background: "rgba(212,175,55,0.12)",
                   }
                 : {
-                    color: "rgba(148,163,184,0.7)",
-                    borderColor: "rgba(255,255,255,0.07)",
+                    color: "#64748B",
+                    borderColor: "rgba(15,23,42,0.07)",
                     background: "transparent",
                   }
             }
@@ -274,7 +274,7 @@ export default function ProjectGrid() {
             {cat}
           </button>
         ))}
-        <span className="ml-auto text-sm" style={{ color: "rgba(100,116,139,0.8)" }}>
+        <span className="ml-auto text-sm" style={{ color: "#64748B" }}>
           {filtered.length} project{filtered.length !== 1 ? "s" : ""}
         </span>
       </div>

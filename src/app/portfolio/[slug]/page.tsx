@@ -42,13 +42,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const heroAccents: Record<string, string> = {
-  "molar-ai": "linear-gradient(160deg, #1a1040 0%, #0B0F19 60%)",
-  "periscope-email": "linear-gradient(160deg, #0f1040 0%, #0B0F19 60%)",
-  "herruby-app": "linear-gradient(160deg, #2a0a1a 0%, #0B0F19 60%)",
-  "hmd": "linear-gradient(160deg, #0a1428 0%, #0B0F19 60%)",
-  "zenscroll": "linear-gradient(160deg, #1a0a08 0%, #0B0F19 60%)",
-  "expert-village-media": "linear-gradient(160deg, #0a1040 0%, #0B0F19 60%)",
-  "torqron": "linear-gradient(160deg, #0a1428 0%, #0B0F19 60%)",
+  "molar-ai": "linear-gradient(160deg, #F1F5F9 0%, #FFFFFF 60%)",
+  "periscope-email": "linear-gradient(160deg, #F1F5F9 0%, #FFFFFF 60%)",
+  "herruby-app": "linear-gradient(160deg, #F1F5F9 0%, #FFFFFF 60%)",
+  "hmd": "linear-gradient(160deg, #F1F5F9 0%, #FFFFFF 60%)",
+  "zenscroll": "linear-gradient(160deg, #F1F5F9 0%, #FFFFFF 60%)",
+  "expert-village-media": "linear-gradient(160deg, #F1F5F9 0%, #FFFFFF 60%)",
+  "torqron": "linear-gradient(160deg, #F1F5F9 0%, #FFFFFF 60%)",
 };
 
 export default async function ProjectDetailPage({ params }: Props) {
@@ -57,7 +57,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   if (!project) notFound();
 
   const isMobile = project.category === "Mobile App";
-  const heroBg = heroAccents[slug] ?? "linear-gradient(160deg, #0f1030 0%, #0B0F19 60%)";
+  const heroBg = heroAccents[slug] ?? "linear-gradient(160deg, #F1F5F9 0%, #FFFFFF 60%)";
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -90,7 +90,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   };
 
   return (
-    <div className="bg-[#0B0F19] text-white min-h-screen">
+    <div className="bg-white text-slate-900 min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeWorkSchema) }} />
       <Navbar />
@@ -111,7 +111,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           <div
             className="absolute inset-0 pointer-events-none opacity-20"
             style={{
-              backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
+              backgroundImage: "radial-gradient(circle at 1px 1px, rgba(15,23,42,0.04) 1px, transparent 0)",
               backgroundSize: "28px 28px",
             }}
           />
@@ -123,8 +123,8 @@ export default async function ProjectDetailPage({ params }: Props) {
           <div className="relative max-w-[92rem] mx-auto px-6">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-1.5 text-sm mb-8 transition-colors hover:text-white"
-              style={{ color: "rgba(148,163,184,0.6)" }}
+              className="inline-flex items-center gap-1.5 text-sm mb-8 transition-colors hover:text-slate-900"
+              style={{ color: "#64748B" }}
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to Portfolio
             </Link>
@@ -159,7 +159,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             >
               {project.title}
             </h1>
-            <p className="text-lg md:text-xl leading-8 max-w-2xl mb-8" style={{ color: "rgba(203,213,225,0.8)" }}>
+            <p className="text-lg md:text-xl leading-8 max-w-2xl mb-8" style={{ color: "#475569" }}>
               {project.description}
             </p>
 
@@ -168,7 +168,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="text-sm text-slate-300 bg-white/[0.06] border border-white/[0.09] px-3.5 py-1.5 rounded-lg"
+                  className="text-sm text-slate-600 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-lg"
                 >
                   {tech}
                 </span>
@@ -219,20 +219,20 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <span
                   aria-hidden
                   className="absolute -top-3 -left-2 font-bold select-none pointer-events-none"
-                  style={{ fontSize: 80, lineHeight: 1, color: "rgba(255,255,255,0.025)" }}
+                  style={{ fontSize: 80, lineHeight: 1, color: "rgba(15,23,42,0.025)" }}
                 >
                   01
                 </span>
                 <p
                   className="relative mb-3 font-semibold uppercase"
-                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "rgba(100,116,139,0.8)" }}
+                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "#64748B" }}
                 >
                   The Challenge
                 </p>
-                <h2 className="relative text-xl font-bold text-white mb-4" style={{ letterSpacing: "-0.015em" }}>
+                <h2 className="relative text-xl font-bold text-slate-900 mb-4" style={{ letterSpacing: "-0.015em" }}>
                   What needed solving
                 </h2>
-                <p className="relative text-base leading-8" style={{ color: "rgba(203,213,225,0.78)" }}>
+                <p className="relative text-base leading-8" style={{ color: "#475569" }}>
                   {project.problem}
                 </p>
               </div>
@@ -242,20 +242,20 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <span
                   aria-hidden
                   className="absolute -top-3 -left-2 font-bold select-none pointer-events-none"
-                  style={{ fontSize: 80, lineHeight: 1, color: "rgba(255,255,255,0.025)" }}
+                  style={{ fontSize: 80, lineHeight: 1, color: "rgba(15,23,42,0.025)" }}
                 >
                   02
                 </span>
                 <p
                   className="relative mb-3 font-semibold uppercase"
-                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "rgba(100,116,139,0.8)" }}
+                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "#64748B" }}
                 >
                   Our Solution
                 </p>
-                <h2 className="relative text-xl font-bold text-white mb-4" style={{ letterSpacing: "-0.015em" }}>
+                <h2 className="relative text-xl font-bold text-slate-900 mb-4" style={{ letterSpacing: "-0.015em" }}>
                   How we built it
                 </h2>
-                <p className="relative text-base leading-8" style={{ color: "rgba(203,213,225,0.78)" }}>
+                <p className="relative text-base leading-8" style={{ color: "#475569" }}>
                   {project.solution}
                 </p>
               </div>
@@ -265,17 +265,17 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <span
                   aria-hidden
                   className="absolute -top-3 -left-2 font-bold select-none pointer-events-none"
-                  style={{ fontSize: 80, lineHeight: 1, color: "rgba(255,255,255,0.025)" }}
+                  style={{ fontSize: 80, lineHeight: 1, color: "rgba(15,23,42,0.025)" }}
                 >
                   03
                 </span>
                 <p
                   className="relative mb-3 font-semibold uppercase"
-                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "rgba(100,116,139,0.8)" }}
+                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "#64748B" }}
                 >
                   Results & Outcomes
                 </p>
-                <h2 className="relative text-xl font-bold text-white mb-6" style={{ letterSpacing: "-0.015em" }}>
+                <h2 className="relative text-xl font-bold text-slate-900 mb-6" style={{ letterSpacing: "-0.015em" }}>
                   What we achieved
                 </h2>
                 <ul className="relative flex flex-col gap-4">
@@ -285,7 +285,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                         className="w-5 h-5 shrink-0 mt-0.5"
                         style={{ color: project.gradientFrom }}
                       />
-                      <span className="text-base leading-7" style={{ color: "rgba(203,213,225,0.82)" }}>
+                      <span className="text-base leading-7" style={{ color: "#475569" }}>
                         {result}
                       </span>
                     </li>
@@ -297,25 +297,25 @@ export default async function ProjectDetailPage({ params }: Props) {
             {/* Sidebar */}
             <div className="flex flex-col gap-5">
               {/* Project details card */}
-              <div className="p-6 rounded-2xl border border-white/[0.07] bg-white/[0.02]">
+              <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
                 <h3
                   className="mb-5 font-semibold uppercase"
-                  style={{ fontSize: 10, letterSpacing: "0.15em", color: "rgba(100,116,139,0.8)" }}
+                  style={{ fontSize: 10, letterSpacing: "0.15em", color: "#64748B" }}
                 >
                   Project Details
                 </h3>
                 <div className="flex flex-col gap-5">
                   <div>
                     <p className="text-xs text-slate-500 mb-1.5">Category</p>
-                    <p className="text-sm font-semibold text-white">{project.category}</p>
+                    <p className="text-sm font-semibold text-slate-900">{project.category}</p>
                   </div>
-                  <div className="border-t border-white/[0.06] pt-5">
+                  <div className="border-t border-slate-200 pt-5">
                     <p className="text-xs text-slate-500 mb-3">Technologies</p>
                     <div className="flex flex-wrap gap-1.5">
                       {project.technologies.map((t) => (
                         <span
                           key={t}
-                          className="text-xs text-slate-300 bg-white/[0.04] border border-white/[0.07] px-2.5 py-1 rounded-lg"
+                          className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg"
                         >
                           {t}
                         </span>
@@ -323,13 +323,13 @@ export default async function ProjectDetailPage({ params }: Props) {
                     </div>
                   </div>
                   {project.tags.length > 0 && (
-                    <div className="border-t border-white/[0.06] pt-5">
+                    <div className="border-t border-slate-200 pt-5">
                       <p className="text-xs text-slate-500 mb-3">Tags</p>
                       <div className="flex flex-wrap gap-1.5">
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="text-xs text-slate-400 bg-white/[0.03] border border-white/[0.05] px-2.5 py-1 rounded-lg"
+                            className="text-xs text-slate-500 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-lg"
                           >
                             {tag}
                           </span>
@@ -338,7 +338,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                     </div>
                   )}
                   {project.liveUrl && (
-                    <div className="border-t border-white/[0.06] pt-5">
+                    <div className="border-t border-slate-200 pt-5">
                       <a
                         href={project.liveUrl}
                         target="_blank"
@@ -354,9 +354,9 @@ export default async function ProjectDetailPage({ params }: Props) {
               </div>
 
               {/* CTA card */}
-              <div className="p-6 rounded-2xl border border-white/[0.07] bg-white/[0.02]">
-                <p className="text-base font-semibold text-white mb-2">Build something similar?</p>
-                <p className="text-sm leading-relaxed mb-5" style={{ color: "rgba(148,163,184,0.7)" }}>
+              <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+                <p className="text-base font-semibold text-slate-900 mb-2">Build something similar?</p>
+                <p className="text-sm leading-relaxed mb-5" style={{ color: "#64748B" }}>
                   We can architect and build a custom solution tailored to your exact requirements.
                 </p>
                 <Link

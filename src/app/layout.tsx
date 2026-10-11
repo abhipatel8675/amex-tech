@@ -98,7 +98,7 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased dark`}
     >
       <head>
-        <meta name="theme-color" content="#0B0F19" />
+        <meta name="theme-color" content="#FFFFFF" />
         {/* Google Search Console verification — replace content value with your verification code */}
         {/* <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_CODE" /> */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -107,7 +107,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#0B0F19] text-[#E2E8F0] antialiased">
+      <body className="min-h-full flex flex-col bg-white text-slate-700 antialiased">
         <ScrollProgress />
         <CustomCursor />
         {children}

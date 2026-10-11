@@ -58,14 +58,14 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
     <div className="space-y-12">
       {/* Section heading */}
       <div className="flex items-center gap-4">
-        <div className="h-px flex-1 bg-white/[0.06]" />
+        <div className="h-px flex-1 bg-slate-100" />
         <p
           className="shrink-0 font-semibold uppercase"
-          style={{ fontSize: 11, letterSpacing: "0.15em", color: "rgba(100,116,139,0.8)" }}
+          style={{ fontSize: 11, letterSpacing: "0.15em", color: "#64748B" }}
         >
           Product Gallery
         </p>
-        <div className="h-px flex-1 bg-white/[0.06]" />
+        <div className="h-px flex-1 bg-slate-100" />
       </div>
 
       {/* Tier 1: Feature showcase */}
@@ -89,7 +89,7 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
             aspectRatio={featureItem.span === "wide" ? "21/9" : "16/9"}
           />
         )}
-        <p className="text-sm text-center italic" style={{ color: "rgba(148,163,184,0.65)" }}>
+        <p className="text-sm text-center italic" style={{ color: "#64748B" }}>
           {featureItem.caption}
         </p>
       </div>
@@ -102,7 +102,7 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
               <div className="absolute -top-6 inset-x-0 flex justify-between px-2 pointer-events-none">
                 <span
                   className="text-xs font-semibold uppercase"
-                  style={{ letterSpacing: "0.12em", color: "rgba(100,116,139,0.7)" }}
+                  style={{ letterSpacing: "0.12em", color: "#64748B" }}
                 >
                   Before
                 </span>
@@ -118,7 +118,7 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
               <button
                 key={i}
                 onClick={() => setLightboxIdx(i + 1)}
-                className="group relative rounded-xl overflow-hidden border border-white/[0.07] cursor-zoom-in focus:outline-none"
+                className="group relative rounded-xl overflow-hidden border border-slate-200 cursor-zoom-in focus:outline-none"
               >
                 <Image
                   src={img.src}
@@ -133,13 +133,13 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
             {hasBeforeAfter && (
               <div
                 className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px"
-                style={{ background: "linear-gradient(180deg, transparent, rgba(255,255,255,0.2), transparent)" }}
+                style={{ background: "linear-gradient(180deg, transparent, rgba(15,23,42,0.2), transparent)" }}
               />
             )}
           </div>
           <div className="grid grid-cols-2 gap-3">
             {sideBySide.map((img, i) => (
-              <p key={i} className="text-xs italic text-center" style={{ color: "rgba(148,163,184,0.55)" }}>
+              <p key={i} className="text-xs italic text-center" style={{ color: "#64748B" }}>
                 {img.caption}
               </p>
             ))}
@@ -150,12 +150,12 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
       {/* Tier 3: Metrics strip — inline from the supporting images data */}
       {supporting.length > 0 && (
         <div
-          className="rounded-2xl p-6 border border-white/[0.06]"
-          style={{ background: "rgba(10,14,26,0.8)" }}
+          className="rounded-2xl p-6 border border-slate-200"
+          style={{ background: "#F8FAFC" }}
         >
           <p
             className="text-center mb-6 font-semibold uppercase"
-            style={{ fontSize: 10, letterSpacing: "0.15em", color: "rgba(100,116,139,0.7)" }}
+            style={{ fontSize: 10, letterSpacing: "0.15em", color: "#64748B" }}
           >
             Key Outcomes
           </p>
@@ -182,7 +182,7 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
             <button
               key={i}
               onClick={() => setLightboxIdx(i + (isMobile ? 1 : 3))}
-              className="group relative rounded-xl overflow-hidden border border-white/[0.07] text-left cursor-zoom-in focus:outline-none flex flex-col"
+              className="group relative rounded-xl overflow-hidden border border-slate-200 text-left cursor-zoom-in focus:outline-none flex flex-col"
             >
               <div className="relative overflow-hidden">
                 <Image
@@ -195,8 +195,8 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
-              <div className="p-3 border-t border-white/[0.05]">
-                <p className="text-xs italic" style={{ color: "rgba(148,163,184,0.55)" }}>
+              <div className="p-3 border-t border-slate-200">
+                <p className="text-xs italic" style={{ color: "#64748B" }}>
                   {img.caption}
                 </p>
               </div>

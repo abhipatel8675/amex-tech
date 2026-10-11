@@ -56,14 +56,14 @@ export function HeroBlogList() {
   return (
     <div
       ref={containerRef}
-      className="flex-1 rounded-2xl border border-white/[0.09] p-2"
-      style={{ background: "linear-gradient(145deg, #0F1729 0%, #0B0F19 100%)" }}
+      className="flex-1 rounded-2xl border border-slate-200 p-2 shadow-[0_8px_30px_rgba(15,23,42,0.06)]"
+      style={{ background: "linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%)" }}
     >
       {posts.map((post) => (
         <Link
           key={post.slug}
           href={`/blog/${post.slug}`}
-          className="blog-row group flex items-center gap-4 rounded-xl p-3.5 transition-colors duration-300 hover:bg-white/[0.04]"
+          className="blog-row group flex items-center gap-4 rounded-xl p-3.5 transition-colors duration-300 hover:bg-slate-100"
         >
           <div
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border"
@@ -77,23 +77,23 @@ export function HeroBlogList() {
           <div className="min-w-0 flex-1">
             <div className="mb-1 flex items-center gap-2 text-xs text-slate-500">
               <span>{post.category}</span>
-              <span className="text-slate-700">·</span>
+              <span className="text-slate-300">·</span>
               <span className="flex items-center gap-1">
                 <Clock className="h-3 w-3" />
                 {post.readTime}
               </span>
             </div>
-            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-white transition-colors group-hover:text-[#D4AF37]">
+            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-slate-900 transition-colors group-hover:text-[#9A7614]">
               {post.title}
             </h4>
           </div>
-          <ArrowRight className="h-4 w-4 shrink-0 -translate-x-1 text-[#E1BC4A] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+          <ArrowRight className="h-4 w-4 shrink-0 -translate-x-1 text-[#9A7614] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
         </Link>
       ))}
 
       <Link
         href="/blog"
-        className="group mt-1 flex items-center justify-center gap-1.5 rounded-xl border-t border-white/[0.06] px-3.5 py-3 text-sm font-semibold text-slate-400 transition-colors duration-300 hover:bg-white/[0.04] hover:text-[#E1BC4A]"
+        className="group mt-1 flex items-center justify-center gap-1.5 rounded-xl border-t border-slate-200 px-3.5 py-3 text-sm font-semibold text-slate-500 transition-colors duration-300 hover:bg-slate-100 hover:text-[#9A7614]"
       >
         View All Articles
         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

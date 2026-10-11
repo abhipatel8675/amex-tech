@@ -21,14 +21,14 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.55, delay: index * 0.1 }}
-      className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.14] transition-all duration-300"
+      className="group relative rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden hover:border-slate-300 transition-all duration-300"
       style={{ boxShadow: "0 0 0 0 rgba(212,175,55,0)" }}
-      whileHover={{ y: -4, boxShadow: "0 20px 60px rgba(0,0,0,0.5)" }}
+      whileHover={{ y: -4, boxShadow: "0 20px 60px rgba(15,23,42,0.125)" }}
     >
       {/* Large decorative counter */}
       <span
         className="absolute top-3 right-4 font-bold select-none pointer-events-none z-10"
-        style={{ fontSize: 72, lineHeight: 1, color: "rgba(255,255,255,0.04)" }}
+        style={{ fontSize: 72, lineHeight: 1, color: "rgba(15,23,42,0.04)" }}
       >
         {String(index + 1).padStart(2, "0")}
       </span>
@@ -106,12 +106,12 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
       {/* Card content */}
       <div className="p-6 pt-5">
         <h3
-          className="text-lg font-bold text-white mb-2 leading-snug transition-all duration-300"
+          className="text-lg font-bold text-slate-900 mb-2 leading-snug transition-all duration-300"
           style={{ letterSpacing: "-0.015em" }}
         >
           {project.title}
         </h3>
-        <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(148,163,184,0.8)" }}>
+        <p className="text-sm leading-relaxed mb-4" style={{ color: "#64748B" }}>
           {project.shortDesc}
         </p>
 
@@ -120,7 +120,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="text-xs text-slate-400 bg-white/[0.04] border border-white/[0.07] px-2 py-1 rounded-md"
+              className="text-xs text-slate-500 bg-slate-100 border border-slate-200 px-2 py-1 rounded-md"
             >
               {tag}
             </span>
@@ -128,10 +128,10 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
         </div>
 
         {/* CTA */}
-        <div className="flex items-center justify-between pt-4 border-t border-white/[0.06]">
+        <div className="flex items-center justify-between pt-4 border-t border-slate-200">
           <Link
             href={`/portfolio/${project.slug}`}
-            className="text-sm font-semibold text-slate-400 hover:text-[#E1BC4A] transition-colors flex items-center gap-1.5"
+            className="text-sm font-semibold text-slate-500 hover:text-[#9A7614] transition-colors flex items-center gap-1.5"
           >
             Case Study <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -140,7 +140,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-medium text-slate-400 hover:text-[#E1BC4A] transition-colors flex items-center gap-1 group/live"
+              className="text-xs font-medium text-slate-500 hover:text-[#9A7614] transition-colors flex items-center gap-1 group/live"
             >
               View Live
               <span className="opacity-60 group-hover/live:opacity-100 group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5 transition-all duration-200">↗</span>
@@ -154,7 +154,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
 
 export default function FeaturedProjects() {
   return (
-    <section className="py-12 md:py-16 border-t border-white/[0.06]">
+    <section className="py-12 md:py-16 border-t border-slate-200">
       <div className="max-w-[92rem] mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -167,12 +167,12 @@ export default function FeaturedProjects() {
           <div>
             <p
               className="mb-4 font-semibold uppercase"
-              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
+              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
             >
               Selected Work
             </p>
             <h2
-              className="text-4xl md:text-5xl font-bold text-white leading-tight"
+              className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight"
               style={{ letterSpacing: "-0.025em" }}
             >
               Products we&apos;re proud of.
@@ -181,7 +181,7 @@ export default function FeaturedProjects() {
         </motion.div>
 
         {/* Progress bar placeholder */}
-        <div className="mb-12 h-px bg-white/[0.06] relative overflow-hidden">
+        <div className="mb-12 h-px bg-slate-100 relative overflow-hidden">
           <motion.div
             className="absolute left-0 top-0 h-full"
             style={{ background: "linear-gradient(90deg, #D4AF37, #D4AF37)" }}
@@ -209,15 +209,15 @@ export default function FeaturedProjects() {
         >
           <Link
             href="/portfolio"
-            className="group flex items-center justify-between w-full px-8 py-5 rounded-2xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300"
+            className="group flex items-center justify-between w-full px-8 py-5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 transition-all duration-300"
           >
-            <span className="text-lg font-semibold text-slate-200 group-hover:text-white transition-colors">
+            <span className="text-lg font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">
               See All {projects.length} Projects
             </span>
             <motion.span
               animate={{ x: [0, 4, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="text-[#E1BC4A] text-xl"
+              className="text-[#9A7614] text-xl"
             >
               →
             </motion.span>

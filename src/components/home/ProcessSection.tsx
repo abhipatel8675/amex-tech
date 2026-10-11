@@ -18,7 +18,7 @@ export default function ProcessSection() {
   const isInView = useInView(lineRef, { once: true, margin: "-20% 0px" });
 
   return (
-    <section className="py-10 md:py-16 border-t border-white/[0.06] overflow-hidden">
+    <section className="py-10 md:py-16 border-t border-slate-200 overflow-hidden">
       <div className="max-w-[92rem] mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -30,17 +30,17 @@ export default function ProcessSection() {
         >
           <p
             className="mb-4 font-semibold uppercase"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
           >
             How We Work
           </p>
           <h2
-            className="text-4xl md:text-5xl font-bold text-white leading-tight mb-5"
+            className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5"
             style={{ letterSpacing: "-0.025em" }}
           >
             A process built for clarity and speed.
           </h2>
-          <p className="text-lg leading-8" style={{ color: "rgba(203,213,225,0.75)" }}>
+          <p className="text-lg leading-8" style={{ color: "#475569" }}>
             No surprises. No scope creep. A structured workflow that delivers quality software on time, every engagement.
           </p>
         </motion.div>
@@ -49,7 +49,7 @@ export default function ProcessSection() {
         <div className="hidden lg:block">
           <div ref={lineRef} className="relative">
             {/* Connecting line */}
-            <div className="absolute top-[22px] left-0 right-0 h-px bg-white/[0.06]">
+            <div className="absolute top-[22px] left-0 right-0 h-px bg-slate-100">
               <motion.div
                 className="absolute inset-y-0 left-0"
                 style={{
@@ -79,7 +79,7 @@ export default function ProcessSection() {
                     transition={{ delay: i * 0.08 + 0.3, type: "spring", stiffness: 300, damping: 20 }}
                     className="relative w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] z-10"
                     style={{
-                      background: "linear-gradient(145deg, #141E33 0%, #0F172A 100%)",
+                      background: "linear-gradient(145deg, #F1F5F9 0%, #F8FAFC 100%)",
                       borderColor: "rgba(212,175,55,0.4)",
                       boxShadow: "0 0 16px rgba(212,175,55,0.12)",
                     }}
@@ -97,8 +97,8 @@ export default function ProcessSection() {
                     </span>
                   </motion.div>
                   <div>
-                    <h3 className="text-sm font-bold text-white mb-1.5">{step.title}</h3>
-                    <p className="text-xs leading-5" style={{ color: "rgba(100,116,139,0.9)" }}>
+                    <h3 className="text-sm font-bold text-slate-900 mb-1.5">{step.title}</h3>
+                    <p className="text-xs leading-5" style={{ color: "#64748B" }}>
                       {step.desc}
                     </p>
                   </div>
@@ -111,7 +111,7 @@ export default function ProcessSection() {
         {/* Mobile/Tablet: Vertical timeline */}
         <div className="lg:hidden relative pl-8">
           {/* Vertical line */}
-          <div className="absolute left-3 top-0 bottom-0 w-px bg-white/[0.06]">
+          <div className="absolute left-3 top-0 bottom-0 w-px bg-slate-100">
             <motion.div
               className="absolute inset-x-0 top-0"
               style={{ background: "linear-gradient(180deg, #D4AF37, #D4AF37)" }}
@@ -136,7 +136,7 @@ export default function ProcessSection() {
                 <div
                   className="absolute -left-8 w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border z-10"
                   style={{
-                    background: "linear-gradient(145deg, #141E33 0%, #0F172A 100%)",
+                    background: "linear-gradient(145deg, #F1F5F9 0%, #F8FAFC 100%)",
                     borderColor: "rgba(212,175,55,0.4)",
                     top: 0,
                   }}
@@ -154,8 +154,8 @@ export default function ProcessSection() {
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white mb-1.5">{step.title}</h3>
-                  <p className="text-sm leading-6" style={{ color: "rgba(100,116,139,0.9)" }}>
+                  <h3 className="text-base font-bold text-slate-900 mb-1.5">{step.title}</h3>
+                  <p className="text-sm leading-6" style={{ color: "#64748B" }}>
                     {step.desc}
                   </p>
                 </div>

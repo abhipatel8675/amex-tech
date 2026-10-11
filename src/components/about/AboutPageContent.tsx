@@ -12,8 +12,8 @@ const techStack = [
 ];
 
 const values = [
-  { icon: Code2, title: "Honesty Over Hype", desc: "We tell you what's feasible before you commit — not after. If your timeline is tight or scope too large for budget, we say so.", color: "#E1BC4A" },
-  { icon: ShieldCheck, title: "Code as Craft", desc: "We don't ship code we're embarrassed by. Clean architecture, readable code, and thoughtful structure are non-negotiable.", color: "#D4AF37" },
+  { icon: Code2, title: "Honesty Over Hype", desc: "We tell you what's feasible before you commit — not after. If your timeline is tight or scope too large for budget, we say so.", color: "#9A7614" },
+  { icon: ShieldCheck, title: "Code as Craft", desc: "We don't ship code we're embarrassed by. Clean architecture, readable code, and thoughtful structure are non-negotiable.", color: "#9A7614" },
   { icon: Clock, title: "Outcomes, Not Hours", desc: "Our success is measured by whether your product drives business goals — not by ticket velocity or billable hours.", color: "#38BDF8" },
   { icon: HeartHandshake, title: "Long-Term Thinking", desc: "We build for the codebase you'll have in two years. Maintainability and scalability are features, not nice-to-haves.", color: "#F472B6" },
 ];
@@ -44,14 +44,14 @@ const processSteps = [
     step: "01",
     title: "Discover",
     desc: "We start with a deep-dive into your goals, users, and constraints. No assumptions — just honest scoping.",
-    color: "#E1BC4A",
+    color: "#9A7614",
   },
   {
     icon: Layers,
     step: "02",
     title: "Build",
     desc: "Design and engineering in tight loops. You see real progress every week, not a big-bang reveal at the end.",
-    color: "#D4AF37",
+    color: "#9A7614",
   },
   {
     icon: Rocket,
@@ -75,14 +75,14 @@ export default function AboutPageContent() {
           transition={{ duration: 0.6 }}
           className="relative max-w-7xl mx-auto px-6"
         >
-          <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">About Us</p>
-          <h1 className="text-[clamp(2.5rem,10vw,6rem)] md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 leading-[1.05] max-w-3xl break-words">
+          <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">About Us</p>
+          <h1 className="text-[clamp(2.5rem,10vw,6rem)] md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05] max-w-3xl break-words">
             We build software that{" "}
             <span style={{ background: "linear-gradient(135deg, #E1BC4A, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               works in the real world.
             </span>
           </h1>
-          <p className="text-slate-300 text-xl md:text-2xl leading-9 max-w-2xl mb-8">
+          <p className="text-slate-600 text-xl md:text-2xl leading-9 max-w-2xl mb-8">
             Amex Technology is a software development agency founded in 2019. We partner with startups and enterprises to design, build, and scale digital products — from first line of code to production and beyond.
           </p>
 
@@ -96,8 +96,8 @@ export default function AboutPageContent() {
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.07 }}
                 className="flex items-baseline gap-2"
               >
-                <span className="text-3xl font-bold text-white" style={{ background: "linear-gradient(135deg, #E1BC4A, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{s.value}</span>
-                <span className="text-sm text-slate-400 font-medium">{s.label}</span>
+                <span className="text-3xl font-bold text-slate-900" style={{ background: "linear-gradient(135deg, #E1BC4A, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{s.value}</span>
+                <span className="text-sm text-slate-500 font-medium">{s.label}</span>
               </motion.div>
             ))}
           </div>
@@ -105,9 +105,9 @@ export default function AboutPageContent() {
       </section>
 
       {/* Stats strip */}
-      <section className="border-y border-white/[0.06]" style={{ background: "linear-gradient(180deg, rgba(212,175,55,0.04), rgba(212,175,55,0.02))" }}>
+      <section className="border-y border-slate-200" style={{ background: "linear-gradient(180deg, rgba(212,175,55,0.04), rgba(212,175,55,0.02))" }}>
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-0 md:divide-x md:divide-white/[0.06]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-0 md:divide-x md:divide-slate-200">
             {[
               { value: "2019", label: "Founded", sub: "Est. 6 years ago" },
               { value: "5+", label: "Years Experience", sub: "Full-stack expertise" },
@@ -123,7 +123,7 @@ export default function AboutPageContent() {
                 className="text-center md:px-8"
               >
                 <p className="text-3xl sm:text-5xl font-bold mb-2" style={{ background: "linear-gradient(135deg, #E2E8F0, #94A3B8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{stat.value}</p>
-                <p className="text-base font-semibold text-slate-300 mb-1">{stat.label}</p>
+                <p className="text-base font-semibold text-slate-600 mb-1">{stat.label}</p>
                 <p className="text-sm text-slate-500">{stat.sub}</p>
               </motion.div>
             ))}
@@ -154,19 +154,19 @@ export default function AboutPageContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative p-9 rounded-2xl border border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.11] transition-all duration-300 overflow-hidden"
+              className="relative p-9 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-200 transition-all duration-300 overflow-hidden"
             >
               <div className="absolute top-0 inset-x-8 h-px" style={{ background: `linear-gradient(90deg, transparent, ${item.accent}80, transparent)` }} />
               <p className="text-sm font-semibold uppercase tracking-widest mb-5" style={{ color: item.accent }}>{item.label}</p>
-              <h2 className="text-2xl font-bold text-white mb-5 leading-snug">{item.heading}</h2>
-              <p className="text-base text-slate-300 leading-7">{item.body}</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-5 leading-snug">{item.heading}</h2>
+              <p className="text-base text-slate-600 leading-7">{item.body}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* Expertise + Values */}
-      <section className="py-16 md:py-24 border-t border-white/[0.06]" style={{ background: "linear-gradient(180deg, #0B0F19, #0D1220, #0B0F19)" }}>
+      <section className="py-16 md:py-24 border-t border-slate-200" style={{ background: "linear-gradient(180deg, #FFFFFF, #F8FAFC, #FFFFFF)" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             {/* Expertise */}
@@ -176,15 +176,15 @@ export default function AboutPageContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">Expertise</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-10 leading-tight">What we do exceptionally well.</h2>
+              <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">Expertise</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-10 leading-tight">What we do exceptionally well.</h2>
               <ul className="flex flex-col gap-4">
                 {expertise.map((item) => (
                   <li key={item} className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/25 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-[#E1BC4A]" />
+                      <Check className="w-3 h-3 text-[#9A7614]" />
                     </div>
-                    <span className="text-base text-slate-300 leading-7">{item}</span>
+                    <span className="text-base text-slate-600 leading-7">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -197,20 +197,20 @@ export default function AboutPageContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">Values</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-10 leading-tight">The principles that guide every project.</h2>
+              <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">Values</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-10 leading-tight">The principles that guide every project.</h2>
               <div className="flex flex-col gap-4">
                 {values.map((value) => {
                   const Icon = value.icon;
                   return (
-                    <div key={value.title} className="group relative flex gap-5 p-6 rounded-2xl border border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.11] transition-all duration-300 overflow-hidden">
+                    <div key={value.title} className="group relative flex gap-5 p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-200 transition-all duration-300 overflow-hidden">
                       <div className="absolute top-0 inset-x-6 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: `linear-gradient(90deg, transparent, ${value.color}50, transparent)` }} />
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border" style={{ background: `${value.color}12`, borderColor: `${value.color}30` }}>
                         <Icon style={{ color: value.color, width: "18px", height: "18px" }} />
                       </div>
                       <div>
-                        <h3 className="text-base font-semibold text-white mb-2">{value.title}</h3>
-                        <p className="text-sm text-slate-400 leading-7">{value.desc}</p>
+                        <h3 className="text-base font-semibold text-slate-900 mb-2">{value.title}</h3>
+                        <p className="text-sm text-slate-500 leading-7">{value.desc}</p>
                       </div>
                     </div>
                   );
@@ -222,7 +222,7 @@ export default function AboutPageContent() {
       </section>
 
       {/* Process Preview */}
-      <section className="py-16 md:py-24 border-t border-white/[0.06]">
+      <section className="py-16 md:py-24 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -231,9 +231,9 @@ export default function AboutPageContent() {
             transition={{ duration: 0.5 }}
             className="mb-14 text-center"
           >
-            <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-4">How We Work</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">From idea to live product.</h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto leading-8">
+            <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-4">How We Work</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">From idea to live product.</h2>
+            <p className="text-slate-500 text-lg max-w-xl mx-auto leading-8">
               A straightforward process built around transparency, fast feedback loops, and zero surprises.
             </p>
           </motion.div>
@@ -248,7 +248,7 @@ export default function AboutPageContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative p-8 rounded-2xl border border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.11] transition-all duration-300 overflow-hidden group"
+                  className="relative p-8 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-200 transition-all duration-300 overflow-hidden group"
                 >
                   <div className="absolute top-0 inset-x-8 h-px" style={{ background: `linear-gradient(90deg, transparent, ${step.color}70, transparent)` }} />
                   <div className="flex items-start justify-between mb-6">
@@ -257,11 +257,11 @@ export default function AboutPageContent() {
                     </div>
                     <span className="text-4xl font-bold tabular-nums" style={{ color: `${step.color}20` }}>{step.step}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-sm text-slate-400 leading-7">{step.desc}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                  <p className="text-sm text-slate-500 leading-7">{step.desc}</p>
                   {i < processSteps.length - 1 && (
                     <div className="hidden md:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
-                      <ArrowRight className="w-5 h-5 text-white/10" />
+                      <ArrowRight className="w-5 h-5 text-slate-900/10" />
                     </div>
                   )}
                 </motion.div>
@@ -272,7 +272,7 @@ export default function AboutPageContent() {
       </section>
 
       {/* Tech Stack */}
-      <section className="py-16 md:py-20 border-t border-white/[0.06]">
+      <section className="py-16 md:py-20 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -281,9 +281,9 @@ export default function AboutPageContent() {
             transition={{ duration: 0.5 }}
             className="mb-12"
           >
-            <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-4">Technology</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Our technology stack.</h2>
-            <p className="text-slate-300 text-lg max-w-xl leading-8">
+            <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-4">Technology</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">Our technology stack.</h2>
+            <p className="text-slate-600 text-lg max-w-xl leading-8">
               Modern, battle-tested tools chosen for reliability and long-term viability — not whatever is trending this week.
             </p>
           </motion.div>
@@ -295,7 +295,7 @@ export default function AboutPageContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25, delay: i * 0.02 }}
-                className="text-sm font-medium text-slate-300 bg-white/[0.03] border border-white/[0.07] px-4 py-2 rounded-xl hover:border-[#D4AF37]/30 hover:text-slate-100 hover:bg-[#D4AF37]/5 transition-all duration-200 cursor-default"
+                className="text-sm font-medium text-slate-600 bg-slate-50 border border-slate-200 px-4 py-2 rounded-xl hover:border-[#D4AF37]/30 hover:text-slate-800 hover:bg-[#D4AF37]/5 transition-all duration-200 cursor-default"
               >
                 {tech}
               </motion.span>
@@ -305,22 +305,22 @@ export default function AboutPageContent() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 border-t border-white/[0.06]" style={{ background: "linear-gradient(180deg, #0B0F19, #0D1220)" }}>
+      <section className="py-16 md:py-24 border-t border-slate-200" style={{ background: "linear-gradient(180deg, #FFFFFF, #F8FAFC)" }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-12 md:p-16 text-center overflow-hidden"
+            className="relative rounded-2xl border border-slate-200 bg-slate-50 p-12 md:p-16 text-center overflow-hidden"
           >
             <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #E1BC4A80, transparent)" }} />
             <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.08), transparent 70%)" }} />
-            <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5 relative">Ready to build?</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight relative">
+            <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5 relative">Ready to build?</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6 leading-tight relative">
               Let's turn your idea into a product<br className="hidden md:block" /> people actually use.
             </h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto mb-10 leading-8 relative">
+            <p className="text-slate-500 text-lg max-w-xl mx-auto mb-10 leading-8 relative">
               Tell us what you're working on. We'll come back within 4 hours with an honest plan — no obligations, no sales pitch.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative">
@@ -334,7 +334,7 @@ export default function AboutPageContent() {
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-2 text-base font-semibold text-slate-300 hover:text-white px-8 py-4 rounded-xl border border-white/[0.08] hover:border-white/[0.18] bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-200"
+                className="inline-flex items-center gap-2 text-base font-semibold text-slate-600 hover:text-slate-900 px-8 py-4 rounded-xl border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 transition-all duration-200"
               >
                 View Our Work
               </Link>

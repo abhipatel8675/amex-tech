@@ -57,7 +57,7 @@ const aboutSchema = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#0B0F19] text-white min-h-screen">
+    <div className="bg-white text-slate-900 min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
       <Navbar />

@@ -117,7 +117,7 @@ export default function ServicesPageContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="font-semibold uppercase mb-5"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
           >
             Our Services
           </motion.p>
@@ -126,7 +126,7 @@ export default function ServicesPageContent() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-bold text-white leading-tight mb-5"
+            className="font-bold text-slate-900 leading-tight mb-5"
             style={{
               fontSize: "clamp(40px, 4.5vw, 68px)",
               letterSpacing: "-0.03em",
@@ -140,7 +140,7 @@ export default function ServicesPageContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl max-w-2xl leading-8"
-            style={{ color: "rgba(203,213,225,0.75)" }}
+            style={{ color: "#475569" }}
           >
             From concept to production — we handle the full technology lifecycle so you can focus on your business.
           </motion.p>
@@ -163,7 +163,7 @@ export default function ServicesPageContent() {
                 key={service.slug}
                 id={service.slug}
                 variants={cardVariants}
-                className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-8 flex flex-col overflow-hidden transition-all duration-300 hover:border-white/[0.13]"
+                className="group relative rounded-2xl border border-slate-200 bg-slate-50 p-8 flex flex-col overflow-hidden transition-all duration-300 hover:border-slate-300"
                 style={{
                   // subtle per-card accent glow on hover handled via pseudo via box shadow trick below
                 }}
@@ -204,7 +204,7 @@ export default function ServicesPageContent() {
 
                 {/* Title */}
                 <h2
-                  className="relative text-xl font-bold text-white mb-3 leading-snug"
+                  className="relative text-xl font-bold text-slate-900 mb-3 leading-snug"
                   style={{ letterSpacing: "-0.015em" }}
                 >
                   {service.title}
@@ -213,7 +213,7 @@ export default function ServicesPageContent() {
                 {/* Description */}
                 <p
                   className="relative text-sm leading-7 mb-6 flex-1"
-                  style={{ color: "rgba(148,163,184,0.8)" }}
+                  style={{ color: "#64748B" }}
                 >
                   {service.description}
                 </p>
@@ -225,9 +225,9 @@ export default function ServicesPageContent() {
                       key={tech}
                       className="text-xs px-2.5 py-1 rounded-lg border"
                       style={{
-                        color: "rgba(148,163,184,0.7)",
-                        background: "rgba(255,255,255,0.03)",
-                        borderColor: "rgba(255,255,255,0.07)",
+                        color: "#64748B",
+                        background: "rgba(15,23,42,0.03)",
+                        borderColor: "rgba(15,23,42,0.07)",
                       }}
                     >
                       {tech}

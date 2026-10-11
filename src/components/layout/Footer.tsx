@@ -56,7 +56,7 @@ export default function Footer() {
     <>
       <footer
         className="relative overflow-hidden"
-        style={{ background: "linear-gradient(180deg, #0B0F19 0%, #080C14 100%)" }}
+        style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)" }}
       >
         {/* Top gradient border line */}
         <div
@@ -71,10 +71,10 @@ export default function Footer() {
         <div className="relative max-w-[92rem] mx-auto px-6 pt-16 pb-10">
 
           {/* Newsletter strip */}
-          <div className="mb-14 rounded-2xl border border-white/[0.07] bg-white/[0.025] px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-5">
+          <div className="mb-14 rounded-2xl border border-slate-200 bg-slate-50 px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-5">
             <div>
-              <p className="text-sm font-semibold text-white mb-0.5">Get development tips in your inbox</p>
-              <p className="text-xs" style={{ color: "rgba(148,163,184,0.55)" }}>
+              <p className="text-sm font-semibold text-slate-900 mb-0.5">Get development tips in your inbox</p>
+              <p className="text-xs" style={{ color: "#64748B" }}>
                 Practical insights on web, mobile, and product — no spam, ever.
               </p>
             </div>
@@ -95,7 +95,7 @@ export default function Footer() {
                   required
                   disabled={status === "loading"}
                   aria-label="Email address"
-                  className="flex-1 sm:w-56 text-sm bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-2.5 text-slate-300 placeholder-slate-600 outline-none transition-all focus:border-[#D4AF37]/60 focus:ring-1 focus:ring-[#D4AF37]/30 disabled:opacity-60"
+                  className="flex-1 sm:w-56 text-sm bg-slate-100 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-600 placeholder-slate-400 outline-none transition-all focus:border-[#D4AF37]/60 focus:ring-1 focus:ring-[#D4AF37]/30 disabled:opacity-60"
                 />
                 <button
                   type="submit"
@@ -111,7 +111,7 @@ export default function Footer() {
                   role="status"
                   aria-live="polite"
                   className="text-xs mt-2 text-left sm:text-right"
-                  style={{ color: status === "error" ? "#f87171" : "#34d399" }}
+                  style={{ color: status === "error" ? "#DC2626" : "#059669" }}
                 >
                   {feedback}
                 </p>
@@ -138,13 +138,13 @@ export default function Footer() {
                   >
                     Amex
                   </span>
-                  <span className="text-white font-semibold text-xl tracking-tight">Technology</span>
+                  <span className="text-slate-900 font-semibold text-xl tracking-tight">Technology</span>
                 </span>
               </Link>
-              <p className="text-sm leading-7 mb-5 max-w-[220px]" style={{ color: "rgba(148,163,184,0.7)" }}>
+              <p className="text-sm leading-7 mb-5 max-w-[220px]" style={{ color: "#64748B" }}>
                 Building digital products that drive real business growth.
               </p>
-              <p className="text-xs" style={{ color: "rgba(100,116,139,0.6)" }}>
+              <p className="text-xs" style={{ color: "#64748B" }}>
                 Based in India · Serving clients globally · Est. 2019
               </p>
             </div>
@@ -152,7 +152,7 @@ export default function Footer() {
             {/* Quick Links */}
             <div>
               <h4
-                className="text-xs font-semibold text-white uppercase tracking-widest mb-6"
+                className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-6"
                 style={{ letterSpacing: "0.12em" }}
               >
                 Company
@@ -162,8 +162,8 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm transition-colors hover:text-white"
-                      style={{ color: "rgba(148,163,184,0.6)" }}
+                      className="text-sm transition-colors hover:text-slate-900"
+                      style={{ color: "#64748B" }}
                     >
                       {link.label}
                     </Link>
@@ -175,7 +175,7 @@ export default function Footer() {
             {/* Services */}
             <div>
               <h4
-                className="text-xs font-semibold text-white uppercase tracking-widest mb-6"
+                className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-6"
                 style={{ letterSpacing: "0.12em" }}
               >
                 Services
@@ -185,8 +185,8 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm transition-colors hover:text-white"
-                      style={{ color: "rgba(148,163,184,0.6)" }}
+                      className="text-sm transition-colors hover:text-slate-900"
+                      style={{ color: "#64748B" }}
                     >
                       {link.label}
                     </Link>
@@ -198,46 +198,46 @@ export default function Footer() {
             {/* Contact */}
             <div>
               <h4
-                className="text-xs font-semibold text-white uppercase tracking-widest mb-6"
+                className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-6"
                 style={{ letterSpacing: "0.12em" }}
               >
                 Contact
               </h4>
               <div className="space-y-5">
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "rgba(100,116,139,0.65)", letterSpacing: "0.10em" }}>
+                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#64748B", letterSpacing: "0.10em" }}>
                     Email
                   </p>
                   <a
                     href="mailto:abhipatel8675@gmail.com"
-                    className="text-sm flex items-center gap-1 transition-colors hover:text-white group"
-                    style={{ color: "rgba(148,163,184,0.65)" }}
+                    className="text-sm flex items-center gap-1 transition-colors hover:text-slate-900 group"
+                    style={{ color: "#64748B" }}
                   >
                     abhipatel8675@gmail.com
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "rgba(100,116,139,0.65)", letterSpacing: "0.10em" }}>
+                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#64748B", letterSpacing: "0.10em" }}>
                     Availability
                   </p>
-                  <p className="text-sm" style={{ color: "rgba(148,163,184,0.65)" }}>
+                  <p className="text-sm" style={{ color: "#64748B" }}>
                     Mon – Sat, 9am – 8pm IST
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "rgba(100,116,139,0.65)", letterSpacing: "0.10em" }}>
+                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#64748B", letterSpacing: "0.10em" }}>
                     Response time
                   </p>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <p className="text-sm" style={{ color: "rgba(148,163,184,0.65)" }}>Within 4 hours</p>
+                    <p className="text-sm" style={{ color: "#64748B" }}>Within 4 hours</p>
                   </div>
                 </div>
               </div>
               <Link
                 href="/contact"
-                className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-[#E1BC4A] hover:text-[#D4AF37] transition-colors group"
+                className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-[#9A7614] hover:text-[#9A7614] transition-colors group"
               >
                 Start a project
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -246,19 +246,19 @@ export default function Footer() {
           </div>
 
           {/* Separator + bottom bar */}
-          <div className="border-t border-white/[0.06] pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="border-t border-slate-200 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <p className="text-xs" style={{ color: "rgba(100,116,139,0.55)" }}>
+              <p className="text-xs" style={{ color: "#64748B" }}>
                 © {new Date().getFullYear()} Amex Technology. All rights reserved.
               </p>
-              <span className="text-xs" style={{ color: "rgba(100,116,139,0.4)" }}>·</span>
+              <span className="text-xs" style={{ color: "#64748B" }}>·</span>
               <a
                 href="https://www.instagram.com/amextechnology/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on Instagram"
-                className="transition-colors hover:text-white"
-                style={{ color: "rgba(148,163,184,0.6)" }}
+                className="transition-colors hover:text-slate-900"
+                style={{ color: "#64748B" }}
               >
                 <svg
                   width="16"
@@ -281,8 +281,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on Upwork"
-                className="transition-colors hover:text-white"
-                style={{ color: "rgba(148,163,184,0.6)" }}
+                className="transition-colors hover:text-slate-900"
+                style={{ color: "#64748B" }}
               >
                 <svg
                   width="16"
@@ -299,8 +299,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on LinkedIn"
-                className="transition-colors hover:text-white"
-                style={{ color: "rgba(148,163,184,0.6)" }}
+                className="transition-colors hover:text-slate-900"
+                style={{ color: "#64748B" }}
               >
                 <svg
                   width="16"
@@ -316,15 +316,15 @@ export default function Footer() {
             <div className="flex items-center gap-6">
               <Link
                 href="/privacy"
-                className="text-xs hover:text-slate-300 transition-colors"
-                style={{ color: "rgba(100,116,139,0.55)" }}
+                className="text-xs hover:text-slate-600 transition-colors"
+                style={{ color: "#64748B" }}
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-xs hover:text-slate-300 transition-colors"
-                style={{ color: "rgba(100,116,139,0.55)" }}
+                className="text-xs hover:text-slate-600 transition-colors"
+                style={{ color: "#64748B" }}
               >
                 Terms of Service
               </Link>

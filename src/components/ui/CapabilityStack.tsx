@@ -63,8 +63,8 @@ export function CapabilityStack({ className = "" }: { className?: string }) {
           className="capability-card flex items-center gap-3 rounded-xl border px-5 py-4 backdrop-blur-md"
           style={{
             borderColor: `${accent}33`,
-            background: `linear-gradient(135deg, ${accent}1a 0%, rgba(255,255,255,0.03) 70%)`,
-            boxShadow: `inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 20px -12px ${accent}40`,
+            background: `linear-gradient(135deg, ${accent}1a 0%, rgba(15,23,42,0.03) 70%)`,
+            boxShadow: `inset 0 1px 0 rgba(15,23,42,0.06), 0 8px 20px -12px ${accent}40`,
             marginLeft: i === 1 ? "1.5rem" : i === 2 ? "0.75rem" : "0",
           }}
         >
@@ -78,7 +78,7 @@ export function CapabilityStack({ className = "" }: { className?: string }) {
           >
             <Icon size={18} style={{ color: accent }} />
           </div>
-          <span className="text-sm font-semibold text-white">{label}</span>
+          <span className="text-sm font-semibold text-slate-900">{label}</span>
         </div>
       ))}
     </div>

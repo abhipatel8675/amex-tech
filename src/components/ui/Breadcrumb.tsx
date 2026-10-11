@@ -16,16 +16,16 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
       <ol className="flex flex-wrap items-center gap-1.5 text-sm text-slate-500">
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-1.5">
-            {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-600 shrink-0" />}
+            {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />}
             {item.href ? (
               <Link
                 href={item.href}
-                className="hover:text-slate-300 transition-colors"
+                className="hover:text-slate-600 transition-colors"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className="text-slate-300 font-medium" aria-current="page">
+              <span className="text-slate-600 font-medium" aria-current="page">
                 {item.label}
               </span>
             )}

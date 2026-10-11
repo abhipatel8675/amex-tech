@@ -32,7 +32,7 @@ const breadcrumbSchema = {
 
 export default function PrivacyPage() {
   return (
-    <div className="bg-[#0B0F19] text-white min-h-screen">
+    <div className="bg-white text-slate-900 min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <main>
@@ -40,26 +40,26 @@ export default function PrivacyPage() {
 
         {/* Hero */}
         <section className="pt-8 pb-10 max-w-[92rem] mx-auto px-6">
-          <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">
+          <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">
             Legal
           </p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             Privacy Policy
           </h1>
-          <p className="text-slate-400 text-base leading-7">
-            Last updated: <span className="text-slate-300">{LAST_UPDATED}</span>
+          <p className="text-slate-500 text-base leading-7">
+            Last updated: <span className="text-slate-600">{LAST_UPDATED}</span>
           </p>
         </section>
 
         {/* Content */}
         <article className="pb-28 max-w-[92rem] mx-auto px-6">
-          <div className="border-t border-white/[0.06] pt-10 flex flex-col gap-12">
+          <div className="border-t border-slate-200 pt-10 flex flex-col gap-12">
 
             {/* 1 — Introduction */}
             <Section id="introduction" title="1. Introduction">
               <p>
                 Amex Technology (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) operates{" "}
-                <a href="https://amextechnology.com" className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors">
+                <a href="https://amextechnology.com" className="text-[#9A7614] hover:text-[#9A7614] transition-colors">
                   amextechnology.com
                 </a>{" "}
                 (the &ldquo;Site&rdquo;). This Privacy Policy explains what information we collect, how we use it, who
@@ -168,7 +168,7 @@ export default function PrivacyPage() {
                     href="https://tools.google.com/dlpage/gaoptout"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors"
+                    className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
                   >
                     Google Analytics Opt-out Browser Add-on
                   </a>
@@ -186,13 +186,13 @@ export default function PrivacyPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
-                    <tr className="border-b border-white/[0.08]">
-                      <th className="text-left py-3 pr-6 text-slate-400 font-semibold">Service</th>
-                      <th className="text-left py-3 pr-6 text-slate-400 font-semibold">Purpose</th>
-                      <th className="text-left py-3 text-slate-400 font-semibold">Policy</th>
+                    <tr className="border-b border-slate-200">
+                      <th className="text-left py-3 pr-6 text-slate-500 font-semibold">Service</th>
+                      <th className="text-left py-3 pr-6 text-slate-500 font-semibold">Purpose</th>
+                      <th className="text-left py-3 text-slate-500 font-semibold">Policy</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/[0.05]">
+                  <tbody className="divide-y divide-slate-200">
                     {[
                       {
                         name: "Google Analytics",
@@ -232,14 +232,14 @@ export default function PrivacyPage() {
                       },
                     ].map((row) => (
                       <tr key={row.name}>
-                        <td className="py-3 pr-6 text-slate-300 font-medium">{row.name}</td>
-                        <td className="py-3 pr-6 text-slate-400">{row.purpose}</td>
+                        <td className="py-3 pr-6 text-slate-600 font-medium">{row.name}</td>
+                        <td className="py-3 pr-6 text-slate-500">{row.purpose}</td>
                         <td className="py-3">
                           <a
                             href={row.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors"
+                            className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
                           >
                             {row.label}
                           </a>
@@ -308,7 +308,7 @@ export default function PrivacyPage() {
                 To exercise any of these rights, email us at{" "}
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors"
+                  className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
                 >
                   {CONTACT_EMAIL}
                 </a>{" "}
@@ -341,13 +341,13 @@ export default function PrivacyPage() {
                 If you have any questions or concerns about this Privacy Policy or our data practices, please
                 contact us:
               </p>
-              <div className="mt-4 p-6 rounded-2xl border border-white/[0.07] bg-white/[0.02] text-sm leading-7 text-slate-300">
-                <p className="font-semibold text-white mb-1">Amex Technology</p>
+              <div className="mt-4 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-sm leading-7 text-slate-600">
+                <p className="font-semibold text-slate-900 mb-1">Amex Technology</p>
                 <p>
                   Email:{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors"
+                    className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
                   >
                     {CONTACT_EMAIL}
                   </a>
@@ -377,10 +377,10 @@ function Section({
 }) {
   return (
     <section id={id} className="flex flex-col gap-4 scroll-mt-24">
-      <h2 className="text-xl font-bold text-white" style={{ letterSpacing: "-0.015em" }}>
+      <h2 className="text-xl font-bold text-slate-900" style={{ letterSpacing: "-0.015em" }}>
         {title}
       </h2>
-      <div className="flex flex-col gap-4 text-base leading-8 text-slate-400 [&_strong]:text-slate-300 [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#D4AF37] [&_code]:text-[#E1BC4A] [&_code]:bg-[#D4AF37]/[0.08] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm">
+      <div className="flex flex-col gap-4 text-base leading-8 text-slate-500 [&_strong]:text-slate-600 [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#D4AF37] [&_code]:text-[#E1BC4A] [&_code]:bg-[#D4AF37]/[0.08] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm">
         {children}
       </div>
     </section>
@@ -390,7 +390,7 @@ function Section({
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-3">
-      <h3 className="text-base font-semibold text-slate-300">{title}</h3>
+      <h3 className="text-base font-semibold text-slate-600">{title}</h3>
       {children}
     </div>
   );

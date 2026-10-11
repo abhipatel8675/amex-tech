@@ -60,7 +60,7 @@ export default function BlogPage() {
   const rest = blogPosts.filter((p) => !p.featured);
 
   return (
-    <div className="bg-[#0B0F19] text-white min-h-screen">
+    <div className="bg-white text-slate-900 min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <Navbar />
@@ -69,13 +69,13 @@ export default function BlogPage() {
 
         {/* Hero */}
         <section className="pt-8 pb-16 max-w-[92rem] mx-auto px-6">
-          <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">
+          <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">
             From the Team
           </p>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mb-6 leading-tight">
             Engineering Blog — Guides & Tutorials
           </h1>
-          <p className="text-slate-300 text-xl max-w-xl leading-8">
+          <p className="text-slate-600 text-xl max-w-xl leading-8">
             Architecture decisions, tech stack deep-dives, and lessons from building real products.
           </p>
         </section>
@@ -85,7 +85,7 @@ export default function BlogPage() {
           <section className="pb-12 max-w-[92rem] mx-auto px-6">
             <Link
               href={`/blog/${featured.slug}`}
-              className="group block rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300"
+              className="group block rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden hover:border-slate-300 hover:bg-slate-100 transition-all duration-300"
             >
               <div className="flex flex-col md:flex-row">
                 {/* Visual */}
@@ -120,19 +120,19 @@ export default function BlogPage() {
                 <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-5">
-                      <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.08] px-3 py-1 rounded-lg">
+                      <span className="text-sm text-slate-500 bg-slate-100 border border-slate-200 px-3 py-1 rounded-lg">
                         {featured.category}
                       </span>
                       <span className="text-sm text-slate-500 flex items-center gap-1.5">
                         <Clock className="w-3.5 h-3.5" /> {featured.readTime}
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-[#D4AF37] transition-colors leading-snug">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 group-hover:text-[#9A7614] transition-colors leading-snug">
                       {featured.title}
                     </h2>
-                    <p className="text-base text-slate-400 leading-7">{featured.excerpt}</p>
+                    <p className="text-base text-slate-500 leading-7">{featured.excerpt}</p>
                   </div>
-                  <div className="flex items-center gap-2 text-base font-semibold text-[#E1BC4A] mt-7 group-hover:text-[#D4AF37] transition-colors">
+                  <div className="flex items-center gap-2 text-base font-semibold text-[#9A7614] mt-7 group-hover:text-[#9A7614] transition-colors">
                     Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-white/[0.13] hover:bg-white/[0.04] transition-all duration-300 flex flex-col"
+                className="group rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden hover:border-slate-300 hover:bg-slate-100 transition-all duration-300 flex flex-col"
               >
                 {/* Visual */}
                 <div className="h-44 relative overflow-hidden">
@@ -182,18 +182,18 @@ export default function BlogPage() {
                 {/* Content */}
                 <div className="p-6 flex flex-col gap-3.5 flex-1">
                   <div className="flex items-center gap-2.5">
-                    <span className="text-sm text-slate-400 bg-white/[0.04] border border-white/[0.07] px-2.5 py-1 rounded-lg">
+                    <span className="text-sm text-slate-500 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg">
                       {post.category}
                     </span>
                     <span className="text-sm text-slate-500 flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5" /> {post.readTime}
                     </span>
                   </div>
-                  <h3 className="text-base font-semibold text-white group-hover:text-[#D4AF37] transition-colors leading-snug">
+                  <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#9A7614] transition-colors leading-snug">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed flex-1">{post.excerpt}</p>
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-[#E1BC4A] group-hover:text-[#D4AF37] transition-colors mt-1">
+                  <p className="text-sm text-slate-500 leading-relaxed flex-1">{post.excerpt}</p>
+                  <div className="flex items-center gap-1.5 text-sm font-medium text-[#9A7614] group-hover:text-[#9A7614] transition-colors mt-1">
                     Read <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>

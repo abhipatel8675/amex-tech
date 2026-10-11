@@ -53,7 +53,7 @@ const collectionSchema = {
 
 export default function PortfolioPage() {
   return (
-    <div className="bg-[#0B0F19] text-white min-h-screen">
+    <div className="bg-white text-slate-900 min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <Navbar />
@@ -65,7 +65,7 @@ export default function PortfolioPage() {
           <div className="max-w-[92rem] mx-auto px-6">
             <p
               className="mb-6 font-semibold uppercase"
-              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
+              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
             >
               Our Work
             </p>
@@ -73,7 +73,7 @@ export default function PortfolioPage() {
           {/* Display heading */}
           <div className="max-w-[92rem] mx-auto px-6 mb-5">
             <h1
-              className="font-bold text-white leading-tight"
+              className="font-bold text-slate-900 leading-tight"
               style={{
                 fontSize: "clamp(40px, 4.5vw, 68px)",
                 letterSpacing: "-0.03em",
@@ -83,7 +83,7 @@ export default function PortfolioPage() {
             </h1>
           </div>
           <div className="max-w-[92rem] mx-auto px-6 pb-12">
-            <p className="text-xl max-w-xl leading-8" style={{ color: "rgba(203,213,225,0.75)" }}>
+            <p className="text-xl max-w-xl leading-8" style={{ color: "#475569" }}>
               {projects.length} projects shipped across SaaS, AI, mobile, and web — each one solving a real business problem for a real client.
             </p>
           </div>

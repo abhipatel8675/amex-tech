@@ -28,7 +28,7 @@ const floatAnim = (delay = 0, range = 10) => ({
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0B0F19] pt-16">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-white pt-16">
 
       {/* Background: grid pattern */}
       <div className="grid-pattern absolute inset-0 opacity-100 pointer-events-none" />
@@ -74,7 +74,7 @@ export default function Hero() {
                 style={{
                   background: "linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(184,146,37,0.12) 100%)",
                   borderColor: "rgba(212,175,55,0.35)",
-                  color: "#E1BC4A",
+                  color: "#9A7614",
                   letterSpacing: "0.1em",
                 }}
               >
@@ -88,16 +88,16 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="inline-flex items-center gap-2.5 bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-1.5 mb-8 ml-3"
+              className="inline-flex items-center gap-2.5 bg-slate-100 border border-slate-200 rounded-full px-4 py-1.5 mb-8 ml-3"
             >
-              <span className="text-xs font-medium text-slate-400 tracking-wide">
+              <span className="text-xs font-medium text-slate-500 tracking-wide">
                 Est. 2019
               </span>
             </motion.div>
 
             {/* Headline — word by word */}
             <h1 className="text-[clamp(2.25rem,7vw,6rem)] font-bold leading-[1.1] tracking-[-0.03em] mb-8 break-words">
-              <span className="block text-white">
+              <span className="block text-slate-900">
                 <WordSpan word="We" index={0} />
                 <WordSpan word="Build" index={1} />
               </span>
@@ -113,7 +113,7 @@ export default function Hero() {
                 <WordSpan word="Digital" index={2} />
                 <WordSpan word="Products" index={3} />
               </span>
-              <span className="block text-white">
+              <span className="block text-slate-900">
                 <WordSpan word="That" index={4} />
                 <WordSpan word="Scale." index={5} />
               </span>
@@ -125,7 +125,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
               className="text-xl sm:text-2xl leading-8 sm:leading-9 max-w-[560px] mb-12"
-              style={{ color: "rgba(203,213,225,0.78)" }}
+              style={{ color: "#475569" }}
             >
               From MVP to enterprise platform — we help startups and growing businesses ship
               reliable software that drives measurable results.
@@ -147,7 +147,7 @@ export default function Hero() {
                 <span
                   className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{
-                    background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)",
+                    background: "linear-gradient(105deg, transparent 40%, rgba(15,23,42,0.15) 50%, transparent 60%)",
                     animation: "shimmer 0.6s ease-out",
                   }}
                 />
@@ -156,14 +156,14 @@ export default function Hero() {
               </Link>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 text-base font-semibold text-slate-300 px-7 py-4 rounded-xl border border-white/[0.12] hover:border-white/[0.22] hover:bg-white/[0.05] hover:text-white transition-all duration-200"
+                className="group inline-flex items-center gap-2 text-base font-semibold text-slate-600 px-7 py-4 rounded-xl border border-slate-300 hover:border-slate-300 hover:bg-slate-100 hover:text-slate-900 transition-all duration-200"
               >
                 Start a Project
-                <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-slate-300 group-hover:translate-x-0.5 transition-all" />
+                <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-slate-600 group-hover:translate-x-0.5 transition-all" />
               </Link>
               <Link
                 href="/blog"
-                className="group inline-flex items-center gap-2 text-base font-medium text-slate-500 hover:text-slate-300 transition-colors"
+                className="group inline-flex items-center gap-2 text-base font-medium text-slate-500 hover:text-slate-600 transition-colors"
               >
                 Read our blog
                 <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -175,7 +175,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.85 }}
-              className="pt-6 border-t border-white/[0.08]"
+              className="pt-6 border-t border-slate-200"
             >
             <div className="flex flex-wrap items-center gap-5 sm:gap-7">
               <div className="flex items-center gap-2.5">
@@ -186,17 +186,17 @@ export default function Hero() {
                     </svg>
                   ))}
                 </div>
-                <span className="text-sm font-medium" style={{ color: "rgba(148,163,184,0.8)" }}>100% satisfaction</span>
+                <span className="text-sm font-medium" style={{ color: "#64748B" }}>100% satisfaction</span>
               </div>
-              <span className="w-px h-4 bg-white/[0.10]" />
+              <span className="w-px h-4 bg-slate-200" />
               <div className="flex items-center gap-2">
-                <CircleCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span className="text-sm" style={{ color: "rgba(148,163,184,0.8)" }}>5+ years experience</span>
+                <CircleCheck className="w-3.5 h-3.5 text-[#9A7614]" />
+                <span className="text-sm" style={{ color: "#64748B" }}>5+ years experience</span>
               </div>
-              <span className="w-px h-4 bg-white/[0.10]" />
+              <span className="w-px h-4 bg-slate-200" />
               <div className="flex items-center gap-2">
-                <CircleCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span className="text-sm" style={{ color: "rgba(148,163,184,0.8)" }}>200+ projects shipped</span>
+                <CircleCheck className="w-3.5 h-3.5 text-[#9A7614]" />
+                <span className="text-sm" style={{ color: "#64748B" }}>200+ projects shipped</span>
               </div>
             </div>
             </motion.div>
@@ -211,8 +211,8 @@ export default function Hero() {
           >
             {/* Capability stack */}
             <div
-              className="rounded-2xl border border-white/[0.09] overflow-hidden p-7"
-              style={{ background: "linear-gradient(145deg, #0F1729 0%, #0B0F19 100%)" }}
+              className="rounded-2xl border border-slate-200 overflow-hidden p-7 shadow-[0_8px_30px_rgba(15,23,42,0.06)]"
+              style={{ background: "linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%)" }}
             >
               <AnimatedLogoDraw size={26} textClassName="text-lg" className="mb-6" />
               <CapabilityStack />
@@ -221,8 +221,8 @@ export default function Hero() {
             {/* Client review card */}
             <motion.div
               {...floatAnim(1.2, 5)}
-              className="rounded-2xl border border-white/[0.09] p-6"
-              style={{ background: "linear-gradient(145deg, #0F1729 0%, #0B0F19 100%)" }}
+              className="rounded-2xl border border-slate-200 p-6 shadow-[0_8px_30px_rgba(15,23,42,0.06)]"
+              style={{ background: "linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%)" }}
             >
               <div className="flex items-center gap-1 mb-3">
                 {[...Array(5)].map((_, i) => (
@@ -232,7 +232,7 @@ export default function Hero() {
                 ))}
                 <span className="ml-2 text-xs text-amber-400 font-semibold">5.0</span>
               </div>
-              <p className="text-sm text-slate-200 leading-relaxed italic">
+              <p className="text-sm text-slate-700 leading-relaxed italic">
                 "Exceptional work — on time, within budget, and the quality exceeded our expectations."
               </p>
               <p className="text-xs text-slate-500 mt-3">— Sarah M., Founder at TechStart</p>
@@ -242,7 +242,7 @@ export default function Hero() {
             <div className="flex flex-1 flex-col">
               <p
                 className="mb-3 font-semibold uppercase"
-                style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
+                style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
               >
                 From the Blog
               </p>
@@ -255,7 +255,7 @@ export default function Hero() {
       {/* Bottom gradient fade */}
       <div
         className="absolute bottom-0 inset-x-0 h-24 pointer-events-none"
-        style={{ background: "linear-gradient(to top, #0B0F19, transparent)" }}
+        style={{ background: "linear-gradient(to top, #FFFFFF, transparent)" }}
       />
     </section>
   );

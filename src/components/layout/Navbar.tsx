@@ -35,7 +35,7 @@ export default function Navbar() {
       <header
         className={`fixed left-0 right-0 z-50 transition-all duration-500 top-0 ${
           scrolled
-            ? "bg-[#0B0F19]/85 backdrop-blur-2xl border-b border-[#D4AF37]/20"
+            ? "bg-white/85 backdrop-blur-2xl border-b border-slate-200 shadow-sm"
             : "bg-transparent"
         }`}
       >
@@ -56,7 +56,7 @@ export default function Navbar() {
               >
                 Amex
               </span>
-              <span className="text-[#E2E8F0] font-semibold text-lg tracking-tight">Technology</span>
+              <span className="text-slate-700 font-semibold text-lg tracking-tight">Technology</span>
             </span>
           </Link>
 
@@ -71,14 +71,14 @@ export default function Navbar() {
                   aria-current={isActive ? "page" : undefined}
                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 group ${
                     isActive
-                      ? "text-white"
-                      : "text-slate-400 hover:text-slate-200"
+                      ? "text-slate-900"
+                      : "text-slate-500 hover:text-slate-700"
                   }`}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="nav-active"
-                      className="absolute inset-0 rounded-lg bg-white/[0.07]"
+                      className="absolute inset-0 rounded-lg bg-slate-100"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -99,7 +99,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-200 transition-colors px-3 py-2"
+              className="hidden md:inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700 transition-colors px-3 py-2"
             >
               Contact
             </Link>
@@ -115,7 +115,7 @@ export default function Navbar() {
             </Link>
             <button
               onClick={() => setMobileOpen((v) => !v)}
-              className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.06] transition-all"
+              className="md:hidden p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all"
               aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
@@ -146,21 +146,21 @@ export default function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
               transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 border-l border-white/[0.06] md:hidden flex flex-col"
+              className="fixed top-0 right-0 bottom-0 z-50 w-72 border-l border-slate-200 md:hidden flex flex-col"
               style={{
-                background: "linear-gradient(160deg, #0f1225 0%, #0B0F19 100%)",
+                background: "linear-gradient(160deg, #FFFFFF 0%, #F8FAFC 100%)",
               }}
             >
               {/* Mobile header */}
-              <div className="flex items-center justify-between px-6 h-16 border-b border-white/[0.06]">
+              <div className="flex items-center justify-between px-6 h-16 border-b border-slate-200">
                 <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
                   <LogoMark size={28} />
                   <span className="flex items-baseline gap-1">
                     <span className="font-bold text-lg" style={{ background: "linear-gradient(135deg, #E1BC4A, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Amex</span>
-                    <span className="text-white font-semibold text-lg">Technology</span>
+                    <span className="text-slate-900 font-semibold text-lg">Technology</span>
                   </span>
                 </Link>
-                <button onClick={() => setMobileOpen(false)} className="p-2 text-slate-400 hover:text-white transition-colors" aria-label="Close navigation menu">
+                <button onClick={() => setMobileOpen(false)} className="p-2 text-slate-500 hover:text-slate-900 transition-colors" aria-label="Close navigation menu">
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -170,7 +170,7 @@ export default function Navbar() {
                 <Link
                   href="/"
                   onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${pathname === "/" ? "text-white bg-white/[0.07]" : "text-slate-400 hover:text-white hover:bg-white/[0.04]"}`}
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${pathname === "/" ? "text-slate-900 bg-slate-100" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`}
                 >
                   Home
                 </Link>
@@ -182,7 +182,7 @@ export default function Navbar() {
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
                       aria-current={isActive ? "page" : undefined}
-                      className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isActive ? "text-white bg-white/[0.07]" : "text-slate-400 hover:text-white hover:bg-white/[0.04]"}`}
+                      className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isActive ? "text-slate-900 bg-slate-100" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`}
                     >
                       {link.label}
                     </Link>
@@ -191,14 +191,14 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${pathname === "/contact" ? "text-white bg-white/[0.07]" : "text-slate-400 hover:text-white hover:bg-white/[0.04]"}`}
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${pathname === "/contact" ? "text-slate-900 bg-slate-100" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`}
                 >
                   Contact
                 </Link>
               </div>
 
               {/* Mobile CTA */}
-              <div className="p-4 border-t border-white/[0.06]">
+              <div className="p-4 border-t border-slate-200">
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}

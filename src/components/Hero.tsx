@@ -34,7 +34,7 @@ export default function Hero() {
           {badges.map((b) => (
             <div
               key={b.text}
-              className="flex items-center gap-2 text-sm bg-[#111111] border border-[#1f1f1f] px-3 py-1.5 rounded-full text-indigo-400"
+              className="flex items-center gap-2 text-sm bg-white border border-slate-200 px-3 py-1.5 rounded-full text-indigo-400"
             >
               <b.icon className="w-3 h-3" />
               {b.text}
@@ -63,7 +63,7 @@ export default function Hero() {
           className="flex items-center justify-center gap-2 mb-6"
         >
           <MapPin className="w-6 h-6 text-indigo-400" />
-          <span className="text-2xl md:text-3xl font-semibold text-white">
+          <span className="text-2xl md:text-3xl font-semibold text-slate-900">
             Gardena, California, USA
           </span>
         </motion.div>
@@ -73,7 +73,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-[#6b7280] max-w-2xl mx-auto mb-10"
+          className="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto mb-10"
         >
           Full-Stack Engineering for Founders & Product Teams. Any language, any framework,
           any stack — from idea to production-ready in days, not months.
@@ -94,7 +94,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="flex items-center gap-2 border border-[#1f1f1f] text-white font-medium px-6 py-3 rounded-xl hover:border-[#6366F1]/50 hover:bg-indigo-500/5 transition-all"
+            className="flex items-center gap-2 border border-slate-200 text-slate-900 font-medium px-6 py-3 rounded-xl hover:border-[#6366F1]/50 hover:bg-indigo-500/5 transition-all"
           >
             Book Free Call
           </a>
@@ -110,10 +110,10 @@ export default function Hero() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="bg-[#111111] border border-[#1f1f1f] rounded-2xl p-4 text-center"
+              className="bg-white border border-slate-200 rounded-2xl p-4 text-center"
             >
               <div className="text-3xl md:text-4xl font-bold text-indigo-400">{s.value}</div>
-              <div className="text-sm text-[#6b7280] mt-1">{s.label}</div>
+              <div className="text-sm text-slate-500 mt-1">{s.label}</div>
             </div>
           ))}
         </motion.div>

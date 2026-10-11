@@ -32,7 +32,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="py-24 bg-[#0d0d0d] border-y border-[#1f1f1f]">
+    <section id="process" className="py-24 bg-slate-50 border-y border-slate-200">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ export default function Process() {
             How It Works
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple 4-Step Process</h2>
-          <p className="text-lg text-[#6b7280] max-w-xl mx-auto">
+          <p className="text-lg text-slate-500 max-w-xl mx-auto">
             From first message to live product. No agencies, no middlemen — you work directly with the developer.
           </p>
         </motion.div>
@@ -62,17 +62,17 @@ export default function Process() {
                 className="relative"
               >
                 {i < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-5 left-[60%] right-0 h-px bg-gradient-to-r from-[#1f1f1f] to-transparent" />
+                  <div className="hidden md:block absolute top-5 left-[60%] right-0 h-px bg-gradient-to-r from-slate-200 to-transparent" />
                 )}
-                <div className="bg-[#111111] border border-[#1f1f1f] rounded-2xl p-5">
+                <div className="bg-white border border-slate-200 rounded-2xl p-5">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-9 h-9 bg-indigo-500/10 rounded-lg flex items-center justify-center">
                       <Icon className="w-4 h-4 text-indigo-400" />
                     </div>
-                    <span className="text-2xl font-bold text-[#1f1f1f]">{s.step}</span>
+                    <span className="text-2xl font-bold text-slate-200">{s.step}</span>
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
-                  <p className="text-base text-[#6b7280] leading-relaxed">{s.desc}</p>
+                  <p className="text-base text-slate-500 leading-relaxed">{s.desc}</p>
                 </div>
               </motion.div>
             );

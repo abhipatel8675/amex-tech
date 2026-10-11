@@ -56,7 +56,7 @@ export default function TechMarquee() {
   }, []);
 
   return (
-    <section className="relative py-10 md:py-14 overflow-hidden border-t border-white/[0.06] bg-[#0B0F19]">
+    <section className="relative py-10 md:py-14 overflow-hidden border-t border-slate-200 bg-white">
       {/* Ambient glow behind the marquee */}
       <div
         className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-40 pointer-events-none"
@@ -70,7 +70,7 @@ export default function TechMarquee() {
       <div className="relative max-w-[92rem] mx-auto px-6 mb-7">
         <p
           className="font-semibold uppercase text-center"
-          style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E1BC4A" }}
+          style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
         >
           Our Stack
         </p>
@@ -87,10 +87,10 @@ export default function TechMarquee() {
           {[...technologies, ...technologies].map((tech, i) => (
             <span
               key={i}
-              className="group relative shrink-0 whitespace-nowrap rounded-xl border border-white/[0.10] px-4 py-2 text-sm font-medium text-slate-300 backdrop-blur-md transition-all duration-300 hover:text-white hover:border-[#E1BC4A]/40 hover:-translate-y-0.5"
+              className="group relative shrink-0 whitespace-nowrap rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 backdrop-blur-md transition-all duration-300 hover:text-slate-900 hover:border-[#E1BC4A]/40 hover:-translate-y-0.5"
               style={{
-                background: "linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 1px rgba(255,255,255,0.03)",
+                background: "linear-gradient(145deg, rgba(15,23,42,0.06) 0%, rgba(15,23,42,0.02) 100%)",
+                boxShadow: "inset 0 1px 0 rgba(15,23,42,0.08), 0 0 0 1px rgba(15,23,42,0.03)",
               }}
             >
               {/* Hover glow */}

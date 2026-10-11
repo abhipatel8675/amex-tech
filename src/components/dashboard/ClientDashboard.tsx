@@ -39,11 +39,11 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
   };
 
   return (
-    <div className="bg-[#111111] border border-[#1f1f1f] rounded-2xl p-5 hover:border-[#2f2f2f] transition-all">
+    <div className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-slate-300 transition-all">
       <div className="flex items-start justify-between mb-3">
         <div>
           <h3 className="font-semibold text-base">{order.service}</h3>
-          <p className="text-sm text-[#6b7280]">{order.package_name} — ${order.price}</p>
+          <p className="text-sm text-slate-500">{order.package_name} — ${order.price}</p>
         </div>
         <div className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full border" style={{ borderColor: `${s.color}40`, color: s.color, background: `${s.color}10` }}>
           <Icon className="w-3 h-3" />
@@ -51,7 +51,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
         </div>
       </div>
 
-      <p className="text-xs text-[#6b7280] mb-4">
+      <p className="text-xs text-slate-500 mb-4">
         Ordered {new Date(order.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
       </p>
 
@@ -70,7 +70,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
               value={details}
               onChange={(e) => setDetails(e.target.value)}
               placeholder="Describe your project — what needs to be built or fixed, your tech stack, deadline, any relevant links..."
-              className="w-full bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#D4AF37]/50 resize-none"
+              className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#D4AF37]/50 resize-none"
             />
             <div className="flex gap-2">
               <button
@@ -81,7 +81,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
               >
                 {saving ? "Saving..." : "Submit"}
               </button>
-              <button onClick={() => setShowForm(false)} className="px-4 py-2 text-sm border border-[#1f1f1f] rounded-lg hover:border-[#2f2f2f] text-[#6b7280]">
+              <button onClick={() => setShowForm(false)} className="px-4 py-2 text-sm border border-slate-200 rounded-lg hover:border-slate-300 text-slate-500">
                 Cancel
               </button>
             </div>
@@ -90,9 +90,9 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
       )}
 
       {order.project_details && (
-        <div className="bg-[#0a0a0a] border border-[#1f1f1f] rounded-lg p-3 mb-3">
-          <p className="text-xs text-[#6b7280] mb-1">Your project details:</p>
-          <p className="text-sm text-[#9ca3af]">{order.project_details}</p>
+        <div className="bg-white border border-slate-200 rounded-lg p-3 mb-3">
+          <p className="text-xs text-slate-500 mb-1">Your project details:</p>
+          <p className="text-sm text-slate-500">{order.project_details}</p>
         </div>
       )}
 
@@ -132,19 +132,19 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-[#1f1f1f] bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-50">
+      <header className="border-b border-slate-200 bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2 font-bold">
             <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
-              <Zap className="w-4 h-4 text-white" />
+              <Zap className="w-4 h-4 text-slate-900" />
             </div>
-            Amex<span className="text-[#E1BC4A]">Technology</span>
+            Amex<span className="text-[#9A7614]">Technology</span>
           </a>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-[#6b7280] hidden sm:block">{user.email}</span>
-            <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-[#6b7280] hover:text-white transition-colors">
+            <span className="text-sm text-slate-500 hidden sm:block">{user.email}</span>
+            <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-900 transition-colors">
               <LogOut className="w-4 h-4" /> Sign Out
             </button>
           </div>
@@ -154,7 +154,7 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
       <main className="max-w-5xl mx-auto px-6 py-10">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-1">My Orders</h1>
-          <p className="text-[#6b7280]">Track your projects and submit details.</p>
+          <p className="text-slate-500">Track your projects and submit details.</p>
         </div>
 
         {/* Stats */}
@@ -164,18 +164,18 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
             { label: "In Progress", value: stats.active, color: "#60a5fa" },
             { label: "Completed", value: stats.completed, color: "#818CF8" },
           ].map((s) => (
-            <div key={s.label} className="bg-[#111111] border border-[#1f1f1f] rounded-2xl p-4 text-center">
+            <div key={s.label} className="bg-white border border-slate-200 rounded-2xl p-4 text-center">
               <div className="text-3xl font-bold mb-1" style={{ color: s.color }}>{s.value}</div>
-              <div className="text-sm text-[#6b7280]">{s.label}</div>
+              <div className="text-sm text-slate-500">{s.label}</div>
             </div>
           ))}
         </div>
 
         {orders.length === 0 ? (
-          <div className="text-center py-20 bg-[#111111] border border-[#1f1f1f] rounded-2xl">
-            <Package className="w-12 h-12 text-[#2f2f2f] mx-auto mb-4" />
+          <div className="text-center py-20 bg-white border border-slate-200 rounded-2xl">
+            <Package className="w-12 h-12 text-slate-300 mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">No orders yet</h3>
-            <p className="text-[#6b7280] mb-6">Purchase a service to get started.</p>
+            <p className="text-slate-500 mb-6">Purchase a service to get started.</p>
             <a
               href="/services"
               className="text-white font-semibold px-5 py-2.5 rounded-xl transition-all text-sm"

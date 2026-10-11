@@ -73,7 +73,7 @@ function StatCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, delay: index * 0.08 }}
-      className="group relative flex flex-col items-center text-center px-6 py-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.18] transition-all duration-300"
+      className="group relative flex flex-col items-center text-center px-6 py-8 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 transition-all duration-300"
       style={{
         boxShadow: "0 0 0 0 transparent",
       }}
@@ -97,7 +97,7 @@ function StatCard({
       <p
         className="text-3xl sm:text-5xl font-bold tracking-tight mb-1.5 tabular-nums"
         style={{
-          background: "linear-gradient(135deg, #E2E8F0 0%, #94A3B8 100%)",
+          background: "linear-gradient(135deg, #0F172A 0%, #475569 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
@@ -105,7 +105,7 @@ function StatCard({
       >
         {count}{stat.suffix}
       </p>
-      <p className="text-sm font-semibold text-slate-300 mb-1">{stat.label}</p>
+      <p className="text-sm font-semibold text-slate-600 mb-1">{stat.label}</p>
       <p className="text-xs text-slate-500">{stat.detail}</p>
     </motion.div>
   );

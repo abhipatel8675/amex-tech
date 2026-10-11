@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Send, CheckCircle2, ChevronDown } from "lucide-react";
 
 const services = [
-  "Custom Website Development", "Web Application Development", "Mobile App Development",
+  "Quick Bug Fix", "Custom Website Development", "Web Application Development", "Mobile App Development",
   "SaaS Development", "API Development & Integration", "Backend Development",
   "DevOps & Deployment", "UI/UX Design", "SEO Services", "AI & Automation Services",
   "Maintenance & Support", "Other / Not Sure",
@@ -14,8 +15,31 @@ const budgets = ["Under $1,000", "$1,000 – $5,000", "$5,000 – $15,000", "$15
 
 type FormState = { name: string; email: string; company: string; service: string; budget: string; message: string };
 
+// Prefill from links like /contact?service=...&message=... (used by the blog fix CTA).
+// useSearchParams needs a Suspense boundary on prerendered pages; the fallback is
+// the same form without prefill, so the initial HTML still contains the form.
 export default function ContactForm() {
-  const [form, setForm] = useState<FormState>({ name: "", email: "", company: "", service: "", budget: "", message: "" });
+  return (
+    <Suspense fallback={<ContactFormFields />}>
+      <ContactFormWithParams />
+    </Suspense>
+  );
+}
+
+function ContactFormWithParams() {
+  const params = useSearchParams();
+  const service = params.get("service");
+  const message = params.get("message");
+  return (
+    <ContactFormFields
+      initialService={service && services.includes(service) ? service : ""}
+      initialMessage={message ? message.slice(0, 500) : ""}
+    />
+  );
+}
+
+function ContactFormFields({ initialService = "", initialMessage = "" }: { initialService?: string; initialMessage?: string }) {
+  const [form, setForm] = useState<FormState>({ name: "", email: "", company: "", service: initialService, budget: "", message: initialMessage });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -72,16 +96,16 @@ export default function ContactForm() {
     }
   };
 
-  const inputCls = "w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3.5 text-base text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37]/60 focus:bg-white/[0.07] focus:ring-1 focus:ring-[#D4AF37]/20 transition-all duration-200";
+  const inputCls = "w-full bg-slate-100 border border-slate-200 rounded-xl px-4 py-3.5 text-base text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#D4AF37]/60 focus:bg-slate-100 focus:ring-1 focus:ring-[#D4AF37]/20 transition-all duration-200";
 
   if (success) {
     return (
       <div className="flex flex-col items-center justify-center gap-5 py-20 text-center">
         <div className="w-16 h-16 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/25 flex items-center justify-center">
-          <CheckCircle2 className="w-8 h-8 text-[#E1BC4A]" />
+          <CheckCircle2 className="w-8 h-8 text-[#9A7614]" />
         </div>
-        <h3 className="text-2xl font-bold text-white">Message Received</h3>
-        <p className="text-base text-slate-400 max-w-xs leading-7">
+        <h3 className="text-2xl font-bold text-slate-900">Message Received</h3>
+        <p className="text-base text-slate-500 max-w-xs leading-7">
           We&apos;ll review your project details and get back to you within 4 hours.
         </p>
       </div>
@@ -92,7 +116,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="contact-name" className="block text-sm font-medium text-slate-400 mb-2.5">Full Name <span className="text-[#E1BC4A]">*</span></label>
+          <label htmlFor="contact-name" className="block text-sm font-medium text-slate-500 mb-2.5">Full Name <span className="text-[#9A7614]">*</span></label>
           <input
             id="contact-name"
             name="name"
@@ -106,7 +130,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="contact-email" className="block text-sm font-medium text-slate-400 mb-2.5">Email <span className="text-[#E1BC4A]">*</span></label>
+          <label htmlFor="contact-email" className="block text-sm font-medium text-slate-500 mb-2.5">Email <span className="text-[#9A7614]">*</span></label>
           <input
             id="contact-email"
             name="email"
@@ -123,7 +147,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="contact-company" className="block text-sm font-medium text-slate-400 mb-2.5">Company / Project Name</label>
+        <label htmlFor="contact-company" className="block text-sm font-medium text-slate-500 mb-2.5">Company / Project Name</label>
         <input
           id="contact-company"
           name="company"
@@ -137,24 +161,24 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-400 mb-2.5">Project Type <span className="text-[#E1BC4A]">*</span></label>
+        <label className="block text-sm font-medium text-slate-500 mb-2.5">Project Type <span className="text-[#9A7614]">*</span></label>
         <div ref={serviceRef} className="relative">
           <button
             type="button"
             aria-haspopup="listbox"
             aria-expanded={serviceOpen}
             onClick={() => setServiceOpen((o) => !o)}
-            className={`${inputCls} flex items-center justify-between text-left ${form.service ? "text-white" : "text-slate-500"}`}
+            className={`${inputCls} flex items-center justify-between text-left ${form.service ? "text-slate-900" : "text-slate-500"}`}
           >
             <span>{form.service || "Select a service..."}</span>
-            <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${serviceOpen ? "rotate-180" : ""}`} />
+            <ChevronDown className={`w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200 ${serviceOpen ? "rotate-180" : ""}`} />
           </button>
 
           {serviceOpen && (
             <ul
               role="listbox"
               aria-label="Project type"
-              className="absolute z-50 w-full mt-1.5 rounded-xl border border-white/[0.1] bg-[#0d0d1a] shadow-2xl overflow-hidden"
+              className="absolute z-50 w-full mt-1.5 rounded-xl border border-slate-200 bg-slate-50 shadow-2xl overflow-hidden"
             >
               {services.map((s) => (
                 <li
@@ -165,7 +189,7 @@ export default function ContactForm() {
                   className={`px-4 py-3 text-sm cursor-pointer transition-colors duration-150 ${
                     form.service === s
                       ? "bg-[#D4AF37]/20 text-[#D4AF37]"
-                      : "text-slate-300 hover:bg-white/[0.06] hover:text-white"
+                      : "text-slate-600 hover:bg-slate-100 hover:text-white"
                   }`}
                 >
                   {s}
@@ -179,7 +203,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-400 mb-3.5" id="budget-label">Budget Range</label>
+        <label className="block text-sm font-medium text-slate-500 mb-3.5" id="budget-label">Budget Range</label>
         <div role="group" aria-labelledby="budget-label" className="flex flex-wrap gap-2.5">
           {budgets.map((b) => (
             <button
@@ -190,7 +214,7 @@ export default function ContactForm() {
               className={`text-sm font-medium px-4 py-2 rounded-lg border transition-all duration-200 ${
                 form.budget === b
                   ? "bg-[#D4AF37]/15 border-[#D4AF37]/40 text-[#D4AF37]"
-                  : "border-white/[0.08] text-slate-400 hover:border-white/[0.18] hover:text-slate-200"
+                  : "border-slate-200 text-slate-500 hover:border-slate-300 hover:text-slate-700"
               }`}
             >
               {b}
@@ -200,7 +224,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="contact-message" className="block text-sm font-medium text-slate-400 mb-2.5">Project Details <span className="text-[#E1BC4A]">*</span></label>
+        <label htmlFor="contact-message" className="block text-sm font-medium text-slate-500 mb-2.5">Project Details <span className="text-[#9A7614]">*</span></label>
         <textarea
           id="contact-message"
           name="message"

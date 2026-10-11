@@ -25,15 +25,15 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#1f1f1f]" : "bg-transparent"
+        scrolled ? "bg-[#0a0a0a]/90 backdrop-blur-md border-b border-slate-200" : "bg-transparent"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 font-bold text-lg">
           <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
-            <Zap className="w-4 h-4 text-white" />
+            <Zap className="w-4 h-4 text-slate-900" />
           </div>
-          <span>Amex<span className="text-[#E1BC4A]">Technology</span></span>
+          <span>Amex<span className="text-[#9A7614]">Technology</span></span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -41,7 +41,7 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-[#6b7280] hover:text-white transition-colors"
+              className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
             >
               {l.label}
             </a>
@@ -56,7 +56,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden text-[#6b7280] hover:text-white"
+          className="md:hidden text-slate-500 hover:text-slate-900"
           onClick={() => setOpen(!open)}
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -69,13 +69,13 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden bg-[#0f0f0f] border-b border-[#1f1f1f] px-6 py-4 flex flex-col gap-4"
+            className="md:hidden bg-slate-50 border-b border-slate-200 px-6 py-4 flex flex-col gap-4"
           >
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm text-[#6b7280] hover:text-white"
+                className="text-sm text-slate-500 hover:text-slate-900"
                 onClick={() => setOpen(false)}
               >
                 {l.label}

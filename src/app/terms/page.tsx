@@ -33,7 +33,7 @@ const breadcrumbSchema = {
 
 export default function TermsPage() {
   return (
-    <div className="bg-[#0B0F19] text-white min-h-screen">
+    <div className="bg-white text-slate-900 min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <main>
@@ -41,26 +41,26 @@ export default function TermsPage() {
 
         {/* Hero */}
         <section className="pt-8 pb-10 max-w-[92rem] mx-auto px-6">
-          <p className="text-sm font-semibold text-[#E1BC4A] uppercase tracking-widest mb-5">
+          <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">
             Legal
           </p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             Terms of Service
           </h1>
-          <p className="text-slate-400 text-base leading-7">
-            Last updated: <span className="text-slate-300">{LAST_UPDATED}</span>
+          <p className="text-slate-500 text-base leading-7">
+            Last updated: <span className="text-slate-600">{LAST_UPDATED}</span>
           </p>
         </section>
 
         {/* Content */}
         <article className="pb-28 max-w-[92rem] mx-auto px-6">
-          <div className="border-t border-white/[0.06] pt-10 flex flex-col gap-12">
+          <div className="border-t border-slate-200 pt-10 flex flex-col gap-12">
 
             {/* 1 — Acceptance */}
             <Section id="acceptance" title="1. Acceptance of Terms">
               <p>
                 By accessing or using{" "}
-                <a href="https://amextechnology.com" className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors">
+                <a href="https://amextechnology.com" className="text-[#9A7614] hover:text-[#9A7614] transition-colors">
                   amextechnology.com
                 </a>{" "}
                 (the &ldquo;Site&rdquo;) or any services offered by Amex Technology (&ldquo;we,&rdquo;
@@ -116,7 +116,7 @@ export default function TermsPage() {
                   You agree to notify us immediately at{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors"
+                    className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
                   >
                     {CONTACT_EMAIL}
                   </a>{" "}
@@ -255,7 +255,7 @@ export default function TermsPage() {
                 Before initiating any formal legal proceedings, you agree to first contact us at{" "}
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors"
+                  className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
                 >
                   {CONTACT_EMAIL}
                 </a>{" "}
@@ -283,13 +283,13 @@ export default function TermsPage() {
               <p>
                 If you have any questions about these Terms of Service, please contact us:
               </p>
-              <div className="mt-4 p-6 rounded-2xl border border-white/[0.07] bg-white/[0.02] text-sm leading-7 text-slate-300">
-                <p className="font-semibold text-white mb-1">Amex Technology</p>
+              <div className="mt-4 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-sm leading-7 text-slate-600">
+                <p className="font-semibold text-slate-900 mb-1">Amex Technology</p>
                 <p>
                   Email:{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors"
+                    className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
                   >
                     {CONTACT_EMAIL}
                   </a>
@@ -300,10 +300,10 @@ export default function TermsPage() {
             </Section>
 
             {/* Related links */}
-            <div className="pt-4 border-t border-white/[0.06]">
+            <div className="pt-4 border-t border-slate-200">
               <p className="text-sm text-slate-500">
                 Also see our{" "}
-                <Link href="/privacy" className="text-[#E1BC4A] hover:text-[#D4AF37] transition-colors">
+                <Link href="/privacy" className="text-[#9A7614] hover:text-[#9A7614] transition-colors">
                   Privacy Policy
                 </Link>
                 .
@@ -330,10 +330,10 @@ function Section({
 }) {
   return (
     <section id={id} className="flex flex-col gap-4 scroll-mt-24">
-      <h2 className="text-xl font-bold text-white" style={{ letterSpacing: "-0.015em" }}>
+      <h2 className="text-xl font-bold text-slate-900" style={{ letterSpacing: "-0.015em" }}>
         {title}
       </h2>
-      <div className="flex flex-col gap-4 text-base leading-8 text-slate-400 [&_strong]:text-slate-300 [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#D4AF37]">
+      <div className="flex flex-col gap-4 text-base leading-8 text-slate-500 [&_strong]:text-slate-600 [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#9A7614]">
         {children}
       </div>
     </section>

@@ -16,7 +16,7 @@ const avatarGradients = [
 function FiverrBadge() {
   return (
     <span
-      className="inline-flex items-center justify-center w-6 h-6 rounded-md text-white font-bold text-xs select-none"
+      className="inline-flex items-center justify-center w-6 h-6 rounded-md text-slate-900 font-bold text-xs select-none"
       style={{ background: "#1DBF73", fontSize: 13, lineHeight: 1 }}
       aria-label="Fiverr"
     >
@@ -29,7 +29,7 @@ export default function Testimonials() {
   return (
     <section
       className="py-12 md:py-16"
-      style={{ background: "linear-gradient(180deg, #0B0F19 0%, #0D1220 50%, #0B0F19 100%)" }}
+      style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #FFFFFF 100%)" }}
     >
       <div className="max-w-[92rem] mx-auto px-6">
         {/* Header */}
@@ -40,13 +40,13 @@ export default function Testimonials() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="text-xs font-semibold text-[#E1BC4A] uppercase tracking-widest mb-4" style={{ letterSpacing: "0.15em" }}>
+          <p className="text-xs font-semibold text-[#9A7614] uppercase tracking-widest mb-4" style={{ letterSpacing: "0.15em" }}>
             Client Voices
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             Trusted by teams who ship.
           </h2>
-          <p className="text-slate-400 text-lg max-w-md mx-auto leading-7">
+          <p className="text-slate-500 text-lg max-w-md mx-auto leading-7">
             Don&apos;t take our word for it — here&apos;s what our clients say.
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ export default function Testimonials() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="group relative flex flex-col gap-5 p-7 rounded-2xl border border-white/[0.07] bg-white/[0.025] hover:bg-white/[0.04] hover:border-[#D4AF37]/30 hover:border-l-[#D4AF37]/70 transition-all duration-300"
+                className="group relative flex flex-col gap-5 p-7 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-[#D4AF37]/30 hover:border-l-[#D4AF37]/70 transition-all duration-300"
                 style={{ borderLeftWidth: "1px" }}
               >
                 {/* Hover left border accent */}
@@ -75,7 +75,7 @@ export default function Testimonials() {
                 <div className="absolute top-5 right-6 flex items-center gap-2">
                   <FiverrBadge />
                   {/* Decorative quote behind badge */}
-                  <Quote className="w-10 h-10 text-[#E1BC4A] fill-[#E1BC4A] opacity-[0.05] absolute right-0 top-0" />
+                  <Quote className="w-10 h-10 text-[#9A7614] fill-[#9A7614] opacity-[0.05] absolute right-0 top-0" />
                 </div>
 
                 {/* Stars */}
@@ -86,34 +86,34 @@ export default function Testimonials() {
                 </div>
 
                 {/* Quote */}
-                <p className="text-[15px] text-slate-200 leading-7 flex-1 relative z-10">
+                <p className="text-[15px] text-slate-700 leading-7 flex-1 relative z-10">
                   &ldquo;{t.content}&rdquo;
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center justify-between gap-3 pt-4 border-t border-white/[0.07]">
+                <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-200">
                   <div className="flex items-center gap-3">
                     {/* Avatar */}
                     <div className="relative shrink-0">
                       <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white uppercase"
+                        className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-slate-900 uppercase"
                         style={{ background: `linear-gradient(135deg, ${gradFrom}, ${gradTo})` }}
                       >
                         {t.name.charAt(0)}
                       </div>
                       <span
-                        className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-[#0D1220]"
+                        className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-white"
                         style={{ background: "#34D399" }}
                       />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-white leading-tight">{t.name}</p>
+                      <p className="text-sm font-semibold text-slate-900 leading-tight">{t.name}</p>
                       <p className="text-xs text-slate-500 mt-0.5">
                         {t.role} &middot; {t.company}
                       </p>
                     </div>
                   </div>
-                  <span className="text-xs text-slate-500 bg-white/[0.04] border border-white/[0.07] px-2.5 py-1 rounded-md shrink-0">
+                  <span className="text-xs text-slate-500 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-md shrink-0">
                     {t.platform}
                   </span>
                 </div>
@@ -128,7 +128,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 pt-10 border-t border-white/[0.06] relative flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-0"
+          className="mt-12 pt-10 border-t border-slate-200 relative flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-0"
         >
           {/* Subtle glow behind bar */}
           <div
@@ -140,10 +140,10 @@ export default function Testimonials() {
           {[
             { value: "5.0", label: "Average Rating", color: "#FBBF24" },
             { value: "100%", label: "Satisfaction Rate", color: "#34D399" },
-            { value: "100+", label: "Clients Served", color: "#E1BC4A" },
+            { value: "100+", label: "Clients Served", color: "#9A7614" },
           ].map((m, i) => (
             <div key={m.label} className="relative flex items-center gap-0">
-              {i > 0 && <span className="hidden sm:block w-px h-10 bg-white/[0.07] mx-10" />}
+              {i > 0 && <span className="hidden sm:block w-px h-10 bg-slate-100 mx-10" />}
               <div className="text-center">
                 <p className="text-3xl font-bold mb-1" style={{ color: m.color }}>{m.value}</p>
                 <p className="text-sm text-slate-500">{m.label}</p>
