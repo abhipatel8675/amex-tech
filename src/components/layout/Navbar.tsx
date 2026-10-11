@@ -42,7 +42,7 @@ export default function Navbar() {
         <nav className="max-w-[92rem] mx-auto px-6 h-16 flex items-center justify-between gap-8">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0 group" aria-label="Amex Technology — home">
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0 group">
             <LogoMark size={30} className="transition-transform duration-300 group-hover:scale-105" />
             <span className="flex items-baseline gap-1">
               <span

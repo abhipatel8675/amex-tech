@@ -3,6 +3,9 @@ import { testimonials } from "@/data/testimonials";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
+import { pickHeroPosts } from "@/data/heroPosts";
+import { blogPosts } from "@/data/blog";
+import { projects } from "@/data/projects";
 import TechMarquee from "@/components/home/TechMarquee";
 import StatsBar from "@/components/home/StatsBar";
 import ServicesPreview from "@/components/home/ServicesPreview";
@@ -194,13 +197,21 @@ export default function HomePage() {
       />
       <Navbar />
       <main>
-        <Hero />
+        <Hero blogPosts={pickHeroPosts(blogPosts)} />
         <TechMarquee />
         <StatsBar />
         <ServicesPreview />
         <WhyChooseUs />
         <ProcessSection />
-        <FeaturedProjects />
+        <FeaturedProjects
+          featured={projects
+            .filter((p) => p.featured)
+            .slice(0, 3)
+            .map(({ slug, title, category, tags, shortDesc, gradientFrom, gradientTo, image, liveUrl }) => ({
+              slug, title, category, tags, shortDesc, gradientFrom, gradientTo, image, liveUrl,
+            }))}
+          totalCount={projects.length}
+        />
         <Testimonials />
         <FAQSection />
         <CTASection />

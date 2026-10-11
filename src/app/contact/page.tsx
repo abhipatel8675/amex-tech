@@ -8,20 +8,20 @@ import { Mail, Clock, MessageSquare, ShieldCheck, Gift, ChevronRight } from "luc
 export const metadata: Metadata = {
   title: "Start a Project — Get a Free Quote",
   description:
-    "Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 4 hours.",
+    "Get a free quote for your website, web app, mobile app or bug fix. Tell Amex Technology what you're building and we'll reply within 4 hours.",
   alternates: {
     canonical: "https://amextechnology.com/contact",
   },
   openGraph: {
     title: "Start a Project — Get a Free Quote | Amex Technology",
     description:
-      "Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 4 hours.",
+      "Get a free quote for your website, web app, mobile app or bug fix. Tell Amex Technology what you're building and we'll reply within 4 hours.",
     url: "https://amextechnology.com/contact",
   },
   twitter: {
     title: "Start a Project — Get a Free Quote | Amex Technology",
     description:
-      "Get a free project quote from Amex Technology. Tell us what you're building and we'll respond within 4 hours.",
+      "Get a free quote for your website, web app, mobile app or bug fix. Tell Amex Technology what you're building and we'll reply within 4 hours.",
   },
 };
 
@@ -64,13 +64,13 @@ const trustItems = [
     icon: Clock,
     title: "4-hour response time",
     desc: "We typically respond within 4 hours during business hours — not 24.",
-    color: "#9A7614",
+    color: "#806010",
   },
   {
     icon: Gift,
     title: "Free, no-obligation consultation",
     desc: "Our initial scoping call is completely free. You get honest advice either way.",
-    color: "#9A7614",
+    color: "#806010",
   },
   {
     icon: ShieldCheck,
@@ -132,7 +132,7 @@ export default function ContactPage() {
           <div className="grid-pattern absolute inset-0 opacity-40 pointer-events-none" />
           <div className="absolute top-0 right-1/4 w-80 h-80 rounded-full opacity-6 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #D4AF37, transparent 70%)" }} />
           <div className="relative max-w-7xl mx-auto px-6">
-            <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">Contact Us</p>
+            <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-5">Contact Us</p>
             <h1 className="text-[clamp(2.25rem,9vw,4.5rem)] md:text-6xl lg:text-7xl font-bold tracking-tight max-w-3xl mb-6 leading-[1.05] break-words">
               Let&apos;s build something{" "}
               <span style={{ background: "linear-gradient(135deg, #E1BC4A, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
@@ -182,7 +182,7 @@ export default function ContactPage() {
                     <div key={item.step} className="flex gap-4">
                       <div className="flex flex-col items-center">
                         <div className="w-8 h-8 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30 flex items-center justify-center shrink-0">
-                          <span className="text-xs font-bold text-[#9A7614]">{item.step}</span>
+                          <span className="text-xs font-bold text-[#806010]">{item.step}</span>
                         </div>
                         {i < nextSteps.length - 1 && <div className="w-px flex-1 bg-slate-100 mt-2" />}
                       </div>
@@ -200,7 +200,7 @@ export default function ContactPage() {
                 <h2 className="text-base font-semibold text-slate-900 mb-4">Or email us directly</h2>
                 <a
                   href="mailto:abhipatel8675@gmail.com"
-                  className="group inline-flex items-center gap-2 text-sm text-[#9A7614] hover:text-[#9A7614] transition-colors font-medium"
+                  className="group inline-flex items-center gap-2 text-sm text-[#806010] hover:text-[#806010] transition-colors font-medium"
                 >
                   <Mail className="w-4 h-4" />
                   abhipatel8675@gmail.com
@@ -225,7 +225,7 @@ export default function ContactPage() {
         {/* FAQ strip */}
         <section className="pb-20 max-w-7xl mx-auto px-6">
           <div className="border-t border-slate-200 pt-14">
-            <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-4">FAQ</p>
+            <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-4">FAQ</p>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-10 tracking-tight">Common questions</h2>
             <div className="grid md:grid-cols-3 gap-5">
               {faqItems.map((item) => (

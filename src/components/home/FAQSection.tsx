@@ -91,7 +91,7 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: {
           >
             {num}
           </span>
-          <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#9A7614] transition-colors leading-snug">
+          <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#806010] transition-colors leading-snug">
             {faq.question}
           </h3>
         </div>
@@ -104,7 +104,7 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: {
               : "border-slate-200 bg-slate-50 group-hover:border-[#D4AF37]/40 group-hover:bg-[#D4AF37]/5 group-hover:ring-2 group-hover:ring-[#D4AF37]/10"
           }`}
         >
-          <Plus className={`w-3.5 h-3.5 transition-colors ${isOpen ? "text-[#9A7614]" : "text-slate-500 group-hover:text-[#9A7614]"}`} />
+          <Plus className={`w-3.5 h-3.5 transition-colors ${isOpen ? "text-[#806010]" : "text-slate-500 group-hover:text-[#806010]"}`} />
         </motion.div>
       </button>
       <AnimatePresence initial={false}>
@@ -142,7 +142,7 @@ export default function FAQSection() {
           className="max-w-2xl mb-10"
         >
           <p
-            className="mb-4 font-semibold uppercase text-[#9A7614]"
+            className="mb-4 font-semibold uppercase text-[#806010]"
             style={{ fontSize: 11, letterSpacing: "0.15em" }}
           >
             Common Questions

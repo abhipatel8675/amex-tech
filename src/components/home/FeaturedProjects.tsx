@@ -4,12 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { projects } from "@/data/projects";
+import type { Project } from "@/data/projects";
+
+export type FeaturedProject = Pick<
+  Project,
+  "slug" | "title" | "category" | "tags" | "shortDesc" | "gradientFrom" | "gradientTo" | "image" | "liveUrl"
+>;
 import { useRef } from "react";
 
-const featured = projects.filter((p) => p.featured).slice(0, 3);
 
-function ProjectCard({ project, index }: { project: (typeof featured)[0]; index: number }) {
+function ProjectCard({ project, index }: { project: FeaturedProject; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
@@ -131,7 +135,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
         <div className="flex items-center justify-between pt-4 border-t border-slate-200">
           <Link
             href={`/portfolio/${project.slug}`}
-            className="text-sm font-semibold text-slate-500 hover:text-[#9A7614] transition-colors flex items-center gap-1.5"
+            className="text-sm font-semibold text-slate-500 hover:text-[#806010] transition-colors flex items-center gap-1.5"
           >
             Case Study <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -140,7 +144,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-medium text-slate-500 hover:text-[#9A7614] transition-colors flex items-center gap-1 group/live"
+              className="text-xs font-medium text-slate-500 hover:text-[#806010] transition-colors flex items-center gap-1 group/live"
             >
               View Live
               <span className="opacity-60 group-hover/live:opacity-100 group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5 transition-all duration-200">↗</span>
@@ -152,7 +156,7 @@ function ProjectCard({ project, index }: { project: (typeof featured)[0]; index:
   );
 }
 
-export default function FeaturedProjects() {
+export default function FeaturedProjects({ featured, totalCount }: { featured: FeaturedProject[]; totalCount: number }) {
   return (
     <section className="py-12 md:py-16 border-t border-slate-200">
       <div className="max-w-[92rem] mx-auto px-6">
@@ -167,7 +171,7 @@ export default function FeaturedProjects() {
           <div>
             <p
               className="mb-4 font-semibold uppercase"
-              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
+              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
             >
               Selected Work
             </p>
@@ -212,12 +216,12 @@ export default function FeaturedProjects() {
             className="group flex items-center justify-between w-full px-8 py-5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 transition-all duration-300"
           >
             <span className="text-lg font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">
-              See All {projects.length} Projects
+              See All {totalCount} Projects
             </span>
             <motion.span
               animate={{ x: [0, 4, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="text-[#9A7614] text-xl"
+              className="text-[#806010] text-xl"
             >
               →
             </motion.span>

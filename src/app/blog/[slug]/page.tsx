@@ -159,7 +159,7 @@ export default async function BlogPostPage({ params }: Props) {
             </Link>
 
             <div className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="text-sm text-slate-500 bg-slate-100 border border-slate-200 px-3 py-1 rounded-lg">
+              <span className="text-sm text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-lg">
                 {post.category}
               </span>
               <span className="text-sm text-slate-500 flex items-center gap-1.5">
@@ -225,7 +225,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <Link
                       key={svc.href}
                       href={svc.href}
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-[#E1BC4A] hover:text-[#D4AF37] border border-[#D4AF37]/30 px-3.5 py-1.5 rounded-lg transition-colors bg-[#D4AF37]/[0.05] hover:bg-[#D4AF37]/[0.1]"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-[#806010] hover:text-[#5C450B] border border-[#D4AF37]/30 px-3.5 py-1.5 rounded-lg transition-colors bg-[#D4AF37]/[0.05] hover:bg-[#D4AF37]/[0.1]"
                     >
                       {svc.label}
                     </Link>
@@ -239,7 +239,7 @@ export default async function BlogPostPage({ params }: Props) {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center gap-1.5 text-sm text-slate-500 bg-slate-100 border border-slate-200 px-3 py-1 rounded-lg"
+                  className="inline-flex items-center gap-1.5 text-sm text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-lg"
                 >
                   <Tag className="w-3.5 h-3.5" /> {tag}
                 </span>
@@ -262,7 +262,7 @@ export default async function BlogPostPage({ params }: Props) {
                     href={`/blog/${related.slug}`}
                     className="group p-5 rounded-xl border border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-slate-100 transition-all duration-200"
                   >
-                    <p className="text-base font-semibold text-slate-900 group-hover:text-[#9A7614] transition-colors mb-2 leading-snug">
+                    <p className="text-base font-semibold text-slate-900 group-hover:text-[#806010] transition-colors mb-2 leading-snug">
                       {related.title}
                     </p>
                     <p className="text-sm text-slate-500 flex items-center gap-1.5">

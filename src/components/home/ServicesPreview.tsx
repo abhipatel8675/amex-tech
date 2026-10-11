@@ -154,7 +154,7 @@ export default function ServicesPreview() {
           >
             <p
               className="mb-4 font-semibold uppercase"
-              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
+              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
             >
               OUR EXPERTISE
             </p>
@@ -260,7 +260,7 @@ export default function ServicesPreview() {
                   className="relative inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200 group"
                   style={{ color: current.accent }}
                 >
-                  Learn more
+                  Learn more<span className="sr-only"> about {current.title}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
 
@@ -339,7 +339,7 @@ export default function ServicesPreview() {
                           className="inline-flex items-center gap-1.5 text-sm font-semibold"
                           style={{ color: service.accent }}
                         >
-                          Learn more <ArrowRight className="w-3.5 h-3.5" />
+                          Learn more<span className="sr-only"> about {service.title}</span> <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                       </div>
                     </motion.div>

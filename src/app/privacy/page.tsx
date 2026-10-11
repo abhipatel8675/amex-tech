@@ -40,7 +40,7 @@ export default function PrivacyPage() {
 
         {/* Hero */}
         <section className="pt-8 pb-10 max-w-[92rem] mx-auto px-6">
-          <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">
+          <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-5">
             Legal
           </p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
             <Section id="introduction" title="1. Introduction">
               <p>
                 Amex Technology (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) operates{" "}
-                <a href="https://amextechnology.com" className="text-[#9A7614] hover:text-[#9A7614] transition-colors">
+                <a href="https://amextechnology.com" className="text-[#806010] hover:text-[#806010] transition-colors">
                   amextechnology.com
                 </a>{" "}
                 (the &ldquo;Site&rdquo;). This Privacy Policy explains what information we collect, how we use it, who
@@ -168,7 +168,7 @@ export default function PrivacyPage() {
                     href="https://tools.google.com/dlpage/gaoptout"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
+                    className="text-[#806010] hover:text-[#806010] transition-colors"
                   >
                     Google Analytics Opt-out Browser Add-on
                   </a>
@@ -239,7 +239,7 @@ export default function PrivacyPage() {
                             href={row.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
+                            className="text-[#806010] hover:text-[#806010] transition-colors"
                           >
                             {row.label}
                           </a>
@@ -308,7 +308,7 @@ export default function PrivacyPage() {
                 To exercise any of these rights, email us at{" "}
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
+                  className="text-[#806010] hover:text-[#806010] transition-colors"
                 >
                   {CONTACT_EMAIL}
                 </a>{" "}
@@ -347,7 +347,7 @@ export default function PrivacyPage() {
                   Email:{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-[#9A7614] hover:text-[#9A7614] transition-colors"
+                    className="text-[#806010] hover:text-[#806010] transition-colors"
                   >
                     {CONTACT_EMAIL}
                   </a>

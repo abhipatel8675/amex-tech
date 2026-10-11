@@ -125,7 +125,7 @@ export default function WhyChooseUs() {
         >
           <p
             className="mb-3 font-semibold uppercase"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
           >
             Why Clients Choose Us
           </p>
@@ -192,7 +192,7 @@ export default function WhyChooseUs() {
                       variants={checklistItemVariants}
                       className="flex items-center gap-2.5"
                     >
-                      <CircleCheck className="w-4 h-4 shrink-0" style={{ color: "#9A7614" }} />
+                      <CircleCheck className="w-4 h-4 shrink-0" style={{ color: "#806010" }} />
                       <span className="text-sm" style={{ color: "#475569" }}>
                         {item}
                       </span>

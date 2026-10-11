@@ -88,7 +88,7 @@ export function AnimatedLogoDraw({
       <span
         ref={textRef}
         className={`font-bold tracking-tight ${textClassName}`}
-        style={{ color: "#9A7614" }}
+        style={{ color: "#806010" }}
       >
         Amex
       </span>

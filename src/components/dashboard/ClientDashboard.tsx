@@ -59,7 +59,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
         !showForm ? (
           <button
             onClick={() => setShowForm(true)}
-            className="w-full py-2 text-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#E1BC4A] rounded-lg hover:bg-[#D4AF37]/20 transition-all"
+            className="w-full py-2 text-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#806010] rounded-lg hover:bg-[#D4AF37]/20 transition-all"
           >
             Submit Project Details
           </button>
@@ -101,7 +101,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
           href={order.deliverable_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 w-full py-2 text-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#E1BC4A] rounded-lg hover:bg-[#D4AF37]/20 transition-all justify-center"
+          className="flex items-center gap-2 w-full py-2 text-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#806010] rounded-lg hover:bg-[#D4AF37]/20 transition-all justify-center"
         >
           <Download className="w-4 h-4" /> Download Deliverable
         </a>
@@ -140,7 +140,7 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
             <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
               <Zap className="w-4 h-4 text-slate-900" />
             </div>
-            Amex<span className="text-[#9A7614]">Technology</span>
+            Amex<span className="text-[#806010]">Technology</span>
           </a>
           <div className="flex items-center gap-4">
             <span className="text-sm text-slate-500 hidden sm:block">{user.email}</span>

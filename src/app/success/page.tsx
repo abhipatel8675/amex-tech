@@ -16,7 +16,7 @@ export default function SuccessPage() {
         <div className="text-center max-w-md">
           <div className="flex justify-center mb-6">
             <div className="w-20 h-20 bg-[#D4AF37]/10 rounded-full flex items-center justify-center">
-              <CheckCircle className="w-10 h-10 text-[#9A7614]" />
+              <CheckCircle className="w-10 h-10 text-[#806010]" />
             </div>
           </div>
           <h1 className="text-4xl font-bold mb-4">Payment Successful!</h1>

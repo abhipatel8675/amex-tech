@@ -42,7 +42,7 @@ export default function LoginPage() {
             <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
               <Zap className="w-4 h-4 text-slate-900" />
             </div>
-            Amex<span className="text-[#9A7614]">Technology</span>
+            Amex<span className="text-[#806010]">Technology</span>
           </a>
           <h1 className="text-2xl font-bold mt-4">{isSignup ? "Create Account" : "Welcome Back"}</h1>
           <p className="text-slate-500 text-sm mt-1">
@@ -84,7 +84,7 @@ export default function LoginPage() {
           </div>
 
           {error && <p className="text-sm text-red-400">{error}</p>}
-          {message && <p className="text-sm text-[#9A7614]">{message}</p>}
+          {message && <p className="text-sm text-[#806010]">{message}</p>}
 
           <button
             type="submit"
@@ -100,7 +100,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => { setIsSignup(!isSignup); setError(""); setMessage(""); }}
-              className="text-[#9A7614] hover:underline"
+              className="text-[#806010] hover:underline"
             >
               {isSignup ? "Sign In" : "Sign Up"}
             </button>

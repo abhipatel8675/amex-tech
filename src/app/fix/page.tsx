@@ -7,9 +7,9 @@ import FixItCTA from "@/components/blog/FixItCTA";
 import { FIX_OFFER } from "@/data/fixOffer";
 import { blogPosts } from "@/data/blog";
 
-const title = "Fix Your App Error in 24 Hours — Bug Fix Service";
+const title = "Fix Your App Error in 24 Hours";
 const description =
-  "Stuck on a Supabase, Firebase, Lovable, Bolt, Next.js or Vercel error? Our senior developers get it working, usually within 24 hours. Contact us for a free assessment.";
+  "Stuck on a Supabase, Firebase, Lovable, Next.js or Vercel error? Our senior developers fix it, usually within 24 hours. Get a free assessment.";
 
 export const metadata: Metadata = {
   title: { absolute: `${title} | Amex Technology` },
@@ -100,7 +100,7 @@ export default function FixPage() {
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "24-Hour Bug Fix" }]} />
 
         <section className="pt-8 pb-12 max-w-5xl mx-auto px-6">
-          <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-wider mb-4">{FIX_OFFER.name}</p>
+          <p className="text-sm font-semibold text-[#806010] uppercase tracking-wider mb-4">{FIX_OFFER.name}</p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
             Your app is broken. We&apos;ll get it working again, fast.
           </h1>
@@ -125,7 +125,7 @@ export default function FixPage() {
           <ol className="grid md:grid-cols-3 gap-4">
             {steps.map((step, i) => (
               <li key={step.title} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
-                <span className="text-sm font-semibold text-[#9A7614]">Step {i + 1}</span>
+                <span className="text-sm font-semibold text-[#806010]">Step {i + 1}</span>
                 <h3 className="text-lg font-semibold mt-2 mb-2">{step.title}</h3>
                 <p className="text-slate-500 leading-relaxed">{step.body}</p>
               </li>
@@ -160,7 +160,7 @@ export default function FixPage() {
                   href={`/blog/${post.slug}`}
                   className="group p-5 rounded-xl border border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-slate-100 transition-all duration-200"
                 >
-                  <p className="font-semibold text-slate-900 group-hover:text-[#9A7614] transition-colors leading-snug">
+                  <p className="font-semibold text-slate-900 group-hover:text-[#806010] transition-colors leading-snug">
                     {post.title}
                   </p>
                 </Link>

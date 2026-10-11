@@ -211,8 +211,8 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             className="flex items-center gap-1.5 text-sm font-semibold group/cs"
             style={{ color: "#64748B" }}
           >
-            <span className="group-hover/cs:text-[#9A7614] transition-colors">Case Study</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover/cs:translate-x-0.5 group-hover/cs:text-[#9A7614] transition-all" />
+            <span className="group-hover/cs:text-[#806010] transition-colors">Case Study</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover/cs:translate-x-0.5 group-hover/cs:text-[#806010] transition-all" />
           </Link>
 
           {project.liveUrl && (

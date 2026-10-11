@@ -15,6 +15,7 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
+  { label: "Bug Fix Service", href: "/fix" },
   { label: "Website Development", href: "/services#web-development" },
   { label: "Web Application Development", href: "/services#web-app-development" },
   { label: "Mobile App Development", href: "/services#mobile-app-development" },
@@ -151,12 +152,12 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h4
+              <h2
                 className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-6"
                 style={{ letterSpacing: "0.12em" }}
               >
                 Company
-              </h4>
+              </h2>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
@@ -174,12 +175,12 @@ export default function Footer() {
 
             {/* Services */}
             <div>
-              <h4
+              <h2
                 className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-6"
                 style={{ letterSpacing: "0.12em" }}
               >
                 Services
-              </h4>
+              </h2>
               <ul className="space-y-3">
                 {serviceLinks.map((link) => (
                   <li key={link.href}>
@@ -197,12 +198,12 @@ export default function Footer() {
 
             {/* Contact */}
             <div>
-              <h4
+              <h2
                 className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-6"
                 style={{ letterSpacing: "0.12em" }}
               >
                 Contact
-              </h4>
+              </h2>
               <div className="space-y-5">
                 <div>
                   <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#64748B", letterSpacing: "0.10em" }}>
@@ -237,7 +238,7 @@ export default function Footer() {
               </div>
               <Link
                 href="/contact"
-                className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-[#9A7614] hover:text-[#9A7614] transition-colors group"
+                className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-[#806010] hover:text-[#806010] transition-colors group"
               >
                 Start a project
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

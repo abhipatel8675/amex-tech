@@ -30,7 +30,7 @@ export default function ProcessSection() {
         >
           <p
             className="mb-4 font-semibold uppercase"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
           >
             How We Work
           </p>

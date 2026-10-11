@@ -6,25 +6,26 @@ import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import { blogPosts } from "@/data/blog";
+import FixItCTA from "@/components/blog/FixItCTA";
 import { ArrowRight, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Engineering Blog",
+  title: "Supabase, Firebase & Next.js Fix Guides",
   description:
-    "Architecture decisions, tech stack deep-dives, and practical tutorials from the Amex Technology engineering team. Real lessons from building real products.",
+    "Step-by-step fixes for common Supabase, Firebase, Lovable, Next.js and Vercel errors, written by the Amex Technology team from real client projects.",
   alternates: {
     canonical: "https://amextechnology.com/blog",
   },
   openGraph: {
-    title: "Engineering Blog | Amex Technology",
+    title: "Supabase, Firebase & Next.js Fix Guides | Amex Technology",
     description:
-      "Architecture decisions, tech stack deep-dives, and practical tutorials from the Amex Technology engineering team.",
+      "Step-by-step fixes for common Supabase, Firebase, Lovable, Next.js and Vercel errors, written by the Amex Technology team from real client projects.",
     url: "https://amextechnology.com/blog",
   },
   twitter: {
-    title: "Engineering Blog | Amex Technology",
+    title: "Supabase, Firebase & Next.js Fix Guides | Amex Technology",
     description:
-      "Architecture decisions, tech stack deep-dives, and practical tutorials from the Amex Technology engineering team.",
+      "Step-by-step fixes for common Supabase, Firebase, Lovable, Next.js and Vercel errors, written by the Amex Technology team from real client projects.",
   },
 };
 
@@ -40,7 +41,7 @@ const breadcrumbSchema = {
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: "Engineering Blog — Guides & Tutorials",
+  name: "Supabase, Firebase & Next.js Fix Guides",
   description:
     "Architecture decisions, tech stack deep-dives, and practical tutorials from the Amex Technology engineering team.",
   url: "https://amextechnology.com/blog",
@@ -69,15 +70,19 @@ export default function BlogPage() {
 
         {/* Hero */}
         <section className="pt-8 pb-16 max-w-[92rem] mx-auto px-6">
-          <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">
+          <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-5">
             From the Team
           </p>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mb-6 leading-tight">
-            Engineering Blog — Guides & Tutorials
+            Fix Guides for Supabase, Firebase, Lovable & Next.js
           </h1>
           <p className="text-slate-600 text-xl max-w-xl leading-8">
-            Architecture decisions, tech stack deep-dives, and lessons from building real products.
+            Step-by-step fixes for the errors we solve every week on client projects, plus setup guides for the tools
+            around them.
           </p>
+          <div className="mt-10">
+            <FixItCTA topic="app" source="blog-index" variant="inline" />
+          </div>
         </section>
 
         {/* Featured post */}
@@ -127,12 +132,12 @@ export default function BlogPage() {
                         <Clock className="w-3.5 h-3.5" /> {featured.readTime}
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 group-hover:text-[#9A7614] transition-colors leading-snug">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 group-hover:text-[#806010] transition-colors leading-snug">
                       {featured.title}
                     </h2>
                     <p className="text-base text-slate-500 leading-7">{featured.excerpt}</p>
                   </div>
-                  <div className="flex items-center gap-2 text-base font-semibold text-[#9A7614] mt-7 group-hover:text-[#9A7614] transition-colors">
+                  <div className="flex items-center gap-2 text-base font-semibold text-[#806010] mt-7 group-hover:text-[#806010] transition-colors">
                     Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
@@ -189,11 +194,11 @@ export default function BlogPage() {
                       <Clock className="w-3.5 h-3.5" /> {post.readTime}
                     </span>
                   </div>
-                  <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#9A7614] transition-colors leading-snug">
+                  <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#806010] transition-colors leading-snug">
                     {post.title}
                   </h3>
                   <p className="text-sm text-slate-500 leading-relaxed flex-1">{post.excerpt}</p>
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-[#9A7614] group-hover:text-[#9A7614] transition-colors mt-1">
+                  <div className="flex items-center gap-1.5 text-sm font-medium text-[#806010] group-hover:text-[#806010] transition-colors mt-1">
                     Read <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>

@@ -6,13 +6,15 @@ import { ArrowRight, ChevronRight, CircleCheck } from "lucide-react";
 import { AnimatedLogoDraw } from "@/components/ui/AnimatedLogoDraw";
 import { CapabilityStack } from "@/components/ui/CapabilityStack";
 import { HeroBlogList } from "@/components/ui/HeroBlogList";
+import type { HeroBlogPost } from "@/data/heroPosts";
 
 // Word-by-word stagger for the heading
 function WordSpan({ word, index }: { word: string; index: number }) {
   return (
+    // Slide only, no fade: hero text must be visible on first paint (LCP).
     <motion.span
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ y: 20 }}
+      animate={{ y: 0 }}
       transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
       className="inline-block mr-[0.25em]"
     >
@@ -26,7 +28,7 @@ const floatAnim = (delay = 0, range = 10) => ({
   transition: { duration: 5 + delay, repeat: Infinity, ease: "easeInOut" as const, delay },
 });
 
-export default function Hero() {
+export default function Hero({ blogPosts }: { blogPosts: HeroBlogPost[] }) {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-white pt-16">
 
@@ -74,7 +76,7 @@ export default function Hero() {
                 style={{
                   background: "linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(184,146,37,0.12) 100%)",
                   borderColor: "rgba(212,175,55,0.35)",
-                  color: "#9A7614",
+                  color: "#806010",
                   letterSpacing: "0.1em",
                 }}
               >
@@ -90,7 +92,7 @@ export default function Hero() {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="inline-flex items-center gap-2.5 bg-slate-100 border border-slate-200 rounded-full px-4 py-1.5 mb-8 ml-3"
             >
-              <span className="text-xs font-medium text-slate-500 tracking-wide">
+              <span className="text-xs font-medium text-slate-600 tracking-wide">
                 Est. 2019
               </span>
             </motion.div>
@@ -121,8 +123,8 @@ export default function Hero() {
 
             {/* Sub */}
             <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 12 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
               className="text-xl sm:text-2xl leading-8 sm:leading-9 max-w-[560px] mb-12"
               style={{ color: "#475569" }}
@@ -190,12 +192,12 @@ export default function Hero() {
               </div>
               <span className="w-px h-4 bg-slate-200" />
               <div className="flex items-center gap-2">
-                <CircleCheck className="w-3.5 h-3.5 text-[#9A7614]" />
+                <CircleCheck className="w-3.5 h-3.5 text-[#806010]" />
                 <span className="text-sm" style={{ color: "#64748B" }}>5+ years experience</span>
               </div>
               <span className="w-px h-4 bg-slate-200" />
               <div className="flex items-center gap-2">
-                <CircleCheck className="w-3.5 h-3.5 text-[#9A7614]" />
+                <CircleCheck className="w-3.5 h-3.5 text-[#806010]" />
                 <span className="text-sm" style={{ color: "#64748B" }}>200+ projects shipped</span>
               </div>
             </div>
@@ -242,11 +244,11 @@ export default function Hero() {
             <div className="flex flex-1 flex-col">
               <p
                 className="mb-3 font-semibold uppercase"
-                style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
+                style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
               >
                 From the Blog
               </p>
-              <HeroBlogList />
+              <HeroBlogList posts={blogPosts} />
             </div>
           </motion.div>
         </div>

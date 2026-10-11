@@ -58,7 +58,7 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
           </div>
         </div>
         <div className="text-right flex-shrink-0">
-          <p className="font-bold text-[#9A7614]">${order.price}</p>
+          <p className="font-bold text-[#806010]">${order.price}</p>
           <p className="text-xs text-slate-500">{new Date(order.created_at).toLocaleDateString()}</p>
         </div>
       </div>
@@ -147,9 +147,9 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
               <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
                 <Zap className="w-4 h-4 text-slate-900" />
               </div>
-              Amex<span className="text-[#9A7614]">Technology</span>
+              Amex<span className="text-[#806010]">Technology</span>
             </a>
-            <span className="text-xs bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#E1BC4A] px-2 py-0.5 rounded-full">Dev</span>
+            <span className="text-xs bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#806010] px-2 py-0.5 rounded-full">Dev</span>
           </div>
           <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-900 transition-colors">
             <LogOut className="w-4 h-4" /> Sign Out
@@ -190,7 +190,7 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
               onClick={() => setFilter(f)}
               className={`text-sm px-3 py-1.5 rounded-lg border transition-all ${
                 filter === f
-                  ? "border-[#D4AF37] bg-[#D4AF37]/10 text-[#E1BC4A]"
+                  ? "border-[#D4AF37] bg-[#D4AF37]/10 text-[#806010]"
                   : "border-slate-200 text-slate-500 hover:border-slate-300"
               }`}
             >

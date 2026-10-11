@@ -12,8 +12,8 @@ const techStack = [
 ];
 
 const values = [
-  { icon: Code2, title: "Honesty Over Hype", desc: "We tell you what's feasible before you commit — not after. If your timeline is tight or scope too large for budget, we say so.", color: "#9A7614" },
-  { icon: ShieldCheck, title: "Code as Craft", desc: "We don't ship code we're embarrassed by. Clean architecture, readable code, and thoughtful structure are non-negotiable.", color: "#9A7614" },
+  { icon: Code2, title: "Honesty Over Hype", desc: "We tell you what's feasible before you commit — not after. If your timeline is tight or scope too large for budget, we say so.", color: "#806010" },
+  { icon: ShieldCheck, title: "Code as Craft", desc: "We don't ship code we're embarrassed by. Clean architecture, readable code, and thoughtful structure are non-negotiable.", color: "#806010" },
   { icon: Clock, title: "Outcomes, Not Hours", desc: "Our success is measured by whether your product drives business goals — not by ticket velocity or billable hours.", color: "#38BDF8" },
   { icon: HeartHandshake, title: "Long-Term Thinking", desc: "We build for the codebase you'll have in two years. Maintainability and scalability are features, not nice-to-haves.", color: "#F472B6" },
 ];
@@ -44,14 +44,14 @@ const processSteps = [
     step: "01",
     title: "Discover",
     desc: "We start with a deep-dive into your goals, users, and constraints. No assumptions — just honest scoping.",
-    color: "#9A7614",
+    color: "#806010",
   },
   {
     icon: Layers,
     step: "02",
     title: "Build",
     desc: "Design and engineering in tight loops. You see real progress every week, not a big-bang reveal at the end.",
-    color: "#9A7614",
+    color: "#806010",
   },
   {
     icon: Rocket,
@@ -75,7 +75,7 @@ export default function AboutPageContent() {
           transition={{ duration: 0.6 }}
           className="relative max-w-7xl mx-auto px-6"
         >
-          <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">About Us</p>
+          <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-5">About Us</p>
           <h1 className="text-[clamp(2.5rem,10vw,6rem)] md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05] max-w-3xl break-words">
             We build software that{" "}
             <span style={{ background: "linear-gradient(135deg, #E1BC4A, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
@@ -122,7 +122,7 @@ export default function AboutPageContent() {
                 transition={{ duration: 0.4, delay: i * 0.07 }}
                 className="text-center md:px-8"
               >
-                <p className="text-3xl sm:text-5xl font-bold mb-2" style={{ background: "linear-gradient(135deg, #E2E8F0, #94A3B8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{stat.value}</p>
+                <p className="text-3xl sm:text-5xl font-bold mb-2" style={{ background: "linear-gradient(135deg, #0F172A, #475569)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{stat.value}</p>
                 <p className="text-base font-semibold text-slate-600 mb-1">{stat.label}</p>
                 <p className="text-sm text-slate-500">{stat.sub}</p>
               </motion.div>
@@ -176,13 +176,13 @@ export default function AboutPageContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">Expertise</p>
+              <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-5">Expertise</p>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-10 leading-tight">What we do exceptionally well.</h2>
               <ul className="flex flex-col gap-4">
                 {expertise.map((item) => (
                   <li key={item} className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/25 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-[#9A7614]" />
+                      <Check className="w-3 h-3 text-[#806010]" />
                     </div>
                     <span className="text-base text-slate-600 leading-7">{item}</span>
                   </li>
@@ -197,7 +197,7 @@ export default function AboutPageContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5">Values</p>
+              <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-5">Values</p>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-10 leading-tight">The principles that guide every project.</h2>
               <div className="flex flex-col gap-4">
                 {values.map((value) => {
@@ -231,7 +231,7 @@ export default function AboutPageContent() {
             transition={{ duration: 0.5 }}
             className="mb-14 text-center"
           >
-            <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-4">How We Work</p>
+            <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-4">How We Work</p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">From idea to live product.</h2>
             <p className="text-slate-500 text-lg max-w-xl mx-auto leading-8">
               A straightforward process built around transparency, fast feedback loops, and zero surprises.
@@ -281,7 +281,7 @@ export default function AboutPageContent() {
             transition={{ duration: 0.5 }}
             className="mb-12"
           >
-            <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-4">Technology</p>
+            <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-4">Technology</p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">Our technology stack.</h2>
             <p className="text-slate-600 text-lg max-w-xl leading-8">
               Modern, battle-tested tools chosen for reliability and long-term viability — not whatever is trending this week.
@@ -316,7 +316,7 @@ export default function AboutPageContent() {
           >
             <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #E1BC4A80, transparent)" }} />
             <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.08), transparent 70%)" }} />
-            <p className="text-sm font-semibold text-[#9A7614] uppercase tracking-widest mb-5 relative">Ready to build?</p>
+            <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-5 relative">Ready to build?</p>
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6 leading-tight relative">
               Let's turn your idea into a product<br className="hidden md:block" /> people actually use.
             </h2>

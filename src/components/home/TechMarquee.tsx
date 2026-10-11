@@ -70,7 +70,7 @@ export default function TechMarquee() {
       <div className="relative max-w-[92rem] mx-auto px-6 mb-7">
         <p
           className="font-semibold uppercase text-center"
-          style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
+          style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
         >
           Our Stack
         </p>

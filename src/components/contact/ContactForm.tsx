@@ -102,7 +102,7 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
     return (
       <div className="flex flex-col items-center justify-center gap-5 py-20 text-center">
         <div className="w-16 h-16 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/25 flex items-center justify-center">
-          <CheckCircle2 className="w-8 h-8 text-[#9A7614]" />
+          <CheckCircle2 className="w-8 h-8 text-[#806010]" />
         </div>
         <h3 className="text-2xl font-bold text-slate-900">Message Received</h3>
         <p className="text-base text-slate-500 max-w-xs leading-7">
@@ -116,7 +116,7 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="contact-name" className="block text-sm font-medium text-slate-500 mb-2.5">Full Name <span className="text-[#9A7614]">*</span></label>
+          <label htmlFor="contact-name" className="block text-sm font-medium text-slate-500 mb-2.5">Full Name <span className="text-[#806010]">*</span></label>
           <input
             id="contact-name"
             name="name"
@@ -130,7 +130,7 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
           />
         </div>
         <div>
-          <label htmlFor="contact-email" className="block text-sm font-medium text-slate-500 mb-2.5">Email <span className="text-[#9A7614]">*</span></label>
+          <label htmlFor="contact-email" className="block text-sm font-medium text-slate-500 mb-2.5">Email <span className="text-[#806010]">*</span></label>
           <input
             id="contact-email"
             name="email"
@@ -161,7 +161,7 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-500 mb-2.5">Project Type <span className="text-[#9A7614]">*</span></label>
+        <label className="block text-sm font-medium text-slate-500 mb-2.5">Project Type <span className="text-[#806010]">*</span></label>
         <div ref={serviceRef} className="relative">
           <button
             type="button"
@@ -188,7 +188,7 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
                   onClick={() => { setForm((p) => ({ ...p, service: s })); setServiceOpen(false); }}
                   className={`px-4 py-3 text-sm cursor-pointer transition-colors duration-150 ${
                     form.service === s
-                      ? "bg-[#D4AF37]/20 text-[#D4AF37]"
+                      ? "bg-[#D4AF37]/20 text-[#806010]"
                       : "text-slate-600 hover:bg-slate-100 hover:text-white"
                   }`}
                 >
@@ -213,7 +213,7 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
               onClick={() => setForm((p) => ({ ...p, budget: b }))}
               className={`text-sm font-medium px-4 py-2 rounded-lg border transition-all duration-200 ${
                 form.budget === b
-                  ? "bg-[#D4AF37]/15 border-[#D4AF37]/40 text-[#D4AF37]"
+                  ? "bg-[#D4AF37]/15 border-[#D4AF37]/40 text-[#806010]"
                   : "border-slate-200 text-slate-500 hover:border-slate-300 hover:text-slate-700"
               }`}
             >
@@ -224,7 +224,7 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
       </div>
 
       <div>
-        <label htmlFor="contact-message" className="block text-sm font-medium text-slate-500 mb-2.5">Project Details <span className="text-[#9A7614]">*</span></label>
+        <label htmlFor="contact-message" className="block text-sm font-medium text-slate-500 mb-2.5">Project Details <span className="text-[#806010]">*</span></label>
         <textarea
           id="contact-message"
           name="message"

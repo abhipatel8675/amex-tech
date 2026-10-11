@@ -129,7 +129,7 @@
 }
 
 .text-gradient-indigo {
-  background: linear-gradient(135deg, #B8901C 0%, #9A7614 100%);
+  background: linear-gradient(135deg, #B8901C 0%, #806010 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -233,16 +233,17 @@
   font-weight: 600;
 }
 .blog-content a {
-  color: #9A7614;
-  text-decoration: none;
+  color: #806010;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .blog-content a:hover {
-  text-decoration: underline;
+  color: #5C450B;
 }
 .blog-content code {
   font-family: ui-monospace, "SF Mono", "Fira Code", monospace;
   font-size: 0.85em;
-  color: #9A7614;
+  color: #6B500D;
   background: rgba(15,23,42,0.06);
   border: 1px solid rgba(15,23,42,0.09);
   padding: 0.15em 0.4em;

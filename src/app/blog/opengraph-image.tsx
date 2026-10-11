@@ -59,7 +59,7 @@ export default function OgImage() {
             margin: "0 0 24px 0",
           }}
         >
-          Engineering Blog
+          Fix Guides
         </h1>
 
         <p

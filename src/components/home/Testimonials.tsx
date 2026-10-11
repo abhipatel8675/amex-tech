@@ -40,7 +40,7 @@ export default function Testimonials() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="text-xs font-semibold text-[#9A7614] uppercase tracking-widest mb-4" style={{ letterSpacing: "0.15em" }}>
+          <p className="text-xs font-semibold text-[#806010] uppercase tracking-widest mb-4" style={{ letterSpacing: "0.15em" }}>
             Client Voices
           </p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
@@ -75,7 +75,7 @@ export default function Testimonials() {
                 <div className="absolute top-5 right-6 flex items-center gap-2">
                   <FiverrBadge />
                   {/* Decorative quote behind badge */}
-                  <Quote className="w-10 h-10 text-[#9A7614] fill-[#9A7614] opacity-[0.05] absolute right-0 top-0" />
+                  <Quote className="w-10 h-10 text-[#806010] fill-[#806010] opacity-[0.05] absolute right-0 top-0" />
                 </div>
 
                 {/* Stars */}
@@ -140,7 +140,7 @@ export default function Testimonials() {
           {[
             { value: "5.0", label: "Average Rating", color: "#FBBF24" },
             { value: "100%", label: "Satisfaction Rate", color: "#34D399" },
-            { value: "100+", label: "Clients Served", color: "#9A7614" },
+            { value: "100+", label: "Clients Served", color: "#806010" },
           ].map((m, i) => (
             <div key={m.label} className="relative flex items-center gap-0">
               {i > 0 && <span className="hidden sm:block w-px h-10 bg-slate-100 mx-10" />}

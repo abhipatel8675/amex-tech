@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) return { title: "Project Not Found", robots: { index: false, follow: false } };
   return {
     title: `${project.title} — Case Study`,
-    description: `${project.shortDesc} See how Amex Technology built ${project.title} — problem, solution, tech stack, and outcomes.`,
+    description: clampDescription(`${project.shortDesc} See how Amex Technology built ${project.title}.`),
     keywords: project.tags,
     alternates: {
       canonical: `https://amextechnology.com/portfolio/${slug}`,
@@ -389,4 +389,10 @@ export default async function ProjectDetailPage({ params }: Props) {
       <Footer />
     </div>
   );
+}
+
+// Keep meta descriptions within ~155 characters so Google doesn't truncate them mid-word.
+function clampDescription(text: string, max = 155): string {
+  if (text.length <= max) return text;
+  return text.slice(0, text.lastIndexOf(" ", max - 1)).replace(/[,;:—-]\s*$/, "") + "…";
 }

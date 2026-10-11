@@ -25,7 +25,18 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ["image/avif", "image/webp"],
+    qualities: [75, 95],
     minimumCacheTTL: 2592000,
+  },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.amextechnology.com" }],
+        destination: "https://amextechnology.com/:path*",
+        permanent: true,
+      },
+    ];
   },
   async headers() {
     return [

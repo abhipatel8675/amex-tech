@@ -44,8 +44,8 @@ export default function CustomCursor() {
     };
   }, [cursorX, cursorY, visible]);
 
-  if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) return null;
-
+  // No early return for touch devices: it would render differently from the
+  // server HTML and break hydration. The cursor stays invisible until a mouse moves.
   return (
     <motion.div
       className="fixed top-0 left-0 pointer-events-none z-[9999] hidden md:block"

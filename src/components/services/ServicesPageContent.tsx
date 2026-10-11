@@ -117,7 +117,7 @@ export default function ServicesPageContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="font-semibold uppercase mb-5"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#9A7614" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
           >
             Our Services
           </motion.p>
@@ -241,7 +241,7 @@ export default function ServicesPageContent() {
                   className="relative group/link inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200"
                   style={{ color: service.accentColor }}
                 >
-                  Learn more
+                  Learn more<span className="sr-only"> about {service.title}</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
                 </Link>
               </motion.div>

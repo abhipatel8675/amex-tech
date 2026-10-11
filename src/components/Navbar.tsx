@@ -33,7 +33,7 @@ export default function Navbar() {
           <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
             <Zap className="w-4 h-4 text-slate-900" />
           </div>
-          <span>Amex<span className="text-[#9A7614]">Technology</span></span>
+          <span>Amex<span className="text-[#806010]">Technology</span></span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">

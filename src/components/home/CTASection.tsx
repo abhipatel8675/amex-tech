@@ -48,7 +48,7 @@ export default function CTASection() {
             <div className="relative z-10 px-8 py-14 md:px-14 md:py-20 text-center">
               {/* Status badge */}
               <div className="inline-flex items-center gap-2.5 bg-slate-100 border border-slate-200 rounded-full px-5 py-2 mb-10">
-                <Clock className="w-4 h-4 text-[#9A7614]" />
+                <Clock className="w-4 h-4 text-[#806010]" />
                 <span className="text-sm font-medium text-slate-600">Typically responds within 4 hours</span>
               </div>
 
@@ -72,7 +72,7 @@ export default function CTASection() {
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30">
-                      <Check className="w-3 h-3 text-[#9A7614]" strokeWidth={2.5} />
+                      <Check className="w-3 h-3 text-[#806010]" strokeWidth={2.5} />
                     </span>
                     <span className="text-sm text-slate-600">{item}</span>
                   </div>

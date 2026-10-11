@@ -4,16 +4,9 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Clock, FileText } from "lucide-react";
 import { animate, stagger } from "animejs";
-import { blogPosts } from "@/data/blog";
+import type { HeroBlogPost } from "@/data/heroPosts";
 
-const featured = blogPosts.find((p) => p.featured) ?? blogPosts[0];
-const others = blogPosts
-  .filter((p) => p.slug !== featured.slug)
-  .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-  .slice(0, 3);
-const posts = [featured, ...others];
-
-export function HeroBlogList() {
+export function HeroBlogList({ posts }: { posts: HeroBlogPost[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -83,17 +76,17 @@ export function HeroBlogList() {
                 {post.readTime}
               </span>
             </div>
-            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-slate-900 transition-colors group-hover:text-[#9A7614]">
+            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-slate-900 transition-colors group-hover:text-[#806010]">
               {post.title}
             </h4>
           </div>
-          <ArrowRight className="h-4 w-4 shrink-0 -translate-x-1 text-[#9A7614] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+          <ArrowRight className="h-4 w-4 shrink-0 -translate-x-1 text-[#806010] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
         </Link>
       ))}
 
       <Link
         href="/blog"
-        className="group mt-1 flex items-center justify-center gap-1.5 rounded-xl border-t border-slate-200 px-3.5 py-3 text-sm font-semibold text-slate-500 transition-colors duration-300 hover:bg-slate-100 hover:text-[#9A7614]"
+        className="group mt-1 flex items-center justify-center gap-1.5 rounded-xl border-t border-slate-200 px-3.5 py-3 text-sm font-semibold text-slate-500 transition-colors duration-300 hover:bg-slate-100 hover:text-[#806010]"
       >
         View All Articles
         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

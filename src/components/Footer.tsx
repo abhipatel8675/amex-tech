@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="w-6 h-6 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
             <Zap className="w-3.5 h-3.5 text-slate-900" />
           </div>
-          <span>Amex<span className="text-[#9A7614]">Technology</span></span>
+          <span>Amex<span className="text-[#806010]">Technology</span></span>
         </div>
 
         <p className="text-xs text-slate-500 text-center">
