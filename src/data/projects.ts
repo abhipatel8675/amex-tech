@@ -28,6 +28,252 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "firmsledger",
+    title: "FirmsLedger",
+    category: "Web",
+    tags: ["B2B Directory", "Programmatic SEO", "Manufacturing"],
+    shortDesc:
+      "A US manufacturer directory built for programmatic SEO — browse verified manufacturers by category and state.",
+    description:
+      "FirmsLedger is our own product: a US-only, SEO-first directory where buyers — procurement managers, engineers and OEMs — browse manufacturers by category and state, and manufacturers get a free profile page that brings in leads. It started as a general business directory and was rebuilt on the Next.js App Router as a manufacturing-only directory with a Postgres backend.",
+    problem:
+      "Buyers sourcing US manufacturers rely on fragmented directories, trade-show contacts and generic web search. A directory that wants to win that traffic needs real, crawlable landing pages for every category and state — and has to stay fast, indexable and affordable as the company count grows into the hundreds of thousands.",
+    solution:
+      "We built category, state and subcategory pages as bounded, enumerable routes, and company profiles as on-demand ISR pages that only become indexable once approved and filled in. Search queries are canonicalized so \"top 10\" and \"best\" variants don't create duplicate pages. Manufacturers can list themselves through a free public form or an invite link, a single-operator admin panel handles approvals, and an offline Python + Playwright pipeline seeds company data with fuzzy duplicate detection. Caching and ISR intervals were tuned so the serverless Postgres database can actually scale to zero between visits.",
+    results: [
+      "Live at firmsledger.com, covering all 50 US states",
+      "Category × state × subcategory landing pages built for programmatic SEO",
+      "Free self-serve listing form plus invite-link onboarding with admin approval",
+      "Profiles only indexed once approved and described — kept in sync with the sitemap",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Drizzle ORM",
+      "Neon Postgres",
+      "TanStack Query",
+      "Resend",
+      "Cloudflare R2",
+      "Python",
+      "Playwright",
+      "Vercel",
+    ],
+    gradientFrom: "#ca8a04",
+    gradientTo: "#1e293b",
+    featured: true,
+    liveUrl: "https://www.firmsledger.com",
+    image: "/images/portfolio/firmsledger/home-hero.webp",
+    gallery: [
+      {
+        src: "/images/portfolio/firmsledger/home-hero.webp",
+        alt: "FirmsLedger — homepage hero: Find top manufacturers across the USA, with category and state search",
+        caption: "Search verified US manufacturers by category and state — zero paid placements",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/firmsledger/categories.webp",
+        alt: "FirmsLedger — Popular manufacturing categories carousel: electrical, mechanical, plastics and metal fabrication",
+        caption: "Popular manufacturing categories, each linking through to state-level listings",
+      },
+      {
+        src: "/images/portfolio/firmsledger/capabilities.webp",
+        alt: "FirmsLedger — Manufacturing Capabilities page with wire and cable, solar panels, injection molding and welding",
+        caption: "Capabilities pages — browse manufacturers by what they actually make",
+      },
+      {
+        src: "/images/portfolio/firmsledger/list-your-company.webp",
+        alt: "FirmsLedger — List your company page: Get your business in front of buyers, free to list",
+        caption: "Free self-serve listing — submit, get reviewed, go live in the directory",
+      },
+    ],
+  },
+  {
+    slug: "goswiftfund",
+    title: "GoSwiftFund",
+    category: "Web",
+    tags: ["Fintech", "Business Funding", "Marketplace"],
+    shortDesc:
+      "A business-funding marketplace — apply once, link your bank, and get matched with a lending partner.",
+    description:
+      "GoSwiftFund is a business-funding marketplace for small-business owners. It isn't a lender — it's the intake, qualification and routing layer in front of lenders. Owners pick a funding product, apply once through a guided wizard, link their business bank account, and their application is stored securely and routed to the right lending partner.",
+    problem:
+      "A funding broker has to collect highly sensitive data — SSN, EIN, revenue, bank access — in a way that survives a compliance review, decide which lending partner each applicant should go to, and do it while partner agreements and legal copy are still being finalized.",
+    solution:
+      "We built a Next.js 16 marketing site and a multi-product application wizard where each product (Instant, Merchant Cash Advance, Commercial and SBA) validates its own fields with a shared Zod schema on client and server. Business bank linking runs through Plaid Link, FCRA soft-pull and TCPA contact consent are recorded with a timestamp and disclosure version, and SSNs and bank tokens are encrypted at rest with AES-256-GCM. A rate-limited submission API feeds a lender-routing engine that picks a primary partner and fallbacks from credit band, revenue, amount and purpose, and stores the decision for follow-up. Dedicated SBA and revenue-based funding pages and an English/Spanish toggle round it out.",
+    results: [
+      "Live at goswiftfund.com with a product-specific application flow",
+      "Lighthouse mobile accessibility raised from 92 to 100",
+      "SSNs and bank tokens encrypted at rest with AES-256-GCM",
+      "End-to-end test passed: Plaid sandbox bank link → SBA application → routed and stored",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "Plaid", "Zod", "Vercel"],
+    gradientFrom: "#16a34a",
+    gradientTo: "#1e3a8a",
+    featured: true,
+    liveUrl: "https://goswiftfund.com",
+    image: "/images/portfolio/goswiftfund/home-hero.webp",
+    gallery: [
+      {
+        src: "/images/portfolio/goswiftfund/home-hero.webp",
+        alt: "GoSwiftFund — homepage hero with a funding-amount slider and estimated payment",
+        caption: "Large numeric hero with a funding-amount slider and estimated payment",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/goswiftfund/dashboard-preview.webp",
+        alt: "GoSwiftFund — Your Funding Options, Clearly Presented: customer dashboard preview",
+        caption: "Customer dashboard preview — application status, bank linking and next steps in one place",
+      },
+      {
+        src: "/images/portfolio/goswiftfund/funding-programs.webp",
+        alt: "GoSwiftFund — funding program cards: Instant Loans, Merchant Cash Advance, Commercial Loans & Line of Credit",
+        caption: "Funding program cards, each with its own amount range and application flow",
+      },
+    ],
+  },
+  {
+    slug: "sawa",
+    title: "Sawa",
+    category: "Web",
+    tags: ["Bilingual", "Arabic / RTL", "Startup"],
+    shortDesc:
+      "A bilingual English/Arabic landing page for a Saudi shared-commuting startup, built RTL-ready from day one.",
+    description:
+      "Sawa (سوا) is a Jeddah-based shared-commuting startup. Instead of on-demand rides, it organises fixed, recurring routes: drivers publish daily routes, employees join on monthly plans, and companies sign corporate commute partnerships. We built its main marketing page in English and Arabic on a single codebase.",
+    problem:
+      "Sawa needed one page that speaks to two audiences — commuters and companies — and works just as well in English as in right-to-left Arabic. The source material was an investor pitch deck that mixed public brand content with investor-only data that must not be published.",
+    solution:
+      "We built the page on Next.js 16 and Tailwind v4 with locale routes for /en and /ar, using only CSS logical properties so the layout mirrors cleanly in RTL. All copy lives in per-language dictionaries, so the Arabic milestone was a content drop rather than a rebuild. Arabic uses IBM Plex Sans Arabic and never falls back to a Latin font. A corporate enquiry form sends a branded HTML email through Resend, and each language has its own SEO metadata, hreflang alternates and share image.",
+    results: [
+      "Bilingual EN/AR with full RTL layout from one codebase",
+      "Arabic version shipped as a dictionary drop — no refactor needed",
+      "Corporate enquiries delivered as a branded HTML email via Resend",
+      "Per-language SEO: canonical, hreflang and separate share images",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Resend", "Vercel"],
+    gradientFrom: "#8ba653",
+    gradientTo: "#0b251e",
+    featured: false,
+    image: "/images/portfolio/sawa/hero-english.webp",
+    gallery: [
+      {
+        src: "/images/portfolio/sawa/hero-english.webp",
+        alt: "Sawa — English hero: Shared Routes. Smarter Commutes. with a phone mockup showing a sample route",
+        caption: "Shared Routes. Smarter Commutes. — English hero with a sample-route phone mockup",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/sawa/hero-arabic.webp",
+        alt: "Sawa — Arabic hero in a mirrored right-to-left layout",
+        caption: "The same page in Arabic — fully mirrored RTL layout with IBM Plex Sans Arabic",
+      },
+      {
+        src: "/images/portfolio/sawa/how-it-works.webp",
+        alt: "Sawa — How it works: A daily commuter network, not on-demand rides, in three steps",
+        caption: "How it works — three steps from workplace matching to corporate partnerships",
+      },
+      {
+        src: "/images/portfolio/sawa/share-image-arabic.webp",
+        alt: "Sawa — Arabic social share image",
+        caption: "Separate share images per language for clean social previews",
+      },
+    ],
+  },
+  {
+    slug: "portland-self-defense-crm",
+    title: "Portland Academy of Self-Defense — CRM Integration",
+    category: "Automation",
+    tags: ["GoHighLevel", "CRM Integration", "Lead Capture"],
+    shortDesc:
+      "Fixed a silent lead leak and rebuilt the website-to-GoHighLevel integration so every enquiry lands in the CRM, sourced and tagged.",
+    description:
+      "Portland Academy of Self-Defense is a martial-arts school serving the Portland, Oregon metro. Their existing custom PHP website feeds a sales pipeline in GoHighLevel. We were brought in to fix the lead-capture path between the site and the CRM — not to build the website — so that every enquiry reaches GoHighLevel with the right source, tags and notes.",
+    problem:
+      "Leads were quietly being lost. The CRM token in production had been revoked, so every website lead was saved and emailed but never reached GoHighLevel — while visitors still saw a thank-you page. The enquiry form also failed intermittently with \"Submission expired or invalid\", free-text and workshop fields were dropped before reaching anyone, and a repeat enquiry could wipe a contact's earlier program tags.",
+    solution:
+      "We traced the failure to a 401 from GoHighLevel, replaced the token and verified the live API. We then rewrote the integration as one shared, non-blocking function: it finds existing contacts by email or phone, keeps the original lead source, merges tags instead of replacing them, and adds a readable note with the prospect's program interest and message. Each of the four lead forms maps to its own GoHighLevel source and tags. The form's CSRF check was changed to a ring of single-use tokens, so a second tab or debugging session no longer breaks submissions.",
+    results: [
+      "Website leads reach GoHighLevel again — verified on the live contacts API",
+      "Four lead forms each mapped to their own GoHighLevel source and tags",
+      "Repeat enquiries keep the original source and merge tags into one contact",
+      "Messages and workshop details now captured in the CRM contact note",
+      "\"Submission expired\" form errors fixed without weakening CSRF protection",
+    ],
+    technologies: ["PHP", "MySQL", "GoHighLevel API", "cURL", "reCAPTCHA v3"],
+    gradientFrom: "#f59e0b",
+    gradientTo: "#111827",
+    featured: false,
+    image: "/images/portfolio/portland-self-defense-crm/lead-form.webp",
+    gallery: [
+      {
+        src: "/images/portfolio/portland-self-defense-crm/lead-form.webp",
+        alt: "Portland Academy of Self-Defense — Ready To Get Started? lead form",
+        caption: "The shared lead form — every submission now upserts a sourced, tagged GoHighLevel contact",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/portland-self-defense-crm/homepage.webp",
+        alt: "Portland Academy of Self-Defense — homepage with Get Started call to action",
+        caption: "The client's existing site — Get Started CTAs feed the Website Discovery form",
+      },
+      {
+        src: "/images/portfolio/portland-self-defense-crm/programs.webp",
+        alt: "Portland Academy of Self-Defense — Martial Arts and 12-Week Self-Defense Course program cards",
+        caption: "Program pages like the 12-Week Course each route to their own CRM source and tag",
+      },
+    ],
+  },
+  {
+    slug: "island-traffic-defense",
+    title: "Island Traffic Defense",
+    category: "Web",
+    tags: ["Web", "Legal", "Local Business"],
+    shortDesc:
+      "A conversion-focused website for a Long Island traffic-defense attorney serving Nassau and Suffolk County.",
+    description:
+      "Island Traffic Defense is a single-page marketing site for a Long Island attorney who handles traffic-ticket and moving-violation cases across Nassau and Suffolk County, New York. It's built around one audience — drivers who just got a ticket — and one action: call or schedule a consultation.",
+    problem:
+      "Drivers with a ticket have a short window to decide what to do, have usually never hired a traffic lawyer, and underestimate what a conviction really costs through points and higher insurance. The site had to build trust fast, make contact effortless on a phone, and reach the area's Spanish-speaking drivers.",
+    solution:
+      "We built a fast, dark-themed single page in plain HTML, CSS and JavaScript: a locality-first hero, three value-proposition cards, six practice-area cards, a section on the multi-year insurance cost of a conviction, and a local-court expertise section naming the Nassau and Suffolk County traffic agencies. A tap-to-call button stays in the header, call-to-action pairs repeat down the page, and Spanish-language support is called out in the hero itself.",
+    results: [
+      "Live on Vercel — responsive from desktop card grids to a single mobile column",
+      "Tap-to-call header button visible at every scroll position",
+      "Spanish-language support called out in the hero",
+      "Local-SEO copy built around Nassau, Suffolk and Long Island",
+    ],
+    technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
+    gradientFrom: "#3b82f6",
+    gradientTo: "#0f172a",
+    featured: false,
+    liveUrl: "https://island-traffic-defense.vercel.app",
+    image: "/images/portfolio/island-traffic-defense/home-hero.webp",
+    gallery: [
+      {
+        src: "/images/portfolio/island-traffic-defense/home-hero.webp",
+        alt: "Island Traffic Defense — homepage hero: Strategic Traffic Defense Across Nassau and Suffolk County",
+        caption: "Locality-first hero with tap-to-call and Spanish-language support up front",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/island-traffic-defense/why-choose-us.webp",
+        alt: "Island Traffic Defense — Why Long Island Drivers Choose Island Traffic Defense: Local, Lower, Bilingual",
+        caption: "Three pillars — local court knowledge, lower insurance premiums, bilingual support",
+      },
+      {
+        src: "/images/portfolio/island-traffic-defense/practice-areas.webp",
+        alt: "Island Traffic Defense — six practice-area cards from speeding tickets to CDL violations",
+        caption: "Six practice areas, each with a plain-English explainer and Spanish subtitle",
+      },
+      {
+        src: "/images/portfolio/island-traffic-defense/insurance-cost.webp",
+        alt: "Island Traffic Defense — A Conviction Follows You for Years on Your Insurance",
+        caption: "The insurance-cost argument, with its own call-to-action pair",
+      },
+    ],
+  },
+  {
     slug: "tiancheng-development-group",
     title: "TianCheng Development Group",
     category: "Web",
@@ -905,5 +1151,5 @@ export const projects: Project[] = [
 
 ];
 
-export const categories = ["All", "Web", "Mobile App", "SaaS", "AI"] as const;
+export const categories = ["All", "Web", "Mobile App", "SaaS", "AI", "Automation"] as const;
 export type Category = (typeof categories)[number];
