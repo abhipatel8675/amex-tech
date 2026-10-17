@@ -7,6 +7,10 @@ import { AnimatedLogoDraw } from "@/components/ui/AnimatedLogoDraw";
 import { CapabilityStack } from "@/components/ui/CapabilityStack";
 import { HeroBlogList } from "@/components/ui/HeroBlogList";
 import type { HeroBlogPost } from "@/data/heroPosts";
+import { testimonials } from "@/data/testimonials";
+
+// A real review from testimonials.ts (Fiverr), shown verbatim with its source.
+const heroReview = testimonials.find((t) => t.name === "sarah_m_uk") ?? testimonials[0];
 
 // Word-by-word stagger for the heading
 function WordSpan({ word, index }: { word: string; index: number }) {
@@ -235,9 +239,11 @@ export default function Hero({ blogPosts }: { blogPosts: HeroBlogPost[] }) {
                 <span className="ml-2 text-xs text-amber-400 font-semibold">5.0</span>
               </div>
               <p className="text-sm text-slate-700 leading-relaxed italic">
-                "Exceptional work — on time, within budget, and the quality exceeded our expectations."
+                &ldquo;{heroReview.content}&rdquo;
               </p>
-              <p className="text-xs text-slate-500 mt-3">— Sarah M., Founder at TechStart</p>
+              <p className="text-xs text-slate-500 mt-3">
+                — {heroReview.name}, verified {heroReview.platform} client
+              </p>
             </motion.div>
 
             {/* Featured blog posts — fills remaining column height */}
