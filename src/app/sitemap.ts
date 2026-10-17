@@ -30,6 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/tools/app-checker`,
+      lastModified: new Date("2026-10-17"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${BASE_URL}/portfolio`,
       lastModified: SITE_LAST_UPDATED,
       changeFrequency: "weekly",

@@ -152,7 +152,13 @@ export default function FixPage() {
         {troubleshootingPosts.length > 0 && (
           <section className="pb-24 max-w-5xl mx-auto px-6">
             <h2 className="text-2xl font-bold mb-2">Prefer to fix it yourself?</h2>
-            <p className="text-slate-500 mb-6">Our free step-by-step guides cover the most common errors.</p>
+            <p className="text-slate-500 mb-6">
+              Our free step-by-step guides cover the most common errors. Not sure what&apos;s wrong?{" "}
+              <Link href="/tools/app-checker" className="font-semibold text-[#806010] hover:underline">
+                Run the free App Checker
+              </Link>
+              .
+            </p>
             <div className="grid sm:grid-cols-2 gap-4">
               {troubleshootingPosts.map((post) => (
                 <Link
