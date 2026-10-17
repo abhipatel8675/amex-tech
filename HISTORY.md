@@ -30,46 +30,75 @@ A chronological record of all commits, features, and changes made to the amextec
 - Also added "Free App Check" to the navbar, `/tools/app-checker` to the sitemap, and a link from `/fix`.
 - Deployed from the command line on Oct 17 (deployment `amex-tech-mtmh51xlx`).
 
-### 🟡 Ready locally, not published yet (uncommitted, waiting for approval)
-
-**Modern services lineup.** One list in `src/data/services.ts` now drives the footer, homepage section, `/services` page, contact form options, structured data, `llms.txt` and blog "related service" links.
-- New services, in order:
+**Modern services lineup (`01bc5e5`), live.** One list in `src/data/services.ts` now drives the footer, homepage section, `/services` page, contact form options, structured data, `llms.txt` and blog "related service" links.
+- The 9 services, in order:
   1. AI Agents & Automation
-  2. Websites & Web Apps (merges Website, Web Application, API and Backend)
+  2. Websites & Web Apps
   3. AI SaaS & MVP Development
   4. SEO & GEO
-  5. AEO (Answer Engine Optimization), new
-  6. CRM & Marketing Automation (GoHighLevel/HubSpot), new
+  5. AEO (Answer Engine Optimization)
+  6. CRM & Marketing Automation
   7. Mobile App Development
   8. UI/UX & Product Design
-  9. Cloud, DevOps & Care Plans (merges DevOps and Maintenance)
-- Removed "Bug Fix Service" from the footer, services list and `llms.txt`. The `/fix` page stays because blog posts link to it. "Quick Bug Fix" stays as a contact-form option because the blog buttons and the App Checker pre-fill it.
-- Old links (`#web-app-development`, `#api-development`, `#backend-development`, `#maintenance-support`) still scroll to the merged service.
-- `/services` is now a 3-column grid with lucide icons (`src/components/services/serviceIcons.ts`). "Learn more" pre-fills the contact form with that service.
-- New `/services` page title and description ("AI, Web & Search Services"). The homepage heading changed from "Eight Ways We Build Your Product" to "Everything You Need to Grow Online".
-- To check: confirm "AEO" is what was meant by "AEL Service".
+  9. Cloud, DevOps & Care Plans
+- Bug Fix Service is removed from the lists. `/fix` stays because blog posts link to it.
+- Old anchors (`#web-app-development`, `#api-development`, `#backend-development`, `#maintenance-support`) still scroll to the merged service.
+- `/services` is now a 3-column grid with lucide icons.
+
+**AI-search visibility (`805663c`), live.**
+- The name problem: "Amex Technology" is also the name of American Express's internal tech organization, so search engines and AI assistants mix the two up.
+- Organization schema now has a description, a `disambiguatingDescription` ("Not affiliated with American Express"), `alternateName`, founder (Abhi Patel), `knowsAbout` and company size.
+- New visible FAQ: "Is Amex Technology part of American Express?"
+- The footer © line now says "An independent agency, not affiliated with American Express".
+- The homepage FAQ copy and its FAQPage schema now share one file, `src/data/faqs.ts`. Added GEO/AEO and AI-agent answers.
+- Site title and description describe the AI-first services ("AI & Software Development Agency").
+- An App Checker box ("Fixed it? Check the rest of your app free") sits under each troubleshooting blog post (`src/components/blog/AppCheckerCTA.tsx`).
+- `src/middleware.ts` renamed to `src/proxy.ts` for Next.js 16.
+- `/login` and `/dashboard` used to return a 500 error because Supabase isn't configured. They now redirect home until it is.
+
+**Hero review fix (`4d01ec8`), live.** The hero quote was credited to "Sarah M., Founder at TechStart", which doesn't match any real review. It now shows the real Fiverr review from `testimonials.ts` (sarah_m_uk).
+
+**Deploying:** the Vercel project is not connected to GitHub, so a push does NOT deploy. Each deploy above was run from the command line, from a clean copy of the committed revision (`vercel --prod`), so untracked local files like `public/posters/` never get published.
+
+### 🟡 On a preview link, waiting for review (branch `redesign/2026`, commit `8a6a646`)
+
+Preview: https://amex-tech-1jda0139c-abhipatel8675s-projects.vercel.app (private; requires your Vercel login)
+
+**Hero redesign**
+- New headline: "Websites, apps & AI agents that bring you customers."
+- One main "Get a Free Quote" button, with "See Our Work" and "Free App Check" as secondary options.
+- Real screenshots of Molar AI and Periscope in browser frames instead of the generic capability cards, plus the real Fiverr review and "Recent work" links.
+- A project screenshot on phones too. The blog list moves below the hero.
+
+**5 new case studies**, written only from each project's brief:
+- **FirmsLedger** (featured)
+- **GoSwiftFund** (featured)
+- **Sawa**
+- **Island Traffic Defense**
+- **Portland Academy of Self-Defense**, framed as the GoHighLevel CRM integration only, since we didn't build that site
+
+Other details:
+- 18 WebP screenshots; anything showing personal data, minors or private dashboards was skipped.
+- New "Automation" filter tab on the portfolio page.
+- Homepage featured projects become FirmsLedger, GoSwiftFund and Expert Village. Molar AI and Periscope now appear in the hero instead.
+
+To publish: `git merge --ff-only redesign/2026` on `main`, push, then deploy as above.
 
 ### ⏳ Remaining
 
-**Setup**
-- [ ] Add `STRIPE_SECRET_KEY` in Vercel (Production) to turn on the $29 report. Until then the unlock button says "Email me the full report" and goes to the contact form. Optional: add `STRIPE_WEBHOOK_SECRET` plus Supabase keys so `/api/webhook` logs orders.
-- [ ] Connect the Vercel project to the GitHub repo (`abhipatel8675/amex-tech`) so a push to `main` deploys automatically. Today every deploy has to be run from the command line.
-- [ ] Optional: rename `src/middleware.ts` to `proxy.ts` (Next.js 16 deprecation warning).
+**Needs you**
+- [ ] Review the preview and approve publishing (or request changes).
+- [ ] Add `STRIPE_SECRET_KEY` in Vercel (Production) to turn on the $29 report.
+- [ ] Optional: connect Vercel to the GitHub repo so a push to `main` auto-deploys.
+- [ ] Decide which location to show: Ahmedabad (current) or Los Angeles/Gardena.
+- [ ] Decide whether to keep "200+ projects shipped", "100% satisfaction" and "50+ happy clients". The portfolio documents about 67 projects. If AI tools and reviewers find claims they can't verify, trust drops.
+- [ ] Add more real `sameAs` profiles (Clutch, Google Business Profile, X) and ask happy clients for public reviews. Third-party mentions matter most for GEO.
 
-**AI visibility (GEO/AEO) for amextechnology.com**
-- [ ] Test whether ChatGPT, Perplexity, Gemini and Google AI Overviews mention Amex Technology for its main services.
-- [ ] Improve the organization structured data (`sameAs` profiles, services, reviews), FAQ answers, `llms.txt`, and service and about copy for AI answers.
-- [ ] Decide which location the site should show: Ahmedabad (current) or Los Angeles/Gardena.
-
-**Redesign and portfolio**
-- [ ] Modern, more visible UI based on leading agency sites. Show a plan before changing anything.
-- [ ] Update the portfolio with recent projects (Custom Ink and Thread, GoSwiftFund, GoJetParts, Sawa, CarSUVParts, GuardRemote and others) and refresh images.
-- [ ] General site fixes.
-
-**Promotion (App Checker leads)**
-- [ ] Add a "Check your app free" box to the Supabase, Lovable and Bolt blog posts.
-- [ ] Share in Lovable and Bolt communities, r/lovable, r/SaaS, Indie Hackers, Product Hunt and LinkedIn.
-- [ ] Save the email of everyone who runs a check, for follow-up re-checks (needs a database table).
+**Next technical work**
+- [ ] Save the email of everyone who runs an App Checker check, for re-check follow-ups (needs a Supabase table and keys).
+- [ ] Set up Supabase keys or remove the unfinished client portal (`/login`, `/dashboard`).
+- [ ] Update the portfolio page header copy for the new positioning.
+- [ ] Promote the App Checker using the launch posts in `Amex Context-2/App-Checker-Launch-Posts.md`.
 
 ---
 
