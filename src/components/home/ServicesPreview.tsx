@@ -3,74 +3,19 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-import { ArrowRight, Globe, LayoutDashboard, Smartphone, Layers, Rocket, Palette, Search, Brain } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { services as allServices } from "@/data/services";
+import { serviceIcon } from "@/components/services/serviceIcons";
 
-const services = [
-  {
-    icon: Globe,
-    title: "Website Development",
-    desc: "Conversion-optimised sites on modern frameworks that represent your brand professionally and turn visitors into clients.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    href: "/services#web-development",
-    accent: "#3B82F6",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Web Application",
-    desc: "Complex dashboards, portals, and SaaS platforms architected to handle real business logic and scale with your growth.",
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "Supabase"],
-    href: "/services#web-app-development",
-    accent: "#8B5CF6",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile App",
-    desc: "Cross-platform iOS and Android apps that feel native, load fast, and keep users engaged for the long term.",
-    technologies: ["React Native", "Expo", "Firebase", "Swift"],
-    href: "/services#mobile-app-development",
-    accent: "#EC4899",
-  },
-  {
-    icon: Layers,
-    title: "SaaS Development",
-    desc: "Multi-tenant platforms built to scale from day one — subscription billing, team access, and usage analytics included.",
-    technologies: ["Next.js", "Stripe", "Supabase", "Redis"],
-    href: "/services#saas-development",
-    accent: "#10B981",
-  },
-  {
-    icon: Rocket,
-    title: "DevOps and Deployment",
-    desc: "CI/CD pipelines, cloud infrastructure, and zero-downtime deployments that let your team ship with complete confidence.",
-    technologies: ["AWS", "Vercel", "Docker", "GitHub Actions"],
-    href: "/services#devops-deployment",
-    accent: "#F59E0B",
-  },
-  {
-    icon: Palette,
-    title: "UI/UX Design",
-    desc: "User-centered design that reduces churn, increases activation, and makes your product feel completely effortless to use.",
-    technologies: ["Figma", "Framer", "Prototyping", "Design Systems"],
-    href: "/services#ui-ux-design",
-    accent: "#D946EF",
-  },
-  {
-    icon: Search,
-    title: "SEO Services",
-    desc: "Rank higher, get found, and drive compounding organic traffic. We handle technical SEO, on-page optimization, and content strategy from audit to execution.",
-    technologies: ["Technical SEO", "On-Page SEO", "Content Strategy", "Core Web Vitals", "Schema Markup", "Link Building"],
-    href: "/services#seo-services",
-    accent: "#22C55E",
-  },
-  {
-    icon: Brain,
-    title: "AI Services",
-    desc: "Custom AI automation and intelligent workflows that save time, cut costs, and scale your operations — from no-code automations to full AI-powered product builds.",
-    technologies: ["n8n", "Zapier", "Make", "OpenAI", "LangChain", "Custom AI Agents"],
-    href: "/services#ai-services",
-    accent: "#A855F7",
-  },
-];
+// Derived from the shared services list so the homepage always matches /services.
+const services = allServices.map((s) => ({
+  icon: serviceIcon(s.iconName),
+  title: s.title,
+  desc: s.description,
+  technologies: s.technologies,
+  href: `/services#${s.slug}`,
+  accent: s.accentColor,
+}));
 
 export default function ServicesPreview() {
   const [active, setActive] = useState(0);
@@ -160,7 +105,7 @@ export default function ServicesPreview() {
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight max-w-lg"
               style={{ letterSpacing: "-0.025em" }}>
-              Eight Ways We Build<br />Your Product.
+              Everything You Need<br />to Grow Online.
             </h2>
           </motion.div>
           <Link

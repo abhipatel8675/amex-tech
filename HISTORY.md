@@ -4,6 +4,75 @@ A chronological record of all commits, features, and changes made to the amextec
 
 ---
 
+## [v0.7] — October 17, 2026 · Free App Checker, Modern Services Lineup
+
+### ✅ Done and live
+
+**Free App Checker (`56dd9f6`), live at https://amextechnology.com/tools/app-checker**
+- New free tool for Lovable, Bolt, Replit, v0 and Next.js apps. The visitor pastes their app's address and ticks a box confirming they own it or have permission.
+- Checks:
+  - API keys exposed in public code (OpenAI, Anthropic, Stripe, Resend, SendGrid, GitHub, AWS)
+  - Public Supabase `service_role` keys
+  - Public source maps
+  - HTTPS and security headers
+  - Blank pages that Google and AI search can't read
+  - Template titles ("Vite + React")
+  - Missing meta, Open Graph and canonical tags; robots.txt, sitemap and soft 404s
+  - Response time and JavaScript size
+- Free result shows a 0–100 score, the number of issues and the top 3 issues. Key values are never shown in the free view.
+- Paid full report costs $29 through Stripe Checkout (`/api/app-check/checkout`). The report page (`/tools/app-checker/report`) confirms the Stripe session is paid before showing anything. It lists every issue with masked evidence and fix steps, and runs a fresh check on each visit.
+- Every result has a "have us fix everything" button that opens the contact form pre-filled.
+- Safety:
+  - It only fetches public internet addresses on ports 80/443, and re-checks every redirect.
+  - It only reads public files (HTML, the site's own JavaScript, robots.txt, sitemap); it never logs in or probes hidden paths.
+  - Sites behind bot protection get a clear message instead of a misleading score.
+- Files: `src/lib/appChecker/` (scanner, safe fetcher), `src/app/api/app-check/`, `src/app/tools/app-checker/`, `src/components/tools/AppChecker.tsx`, `src/data/appChecker.ts`.
+- Also added "Free App Check" to the navbar, `/tools/app-checker` to the sitemap, and a link from `/fix`.
+- Deployed from the command line on Oct 17 (deployment `amex-tech-mtmh51xlx`).
+
+### 🟡 Ready locally, not published yet (uncommitted, waiting for approval)
+
+**Modern services lineup.** One list in `src/data/services.ts` now drives the footer, homepage section, `/services` page, contact form options, structured data, `llms.txt` and blog "related service" links.
+- New services, in order:
+  1. AI Agents & Automation
+  2. Websites & Web Apps (merges Website, Web Application, API and Backend)
+  3. AI SaaS & MVP Development
+  4. SEO & GEO
+  5. AEO (Answer Engine Optimization), new
+  6. CRM & Marketing Automation (GoHighLevel/HubSpot), new
+  7. Mobile App Development
+  8. UI/UX & Product Design
+  9. Cloud, DevOps & Care Plans (merges DevOps and Maintenance)
+- Removed "Bug Fix Service" from the footer, services list and `llms.txt`. The `/fix` page stays because blog posts link to it. "Quick Bug Fix" stays as a contact-form option because the blog buttons and the App Checker pre-fill it.
+- Old links (`#web-app-development`, `#api-development`, `#backend-development`, `#maintenance-support`) still scroll to the merged service.
+- `/services` is now a 3-column grid with lucide icons (`src/components/services/serviceIcons.ts`). "Learn more" pre-fills the contact form with that service.
+- New `/services` page title and description ("AI, Web & Search Services"). The homepage heading changed from "Eight Ways We Build Your Product" to "Everything You Need to Grow Online".
+- To check: confirm "AEO" is what was meant by "AEL Service".
+
+### ⏳ Remaining
+
+**Setup**
+- [ ] Add `STRIPE_SECRET_KEY` in Vercel (Production) to turn on the $29 report. Until then the unlock button says "Email me the full report" and goes to the contact form. Optional: add `STRIPE_WEBHOOK_SECRET` plus Supabase keys so `/api/webhook` logs orders.
+- [ ] Connect the Vercel project to the GitHub repo (`abhipatel8675/amex-tech`) so a push to `main` deploys automatically. Today every deploy has to be run from the command line.
+- [ ] Optional: rename `src/middleware.ts` to `proxy.ts` (Next.js 16 deprecation warning).
+
+**AI visibility (GEO/AEO) for amextechnology.com**
+- [ ] Test whether ChatGPT, Perplexity, Gemini and Google AI Overviews mention Amex Technology for its main services.
+- [ ] Improve the organization structured data (`sameAs` profiles, services, reviews), FAQ answers, `llms.txt`, and service and about copy for AI answers.
+- [ ] Decide which location the site should show: Ahmedabad (current) or Los Angeles/Gardena.
+
+**Redesign and portfolio**
+- [ ] Modern, more visible UI based on leading agency sites. Show a plan before changing anything.
+- [ ] Update the portfolio with recent projects (Custom Ink and Thread, GoSwiftFund, GoJetParts, Sawa, CarSUVParts, GuardRemote and others) and refresh images.
+- [ ] General site fixes.
+
+**Promotion (App Checker leads)**
+- [ ] Add a "Check your app free" box to the Supabase, Lovable and Bolt blog posts.
+- [ ] Share in Lovable and Bolt communities, r/lovable, r/SaaS, Indie Hackers, Product Hunt and LinkedIn.
+- [ ] Save the email of everyone who runs a check, for follow-up re-checks (needs a database table).
+
+---
+
 ## [v0.6] — July 13–24, 2026 · Premium Redesign, Blog Expansion, Image Pipeline & Homepage Animation
 
 ### Premium redesign & UI polish (`4feab95`, `14aec23`, `5c294b0`, `5de020c`, `aadba8a`, `b939980`, `4fb90f3`, `3af12a6`, `74a8a83`, `5265dd2`, `d661197`)

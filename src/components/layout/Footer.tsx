@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { LogoMark } from "@/components/ui/Logo";
+import { services } from "@/data/services";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -14,17 +15,7 @@ const quickLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-const serviceLinks = [
-  { label: "Bug Fix Service", href: "/fix" },
-  { label: "Website Development", href: "/services#web-development" },
-  { label: "Web Application Development", href: "/services#web-app-development" },
-  { label: "Mobile App Development", href: "/services#mobile-app-development" },
-  { label: "SaaS Development", href: "/services#saas-development" },
-  { label: "DevOps & Cloud", href: "/services#devops-deployment" },
-  { label: "UI/UX Design", href: "/services#ui-ux-design" },
-  { label: "SEO Services", href: "/services#seo-services" },
-  { label: "AI Services", href: "/services#ai-services" },
-];
+const serviceLinks = services.map((s) => ({ label: s.title, href: `/services#${s.slug}` }));
 
 export default function Footer() {
   const [email, setEmail] = useState("");

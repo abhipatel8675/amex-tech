@@ -4,26 +4,27 @@ import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
 import ServicesPageContent from "@/components/services/ServicesPageContent";
 import Breadcrumb from "@/components/ui/Breadcrumb";
+import { services } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Software Development Services",
+  title: "AI, Web & Search Services",
   keywords:
-    "software development services, web app development, mobile app development, SaaS development, SEO services, AI automation services, n8n automation, Zapier workflows, technical SEO, on-page SEO",
+    "AI agents, AI automation, website development, web app development, AI SaaS MVP, GEO services, AEO, answer engine optimization, generative engine optimization, local SEO, GoHighLevel, CRM automation, mobile app development",
   description:
-    "Full-stack software development: web & mobile apps, SaaS, APIs, DevOps, UI/UX, SEO, and AI automation. Trusted by startups and enterprises worldwide.",
+    "AI agents and automation, websites and web apps, AI SaaS MVPs, mobile apps, CRM automation, and SEO, GEO and AEO so you're found on Google and in AI assistants.",
   alternates: {
     canonical: "https://amextechnology.com/services",
   },
   openGraph: {
-    title: "Software Development Services | Amex Technology",
+    title: "AI, Web & Search Services | Amex Technology",
     description:
-      "Full-stack software development services: web apps, mobile apps, SaaS platforms, API development, DevOps, UI/UX design, SEO services, and AI automation.",
+      "AI agents and automation, websites and web apps, AI SaaS MVPs, mobile apps, CRM automation, and SEO, GEO and AEO so you're found on Google and in AI assistants.",
     url: "https://amextechnology.com/services",
   },
   twitter: {
-    title: "Software Development Services | Amex Technology",
+    title: "AI, Web & Search Services | Amex Technology",
     description:
-      "Full-stack software development services: web apps, mobile apps, SaaS platforms, SEO services, and AI automation.",
+      "AI agents and automation, websites and web apps, AI SaaS MVPs, mobile apps, CRM automation, and SEO, GEO and AEO so you're found on Google and in AI assistants.",
   },
 };
 
@@ -41,22 +42,14 @@ const servicesSchema = {
   "@type": "ProfessionalService",
   name: "Amex Technology",
   url: "https://amextechnology.com",
-  description: "Full-stack software development agency specializing in web apps, mobile apps, SaaS platforms, and more.",
+  description: "AI and software agency building AI agents, websites, web apps, SaaS products and mobile apps, plus SEO, GEO and AEO for Google and AI search.",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Software Development Services",
-    itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Website Development" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Application Development" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mobile App Development" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SaaS Development" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "API Development and Integration" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "DevOps and Deployment" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "UI/UX Design" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO Services" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI and Automation Services" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Maintenance and Support" } },
-    ],
+    name: "AI, Software and Search Services",
+    itemListElement: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: s.title, description: s.shortDesc, url: `https://amextechnology.com/services#${s.slug}` },
+    })),
   },
 };
 

@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import { blogPosts } from "@/data/blog";
+import { services } from "@/data/services";
 import BlogPostContent from "@/components/blog/BlogPostContent";
 import FixItCTA from "@/components/blog/FixItCTA";
 import { getFixTopic } from "@/data/fixOffer";
@@ -285,21 +286,29 @@ export default async function BlogPostPage({ params }: Props) {
 type ServiceLink = { label: string; href: string };
 
 function getRelatedServices(tags: string[], category: string): ServiceLink[] {
+  const link = (slug: string): ServiceLink => {
+    const svc = services.find((s) => s.slug === slug);
+    return { label: svc?.title ?? "Our Services", href: `/services#${slug}` };
+  };
   const serviceMap: Record<string, ServiceLink> = {
-    "Next.js": { label: "Web Development", href: "/services#web-development" },
-    React: { label: "Web Development", href: "/services#web-development" },
-    Frontend: { label: "Web Development", href: "/services#web-development" },
-    SaaS: { label: "SaaS Development", href: "/services#saas-development" },
-    API: { label: "API Development", href: "/services#api-development" },
-    Email: { label: "API Development", href: "/services#api-development" },
-    Supabase: { label: "SaaS Development", href: "/services#saas-development" },
-    "CI/CD": { label: "DevOps & Cloud", href: "/services#devops-deployment" },
-    DevOps: { label: "DevOps & Cloud", href: "/services#devops-deployment" },
-    Vercel: { label: "DevOps & Cloud", href: "/services#devops-deployment" },
-    Cloudflare: { label: "DevOps & Cloud", href: "/services#devops-deployment" },
-    DNS: { label: "DevOps & Cloud", href: "/services#devops-deployment" },
-    Deployment: { label: "DevOps & Cloud", href: "/services#devops-deployment" },
-    "Mobile App": { label: "Mobile App Development", href: "/services#mobile-app-development" },
+    "Next.js": link("web-development"),
+    React: link("web-development"),
+    Frontend: link("web-development"),
+    API: link("web-development"),
+    Email: link("web-development"),
+    SaaS: link("saas-development"),
+    Supabase: link("saas-development"),
+    Lovable: link("saas-development"),
+    Bolt: link("saas-development"),
+    Replit: link("saas-development"),
+    "CI/CD": link("devops-deployment"),
+    DevOps: link("devops-deployment"),
+    Vercel: link("devops-deployment"),
+    Cloudflare: link("devops-deployment"),
+    DNS: link("devops-deployment"),
+    Deployment: link("devops-deployment"),
+    "Mobile App": link("mobile-app-development"),
+    SEO: link("seo-services"),
   };
 
   const seen = new Set<string>();
@@ -314,8 +323,7 @@ function getRelatedServices(tags: string[], category: string): ServiceLink[] {
   }
 
   if (results.length === 0) {
-    if (category === "DevOps") results.push({ label: "DevOps & Cloud", href: "/services#devops-deployment" });
-    else results.push({ label: "Web Development", href: "/services#web-development" });
+    results.push(link(category === "DevOps" ? "devops-deployment" : "web-development"));
   }
 
   return results.slice(0, 3);

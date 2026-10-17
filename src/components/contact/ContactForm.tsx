@@ -3,13 +3,11 @@
 import { useState, useRef, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Send, CheckCircle2, ChevronDown } from "lucide-react";
+import { services as listedServices } from "@/data/services";
 
-const services = [
-  "Quick Bug Fix", "Custom Website Development", "Web Application Development", "Mobile App Development",
-  "SaaS Development", "API Development & Integration", "Backend Development",
-  "DevOps & Deployment", "UI/UX Design", "SEO Services", "AI & Automation Services",
-  "Maintenance & Support", "Other / Not Sure",
-];
+// Listed services plus "Quick Bug Fix", which isn't a listed service but is
+// what the blog fix CTAs and App Checker prefill.
+const services = [...listedServices.map((s) => s.title), "Quick Bug Fix", "Other / Not Sure"];
 
 const budgets = ["Under $1,000", "$1,000 – $5,000", "$5,000 – $15,000", "$15,000 – $50,000", "$50,000+"];
 

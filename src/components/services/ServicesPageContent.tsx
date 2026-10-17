@@ -5,86 +5,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { services } from "@/data/services";
+import { serviceIcon } from "@/components/services/serviceIcons";
 
-const mainServiceSlugs = [
-  "web-development",
-  "web-app-development",
-  "mobile-app-development",
-  "saas-development",
-  "devops-deployment",
-  "ui-ux-design",
-  "seo-services",
-  "ai-services",
-];
 
-// Small inline SVG icons per service (40x40 viewport)
-const serviceIcons: Record<string, React.ReactNode> = {
-  "web-development": (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <rect x="1" y="3" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M1 7h20" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="4.5" cy="5" r="1" fill="currentColor" />
-      <circle cx="7.5" cy="5" r="1" fill="currentColor" />
-      <path d="M5 11h5M5 14h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  "web-app-development": (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <rect x="1" y="1" width="20" height="20" rx="3" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="1" y="1" width="5" height="20" rx="3" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M9 7h8M9 11h6M9 15h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  "mobile-app-development": (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <rect x="6" y="1" width="10" height="20" rx="3" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M9 18h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M6 4h10" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  "saas-development": (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <circle cx="11" cy="11" r="3" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="4" cy="5" r="2" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="18" cy="5" r="2" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="4" cy="17" r="2" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="18" cy="17" r="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M6 6L9 9M16 6L13 9M6 16L9 13M16 16L13 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  "devops-deployment": (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <path d="M4 14a6 6 0 0 1 6-10 6 6 0 0 1 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M18 10a4 4 0 0 1 0 8H6a4 4 0 0 1 0-8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M11 15V9M8 12l3-3 3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  "ui-ux-design": (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <circle cx="11" cy="11" r="9" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M11 2v4M11 16v4M2 11h4M16 11h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="11" cy="11" r="3" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  "seo-services": (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M13.5 13.5L20 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M6 9h6M9 6v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  "ai-services": (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <rect x="3" y="7" width="16" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M7 7V5a4 4 0 0 1 8 0v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="8" cy="12" r="1.5" fill="currentColor" />
-      <circle cx="14" cy="12" r="1.5" fill="currentColor" />
-      <path d="M8 17v2M14 17v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-};
-
-const mainServices = services.filter((s) => mainServiceSlugs.includes(s.slug));
 
 const containerVariants = {
   hidden: {},
@@ -142,7 +65,7 @@ export default function ServicesPageContent() {
             className="text-xl max-w-2xl leading-8"
             style={{ color: "#475569" }}
           >
-            From concept to production — we handle the full technology lifecycle so you can focus on your business.
+            AI agents, modern websites and apps, and search visibility on Google and AI assistants: everything you need to grow, built by one team.
           </motion.p>
         </div>
       </section>
@@ -154,10 +77,10 @@ export default function ServicesPageContent() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
-          {mainServices.map((service) => {
-            const icon = serviceIcons[service.slug];
+          {services.map((service) => {
+            const Icon = serviceIcon(service.iconName);
             return (
               <motion.div
                 key={service.slug}
@@ -168,6 +91,10 @@ export default function ServicesPageContent() {
                   // subtle per-card accent glow on hover handled via pseudo via box shadow trick below
                 }}
               >
+                {service.aliases?.map((alias) => (
+                  <span key={alias} id={alias} className="absolute top-0" aria-hidden />
+                ))}
+
                 {/* Top accent line */}
                 <div
                   className="absolute top-0 inset-x-8 h-px rounded-full opacity-60 group-hover:opacity-90 transition-opacity duration-300"
@@ -199,7 +126,7 @@ export default function ServicesPageContent() {
                     color: service.accentColor,
                   }}
                 >
-                  {icon}
+                  <Icon className="w-5 h-5" aria-hidden />
                 </div>
 
                 {/* Title */}
@@ -237,7 +164,7 @@ export default function ServicesPageContent() {
 
                 {/* CTA */}
                 <Link
-                  href="/contact"
+                  href={`/contact?service=${encodeURIComponent(service.title)}`}
                   className="relative group/link inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200"
                   style={{ color: service.accentColor }}
                 >

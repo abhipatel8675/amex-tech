@@ -14,6 +14,7 @@ import ProcessSection from "@/components/home/ProcessSection";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import Testimonials from "@/components/home/Testimonials";
 import CTASection from "@/components/home/CTASection";
+import { services } from "@/data/services";
 import FAQSection from "@/components/home/FAQSection";
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ const localBusinessSchema = {
   currenciesAccepted: "USD, EUR, INR",
   paymentAccepted: "Bank Transfer, Credit Card",
   areaServed: "Worldwide",
-  serviceType: ["Software Development", "Web Development", "Mobile App Development", "SaaS Development", "SEO Services", "AI Automation"],
+  serviceType: services.map((s) => s.title),
   address: {
     "@type": "PostalAddress",
     addressCountry: "IN",
