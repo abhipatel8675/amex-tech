@@ -80,6 +80,13 @@ Other details:
 - New "Automation" filter tab on the portfolio page.
 - Homepage featured projects become FirmsLedger, GoSwiftFund and Expert Village. Molar AI and Periscope now appear in the hero instead.
 
+### ✅ Portfolio images and page design, live (`c7c61c5`)
+- **Prepared images:** the covers and first gallery images for FirmsLedger, Molar AI, Periscope, HMD, Torqron and East End Vintage Sale now come from the prepared marketing mockups (`All Projects details/*/freelancer-images-1600x1200`). Cyber7 got a gallery of its app screens; screens showing client names or security alerts were left out.
+- **Case study pages:** mockups show without a fake browser frame, the gallery no longer repeats the cover, and the caption-based "Key Outcomes" strip is removed.
+- **Portfolio cards:** images are now 16:10, so covers aren't cut off.
+- **Page copy:** the portfolio heading is now "Our Work." The About intro and expertise list now describe the AI-first services, and the homepage title and description are updated.
+- **Speed:** the hero's project picks are made on the server, so the full projects data no longer ships to visitors' browsers.
+
 ### ⏳ Remaining
 
 **Needs you**
