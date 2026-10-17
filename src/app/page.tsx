@@ -3,7 +3,7 @@ import { testimonials } from "@/data/testimonials";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
-import { pickHeroPosts } from "@/data/heroPosts";
+import { pickHeroPosts, pickHeroWork } from "@/data/heroPosts";
 import { blogPosts } from "@/data/blog";
 import { projects } from "@/data/projects";
 import TechMarquee from "@/components/home/TechMarquee";
@@ -19,23 +19,23 @@ import { faqs } from "@/data/faqs";
 import FAQSection from "@/components/home/FAQSection";
 
 export const metadata: Metadata = {
-  title: { absolute: "Amex Technology — Software Development Agency" },
+  title: { absolute: "Amex Technology — AI & Software Development Agency" },
   description:
-    "Software development agency with 5+ years' experience and 200+ projects delivered — web apps, mobile apps and SaaS platforms for startups and enterprises.",
+    "Independent AI and software agency: AI agents and automation, websites and web apps, AI SaaS MVPs and mobile apps, plus SEO, GEO and AEO so customers find you on Google and in AI assistants.",
   alternates: {
     canonical: "https://amextechnology.com",
   },
   openGraph: {
-    title: "Amex Technology — Software Development Agency",
+    title: "Amex Technology — AI & Software Development Agency",
     description:
-      "5+ years of experience · 200+ projects delivered. We build scalable web apps, mobile apps, and SaaS platforms.",
+      "AI agents, websites, web and mobile apps, plus SEO, GEO and AEO, built by one independent agency since 2019.",
     url: "https://amextechnology.com",
     type: "website",
   },
   twitter: {
-    title: "Amex Technology — Software Development Agency",
+    title: "Amex Technology — AI & Software Development Agency",
     description:
-      "5+ years of experience · 200+ projects delivered. We build scalable web apps, mobile apps, and SaaS platforms.",
+      "AI agents, websites, web and mobile apps, plus SEO, GEO and AEO, built by one independent agency since 2019.",
   },
 };
 
@@ -122,7 +122,7 @@ export default function HomePage() {
       />
       <Navbar />
       <main>
-        <Hero blogPosts={pickHeroPosts(blogPosts)} />
+        <Hero blogPosts={pickHeroPosts(blogPosts)} {...pickHeroWork(projects)} />
         <TechMarquee />
         <StatsBar />
         <ServicesPreview />

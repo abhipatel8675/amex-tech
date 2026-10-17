@@ -63,8 +63,38 @@ export const projects: Project[] = [
     gradientTo: "#1e293b",
     featured: true,
     liveUrl: "https://www.firmsledger.com",
-    image: "/images/portfolio/firmsledger/home-hero.webp",
+    image: "/images/portfolio/firmsledger/mockup-1.webp",
     gallery: [
+      {
+        src: "/images/portfolio/firmsledger/mockup-1.webp",
+        alt: "FirmsLedger on laptop and phone: Zero Paid Rankings",
+        caption: "An independent manufacturer directory with zero paid placements",
+      },
+      {
+        src: "/images/portfolio/firmsledger/mockup-2.webp",
+        alt: "FirmsLedger homepage: find top manufacturers across the USA",
+        caption: "Search verified US manufacturers by category and state",
+      },
+      {
+        src: "/images/portfolio/firmsledger/mockup-3.webp",
+        alt: "FirmsLedger: connecting you with America's leading manufacturers",
+        caption: "Why FirmsLedger: verified domestic operations and capability-level sourcing",
+      },
+      {
+        src: "/images/portfolio/firmsledger/mockup-4.webp",
+        alt: "FirmsLedger: build a more resilient supply chain",
+        caption: "Built for buyers who want a more resilient, domestic supply chain",
+      },
+      {
+        src: "/images/portfolio/firmsledger/mockup-5.webp",
+        alt: "FirmsLedger: how it works",
+        caption: "How it works: discover capabilities, evaluate suppliers, contact them directly",
+      },
+      {
+        src: "/images/portfolio/firmsledger/mockup-6.webp",
+        alt: "FirmsLedger: get your business in front of buyers",
+        caption: "Free listings put manufacturers in front of buyers",
+      },
       {
         src: "/images/portfolio/firmsledger/home-hero.webp",
         alt: "FirmsLedger — homepage hero: Find top manufacturers across the USA, with category and state search",
@@ -426,6 +456,38 @@ export const projects: Project[] = [
     gradientTo: "#f97316",
     featured: false,
     image: "/images/portfolio/cyber7.png",
+    gallery: [
+      {
+        src: "/images/portfolio/cyber7/app-1.webp",
+        alt: "CyberApp portal selection: admin or employee",
+        caption: "Choose a portal: admin or employee",
+      },
+      {
+        src: "/images/portfolio/cyber7/app-2.webp",
+        alt: "CyberApp admin sign-in",
+        caption: "Admin sign-in",
+      },
+      {
+        src: "/images/portfolio/cyber7/app-3.webp",
+        alt: "CyberApp employee sign-in",
+        caption: "Employee sign-in and registration",
+      },
+      {
+        src: "/images/portfolio/cyber7/app-4.webp",
+        alt: "CyberApp navigation menu",
+        caption: "Navigation: dashboard, alerts, clients, contacts, notifications",
+      },
+      {
+        src: "/images/portfolio/cyber7/app-5.webp",
+        alt: "CyberApp notifications",
+        caption: "Alert notifications with acknowledge and resolve status",
+      },
+      {
+        src: "/images/portfolio/cyber7/app-6.webp",
+        alt: "CyberApp settings",
+        caption: "Settings: alert tone, push notifications, auto refresh, dark mode",
+      },
+    ],
   },
   {
     slug: "emigo",
@@ -563,8 +625,33 @@ export const projects: Project[] = [
     gradientTo: "#1e293b",
     featured: false,
     liveUrl: "https://www.instagram.com/eastendvintagesale",
-    image: "/images/portfolio/east-end-vintage-sale.png",
+    image: "/images/portfolio/east-end-vintage-sale/mockup-1.webp",
     gallery: [
+      {
+        src: "/images/portfolio/east-end-vintage-sale/mockup-1.webp",
+        alt: "East End Vintage Sale on laptop and phone: the sidewalk sale returns",
+        caption: "The sidewalk sale returns for the second time",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/mockup-2.webp",
+        alt: "East End Vintage Sale: everything you need in one glance",
+        caption: "Event details at a glance: date, location, vibe and drinks",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/mockup-3.webp",
+        alt: "East End Vintage Sale: discover local events and good vibes",
+        caption: "Location section with map link",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/mockup-4.webp",
+        alt: "East End Vintage Sale: freshly made lemonade",
+        caption: "Freshly made lemonade menu",
+      },
+      {
+        src: "/images/portfolio/east-end-vintage-sale/mockup-5.webp",
+        alt: "East End Vintage Sale: come early, bring a tote, tell a friend",
+        caption: "Come early, bring a tote, tell a friend",
+      },
       {
         src: "/images/portfolio/east-end-vintage-sale/ss-1.png",
         alt: "East End Vintage Sale — landing hero: The Sidewalk Sale Returns for the Second Time, Sunday Aug 9",
@@ -730,8 +817,33 @@ export const projects: Project[] = [
     gradientTo: "#dc2626",
     featured: false,
     liveUrl: "https://torqron.com",
-    image: "/images/portfolio/torqron.png",
+    image: "/images/portfolio/torqron/mockup-1.webp",
     gallery: [
+      {
+        src: "/images/portfolio/torqron/mockup-1.webp",
+        alt: "Torqron on laptop and phone: let's build smarter procurement",
+        caption: "Request-a-quote flow for smarter industrial procurement",
+      },
+      {
+        src: "/images/portfolio/torqron/mockup-2.webp",
+        alt: "Torqron: why procurement teams choose Torqron",
+        caption: "Why procurement teams choose Torqron",
+      },
+      {
+        src: "/images/portfolio/torqron/mockup-3.webp",
+        alt: "Torqron: industries and applications served",
+        caption: "Industries and applications served",
+      },
+      {
+        src: "/images/portfolio/torqron/mockup-4.webp",
+        alt: "Torqron: industrial excellence for global petrochemical operations",
+        caption: "Industrial excellence for global petrochemical operations",
+      },
+      {
+        src: "/images/portfolio/torqron/mockup-5.webp",
+        alt: "Torqron: industrial solutions for a smarter tomorrow",
+        caption: "Main products and solutions",
+      },
       {
         src: "/images/portfolio/torqron/ss-1.png",
         alt: "Torqron — homepage hero: Industrial Excellence for Global Petrochemical Operations",
@@ -987,8 +1099,28 @@ export const projects: Project[] = [
     gradientTo: "#c9a227",
     featured: false,
     liveUrl: "https://www.hmd.com.co",
-    image: "/images/portfolio/hmd/ss-8.png",
+    image: "/images/portfolio/hmd/mockup-1.webp",
     gallery: [
+      {
+        src: "/images/portfolio/hmd/mockup-1.webp",
+        alt: "HMD on laptop and phone: advancing physicians through education, evidence and leadership",
+        caption: "Elite medical education platform on desktop and mobile",
+      },
+      {
+        src: "/images/portfolio/hmd/mockup-2.webp",
+        alt: "HMD iConnect: a global community for physicians",
+        caption: "HMD iConnect: a global community for physicians and medical students",
+      },
+      {
+        src: "/images/portfolio/hmd/mockup-3.webp",
+        alt: "HMD member dashboard: a global medical community",
+        caption: "Member dashboard for a global medical community",
+      },
+      {
+        src: "/images/portfolio/hmd/mockup-4.webp",
+        alt: "HMD research collaborations",
+        caption: "Research collaborations: form groups and co-author papers",
+      },
       {
         src: "/images/portfolio/hmd/ss-4.png",
         alt: "HMD — Evidence Summary library: curated clinical research papers across specialties",
@@ -1050,8 +1182,33 @@ export const projects: Project[] = [
     gradientTo: "#f97316",
     featured: true,
     liveUrl: "https://periscope.email",
-    image: "/images/portfolio/periscope-email.png",
+    image: "/images/portfolio/periscope-email/mockup-1.webp",
     gallery: [
+      {
+        src: "/images/portfolio/periscope-email/mockup-1.webp",
+        alt: "Periscope on laptop and phone: point Periscope at your accounts",
+        caption: "Point Periscope at your accounts: it finds the opening and the buyer",
+      },
+      {
+        src: "/images/portfolio/periscope-email/mockup-2.webp",
+        alt: "Periscope: it doesn't stop at the signal, it writes the play",
+        caption: "Every signal becomes a ready-to-send play",
+      },
+      {
+        src: "/images/portfolio/periscope-email/mockup-3.webp",
+        alt: "Periscope: always-on account intelligence",
+        caption: "Always-on intelligence across 200,000+ sources",
+      },
+      {
+        src: "/images/portfolio/periscope-email/mockup-4.webp",
+        alt: "Periscope pricing: choose the right plan to scale outreach",
+        caption: "Pricing from individual reps to enterprise teams",
+      },
+      {
+        src: "/images/portfolio/periscope-email/mockup-5.webp",
+        alt: "Periscope: built for how enterprise teams actually sell",
+        caption: "Use cases for enterprise sales teams",
+      },
       {
         src: "/images/portfolio/periscope-email/ss-1.png",
         alt: "Periscope Email — homepage: Real-Time News Triggers → Ready-to-Send Enterprise Outreach",
@@ -1113,8 +1270,33 @@ export const projects: Project[] = [
     gradientTo: "#8b5cf6",
     featured: true,
     liveUrl: "https://molarai.studio",
-    image: "/images/portfolio/molar-ai.png",
+    image: "/images/portfolio/molar-ai/mockup-1.webp",
     gallery: [
+      {
+        src: "/images/portfolio/molar-ai/mockup-1.webp",
+        alt: "Molar AI on laptop and phone: patient education built for modern dental practices",
+        caption: "Patient education built for modern dental practices",
+      },
+      {
+        src: "/images/portfolio/molar-ai/mockup-2.webp",
+        alt: "Molar AI: engage, educate, build trust",
+        caption: "Treatment-focused video content that builds patient trust",
+      },
+      {
+        src: "/images/portfolio/molar-ai/mockup-3.webp",
+        alt: "Molar AI: real stories from practices",
+        caption: "Video testimonials section on desktop and mobile",
+      },
+      {
+        src: "/images/portfolio/molar-ai/mockup-4.webp",
+        alt: "Molar AI pricing: flexible plans for modern dental practices",
+        caption: "Flexible plans for single practices up to multi-location groups",
+      },
+      {
+        src: "/images/portfolio/molar-ai/mockup-5.webp",
+        alt: "Molar AI: educate patients, build trust, help more say yes",
+        caption: "Enterprise page: built for how dental teams actually sell",
+      },
       {
         src: "/images/portfolio/molar-ai/ss-1.png",
         alt: "Molar AI — homepage hero: The Easiest Way to Educate Patients Online",

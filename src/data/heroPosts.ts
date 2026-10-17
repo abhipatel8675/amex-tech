@@ -19,3 +19,19 @@ export function pickHeroPosts(all: BlogPost[]): HeroBlogPost[] {
     gradientTo,
   }));
 }
+
+import type { Project } from "@/data/projects";
+import type { HeroWork } from "@/components/home/Hero";
+
+const SHOWCASE = ["molar-ai", "periscope-email"];
+const RECENT = ["molar-ai", "periscope-email", "hoursheets", "zenscroll", "hmd"];
+
+// Hero project picks, trimmed to the few fields the hero renders.
+export function pickHeroWork(all: Project[]): { showcase: HeroWork[]; recentWork: HeroWork[] } {
+  const pick = (slugs: string[]) =>
+    slugs
+      .map((slug) => all.find((p) => p.slug === slug))
+      .filter((p): p is Project => Boolean(p))
+      .map(({ slug, title, shortDesc, image, liveUrl }) => ({ slug, title, shortDesc, image, liveUrl }));
+  return { showcase: pick(SHOWCASE).filter((p) => p.image), recentWork: pick(RECENT) };
+}

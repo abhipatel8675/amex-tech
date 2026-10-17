@@ -19,16 +19,16 @@ const values = [
 ];
 
 const expertise = [
-  "5+ years of full-stack development experience",
-  "200+ production applications shipped to real users",
-  "Expert in React, Next.js, Node.js, and TypeScript",
-  "Mobile apps for iOS and Android with React Native",
-  "SaaS architecture: multi-tenancy, billing, user management",
-  "API design, third-party integrations, and documentation",
-  "Cloud infrastructure on AWS and Vercel",
-  "CI/CD pipelines and automated deployment workflows",
+  "5+ years building production web, mobile and AI products",
+  "AI agents and automation with OpenAI, Claude, n8n, Make and Zapier",
+  "Websites and web apps in Next.js, React, TypeScript and Supabase",
+  "AI SaaS MVPs with Stripe billing, multi-tenant data and Row Level Security",
+  "Rescuing and hardening apps built in Lovable, Bolt and Replit",
+  "SEO, GEO and AEO: found on Google and recommended by AI assistants",
+  "GoHighLevel and HubSpot CRM setups and lead automation",
+  "iOS and Android apps with React Native and Expo",
+  "Cloud, DevOps and care plans on Vercel, AWS and Cloudflare",
   "UI/UX design and interactive prototyping in Figma",
-  "AI integration: OpenAI, Claude, Gemini, RAG systems",
 ];
 
 const miniStats = [
@@ -83,7 +83,7 @@ export default function AboutPageContent() {
             </span>
           </h1>
           <p className="text-slate-600 text-xl md:text-2xl leading-9 max-w-2xl mb-8">
-            Amex Technology is a software development agency founded in 2019. We partner with startups and enterprises to design, build, and scale digital products — from first line of code to production and beyond.
+            Amex Technology is an independent AI and software agency founded by Abhi Patel in 2019. We build AI agents, websites, web and mobile apps and SaaS products for startups and growing businesses, and make sure their customers can find them on Google and in AI assistants.
           </p>
 
           {/* Mini stats inline */}

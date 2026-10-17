@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
@@ -9,6 +10,7 @@ import CaseStudyGallery from "@/components/portfolio/CaseStudyGallery";
 import BrowserMockup from "@/components/ui/BrowserMockup";
 import PhoneMockup from "@/components/ui/PhoneMockup";
 import { projects } from "@/data/projects";
+import { isDeviceMockup } from "@/lib/portfolioImages";
 import { ArrowLeft, ExternalLink, CheckCircle2 } from "lucide-react";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -195,6 +197,16 @@ export default async function ProjectDetailPage({ params }: Props) {
                   />
                 )}
               </div>
+            ) : isDeviceMockup(project.image) ? (
+              <Image
+                src={project.image!}
+                alt={`${project.title} — ${project.shortDesc}`}
+                width={1600}
+                height={1200}
+                priority
+                sizes="(min-width: 1280px) 1100px, 100vw"
+                className="mx-auto w-full max-w-[1100px] h-auto rounded-2xl shadow-2xl"
+              />
             ) : (
               <BrowserMockup
                 src={project.image}
@@ -375,7 +387,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         {project.gallery && project.gallery.length > 0 && (
           <section className="pb-28 max-w-[92rem] mx-auto px-6">
             <CaseStudyGallery
-              gallery={project.gallery}
+              gallery={project.gallery.filter((g) => g.src !== project.image)}
               isMobile={isMobile}
               accentColor={project.gradientFrom}
               liveUrl={project.liveUrl}

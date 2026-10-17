@@ -3,22 +3,19 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CircleCheck, ShieldCheck } from "lucide-react";
+import Image from "next/image";
 import BrowserMockup from "@/components/ui/BrowserMockup";
+import { isDeviceMockup } from "@/lib/portfolioImages";
 import { HeroBlogList } from "@/components/ui/HeroBlogList";
 import type { HeroBlogPost } from "@/data/heroPosts";
 import { testimonials } from "@/data/testimonials";
-import { projects } from "@/data/projects";
 
 // A real review from testimonials.ts (Fiverr), shown verbatim with its source.
 const heroReview = testimonials.find((t) => t.name === "sarah_m_uk") ?? testimonials[0];
 
-// Real shipped work shown in the hero, so visitors see proof before they scroll.
-const showcase = ["molar-ai", "periscope-email"]
-  .map((slug) => projects.find((p) => p.slug === slug))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p?.image));
-const recentWork = ["molar-ai", "periscope-email", "hoursheets", "zenscroll", "hmd"]
-  .map((slug) => projects.find((p) => p.slug === slug))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+// Real shipped work shown in the hero, picked on the server (see pickHeroWork)
+// so the full projects data never ships to the browser.
+export type HeroWork = { slug: string; title: string; shortDesc: string; image?: string; liveUrl?: string };
 
 function hostOf(url?: string) {
   try {
@@ -30,7 +27,31 @@ function hostOf(url?: string) {
 
 const GOLD = "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)";
 
-export default function Hero({ blogPosts }: { blogPosts: HeroBlogPost[] }) {
+function WorkShot({ src, alt, url, className = "" }: { src: string; alt: string; url: string; className?: string }) {
+  if (isDeviceMockup(src)) {
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        width={1600}
+        height={1200}
+        sizes="(min-width: 1024px) 45vw, 100vw"
+        className={`w-full h-auto rounded-2xl shadow-2xl ${className}`}
+      />
+    );
+  }
+  return <BrowserMockup src={src} alt={alt} url={url} className={className} />;
+}
+
+export default function Hero({
+  blogPosts,
+  showcase,
+  recentWork,
+}: {
+  blogPosts: HeroBlogPost[];
+  showcase: HeroWork[];
+  recentWork: HeroWork[];
+}) {
   return (
     <section className="relative flex items-center overflow-hidden bg-white pt-16">
       {/* Background */}
@@ -167,7 +188,8 @@ export default function Hero({ blogPosts }: { blogPosts: HeroBlogPost[] }) {
             {/* Phones and tablets: one real project instead of the desktop collage */}
             {showcase[0] && (
               <Link href={`/portfolio/${showcase[0].slug}`} className="mt-10 block lg:hidden" aria-label={`${showcase[0].title} case study`}>
-                <BrowserMockup src={showcase[0].image} alt={`${showcase[0].title}: ${showcase[0].shortDesc}`} url={hostOf(showcase[0].liveUrl)} />
+                <WorkShot
+                    src={showcase[0].image!} alt={`${showcase[0].title}: ${showcase[0].shortDesc}`} url={hostOf(showcase[0].liveUrl)} />
               </Link>
             )}
           </div>
@@ -182,8 +204,8 @@ export default function Hero({ blogPosts }: { blogPosts: HeroBlogPost[] }) {
             <div className="relative pb-24">
               {showcase[0] && (
                 <Link href={`/portfolio/${showcase[0].slug}`} className="block group" aria-label={`${showcase[0].title} case study`}>
-                  <BrowserMockup
-                    src={showcase[0].image}
+                  <WorkShot
+                    src={showcase[0].image!}
                     alt={`${showcase[0].title}: ${showcase[0].shortDesc}`}
                     url={hostOf(showcase[0].liveUrl)}
                     className="transition-transform duration-500 group-hover:-translate-y-1"
@@ -196,8 +218,8 @@ export default function Hero({ blogPosts }: { blogPosts: HeroBlogPost[] }) {
                   className="absolute -bottom-10 -left-8 w-[56%] block group"
                   aria-label={`${showcase[1].title} case study`}
                 >
-                  <BrowserMockup
-                    src={showcase[1].image}
+                  <WorkShot
+                    src={showcase[1].image!}
                     alt={`${showcase[1].title}: ${showcase[1].shortDesc}`}
                     url={hostOf(showcase[1].liveUrl)}
                     className="ring-4 ring-white transition-transform duration-500 group-hover:-translate-y-1"

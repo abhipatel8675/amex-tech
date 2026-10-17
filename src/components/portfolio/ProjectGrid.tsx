@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
+import { isDeviceMockup } from "@/lib/portfolioImages";
 import { projects, categories, type Category } from "@/data/projects";
 
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
@@ -29,7 +30,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
       }}
     >
       {/* ── Image area ── */}
-      <div className="relative overflow-hidden h-[220px]">
+      <div className="relative overflow-hidden aspect-[16/10]">
         {project.image ? (
           project.category === "Mobile App" ? (
             <>
@@ -54,7 +55,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
               src={project.image}
               alt={project.title}
               fill
-              className={`object-cover ${project.imagePosition ?? "object-center"} transition-transform duration-700`}
+              className={`object-cover ${project.imagePosition ?? (isDeviceMockup(project.image) ? "object-center" : "object-top")} transition-transform duration-700`}
               style={{ transform: hovered ? "scale(1.04)" : "scale(1)" }}
               unoptimized={project.image.startsWith("http")}
             />

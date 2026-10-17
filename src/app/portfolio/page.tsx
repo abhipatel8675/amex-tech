@@ -79,12 +79,12 @@ export default function PortfolioPage() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Software Development Case Studies.
+              Our Work.
             </h1>
           </div>
           <div className="max-w-[92rem] mx-auto px-6 pb-12">
             <p className="text-xl max-w-xl leading-8" style={{ color: "#475569" }}>
-              {projects.length} projects shipped across SaaS, AI, mobile, and web — each one solving a real business problem for a real client.
+              {projects.length} case studies across AI, SaaS, web, mobile and automation: what we built, why, and what changed.
             </p>
           </div>
         </section>

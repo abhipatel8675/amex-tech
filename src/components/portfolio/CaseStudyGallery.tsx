@@ -7,6 +7,7 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import type { GalleryImage } from "@/data/projects";
 import BrowserMockup from "@/components/ui/BrowserMockup";
 import PhoneMockup from "@/components/ui/PhoneMockup";
+import { isDeviceMockup } from "@/lib/portfolioImages";
 
 interface Props {
   gallery: GalleryImage[];
@@ -81,6 +82,17 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
               </div>
             )}
           </div>
+        ) : isDeviceMockup(featureItem.src) ? (
+          <button onClick={() => setLightboxIdx(0)} className="block w-full cursor-zoom-in focus:outline-none">
+            <Image
+              src={featureItem.src}
+              alt={featureItem.alt}
+              width={1600}
+              height={1200}
+              sizes="(min-width: 1280px) 1100px, 100vw"
+              className="mx-auto w-full max-w-[1100px] h-auto rounded-2xl shadow-xl"
+            />
+          </button>
         ) : (
           <BrowserMockup
             src={featureItem.src}
@@ -143,34 +155,6 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
                 {img.caption}
               </p>
             ))}
-          </div>
-        </div>
-      )}
-
-      {/* Tier 3: Metrics strip — inline from the supporting images data */}
-      {supporting.length > 0 && (
-        <div
-          className="rounded-2xl p-6 border border-slate-200"
-          style={{ background: "#F8FAFC" }}
-        >
-          <p
-            className="text-center mb-6 font-semibold uppercase"
-            style={{ fontSize: 10, letterSpacing: "0.15em", color: "#64748B" }}
-          >
-            Key Outcomes
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {supporting.slice(0, 4).map((img, i) => {
-              const parts = img.caption.split(/[—–\-]/);
-              const headline = parts[0]?.trim() ?? img.caption;
-              const sub = parts[1]?.trim();
-              return (
-                <div key={i} className="text-center">
-                  <p className="text-xs text-slate-500 leading-relaxed">{headline}</p>
-                  {sub && <p className="text-xs mt-1" style={{ color: accentColor, opacity: 0.7 }}>{sub}</p>}
-                </div>
-              );
-            })}
           </div>
         </div>
       )}
