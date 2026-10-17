@@ -60,9 +60,7 @@ A chronological record of all commits, features, and changes made to the amextec
 
 **Deploying:** the Vercel project is not connected to GitHub, so a push does NOT deploy. Each deploy above was run from the command line, from a clean copy of the committed revision (`vercel --prod`), so untracked local files like `public/posters/` never get published.
 
-### 🟡 On a preview link, waiting for review (branch `redesign/2026`, commit `8a6a646`)
-
-Preview: https://amex-tech-1jda0139c-abhipatel8675s-projects.vercel.app (private; requires your Vercel login)
+### ✅ Hero redesign + 5 case studies, live (merged `redesign/2026` as `ec889fd`, published Oct 17)
 
 **Hero redesign**
 - New headline: "Websites, apps & AI agents that bring you customers."
@@ -82,12 +80,10 @@ Other details:
 - New "Automation" filter tab on the portfolio page.
 - Homepage featured projects become FirmsLedger, GoSwiftFund and Expert Village. Molar AI and Periscope now appear in the hero instead.
 
-To publish: `git merge --ff-only redesign/2026` on `main`, push, then deploy as above.
-
 ### ⏳ Remaining
 
 **Needs you**
-- [ ] Review the preview and approve publishing (or request changes).
+- [ ] Review the new hero and case studies on the live site and send any changes.
 - [ ] Add `STRIPE_SECRET_KEY` in Vercel (Production) to turn on the $29 report.
 - [ ] Optional: connect Vercel to the GitHub repo so a push to `main` auto-deploys.
 - [ ] Decide which location to show: Ahmedabad (current) or Los Angeles/Gardena.
