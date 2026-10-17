@@ -10,6 +10,7 @@ import { blogPosts } from "@/data/blog";
 import { services } from "@/data/services";
 import BlogPostContent from "@/components/blog/BlogPostContent";
 import FixItCTA from "@/components/blog/FixItCTA";
+import AppCheckerCTA from "@/components/blog/AppCheckerCTA";
 import { getFixTopic } from "@/data/fixOffer";
 import { ArrowLeft, Clock, Tag } from "lucide-react";
 
@@ -214,6 +215,8 @@ export default async function BlogPostPage({ params }: Props) {
           <FixItCTA topic={fixTopic} source={post.slug} variant="inline" />
 
           <BlogPostContent html={markdownToHtml(post.content)} />
+
+          {fixTopic !== "domain & DNS" && fixTopic !== "email" && <AppCheckerCTA topic={fixTopic} source={post.slug} />}
 
             {/* Related Services */}
             {getRelatedServices(post.tags, post.category).length > 0 && (

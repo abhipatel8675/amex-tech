@@ -241,7 +241,7 @@ export default function Footer() {
           <div className="border-t border-slate-200 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <p className="text-xs" style={{ color: "#64748B" }}>
-                © {new Date().getFullYear()} Amex Technology. All rights reserved.
+                © {new Date().getFullYear()} Amex Technology. An independent agency, not affiliated with American Express.
               </p>
               <span className="text-xs" style={{ color: "#64748B" }}>·</span>
               <a

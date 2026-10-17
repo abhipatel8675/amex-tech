@@ -5,6 +5,7 @@ import "./globals.css";
 import CustomCursor from "@/components/ui/CustomCursor";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { services } from "@/data/services";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,36 +17,37 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://amextechnology.com"),
   title: {
-    default: "Amex Technology — Software Development Agency",
+    default: "Amex Technology — AI & Software Development Agency",
     template: "%s | Amex Technology",
   },
   description:
-    "Amex Technology is a premium software development agency with 5+ years of experience and 200+ projects delivered. We build scalable web apps, mobile apps, SaaS platforms, and provide SEO services and AI automation for startups and enterprises.",
+    "Amex Technology is an independent AI and software development agency, founded in 2019. We build AI agents and automations, websites and web apps, AI SaaS MVPs and mobile apps, and grow your visibility on Google and AI assistants with SEO, GEO and AEO.",
   keywords:
-    "software development agency, web development, mobile app development, SaaS development, Next.js, React, TypeScript, API development, DevOps, UI/UX design, SEO services, AI automation, n8n, Zapier, workflow automation, technical SEO, search engine optimization",
-  authors: [{ name: "Amex Technology" }],
+    "AI development agency, AI agents, AI automation, website development, web app development, AI SaaS MVP, mobile app development, GEO, generative engine optimization, AEO, answer engine optimization, SEO services, GoHighLevel, CRM automation, Next.js, Supabase, Lovable app fixes",
+  authors: [{ name: "Abhi Patel", url: "https://amextechnology.com/about" }],
+  creator: "Amex Technology",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://amextechnology.com",
     siteName: "Amex Technology",
-    title: "Amex Technology — Software Development Agency",
+    title: "Amex Technology — AI & Software Development Agency",
     description:
-      "We build scalable digital products for startups and modern businesses. Web apps, mobile apps, SaaS platforms, and more.",
+      "AI agents, websites, web apps, SaaS and mobile apps, plus SEO, GEO and AEO, built by one independent agency.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Amex Technology — Software Development Agency",
+        alt: "Amex Technology — AI & Software Development Agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amex Technology — Software Development Agency",
+    title: "Amex Technology — AI & Software Development Agency",
     description:
-      "We build scalable digital products for startups and modern businesses.",
+      "AI agents, websites, web apps, SaaS and mobile apps, plus SEO, GEO and AEO, built by one independent agency.",
     images: ["/opengraph-image"],
   },
   robots: {
@@ -63,9 +65,35 @@ const organizationSchema = {
   "@type": "Organization",
   "@id": "https://amextechnology.com/#organization",
   name: "Amex Technology",
+  alternateName: ["Amex Technology Agency", "amextechnology.com"],
   url: "https://amextechnology.com",
   logo: "https://amextechnology.com/images/logo.png",
+  description:
+    "Independent AI and software development agency that builds AI agents, websites, web apps, SaaS products and mobile apps, and provides SEO, GEO and AEO services.",
+  // "Amex Technology" is also the name of American Express's internal technology
+  // organization; this tells search engines and AI assistants we're a different entity.
+  disambiguatingDescription:
+    "Independent software and AI agency at amextechnology.com, founded by Abhi Patel in 2019. Not affiliated with American Express.",
   foundingDate: "2019",
+  founder: {
+    "@type": "Person",
+    "@id": "https://amextechnology.com/#founder",
+    name: "Abhi Patel",
+    jobTitle: "Founder and Full-Stack Developer",
+    url: "https://amextechnology.com/about",
+    sameAs: ["https://github.com/abhipatel8675", "https://www.fiverr.com/abhipatel956"],
+  },
+  numberOfEmployees: { "@type": "QuantitativeValue", minValue: 2, maxValue: 10 },
+  knowsAbout: [
+    ...services.map((s) => s.title),
+    "Generative Engine Optimization",
+    "Answer Engine Optimization",
+    "Next.js",
+    "Supabase",
+    "React Native",
+    "GoHighLevel",
+    "OpenAI API",
+  ],
   email: "abhipatel8675@gmail.com",
   sameAs: [
     "https://www.fiverr.com/abhipatel956",

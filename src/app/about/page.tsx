@@ -40,12 +40,14 @@ const aboutSchema = {
   url: "https://amextechnology.com/about",
   mainEntity: {
     "@type": "Organization",
+    "@id": "https://amextechnology.com/#organization",
     name: "Amex Technology",
     url: "https://amextechnology.com",
     logo: "https://amextechnology.com/images/logo.png",
     foundingDate: "2019",
     description:
-      "Software development agency building web apps, mobile apps and SaaS platforms for startups and enterprises.",
+      "Independent AI and software development agency founded by Abhi Patel in 2019, building AI agents, websites, web apps, SaaS products and mobile apps, plus SEO, GEO and AEO. Not affiliated with American Express.",
+    founder: { "@id": "https://amextechnology.com/#founder" },
     sameAs: [
       "https://www.fiverr.com/abhipatel956",
       "https://www.instagram.com/amextechnology/",
