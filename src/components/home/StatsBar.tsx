@@ -27,7 +27,7 @@ const stats = [
     suffix: "+",
     label: "Projects Delivered",
     detail: "Across 6 industries",
-    accent: "#E1BC4A",
+    accent: "#CC9A1A",
   },
   {
     icon: Clock,
@@ -35,7 +35,7 @@ const stats = [
     suffix: "+",
     label: "Years Experience",
     detail: "Founded in 2019",
-    accent: "#D4AF37",
+    accent: "#B8860B",
   },
   {
     icon: Users,
@@ -43,7 +43,7 @@ const stats = [
     suffix: "+",
     label: "Happy Clients",
     detail: "Zero failed projects",
-    accent: "#38BDF8",
+    accent: "#9C7208",
   },
   {
     icon: Star,
@@ -51,7 +51,7 @@ const stats = [
     suffix: "h",
     label: "Avg Response",
     detail: "Mon – Sat support",
-    accent: "#34D399",
+    accent: "#B8860B",
   },
 ];
 
@@ -105,8 +105,8 @@ function StatCard({
       >
         {count}{stat.suffix}
       </p>
-      <p className="text-sm font-semibold text-slate-600 mb-1">{stat.label}</p>
-      <p className="text-xs text-slate-500">{stat.detail}</p>
+      <p className="text-sm font-semibold text-slate-700 mb-1">{stat.label}</p>
+      <p className="text-xs text-slate-600">{stat.detail}</p>
     </motion.div>
   );
 }
@@ -120,15 +120,15 @@ export default function StatsBar() {
       {/* Top gradient border — full width accent line */}
       <div
         className="absolute top-0 inset-x-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.6) 30%, rgba(184,146,37,0.7) 50%, rgba(212,175,55,0.6) 70%, transparent 100%)" }}
+        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(184,134,11,0.6) 30%, rgba(156,114,8,0.7) 50%, rgba(184,134,11,0.6) 70%, transparent 100%)" }}
       />
       <div
         className="absolute bottom-0 inset-x-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.12) 50%, transparent 100%)" }}
+        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(184,134,11,0.12) 50%, transparent 100%)" }}
       />
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(180deg, rgba(212,175,55,0.04) 0%, rgba(212,175,55,0.01) 100%)" }}
+        style={{ background: "transparent" }}
       />
 
       <div className="relative max-w-[92rem] mx-auto px-6">

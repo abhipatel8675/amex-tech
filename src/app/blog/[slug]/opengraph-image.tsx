@@ -33,16 +33,16 @@ export default async function OgImage({ params }: { params: Promise<{ slug: stri
             left: 0,
             right: 0,
             height: "4px",
-            background: "linear-gradient(90deg, #D4AF37, #B89225)",
+            background: "linear-gradient(90deg, #B8860B, #9C7208)",
           }}
         />
 
         <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "32px" }}>
-          <span style={{ fontSize: "20px", fontWeight: "700", color: "#E1BC4A" }}>
+          <span style={{ fontSize: "20px", fontWeight: "700", color: "#CC9A1A" }}>
             Amex Technology
           </span>
           <span style={{ color: "#475569", fontSize: "20px", margin: "0 8px" }}>·</span>
-          <span style={{ fontSize: "20px", color: "#D4AF37", fontWeight: "600" }}>{category}</span>
+          <span style={{ fontSize: "20px", color: "#B8860B", fontWeight: "600" }}>{category}</span>
         </div>
 
         <h1
@@ -59,7 +59,7 @@ export default async function OgImage({ params }: { params: Promise<{ slug: stri
         </h1>
 
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <span style={{ color: "#D4AF37", fontSize: "18px" }}>amextechnology.com/blog</span>
+          <span style={{ color: "#B8860B", fontSize: "18px" }}>amextechnology.com/blog</span>
         </div>
       </div>
     ),

@@ -20,8 +20,8 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-indigo-500/3 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#B8860B]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-[#B8860B]/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
         {/* Trust badges */}
@@ -73,7 +73,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto mb-10"
+          className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto mb-10"
         >
           Full-Stack Engineering for Founders & Product Teams. Any language, any framework,
           any stack — from idea to production-ready in days, not months.
@@ -88,13 +88,13 @@ export default function Hero() {
         >
           <a
             href="#services"
-            className="flex items-center gap-2 bg-indigo-500 text-black font-semibold px-6 py-3 rounded-xl hover:bg-indigo-500/90 transition-all hover:scale-105"
+            className="flex items-center gap-2 bg-[#B8860B] text-black font-semibold px-6 py-3 rounded-xl hover:bg-[#B8860B]/90 transition-all hover:scale-105"
           >
             View Services <ArrowRight className="w-4 h-4" />
           </a>
           <a
             href="#contact"
-            className="flex items-center gap-2 border border-slate-200 text-slate-900 font-medium px-6 py-3 rounded-xl hover:border-[#6366F1]/50 hover:bg-indigo-500/5 transition-all"
+            className="flex items-center gap-2 border border-slate-200 text-slate-900 font-medium px-6 py-3 rounded-xl hover:border-[#B8860B]/50 hover:bg-[#B8860B]/5 transition-all"
           >
             Book Free Call
           </a>
@@ -113,7 +113,7 @@ export default function Hero() {
               className="bg-white border border-slate-200 rounded-2xl p-4 text-center"
             >
               <div className="text-3xl md:text-4xl font-bold text-indigo-400">{s.value}</div>
-              <div className="text-sm text-slate-500 mt-1">{s.label}</div>
+              <div className="text-sm text-slate-600 mt-1">{s.label}</div>
             </div>
           ))}
         </motion.div>

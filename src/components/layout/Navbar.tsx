@@ -43,13 +43,13 @@ export default function Navbar() {
         <nav className="max-w-[92rem] mx-auto px-6 h-16 flex items-center justify-between gap-8">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0 group">
-            <LogoMark size={30} className="transition-transform duration-300 group-hover:scale-105" />
+          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
+            <LogoMark size={42} className="transition-transform duration-300 group-hover:scale-105" />
             <span className="flex items-baseline gap-1">
               <span
-                className="font-bold text-lg tracking-tight"
+                className="font-bold text-[22px] md:text-2xl tracking-tight"
                 style={{
-                  background: "linear-gradient(135deg, #E1BC4A, #D4AF37)",
+                  background: "linear-gradient(135deg, #CC9A1A, #B8860B)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -57,7 +57,7 @@ export default function Navbar() {
               >
                 Amex
               </span>
-              <span className="text-slate-700 font-semibold text-lg tracking-tight">Technology</span>
+              <span className="text-slate-800 font-semibold text-[22px] md:text-2xl tracking-tight">Technology</span>
             </span>
           </Link>
 
@@ -73,7 +73,7 @@ export default function Navbar() {
                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 group ${
                     isActive
                       ? "text-slate-900"
-                      : "text-slate-500 hover:text-slate-700"
+                      : "text-slate-600 hover:text-slate-700"
                   }`}
                 >
                   {isActive && (
@@ -87,7 +87,7 @@ export default function Navbar() {
                   {/* Hover dot indicator */}
                   {!isActive && (
                     <span
-                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#E1BC4A] opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#CC9A1A] opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                       aria-hidden="true"
                     />
                   )}
@@ -100,7 +100,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700 transition-colors px-3 py-2"
+              className="hidden md:inline-flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-700 transition-colors px-3 py-2"
             >
               Contact
             </Link>
@@ -108,7 +108,7 @@ export default function Navbar() {
               href="/contact"
               className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-white px-4 py-2 rounded-xl transition-all duration-200 btn-glow"
               style={{
-                background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)",
+                background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)",
               }}
             >
               Get Free Quote
@@ -116,7 +116,7 @@ export default function Navbar() {
             </Link>
             <button
               onClick={() => setMobileOpen((v) => !v)}
-              className="md:hidden p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all"
+              className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all"
               aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
@@ -155,13 +155,13 @@ export default function Navbar() {
               {/* Mobile header */}
               <div className="flex items-center justify-between px-6 h-16 border-b border-slate-200">
                 <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
-                  <LogoMark size={28} />
+                  <LogoMark size={36} />
                   <span className="flex items-baseline gap-1">
-                    <span className="font-bold text-lg" style={{ background: "linear-gradient(135deg, #E1BC4A, #D4AF37)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Amex</span>
-                    <span className="text-slate-900 font-semibold text-lg">Technology</span>
+                    <span className="font-bold text-xl" style={{ background: "linear-gradient(135deg, #CC9A1A, #B8860B)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Amex</span>
+                    <span className="text-slate-900 font-semibold text-xl">Technology</span>
                   </span>
                 </Link>
-                <button onClick={() => setMobileOpen(false)} className="p-2 text-slate-500 hover:text-slate-900 transition-colors" aria-label="Close navigation menu">
+                <button onClick={() => setMobileOpen(false)} className="p-2 text-slate-600 hover:text-slate-900 transition-colors" aria-label="Close navigation menu">
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -171,7 +171,7 @@ export default function Navbar() {
                 <Link
                   href="/"
                   onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${pathname === "/" ? "text-slate-900 bg-slate-100" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`}
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${pathname === "/" ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"}`}
                 >
                   Home
                 </Link>
@@ -183,7 +183,7 @@ export default function Navbar() {
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
                       aria-current={isActive ? "page" : undefined}
-                      className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isActive ? "text-slate-900 bg-slate-100" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`}
+                      className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isActive ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"}`}
                     >
                       {link.label}
                     </Link>
@@ -192,7 +192,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${pathname === "/contact" ? "text-slate-900 bg-slate-100" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`}
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${pathname === "/contact" ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"}`}
                 >
                   Contact
                 </Link>
@@ -204,7 +204,7 @@ export default function Navbar() {
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center gap-2 w-full text-sm font-semibold text-white py-3 rounded-xl transition-all btn-glow"
-                  style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
+                  style={{ background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)" }}
                 >
                   Get Free Quote <ArrowRight className="w-3.5 h-3.5" />
                 </Link>

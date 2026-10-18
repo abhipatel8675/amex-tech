@@ -61,14 +61,14 @@ const features = [
     id: "code",
     title: "Clean, Maintainable Code",
     desc: "We write code for the next engineer, not just today's deadline. Every project ships well-structured, documented, and easy to extend — because software outlives the sprint.",
-    accent: "#E1BC4A",
+    accent: "#CC9A1A",
     size: "large",
   },
   {
     id: "security",
     title: "Secure by Default",
     desc: "Auth, row-level data isolation, input sanitization, and OWASP Top 10 protections — built in from day one. You never pay to retrofit security.",
-    accent: "#D4AF37",
+    accent: "#B8860B",
     size: "normal",
     icon: HexagonIcon,
   },
@@ -76,7 +76,7 @@ const features = [
     id: "delivery",
     title: "On-Time Delivery",
     desc: "Clear milestones, weekly demos, and async updates. Your launch date isn't a target — it's a commitment we make at kick-off.",
-    accent: "#38BDF8",
+    accent: "#9C7208",
     size: "normal",
     icon: ClockIcon,
   },
@@ -84,7 +84,7 @@ const features = [
     id: "tech",
     title: "Modern Tech Stack",
     desc: "We choose battle-tested, actively maintained frameworks — not trend-chasing. Your codebase stays upgradeable and hireable for years.",
-    accent: "#34D399",
+    accent: "#B8860B",
     size: "normal",
     icon: CircuitIcon,
   },
@@ -92,7 +92,7 @@ const features = [
     id: "cicd",
     title: "CI/CD From Day One",
     desc: "Automated pipelines, staging environments, and one-click rollback — so your team ships fearlessly without waiting on manual deploys.",
-    accent: "#FB923C",
+    accent: "#9C7208",
     size: "normal",
     icon: RocketIcon,
   },
@@ -100,7 +100,7 @@ const features = [
     id: "partnership",
     title: "Long-Term Partnership",
     desc: "We think past the handoff. Our best client relationships are ongoing — iterating, scaling, and improving together as your business grows.",
-    accent: "#F472B6",
+    accent: "#9C7208",
     size: "wide",
   },
 ];
@@ -125,7 +125,7 @@ export default function WhyChooseUs() {
         >
           <p
             className="mb-3 font-semibold uppercase"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#7A5807" }}
           >
             Why Clients Choose Us
           </p>
@@ -149,18 +149,18 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0 }}
-            className="group relative lg:col-span-2 rounded-2xl border border-slate-200 p-7 overflow-hidden transition-all duration-300 hover:border-[#D4AF37]/30"
-            style={{ background: "linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(184,146,37,0.06) 100%)" }}
+            className="group relative lg:col-span-2 rounded-2xl border border-slate-200 p-7 overflow-hidden transition-all duration-300 hover:border-[#B8860B]/30"
+            style={{ background: "#FFFFFF" }}
           >
             {/* Top accent line */}
             <div
               className="absolute top-0 inset-x-8 h-px rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ background: "linear-gradient(90deg, transparent, #E1BC4A, transparent)" }}
+              style={{ background: "linear-gradient(90deg, transparent, #CC9A1A, transparent)" }}
             />
             {/* Hover glow */}
             <div
               className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={{ boxShadow: "0 0 0 1px rgba(225,188,74,0.25), 0 0 32px rgba(212,175,55,0.08) inset" }}
+              style={{ boxShadow: "0 0 0 1px rgba(225,188,74,0.25), 0 0 32px rgba(184,134,11,0.08) inset" }}
             />
             <div className="grid sm:grid-cols-2 gap-8 items-start">
               <div>
@@ -170,7 +170,7 @@ export default function WhyChooseUs() {
                 >
                   Clean, Maintainable Code
                 </h3>
-                <p className="text-sm leading-7" style={{ color: "#64748B" }}>
+                <p className="text-sm leading-7" style={{ color: "#475569" }}>
                   We write code for the next engineer, not just today&apos;s deadline. Every project is well-structured, documented, and easy to extend — because software outlives the sprint.
                 </p>
               </div>
@@ -192,7 +192,7 @@ export default function WhyChooseUs() {
                       variants={checklistItemVariants}
                       className="flex items-center gap-2.5"
                     >
-                      <CircleCheck className="w-4 h-4 shrink-0" style={{ color: "#806010" }} />
+                      <CircleCheck className="w-4 h-4 shrink-0" style={{ color: "#7A5807" }} />
                       <span className="text-sm" style={{ color: "#475569" }}>
                         {item}
                       </span>
@@ -222,17 +222,17 @@ export default function WhyChooseUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.35 }}
             className="group relative lg:col-span-3 rounded-2xl border border-slate-200 p-7 overflow-hidden transition-all duration-300 hover:border-pink-500/30"
-            style={{ background: "linear-gradient(135deg, rgba(244,114,182,0.07) 0%, rgba(168,85,247,0.05) 100%)" }}
+            style={{ background: "#FFFFFF" }}
           >
             {/* Top accent line */}
             <div
               className="absolute top-0 inset-x-8 h-px rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ background: "linear-gradient(90deg, transparent, #F472B6, transparent)" }}
+              style={{ background: "linear-gradient(90deg, transparent, #9C7208, transparent)" }}
             />
             {/* Hover glow */}
             <div
               className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={{ boxShadow: "0 0 0 1px rgba(244,114,182,0.22), 0 0 32px rgba(244,114,182,0.06) inset" }}
+              style={{ boxShadow: "0 0 0 1px rgba(184,134,11,0.22), 0 0 32px rgba(184,134,11,0.05) inset" }}
             />
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
@@ -242,7 +242,7 @@ export default function WhyChooseUs() {
                 >
                   Long-Term Partnership
                 </h3>
-                <p className="text-sm leading-7" style={{ color: "#64748B" }}>
+                <p className="text-sm leading-7" style={{ color: "#475569" }}>
                   We think beyond the handoff. Our best client relationships are ongoing — iterating, improving, and scaling together. We&apos;re your technical partner for the long run.
                 </p>
               </div>
@@ -258,12 +258,12 @@ export default function WhyChooseUs() {
                         transition={{ delay: i * 0.09, type: "spring", stiffness: 300 }}
                         className="w-3 h-3 rounded-full border-2"
                         style={{
-                          borderColor: "#F472B6",
-                          background: i === arr.length - 1 ? "#F472B6" : "transparent",
-                          boxShadow: i === arr.length - 1 ? "0 0 8px rgba(244,114,182,0.6)" : "none",
+                          borderColor: "#9C7208",
+                          background: i === arr.length - 1 ? "#9C7208" : "transparent",
+                          boxShadow: i === arr.length - 1 ? "0 0 8px rgba(184,134,11,0.6)" : "none",
                         }}
                       />
-                      <span className="text-xs text-slate-500 font-mono">{year}</span>
+                      <span className="text-xs text-slate-600 font-mono">{year}</span>
                     </div>
                     {i < arr.length - 1 && (
                       <motion.div
@@ -272,13 +272,13 @@ export default function WhyChooseUs() {
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.09 + 0.05, duration: 0.3 }}
                         className="h-px w-8 sm:w-12 origin-left shrink-0"
-                        style={{ background: "linear-gradient(90deg, #F472B6, rgba(244,114,182,0.2))" }}
+                        style={{ background: "linear-gradient(90deg, #9C7208, rgba(184,134,11,0.2))" }}
                       />
                     )}
                   </div>
                 ))}
                 <div className="ml-2 shrink-0">
-                  <span className="text-xs font-semibold text-pink-400">Present</span>
+                  <span className="text-xs font-semibold text-[#7A5807]">Present</span>
                 </div>
               </div>
             </div>
@@ -334,7 +334,7 @@ function BentoCell({
         </div>
       )}
       <h3 className="relative text-base font-bold text-slate-900 mb-2.5 leading-snug">{feature.title}</h3>
-      <p className="relative text-sm leading-7" style={{ color: "#64748B" }}>
+      <p className="relative text-sm leading-7" style={{ color: "#475569" }}>
         {feature.desc}
       </p>
     </motion.div>

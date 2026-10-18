@@ -43,7 +43,7 @@ export default function Logo({
         <span
           className={`font-bold tracking-tight ${textClassName}`}
           style={{
-            background: "linear-gradient(135deg, #E1BC4A, #D4AF37)",
+            background: "linear-gradient(135deg, #CC9A1A, #B8860B)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",

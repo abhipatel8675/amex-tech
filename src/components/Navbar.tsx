@@ -30,10 +30,10 @@ export default function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 font-bold text-lg">
-          <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
+          <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}>
             <Zap className="w-4 h-4 text-slate-900" />
           </div>
-          <span>Amex<span className="text-[#806010]">Technology</span></span>
+          <span>Amex<span className="text-[#7A5807]">Technology</span></span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -41,7 +41,7 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
+              className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
             >
               {l.label}
             </a>
@@ -49,14 +49,14 @@ export default function Navbar() {
           <a
             href="/contact"
             className="text-sm text-white font-semibold px-4 py-2 rounded-lg transition-colors"
-            style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}
+            style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}
           >
             Hire Us
           </a>
         </div>
 
         <button
-          className="md:hidden text-slate-500 hover:text-slate-900"
+          className="md:hidden text-slate-600 hover:text-slate-900"
           onClick={() => setOpen(!open)}
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -75,7 +75,7 @@ export default function Navbar() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm text-slate-500 hover:text-slate-900"
+                className="text-sm text-slate-600 hover:text-slate-900"
                 onClick={() => setOpen(false)}
               >
                 {l.label}
@@ -84,7 +84,7 @@ export default function Navbar() {
             <a
               href="/contact"
               className="text-sm text-white font-semibold px-4 py-2 rounded-lg text-center"
-              style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}
+              style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}
               onClick={() => setOpen(false)}
             >
               Hire Us

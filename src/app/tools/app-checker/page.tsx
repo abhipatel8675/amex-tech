@@ -113,11 +113,11 @@ export default async function AppCheckerPage({ searchParams }: { searchParams: P
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "App Checker" }]} />
 
         <section className="pt-8 pb-10 max-w-5xl mx-auto px-6">
-          <p className="text-sm font-semibold text-[#806010] uppercase tracking-wider mb-4">Free tool</p>
+          <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-wider mb-4">Free tool</p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
             Is your AI-built app leaking keys or invisible on Google?
           </h1>
-          <p className="text-slate-600 text-xl leading-8 mb-8">
+          <p className="text-slate-700 text-xl leading-8 mb-8">
             Paste your Lovable, Bolt, Replit, v0 or Next.js app&apos;s address. In about 30 seconds you&apos;ll get a security, SEO and speed score, and the
             problems that need fixing first.
           </p>
@@ -132,7 +132,7 @@ export default async function AppCheckerPage({ searchParams }: { searchParams: P
                 <h3 className="text-lg font-semibold mb-3">{group.heading}</h3>
                 <ul className="space-y-2">
                   {group.items.map((item) => (
-                    <li key={item} className="text-sm text-slate-600 leading-relaxed">
+                    <li key={item} className="text-sm text-slate-700 leading-relaxed">
                       {item}
                     </li>
                   ))}
@@ -148,13 +148,13 @@ export default async function AppCheckerPage({ searchParams }: { searchParams: P
             {faq.map((q) => (
               <div key={q.question} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
                 <h3 className="font-semibold mb-2">{q.question}</h3>
-                <p className="text-slate-500 leading-relaxed">{q.answer}</p>
+                <p className="text-slate-600 leading-relaxed">{q.answer}</p>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-slate-600">
+          <p className="mt-8 text-slate-700">
             Already know what&apos;s broken?{" "}
-            <Link href="/fix" className="font-semibold text-[#806010] hover:underline">
+            <Link href="/fix" className="font-semibold text-[#7A5807] hover:underline">
               Get it fixed in 24 hours
             </Link>
             .

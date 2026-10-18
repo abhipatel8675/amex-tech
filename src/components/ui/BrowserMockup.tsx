@@ -36,7 +36,7 @@ export default function BrowserMockup({
             <circle cx="4" cy="4" r="3" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
             <path d="M4 1.5v2.5l1.5 1" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeLinecap="round" />
           </svg>
-          <span className="text-[10px] text-slate-500 font-mono truncate">{url}</span>
+          <span className="text-[10px] text-slate-600 font-mono truncate">{url}</span>
         </div>
       </div>
       {/* Viewport */}

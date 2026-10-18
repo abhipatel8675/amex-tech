@@ -126,7 +126,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             <Link
               href="/portfolio"
               className="inline-flex items-center gap-1.5 text-sm mb-8 transition-colors hover:text-slate-900"
-              style={{ color: "#64748B" }}
+              style={{ color: "#475569" }}
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to Portfolio
             </Link>
@@ -170,7 +170,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="text-sm text-slate-600 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-lg"
+                  className="text-sm text-slate-700 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-lg"
                 >
                   {tech}
                 </span>
@@ -237,7 +237,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </span>
                 <p
                   className="relative mb-3 font-semibold uppercase"
-                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "#64748B" }}
+                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "#475569" }}
                 >
                   The Challenge
                 </p>
@@ -260,7 +260,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </span>
                 <p
                   className="relative mb-3 font-semibold uppercase"
-                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "#64748B" }}
+                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "#475569" }}
                 >
                   Our Solution
                 </p>
@@ -283,7 +283,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </span>
                 <p
                   className="relative mb-3 font-semibold uppercase"
-                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "#64748B" }}
+                  style={{ fontSize: 11, letterSpacing: "0.15em", color: "#475569" }}
                 >
                   Results & Outcomes
                 </p>
@@ -312,22 +312,22 @@ export default async function ProjectDetailPage({ params }: Props) {
               <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
                 <h3
                   className="mb-5 font-semibold uppercase"
-                  style={{ fontSize: 10, letterSpacing: "0.15em", color: "#64748B" }}
+                  style={{ fontSize: 10, letterSpacing: "0.15em", color: "#475569" }}
                 >
                   Project Details
                 </h3>
                 <div className="flex flex-col gap-5">
                   <div>
-                    <p className="text-xs text-slate-500 mb-1.5">Category</p>
+                    <p className="text-xs text-slate-600 mb-1.5">Category</p>
                     <p className="text-sm font-semibold text-slate-900">{project.category}</p>
                   </div>
                   <div className="border-t border-slate-200 pt-5">
-                    <p className="text-xs text-slate-500 mb-3">Technologies</p>
+                    <p className="text-xs text-slate-600 mb-3">Technologies</p>
                     <div className="flex flex-wrap gap-1.5">
                       {project.technologies.map((t) => (
                         <span
                           key={t}
-                          className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg"
+                          className="text-xs text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg"
                         >
                           {t}
                         </span>
@@ -336,12 +336,12 @@ export default async function ProjectDetailPage({ params }: Props) {
                   </div>
                   {project.tags.length > 0 && (
                     <div className="border-t border-slate-200 pt-5">
-                      <p className="text-xs text-slate-500 mb-3">Tags</p>
+                      <p className="text-xs text-slate-600 mb-3">Tags</p>
                       <div className="flex flex-wrap gap-1.5">
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="text-xs text-slate-500 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-lg"
+                            className="text-xs text-slate-600 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-lg"
                           >
                             {tag}
                           </span>
@@ -368,13 +368,13 @@ export default async function ProjectDetailPage({ params }: Props) {
               {/* CTA card */}
               <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
                 <p className="text-base font-semibold text-slate-900 mb-2">Build something similar?</p>
-                <p className="text-sm leading-relaxed mb-5" style={{ color: "#64748B" }}>
+                <p className="text-sm leading-relaxed mb-5" style={{ color: "#475569" }}>
                   We can architect and build a custom solution tailored to your exact requirements.
                 </p>
                 <Link
                   href="/contact"
                   className="flex items-center justify-center gap-2 text-sm font-semibold text-white py-3 rounded-xl transition-all duration-200 btn-glow"
-                  style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
+                  style={{ background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)" }}
                 >
                   Start a Project
                 </Link>

@@ -60,15 +60,12 @@ export function HeroBlogList({ posts }: { posts: HeroBlogPost[] }) {
         >
           <div
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border"
-            style={{
-              background: `linear-gradient(135deg, ${post.gradientFrom}22, ${post.gradientTo}22)`,
-              borderColor: `${post.gradientFrom}33`,
-            }}
+            style={{ background: "rgba(184,134,11,0.10)", borderColor: "rgba(184,134,11,0.25)" }}
           >
-            <FileText className="h-4 w-4" style={{ color: post.gradientFrom }} />
+            <FileText className="h-4 w-4 text-[#7A5807]" />
           </div>
           <div className="min-w-0 flex-1">
-            <div className="mb-1 flex items-center gap-2 text-xs text-slate-500">
+            <div className="mb-1 flex items-center gap-2 text-xs text-slate-600">
               <span>{post.category}</span>
               <span className="text-slate-300">·</span>
               <span className="flex items-center gap-1">
@@ -76,17 +73,17 @@ export function HeroBlogList({ posts }: { posts: HeroBlogPost[] }) {
                 {post.readTime}
               </span>
             </div>
-            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-slate-900 transition-colors group-hover:text-[#806010]">
+            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-slate-900 transition-colors group-hover:text-[#7A5807]">
               {post.title}
             </h4>
           </div>
-          <ArrowRight className="h-4 w-4 shrink-0 -translate-x-1 text-[#806010] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+          <ArrowRight className="h-4 w-4 shrink-0 -translate-x-1 text-[#7A5807] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
         </Link>
       ))}
 
       <Link
         href="/blog"
-        className="group mt-1 flex items-center justify-center gap-1.5 rounded-xl border-t border-slate-200 px-3.5 py-3 text-sm font-semibold text-slate-500 transition-colors duration-300 hover:bg-slate-100 hover:text-[#806010]"
+        className="group mt-1 flex items-center justify-center gap-1.5 rounded-xl border-t border-slate-200 px-3.5 py-3 text-sm font-semibold text-slate-600 transition-colors duration-300 hover:bg-slate-100 hover:text-[#7A5807]"
       >
         View All Articles
         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

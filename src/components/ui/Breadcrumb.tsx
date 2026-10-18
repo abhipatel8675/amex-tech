@@ -13,19 +13,19 @@ type BreadcrumbProps = {
 export default function Breadcrumb({ items }: BreadcrumbProps) {
   return (
     <nav aria-label="Breadcrumb" className="max-w-[92rem] mx-auto px-6 pt-28 md:pt-32 pb-2">
-      <ol className="flex flex-wrap items-center gap-1.5 text-sm text-slate-500">
+      <ol className="flex flex-wrap items-center gap-1.5 text-sm text-slate-600">
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-1.5">
             {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />}
             {item.href ? (
               <Link
                 href={item.href}
-                className="hover:text-slate-600 transition-colors"
+                className="hover:text-slate-700 transition-colors"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className="text-slate-600 font-medium" aria-current="page">
+              <span className="text-slate-700 font-medium" aria-current="page">
                 {item.label}
               </span>
             )}

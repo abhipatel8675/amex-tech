@@ -34,7 +34,7 @@ function Shot({
     <figure>
       <button
         onClick={onOpen}
-        className="group block w-full overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-slate-200 shadow-[0_10px_30px_-12px_rgba(15,23,42,0.25)] cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
+        className="group block w-full overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-slate-200 shadow-[0_10px_30px_-12px_rgba(15,23,42,0.25)] cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B]"
       >
         <Image
           src={img.src}
@@ -46,7 +46,7 @@ function Shot({
           className="transition-transform duration-500 group-hover:scale-[1.015]"
         />
       </button>
-      {img.caption && <figcaption className="mt-3 text-sm leading-relaxed text-slate-500">{img.caption}</figcaption>}
+      {img.caption && <figcaption className="mt-3 text-sm leading-relaxed text-slate-600">{img.caption}</figcaption>}
     </figure>
   );
 }
@@ -92,7 +92,7 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
         <div className="h-px flex-1 bg-slate-100" />
         <p
           className="shrink-0 font-semibold uppercase"
-          style={{ fontSize: 11, letterSpacing: "0.15em", color: "#64748B" }}
+          style={{ fontSize: 11, letterSpacing: "0.15em", color: "#475569" }}
         >
           Product Gallery
         </p>
@@ -133,7 +133,7 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
                 url={liveUrl?.replace("https://", "") ?? "project.app"}
                 aspectRatio={featureItem.span === "wide" ? "21/9" : "16/9"}
               />
-              {featureItem.caption && <figcaption className="mt-3 text-sm text-slate-500 text-center">{featureItem.caption}</figcaption>}
+              {featureItem.caption && <figcaption className="mt-3 text-sm text-slate-600 text-center">{featureItem.caption}</figcaption>}
             </figure>
           )}
 
@@ -142,7 +142,7 @@ export default function CaseStudyGallery({ gallery, isMobile, accentColor, liveU
             <div className="relative grid sm:grid-cols-2 gap-x-6 gap-y-10">
               {hasBeforeAfter && (
                 <div className="absolute -top-6 inset-x-0 flex justify-between px-2 pointer-events-none">
-                  <span className="text-xs font-semibold uppercase" style={{ letterSpacing: "0.12em", color: "#64748B" }}>
+                  <span className="text-xs font-semibold uppercase" style={{ letterSpacing: "0.12em", color: "#475569" }}>
                     Before
                   </span>
                   <span className="text-xs font-semibold uppercase" style={{ letterSpacing: "0.12em", color: accentColor, opacity: 0.8 }}>

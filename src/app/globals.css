@@ -56,27 +56,27 @@
   --card-foreground: #0F172A;
   --popover: #FFFFFF;
   --popover-foreground: #0F172A;
-  --primary: #D4AF37;
+  --primary: #B8860B;
   --primary-foreground: #ffffff;
   --secondary: #F1F5F9;
   --secondary-foreground: #0F172A;
   --muted: #F1F5F9;
-  --muted-foreground: #64748B;
-  --accent: #D4AF37;
+  --muted-foreground: #475569;
+  --accent: #B8860B;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #E2E8F0;
   --input: #E2E8F0;
-  --ring: #D4AF37;
+  --ring: #B8860B;
   --radius: 0.75rem;
   --sidebar: #F8FAFC;
   --sidebar-foreground: #0F172A;
-  --sidebar-primary: #D4AF37;
+  --sidebar-primary: #B8860B;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #F1F5F9;
   --sidebar-accent-foreground: #0F172A;
   --sidebar-border: #E2E8F0;
-  --sidebar-ring: #D4AF37;
+  --sidebar-ring: #B8860B;
 }
 
 @layer base {
@@ -116,7 +116,7 @@
 
 /* Premium selection */
 ::selection {
-  background: rgba(201, 162, 39, 0.25);
+  background: rgba(184, 134, 11, 0.25);
   color: #0F172A;
 }
 
@@ -129,7 +129,7 @@
 }
 
 .text-gradient-indigo {
-  background: linear-gradient(135deg, #B8901C 0%, #806010 100%);
+  background: linear-gradient(135deg, #B8901C 0%, #7A5807 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -147,10 +147,10 @@
 
 /* Glow effect for CTA buttons */
 .btn-glow {
-  box-shadow: 0 0 20px rgba(212,175,55,0.35), 0 4px 12px rgba(15,23,42,0.12);
+  box-shadow: 0 0 20px rgba(184,134,11,0.35), 0 4px 12px rgba(15,23,42,0.12);
 }
 .btn-glow:hover {
-  box-shadow: 0 0 32px rgba(212,175,55,0.5), 0 8px 24px rgba(15,23,42,0.16);
+  box-shadow: 0 0 32px rgba(184,134,11,0.5), 0 8px 24px rgba(15,23,42,0.16);
 }
 
 /* Subtle grid pattern */
@@ -233,17 +233,17 @@
   font-weight: 600;
 }
 .blog-content a {
-  color: #806010;
+  color: #7A5807;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 .blog-content a:hover {
-  color: #5C450B;
+  color: #5A4105;
 }
 .blog-content code {
   font-family: ui-monospace, "SF Mono", "Fira Code", monospace;
   font-size: 0.85em;
-  color: #6B500D;
+  color: #6A4D06;
   background: rgba(15,23,42,0.06);
   border: 1px solid rgba(15,23,42,0.09);
   padding: 0.15em 0.4em;
@@ -337,7 +337,7 @@
   padding: 8px 16px 10px;
   font-size: 12.5px;
   font-style: italic;
-  color: #64748B;
+  color: #475569;
   text-align: center;
   background: #F8FAFC;
 }
@@ -353,7 +353,7 @@
   font-size: 14px;
 }
 .blog-table th {
-  background: rgba(212,175,55,0.12);
+  background: rgba(184,134,11,0.12);
   color: #1E293B;
   font-weight: 600;
   padding: 11px 16px;
@@ -365,7 +365,7 @@
   color: #334155;
   border-bottom: 1px solid rgba(15,23,42,0.05);
 }
-.blog-table tr.hl td { border-left: 3px solid #D4AF37; }
+.blog-table tr.hl td { border-left: 3px solid #B8860B; }
 .blog-table tr:last-child td { border-bottom: none; }
 .blog-table tr:nth-child(even) td { background: rgba(15,23,42,0.02); }
 

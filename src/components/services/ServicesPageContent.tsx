@@ -31,7 +31,7 @@ export default function ServicesPageContent() {
         <div className="grid-pattern absolute inset-0 opacity-40 pointer-events-none" />
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] opacity-10 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, #D4AF37, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, #B8860B, transparent 70%)" }}
         />
 
         <div className="relative max-w-7xl mx-auto px-6">
@@ -40,7 +40,7 @@ export default function ServicesPageContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="font-semibold uppercase mb-5"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#7A5807" }}
           >
             Our Services
           </motion.p>
@@ -140,7 +140,7 @@ export default function ServicesPageContent() {
                 {/* Description */}
                 <p
                   className="relative text-sm leading-7 mb-6 flex-1"
-                  style={{ color: "#64748B" }}
+                  style={{ color: "#475569" }}
                 >
                   {service.description}
                 </p>
@@ -152,7 +152,7 @@ export default function ServicesPageContent() {
                       key={tech}
                       className="text-xs px-2.5 py-1 rounded-lg border"
                       style={{
-                        color: "#64748B",
+                        color: "#475569",
                         background: "rgba(15,23,42,0.03)",
                         borderColor: "rgba(15,23,42,0.07)",
                       }}

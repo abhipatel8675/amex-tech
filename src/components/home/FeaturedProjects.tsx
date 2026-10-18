@@ -26,7 +26,7 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
       viewport={{ once: true }}
       transition={{ duration: 0.55, delay: index * 0.1 }}
       className="group relative rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden hover:border-slate-300 transition-all duration-300"
-      style={{ boxShadow: "0 0 0 0 rgba(212,175,55,0)" }}
+      style={{ boxShadow: "0 0 0 0 rgba(184,134,11,0)" }}
       whileHover={{ y: -4, boxShadow: "0 20px 60px rgba(15,23,42,0.125)" }}
     >
       {/* Large decorative counter */}
@@ -115,7 +115,7 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
         >
           {project.title}
         </h3>
-        <p className="text-sm leading-relaxed mb-4" style={{ color: "#64748B" }}>
+        <p className="text-sm leading-relaxed mb-4" style={{ color: "#475569" }}>
           {project.shortDesc}
         </p>
 
@@ -124,7 +124,7 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="text-xs text-slate-500 bg-slate-100 border border-slate-200 px-2 py-1 rounded-md"
+              className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2 py-1 rounded-md"
             >
               {tag}
             </span>
@@ -135,7 +135,7 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
         <div className="flex items-center justify-between pt-4 border-t border-slate-200">
           <Link
             href={`/portfolio/${project.slug}`}
-            className="text-sm font-semibold text-slate-500 hover:text-[#806010] transition-colors flex items-center gap-1.5"
+            className="text-sm font-semibold text-slate-600 hover:text-[#7A5807] transition-colors flex items-center gap-1.5"
           >
             Case Study <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -144,7 +144,7 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-medium text-slate-500 hover:text-[#806010] transition-colors flex items-center gap-1 group/live"
+              className="text-xs font-medium text-slate-600 hover:text-[#7A5807] transition-colors flex items-center gap-1 group/live"
             >
               View Live
               <span className="opacity-60 group-hover/live:opacity-100 group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5 transition-all duration-200">↗</span>
@@ -171,7 +171,7 @@ export default function FeaturedProjects({ featured, totalCount }: { featured: F
           <div>
             <p
               className="mb-4 font-semibold uppercase"
-              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
+              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#7A5807" }}
             >
               Selected Work
             </p>
@@ -188,7 +188,7 @@ export default function FeaturedProjects({ featured, totalCount }: { featured: F
         <div className="mb-12 h-px bg-slate-100 relative overflow-hidden">
           <motion.div
             className="absolute left-0 top-0 h-full"
-            style={{ background: "linear-gradient(90deg, #D4AF37, #D4AF37)" }}
+            style={{ background: "linear-gradient(90deg, #B8860B, #B8860B)" }}
             initial={{ width: "0%" }}
             whileInView={{ width: "100%" }}
             viewport={{ once: true }}
@@ -221,7 +221,7 @@ export default function FeaturedProjects({ featured, totalCount }: { featured: F
             <motion.span
               animate={{ x: [0, 4, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="text-[#806010] text-xl"
+              className="text-[#7A5807] text-xl"
             >
               →
             </motion.span>

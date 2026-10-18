@@ -22,8 +22,8 @@ const STATUSES = ["pending", "in_progress", "completed", "cancelled"] as const;
 
 const STATUS_META = {
   pending: { label: "Pending", color: "#f59e0b", icon: Clock },
-  in_progress: { label: "In Progress", color: "#60a5fa", icon: Package },
-  completed: { label: "Completed", color: "#818CF8", icon: CheckCircle },
+  in_progress: { label: "In Progress", color: "#CC9A1A", icon: Package },
+  completed: { label: "Completed", color: "#CC9A1A", icon: CheckCircle },
   cancelled: { label: "Cancelled", color: "#ef4444", icon: AlertCircle },
 };
 
@@ -54,12 +54,12 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
           </div>
           <div className="min-w-0">
             <p className="font-semibold text-sm truncate">{order.service} — {order.package_name}</p>
-            <p className="text-xs text-slate-500 truncate">{order.client_email}</p>
+            <p className="text-xs text-slate-600 truncate">{order.client_email}</p>
           </div>
         </div>
         <div className="text-right flex-shrink-0">
-          <p className="font-bold text-[#806010]">${order.price}</p>
-          <p className="text-xs text-slate-500">{new Date(order.created_at).toLocaleDateString()}</p>
+          <p className="font-bold text-[#7A5807]">${order.price}</p>
+          <p className="text-xs text-slate-600">{new Date(order.created_at).toLocaleDateString()}</p>
         </div>
       </div>
 
@@ -67,8 +67,8 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
         <div className="px-5 pb-5 border-t border-slate-200 pt-4 space-y-4">
           {order.project_details ? (
             <div className="bg-white border border-slate-200 rounded-lg p-3">
-              <p className="text-xs text-slate-500 mb-1">Client project details:</p>
-              <p className="text-sm text-slate-500">{order.project_details}</p>
+              <p className="text-xs text-slate-600 mb-1">Client project details:</p>
+              <p className="text-sm text-slate-600">{order.project_details}</p>
             </div>
           ) : (
             <p className="text-sm text-[#f59e0b]">⚠ Client has not submitted project details yet.</p>
@@ -76,11 +76,11 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
 
           <div className="grid md:grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-slate-500 mb-1.5 block">Update Status</label>
+              <label className="text-xs text-slate-600 mb-1.5 block">Update Status</label>
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as typeof status)}
-                className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#D4AF37]/50"
+                className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#B8860B]/50"
               >
                 {STATUSES.map((s) => (
                   <option key={s} value={s}>{STATUS_META[s].label}</option>
@@ -88,12 +88,12 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
               </select>
             </div>
             <div>
-              <label className="text-xs text-slate-500 mb-1.5 block">Deliverable URL (GitHub / Drive / Live)</label>
+              <label className="text-xs text-slate-600 mb-1.5 block">Deliverable URL (GitHub / Drive / Live)</label>
               <input
                 value={deliverableUrl}
                 onChange={(e) => setDeliverableUrl(e.target.value)}
                 placeholder="https://github.com/..."
-                className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#D4AF37]/50"
+                className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#B8860B]/50"
               />
             </div>
           </div>
@@ -103,12 +103,12 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
               onClick={save}
               disabled={saving}
               className="text-white font-semibold px-5 py-2 rounded-lg text-sm transition-all disabled:opacity-50"
-              style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}
+              style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}
             >
               {saving ? "Saving..." : "Save Changes"}
             </button>
             {order.deliverable_url && (
-              <a href={order.deliverable_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-900 transition-colors">
+              <a href={order.deliverable_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
                 <ExternalLink className="w-4 h-4" /> View Deliverable
               </a>
             )}
@@ -144,14 +144,14 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <a href="/" className="flex items-center gap-2 font-bold">
-              <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
+              <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}>
                 <Zap className="w-4 h-4 text-slate-900" />
               </div>
-              Amex<span className="text-[#806010]">Technology</span>
+              Amex<span className="text-[#7A5807]">Technology</span>
             </a>
-            <span className="text-xs bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#806010] px-2 py-0.5 rounded-full">Dev</span>
+            <span className="text-xs bg-[#B8860B]/10 border border-[#B8860B]/20 text-[#7A5807] px-2 py-0.5 rounded-full">Dev</span>
           </div>
-          <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-900 transition-colors">
+          <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
             <LogOut className="w-4 h-4" /> Sign Out
           </button>
         </div>
@@ -160,23 +160,23 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
       <main className="max-w-5xl mx-auto px-6 py-10">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-1">Developer Dashboard</h1>
-          <p className="text-slate-500">Manage all client orders.</p>
+          <p className="text-slate-600">Manage all client orders.</p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {[
             { label: "Total Orders", value: orders.length, color: "#ededed", icon: Package },
-            { label: "Active", value: orders.filter(o => o.status === "in_progress").length, color: "#60a5fa", icon: TrendingUp },
-            { label: "Completed", value: orders.filter(o => o.status === "completed").length, color: "#818CF8", icon: CheckCircle },
-            { label: "Revenue", value: `$${totalRevenue}`, color: "#818CF8", icon: DollarSign },
+            { label: "Active", value: orders.filter(o => o.status === "in_progress").length, color: "#CC9A1A", icon: TrendingUp },
+            { label: "Completed", value: orders.filter(o => o.status === "completed").length, color: "#CC9A1A", icon: CheckCircle },
+            { label: "Revenue", value: `$${totalRevenue}`, color: "#CC9A1A", icon: DollarSign },
           ].map((s) => {
             const Icon = s.icon;
             return (
               <div key={s.label} className="bg-white border border-slate-200 rounded-2xl p-4">
-                <Icon className="w-4 h-4 text-slate-500 mb-2" />
+                <Icon className="w-4 h-4 text-slate-600 mb-2" />
                 <div className="text-2xl font-bold mb-1" style={{ color: s.color }}>{s.value}</div>
-                <div className="text-xs text-slate-500">{s.label}</div>
+                <div className="text-xs text-slate-600">{s.label}</div>
               </div>
             );
           })}
@@ -190,8 +190,8 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
               onClick={() => setFilter(f)}
               className={`text-sm px-3 py-1.5 rounded-lg border transition-all ${
                 filter === f
-                  ? "border-[#D4AF37] bg-[#D4AF37]/10 text-[#806010]"
-                  : "border-slate-200 text-slate-500 hover:border-slate-300"
+                  ? "border-[#B8860B] bg-[#B8860B]/10 text-[#7A5807]"
+                  : "border-slate-200 text-slate-600 hover:border-slate-300"
               }`}
             >
               {f === "all" ? "All" : STATUS_META[f as keyof typeof STATUS_META].label}
@@ -204,7 +204,7 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
           <div className="text-center py-20 bg-white border border-slate-200 rounded-2xl">
             <Users className="w-12 h-12 text-slate-300 mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">No orders yet</h3>
-            <p className="text-slate-500">Orders will appear here after clients purchase.</p>
+            <p className="text-slate-600">Orders will appear here after clients purchase.</p>
           </div>
         ) : (
           <div className="space-y-3">

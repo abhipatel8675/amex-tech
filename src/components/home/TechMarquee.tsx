@@ -62,7 +62,7 @@ export default function TechMarquee() {
         className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-40 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 45% 100% at 50% 50%, rgba(212,175,55,0.14) 0%, transparent 70%)",
+            "radial-gradient(ellipse 45% 100% at 50% 50%, rgba(184,134,11,0.14) 0%, transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -70,7 +70,7 @@ export default function TechMarquee() {
       <div className="relative max-w-[92rem] mx-auto px-6 mb-7">
         <p
           className="font-semibold uppercase text-center"
-          style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
+          style={{ fontSize: 11, letterSpacing: "0.15em", color: "#7A5807" }}
         >
           Our Stack
         </p>
@@ -87,7 +87,7 @@ export default function TechMarquee() {
           {[...technologies, ...technologies].map((tech, i) => (
             <span
               key={i}
-              className="group relative shrink-0 whitespace-nowrap rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 backdrop-blur-md transition-all duration-300 hover:text-slate-900 hover:border-[#E1BC4A]/40 hover:-translate-y-0.5"
+              className="group relative shrink-0 whitespace-nowrap rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 backdrop-blur-md transition-all duration-300 hover:text-slate-900 hover:border-[#CC9A1A]/40 hover:-translate-y-0.5"
               style={{
                 background: "linear-gradient(145deg, rgba(15,23,42,0.06) 0%, rgba(15,23,42,0.02) 100%)",
                 boxShadow: "inset 0 1px 0 rgba(15,23,42,0.08), 0 0 0 1px rgba(15,23,42,0.03)",
@@ -97,7 +97,7 @@ export default function TechMarquee() {
               <span
                 className="absolute -inset-1.5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -z-10"
                 style={{
-                  background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)",
+                  background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)",
                   filter: "blur(14px)",
                 }}
               />

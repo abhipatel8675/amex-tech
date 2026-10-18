@@ -41,14 +41,14 @@ export default function TermsPage() {
 
         {/* Hero */}
         <section className="pt-8 pb-10 max-w-[92rem] mx-auto px-6">
-          <p className="text-sm font-semibold text-[#806010] uppercase tracking-widest mb-5">
+          <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-widest mb-5">
             Legal
           </p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             Terms of Service
           </h1>
-          <p className="text-slate-500 text-base leading-7">
-            Last updated: <span className="text-slate-600">{LAST_UPDATED}</span>
+          <p className="text-slate-600 text-base leading-7">
+            Last updated: <span className="text-slate-700">{LAST_UPDATED}</span>
           </p>
         </section>
 
@@ -60,7 +60,7 @@ export default function TermsPage() {
             <Section id="acceptance" title="1. Acceptance of Terms">
               <p>
                 By accessing or using{" "}
-                <a href="https://amextechnology.com" className="text-[#806010] hover:text-[#806010] transition-colors">
+                <a href="https://amextechnology.com" className="text-[#7A5807] hover:text-[#7A5807] transition-colors">
                   amextechnology.com
                 </a>{" "}
                 (the &ldquo;Site&rdquo;) or any services offered by Amex Technology (&ldquo;we,&rdquo;
@@ -116,7 +116,7 @@ export default function TermsPage() {
                   You agree to notify us immediately at{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-[#806010] hover:text-[#806010] transition-colors"
+                    className="text-[#7A5807] hover:text-[#7A5807] transition-colors"
                   >
                     {CONTACT_EMAIL}
                   </a>{" "}
@@ -255,7 +255,7 @@ export default function TermsPage() {
                 Before initiating any formal legal proceedings, you agree to first contact us at{" "}
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="text-[#806010] hover:text-[#806010] transition-colors"
+                  className="text-[#7A5807] hover:text-[#7A5807] transition-colors"
                 >
                   {CONTACT_EMAIL}
                 </a>{" "}
@@ -283,13 +283,13 @@ export default function TermsPage() {
               <p>
                 If you have any questions about these Terms of Service, please contact us:
               </p>
-              <div className="mt-4 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-sm leading-7 text-slate-600">
+              <div className="mt-4 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-sm leading-7 text-slate-700">
                 <p className="font-semibold text-slate-900 mb-1">Amex Technology</p>
                 <p>
                   Email:{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-[#806010] hover:text-[#806010] transition-colors"
+                    className="text-[#7A5807] hover:text-[#7A5807] transition-colors"
                   >
                     {CONTACT_EMAIL}
                   </a>
@@ -301,9 +301,9 @@ export default function TermsPage() {
 
             {/* Related links */}
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-slate-600">
                 Also see our{" "}
-                <Link href="/privacy" className="text-[#806010] hover:text-[#806010] transition-colors">
+                <Link href="/privacy" className="text-[#7A5807] hover:text-[#7A5807] transition-colors">
                   Privacy Policy
                 </Link>
                 .
@@ -333,7 +333,7 @@ function Section({
       <h2 className="text-xl font-bold text-slate-900" style={{ letterSpacing: "-0.015em" }}>
         {title}
       </h2>
-      <div className="flex flex-col gap-4 text-base leading-8 text-slate-500 [&_strong]:text-slate-600 [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#806010]">
+      <div className="flex flex-col gap-4 text-base leading-8 text-slate-600 [&_strong]:text-slate-700 [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7A5807]">
         {children}
       </div>
     </section>

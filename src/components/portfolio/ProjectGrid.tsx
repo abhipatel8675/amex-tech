@@ -129,7 +129,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         </h3>
         <p
           className="text-sm leading-relaxed mb-4"
-          style={{ color: "#64748B" }}
+          style={{ color: "#475569" }}
         >
           {project.shortDesc}
         </p>
@@ -137,7 +137,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="text-xs text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md"
+              className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md"
             >
               {tag}
             </span>
@@ -150,10 +150,10 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             href={`/portfolio/${project.slug}`}
             onClick={(e) => e.stopPropagation()}
             className="flex items-center gap-1.5 text-sm font-semibold group/cs"
-            style={{ color: "#64748B" }}
+            style={{ color: "#475569" }}
           >
-            <span className="group-hover/cs:text-[#806010] transition-colors">Case Study</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover/cs:translate-x-0.5 group-hover/cs:text-[#806010] transition-all" />
+            <span className="group-hover/cs:text-[#7A5807] transition-colors">Case Study</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover/cs:translate-x-0.5 group-hover/cs:text-[#7A5807] transition-all" />
           </Link>
 
           {project.liveUrl && (
@@ -202,11 +202,11 @@ export default function ProjectGrid() {
               activeCategory === cat
                 ? {
                     color: "#7A5D0F",
-                    borderColor: "rgba(212,175,55,0.5)",
-                    background: "rgba(212,175,55,0.12)",
+                    borderColor: "rgba(184,134,11,0.5)",
+                    background: "rgba(184,134,11,0.12)",
                   }
                 : {
-                    color: "#64748B",
+                    color: "#475569",
                     borderColor: "rgba(15,23,42,0.07)",
                     background: "transparent",
                   }
@@ -215,7 +215,7 @@ export default function ProjectGrid() {
             {cat}
           </button>
         ))}
-        <span className="ml-auto text-sm" style={{ color: "#64748B" }}>
+        <span className="ml-auto text-sm" style={{ color: "#475569" }}>
           {filtered.length} project{filtered.length !== 1 ? "s" : ""}
         </span>
       </div>

@@ -18,7 +18,7 @@ const SEVERITY_STYLE: Record<Severity, string> = {
   critical: "bg-red-50 text-red-700 border-red-200",
   high: "bg-orange-50 text-orange-700 border-orange-200",
   medium: "bg-amber-50 text-amber-700 border-amber-200",
-  low: "bg-slate-50 text-slate-600 border-slate-200",
+  low: "bg-slate-50 text-slate-700 border-slate-200",
 };
 
 const CATEGORY_LABEL: Record<Finding["category"], string> = {
@@ -62,9 +62,9 @@ export default async function ReportPage({ searchParams }: { searchParams: Promi
     return (
       <Shell>
         <h1 className="text-3xl font-bold mb-4">Report unavailable</h1>
-        <p className="text-slate-600 mb-6">{error}</p>
-        <p className="text-slate-600">
-          If you&apos;ve paid and still see this, <Link href="/contact" className="text-[#806010] font-semibold hover:underline">contact us</Link> and we&apos;ll send your report by email.
+        <p className="text-slate-700 mb-6">{error}</p>
+        <p className="text-slate-700">
+          If you&apos;ve paid and still see this, <Link href="/contact" className="text-[#7A5807] font-semibold hover:underline">contact us</Link> and we&apos;ll send your report by email.
         </p>
       </Shell>
     );
@@ -77,9 +77,9 @@ export default async function ReportPage({ searchParams }: { searchParams: Promi
     return (
       <Shell>
         <h1 className="text-3xl font-bold mb-4">We couldn&apos;t reach {new URL(url).hostname} right now</h1>
-        <p className="text-slate-600 mb-6">Your payment is confirmed. Refresh this page in a minute to try again. This link keeps working.</p>
-        <p className="text-slate-600">
-          Still stuck? <Link href="/contact" className="text-[#806010] font-semibold hover:underline">Contact us</Link> and we&apos;ll email the report.
+        <p className="text-slate-700 mb-6">Your payment is confirmed. Refresh this page in a minute to try again. This link keeps working.</p>
+        <p className="text-slate-700">
+          Still stuck? <Link href="/contact" className="text-[#7A5807] font-semibold hover:underline">Contact us</Link> and we&apos;ll email the report.
         </p>
       </Shell>
     );
@@ -91,35 +91,35 @@ export default async function ReportPage({ searchParams }: { searchParams: Promi
 
   return (
     <Shell>
-      <p className="text-sm font-semibold text-[#806010] uppercase tracking-wider mb-3">App Checker full report</p>
+      <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-wider mb-3">App Checker full report</p>
       <h1 className="text-3xl md:text-4xl font-bold mb-2 break-all">{new URL(result.finalUrl).hostname}</h1>
-      <p className="text-slate-500 mb-8">
+      <p className="text-slate-600 mb-8">
         Checked {new Date(result.scannedAt).toUTCString()}. Bookmark this page: the link keeps working and re-checks your app each
         time you open it, so you can confirm your fixes.
       </p>
 
       <div className="grid sm:grid-cols-4 gap-4 mb-10">
         <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50">
-          <p className="text-sm text-slate-500">Score</p>
+          <p className="text-sm text-slate-600">Score</p>
           <p className="text-3xl font-bold">
-            {result.score} <span className="text-base text-slate-500">/ 100 ({result.grade})</span>
+            {result.score} <span className="text-base text-slate-600">/ 100 ({result.grade})</span>
           </p>
         </div>
         <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50">
-          <p className="text-sm text-slate-500">Issues</p>
+          <p className="text-sm text-slate-600">Issues</p>
           <p className="text-3xl font-bold">{result.findings.length}</p>
         </div>
         <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50">
-          <p className="text-sm text-slate-500">Server response</p>
+          <p className="text-sm text-slate-600">Server response</p>
           <p className="text-3xl font-bold">{(result.stats.htmlMs / 1000).toFixed(1)}s</p>
         </div>
         <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50">
-          <p className="text-sm text-slate-500">JavaScript</p>
+          <p className="text-sm text-slate-600">JavaScript</p>
           <p className="text-3xl font-bold">{result.stats.jsKb} KB</p>
         </div>
       </div>
 
-      {result.stack.length > 0 && <p className="text-slate-600 mb-10">Built with: {result.stack.join(", ")}</p>}
+      {result.stack.length > 0 && <p className="text-slate-700 mb-10">Built with: {result.stack.join(", ")}</p>}
 
       {result.findings.length === 0 && <p className="text-lg text-slate-700 mb-10">We didn&apos;t find any problems. Your app passed every check.</p>}
 
@@ -131,11 +131,11 @@ export default async function ReportPage({ searchParams }: { searchParams: Promi
               <article key={f.id} className="p-6 rounded-2xl border border-slate-200 bg-white">
                 <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-md border mb-3 ${SEVERITY_STYLE[f.severity]}`}>{f.severity}</span>
                 <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
-                <p className="text-slate-600 mb-3 leading-relaxed">{f.detail}</p>
+                <p className="text-slate-700 mb-3 leading-relaxed">{f.detail}</p>
                 {f.evidence && f.evidence.length > 0 && (
                   <ul className="mb-3 space-y-1">
                     {f.evidence.map((e) => (
-                      <li key={e} className="text-sm font-mono text-slate-500 break-all">
+                      <li key={e} className="text-sm font-mono text-slate-600 break-all">
                         {e}
                       </li>
                     ))}
@@ -151,13 +151,13 @@ export default async function ReportPage({ searchParams }: { searchParams: Promi
       ))}
 
       {result.findings.length > 0 && (
-        <div className="p-8 rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/[0.06]">
+        <div className="p-8 rounded-2xl border border-[#B8860B]/30 bg-[#B8860B]/[0.06]">
           <h2 className="text-2xl font-bold mb-2">Want us to fix these for you?</h2>
-          <p className="text-slate-600 mb-6">A senior developer can fix most of these within 24 hours. Send us the report and we&apos;ll quote it for free.</p>
+          <p className="text-slate-700 mb-6">A senior developer can fix most of these within 24 hours. Send us the report and we&apos;ll quote it for free.</p>
           <Link
             href={appCheckerFixHref(result.finalUrl, result.findings.length)}
             className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-xl transition-all btn-glow"
-            style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
+            style={{ background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)" }}
           >
             <Wrench className="w-4 h-4" /> Get a free fix quote
           </Link>

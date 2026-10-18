@@ -5,9 +5,9 @@ import { animate, stagger } from "animejs";
 import { Code2, Cloud, Sparkles, type LucideIcon } from "lucide-react";
 
 const capabilities: { label: string; accent: string; Icon: LucideIcon }[] = [
-  { label: "Full-Stack Development", accent: "#E1BC4A", Icon: Code2 },
-  { label: "Cloud & DevOps", accent: "#38BDF8", Icon: Cloud },
-  { label: "AI-Powered Features", accent: "#D4AF37", Icon: Sparkles },
+  { label: "Full-Stack Development", accent: "#CC9A1A", Icon: Code2 },
+  { label: "Cloud & DevOps", accent: "#9C7208", Icon: Cloud },
+  { label: "AI-Powered Features", accent: "#B8860B", Icon: Sparkles },
 ];
 
 /**

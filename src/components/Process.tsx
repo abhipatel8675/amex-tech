@@ -40,11 +40,11 @@ export default function Process() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 text-xs text-indigo-400 bg-indigo-500/10 border border-[#6366F1]/20 px-3 py-1.5 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 text-xs text-indigo-400 bg-[#B8860B]/10 border border-[#B8860B]/20 px-3 py-1.5 rounded-full mb-4">
             How It Works
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple 4-Step Process</h2>
-          <p className="text-lg text-slate-500 max-w-xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-xl mx-auto">
             From first message to live product. No agencies, no middlemen — you work directly with the developer.
           </p>
         </motion.div>
@@ -66,13 +66,13 @@ export default function Process() {
                 )}
                 <div className="bg-white border border-slate-200 rounded-2xl p-5">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                    <div className="w-9 h-9 bg-[#B8860B]/10 rounded-lg flex items-center justify-center">
                       <Icon className="w-4 h-4 text-indigo-400" />
                     </div>
                     <span className="text-2xl font-bold text-slate-200">{s.step}</span>
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
-                  <p className="text-base text-slate-500 leading-relaxed">{s.desc}</p>
+                  <p className="text-base text-slate-600 leading-relaxed">{s.desc}</p>
                 </div>
               </motion.div>
             );

@@ -47,7 +47,7 @@ export default function ServicesPreview() {
 
   return (
     <section
-      className="relative py-10 md:py-16 overflow-hidden"
+      className="relative py-16 md:py-24 overflow-hidden bg-[#111827]"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => spotOpacity.set(1)}
       onMouseLeave={() => spotOpacity.set(0)}
@@ -55,12 +55,12 @@ export default function ServicesPreview() {
       {/* Section background */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(180deg, transparent 0%, rgba(248,250,252,0.9) 50%, transparent 100%)" }}
+        style={{ background: "linear-gradient(180deg, #111827 0%, #0B1220 100%)" }}
       />
       <div
         className="absolute inset-0 pointer-events-none opacity-40"
         style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, rgba(15,23,42,0.03) 1px, transparent 0)",
+          backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -69,7 +69,7 @@ export default function ServicesPreview() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(600px circle at 12% 15%, rgba(212,175,55,0.12), transparent 60%), radial-gradient(600px circle at 88% 85%, rgba(184,146,37,0.10), transparent 60%)",
+            "radial-gradient(600px circle at 12% 15%, rgba(224,179,65,0.10), transparent 60%), radial-gradient(600px circle at 88% 85%, rgba(184,134,11,0.08), transparent 60%)",
           filter: "blur(60px)",
         }}
       />
@@ -83,7 +83,7 @@ export default function ServicesPreview() {
           y: "-50%",
           opacity: springOpacity,
           background:
-            "radial-gradient(circle, rgba(212,175,55,0.10) 0%, rgba(184,146,37,0.05) 40%, transparent 70%)",
+            "radial-gradient(circle, rgba(184,134,11,0.10) 0%, rgba(156,114,8,0.05) 40%, transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -99,18 +99,18 @@ export default function ServicesPreview() {
           >
             <p
               className="mb-4 font-semibold uppercase"
-              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
+              style={{ fontSize: 11, letterSpacing: "0.15em", color: "#E0B341" }}
             >
               OUR EXPERTISE
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight max-w-lg"
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-lg"
               style={{ letterSpacing: "-0.025em" }}>
               Everything You Need<br />to Grow Online.
             </h2>
           </motion.div>
           <Link
             href="/services"
-            className="shrink-0 self-start sm:self-auto px-5 py-2.5 rounded-full border border-slate-300 text-sm font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-all duration-200"
+            className="shrink-0 self-start sm:self-auto px-5 py-2.5 rounded-full border border-white/20 text-sm font-medium text-slate-200 hover:border-[#E0B341] hover:text-white transition-all duration-200"
           >
             All services →
           </Link>
@@ -128,22 +128,22 @@ export default function ServicesPreview() {
                 onFocus={() => handleSelect(i)}
                 className="group relative flex items-center py-5 pl-7 text-left border-l-2 transition-all duration-300 focus:outline-none"
                 style={{
-                  borderColor: active === i ? service.accent : "rgba(15,23,42,0.07)",
-                  boxShadow: active === i ? `-6px 0 20px -4px ${service.accent}35` : "none",
+                  borderColor: active === i ? "#E0B341" : "rgba(255,255,255,0.10)",
+                  boxShadow: "none",
                 }}
               >
                 {active === i && (
                   <motion.div
                     layoutId="service-row-bg"
                     className="absolute inset-0 rounded-r-xl"
-                    style={{ background: `${service.accent}08` }}
+                    style={{ background: "rgba(224,179,65,0.08)" }}
                     transition={{ type: "spring", stiffness: 320, damping: 32 }}
                   />
                 )}
                 <span
                   className="relative text-2xl md:text-[26px] font-bold tracking-tight transition-colors duration-300"
                   style={{
-                    color: active === i ? "#0F172A" : "#94A3B8",
+                    color: active === i ? "#FFFFFF" : "#6B7280",
                     lineHeight: 1.1,
                   }}
                 >
@@ -162,8 +162,8 @@ export default function ServicesPreview() {
                 animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, x: -10, filter: "blur(4px)" }}
                 transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="relative rounded-2xl border border-slate-300 bg-slate-50 p-8 overflow-hidden transition-shadow duration-300"
-                style={{ boxShadow: `0 8px 40px -12px ${current.accent}35, 0 1px 0 rgba(15,23,42,0.03)` }}
+                className="relative rounded-2xl border border-white/10 bg-white/[0.04] p-8 overflow-hidden transition-shadow duration-300"
+                style={{ boxShadow: "0 8px 40px -12px rgba(0,0,0,0.5)" }}
               >
                 {/* Accent glow */}
                 <div
@@ -173,18 +173,18 @@ export default function ServicesPreview() {
                 {/* Icon */}
                 <div
                   className="relative w-16 h-16 rounded-2xl flex items-center justify-center mb-8 border"
-                  style={{ background: `${current.accent}15`, borderColor: `${current.accent}30` }}
+                  style={{ background: "rgba(224,179,65,0.12)", borderColor: "rgba(224,179,65,0.3)" }}
                 >
-                  <Icon style={{ color: current.accent, width: 28, height: 28 }} />
+                  <Icon style={{ color: "#E0B341", width: 28, height: 28 }} />
                 </div>
-                <h3 className="relative text-2xl font-bold text-slate-900 mb-4">{current.title}</h3>
-                <p className="relative text-slate-600 leading-8 mb-8" style={{ opacity: 0.85 }}>{current.desc}</p>
+                <h3 className="relative text-2xl font-bold text-white mb-4">{current.title}</h3>
+                <p className="relative text-slate-300 leading-8 mb-8">{current.desc}</p>
 
                 {/* Technologies */}
                 <div className="relative mb-8">
                   <p
                     className="mb-4 font-semibold uppercase"
-                    style={{ fontSize: 10, letterSpacing: "0.15em", color: "#64748B" }}
+                    style={{ fontSize: 10, letterSpacing: "0.15em", color: "#9CA3AF" }}
                   >
                     Core Technologies
                   </p>
@@ -192,7 +192,7 @@ export default function ServicesPreview() {
                     {current.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="text-sm text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-lg"
+                        className="text-sm text-slate-200 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg"
                       >
                         {tech}
                       </span>
@@ -203,7 +203,7 @@ export default function ServicesPreview() {
                 <Link
                   href={current.href}
                   className="relative inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200 group"
-                  style={{ color: current.accent }}
+                  style={{ color: "#E0B341" }}
                 >
                   Learn more<span className="sr-only"> about {current.title}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -217,7 +217,7 @@ export default function ServicesPreview() {
                       className="h-1 rounded-full transition-all duration-300"
                       style={{
                         width: i === active ? 20 : 6,
-                        background: i === active ? current.accent : "rgba(15,23,42,0.12)",
+                        background: i === active ? "#E0B341" : "rgba(255,255,255,0.15)",
                       }}
                     />
                   ))}
@@ -228,7 +228,7 @@ export default function ServicesPreview() {
         </div>
 
         {/* Mobile: accordion */}
-        <div className="md:hidden flex flex-col divide-y divide-slate-200">
+        <div className="md:hidden flex flex-col divide-y divide-white/10">
           {services.map((service, i) => {
             const SIcon = service.icon;
             const isOpen = active === i;
@@ -240,14 +240,14 @@ export default function ServicesPreview() {
                 >
                   <span
                     className="text-lg font-bold transition-colors duration-200"
-                    style={{ color: isOpen ? "#0F172A" : "#64748B" }}
+                    style={{ color: isOpen ? "#FFFFFF" : "#9CA3AF" }}
                   >
                     {service.title}
                   </span>
                   <motion.span
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.2 }}
-                    className="shrink-0 text-slate-500 text-2xl leading-none"
+                    className="shrink-0 text-slate-400 text-2xl leading-none"
                   >
                     +
                   </motion.span>
@@ -264,16 +264,16 @@ export default function ServicesPreview() {
                       <div className="pb-6 pl-1">
                         <div
                           className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 border"
-                          style={{ background: `${service.accent}15`, borderColor: `${service.accent}30` }}
+                          style={{ background: "rgba(224,179,65,0.12)", borderColor: "rgba(224,179,65,0.3)" }}
                         >
-                          <SIcon style={{ color: service.accent, width: 20, height: 20 }} />
+                          <SIcon style={{ color: "#E0B341", width: 20, height: 20 }} />
                         </div>
-                        <p className="text-slate-600 leading-7 mb-5">{service.desc}</p>
+                        <p className="text-slate-300 leading-7 mb-5">{service.desc}</p>
                         <div className="flex flex-wrap gap-2 mb-5">
                           {service.technologies.map((tech) => (
                             <span
                               key={tech}
-                              className="text-sm text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-lg"
+                              className="text-sm text-slate-200 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg"
                             >
                               {tech}
                             </span>
@@ -282,7 +282,7 @@ export default function ServicesPreview() {
                         <Link
                           href={service.href}
                           className="inline-flex items-center gap-1.5 text-sm font-semibold"
-                          style={{ color: service.accent }}
+                          style={{ color: "#E0B341" }}
                         >
                           Learn more<span className="sr-only"> about {service.title}</span> <ArrowRight className="w-3.5 h-3.5" />
                         </Link>

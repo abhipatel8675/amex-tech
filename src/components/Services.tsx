@@ -15,7 +15,7 @@ const services = [
       { name: "Full Polish", price: "₹1,999", amount: 1999, delivery: "48hrs", desc: "Fix + deploy + optimization" },
       { name: "Complete", price: "₹4,999", amount: 4999, delivery: "72hrs", desc: "Full rewrite + deploy + 1 week support" },
     ],
-    accent: "#6366F1",
+    accent: "#B8860B",
   },
   {
     icon: Sparkles,
@@ -41,7 +41,7 @@ const services = [
       { name: "Standard", price: "₹1,249", amount: 1249, delivery: "48hrs", desc: "Up to 5 bugs" },
       { name: "Premium", price: "₹2,499", amount: 2499, delivery: "72hrs", desc: "Unlimited bugs + code review" },
     ],
-    accent: "#60a5fa",
+    accent: "#CC9A1A",
   },
   {
     icon: Code2,
@@ -106,7 +106,7 @@ const services = [
       { name: "Standard", price: "₹28,999", amount: 28999, delivery: "5 weeks", desc: "Full app + backend + deploy" },
       { name: "Premium", price: "₹57,999", amount: 57999, delivery: "8 weeks", desc: "Complex app + maintenance" },
     ],
-    accent: "#ec4899",
+    accent: "#9C7208",
   },
 ];
 
@@ -145,11 +145,11 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       </div>
 
       <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-      <p className="text-base text-slate-500 mb-4">{service.desc}</p>
+      <p className="text-base text-slate-600 mb-4">{service.desc}</p>
 
       <ul className="space-y-1.5 mb-6">
         {service.features.map((f) => (
-          <li key={f} className="flex items-center gap-2 text-base text-slate-500">
+          <li key={f} className="flex items-center gap-2 text-base text-slate-600">
             <Check className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
             {f}
           </li>
@@ -163,20 +163,20 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
             onClick={() => handleBuy(p)}
             className={`rounded-xl p-3 border text-center transition-all hover:scale-105 ${
               i === 1
-                ? "border-[#6366F1]/40 bg-indigo-500/5 hover:bg-indigo-500/10"
+                ? "border-[#B8860B]/40 bg-[#B8860B]/5 hover:bg-[#B8860B]/10"
                 : "border-slate-200 bg-white hover:border-slate-300"
             }`}
           >
-            <div className="text-sm text-slate-500 mb-1">{p.name}</div>
+            <div className="text-sm text-slate-600 mb-1">{p.name}</div>
             <div className="text-base font-bold" style={{ color: i === 1 ? service.accent : "#ededed" }}>
               {p.price}
             </div>
-            <div className="text-xs text-slate-500 mt-1">{p.delivery}</div>
+            <div className="text-xs text-slate-600 mt-1">{p.delivery}</div>
           </button>
         ))}
       </div>
 
-      <p className="text-xs text-slate-500 text-center">Click a package to get in touch</p>
+      <p className="text-xs text-slate-600 text-center">Click a package to get in touch</p>
     </motion.div>
   );
 }
@@ -190,11 +190,11 @@ export default function Services() {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <div className="inline-flex items-center gap-2 text-xs text-indigo-400 bg-indigo-500/10 border border-[#6366F1]/20 px-3 py-1.5 rounded-full mb-4">
+        <div className="inline-flex items-center gap-2 text-xs text-indigo-400 bg-[#B8860B]/10 border border-[#B8860B]/20 px-3 py-1.5 rounded-full mb-4">
           Services
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-4">What We Build</h2>
-        <p className="text-lg text-slate-500 max-w-xl mx-auto">
+        <p className="text-lg text-slate-600 max-w-xl mx-auto">
           Pick a package or get a custom quote. Every project includes clear communication, clean code, and on-time delivery.
         </p>
       </motion.div>
@@ -209,18 +209,18 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-gradient-to-br from-[#6366F1]/10 to-[#6366F1]/5 border border-[#6366F1]/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center"
+          className="bg-gradient-to-br from-[#B8860B]/10 to-[#B8860B]/5 border border-[#B8860B]/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center"
         >
-          <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-4">
+          <div className="w-12 h-12 bg-[#B8860B]/20 rounded-xl flex items-center justify-center mb-4">
             <Code2 className="w-6 h-6 text-indigo-400" />
           </div>
           <h3 className="text-xl font-bold mb-2">Custom Project</h3>
-          <p className="text-base text-slate-500 mb-6">
+          <p className="text-base text-slate-600 mb-6">
             Have something specific in mind? Tell us your requirements and get a custom quote within 24 hours.
           </p>
           <a
             href="#contact"
-            className="flex items-center gap-2 bg-indigo-500 text-black font-semibold px-5 py-2.5 rounded-xl hover:bg-indigo-500/90 transition-all hover:scale-105 text-sm"
+            className="flex items-center gap-2 bg-[#B8860B] text-black font-semibold px-5 py-2.5 rounded-xl hover:bg-[#B8860B]/90 transition-all hover:scale-105 text-sm"
           >
             Get Custom Quote <ArrowRight className="w-4 h-4" />
           </a>

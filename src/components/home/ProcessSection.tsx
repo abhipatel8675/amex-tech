@@ -30,7 +30,7 @@ export default function ProcessSection() {
         >
           <p
             className="mb-4 font-semibold uppercase"
-            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}
+            style={{ fontSize: 11, letterSpacing: "0.15em", color: "#7A5807" }}
           >
             How We Work
           </p>
@@ -53,7 +53,7 @@ export default function ProcessSection() {
               <motion.div
                 className="absolute inset-y-0 left-0"
                 style={{
-                  background: "linear-gradient(90deg, #E1BC4A, #D4AF37, #B89225)",
+                  background: "linear-gradient(90deg, #CC9A1A, #B8860B, #9C7208)",
                   right: isInView ? "0%" : "100%",
                   transition: isInView ? "right 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" : undefined,
                 }}
@@ -77,17 +77,17 @@ export default function ProcessSection() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.08 + 0.3, type: "spring", stiffness: 300, damping: 20 }}
-                    className="relative w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] z-10"
+                    className="relative w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(184,134,11,0.3)] z-10"
                     style={{
                       background: "linear-gradient(145deg, #F1F5F9 0%, #F8FAFC 100%)",
-                      borderColor: "rgba(212,175,55,0.4)",
-                      boxShadow: "0 0 16px rgba(212,175,55,0.12)",
+                      borderColor: "rgba(184,134,11,0.4)",
+                      boxShadow: "0 0 16px rgba(184,134,11,0.12)",
                     }}
                   >
                     <span
                       className="text-xs font-bold"
                       style={{
-                        background: "linear-gradient(135deg, #E1BC4A, #D4AF37)",
+                        background: "linear-gradient(135deg, #CC9A1A, #B8860B)",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         backgroundClip: "text",
@@ -98,7 +98,7 @@ export default function ProcessSection() {
                   </motion.div>
                   <div>
                     <h3 className="text-sm font-bold text-slate-900 mb-1.5">{step.title}</h3>
-                    <p className="text-xs leading-5" style={{ color: "#64748B" }}>
+                    <p className="text-xs leading-5" style={{ color: "#475569" }}>
                       {step.desc}
                     </p>
                   </div>
@@ -114,7 +114,7 @@ export default function ProcessSection() {
           <div className="absolute left-3 top-0 bottom-0 w-px bg-slate-100">
             <motion.div
               className="absolute inset-x-0 top-0"
-              style={{ background: "linear-gradient(180deg, #D4AF37, #D4AF37)" }}
+              style={{ background: "linear-gradient(180deg, #B8860B, #B8860B)" }}
               initial={{ height: 0 }}
               whileInView={{ height: "100%" }}
               viewport={{ once: true }}
@@ -137,14 +137,14 @@ export default function ProcessSection() {
                   className="absolute -left-8 w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border z-10"
                   style={{
                     background: "linear-gradient(145deg, #F1F5F9 0%, #F8FAFC 100%)",
-                    borderColor: "rgba(212,175,55,0.4)",
+                    borderColor: "rgba(184,134,11,0.4)",
                     top: 0,
                   }}
                 >
                   <span
                     className="text-[9px] font-bold"
                     style={{
-                      background: "linear-gradient(135deg, #E1BC4A, #D4AF37)",
+                      background: "linear-gradient(135deg, #CC9A1A, #B8860B)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
@@ -155,7 +155,7 @@ export default function ProcessSection() {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-slate-900 mb-1.5">{step.title}</h3>
-                  <p className="text-sm leading-6" style={{ color: "#64748B" }}>
+                  <p className="text-sm leading-6" style={{ color: "#475569" }}>
                     {step.desc}
                   </p>
                 </div>

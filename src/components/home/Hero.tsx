@@ -25,7 +25,7 @@ function hostOf(url?: string) {
   }
 }
 
-const GOLD = "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)";
+const GOLD = "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)";
 
 function WorkShot({ src, alt, url, className = "" }: { src: string; alt: string; url: string; className?: string }) {
   if (isDeviceMockup(src)) {
@@ -58,12 +58,8 @@ export default function Hero({
       <div className="grid-pattern absolute inset-0 pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
-          className="absolute -top-[25%] left-[20%] w-[1000px] h-[640px] rounded-full opacity-25"
-          style={{ background: "radial-gradient(ellipse, #D4AF37 0%, transparent 65%)" }}
-        />
-        <div
-          className="absolute bottom-[0%] right-[-10%] w-[600px] h-[600px] rounded-full opacity-15"
-          style={{ background: "radial-gradient(ellipse, #22D3EE 0%, transparent 70%)" }}
+          className="absolute -top-[25%] left-[20%] w-[1000px] h-[640px] rounded-full opacity-10"
+          style={{ background: "radial-gradient(ellipse, #B8860B 0%, transparent 65%)" }}
         />
       </div>
 
@@ -75,16 +71,16 @@ export default function Hero({
               <span
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase border"
                 style={{
-                  background: "linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(184,146,37,0.12) 100%)",
-                  borderColor: "rgba(212,175,55,0.35)",
-                  color: "#806010",
+                  background: "linear-gradient(135deg, rgba(184,134,11,0.15) 0%, rgba(156,114,8,0.12) 100%)",
+                  borderColor: "rgba(184,134,11,0.35)",
+                  color: "#7A5807",
                   letterSpacing: "0.1em",
                 }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] animate-pulse" />
                 AI &amp; Software Agency
               </span>
-              <span className="text-xs font-medium text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-4 py-1.5">
+              <span className="text-xs font-medium text-slate-700 bg-slate-100 border border-slate-200 rounded-full px-4 py-1.5">
                 Est. 2019
               </span>
             </div>
@@ -110,7 +106,7 @@ export default function Hero({
               initial={{ y: 12 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-lg sm:text-xl leading-8 max-w-[600px] mb-10 text-slate-600"
+              className="text-lg sm:text-xl leading-8 max-w-[600px] mb-10 text-slate-700"
             >
               We build fast websites, web and mobile apps, and AI automations, then make sure people find you on Google and
               in ChatGPT, Perplexity and Gemini.
@@ -135,13 +131,13 @@ export default function Hero({
                 className="group inline-flex items-center gap-2 text-base font-semibold text-slate-700 px-7 py-4 rounded-xl border border-slate-300 bg-white/70 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
               >
                 See Our Work
-                <ChevronRight className="w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform" />
+                <ChevronRight className="w-4 h-4 text-slate-600 group-hover:translate-x-0.5 transition-transform" />
               </Link>
               <Link
                 href="/tools/app-checker"
-                className="group inline-flex items-center gap-1.5 text-base font-medium text-slate-600 hover:text-slate-900 transition-colors"
+                className="group inline-flex items-center gap-1.5 text-base font-medium text-slate-700 hover:text-slate-900 transition-colors"
               >
-                <ShieldCheck className="w-4 h-4 text-[#806010]" />
+                <ShieldCheck className="w-4 h-4 text-[#7A5807]" />
                 Free App Check
               </Link>
             </motion.div>
@@ -157,25 +153,25 @@ export default function Hero({
                       </svg>
                     ))}
                   </div>
-                  <span className="text-sm font-medium text-slate-500">100% satisfaction</span>
+                  <span className="text-sm font-medium text-slate-600">100% satisfaction</span>
                 </div>
                 <span className="hidden sm:block w-px h-4 bg-slate-200" />
                 <div className="flex items-center gap-2">
-                  <CircleCheck className="w-3.5 h-3.5 text-[#806010]" />
-                  <span className="text-sm text-slate-500">5+ years experience</span>
+                  <CircleCheck className="w-3.5 h-3.5 text-[#7A5807]" />
+                  <span className="text-sm text-slate-600">5+ years experience</span>
                 </div>
                 <span className="hidden sm:block w-px h-4 bg-slate-200" />
                 <div className="flex items-center gap-2">
-                  <CircleCheck className="w-3.5 h-3.5 text-[#806010]" />
-                  <span className="text-sm text-slate-500">200+ projects shipped</span>
+                  <CircleCheck className="w-3.5 h-3.5 text-[#7A5807]" />
+                  <span className="text-sm text-slate-600">200+ projects shipped</span>
                 </div>
               </div>
               {recentWork.length > 0 && (
-                <p className="mt-5 text-sm text-slate-500">
+                <p className="mt-5 text-sm text-slate-600">
                   Recent work:{" "}
                   {recentWork.map((p, i) => (
                     <span key={p.slug}>
-                      <Link href={`/portfolio/${p.slug}`} className="font-medium text-slate-700 hover:text-[#806010] transition-colors">
+                      <Link href={`/portfolio/${p.slug}`} className="font-medium text-slate-700 hover:text-[#7A5807] transition-colors">
                         {p.title}
                       </Link>
                       {i < recentWork.length - 1 ? <span className="text-slate-300"> · </span> : null}
@@ -236,7 +232,7 @@ export default function Hero({
                   ))}
                 </div>
                 <p className="text-sm text-slate-700 leading-relaxed italic line-clamp-4">&ldquo;{heroReview.content}&rdquo;</p>
-                <p className="text-xs text-slate-500 mt-2">
+                <p className="text-xs text-slate-600 mt-2">
                   — {heroReview.name}, verified {heroReview.platform} client
                 </p>
               </div>
@@ -246,7 +242,7 @@ export default function Hero({
 
         {/* Latest guides — kept for internal linking, now below the fold-line on desktop */}
         <div className="mt-16 hidden lg:block">
-          <p className="mb-3 font-semibold uppercase" style={{ fontSize: 11, letterSpacing: "0.15em", color: "#806010" }}>
+          <p className="mb-3 font-semibold uppercase" style={{ fontSize: 11, letterSpacing: "0.15em", color: "#7A5807" }}>
             From the blog
           </p>
           <HeroBlogList posts={blogPosts} />

@@ -55,7 +55,7 @@ export default function Footer() {
           className="absolute top-0 left-0 right-0 h-px"
           style={{
             background:
-              "linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.5) 50%, transparent 100%)",
+              "linear-gradient(90deg, transparent 0%, rgba(184,134,11,0.5) 50%, transparent 100%)",
           }}
           aria-hidden="true"
         />
@@ -66,7 +66,7 @@ export default function Footer() {
           <div className="mb-14 rounded-2xl border border-slate-200 bg-slate-50 px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-5">
             <div>
               <p className="text-sm font-semibold text-slate-900 mb-0.5">Get development tips in your inbox</p>
-              <p className="text-xs" style={{ color: "#64748B" }}>
+              <p className="text-xs" style={{ color: "#475569" }}>
                 Practical insights on web, mobile, and product — no spam, ever.
               </p>
             </div>
@@ -87,13 +87,13 @@ export default function Footer() {
                   required
                   disabled={status === "loading"}
                   aria-label="Email address"
-                  className="flex-1 sm:w-56 text-sm bg-slate-100 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-600 placeholder-slate-400 outline-none transition-all focus:border-[#D4AF37]/60 focus:ring-1 focus:ring-[#D4AF37]/30 disabled:opacity-60"
+                  className="flex-1 sm:w-56 text-sm bg-slate-100 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-700 placeholder-slate-400 outline-none transition-all focus:border-[#B8860B]/60 focus:ring-1 focus:ring-[#B8860B]/30 disabled:opacity-60"
                 />
                 <button
                   type="submit"
                   disabled={status === "loading"}
                   className="text-sm font-semibold text-white px-4 py-2.5 rounded-xl transition-all btn-glow flex-shrink-0 disabled:opacity-70 disabled:cursor-not-allowed"
-                  style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
+                  style={{ background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)" }}
                 >
                   {status === "loading" ? "Subscribing…" : "Subscribe"}
                 </button>
@@ -117,12 +117,12 @@ export default function Footer() {
             {/* Brand column */}
             <div>
               <Link href="/" className="flex items-center gap-2 mb-5">
-                <LogoMark size={32} />
+                <LogoMark size={44} />
                 <span className="flex items-baseline gap-1">
                   <span
-                    className="font-bold text-xl tracking-tight"
+                    className="font-bold text-2xl tracking-tight"
                     style={{
-                      background: "linear-gradient(135deg, #E1BC4A, #D4AF37)",
+                      background: "linear-gradient(135deg, #CC9A1A, #B8860B)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
@@ -130,13 +130,13 @@ export default function Footer() {
                   >
                     Amex
                   </span>
-                  <span className="text-slate-900 font-semibold text-xl tracking-tight">Technology</span>
+                  <span className="text-slate-900 font-semibold text-2xl tracking-tight">Technology</span>
                 </span>
               </Link>
-              <p className="text-sm leading-7 mb-5 max-w-[220px]" style={{ color: "#64748B" }}>
+              <p className="text-sm leading-7 mb-5 max-w-[220px]" style={{ color: "#475569" }}>
                 Building digital products that drive real business growth.
               </p>
-              <p className="text-xs" style={{ color: "#64748B" }}>
+              <p className="text-xs" style={{ color: "#475569" }}>
                 Based in India · Serving clients globally · Est. 2019
               </p>
             </div>
@@ -155,7 +155,7 @@ export default function Footer() {
                     <Link
                       href={link.href}
                       className="text-sm transition-colors hover:text-slate-900"
-                      style={{ color: "#64748B" }}
+                      style={{ color: "#475569" }}
                     >
                       {link.label}
                     </Link>
@@ -178,7 +178,7 @@ export default function Footer() {
                     <Link
                       href={link.href}
                       className="text-sm transition-colors hover:text-slate-900"
-                      style={{ color: "#64748B" }}
+                      style={{ color: "#475569" }}
                     >
                       {link.label}
                     </Link>
@@ -197,39 +197,39 @@ export default function Footer() {
               </h2>
               <div className="space-y-5">
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#64748B", letterSpacing: "0.10em" }}>
+                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#475569", letterSpacing: "0.10em" }}>
                     Email
                   </p>
                   <a
                     href="mailto:abhipatel8675@gmail.com"
                     className="text-sm flex items-center gap-1 transition-colors hover:text-slate-900 group"
-                    style={{ color: "#64748B" }}
+                    style={{ color: "#475569" }}
                   >
                     abhipatel8675@gmail.com
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#64748B", letterSpacing: "0.10em" }}>
+                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#475569", letterSpacing: "0.10em" }}>
                     Availability
                   </p>
-                  <p className="text-sm" style={{ color: "#64748B" }}>
+                  <p className="text-sm" style={{ color: "#475569" }}>
                     Mon – Sat, 9am – 8pm IST
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#64748B", letterSpacing: "0.10em" }}>
+                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#475569", letterSpacing: "0.10em" }}>
                     Response time
                   </p>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <p className="text-sm" style={{ color: "#64748B" }}>Within 4 hours</p>
+                    <p className="text-sm" style={{ color: "#475569" }}>Within 4 hours</p>
                   </div>
                 </div>
               </div>
               <Link
                 href="/contact"
-                className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-[#806010] hover:text-[#806010] transition-colors group"
+                className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-[#7A5807] hover:text-[#7A5807] transition-colors group"
               >
                 Start a project
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -240,17 +240,17 @@ export default function Footer() {
           {/* Separator + bottom bar */}
           <div className="border-t border-slate-200 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <p className="text-xs" style={{ color: "#64748B" }}>
+              <p className="text-xs" style={{ color: "#475569" }}>
                 © {new Date().getFullYear()} Amex Technology. An independent agency, not affiliated with American Express.
               </p>
-              <span className="text-xs" style={{ color: "#64748B" }}>·</span>
+              <span className="text-xs" style={{ color: "#475569" }}>·</span>
               <a
                 href="https://www.instagram.com/amextechnology/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on Instagram"
                 className="transition-colors hover:text-slate-900"
-                style={{ color: "#64748B" }}
+                style={{ color: "#475569" }}
               >
                 <svg
                   width="16"
@@ -274,7 +274,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on Upwork"
                 className="transition-colors hover:text-slate-900"
-                style={{ color: "#64748B" }}
+                style={{ color: "#475569" }}
               >
                 <svg
                   width="16"
@@ -292,7 +292,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on LinkedIn"
                 className="transition-colors hover:text-slate-900"
-                style={{ color: "#64748B" }}
+                style={{ color: "#475569" }}
               >
                 <svg
                   width="16"
@@ -308,15 +308,15 @@ export default function Footer() {
             <div className="flex items-center gap-6">
               <Link
                 href="/privacy"
-                className="text-xs hover:text-slate-600 transition-colors"
-                style={{ color: "#64748B" }}
+                className="text-xs hover:text-slate-700 transition-colors"
+                style={{ color: "#475569" }}
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-xs hover:text-slate-600 transition-colors"
-                style={{ color: "#64748B" }}
+                className="text-xs hover:text-slate-700 transition-colors"
+                style={{ color: "#475569" }}
               >
                 Terms of Service
               </Link>

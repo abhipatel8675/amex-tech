@@ -19,8 +19,8 @@ type Order = {
 
 const STATUS = {
   pending: { label: "Pending Details", color: "#f59e0b", icon: Clock },
-  in_progress: { label: "In Progress", color: "#60a5fa", icon: Package },
-  completed: { label: "Completed", color: "#818CF8", icon: CheckCircle },
+  in_progress: { label: "In Progress", color: "#CC9A1A", icon: Package },
+  completed: { label: "Completed", color: "#CC9A1A", icon: CheckCircle },
   cancelled: { label: "Cancelled", color: "#ef4444", icon: AlertCircle },
 };
 
@@ -43,7 +43,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
       <div className="flex items-start justify-between mb-3">
         <div>
           <h3 className="font-semibold text-base">{order.service}</h3>
-          <p className="text-sm text-slate-500">{order.package_name} — ${order.price}</p>
+          <p className="text-sm text-slate-600">{order.package_name} — ${order.price}</p>
         </div>
         <div className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full border" style={{ borderColor: `${s.color}40`, color: s.color, background: `${s.color}10` }}>
           <Icon className="w-3 h-3" />
@@ -51,7 +51,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
         </div>
       </div>
 
-      <p className="text-xs text-slate-500 mb-4">
+      <p className="text-xs text-slate-600 mb-4">
         Ordered {new Date(order.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
       </p>
 
@@ -59,7 +59,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
         !showForm ? (
           <button
             onClick={() => setShowForm(true)}
-            className="w-full py-2 text-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#806010] rounded-lg hover:bg-[#D4AF37]/20 transition-all"
+            className="w-full py-2 text-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[#7A5807] rounded-lg hover:bg-[#B8860B]/20 transition-all"
           >
             Submit Project Details
           </button>
@@ -70,18 +70,18 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
               value={details}
               onChange={(e) => setDetails(e.target.value)}
               placeholder="Describe your project — what needs to be built or fixed, your tech stack, deadline, any relevant links..."
-              className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#D4AF37]/50 resize-none"
+              className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#B8860B]/50 resize-none"
             />
             <div className="flex gap-2">
               <button
                 onClick={submit}
                 disabled={saving || !details}
                 className="flex-1 py-2 text-sm text-white font-semibold rounded-lg disabled:opacity-50"
-                style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}
+                style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}
               >
                 {saving ? "Saving..." : "Submit"}
               </button>
-              <button onClick={() => setShowForm(false)} className="px-4 py-2 text-sm border border-slate-200 rounded-lg hover:border-slate-300 text-slate-500">
+              <button onClick={() => setShowForm(false)} className="px-4 py-2 text-sm border border-slate-200 rounded-lg hover:border-slate-300 text-slate-600">
                 Cancel
               </button>
             </div>
@@ -91,8 +91,8 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
 
       {order.project_details && (
         <div className="bg-white border border-slate-200 rounded-lg p-3 mb-3">
-          <p className="text-xs text-slate-500 mb-1">Your project details:</p>
-          <p className="text-sm text-slate-500">{order.project_details}</p>
+          <p className="text-xs text-slate-600 mb-1">Your project details:</p>
+          <p className="text-sm text-slate-600">{order.project_details}</p>
         </div>
       )}
 
@@ -101,7 +101,7 @@ function OrderCard({ order, onSubmitDetails }: { order: Order; onSubmitDetails: 
           href={order.deliverable_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 w-full py-2 text-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#806010] rounded-lg hover:bg-[#D4AF37]/20 transition-all justify-center"
+          className="flex items-center gap-2 w-full py-2 text-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[#7A5807] rounded-lg hover:bg-[#B8860B]/20 transition-all justify-center"
         >
           <Download className="w-4 h-4" /> Download Deliverable
         </a>
@@ -137,14 +137,14 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
       <header className="border-b border-slate-200 bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2 font-bold">
-            <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
+            <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}>
               <Zap className="w-4 h-4 text-slate-900" />
             </div>
-            Amex<span className="text-[#806010]">Technology</span>
+            Amex<span className="text-[#7A5807]">Technology</span>
           </a>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-slate-500 hidden sm:block">{user.email}</span>
-            <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-900 transition-colors">
+            <span className="text-sm text-slate-600 hidden sm:block">{user.email}</span>
+            <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
               <LogOut className="w-4 h-4" /> Sign Out
             </button>
           </div>
@@ -154,19 +154,19 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
       <main className="max-w-5xl mx-auto px-6 py-10">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-1">My Orders</h1>
-          <p className="text-slate-500">Track your projects and submit details.</p>
+          <p className="text-slate-600">Track your projects and submit details.</p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-8">
           {[
             { label: "Total Orders", value: stats.total, color: "#ededed" },
-            { label: "In Progress", value: stats.active, color: "#60a5fa" },
-            { label: "Completed", value: stats.completed, color: "#818CF8" },
+            { label: "In Progress", value: stats.active, color: "#CC9A1A" },
+            { label: "Completed", value: stats.completed, color: "#CC9A1A" },
           ].map((s) => (
             <div key={s.label} className="bg-white border border-slate-200 rounded-2xl p-4 text-center">
               <div className="text-3xl font-bold mb-1" style={{ color: s.color }}>{s.value}</div>
-              <div className="text-sm text-slate-500">{s.label}</div>
+              <div className="text-sm text-slate-600">{s.label}</div>
             </div>
           ))}
         </div>
@@ -175,11 +175,11 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
           <div className="text-center py-20 bg-white border border-slate-200 rounded-2xl">
             <Package className="w-12 h-12 text-slate-300 mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">No orders yet</h3>
-            <p className="text-slate-500 mb-6">Purchase a service to get started.</p>
+            <p className="text-slate-600 mb-6">Purchase a service to get started.</p>
             <a
               href="/services"
               className="text-white font-semibold px-5 py-2.5 rounded-xl transition-all text-sm"
-              style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}
+              style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}
             >
               Browse Services
             </a>

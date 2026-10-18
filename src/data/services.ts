@@ -27,7 +27,7 @@ export const services: Service[] = [
       "Workflow automation across the tools you already use",
       "Guardrails, logging and human hand-off built in",
     ],
-    accentColor: "#a855f7",
+    accentColor: "#B8860B",
     iconName: "Bot",
   },
   {
@@ -43,7 +43,7 @@ export const services: Service[] = [
       "APIs and integrations with your payment, CRM and email tools",
       "An admin panel or CMS so you can edit content yourself",
     ],
-    accentColor: "#3b82f6",
+    accentColor: "#B8860B",
     iconName: "Globe",
     aliases: ["web-app-development", "api-development", "backend-development"],
   },
@@ -60,7 +60,7 @@ export const services: Service[] = [
       "Multi-tenant data protected by Row Level Security",
       "Prototype-to-production hardening for AI-built apps",
     ],
-    accentColor: "#10b981",
+    accentColor: "#B8860B",
     iconName: "Rocket",
   },
   {
@@ -76,7 +76,7 @@ export const services: Service[] = [
       "GEO: entity, schema and content work for AI search",
       "Monthly ranking and AI-visibility reporting",
     ],
-    accentColor: "#22c55e",
+    accentColor: "#B8860B",
     iconName: "Search",
   },
   {
@@ -92,7 +92,7 @@ export const services: Service[] = [
       "Structured data and llms.txt for AI crawlers",
       "Citation tracking across AI assistants",
     ],
-    accentColor: "#f59e0b",
+    accentColor: "#B8860B",
     iconName: "MessageSquareQuote",
   },
   {
@@ -108,7 +108,7 @@ export const services: Service[] = [
       "Dialer, SMS and email integrations",
       "Audits that find broken automations and lost leads",
     ],
-    accentColor: "#06b6d4",
+    accentColor: "#B8860B",
     iconName: "Workflow",
   },
   {
@@ -124,7 +124,7 @@ export const services: Service[] = [
       "App Store and Google Play submission included",
       "Push notifications and analytics",
     ],
-    accentColor: "#ec4899",
+    accentColor: "#B8860B",
     iconName: "Smartphone",
   },
   {
@@ -140,7 +140,7 @@ export const services: Service[] = [
       "Interactive prototypes",
       "Developer-ready handoff",
     ],
-    accentColor: "#d946ef",
+    accentColor: "#B8860B",
     iconName: "Palette",
   },
   {
@@ -156,7 +156,7 @@ export const services: Service[] = [
       "Monthly updates, backups and fixes",
       "Domains, DNS, SSL and email deliverability",
     ],
-    accentColor: "#64748b",
+    accentColor: "#B8860B",
     iconName: "Cloud",
     aliases: ["maintenance-support"],
   },

@@ -39,31 +39,31 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <a href="/" className="inline-flex items-center gap-2 font-bold text-xl mb-6">
-            <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #D4AF37, #B89225)" }}>
+            <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}>
               <Zap className="w-4 h-4 text-slate-900" />
             </div>
-            Amex<span className="text-[#806010]">Technology</span>
+            Amex<span className="text-[#7A5807]">Technology</span>
           </a>
           <h1 className="text-2xl font-bold mt-4">{isSignup ? "Create Account" : "Welcome Back"}</h1>
-          <p className="text-slate-500 text-sm mt-1">
+          <p className="text-slate-600 text-sm mt-1">
             {isSignup ? "Sign up to track your orders" : "Sign in to your dashboard"}
           </p>
         </div>
 
         <form onSubmit={handle} className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
           <div>
-            <label className="text-sm text-slate-500 mb-1.5 block">Email</label>
+            <label className="text-sm text-slate-600 mb-1.5 block">Email</label>
             <input
               required
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-base text-slate-900 placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#D4AF37]/50 transition-colors"
+              className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-base text-slate-900 placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#B8860B]/50 transition-colors"
             />
           </div>
           <div>
-            <label className="text-sm text-slate-500 mb-1.5 block">Password</label>
+            <label className="text-sm text-slate-600 mb-1.5 block">Password</label>
             <div className="relative">
               <input
                 required
@@ -71,12 +71,12 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 pr-10 text-base text-slate-900 placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#D4AF37]/50 transition-colors"
+                className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 pr-10 text-base text-slate-900 placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#B8860B]/50 transition-colors"
               />
               <button
                 type="button"
                 onClick={() => setShowPass(!showPass)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-900"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 hover:text-slate-900"
               >
                 {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
@@ -84,23 +84,23 @@ export default function LoginPage() {
           </div>
 
           {error && <p className="text-sm text-red-400">{error}</p>}
-          {message && <p className="text-sm text-[#806010]">{message}</p>}
+          {message && <p className="text-sm text-[#7A5807]">{message}</p>}
 
           <button
             type="submit"
             disabled={loading}
             className="w-full text-white font-semibold py-2.5 rounded-xl transition-all disabled:opacity-60"
-            style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
+            style={{ background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)" }}
           >
             {loading ? "Please wait..." : isSignup ? "Create Account" : "Sign In"}
           </button>
 
-          <p className="text-center text-sm text-slate-500">
+          <p className="text-center text-sm text-slate-600">
             {isSignup ? "Already have an account?" : "No account yet?"}{" "}
             <button
               type="button"
               onClick={() => { setIsSignup(!isSignup); setError(""); setMessage(""); }}
-              className="text-[#806010] hover:underline"
+              className="text-[#7A5807] hover:underline"
             >
               {isSignup ? "Sign In" : "Sign Up"}
             </button>
