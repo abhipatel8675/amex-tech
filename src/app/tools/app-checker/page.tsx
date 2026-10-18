@@ -4,7 +4,6 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import AppChecker from "@/components/tools/AppChecker";
-import { APP_CHECKER } from "@/data/appChecker";
 
 const title = "Free Lovable, Bolt & Vibe-Coded App Checker";
 const description =
@@ -49,7 +48,8 @@ const checks = [
 const faq = [
   {
     question: "Is the check really free?",
-    answer: `Yes. The free check gives you a score, a count of every issue we found and the three most serious problems. The full report with every issue, where we found it and how to fix it costs ${APP_CHECKER.price}, once.`,
+    answer:
+      "Yes. The check gives you a score and the three most serious problems on screen, and you can get the full report with every issue, where we found it and how to fix it, free by email.",
   },
   {
     question: "Do you access my database or log in to my app?",
@@ -80,10 +80,7 @@ const appSchema = {
   description,
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Web",
-  offers: [
-    { "@type": "Offer", price: "0", priceCurrency: "USD", name: "Free check" },
-    { "@type": "Offer", price: (APP_CHECKER.priceCents / 100).toFixed(2), priceCurrency: "USD", name: "Full report" },
-  ],
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD", name: "Free check and full report by email" },
   provider: { "@type": "Organization", name: "Amex Technology", url: "https://amextechnology.com" },
 };
 

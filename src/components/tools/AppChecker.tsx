@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Loader2, Lock, ShieldAlert, Search, Gauge, Wrench } from "lucide-react";
+import { ArrowRight, CheckCircle2, Loader2, Mail, ShieldAlert, Search, Gauge, Wrench } from "lucide-react";
 import type { ScanPreview, Severity } from "@/lib/appChecker/scan";
-import { APP_CHECKER, appCheckerFixHref, appCheckerReportRequestHref } from "@/data/appChecker";
+import { appCheckerFixHref } from "@/data/appChecker";
 
 type Result = ScanPreview & { paymentsEnabled: boolean };
 
@@ -33,12 +33,19 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
   const [step, setStep] = useState(0);
   const [error, setError] = useState("");
   const [result, setResult] = useState<Result | null>(null);
-  const [paying, setPaying] = useState(false);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [emailConsent, setEmailConsent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+  const [emailError, setEmailError] = useState("");
 
   async function runCheck(e: React.FormEvent) {
     e.preventDefault();
     setError("");
     setResult(null);
+    setEmailSent(false);
+    setEmailError("");
     setLoading(true);
     setStep(0);
     const timer = setInterval(() => setStep((s) => Math.min(s + 1, STEPS.length - 1)), 3500);
@@ -61,23 +68,26 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
     }
   }
 
-  async function unlock() {
+  async function emailReport(e: React.FormEvent) {
+    e.preventDefault();
     if (!result) return;
-    track("app_check_unlock_click", result.finalUrl);
-    setPaying(true);
-    setError("");
+    track("app_check_email_report", result.finalUrl);
+    setSending(true);
+    setEmailError("");
     try {
-      const res = await fetch("/api/app-check/checkout", {
+      const res = await fetch("/api/app-check/email-report", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: result.url }),
+        body: JSON.stringify({ url: result.url, email, name, consent: emailConsent }),
       });
       const data = await res.json();
-      if (!res.ok || !data.url) throw new Error(data.error || "Checkout isn't available right now.");
-      window.location.href = data.url;
+      if (!res.ok) throw new Error(data.error || "We couldn't send the email. Please try again.");
+      setEmailSent(true);
+      track("generate_lead", "app_checker");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Checkout isn't available right now.");
-      setPaying(false);
+      setEmailError(err instanceof Error ? err.message : "We couldn't send the email. Please try again.");
+    } finally {
+      setSending(false);
     }
   }
 
@@ -166,55 +176,80 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
             </div>
           )}
 
-          {result.total > 0 && (
-            <div className="p-6 md:p-8 rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/[0.06]">
-              <div className="flex items-start gap-3 mb-4">
-                <Lock className="w-5 h-5 text-[#806010] shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900">
-                    {locked > 0 ? `Unlock ${locked} more ${locked === 1 ? "issue" : "issues"} and every fix` : "Unlock step-by-step fixes"}
-                  </h3>
-                  <p className="text-slate-600 mt-1">
-                    The full report shows every problem, exactly where we found it (exposed keys are masked), and how to fix each one in your stack.
-                  </p>
-                </div>
-              </div>
-              <ul className="grid sm:grid-cols-3 gap-3 mb-6 text-sm text-slate-600">
-                <li className="flex items-center gap-2"><ShieldAlert className="w-4 h-4 text-[#806010]" /> Security issues + evidence</li>
-                <li className="flex items-center gap-2"><Search className="w-4 h-4 text-[#806010]" /> SEO &amp; AI-search fixes</li>
-                <li className="flex items-center gap-2"><Gauge className="w-4 h-4 text-[#806010]" /> Speed improvements</li>
-              </ul>
-              <div className="flex flex-wrap items-center gap-4">
-                {result.paymentsEnabled ? (
-                  <button
-                    onClick={unlock}
-                    disabled={paying}
-                    className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-xl transition-all btn-glow disabled:opacity-60"
-                    style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
-                  >
-                    {paying ? <Loader2 className="w-4 h-4 animate-spin" /> : <Lock className="w-4 h-4" />}
-                    Get the full report: {APP_CHECKER.price}
-                  </button>
-                ) : (
-                  <Link
-                    href={appCheckerReportRequestHref(result.finalUrl)}
-                    onClick={() => track("app_check_report_request", result.finalUrl)}
-                    className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-xl transition-all btn-glow"
-                    style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
-                  >
-                    Email me the full report <ArrowRight className="w-4 h-4" />
-                  </Link>
-                )}
-                <Link
-                  href={appCheckerFixHref(result.finalUrl, result.total)}
-                  onClick={() => track("app_check_fix_click", result.finalUrl)}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900"
-                >
-                  <Wrench className="w-4 h-4" /> Or have us fix everything for you
-                </Link>
+          <div className="p-6 md:p-8 rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/[0.06]">
+            <div className="flex items-start gap-3 mb-4">
+              <Mail className="w-5 h-5 text-[#806010] shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-slate-900">
+                  {result.total === 0
+                    ? "Get a copy of this report by email"
+                    : locked > 0
+                      ? `Get all ${result.total} issues and every fix, free by email`
+                      : "Get step-by-step fixes, free by email"}
+                </h3>
+                <p className="text-slate-600 mt-1">
+                  The full report shows every problem, exactly where we found it (exposed keys are masked), and how to fix each one in your stack.
+                </p>
               </div>
             </div>
-          )}
+            <ul className="grid sm:grid-cols-3 gap-3 mb-6 text-sm text-slate-600">
+              <li className="flex items-center gap-2"><ShieldAlert className="w-4 h-4 text-[#806010]" /> Security issues + evidence</li>
+              <li className="flex items-center gap-2"><Search className="w-4 h-4 text-[#806010]" /> SEO &amp; AI-search fixes</li>
+              <li className="flex items-center gap-2"><Gauge className="w-4 h-4 text-[#806010]" /> Speed improvements</li>
+            </ul>
+            {emailSent ? (
+              <p className="flex items-center gap-2 text-slate-800 font-semibold" role="status">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600" /> Sent! Check your inbox (and spam folder) for your full report.
+              </p>
+            ) : (
+              <form onSubmit={emailReport} className="space-y-3">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="email"
+                    required
+                    autoComplete="email"
+                    placeholder="you@company.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    aria-label="Email address"
+                    className="flex-1 min-w-0 px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50"
+                  />
+                  <input
+                    type="text"
+                    autoComplete="given-name"
+                    placeholder="First name (optional)"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    aria-label="First name"
+                    className="sm:w-48 px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50"
+                  />
+                  <button
+                    type="submit"
+                    disabled={sending || !emailConsent}
+                    className="inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3 rounded-xl transition-all btn-glow disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                    style={{ background: "linear-gradient(135deg, #D4AF37 0%, #B89225 100%)" }}
+                  >
+                    {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
+                    Email me my report
+                  </button>
+                </div>
+                <label className="flex items-start gap-2 text-sm text-slate-600 cursor-pointer">
+                  <input type="checkbox" checked={emailConsent} onChange={(e) => setEmailConsent(e.target.checked)} className="mt-0.5 accent-[#B89225]" />
+                  <span>Send me the report, plus a follow-up or two about these results. Unsubscribe anytime.</span>
+                </label>
+                {emailError && <p className="text-sm text-red-700">{emailError}</p>}
+              </form>
+            )}
+            {result.total > 0 && (
+              <Link
+                href={appCheckerFixHref(result.finalUrl, result.total)}
+                onClick={() => track("app_check_fix_click", result.finalUrl)}
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900"
+              >
+                <Wrench className="w-4 h-4" /> Or have us fix everything for you <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            )}
+          </div>
         </div>
       )}
     </div>
