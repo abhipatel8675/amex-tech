@@ -437,32 +437,32 @@ export const projects: Project[] = [
     image: "/images/portfolio/cyber7.png",
     gallery: [
       {
-        src: "/images/portfolio/cyber7/app-1.webp",
+        src: "/images/portfolio/cyber7/screen-1.webp",
         alt: "CyberApp portal selection: admin or employee",
         caption: "Choose a portal: admin or employee",
       },
       {
-        src: "/images/portfolio/cyber7/app-2.webp",
+        src: "/images/portfolio/cyber7/screen-2.webp",
         alt: "CyberApp admin sign-in",
         caption: "Admin sign-in",
       },
       {
-        src: "/images/portfolio/cyber7/app-3.webp",
+        src: "/images/portfolio/cyber7/screen-3.webp",
         alt: "CyberApp employee sign-in",
         caption: "Employee sign-in and registration",
       },
       {
-        src: "/images/portfolio/cyber7/app-4.webp",
+        src: "/images/portfolio/cyber7/screen-4.webp",
         alt: "CyberApp navigation menu",
         caption: "Navigation: dashboard, alerts, clients, contacts, notifications",
       },
       {
-        src: "/images/portfolio/cyber7/app-5.webp",
+        src: "/images/portfolio/cyber7/screen-5.webp",
         alt: "CyberApp notifications",
         caption: "Alert notifications with acknowledge and resolve status",
       },
       {
-        src: "/images/portfolio/cyber7/app-6.webp",
+        src: "/images/portfolio/cyber7/screen-6.webp",
         alt: "CyberApp settings",
         caption: "Settings: alert tone, push notifications, auto refresh, dark mode",
       },
