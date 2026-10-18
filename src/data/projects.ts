@@ -95,27 +95,6 @@ export const projects: Project[] = [
         alt: "FirmsLedger: get your business in front of buyers",
         caption: "Free listings put manufacturers in front of buyers",
       },
-      {
-        src: "/images/portfolio/firmsledger/home-hero.webp",
-        alt: "FirmsLedger — homepage hero: Find top manufacturers across the USA, with category and state search",
-        caption: "Search verified US manufacturers by category and state — zero paid placements",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/firmsledger/categories.webp",
-        alt: "FirmsLedger — Popular manufacturing categories carousel: electrical, mechanical, plastics and metal fabrication",
-        caption: "Popular manufacturing categories, each linking through to state-level listings",
-      },
-      {
-        src: "/images/portfolio/firmsledger/capabilities.webp",
-        alt: "FirmsLedger — Manufacturing Capabilities page with wire and cable, solar panels, injection molding and welding",
-        caption: "Capabilities pages — browse manufacturers by what they actually make",
-      },
-      {
-        src: "/images/portfolio/firmsledger/list-your-company.webp",
-        alt: "FirmsLedger — List your company page: Get your business in front of buyers, free to list",
-        caption: "Free self-serve listing — submit, get reviewed, go live in the directory",
-      },
     ],
   },
   {
@@ -652,38 +631,6 @@ export const projects: Project[] = [
         alt: "East End Vintage Sale: come early, bring a tote, tell a friend",
         caption: "Come early, bring a tote, tell a friend",
       },
-      {
-        src: "/images/portfolio/east-end-vintage-sale/ss-1.png",
-        alt: "East End Vintage Sale — landing hero: The Sidewalk Sale Returns for the Second Time, Sunday Aug 9",
-        caption:
-          "The sidewalk sale returns — a striped-paper hero with halftone photography and the key date front and center",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/east-end-vintage-sale/ss-2.png",
-        alt: "East End Vintage Sale — The Details: date, address and weather at a glance",
-        caption: "Everything you need in one glance — date, address, and rain-or-shine",
-      },
-      {
-        src: "/images/portfolio/east-end-vintage-sale/ss-3.png",
-        alt: "East End Vintage Sale — The Vibe: more than shopping, it's a Sunday scene",
-        caption: "The vibe — more than shopping, it's a Sunday scene",
-      },
-      {
-        src: "/images/portfolio/east-end-vintage-sale/ss-4.png",
-        alt: "East End Vintage Sale — Drinks section",
-        caption: "Freshly made lemonade and good music — part of the day-out experience",
-      },
-      {
-        src: "/images/portfolio/east-end-vintage-sale/ss-5.png",
-        alt: "East End Vintage Sale — Location: 275 Glebemount Ave, East York",
-        caption: "Location made effortless — 275 Glebemount Ave, East York",
-      },
-      {
-        src: "/images/portfolio/east-end-vintage-sale/ss-6.png",
-        alt: "East End Vintage Sale — closing CTA: come early, bring a tote, tell a friend",
-        caption: "Come early. Bring a tote. Tell a friend — a shareable close tied to their socials",
-      },
     ],
   },
   {
@@ -843,37 +790,6 @@ export const projects: Project[] = [
         src: "/images/portfolio/torqron/mockup-5.webp",
         alt: "Torqron: industrial solutions for a smarter tomorrow",
         caption: "Main products and solutions",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-1.png",
-        alt: "Torqron — homepage hero: Industrial Excellence for Global Petrochemical Operations",
-        caption: "Trusted by leading petrochemical plants — 20+ years of engineering expertise across 12 countries",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-2.png",
-        alt: "Torqron — Why Procurement Teams Choose Torqron: 6 key differentiators",
-        caption: "Market-atypical delivery speed · OEM-grade quality · Custom-engineering capability · Integrated supply chain",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-3.png",
-        alt: "Torqron — products catalogue: granulation tools, polymer additives, spare parts",
-        caption: "Precision granulation tools, advanced polymer additives, and mission-critical spare parts",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-4.png",
-        alt: "Torqron — applications across petrochemical sectors",
-        caption: "Industrial applications supporting 28 major facilities across global petrochemical operations",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-5.png",
-        alt: "Torqron — services and integrated supply chain solutions",
-        caption: "Integrated supply chain solutions with dependable delivery and OEM-grade quality",
-      },
-      {
-        src: "/images/portfolio/torqron/ss-6.png",
-        alt: "Torqron — Contact / RFQ flow for enterprise procurement teams",
-        caption: "Enterprise RFQ flow built for procurement teams — always on time, always on spec",
       },
     ],
   },
@@ -1121,42 +1037,6 @@ export const projects: Project[] = [
         alt: "HMD research collaborations",
         caption: "Research collaborations: form groups and co-author papers",
       },
-      {
-        src: "/images/portfolio/hmd/ss-4.png",
-        alt: "HMD — Evidence Summary library: curated clinical research papers across specialties",
-        caption: "Evidence Summary library — curated RCTs, meta-analyses, and guidelines across every specialty",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/hmd/ss-5.png",
-        alt: "HMD — Evidence Summary article: ADA Standards of Care in Diabetes 2026",
-        caption: "Deep-dive evidence summaries with HMD faculty appraisals and graded evidence ratings",
-      },
-      {
-        src: "/images/portfolio/hmd/ss-6.png",
-        alt: "HMD — Key Quotable Insight and clinical practice point from an evidence summary",
-        caption: "Key Quotable Insights — ready for executive briefs, slide decks, and policy discussions",
-      },
-      {
-        src: "/images/portfolio/hmd/ss-1.png",
-        alt: "HMD — physician dashboard: Good afternoon, Colleague. Upcoming journal clubs and recommendations.",
-        caption: "Physician dashboard — personalized learning, upcoming journal clubs, and iConnect activity",
-      },
-      {
-        src: "/images/portfolio/hmd/ss-2.png",
-        alt: "HMD — iConnect social feed with live journal club session and medical news",
-        caption: "iConnect — live journal club sessions, breaking medical news, and peer updates in one feed",
-      },
-      {
-        src: "/images/portfolio/hmd/ss-3.png",
-        alt: "HMD — iConnect Network: physician connection cards with specialty and verification badges",
-        caption: "iConnect Network — connect and follow verified physicians across every specialty worldwide",
-      },
-      {
-        src: "/images/portfolio/hmd/ss-7.png",
-        alt: "HMD — ResumePro: AI-powered physician CV builder with clinical experience and publications",
-        caption: "ResumePro — AI-powered CV builder designed specifically for medical students, residents, and physicians",
-      },
     ],
   },
   {
@@ -1209,42 +1089,6 @@ export const projects: Project[] = [
         alt: "Periscope: built for how enterprise teams actually sell",
         caption: "Use cases for enterprise sales teams",
       },
-      {
-        src: "/images/portfolio/periscope-email/ss-1.png",
-        alt: "Periscope Email — homepage: Real-Time News Triggers → Ready-to-Send Enterprise Outreach",
-        caption: "Real-time news triggers → ready-to-send enterprise outreach, in seconds not 30+ minutes",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-2.png",
-        alt: "Periscope Email — Never Miss a Revenue Moment Again",
-        caption: "News Headlines → Verified Contacts → Opportunity Created → Meetings Booked",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-3.png",
-        alt: "Periscope Email — What Periscope Does: 5-step pipeline",
-        caption: "5 automated steps: monitor news, detect triggers, find contacts, generate email, deliver",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-4.png",
-        alt: "Periscope Email — pricing and plans",
-        caption: "Flexible plans for solo reps and enterprise sales teams",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-5.png",
-        alt: "Periscope Email — use cases and integrations",
-        caption: "Built for enterprise AEs and SDRs across any industry vertical",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-6.png",
-        alt: "Periscope Email — security and compliance",
-        caption: "Enterprise-grade security — your data stays yours",
-      },
-      {
-        src: "/images/portfolio/periscope-email/ss-7.png",
-        alt: "Periscope Email — sign up and onboarding flow",
-        caption: "Get started in minutes — connect accounts and go live immediately",
-      },
     ],
   },
   {
@@ -1296,37 +1140,6 @@ export const projects: Project[] = [
         src: "/images/portfolio/molar-ai/mockup-5.webp",
         alt: "Molar AI: educate patients, build trust, help more say yes",
         caption: "Enterprise page: built for how dental teams actually sell",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-1.png",
-        alt: "Molar AI — homepage hero: The Easiest Way to Educate Patients Online",
-        caption: "5.8M+ organic views generated — the easiest way to educate patients online",
-        span: "wide",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-2.png",
-        alt: "Molar AI — AI-generated dental content reels in multiple languages",
-        caption: "Branded reels across dentistry topics — multilingual, high-engagement, zero filming",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-3.png",
-        alt: "Molar AI — One Platform, Five Continents. Five Steps to Full Automation.",
-        caption: "One platform, five continents — live in as little as 24 hours",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-4.png",
-        alt: "Molar AI — Customized at Scale: Reels, Carousels, Before & Afters, Case Studies",
-        caption: "Every content grid is unique — built around your brand, your patients, your city",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-5.png",
-        alt: "Molar AI — Dr. Patricia Harrosch before (159 followers) vs after (10.2K followers)",
-        caption: "Dr. Patricia Harrosch: 159 followers → 10.2K followers — trusted by Quebec's smile makeover expert",
-      },
-      {
-        src: "/images/portfolio/molar-ai/ss-6.png",
-        alt: "Molar AI vs. Agencies comparison — $497/mo vs $3,000–5,000/mo",
-        caption: "Molar AI vs agencies: $497/mo, 24-hour content speed, no contracts, all languages",
       },
     ],
   },
