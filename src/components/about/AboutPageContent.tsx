@@ -104,33 +104,6 @@ export default function AboutPageContent() {
         </motion.div>
       </section>
 
-      {/* Stats strip */}
-      <section className="border-y border-slate-200" style={{ background: "linear-gradient(180deg, rgba(184,134,11,0.04), rgba(184,134,11,0.02))" }}>
-        <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-0 md:divide-x md:divide-slate-200">
-            {[
-              { value: "2019", label: "Founded", sub: "Est. 6 years ago" },
-              { value: "5+", label: "Years Experience", sub: "Full-stack expertise" },
-              { value: "200+", label: "Projects Shipped", sub: "Across 6 industries" },
-              { value: "100%", label: "Satisfaction Rate", sub: "Zero failed projects" },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
-                className="text-center md:px-8"
-              >
-                <p className="text-3xl sm:text-5xl font-bold mb-2" style={{ background: "linear-gradient(135deg, #0F172A, #475569)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{stat.value}</p>
-                <p className="text-base font-semibold text-slate-700 mb-1">{stat.label}</p>
-                <p className="text-sm text-slate-600">{stat.sub}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Mission & Vision */}
       <section className="py-16 md:py-20 max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-6">

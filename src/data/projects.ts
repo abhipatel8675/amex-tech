@@ -213,7 +213,7 @@ export const projects: Project[] = [
     gradientFrom: "#f59e0b",
     gradientTo: "#111827",
     featured: false,
-    image: "/images/portfolio/portland-self-defense-crm/lead-form.webp",
+    image: "/images/portfolio/portland-self-defense-crm/cover-1.webp",
     gallery: [
       {
         src: "/images/portfolio/portland-self-defense-crm/lead-form.webp",
