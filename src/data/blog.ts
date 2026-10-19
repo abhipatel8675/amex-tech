@@ -40,6 +40,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
+    "image": "/images/blog/web-app-development-cost/cover.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"
