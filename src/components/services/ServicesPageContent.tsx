@@ -164,7 +164,7 @@ export default function ServicesPageContent() {
 
                 {/* CTA */}
                 <Link
-                  href={`/contact?service=${encodeURIComponent(service.title)}`}
+                  href={`/services/${service.slug}`}
                   className="relative group/link inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200"
                   style={{ color: service.accentColor }}
                 >

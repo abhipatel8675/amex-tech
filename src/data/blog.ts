@@ -1674,22 +1674,38 @@ Deployment issues are frustrating because everything looks fine locally. Explore
     slug: "fix-new-row-violates-row-level-security-policy-supabase",
     title: "Fix: \"new row violates row-level security policy\" in Supabase",
     excerpt:
-      "The Supabase \"new row violates row-level security policy\" error means RLS blocked your insert. Here's exactly why it happens and how to fix it, with SQL examples.",
+      "The Supabase \"new row violates row-level security policy\" error means RLS blocked your write. Why it happens on insert, select, upsert and storage uploads, and the exact SQL to fix it.",
     content: `
 ## What This Error Means
 
-The Supabase error \`new row violates row-level security policy\` means your INSERT (or UPDATE) was blocked because no Row-Level Security policy allowed it. RLS is enabled on the table, but no policy's \`WITH CHECK\` condition passes for the row you're trying to write.
+The Supabase error \`new row violates row-level security policy for table "posts"\` (Postgres error code \`42501\`) means Row Level Security blocked your write. RLS is enabled on the table, and no policy's \`WITH CHECK\` condition passed for the row you tried to insert or update.
 
-In short: RLS defaults to deny. Enable it without a matching INSERT policy and every write fails with this exact message.
+The fix is almost always one of three things: add an INSERT policy, make sure the row's \`user_id\` matches \`auth.uid()\`, or make sure the request is actually authenticated. If you also read the row back with \`.select()\` or use \`upsert\`, you need SELECT and UPDATE policies too.
 
 ![PostgreSQL insert blocked by a Supabase row-level security STOP check](/images/blog/fix-new-row-violates-row-level-security-policy-supabase/hero.webp)
 
+## Quick Diagnosis
+
+Find the line that matches what you're doing:
+
+| You're doing | Policies you need |
+|---|---|
+| \`insert()\` | INSERT |
+| \`insert().select()\` | INSERT **and** SELECT |
+| \`update()\` | UPDATE (and SELECT to find the row) |
+| \`upsert()\` | INSERT, UPDATE **and** SELECT |
+| Storage \`upload()\` | INSERT on \`storage.objects\` |
+| Storage \`upload()\` with \`upsert: true\` | INSERT, SELECT and UPDATE on \`storage.objects\` |
+
+If the matching policies exist, the problem is the values in the row or a missing session, covered below.
+
 ## The Most Common Causes
 
-1. **RLS is on, but there's no INSERT policy.** Enabling RLS blocks everything until you add explicit policies.
-2. **The \`WITH CHECK\` condition fails.** A policy exists, but the row's values don't satisfy it — usually \`user_id\` not matching \`auth.uid()\`.
+1. **RLS is on, but there's no INSERT policy.** RLS denies everything by default, so enabling it without policies blocks every write.
+2. **The \`WITH CHECK\` condition fails.** A policy exists, but the row doesn't satisfy it, usually because \`user_id\` doesn't match \`auth.uid()\`.
 3. **\`auth.uid()\` is null.** The request isn't authenticated, so any policy comparing to \`auth.uid()\` fails.
-4. **You're inserting a \`user_id\` that isn't the current user.** The policy correctly rejects it.
+4. **You return the row without a SELECT policy.** \`insert().select()\` has to read the new row back. Without a SELECT policy, Postgres reports the same error even though your INSERT policy is fine.
+5. **You use \`upsert\` with only an INSERT policy.** Upsert can turn into an UPDATE, so it needs UPDATE (and SELECT) policies as well.
 
 ## How to Fix It
 
@@ -1703,16 +1719,33 @@ alter table posts enable row level security;
 create policy "Users can insert their own posts"
 on posts for insert
 to authenticated
-with check (auth.uid() = user_id);
+with check ((select auth.uid()) = user_id);
 \`\`\`
 
-The \`with check\` clause is what INSERT and UPDATE validate against. If it evaluates to false, you get the error.
+The \`with check\` clause is what INSERT and UPDATE validate against. If it evaluates to false, you get the error. Wrapping \`auth.uid()\` in \`(select ...)\` is Supabase's recommended form: Postgres evaluates it once per query instead of once per row, which matters on large tables.
 
 ![Supabase SQL Editor with an INSERT policy checking auth.uid() against user_id, RLS policy active on the posts table](/images/blog/fix-new-row-violates-row-level-security-policy-supabase/2.webp)
 
-### 2. Set user_id on insert
+### 2. Add SELECT and UPDATE policies if you read back or upsert
 
-Because the policy checks \`auth.uid() = user_id\`, the row must include the current user's id:
+\`\`\`sql
+create policy "Users can read their own posts"
+on posts for select
+to authenticated
+using ((select auth.uid()) = user_id);
+
+create policy "Users can update their own posts"
+on posts for update
+to authenticated
+using ((select auth.uid()) = user_id)
+with check ((select auth.uid()) = user_id);
+\`\`\`
+
+The UPDATE policy uses both clauses: \`using\` decides which existing rows the user can change, and \`with check\` stops them from changing a row into one they don't own.
+
+### 3. Set user_id correctly, or let the database do it
+
+Because the policy checks \`auth.uid() = user_id\`, the row must contain the current user's id:
 
 \`\`\`ts
 const { data: { user } } = await supabase.auth.getUser();
@@ -1723,73 +1756,137 @@ await supabase.from('posts').insert({
 });
 \`\`\`
 
-Better yet, set it at the database level with a column default of \`auth.uid()\` so the client can't get it wrong.
+A safer option is to set it in the database, so the client can't get it wrong:
+
+\`\`\`sql
+alter table posts
+alter column user_id set default auth.uid();
+\`\`\`
+
+Then insert without \`user_id\` at all, and the default fills it in from the logged-in user's token.
 
 ![Client insert call with user_id set to user.id so it matches the RLS policy's auth.uid() check](/images/blog/fix-new-row-violates-row-level-security-policy-supabase/3.webp)
 
-### 3. Confirm the request is authenticated
+### 4. Confirm the request is authenticated
 
-If \`auth.uid()\` is null, you're calling Supabase without a valid session. Make sure the user is logged in and you're using the authenticated client — see our guide on [connecting Supabase to Next.js](/blog/connect-nextjs-react-with-supabase).
+If \`auth.uid()\` is null, the request reached Supabase without a valid session and ran as the \`anon\` role. Common reasons:
+
+- The user isn't logged in, or the session expired. See [fixing "JWT expired" in Supabase](/blog/fix-supabase-jwt-expired).
+- In Next.js, a server component or server action created a client that can't read the auth cookies. Use the \`@supabase/ssr\` server client, as shown in our guide on [connecting Supabase to Next.js](/blog/connect-nextjs-react-with-supabase).
+- The session disappears after a page refresh. See [Supabase session missing after refresh](/blog/fix-supabase-session-missing-after-refresh).
+
+Note that your policy says \`to authenticated\`. Requests from logged-out visitors run as \`anon\` and will never match it, which is exactly what you want for private data.
 
 ![RLS policy check flow: an incoming insert request either fails as unauthenticated or passes when auth.uid() matches user_id](/images/blog/fix-new-row-violates-row-level-security-policy-supabase/4.webp)
 
-### 4. Don't test only in the SQL editor
+### 5. Fix storage uploads
 
-The Supabase SQL editor runs as a superuser and bypasses RLS, so your insert "works" there while real users still fail. Always test as an authenticated user through your app.
+The same error appears when uploading files to Supabase Storage, because files are rows in the \`storage.objects\` table. A common setup lets each user upload into a folder named after their user id:
+
+\`\`\`sql
+create policy "Users can upload to their own folder"
+on storage.objects for insert
+to authenticated
+with check (
+  bucket_id = 'avatars'
+  and (storage.foldername(name))[1] = (select auth.uid())::text
+);
+\`\`\`
+
+Upload to a path like \`\${user.id}/avatar.png\`. If you pass \`upsert: true\` to replace an existing file, also add SELECT and UPDATE policies on \`storage.objects\` with the same conditions.
+
+### 6. Test as a real user, not in the SQL editor
+
+The Supabase SQL editor runs as the \`postgres\` role, which bypasses RLS. Your insert "works" there while real users still fail. You can simulate a logged-in user inside a transaction instead:
+
+\`\`\`sql
+begin;
+set local role authenticated;
+set local request.jwt.claims = '{"sub": "PASTE-A-USER-UUID", "role": "authenticated"}';
+
+insert into posts (title, user_id)
+values ('test', 'PASTE-A-USER-UUID');
+
+rollback;
+\`\`\`
+
+If this fails with the same error, the policy is the problem. If it passes, the problem is in your app: the session or the values you send.
+
+## What About the Service Role Key?
+
+The \`service_role\` (or new \`sb_secret_...\`) key bypasses RLS completely, so the error disappears if you use it. That's only acceptable in trusted server code such as cron jobs, webhooks and admin tasks. Never put it in the browser or in a \`NEXT_PUBLIC_\` variable. Using it to silence this error in client code gives every visitor full access to your database.
 
 ## How to Prevent It
 
 - Add policies in the same migration where you enable RLS.
 - Default \`user_id\` to \`auth.uid()\` at the database level.
-- Write separate, explicit policies for SELECT, INSERT, UPDATE, and DELETE.
+- Write separate, explicit policies for SELECT, INSERT, UPDATE and DELETE.
+- Check the **Advisors → Security** page in the Supabase dashboard for tables with RLS disabled or missing policies.
+- Test as a real user before every release.
+
+Apps generated with Lovable, Bolt or Replit often ship with RLS turned off or with policies that are too loose. Our free [App Checker](/tools/app-checker) looks for exposed keys and other common problems.
 
 ## Frequently Asked Questions
 
 **Why does the insert work in the SQL editor but fail from my app?**
-The SQL editor runs as the postgres superuser and bypasses RLS. Your app uses the anon or authenticated role, which RLS actually enforces.
+The SQL editor runs as the postgres role and bypasses RLS. Your app uses the anon or authenticated role, which RLS enforces, so a missing or failing policy blocks the write.
 
-**Do I need a SELECT policy too?**
-If you return the inserted row with \`.select()\`, yes — a SELECT policy must allow reading it back, or the call still errors.
+**Do I need a SELECT policy as well as an INSERT policy?**
+If you return the inserted row with \`.select()\`, yes. Postgres has to read the new row back, and without a SELECT policy it raises the same error even when the INSERT policy passes.
 
-**What's the difference between USING and WITH CHECK?**
-USING filters which existing rows a query can see or affect; WITH CHECK validates the values of new or updated rows.
+**Why does upsert fail when insert works?**
+An upsert may update an existing row, so Postgres checks INSERT, UPDATE and SELECT policies. Add UPDATE and SELECT policies for the same rows.
 
-**Can I temporarily disable RLS to debug?**
-Yes, \`alter table posts disable row level security;\` — but only in development. Never ship a production table with RLS off.
+**What is the difference between USING and WITH CHECK?**
+USING filters which existing rows a query can see or change. WITH CHECK validates the values of new or updated rows. INSERT uses WITH CHECK; UPDATE uses both.
+
+**Why do I get this error when uploading to Supabase Storage?**
+Storage files are rows in the storage.objects table, which has RLS enabled. Add an INSERT policy on storage.objects for your bucket, and SELECT and UPDATE policies if you upload with upsert.
+
+**Can I disable RLS to fix this quickly?**
+Only for local debugging. In production, a table with RLS disabled can be read and changed by anyone with your public API key.
 
 ## Need Supabase Set Up Properly?
 
-RLS bugs are usually a sign the auth and data layer needs a careful once-over. At **Amex Technology**, we design secure Supabase schemas, policies, and auth flows that just work. Explore our [development services](/services) or [get in touch](/contact).
+RLS errors are usually a sign the data layer needs a careful review. At **Amex Technology**, we design Supabase schemas, policies and auth flows for [web apps](/services/web-development) and [SaaS products](/services/saas-development), and we fix broken ones within 24 hours through our [bug fix service](/fix). See our [portfolio](/portfolio) or [get in touch](/contact).
     `,
     category: "Engineering",
     tags: ["Supabase", "Row-Level Security", "Postgres", "Troubleshooting"],
-    readTime: "6 min read",
+    readTime: "9 min read",
     publishedAt: "2026-07-21",
     gradientFrom: "#ef4444",
     gradientTo: "#f97316",
     featured: false,
     image: "/images/blog/fix-new-row-violates-row-level-security-policy-supabase/hero.webp",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
-    updatedAt: "2026-07-21",
-    keywords: ["new row violates row-level security policy", "Supabase RLS error", "Supabase row level security", "Supabase insert blocked", "Supabase WITH CHECK", "fix Supabase RLS"],
+    updatedAt: "2026-10-18",
+    keywords: ["new row violates row-level security policy", "new row violates row level security policy for table", "supabase storage new row violates row-level security policy", "supabase 42501", "Supabase RLS error", "Supabase row level security", "Supabase insert blocked", "Supabase WITH CHECK", "fix Supabase RLS"],
     metaTitle: "Fix: New Row Violates RLS Policy (Supabase)",
-    metaDescription: "The Supabase \"new row violates row-level security policy\" error explained — why RLS blocks your insert and how to fix it fast with SQL policy examples.",
+    metaDescription: "Fix the Supabase \"new row violates row-level security policy\" error (42501) on insert, upsert and storage uploads, with the exact SQL policies.",
     faq: [
       {
         question: "Why does the insert work in the SQL editor but fail from my app?",
-        answer: "The SQL editor runs as the postgres superuser and bypasses RLS. Your app uses the anon or authenticated role, which RLS actually enforces, so a policy that's missing or failing blocks the write.",
+        answer: "The SQL editor runs as the postgres role and bypasses RLS. Your app uses the anon or authenticated role, which RLS enforces, so a missing or failing policy blocks the write.",
       },
       {
         question: "Do I need a SELECT policy as well as an INSERT policy?",
-        answer: "If you return the inserted row with .select(), yes. A SELECT policy must allow reading the row back, otherwise the call still errors even after the insert succeeds.",
+        answer: "If you return the inserted row with .select(), yes. Postgres has to read the new row back, and without a SELECT policy it raises the same error even when the INSERT policy passes.",
+      },
+      {
+        question: "Why does upsert fail when insert works?",
+        answer: "An upsert may update an existing row, so Postgres checks INSERT, UPDATE and SELECT policies. Add UPDATE and SELECT policies for the same rows.",
       },
       {
         question: "What is the difference between USING and WITH CHECK?",
-        answer: "USING filters which existing rows a query can see or affect. WITH CHECK validates the values of new or updated rows. INSERT uses WITH CHECK; UPDATE uses both.",
+        answer: "USING filters which existing rows a query can see or change. WITH CHECK validates the values of new or updated rows. INSERT uses WITH CHECK; UPDATE uses both.",
+      },
+      {
+        question: "Why do I get this error when uploading to Supabase Storage?",
+        answer: "Storage files are rows in the storage.objects table, which has RLS enabled. Add an INSERT policy on storage.objects for your bucket, and SELECT and UPDATE policies if you upload with upsert.",
       },
       {
         question: "Can I disable RLS to fix this quickly?",
-        answer: "You can run ALTER TABLE table_name DISABLE ROW LEVEL SECURITY for local debugging, but never in production — it makes every row publicly accessible through the API.",
+        answer: "Only for local debugging. In production, a table with RLS disabled can be read and changed by anyone with your public API key.",
       },
     ],
   },
@@ -3609,6 +3706,10 @@ If you're building a product that needs reliable email, explore our [web app dev
     excerpt:
       "A comprehensive guide to integrating Supabase with Next.js or React — covering database queries, authentication, Row Level Security, and real-time subscriptions.",
     content: `
+To connect Next.js to Supabase: install \`@supabase/supabase-js\` and \`@supabase/ssr\`, add your project URL and publishable key to \`.env.local\`, create a browser client and a server client, and add a \`proxy.ts\` file (called \`middleware.ts\` before Next.js 16) that refreshes the user's session on each request. Then enable Row Level Security on every table so the public key can only reach the rows each user is allowed to see.
+
+This guide walks through each step for the Next.js App Router, plus database queries, authentication, file uploads and real-time updates. It's current for Next.js 16 and Supabase's publishable and secret API keys.
+
 ## What Is Supabase?
 
 Supabase is an open-source backend-as-a-service built on top of PostgreSQL. It bundles four major services under a single project:
@@ -3637,12 +3738,12 @@ The free tier (500 MB database, 1 GB storage, 50,000 monthly active users) is ge
 
 Go to [supabase.com](https://supabase.com), sign in, and click **New Project**. Give it a name, choose a region close to your users, and set a strong database password (save this — you'll need it for direct Postgres connections).
 
-Once the project is provisioned (about 30 seconds), navigate to **Settings → API**. You'll find two values you need:
+Once the project is provisioned (about 30 seconds), open **Project Settings → API Keys**. You'll need two values:
 
 - **Project URL** — something like \`https://abcdefgh.supabase.co\`
-- **anon public key** — a long JWT string. This is safe to use in client-side code as long as Row Level Security is enabled on your tables.
+- **Publishable key** — starts with \`sb_publishable_\`. It's safe to use in client-side code as long as Row Level Security is enabled on your tables. Older projects show a legacy **anon** key (a long JWT) instead; it works the same way in the code below.
 
-Keep the **service_role key** secret. It bypasses RLS entirely and should only be used in server-side code where you explicitly need admin access to the database.
+Keep the **secret key** (\`sb_secret_...\`, or the legacy **service_role** key) private. It bypasses RLS entirely and should only be used in server-side code where you explicitly need admin access to the database.
 
 ## Step 2: Install the SDK and Configure Environment Variables
 
@@ -3651,17 +3752,17 @@ Keep the **service_role key** secret. It bypasses RLS entirely and should only b
 ![VS Code editor with .env.local file open — NEXT_PUBLIC_SUPABASE_URL and keys configured](/images/blog/connect-nextjs-react-with-supabase/pasted-image-3.png)
 
 \`\`\`bash
-npm install @supabase/supabase-js
+npm install @supabase/supabase-js @supabase/ssr
 \`\`\`
 
 Create a \`.env.local\` file in your project root (add it to \`.gitignore\` if it isn't already):
 
 \`\`\`
 NEXT_PUBLIC_SUPABASE_URL=https://abcdefgh.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_your-key-here
 \`\`\`
 
-The \`NEXT_PUBLIC_\` prefix exposes these variables to the browser bundle. The anon key is intentionally public — it's designed to be used in client-side code. Its permissions are limited by Row Level Security policies on your database tables.
+The \`NEXT_PUBLIC_\` prefix exposes these variables to the browser bundle. The publishable key is intentionally public — it's designed to be used in client-side code. Never give the secret key a \`NEXT_PUBLIC_\` name. Its permissions are limited by Row Level Security policies on your database tables.
 
 ## Step 3: Initialize the Client
 
@@ -3671,9 +3772,9 @@ Create \`src/lib/supabase.ts\`:
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = createClient(supabaseUrl, supabaseKey);
 \`\`\`
 
 Import this singleton wherever you need database or auth access. For plain React (Vite or Create React App) this single file is all you need. For Next.js App Router, you'll use a different setup covered below — but this client is still the right starting point for React-only projects.
@@ -3783,9 +3884,7 @@ return () => subscription.unsubscribe();
 
 The single \`createClient\` approach works for React SPAs, but Next.js App Router has both server and client components, Server Actions, and middleware — each running in a different context with different cookie access. Supabase provides \`@supabase/ssr\` to handle this correctly.
 
-\`\`\`bash
-npm install @supabase/ssr
-\`\`\`
+You installed \`@supabase/ssr\` in Step 2.
 
 ### Browser Client (Client Components)
 
@@ -3796,7 +3895,7 @@ import { createBrowserClient } from '@supabase/ssr';
 export function createClient() {
   return createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!
   );
 }
 \`\`\`
@@ -3814,7 +3913,7 @@ export async function createClient() {
   const cookieStore = await cookies();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
     {
       cookies: {
         getAll: () => cookieStore.getAll(),
@@ -3829,20 +3928,20 @@ export async function createClient() {
 }
 \`\`\`
 
-### Middleware for Session Refresh
+### Proxy (Middleware) for Session Refresh
 
-Without middleware, a server component renders with a potentially expired session. Add \`src/middleware.ts\` to refresh the session on every request:
+Without this file, a server component can render with an expired session. In Next.js 16, add \`src/proxy.ts\` (in Next.js 15 and earlier the file is \`src/middleware.ts\` and the function is named \`middleware\`):
 
 \`\`\`typescript
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
     {
       cookies: {
         getAll: () => request.cookies.getAll(),
@@ -3859,16 +3958,43 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  await supabase.auth.getUser();   // refreshes session if needed
+  // Verifies the token and refreshes the session if needed.
+  // Don't run other code between createServerClient and this call.
+  await supabase.auth.getClaims();
   return supabaseResponse;
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'],
 };
 \`\`\`
 
-This ensures that short-lived access tokens are refreshed server-side before your page renders, preventing flickering auth states.
+This refreshes short-lived access tokens before your page renders, which prevents users from appearing logged out on the first server render.
+
+### Protecting a Page in a Server Component
+
+Use \`getClaims()\` to check who is logged in on the server. It verifies the token's signature, so it's safe to trust for authorization. Don't use \`getSession()\` in server code for this: it reads the cookie without verifying it.
+
+\`\`\`typescript
+// src/app/dashboard/page.tsx
+import { redirect } from 'next/navigation';
+import { createClient } from '@/lib/supabase/server';
+
+export default async function DashboardPage() {
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getClaims();
+  if (!data?.claims) redirect('/login');
+
+  const { data: posts } = await supabase
+    .from('posts')
+    .select('id, title')
+    .order('created_at', { ascending: false });
+
+  return <PostList posts={posts ?? []} />;
+}
+\`\`\`
+
+Because the server client sends the user's session, RLS policies apply here exactly as they do in the browser. Use \`getUser()\` instead only when you need the latest user record from the Auth server, since it costs a network request.
 
 ## Step 7: Row Level Security
 
@@ -3890,13 +4016,16 @@ CREATE POLICY "Users can insert their own posts"
   ON posts FOR INSERT
   WITH CHECK (auth.uid() = user_id);
 
--- Users can only update their own posts
+-- Users can only update their own posts, and can't reassign them
 CREATE POLICY "Users can update their own posts"
   ON posts FOR UPDATE
-  USING (auth.uid() = user_id);
+  USING (auth.uid() = user_id)
+  WITH CHECK (auth.uid() = user_id);
 \`\`\`
 
 \`auth.uid()\` is a Supabase built-in that returns the ID of the currently authenticated user from the JWT. With these policies in place, a query for \`posts\` using the anon key will only ever return rows where \`user_id\` matches the logged-in user — regardless of what filters the application code passes.
+
+If inserts fail with \`new row violates row-level security policy\`, a policy is missing or the row's \`user_id\` doesn't match the logged-in user. Our guide to [fixing the row-level security policy error](/blog/fix-new-row-violates-row-level-security-policy-supabase) covers every variation, including upserts and storage uploads.
 
 ## Step 8: Real-Time Subscriptions
 
@@ -3923,7 +4052,13 @@ const channel = supabase
 return () => { supabase.removeChannel(channel); };
 \`\`\`
 
-Before subscriptions work, you must enable replication on the table in the Supabase dashboard under **Database → Replication**. Toggle the relevant tables on.
+Before subscriptions work, add the table to Supabase's realtime publication. Run this in the SQL editor:
+
+\`\`\`sql
+alter publication supabase_realtime add table posts;
+\`\`\`
+
+Realtime respects RLS, so each user only receives changes to rows their SELECT policy allows.
 
 ## Step 9: File Uploads With Supabase Storage
 
@@ -3961,11 +4096,11 @@ The anon key is safe on the client because RLS limits what it can access. But if
 
 **Fix:** Enable RLS on every table that contains user data. Use the Supabase dashboard's **Advisors → Security** tab to get a report of tables with RLS disabled.
 
-### Not Refreshing the Session in Middleware
+### Not Refreshing the Session in the Proxy
 
-If you skip the middleware setup, server components render with a stale or expired session. The user appears logged out on the first server render even though their browser has a valid session cookie.
+If you skip the \`proxy.ts\` (or \`middleware.ts\`) setup, server components render with a stale or expired session. The user appears logged out on the first server render even though their browser has a valid session cookie.
 
-**Fix:** Add the middleware from Step 6 above. This is the most common source of "auth works in client components but not server components" confusion.
+**Fix:** Add the proxy file from Step 6 above. This is the most common source of "auth works in client components but not server components" confusion.
 
 ### Fetching Data in Client Components When Server Components Would Work
 
@@ -3975,8 +4110,14 @@ Many developers default to \`useEffect\` + Supabase client for all data fetching
 
 ## Frequently Asked Questions
 
-**Is the anon key safe to commit to a public repository?**
-The anon key is designed to be public — it identifies your project, not your access level. It's safe to expose it in client-side code. What makes it safe is RLS. Without RLS on your tables, the anon key grants full read/write access to all rows, which is why enabling RLS is non-negotiable for any production application.
+**What's the difference between the publishable key and the anon key?**
+Both are public keys for client-side code, and both rely on RLS for security. The publishable key (\`sb_publishable_...\`) is Supabase's newer key format and can be rotated without downtime; the anon key is the legacy JWT-based key. New projects should use the publishable key.
+
+**Should I use middleware.ts or proxy.ts?**
+Next.js 16 renamed middleware to proxy: the file is \`proxy.ts\` and the exported function is \`proxy\`. On Next.js 15 and earlier, use \`middleware.ts\` with a function named \`middleware\`. The Supabase code inside is the same.
+
+**Is the publishable key safe to commit to a public repository?**
+The publishable key is designed to be public — it identifies your project, not your access level. It's safe to expose it in client-side code. What makes it safe is RLS. Without RLS on your tables, the anon key grants full read/write access to all rows, which is why enabling RLS is non-negotiable for any production application.
 
 **What's the difference between \`createClient\` from \`@supabase/supabase-js\` and from \`@supabase/ssr\`?**
 The base \`createClient\` stores the session in localStorage, which doesn't work in server environments. The \`@supabase/ssr\` variants (\`createBrowserClient\` and \`createServerClient\`) use cookies instead, enabling the session to be read by both browser and server code in Next.js.
@@ -3996,25 +4137,37 @@ Setting up Supabase correctly is the beginning. A production application needs a
 
 At **Amex Technology**, we design and build full-stack applications on the Next.js and Supabase stack — from schema design and RLS policy architecture to the deployment pipeline and observability layer. If you're starting a new project or scaling an existing one, we'd be glad to help you get it right from the foundation.
 
-Explore our [software development services](/services), see our [Portfolio](/portfolio), or [get in touch](/contact) to talk through your project.
+Explore our [web app development](/services/web-development) and [SaaS development](/services/saas-development) services, see our [portfolio](/portfolio), or [get in touch](/contact) to talk through your project. Already have a Supabase app that's misbehaving? Our [24-hour fix service](/fix) can help.
     `,
     category: "Engineering",
     tags: ["Next.js", "React", "Supabase", "Database", "Authentication", "Full Stack"],
-    readTime: "10 min read",
+    readTime: "12 min read",
     publishedAt: "2025-05-20",
     gradientFrom: "#22c55e",
     gradientTo: "#3b82f6",
     featured: true,
     image: "/images/blog/connect-nextjs-react-with-supabase/mainimage-v2.webp",
     author: { name: "Amex Technology Team", url: "https://amextechnology.com/about" },
-    updatedAt: "2026-07-15",
-    keywords: ["Next.js", "React", "Supabase", "Database", "Authentication", "Row Level Security"],
-    metaTitle: "How to Connect Next.js to Supabase (2026 Complete Guide)",
-    metaDescription: "Integrate Supabase with Next.js or React: database queries, auth, Row Level Security, and real-time subscriptions. Complete 2026 guide.",
+    updatedAt: "2026-10-18",
+    keywords: ["supabase next js", "nextjs supabase", "supabase nextjs auth", "@supabase/ssr", "supabase publishable key", "Next.js 16 proxy supabase"],
+    metaTitle: "Supabase + Next.js: Complete Setup Guide (2026)",
+    metaDescription: "Connect Supabase to Next.js 16: @supabase/ssr clients, publishable keys, proxy.ts session refresh, getClaims auth, RLS and real-time, step by step.",
     faq: [
       {
-        question: "Is the anon key safe to commit to a public repository?",
-        answer: "The anon key is designed to be public — it identifies your project, not your access level. It's safe to expose it in client-side code. What makes it safe is RLS. Without RLS on your tables, the anon key grants full read/write access to all rows, which is why enabling RLS is non-negotiable for any production application.",
+        question: "What's the difference between the Supabase publishable key and the anon key?",
+        answer: "Both are public keys for client-side code, and both rely on Row Level Security for protection. The publishable key (sb_publishable_...) is the newer format and can be rotated without downtime; the anon key is the legacy JWT-based key. New projects should use the publishable key.",
+      },
+      {
+        question: "Should I use middleware.ts or proxy.ts with Supabase in Next.js?",
+        answer: "Next.js 16 renamed middleware to proxy, so the file is proxy.ts and the exported function is proxy. On Next.js 15 and earlier, use middleware.ts with a function named middleware. The Supabase session-refresh code inside is the same.",
+      },
+      {
+        question: "Should I use getClaims, getUser or getSession on the server?",
+        answer: "Use getClaims() to check who is logged in; it verifies the token's signature. Use getUser() only when you need the latest user record from the Auth server. Don't trust getSession() in server code, because it reads the cookie without verifying it.",
+      },
+      {
+        question: "Is the publishable key safe to commit to a public repository?",
+        answer: "The publishable key is designed to be public — it identifies your project, not your access level. It's safe to expose it in client-side code. What makes it safe is RLS. Without RLS on your tables, the anon key grants full read/write access to all rows, which is why enabling RLS is non-negotiable for any production application.",
       },
       {
         question: "What's the difference between createClient from @supabase/supabase-js and from @supabase/ssr?",

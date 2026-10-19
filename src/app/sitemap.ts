@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "@/data/blog";
 import { projects } from "@/data/projects";
+import { services } from "@/data/services";
+import { servicePages } from "@/data/servicePages";
 
 const BASE_URL = "https://amextechnology.com";
 
@@ -22,6 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: SITE_LAST_UPDATED,
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/los-angeles`,
+      lastModified: new Date("2026-10-18"),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/fix`,
@@ -87,5 +95,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...blogPages, ...portfolioPages];
+  const servicePagesList: MetadataRoute.Sitemap = services
+    .filter((s) => servicePages[s.slug])
+    .map((s) => ({
+      url: `${BASE_URL}/services/${s.slug}`,
+      lastModified: new Date("2026-10-18"),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    }));
+
+  return [...staticPages, ...servicePagesList, ...blogPages, ...portfolioPages];
 }

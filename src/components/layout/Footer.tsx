@@ -15,7 +15,7 @@ const quickLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-const serviceLinks = services.map((s) => ({ label: s.title, href: `/services#${s.slug}` }));
+const serviceLinks = services.map((s) => ({ label: s.title, href: `/services/${s.slug}` }));
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -137,7 +137,11 @@ export default function Footer() {
                 Building digital products that drive real business growth.
               </p>
               <p className="text-xs" style={{ color: "#475569" }}>
-                Based in India · Serving clients globally · Est. 2019
+                Based in India · Serving clients globally ·{" "}
+                <Link href="/los-angeles" className="underline-offset-2 hover:underline">
+                  Los Angeles
+                </Link>{" "}
+                · Est. 2019
               </p>
             </div>
 

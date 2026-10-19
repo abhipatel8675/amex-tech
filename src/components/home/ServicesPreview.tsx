@@ -13,7 +13,7 @@ const services = allServices.map((s) => ({
   title: s.title,
   desc: s.description,
   technologies: s.technologies,
-  href: `/services#${s.slug}`,
+  href: `/services/${s.slug}`,
   accent: s.accentColor,
 }));
 

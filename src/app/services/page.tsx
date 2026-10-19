@@ -48,7 +48,7 @@ const servicesSchema = {
     name: "AI, Software and Search Services",
     itemListElement: services.map((s) => ({
       "@type": "Offer",
-      itemOffered: { "@type": "Service", name: s.title, description: s.shortDesc, url: `https://amextechnology.com/services#${s.slug}` },
+      itemOffered: { "@type": "Service", name: s.title, description: s.shortDesc, url: `https://amextechnology.com/services/${s.slug}` },
     })),
   },
 };
