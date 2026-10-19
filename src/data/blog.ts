@@ -22,6 +22,61 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
 
+  {
+    "slug": "web-app-development-cost",
+    "title": "How Much Does It Cost to Build a Web App in 2026?",
+    "excerpt": "Typical 2026 price ranges for a custom web app, what drives the cost, the costs most quotes leave out, and how to keep your budget under control.",
+    "content": "\nA custom web app in 2026 typically costs $5,000 to $40,000 for a focused MVP built by a freelancer or small studio, $25,000 to $80,000 for an MVP from a mid-size agency, and $80,000 to $250,000 or more for a full product with many user roles and integrations. Expect to pay another 15 to 20 percent of the build cost each year to keep the app maintained, and a monthly bill for hosting and services. The biggest single factor is not the technology but how many separate workflows you ask for in version one.\n\nThose ranges are wide because \"web app\" covers everything from a booking form with a login to a multi-tenant SaaS platform. The rest of this guide explains what moves the number, so you can read a quote and know whether it is fair.\n\n## Typical cost ranges by type of web app\n\nThese are market ranges pulled from published 2026 agency and freelancer data (Clutch, Arc.dev and agency price guides), not a price list. Treat them as a starting point for a conversation.\n\n| What you are building | Typical range | Typical timeline |\n|---|---|---|\n| Internal tool or simple portal (login, a few forms, one dashboard) | $5,000 to $20,000 | 3 to 8 weeks |\n| MVP with one core workflow, payments and email | $10,000 to $40,000 | 6 to 12 weeks |\n| Launch-ready product with several user roles and integrations | $40,000 to $120,000 | 3 to 6 months |\n| Multi-tenant SaaS, marketplace or fintech platform | $100,000 to $250,000+ | 6 to 12 months |\n\nClutch's review data has put the average web app project in the tens of thousands of dollars with timelines of most of a year, but many real projects land under $10,000 because they are small and well scoped.\n\n## What actually drives the cost\n\nA quote is roughly hours times rate. Hours come from the features. Here is where the hours go.\n\n### 1. Number of workflows and user roles\n\nA \"workflow\" is one complete job a user does: book an appointment, submit an application, approve a request, check out. Each one needs screens, database tables, validation, emails and error states. One workflow for one type of user is cheap. Three workflows across customers, staff and admins is several times the work, because every role needs its own permissions and views.\n\n### 2. Integrations\n\nEvery outside system adds work: Stripe for payments, Plaid for bank data, QuickBooks for accounting, a shipping API, a CRM like GoHighLevel. Agency guides commonly price each third-party integration at $2,000 to $5,000, more if the other system's API is poorly documented. Integrations also fail in ways your own code does not, so they need retries, logging and testing.\n\n### 3. Authentication and permissions\n\nBasic email and password login with a provider like Supabase Auth or Clerk is a small line item. Social login, magic links, team accounts, invitations and role-based permissions add up. Enterprise single sign-on (SAML) can cost more than the rest of a small MVP.\n\n### 4. Design\n\nUsing a well-built component library with your brand colors is fast. A fully custom design system, designed in Figma screen by screen before any code is written, can add $5,000 to $25,000. For an MVP, the first option is usually the right call.\n\n### 5. Who builds it and where\n\nPublished 2026 hourly rates look roughly like this:\n\n- Freelance developers: about $50 to $150 per hour\n- Eastern European agencies: about $48 to $86 per hour\n- Western European agencies: about $78 to $173 per hour\n- US agencies: about $101 to $225 per hour\n\nA higher rate does not always mean a higher total. An experienced developer who has built the same kind of app before can finish in half the hours.\n\n### 6. Data, security and compliance\n\nHandling payments, health data or financial data means more care: row-level security in the database, audit logs, encryption, and sometimes formal compliance work. Importing data from an old system also takes time that many quotes leave out.\n\n## The costs most quotes leave out\n\nThe build is only part of what you will spend. Ask about each of these before you sign.\n\n**Hosting and services.** A typical modern stack for a small app, such as Next.js on Vercel with a Supabase database, starts cheap. As of October 2026, Vercel Pro is $20 per month per seat (the free Hobby plan is for non-commercial use only) and Supabase Pro starts at $25 per month (free Supabase projects pause after a week of inactivity, which is not acceptable for a live business app). Add email sending, a domain, error monitoring and any paid APIs, and a small app often runs in the range of $50 to $300 per month at launch, depending on traffic and which services it uses.\n\n**Payment fees.** Stripe charges a percentage of every transaction. That is not a development cost, but it belongs in your budget.\n\n**Maintenance.** Frameworks release updates, libraries get security patches, APIs you depend on change. Budget 15 to 20 percent of the build cost per year, or a monthly retainer, for fixes and small changes.\n\n**Testing and QA.** Some quotes include testing time; some assume you will do it. Find out which.\n\n**Contingency.** Add 15 to 25 percent. Every project discovers something during the build.\n\n## How to keep the cost down without cutting corners\n\n1. **Write down one core workflow.** Describe the single thing a user must be able to do for the app to be worth using. Build that first. Everything else goes on a \"version two\" list.\n2. **Use proven building blocks.** Hosted auth, a managed database and Stripe Checkout save weeks compared with custom versions. A good developer will suggest these.\n3. **Start with a prototype if you are unsure.** AI builders like Lovable and Bolt can produce a clickable prototype in days. They are good for testing an idea with real users. Our [Bolt.new review](/blog/bolt-new-review) covers where they work and where they fall short.\n4. **Make sure you own the code.** Ask for the code in your own GitHub account from day one, and the hosting and database in accounts you control. If you start in an AI builder, you can [export the code from Lovable](/blog/how-to-export-code-from-lovable) and hand it to a developer later.\n5. **Pay in milestones.** Tie payments to working features you can click through, not to calendar dates.\n\n## Fixed price or hourly?\n\n**Fixed price** works when the scope is clear and written down: screens, user roles, integrations and what \"done\" means. You know the cost up front, but any change becomes a change request.\n\n**Hourly or weekly billing** works when you expect the scope to move, which is common for early-stage products. You keep flexibility, but you need regular demos and a weekly budget cap to stay in control.\n\nA common middle ground is a fixed-price discovery phase (a few days to two weeks) that produces a detailed scope, followed by a fixed price for the build.\n\n## What about apps already built with Lovable, Bolt or Replit?\n\nMany founders now arrive with an app that mostly works, built with an AI tool. Fixing and finishing one is often far cheaper than starting over, but not always. The cost depends on:\n\n- Whether the database and security rules are set up correctly (missing or loose row-level security is a frequent problem in AI-generated Supabase apps)\n- How tangled the generated code is\n- Which features are half-built versus missing\n- Whether it needs to move to its own hosting\n\nA short code review before any quote will tell you whether to repair or rebuild. If the app runs on Supabase, our guide to [connecting Next.js with Supabase](/blog/connect-nextjs-react-with-supabase) shows what a clean setup looks like.\n\n## Red flags in a web app quote\n\n- A single number with no breakdown by feature or phase\n- No mention of who owns the code, hosting accounts and domain\n- No testing, deployment or post-launch support in the scope\n- A price far below every other quote, with no explanation\n- No written definition of what is included in version one\n\nA good quote reads like a plan: what will be built, in what order, what is out of scope, and what happens after launch.\n\n## Get a real number for your app\n\nAt Amex Technology we build and fix web apps for small businesses and founders, mostly on Next.js, Supabase and Vercel. That includes ground-up builds like a fintech funding marketplace with bank-data integration, takeovers of existing platforms that needed checkout and integration fixes, and deployment work on apps a client already had. You can see the work on our [portfolio](/portfolio) and what we offer on our [services](/services) page. If you already have an app, run it through our free [app checker](/tools/app-checker) first, then [contact us](/contact) with your feature list for a scoped estimate.\n",
+    "category": "Business",
+    "tags": [
+      "Web App Development",
+      "Pricing",
+      "MVP",
+      "Small Business"
+    ],
+    "readTime": "7 min read",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18",
+    "gradientFrom": "#B8860B",
+    "gradientTo": "#111827",
+    "featured": false,
+    "author": {
+      "name": "Abhi Patel",
+      "url": "https://amextechnology.com/about"
+    },
+    "keywords": [
+      "web app development cost",
+      "how much does it cost to build a web app",
+      "cost to build a web app",
+      "web app MVP cost",
+      "web application development pricing"
+    ],
+    "metaTitle": "Web App Development Cost in 2026: Real Price Ranges",
+    "metaDescription": "What a custom web app costs in 2026: typical ranges from MVP to SaaS, what drives the price, hidden running costs, and how to read a developer quote.",
+    "faq": [
+      {
+        "question": "How much does a simple web app cost in 2026?",
+        "answer": "A simple web app with a login, a few forms and one dashboard typically costs $5,000 to $20,000 from a freelancer or small studio. The price rises with each extra user role, integration and custom design element. Hosting for an app this size usually starts at under $100 per month."
+      },
+      {
+        "question": "How long does it take to build a web app?",
+        "answer": "A focused MVP with one core workflow usually takes 6 to 12 weeks. A launch-ready product with several user roles and integrations commonly takes 3 to 6 months, and a full SaaS or marketplace platform 6 to 12 months. Slow feedback and changing scope add more time than anything technical."
+      },
+      {
+        "question": "Is it cheaper to use a freelancer or an agency?",
+        "answer": "Freelancers usually charge less per hour, roughly $50 to $150, while US agencies often charge $100 to $225 per hour. Agencies tend to include project management, QA and post-launch support, which a freelancer may not. Compare total cost for the same written scope, not hourly rates."
+      },
+      {
+        "question": "What are the ongoing costs of running a web app?",
+        "answer": "Plan for hosting, database, email and API fees, which for a small app often total $50 to $300 per month at launch. On top of that, budget about 15 to 20 percent of the build cost per year for maintenance, security updates and small changes. Payment processing fees from Stripe or similar are separate."
+      },
+      {
+        "question": "Can I build my web app with Lovable or Bolt instead of hiring a developer?",
+        "answer": "AI builders are a good way to make a prototype and test an idea quickly and cheaply. Many apps built this way need a developer before launch to fix database security, payments, error handling and hosting. A code review will tell you whether to finish the existing app or rebuild it."
+      }
+    ]
+  },
+
 {
     slug: "fix-supabase-invalid-api-key",
     title: "Fix: Invalid API Key Error in Supabase",
