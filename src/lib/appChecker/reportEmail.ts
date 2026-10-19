@@ -52,7 +52,7 @@ export function reportEmailText(result: ScanResult, name?: string): string {
 
 // Sent to Abhi's own inbox. The outreach system reads the JSON line below each
 // morning and starts the follow-up sequence, so its format must stay stable.
-export const LEAD_SUBJECT_PREFIX = "[App Checker lead]";
+export const LEAD_SUBJECT_PREFIX = "[LEAD] App Checker:";
 export function leadAlertText(result: ScanResult, email: string, name: string, consentAt: string): string {
   const counts = { critical: 0, high: 0, medium: 0, low: 0 } as Record<Severity, number>;
   for (const f of result.findings) counts[f.severity]++;
