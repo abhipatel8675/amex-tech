@@ -121,7 +121,7 @@ export const projects: Project[] = [
     gradientTo: "#1e3a8a",
     featured: true,
     liveUrl: "https://goswiftfund.com",
-    image: "/images/portfolio/goswiftfund/home-hero.webp",
+    image: "/images/portfolio/goswiftfund/mockup-cover.webp",
     gallery: [
       {
         src: "/images/portfolio/goswiftfund/home-hero.webp",
@@ -164,7 +164,7 @@ export const projects: Project[] = [
     gradientFrom: "#8ba653",
     gradientTo: "#0b251e",
     featured: false,
-    image: "/images/portfolio/sawa/hero-english.webp",
+    image: "/images/portfolio/sawa/mockup-cover.webp",
     gallery: [
       {
         src: "/images/portfolio/sawa/hero-english.webp",
@@ -311,7 +311,7 @@ export const projects: Project[] = [
     gradientTo: "#334155",
     featured: false,
     liveUrl: "https://cdieng.vercel.app",
-    image: "/images/portfolio/tiancheng/ss-1.png",
+    image: "/images/portfolio/tiancheng-development-group/mockup-cover.webp",
     gallery: [
       {
         src: "/images/portfolio/tiancheng/ss-1.png",
@@ -414,7 +414,29 @@ export const projects: Project[] = [
     gradientTo: "#0891b2",
     featured: false,
     liveUrl: "https://mydialogix.com",
-    image: "/images/portfolio/dialogix.png",
+    image: "/images/portfolio/dialogix/mockup-cover.webp",
+    gallery: [
+      {
+        src: "/images/portfolio/dialogix/mockup-2.webp",
+        alt: "Dialogix omnichannel AI outreach: phone calls, email, SMS and LinkedIn",
+        caption: "Omnichannel AI outreach across calls, email, SMS and LinkedIn",
+      },
+      {
+        src: "/images/portfolio/dialogix/mockup-3.webp",
+        alt: "Dialogix: from prospect to meeting in minutes",
+        caption: "From prospect to meeting in five steps",
+      },
+      {
+        src: "/images/portfolio/dialogix/mockup-4.webp",
+        alt: "Dialogix: AI agents in 6 languages",
+        caption: "Native-level AI agents in 6 languages",
+      },
+      {
+        src: "/images/portfolio/dialogix/mockup-5.webp",
+        alt: "Dialogix pricing plans",
+        caption: "Pricing: from self-drive to full revenue cycle",
+      },
+    ],
   },
   {
     slug: "cyber7",
@@ -497,7 +519,7 @@ export const projects: Project[] = [
     gradientFrom: "#38bdf8",
     gradientTo: "#6366f1",
     featured: false,
-    image: "/images/portfolio/emigo.png",
+    image: "/images/portfolio/emigo/mockup-cover.webp",
   },
   {
     slug: "wolfe-property",
@@ -523,7 +545,24 @@ export const projects: Project[] = [
     gradientTo: "#111827",
     featured: false,
     liveUrl: "https://portal.wolfeproperty.co.nz",
-    image: "/images/portfolio/wolfe-property.png",
+    image: "/images/portfolio/wolfe-property/mockup-cover.webp",
+    gallery: [
+      {
+        src: "/images/portfolio/wolfe-property/mockup-2.webp",
+        alt: "Wolfe Property client portal sign-in",
+        caption: "Client portal sign-in",
+      },
+      {
+        src: "/images/portfolio/wolfe-property/mockup-3.webp",
+        alt: "Wolfe Property: Master the Cashflow Hack method",
+        caption: "The Cashflow Hack method, explained visually",
+      },
+      {
+        src: "/images/portfolio/wolfe-property/mockup-4.webp",
+        alt: "Wolfe Property coaching programmes",
+        caption: "Choose how you work with us: coaching programmes",
+      },
+    ],
     imagePosition: "object-top",
   },
   {
@@ -550,7 +589,7 @@ export const projects: Project[] = [
     gradientTo: "#c2410c",
     featured: false,
     liveUrl: "https://ultrawindows.co.uk",
-    image: "/images/portfolio/ultra-windows.png",
+    image: "/images/portfolio/ultra-windows/mockup-cover.webp",
     imagePosition: "object-top",
     gallery: [
       {
@@ -725,7 +764,7 @@ export const projects: Project[] = [
     gradientTo: "#b45309",
     featured: false,
     liveUrl: "https://www.hoursheets.org",
-    image: "/images/portfolio/hoursheets.jpg",
+    image: "/images/portfolio/hoursheets/mockup-cover.webp",
     gallery: [
       {
         src: "/images/portfolio/hoursheets/ss-1.png",
@@ -822,7 +861,7 @@ export const projects: Project[] = [
     gradientTo: "#7c3aed",
     featured: true,
     liveUrl: "https://expertvillagemedia.vercel.app",
-    image: "/images/portfolio/expert-village-media.png",
+    image: "/images/portfolio/expert-village-media/mockup-cover.webp",
     gallery: [
       {
         src: "/images/portfolio/expert-village-media/ss-1.png",
@@ -944,7 +983,7 @@ export const projects: Project[] = [
     gradientTo: "#c2410c",
     featured: false,
     liveUrl: "https://herrubyapp.vercel.app",
-    image: "/images/portfolio/herruby-app.png",
+    image: "/images/portfolio/herruby-app/mockup-cover.webp",
     gallery: [
       {
         src: "/images/portfolio/herruby-app/ss-1.png",
