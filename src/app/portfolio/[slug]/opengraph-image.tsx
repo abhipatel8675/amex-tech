@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { projects } from "@/data/projects";
+import { getProject } from "@/lib/portfolio/data";
 
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
@@ -7,7 +7,7 @@ export const contentType = "image/png";
 
 export default async function OgImage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = await getProject(slug);
   const title = project?.title ?? "Case Study";
   const category = project?.category ?? "Project";
 

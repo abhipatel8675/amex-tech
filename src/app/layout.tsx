@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import CustomCursor from "@/components/ui/CustomCursor";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { services } from "@/data/services";
@@ -137,7 +136,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-white text-slate-700 antialiased">
         <ScrollProgress />
-        <CustomCursor />
         {children}
         <SpeedInsights />
         <Script

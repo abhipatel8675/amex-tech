@@ -1,233 +1,261 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useMotionTemplate,
+  useReducedMotion,
+} from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { isDeviceMockup } from "@/lib/portfolioImages";
-import { projects, categories, type Category } from "@/data/projects";
+import { categories, type Category, type Project } from "@/data/projects";
 
-function ProjectCard({ project }: { project: (typeof projects)[0] }) {
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+const SPRING = { stiffness: 220, damping: 22, mass: 0.6 };
+const TILT = 7; // max degrees
+
+// Touch screens have no hover, so they get the details shown statically.
+const HOVER_QUERY = "(hover: hover) and (pointer: fine)";
+
+function subscribeHover(cb: () => void) {
+  const mq = window.matchMedia(HOVER_QUERY);
+  mq.addEventListener("change", cb);
+  return () => mq.removeEventListener("change", cb);
+}
+
+function useCanHover() {
+  return useSyncExternalStore(
+    subscribeHover,
+    () => window.matchMedia(HOVER_QUERY).matches,
+    () => true,
+  );
+}
+
+function TechChips({ items, max = 4, dark = false }: { items: string[]; max?: number; dark?: boolean }) {
+  const shown = items.slice(0, max);
+  const rest = items.length - shown.length;
+  const chip = dark
+    ? "bg-white/12 text-white/90 ring-1 ring-white/15"
+    : "bg-slate-100 text-slate-600 ring-1 ring-slate-200";
+  return (
+    <ul className="flex flex-wrap gap-1.5">
+      {shown.map((t) => (
+        <li key={t} className={`text-[11px] font-medium px-2 py-0.5 rounded-full ${chip}`}>
+          {t}
+        </li>
+      ))}
+      {rest > 0 && (
+        <li className={`text-[11px] font-medium px-2 py-0.5 rounded-full ${chip}`}>+{rest}</li>
+      )}
+    </ul>
+  );
+}
+
+function ProjectCard({ project, index, animateIn }: { project: Project; index: number; animateIn: boolean }) {
+  const ref = useRef<HTMLAnchorElement>(null);
   const [hovered, setHovered] = useState(false);
-  const router = useRouter();
+  const canHover = useCanHover();
+  const reduceMotion = useReducedMotion();
+  const interactive = canHover && !reduceMotion;
+
+  // Pointer position, normalised to -0.5 … 0.5
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const rotateX = useSpring(useTransform(py, [-0.5, 0.5], [TILT, -TILT]), SPRING);
+  const rotateY = useSpring(useTransform(px, [-0.5, 0.5], [-TILT, TILT]), SPRING);
+  const glareX = useTransform(px, [-0.5, 0.5], ["0%", "100%"]);
+  const glareY = useTransform(py, [-0.5, 0.5], ["0%", "100%"]);
+  const glare = useMotionTemplate`radial-gradient(circle at ${glareX} ${glareY}, rgba(255,255,255,0.35), transparent 55%)`;
+
+  function onPointerMove(e: React.PointerEvent) {
+    if (!interactive || !ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    px.set((e.clientX - r.left) / r.width - 0.5);
+    py.set((e.clientY - r.top) / r.height - 0.5);
+  }
+
+  function onPointerLeave() {
+    setHovered(false);
+    px.set(0);
+    py.set(0);
+  }
+
+  const isMobile = project.category === "Mobile App";
+  const fit = isMobile
+    ? "object-contain px-8 pt-4"
+    : `object-cover ${project.imagePosition ?? (isDeviceMockup(project.image) ? "object-center" : "object-top")}`;
+  const showDetails = hovered && canHover;
 
   return (
-    <motion.div
+    <motion.li
       layout
-      initial={{ opacity: 0, scale: 0.97 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.22 }}
-      className="group relative rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden flex flex-col transition-all duration-300 cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onClick={() => router.push(`/portfolio/${project.slug}`)}
-      style={{
-        boxShadow: hovered ? "0 20px 50px rgba(15,23,42,0.113)" : undefined,
-        borderColor: hovered ? "rgba(15,23,42,0.13)" : undefined,
-      }}
+      // First paint renders cards visible (server HTML, LCP); only filter changes fade in.
+      initial={animateIn ? { opacity: 0, y: 24 } : false}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.6, ease: EASE, delay: Math.min(index, 8) * 0.05 }}
+      style={{ perspective: 1000 }}
+      className="list-none"
     >
-      {/* ── Image area ── */}
-      <div className="relative overflow-hidden aspect-[16/10]">
-        {project.image ? (
-          project.category === "Mobile App" ? (
+      <Link
+        ref={ref}
+        href={`/portfolio/${project.slug}`}
+        onPointerEnter={() => setHovered(true)}
+        onPointerMove={onPointerMove}
+        onPointerLeave={onPointerLeave}
+        onFocus={() => setHovered(true)}
+        onBlur={() => setHovered(false)}
+        className="group block rounded-[22px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-4"
+        aria-label={`${project.title} — view case study`}
+      >
+        <motion.div
+          style={interactive ? { rotateX, rotateY, transformStyle: "preserve-3d" } : undefined}
+          animate={{ scale: showDetails && !reduceMotion ? 1.02 : 1 }}
+          transition={{ duration: 0.5, ease: EASE }}
+          className="relative aspect-[16/10] rounded-[22px] overflow-hidden bg-slate-100 ring-1 ring-slate-900/[0.06] shadow-[0_1px_2px_rgba(15,23,42,0.06)] transition-shadow duration-500 group-hover:shadow-[0_30px_60px_-20px_rgba(15,23,42,0.35)]"
+        >
+          {project.image ? (
             <>
-              {/* Tinted gradient background for portrait screenshots */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: `linear-gradient(160deg, ${project.gradientFrom}28 0%, rgba(11,15,25,0.95) 100%)`,
-                }}
-              />
+              {isMobile && (
+                <div
+                  className="absolute inset-0"
+                  style={{ background: `linear-gradient(160deg, ${project.gradientFrom}28 0%, rgba(11,15,25,0.95) 100%)` }}
+                />
+              )}
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
-                className={`object-contain ${project.imagePosition ?? "object-center"} transition-transform duration-700 px-8 pt-4`}
-                style={{ transform: hovered ? "scale(1.04)" : "scale(1)" }}
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className={`${fit} transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]`}
                 unoptimized={project.image.startsWith("http")}
               />
             </>
           ) : (
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className={`object-cover ${project.imagePosition ?? (isDeviceMockup(project.image) ? "object-center" : "object-top")} transition-transform duration-700`}
-              style={{ transform: hovered ? "scale(1.04)" : "scale(1)" }}
-              unoptimized={project.image.startsWith("http")}
+            <div
+              className="absolute inset-0"
+              style={{ background: `linear-gradient(135deg, ${project.gradientFrom}, ${project.gradientTo})` }}
             />
-          )
-        ) : (
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(135deg, ${project.gradientFrom}22, ${project.gradientTo}22)`,
-            }}
-          />
-        )}
+          )}
 
-        {/* Bottom fade */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, transparent, rgba(11,15,25,0.9))" }}
-        />
+          {/* Darkening veil + glare, only while hovering */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-slate-950/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
+          {interactive && (
+            <motion.div
+              className="absolute inset-0 pointer-events-none mix-blend-soft-light opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{ background: glare }}
+            />
+          )}
 
-        {/* Hover color glow */}
-        <div
-          className="absolute inset-0 pointer-events-none transition-opacity duration-500"
-          style={{
-            opacity: hovered ? 1 : 0,
-            background: `radial-gradient(ellipse at 50% 100%, ${project.gradientFrom}1a 0%, transparent 70%)`,
-          }}
-        />
+          {/* Hover details */}
+          <AnimatePresence>
+            {showDetails && (
+              <motion.div
+                key="details"
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 12 }}
+                transition={{ duration: 0.45, ease: EASE }}
+                className="absolute inset-x-0 bottom-0 p-5 flex items-end gap-4"
+              >
+                <div className="flex-1 min-w-0">
+                  <p className="text-[13px] leading-relaxed text-white/90 mb-3 line-clamp-3">
+                    {project.shortDesc}
+                  </p>
+                  <TechChips items={project.technologies} dark />
+                </div>
+                <motion.span
+                  initial={{ scale: 0.6, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.45, ease: EASE, delay: 0.08 }}
+                  className="shrink-0 grid place-items-center w-11 h-11 rounded-full bg-white text-slate-900 shadow-lg"
+                >
+                  <ArrowUpRight className="w-5 h-5" />
+                </motion.span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
 
-        {/* Category badge */}
-        <div className="absolute top-4 left-4 z-20">
-          <span
-            className="text-xs font-semibold px-2.5 py-1 rounded-full border backdrop-blur-md"
-            style={{
-              color: project.gradientFrom,
-              borderColor: `${project.gradientFrom}40`,
-              background: "rgba(11,15,25,0.65)",
-            }}
-          >
-            {project.category}
-          </span>
-        </div>
-
-        {/* Live badge */}
-        {project.liveUrl && (
-          <motion.a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full border backdrop-blur-md"
-            style={{
-              background: "rgba(11,15,25,0.65)",
-              borderColor: "rgba(52,211,153,0.35)",
-            }}
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            <span className="text-[10px] font-semibold text-emerald-400 tracking-wide">LIVE</span>
-          </motion.a>
-        )}
-      </div>
-
-      {/* ── Static card content ── */}
-      <div className="p-5 pt-4 flex flex-col flex-1">
-        <h3
-          className="text-base font-bold text-slate-900 mb-1.5 leading-snug"
-          style={{ letterSpacing: "-0.01em" }}
-        >
-          {project.title}
-        </h3>
-        <p
-          className="text-sm leading-relaxed mb-4"
-          style={{ color: "#475569" }}
-        >
-          {project.shortDesc}
-        </p>
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {project.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Always-visible action row */}
-        <div className="flex items-center justify-between pt-4 mt-auto border-t border-slate-200">
-          <Link
-            href={`/portfolio/${project.slug}`}
-            onClick={(e) => e.stopPropagation()}
-            className="flex items-center gap-1.5 text-sm font-semibold group/cs"
-            style={{ color: "#475569" }}
-          >
-            <span className="group-hover/cs:text-[#7A5807] transition-colors">Case Study</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover/cs:translate-x-0.5 group-hover/cs:text-[#7A5807] transition-all" />
-          </Link>
-
-          {project.liveUrl && (
-            <motion.a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                color: "#059669",
-                borderColor: "rgba(52,211,153,0.2)",
-                background: "rgba(52,211,153,0.06)",
-              }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-              Live Site <ExternalLink className="w-3 h-3" />
-            </motion.a>
+        {/* Caption */}
+        <div className="pt-4 px-1">
+          <div className="flex items-baseline justify-between gap-3">
+            <h3 className="text-[17px] font-medium text-slate-900 tracking-[-0.01em] truncate">
+              {project.title}
+            </h3>
+            <span className="shrink-0 text-xs text-slate-500">{project.category}</span>
+          </div>
+          {canHover ? (
+            <p className="mt-1 text-sm text-slate-500 truncate">{project.tags.slice(0, 2).join(" · ")}</p>
+          ) : (
+            <div className="mt-2 space-y-3">
+              <p className="text-sm leading-relaxed text-slate-600">{project.shortDesc}</p>
+              <TechChips items={project.technologies} />
+            </div>
           )}
         </div>
-      </div>
-    </motion.div>
+      </Link>
+    </motion.li>
   );
 }
 
-export default function ProjectGrid() {
+export default function ProjectGrid({ projects }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [hasFiltered, setHasFiltered] = useState(false);
 
   const filtered =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+    activeCategory === "All" ? projects : projects.filter((p) => p.category === activeCategory);
 
   return (
     <>
-      {/* Filter tabs */}
-      <div className="flex flex-wrap items-center gap-2.5 mb-12">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className="relative text-sm font-semibold px-5 py-2.5 rounded-full border transition-all duration-200 focus:outline-none"
-            style={
-              activeCategory === cat
-                ? {
-                    color: "#7A5D0F",
-                    borderColor: "rgba(184,134,11,0.5)",
-                    background: "rgba(184,134,11,0.12)",
-                  }
-                : {
-                    color: "#475569",
-                    borderColor: "rgba(15,23,42,0.07)",
-                    background: "transparent",
-                  }
-            }
-          >
-            {cat}
-          </button>
-        ))}
-        <span className="ml-auto text-sm" style={{ color: "#475569" }}>
+      {/* Segmented filter */}
+      <div className="flex flex-wrap items-center gap-4 mb-12">
+        <div className="inline-flex flex-wrap gap-1 p-1 rounded-full bg-slate-100 ring-1 ring-slate-200/70">
+          {categories.map((cat) => {
+            const active = activeCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => {
+                  setHasFiltered(true);
+                  setActiveCategory(cat);
+                }}
+                aria-pressed={active}
+                className={`relative text-sm font-medium px-4 py-2 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] ${
+                  active ? "text-slate-900" : "text-slate-500 hover:text-slate-800"
+                }`}
+              >
+                {active && (
+                  <motion.span
+                    layoutId="portfolio-filter-pill"
+                    className="absolute inset-0 rounded-full bg-white shadow-[0_1px_3px_rgba(15,23,42,0.12)]"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+                <span className="relative">{cat}</span>
+              </button>
+            );
+          })}
+        </div>
+        <span className="ml-auto text-sm text-slate-500">
           {filtered.length} project{filtered.length !== 1 ? "s" : ""}
         </span>
       </div>
 
-      {/* Uniform 3-column grid — CSS grid auto-stretches all cards in each row to the same height */}
-      <AnimatePresence mode="popLayout">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+      <motion.ul layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-12">
+        <AnimatePresence mode="popLayout">
+          {filtered.map((project, i) => (
+            <ProjectCard key={project.slug} project={project} index={i} animateIn={hasFiltered} />
           ))}
-        </div>
-      </AnimatePresence>
+        </AnimatePresence>
+      </motion.ul>
     </>
   );
 }

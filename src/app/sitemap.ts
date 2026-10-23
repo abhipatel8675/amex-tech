@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "@/data/blog";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/lib/portfolio/data";
 import { services } from "@/data/services";
 import { servicePages } from "@/data/servicePages";
 
@@ -11,7 +11,8 @@ const BASE_URL = "https://amextechnology.com";
 // every deploy regardless of whether content changed.
 const SITE_LAST_UPDATED = new Date("2026-07-24");
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const projects = await getProjects();
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,

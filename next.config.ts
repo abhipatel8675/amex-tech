@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      // Portfolio images uploaded from /admin/portfolio
+      {
+        protocol: "https",
+        hostname: "*.supabase.co",
+        pathname: "/storage/v1/object/public/portfolio/**",
+      },
     ],
     formats: ["image/avif", "image/webp"],
     qualities: [75, 80, 95],
