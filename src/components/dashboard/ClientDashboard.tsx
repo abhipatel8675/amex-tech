@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
-import { Zap, LogOut, Package, Clock, CheckCircle, AlertCircle, Download } from "lucide-react";
+import Link from "next/link";
+import Logo from "@/components/ui/Logo";
+import { LogOut, Package, Clock, CheckCircle, AlertCircle, Download } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
 type Order = {
@@ -134,14 +136,11 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-slate-200 bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-50">
+      <header className="border-b border-slate-200 bg-white/90 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2 font-bold">
-            <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}>
-              <Zap className="w-4 h-4 text-slate-900" />
-            </div>
-            Amex<span className="text-[#7A5807]">Technology</span>
-          </a>
+          <Link href="/" aria-label="Amex Technology home">
+            <Logo markSize={32} textClassName="text-lg" />
+          </Link>
           <div className="flex items-center gap-4">
             <span className="text-sm text-slate-600 hidden sm:block">{user.email}</span>
             <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">

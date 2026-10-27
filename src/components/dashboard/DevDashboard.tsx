@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
-import { Zap, LogOut, Package, Clock, CheckCircle, AlertCircle, DollarSign, Users, TrendingUp, ExternalLink } from "lucide-react";
-import type { User } from "@supabase/supabase-js";
+import { Package, Clock, CheckCircle, AlertCircle, DollarSign, Users, TrendingUp, ExternalLink } from "lucide-react";
 
 type Order = {
   id: string;
@@ -119,15 +118,9 @@ function OrderRow({ order, onUpdate }: { order: Order; onUpdate: (id: string, st
   );
 }
 
-export default function DevDashboard({ user, orders }: { user: User; orders: Order[] }) {
+export default function DevDashboard({ orders }: { orders: Order[] }) {
   const router = useRouter();
   const [filter, setFilter] = useState<string>("all");
-
-  const signOut = async () => {
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    router.push("/");
-  };
 
   const updateOrder = async (id: string, status: string, deliverableUrl: string) => {
     const supabase = createClient();
@@ -139,39 +132,17 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
   const filtered = filter === "all" ? orders : orders.filter(o => o.status === filter);
 
   return (
-    <div className="min-h-screen bg-white">
-      <header className="border-b border-slate-200 bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <a href="/" className="flex items-center gap-2 font-bold">
-              <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}>
-                <Zap className="w-4 h-4 text-slate-900" />
-              </div>
-              Amex<span className="text-[#7A5807]">Technology</span>
-            </a>
-            <span className="text-xs bg-[#B8860B]/10 border border-[#B8860B]/20 text-[#7A5807] px-2 py-0.5 rounded-full">Dev</span>
-          </div>
-          <div className="flex items-center gap-5">
-            <a href="/dashboard/dev/leads" className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
-              <Users className="w-4 h-4" /> Leads
-            </a>
-            <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
-              <LogOut className="w-4 h-4" /> Sign Out
-            </button>
-          </div>
-        </div>
-      </header>
-
+    <>
       <main className="max-w-5xl mx-auto px-6 py-10">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-1">Developer Dashboard</h1>
-          <p className="text-slate-600">Manage all client orders.</p>
+          <h1 className="text-3xl font-bold mb-1">Orders</h1>
+          <p className="text-slate-600">Every client order and its delivery status.</p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {[
-            { label: "Total Orders", value: orders.length, color: "#ededed", icon: Package },
+            { label: "Total Orders", value: orders.length, color: "#0f172a", icon: Package },
             { label: "Active", value: orders.filter(o => o.status === "in_progress").length, color: "#CC9A1A", icon: TrendingUp },
             { label: "Completed", value: orders.filter(o => o.status === "completed").length, color: "#CC9A1A", icon: CheckCircle },
             { label: "Revenue", value: `$${totalRevenue}`, color: "#CC9A1A", icon: DollarSign },
@@ -219,6 +190,6 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
           </div>
         )}
       </main>
-    </div>
+    </>
   );
 }

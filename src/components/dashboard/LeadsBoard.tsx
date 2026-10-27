@@ -1,8 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { Zap, ArrowLeft, Plus, Search, Mail, Phone, Globe, CalendarClock, DollarSign, Inbox, Trophy, Flame, Trash2 } from "lucide-react";
+import { Plus, Search, Mail, Phone, Globe, CalendarClock, DollarSign, Inbox, Trophy, Flame, Trash2, ChevronLeft, ChevronRight } from "lucide-react";
 import { LEAD_STATUSES, LEAD_SOURCES, type Lead, type LeadStatus, type LeadSource } from "@/lib/leadTypes";
 import { updateLead, addLead, deleteLead } from "@/app/dashboard/dev/leads/actions";
 
@@ -26,6 +25,7 @@ const SOURCE_LABEL: Record<LeadSource, string> = {
 };
 
 const OPEN: LeadStatus[] = ["new", "contacted", "replied", "call", "quoted"];
+const PAGE_SIZE = 20;
 
 const inputCls = "w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#B8860B]/50";
 const btnCls = "text-white font-semibold px-5 py-2 rounded-lg text-sm transition-all disabled:opacity-50";
@@ -165,6 +165,7 @@ export default function LeadsBoard({ leads, loadError }: { leads: Lead[]; loadEr
   const [filter, setFilter] = useState<"all" | "due" | LeadStatus>("all");
   const [query, setQuery] = useState("");
   const [adding, setAdding] = useState(false);
+  const [page, setPage] = useState(1);
 
   const t = today();
   const isDue = (l: Lead) => !!l.next_follow_up && OPEN.includes(l.status) && l.next_follow_up <= t;
@@ -184,26 +185,12 @@ export default function LeadsBoard({ leads, loadError }: { leads: Lead[]; loadEr
   const filtered = leads
     .filter((l) => (filter === "all" ? true : filter === "due" ? isDue(l) : l.status === filter))
     .filter((l) => !q || [l.name, l.company, l.email, l.phone, l.website, l.service, l.notes].some((v) => v?.toLowerCase().includes(q)));
+  const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const current = Math.min(page, pages);
+  const shown = filtered.slice((current - 1) * PAGE_SIZE, current * PAGE_SIZE);
 
   return (
-    <div className="min-h-screen bg-white">
-      <header className="border-b border-slate-200 bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-2 font-bold">
-              <div className="w-7 h-7 rounded-md flex items-center justify-center" style={btnStyle}>
-                <Zap className="w-4 h-4 text-slate-900" />
-              </div>
-              Amex<span className="text-[#7A5807]">Technology</span>
-            </Link>
-            <span className="text-xs bg-[#B8860B]/10 border border-[#B8860B]/20 text-[#7A5807] px-2 py-0.5 rounded-full">Leads</span>
-          </div>
-          <Link href="/dashboard/dev" className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Orders
-          </Link>
-        </div>
-      </header>
-
+    <>
       <main className="max-w-5xl mx-auto px-6 py-10">
         <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
           <div>
@@ -243,7 +230,7 @@ export default function LeadsBoard({ leads, loadError }: { leads: Lead[]; loadEr
 
         <div className="relative mb-4">
           <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-          <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search name, business, email, notes…" className={`${inputCls} pl-9`} />
+          <input value={query} onChange={(e) => { setQuery(e.target.value); setPage(1); }} placeholder="Search name, business, email, notes…" className={`${inputCls} pl-9`} />
         </div>
 
         <div className="flex gap-2 mb-6 flex-wrap">
@@ -253,7 +240,7 @@ export default function LeadsBoard({ leads, loadError }: { leads: Lead[]; loadEr
             return (
               <button
                 key={f}
-                onClick={() => setFilter(f)}
+                onClick={() => { setFilter(f); setPage(1); }}
                 className={`text-sm px-3 py-1.5 rounded-lg border transition-all ${
                   filter === f ? "border-[#B8860B] bg-[#B8860B]/10 text-[#7A5807]" : "border-slate-200 text-slate-600 hover:border-slate-300"
                 }`}
@@ -271,11 +258,29 @@ export default function LeadsBoard({ leads, loadError }: { leads: Lead[]; loadEr
             <p className="text-slate-600">Form submissions show up automatically. Add outreach replies with &quot;Add lead&quot;.</p>
           </div>
         ) : (
-          <div className="space-y-3">
-            {filtered.map((lead) => <LeadRow key={lead.id} lead={lead} />)}
-          </div>
+          <>
+            <div className="space-y-3">
+              {shown.map((lead) => <LeadRow key={lead.id} lead={lead} />)}
+            </div>
+            {pages > 1 && (
+              <div className="flex items-center justify-between gap-3 mt-6 text-sm">
+                <p className="text-slate-600">
+                  {(current - 1) * PAGE_SIZE + 1}–{Math.min(current * PAGE_SIZE, filtered.length)} of {filtered.length}
+                </p>
+                <div className="flex items-center gap-2">
+                  <button onClick={() => setPage(current - 1)} disabled={current === 1} className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:border-slate-300 disabled:opacity-40">
+                    <ChevronLeft className="w-4 h-4" /> Prev
+                  </button>
+                  <span className="text-slate-600">Page {current} of {pages}</span>
+                  <button onClick={() => setPage(current + 1)} disabled={current === pages} className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:border-slate-300 disabled:opacity-40">
+                    Next <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            )}
+          </>
         )}
       </main>
-    </div>
+    </>
   );
 }
