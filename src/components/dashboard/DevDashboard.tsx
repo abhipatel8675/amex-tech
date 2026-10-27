@@ -151,9 +151,14 @@ export default function DevDashboard({ user, orders }: { user: User; orders: Ord
             </a>
             <span className="text-xs bg-[#B8860B]/10 border border-[#B8860B]/20 text-[#7A5807] px-2 py-0.5 rounded-full">Dev</span>
           </div>
-          <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
-            <LogOut className="w-4 h-4" /> Sign Out
-          </button>
+          <div className="flex items-center gap-5">
+            <a href="/dashboard/dev/leads" className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
+              <Users className="w-4 h-4" /> Leads
+            </a>
+            <button onClick={signOut} className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
+              <LogOut className="w-4 h-4" /> Sign Out
+            </button>
+          </div>
         </div>
       </header>
 

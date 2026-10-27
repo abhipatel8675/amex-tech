@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { saveLead } from "@/lib/leads";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -9,6 +10,8 @@ export async function POST(req: Request) {
     if (!email || typeof email !== "string" || !EMAIL_RE.test(email)) {
       return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
     }
+
+    await saveLead({ source: "newsletter", email });
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",

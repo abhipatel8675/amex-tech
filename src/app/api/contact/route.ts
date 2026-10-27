@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { saveLead } from "@/lib/leads";
 
 export async function POST(req: Request) {
   try {
@@ -7,6 +8,8 @@ export async function POST(req: Request) {
     if (!name || !email || !service || !message) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
+
+    await saveLead({ source: "contact_section", name, email, service, message });
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",

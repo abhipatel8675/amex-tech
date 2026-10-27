@@ -3,6 +3,7 @@ import nodemailer from "nodemailer";
 import { scanApp } from "@/lib/appChecker/scan";
 import { BlockedUrlError } from "@/lib/appChecker/safeFetch";
 import { reportEmailText, leadAlertText, LEAD_SUBJECT_PREFIX } from "@/lib/appChecker/reportEmail";
+import { saveLead } from "@/lib/leads";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -53,6 +54,15 @@ export async function POST(req: NextRequest) {
     const message = err instanceof BlockedUrlError ? err.message : "We couldn't re-check that site. Please try again.";
     return NextResponse.json({ error: message }, { status: 502 });
   }
+
+  await saveLead({
+    source: "app_checker",
+    name,
+    email,
+    website: result.finalUrl,
+    message: `App Checker score ${result.score}/100`,
+    meta: { score: result.score },
+  });
 
   const transport = nodemailer.createTransport({ host: "smtppro.zoho.in", port: 465, secure: true, auth: { user, pass } });
   const host = new URL(result.finalUrl).hostname;

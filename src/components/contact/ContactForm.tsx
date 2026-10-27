@@ -80,6 +80,12 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.message);
+      // Copy into the leads pipeline; never block the visitor on it.
+      fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name, email: form.email, company: form.company, service: form.service, budget: form.budget, message: form.message }),
+      }).catch(() => {});
       setSuccess(true);
       // GA4 conversion tracking
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
