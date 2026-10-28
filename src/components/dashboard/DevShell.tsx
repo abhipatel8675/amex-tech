@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Users, Package, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, Send, Package, LogOut } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { createClient } from "@/lib/supabase/client";
 
 const TABS = [
   { href: "/dashboard/dev", label: "Overview", icon: LayoutDashboard },
   { href: "/dashboard/dev/leads", label: "Leads", icon: Users },
+  { href: "/dashboard/dev/outreach", label: "Outreach", icon: Send },
   { href: "/dashboard/dev/orders", label: "Orders", icon: Package },
 ];
 
