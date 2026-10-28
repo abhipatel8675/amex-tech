@@ -4,20 +4,11 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowRight, CalendarClock, DollarSign, Flame, Inbox, Package, Trophy } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
-import { leadsDb, type Lead, type LeadSource } from "@/lib/leads";
+import { leadsDb, LEAD_SOURCE_LABEL as SOURCE_LABEL, type Lead, type LeadSource } from "@/lib/leads";
 
 export const metadata: Metadata = {
   title: "Overview",
   robots: { index: false, follow: false },
-};
-
-const SOURCE_LABEL: Record<LeadSource, string> = {
-  contact_form: "Contact page",
-  contact_section: "Homepage form",
-  app_checker: "App Checker",
-  newsletter: "Newsletter",
-  manual: "Manual",
-  outreach: "Outreach",
 };
 
 const OPEN = ["new", "contacted", "replied", "call", "quoted"];

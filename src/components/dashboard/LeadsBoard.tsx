@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Plus, Search, Mail, Phone, Globe, CalendarClock, DollarSign, Inbox, Trophy, Flame, Trash2, ChevronLeft, ChevronRight } from "lucide-react";
-import { LEAD_STATUSES, LEAD_SOURCES, type Lead, type LeadStatus, type LeadSource } from "@/lib/leadTypes";
+import { LEAD_STATUSES, LEAD_SOURCES, LEAD_SOURCE_LABEL as SOURCE_LABEL, type Lead, type LeadStatus } from "@/lib/leadTypes";
 import { updateLead, addLead, deleteLead } from "@/app/dashboard/dev/leads/actions";
 
 const STATUS_META: Record<LeadStatus, { label: string; color: string }> = {
@@ -13,15 +13,6 @@ const STATUS_META: Record<LeadStatus, { label: string; color: string }> = {
   quoted: { label: "Quoted", color: "#CC9A1A" },
   won: { label: "Won", color: "#16a34a" },
   lost: { label: "Lost", color: "#94a3b8" },
-};
-
-const SOURCE_LABEL: Record<LeadSource, string> = {
-  contact_form: "Contact page",
-  contact_section: "Homepage form",
-  app_checker: "App Checker",
-  newsletter: "Newsletter",
-  manual: "Manual",
-  outreach: "Outreach",
 };
 
 const OPEN: LeadStatus[] = ["new", "contacted", "replied", "call", "quoted"];

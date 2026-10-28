@@ -4,7 +4,7 @@ import { CheckCircle2, ArrowRight, Clock, Globe, FileText, Smartphone, Search, S
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/ui/Breadcrumb";
-import AppChecker from "@/components/tools/AppChecker";
+import WebsiteGrader from "@/components/tools/WebsiteGrader";
 
 // Landing page for LA trade businesses (plumbers, handymen, HVAC, contractors).
 // Outreach links here with ?site=theirsite.com so the free scan is prefilled.
@@ -123,9 +123,9 @@ export default async function LaWebsitePage({ searchParams }: { searchParams: Pr
           <div className="p-6 md:p-8 rounded-2xl border border-slate-200 bg-slate-50">
             <h2 className="text-2xl font-bold mb-2">Free: check your current website</h2>
             <p className="text-slate-600 mb-6">
-              Paste your website address. In about 30 seconds you&apos;ll see your score and what&apos;s costing you calls.
+              Paste your website address. In about 10 seconds you&apos;ll see your score and what&apos;s costing you calls.
             </p>
-            <AppChecker initialUrl={initialUrl} />
+            <WebsiteGrader initialUrl={initialUrl} />
           </div>
         </section>
 
