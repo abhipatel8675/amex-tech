@@ -68,8 +68,13 @@ export async function gradeSite(input: string): Promise<GradeResult> {
   const noAlt = imgs.filter((t) => !/\balt=["'][^"']+["']/i.test(t)).length;
   const pageKb = Math.round(res.bytes / 1024);
   const thisYear = new Date().getFullYear();
-  // Builder sites load forms with JavaScript, so a missing <form> there isn't proof.
-  const hasForm = /<form\b|jotform|typeform|hsforms|calendly|cal\.com|housecallpro|jobber|servicetitan|book(ing)?[- ]?now|request (a )?(quote|estimate)/i.test(html) || builder === "Wix";
+  // A form on the page, a known form/booking widget, or a link to a quote/contact page all
+  // count. Wix and Squarespace load forms with JavaScript, so a missing <form> there isn't proof.
+  const hasForm =
+    /<form\b|wpcf7|wpforms|gform|elementor-form|ninja-forms|formidable|jotform|typeform|hsforms|hbspt|calendly|cal\.com|housecallpro|jobber|servicetitan|leadconnector|msgsndr|podium/i.test(html) ||
+    /<a\b[^>]+href=["'][^"']*(contact|quote|estimate|schedule|booking|book-now|appointment)[^"']*["']/i.test(html) ||
+    builder === "Wix" ||
+    builder === "Squarespace";
 
   const checks: Check[] = [
     {
@@ -92,7 +97,7 @@ export async function gradeSite(input: string): Promise<GradeResult> {
     },
     {
       id: "form", group: "Turning visitors into calls", weight: 10, pass: hasForm,
-      title: hasForm ? "Quote or contact form found" : "No quote form on the homepage",
+      title: hasForm ? "Easy way to request a quote" : "No quote form or quote page on the homepage",
       why: "People browsing after hours won't call. A short quote form catches those jobs while you sleep.",
       fix: "Add a 3–4 field quote request form near the top of the homepage.",
     },
