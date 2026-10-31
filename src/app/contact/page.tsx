@@ -199,11 +199,11 @@ export default function ContactPage() {
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-7">
                 <h2 className="text-base font-semibold text-slate-900 mb-4">Or email us directly</h2>
                 <a
-                  href="mailto:abhipatel8675@gmail.com"
+                  href="mailto:abhi.business8675@gmail.com"
                   className="group inline-flex items-center gap-2 text-sm text-[#7A5807] hover:text-[#7A5807] transition-colors font-medium"
                 >
                   <Mail className="w-4 h-4" />
-                  abhipatel8675@gmail.com
+                  abhi.business8675@gmail.com
                   <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </a>
               </div>

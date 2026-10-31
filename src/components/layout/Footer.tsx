@@ -205,11 +205,11 @@ export default function Footer() {
                     Email
                   </p>
                   <a
-                    href="mailto:abhipatel8675@gmail.com"
+                    href="mailto:abhi.business8675@gmail.com"
                     className="text-sm flex items-center gap-1 transition-colors hover:text-slate-900 group"
                     style={{ color: "#475569" }}
                   >
-                    abhipatel8675@gmail.com
+                    abhi.business8675@gmail.com
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </div>

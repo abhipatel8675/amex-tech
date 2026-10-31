@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "July 11, 2026";
-const CONTACT_EMAIL = "abhipatel8675@gmail.com";
+const CONTACT_EMAIL = "abhi.business8675@gmail.com";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
