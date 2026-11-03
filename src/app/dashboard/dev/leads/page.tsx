@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function LeadsPage() {
+export default async function LeadsPage({ searchParams }: { searchParams: Promise<{ f?: string; q?: string; open?: string }> }) {
+  const { f = "all", q = "", open = "" } = await searchParams;
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
@@ -27,5 +28,5 @@ export default async function LeadsPage() {
     ? await db.from("lead_emails").select("id, lead_id, to_email, subject, body, template, created_at").order("created_at", { ascending: false }).limit(1000)
     : { data: [] };
 
-  return <LeadsBoard leads={(leads as Lead[]) || []} emails={(emails as LeadEmail[]) || []} loadError={error?.message ?? null} />;
+  return <LeadsBoard leads={(leads as Lead[]) || []} emails={(emails as LeadEmail[]) || []} loadError={error?.message ?? null} initialFilter={f} initialQuery={q} openId={open} />;
 }

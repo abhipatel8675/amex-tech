@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Plus, Search, Mail, Phone, Globe, CalendarClock, DollarSign, Inbox, Trophy, Flame, Trash2, ChevronLeft, ChevronRight } from "lucide-react";
 import { LEAD_STATUSES, LEAD_SOURCES, LEAD_SOURCE_LABEL as SOURCE_LABEL, type Lead, type LeadStatus } from "@/lib/leadTypes";
 import { updateLead, addLead, deleteLead } from "@/app/dashboard/dev/leads/actions";
@@ -36,14 +36,14 @@ function StatusPill({ status }: { status: LeadStatus }) {
   );
 }
 
-function LeadRow({ lead, history }: { lead: Lead; history: LeadEmail[] }) {
-  const [expanded, setExpanded] = useState(false);
+function LeadRow({ lead, history, open = false }: { lead: Lead; history: LeadEmail[]; open?: boolean }) {
+  const [expanded, setExpanded] = useState(open);
   const [writing, setWriting] = useState(false);
   const due = lead.next_follow_up && OPEN.includes(lead.status) && lead.next_follow_up <= today();
   const title = lead.company || lead.name || lead.email || "Unnamed lead";
 
   return (
-    <div className={`bg-white border rounded-2xl overflow-hidden transition-all ${due ? "border-amber-300" : "border-slate-200 hover:border-slate-300"}`}>
+    <div id={lead.id} className={`bg-white border rounded-2xl overflow-hidden transition-all scroll-mt-24 ${open ? "ring-2 ring-[#B8860B]/40" : ""} ${due ? "border-amber-300" : "border-slate-200 hover:border-slate-300"}`}>
       <div className="flex flex-wrap items-center justify-between gap-3 p-5 cursor-pointer" onClick={() => setExpanded(!expanded)}>
         <div className="flex items-center gap-4 min-w-0">
           <StatusPill status={lead.status} />
@@ -164,16 +164,19 @@ function AddLeadForm({ onDone }: { onDone: () => void }) {
   );
 }
 
-export default function LeadsBoard({ leads, emails = [], loadError }: { leads: Lead[]; emails?: LeadEmail[]; loadError: string | null }) {
+export default function LeadsBoard({ leads, emails = [], loadError, initialFilter = "all", initialQuery = "", openId = "" }: { leads: Lead[]; emails?: LeadEmail[]; loadError: string | null; initialFilter?: string; initialQuery?: string; openId?: string }) {
   const byLead = useMemo(() => {
     const m = new Map<string, LeadEmail[]>();
     for (const e of emails) if (e.lead_id) m.set(e.lead_id, [...(m.get(e.lead_id) ?? []), e]);
     return m;
   }, [emails]);
-  const [filter, setFilter] = useState<"all" | "due" | LeadStatus>("all");
-  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState<"all" | "due" | LeadStatus>(openId ? "all" : (["all", "due", ...LEAD_STATUSES] as string[]).includes(initialFilter) ? (initialFilter as "all" | "due" | LeadStatus) : "all");
+  const [query, setQuery] = useState(initialQuery);
   const [adding, setAdding] = useState(false);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(() => Math.floor(Math.max(0, leads.findIndex((l) => l.id === openId)) / PAGE_SIZE) + 1);
+  useEffect(() => {
+    if (openId) document.getElementById(openId)?.scrollIntoView({ block: "center" });
+  }, [openId]);
 
   const t = today();
   const isDue = (l: Lead) => !!l.next_follow_up && OPEN.includes(l.status) && l.next_follow_up <= t;
@@ -192,7 +195,7 @@ export default function LeadsBoard({ leads, emails = [], loadError }: { leads: L
   const q = query.trim().toLowerCase();
   const filtered = leads
     .filter((l) => (filter === "all" ? true : filter === "due" ? isDue(l) : l.status === filter))
-    .filter((l) => !q || [l.name, l.company, l.email, l.phone, l.website, l.service, l.notes].some((v) => v?.toLowerCase().includes(q)));
+    .filter((l) => !q || [l.name, l.company, l.email, l.phone, l.website, l.service, l.notes, SOURCE_LABEL[l.source]].some((v) => v?.toLowerCase().includes(q)));
   const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const current = Math.min(page, pages);
   const shown = filtered.slice((current - 1) * PAGE_SIZE, current * PAGE_SIZE);
@@ -218,18 +221,18 @@ export default function LeadsBoard({ leads, emails = [], loadError }: { leads: L
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {[
-            { label: "New", value: stats.fresh, icon: Inbox, color: "#2563eb" },
-            { label: "Follow-ups due", value: stats.due, icon: CalendarClock, color: stats.due ? "#d97706" : "#64748b" },
-            { label: "Quoted pipeline", value: usd(stats.pipeline), icon: Flame, color: "#CC9A1A" },
-            { label: "Won", value: usd(stats.won), icon: Trophy, color: "#16a34a" },
+            { label: "New", value: stats.fresh, icon: Inbox, color: "#2563eb", f: "new" as const },
+            { label: "Follow-ups due", value: stats.due, icon: CalendarClock, color: stats.due ? "#d97706" : "#64748b", f: "due" as const },
+            { label: "Quoted pipeline", value: usd(stats.pipeline), icon: Flame, color: "#CC9A1A", f: "quoted" as const },
+            { label: "Won", value: usd(stats.won), icon: Trophy, color: "#16a34a", f: "won" as const },
           ].map((s) => {
             const Icon = s.icon;
             return (
-              <div key={s.label} className="bg-white border border-slate-200 rounded-2xl p-4">
+              <button key={s.label} type="button" onClick={() => { setFilter(s.f); setPage(1); }} className={`text-left bg-white border rounded-2xl p-4 transition-colors ${filter === s.f ? "border-[#B8860B]" : "border-slate-200 hover:border-[#B8860B]/50"}`}>
                 <Icon className="w-4 h-4 text-slate-600 mb-2" />
                 <div className="text-2xl font-bold mb-1" style={{ color: s.color }}>{s.value}</div>
-                <div className="text-xs text-slate-600">{s.label}</div>
-              </div>
+                <div className="text-xs text-slate-600">{s.label} →</div>
+              </button>
             );
           })}
         </div>
@@ -268,7 +271,7 @@ export default function LeadsBoard({ leads, emails = [], loadError }: { leads: L
         ) : (
           <>
             <div className="space-y-3">
-              {shown.map((lead) => <LeadRow key={lead.id} lead={lead} history={byLead.get(lead.id) ?? []} />)}
+              {shown.map((lead) => <LeadRow key={lead.id} lead={lead} history={byLead.get(lead.id) ?? []} open={lead.id === openId} />)}
             </div>
             {pages > 1 && (
               <div className="flex items-center justify-between gap-3 mt-6 text-sm">

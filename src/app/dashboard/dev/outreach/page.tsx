@@ -6,6 +6,7 @@ import { Send, MessageSquareReply, AlertTriangle, UserX, Clock, Ban } from "luci
 import { createClient } from "@/lib/supabase/server";
 import { leadsDb } from "@/lib/leads";
 import { loadOutreachSnapshot, type OutreachContact } from "@/lib/outreach";
+import { coldLeads, outreachQueue } from "@/lib/outreachWorker";
 
 export const metadata: Metadata = {
   title: "Outreach",
@@ -39,7 +40,17 @@ export default async function OutreachPage() {
   if (user.email !== process.env.DEVELOPER_EMAIL) redirect("/dashboard/client");
 
   const db = leadsDb();
-  const snap = db ? await loadOutreachSnapshot(db) : null;
+  const [stored, live, liveQueue] = await Promise.all([db ? loadOutreachSnapshot(db) : null, coldLeads().catch(() => null), outreachQueue().catch(() => null)]);
+  const snippets = new Map((stored?.contacts ?? []).filter((c) => c.reply_snippet).map((c) => [c.email, c.reply_snippet]));
+  const snap = live
+    ? {
+        ...(stored ?? { enabled: true, from_email: "abhi@amextech.org", queue: [] }),
+        synced_at: new Date().toISOString(),
+        enabled: liveQueue?.enabled ?? stored?.enabled ?? true,
+        queue: liveQueue?.queue ?? stored?.queue ?? [],
+        contacts: live.leads.map((l): OutreachContact => ({ id: l.id, segment: l.source, business: l.business, email: l.email, city: l.city, category: l.category, website: l.website, problem: "", subject: l.subject, status: l.status.startsWith("queue_") ? "new" : l.status, last_sent_at: l.last_sent_at, replied_at: l.replied_at, notes: l.notes, reply_snippet: snippets.get(l.email) })),
+      }
+    : stored;
   const contacts = snap?.contacts ?? [];
   const emailed = contacts.filter((c) => EMAILED.includes(c.status));
   const count = (s: string) => contacts.filter((c) => c.status === s).length;
@@ -47,11 +58,11 @@ export default async function OutreachPage() {
   const bounced = count("bounced");
 
   const stats = [
-    { label: "Emailed", value: emailed.length, sub: `${count("new")} waiting to send`, icon: Send, color: "#0f172a" },
-    { label: "Replied", value: replied, sub: `${pct(replied, emailed.length)} reply rate`, icon: MessageSquareReply, color: "#16a34a" },
-    { label: "Bounced", value: bounced, sub: `${pct(bounced, emailed.length)} (keep under 2%)`, icon: AlertTriangle, color: bounced / Math.max(1, emailed.length) > 0.02 ? "#dc2626" : "#64748b" },
-    { label: "Opted out", value: count("optout"), sub: pct(count("optout"), emailed.length), icon: UserX, color: "#64748b" },
-    { label: "Skipped", value: count("skipped"), sub: "site fixed, no mail server, role address…", icon: Ban, color: "#64748b" },
+    { label: "Emailed", value: emailed.length, sub: `${count("new")} waiting to send`, icon: Send, color: "#0f172a", href: "/dashboard/dev/cold-leads?f=emailed" },
+    { label: "Replied", value: replied, sub: `${pct(replied, emailed.length)} reply rate`, icon: MessageSquareReply, color: "#16a34a", href: "/dashboard/dev/cold-leads?f=replied" },
+    { label: "Bounced", value: bounced, sub: `${pct(bounced, emailed.length)} (keep under 2%)`, icon: AlertTriangle, color: bounced / Math.max(1, emailed.length) > 0.02 ? "#dc2626" : "#64748b", href: "/dashboard/dev/cold-leads?f=skipped" },
+    { label: "Opted out", value: count("optout"), sub: pct(count("optout"), emailed.length), icon: UserX, color: "#64748b", href: "/dashboard/dev/cold-leads?f=skipped" },
+    { label: "Skipped", value: count("skipped"), sub: "no clear site problem, no mail server, role address…", icon: Ban, color: "#64748b", href: "/dashboard/dev/cold-leads?f=skipped" },
   ];
 
   // Sends per day for the last 14 days.
@@ -81,7 +92,7 @@ export default async function OutreachPage() {
       <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold mb-1">Outreach</h1>
-          <p className="text-slate-600">Cold email results, updated automatically after every run.</p>
+          <p className="text-slate-600">Cold email results, live.</p>
         </div>
         {snap && (
           <div className="text-right text-sm">
@@ -99,12 +110,12 @@ export default async function OutreachPage() {
             {stats.map((s) => {
               const Icon = s.icon;
               return (
-                <div key={s.label} className="bg-white border border-slate-200 rounded-2xl p-4">
+                <Link key={s.label} href={s.href} className="bg-white border border-slate-200 rounded-2xl p-4 hover:border-[#B8860B]/50 transition-colors">
                   <Icon className="w-4 h-4 text-slate-600 mb-2" />
                   <div className="text-2xl font-bold mb-1" style={{ color: s.color }}>{s.value}</div>
-                  <div className="text-xs text-slate-700">{s.label}</div>
+                  <div className="text-xs text-slate-700">{s.label} →</div>
                   <div className="text-xs text-slate-500 mt-0.5">{s.sub}</div>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -173,7 +184,7 @@ export default async function OutreachPage() {
                   <tbody className="divide-y divide-slate-100">
                     {breakdown(contacts, key).map(([name, r]) => (
                       <tr key={name}>
-                        <td className="py-1.5">{title(name)}</td>
+                        <td className="py-1.5"><Link href={`/dashboard/dev/cold-leads?f=all&q=${encodeURIComponent(key === "category" ? name : name)}`} className="hover:text-[#7A5807] hover:underline">{title(name)}</Link></td>
                         <td className="py-1.5 text-right tabular-nums">{r.sent}</td>
                         <td className="py-1.5 text-right tabular-nums">{r.replied}</td>
                         <td className="py-1.5 text-right tabular-nums text-slate-600">{pct(r.replied, r.sent)}</td>
@@ -192,12 +203,14 @@ export default async function OutreachPage() {
             ) : (
               <ul className="divide-y divide-slate-100">
                 {replies.map((c) => (
-                  <li key={c.id} className="py-2.5 text-sm">
-                    <div className="flex justify-between gap-3">
-                      <span className="font-medium truncate">{c.business || c.email}</span>
-                      <span className="text-xs text-slate-500 flex-shrink-0">{c.replied_at ? day(c.replied_at) : ""}</span>
-                    </div>
-                    <p className="text-xs text-slate-600 truncate">{c.reply_snippet || c.subject}</p>
+                  <li key={c.id}>
+                    <Link href={`/dashboard/dev/leads?q=${encodeURIComponent(c.email)}`} className="block py-2.5 text-sm hover:text-[#7A5807]">
+                      <div className="flex justify-between gap-3">
+                        <span className="font-medium truncate">{c.business || c.email}</span>
+                        <span className="text-xs text-slate-500 flex-shrink-0">{c.replied_at ? day(c.replied_at) : ""}</span>
+                      </div>
+                      <p className="text-xs text-slate-600 truncate">{c.reply_snippet || c.subject}</p>
+                    </Link>
                   </li>
                 ))}
               </ul>
