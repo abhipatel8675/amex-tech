@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Play } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
@@ -42,16 +43,16 @@ export default async function LeadSourcesPage({ searchParams }: { searchParams: 
         <>
           <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
             {[
-              { label: "Leads waiting to be emailed", value: s.waiting_total },
-              { label: "Found by the lead finder", value: s.found_total },
-              { label: "Lists searched", value: `${s.searched} / ${s.total}` },
-              { label: "Runs by itself", value: "Mondays" },
-            ].map((x) => (
-              <div key={x.label} className="bg-white border border-slate-200 rounded-xl px-4 py-3">
-                <dd className="text-xl font-bold text-slate-900">{x.value}</dd>
-                <dt className="text-xs text-slate-600">{x.label}</dt>
-              </div>
-            ))}
+              { label: "Leads waiting to be emailed", value: s.waiting_total, href: "/dashboard/dev/cold-leads?f=waiting" },
+              { label: "Found by the lead finder", value: s.found_total, href: "/dashboard/dev/cold-leads?f=all" },
+              { label: "Lists searched", value: `${s.searched} / ${s.total}`, href: "" },
+              { label: "Runs by itself", value: "Mondays", href: "" },
+            ].map((x) => {
+              const inner = (<><dd className="text-xl font-bold text-slate-900">{x.value}</dd><dt className="text-xs text-slate-600">{x.label}{x.href ? " →" : ""}</dt></>);
+              return x.href
+                ? <Link key={x.label} href={x.href} className="bg-white border border-slate-200 rounded-xl px-4 py-3 hover:border-[#B8860B]/50 transition-colors">{inner}</Link>
+                : <div key={x.label} className="bg-white border border-slate-200 rounded-xl px-4 py-3">{inner}</div>;
+            })}
           </dl>
 
           <section className={`${card} mb-6`}>

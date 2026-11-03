@@ -64,15 +64,15 @@ export default async function QueuePage({ searchParams }: { searchParams: Promis
           {!state.enabled && <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">Sending is paused. Nothing goes out until it is turned back on.</div>}
           <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
             {[
-              { label: "Sent today", value: `${state.sent_today} / ${state.daily_limit}` },
-              { label: "Emailed in total", value: state.emailed_total },
-              { label: "Replies", value: state.replied_total },
-              { label: "Leads left to email", value: state.not_contacted },
+              { label: "Sent today", value: `${state.sent_today} / ${state.daily_limit}`, href: "/dashboard/dev/queue?tab=sent" },
+              { label: "Emailed in total", value: state.emailed_total, href: "/dashboard/dev/cold-leads?f=emailed" },
+              { label: "Replies", value: state.replied_total, href: "/dashboard/dev/cold-leads?f=replied" },
+              { label: "Leads left to email", value: state.not_contacted, href: "/dashboard/dev/cold-leads?f=waiting" },
             ].map((s) => (
-              <div key={s.label} className="bg-white border border-slate-200 rounded-xl px-4 py-3">
+              <Link key={s.label} href={s.href} className="bg-white border border-slate-200 rounded-xl px-4 py-3 hover:border-[#B8860B]/50 transition-colors">
                 <dd className="text-xl font-bold text-slate-900">{s.value}</dd>
-                <dt className="text-xs text-slate-600">{s.label}</dt>
-              </div>
+                <dt className="text-xs text-slate-600">{s.label} →</dt>
+              </Link>
             ))}
           </dl>
 

@@ -43,3 +43,21 @@ export type FinderState = {
 
 export const finderSettings = (change?: Record<string, unknown>) => callWorker<FinderState>("/finder", change);
 export const startFinder = () => callWorker<{ ok: boolean }>("/finder/run", {});
+
+export type ColdLead = {
+  id: string;
+  business: string;
+  first_name: string;
+  email: string;
+  city: string;
+  category: string;
+  website: string;
+  status: string;
+  source: string;
+  notes: string;
+  last_sent_at: string;
+  replied_at: string;
+  subject: string;
+};
+
+export const coldLeads = () => callWorker<{ leads: ColdLead[] }>("/leads");
