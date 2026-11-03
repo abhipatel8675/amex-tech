@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { Sparkles, Loader2, Pencil, Check, ChevronDown } from "lucide-react";
 import type { QueueState } from "@/lib/outreachWorker";
 import { aiRewrite, removeEmail, saveEmail } from "@/app/dashboard/dev/queue/actions";
+import PendingButton from "./PendingButton";
 
 type Item = QueueState["queue"][number];
 
@@ -37,7 +38,7 @@ function Status({ item }: { item: Item }) {
   return <span className={`text-xs font-medium rounded-full px-2.5 py-1 whitespace-nowrap ${tone}`}>{text}</span>;
 }
 
-export default function QueueCard({ item }: { item: Item }) {
+export default function QueueCard({ item, tab }: { item: Item; tab: string }) {
   const [open, setOpen] = useState(false);
   const [subject, setSubject] = useState(item.subject);
   const [body, setBody] = useState(item.body);
@@ -69,13 +70,14 @@ export default function QueueCard({ item }: { item: Item }) {
           <Status item={item} />
           {editable && !item.skipped && (
             <form action={saveEmail}>
+              <input type="hidden" name="tab" value={tab} />
               <input type="hidden" name="id" value={item.id} />
               <input type="hidden" name="subject" value={item.subject} />
               <input type="hidden" name="body" value={item.body} />
               {!item.approved && <input type="hidden" name="approved" value="on" />}
-              <button type="submit" className={`inline-flex items-center gap-1 text-xs font-semibold rounded-lg px-2.5 py-1.5 border ${item.approved ? "border-slate-200 text-slate-600 hover:border-slate-300" : "border-emerald-300 text-emerald-700 hover:bg-emerald-50"}`}>
+              <PendingButton className={`inline-flex items-center gap-1 text-xs font-semibold rounded-lg px-2.5 py-1.5 border ${item.approved ? "border-slate-200 text-slate-600 hover:border-slate-300" : "border-emerald-300 text-emerald-700 hover:bg-emerald-50"}`}>
                 {item.approved ? "Unapprove" : <><Check className="w-3.5 h-3.5" /> Approve</>}
-              </button>
+              </PendingButton>
             </form>
           )}
           <button type="button" onClick={() => setOpen(!open)} className="inline-flex items-center gap-1 text-xs font-semibold text-[#7A5807] border border-[#B8860B]/40 rounded-lg px-2.5 py-1.5 hover:bg-[#B8860B]/10">
@@ -98,6 +100,7 @@ export default function QueueCard({ item }: { item: Item }) {
                 </button>
               </div>
               <form action={saveEmail} className="space-y-2" onSubmit={() => setMsg("")}>
+                <input type="hidden" name="tab" value={tab} />
                 <input type="hidden" name="id" value={item.id} />
                 <input name="subject" value={subject} onChange={(e) => setSubject(e.target.value)} maxLength={200} aria-label="Subject" className={`${inputCls} font-medium`} />
                 <textarea name="body" value={body} onChange={(e) => setBody(e.target.value)} rows={7} maxLength={5000} aria-label="Email text" className={inputCls} />
@@ -107,8 +110,8 @@ export default function QueueCard({ item }: { item: Item }) {
                   <label className="flex items-center gap-2 text-sm">
                     <input type="checkbox" name="approved" defaultChecked={item.approved} className="size-4 accent-[#B8860B]" /> Approved to send
                   </label>
-                  <button type="submit" className={btnCls} style={btnStyle}>Save</button>
-                  <button type="submit" formAction={removeEmail} onClick={(e) => { if (!confirm(`Remove the email to ${item.business}?`)) e.preventDefault(); }} className="ml-auto text-xs text-red-700 hover:underline">Remove from queue</button>
+                  <PendingButton className={btnCls} style={btnStyle}>Save</PendingButton>
+                  <PendingButton formAction={removeEmail} onClick={(e) => { if (!confirm(`Remove the email to ${item.business}?`)) e.preventDefault(); }} className="ml-auto text-xs text-red-700 hover:underline">Remove from queue</PendingButton>
                 </div>
               </form>
             </div>

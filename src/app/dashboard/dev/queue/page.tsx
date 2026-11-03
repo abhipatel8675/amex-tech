@@ -7,6 +7,7 @@ import { createClient } from "@/lib/supabase/server";
 import { outreachQueue, type QueueState } from "@/lib/outreachWorker";
 import { approveAll } from "./actions";
 import QueueCard from "@/components/dashboard/QueueCard";
+import PendingButton from "@/components/dashboard/PendingButton";
 
 export const metadata: Metadata = { title: "Email queue", robots: { index: false, follow: false } };
 
@@ -21,7 +22,7 @@ type Item = QueueState["queue"][number];
 const inTab = (q: Item, tab: Tab) =>
   tab === "sent" ? !!q.sent : q.sent ? false : tab === "skipped" ? !!q.skipped : !q.skipped && (tab === "waiting" ? q.approved : !q.approved);
 
-export default async function QueuePage({ searchParams }: { searchParams: Promise<{ tab?: string }> }) {
+export default async function QueuePage({ searchParams }: { searchParams: Promise<{ tab?: string; error?: string }> }) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
@@ -36,7 +37,8 @@ export default async function QueuePage({ searchParams }: { searchParams: Promis
   }
   const queue = state?.queue ?? [];
   const count = (t: Tab) => queue.filter((q) => inTab(q, t)).length;
-  const asked = (await searchParams).tab as Tab | undefined;
+  const params = await searchParams;
+  const asked = params.tab as Tab | undefined;
   const tab: Tab = TABS.some((t) => t.key === asked) ? asked! : count("drafts") ? "drafts" : "waiting";
   const shown = queue.filter((q) => inTab(q, tab)).sort((a, b) => (tab === "sent" ? b.sent.localeCompare(a.sent) : 0));
 
@@ -49,11 +51,12 @@ export default async function QueuePage({ searchParams }: { searchParams: Promis
         </div>
         {count("drafts") > 0 && (
           <form action={approveAll}>
-            <button type="submit" className="text-white font-semibold px-4 py-2 rounded-lg text-sm" style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}>Approve all {count("drafts")} drafts</button>
+            <PendingButton className="text-white font-semibold px-4 py-2 rounded-lg text-sm" style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}>Approve all {count("drafts")} drafts</PendingButton>
           </form>
         )}
       </div>
 
+      {params.error && <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">{params.error.slice(0, 300)}</div>}
       {error && <div className="mb-6 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">Could not load the queue: {error}</div>}
 
       {state && (
@@ -88,7 +91,7 @@ export default async function QueuePage({ searchParams }: { searchParams: Promis
             </div>
           ) : (
             <ul className="bg-white border border-slate-200 rounded-2xl divide-y divide-slate-100">
-              {shown.map((q) => <QueueCard key={q.id} item={q} />)}
+              {shown.map((q) => <QueueCard key={q.id} item={q} tab={tab} />)}
             </ul>
           )}
         </>
