@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Users, Send, Package, LogOut, MailCheck, Mail, ArrowLeft } from "lucide-react";
+import { LayoutDashboard, Users, Send, Package, LogOut, MailCheck, Mail, ArrowLeft, MapPin } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { createClient } from "@/lib/supabase/client";
 
@@ -12,6 +12,7 @@ const TABS = [
   { href: "/dashboard/dev/emails", label: "Emails", icon: Mail },
   { href: "/dashboard/dev/outreach", label: "Outreach", icon: Send },
   { href: "/dashboard/dev/queue", label: "Queue", icon: MailCheck },
+  { href: "/dashboard/dev/lead-sources", label: "Lead sources", icon: MapPin },
   { href: "/dashboard/dev/orders", label: "Orders", icon: Package },
 ];
 

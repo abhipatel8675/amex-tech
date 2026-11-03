@@ -27,3 +27,19 @@ async function callWorker<T>(path: string, body?: Record<string, unknown>): Prom
 export const outreachQueue = (change?: Record<string, unknown>) => callWorker<QueueState>("/queue", change);
 export const sendViaZoho = (to: string, subject: string, body: string) => callWorker<{ ok: boolean; messageId: string }>("/send", { to, subject, body });
 export const aiDraft = (input: Record<string, unknown>) => callWorker<{ subject: string; body: string }>("/ai", input);
+
+export type FinderState = {
+  cities: string[];
+  trades: string[];
+  weekly_target: number;
+  max_pages_per_run: number;
+  searched: number;
+  total: number;
+  found_total: number;
+  waiting_total: number;
+  by_city: { city: string; total: number; waiting: number }[];
+  cities_done: string[];
+};
+
+export const finderSettings = (change?: Record<string, unknown>) => callWorker<FinderState>("/finder", change);
+export const startFinder = () => callWorker<{ ok: boolean }>("/finder/run", {});
