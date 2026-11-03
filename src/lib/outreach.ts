@@ -21,11 +21,23 @@ export type OutreachContact = {
   reply_snippet?: string;
 };
 
+export type OutreachQueueItem = {
+  id: string;
+  business: string;
+  email: string;
+  subject: string;
+  body: string;
+  approved: boolean;
+  sent: string;
+  skipped: string;
+};
+
 export type OutreachSnapshot = {
   synced_at: string;
   enabled: boolean;
   from_email: string;
   contacts: OutreachContact[];
+  queue?: OutreachQueueItem[];
 };
 
 const BUCKET = "internal";

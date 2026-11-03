@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { timingSafeEqual } from "node:crypto";
 import { leadsDb, saveLead } from "@/lib/leads";
-import { saveOutreachSnapshot, type OutreachContact } from "@/lib/outreach";
+import { saveOutreachSnapshot, type OutreachContact, type OutreachQueueItem } from "@/lib/outreach";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -56,12 +56,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "contacts must be an array" }, { status: 400 });
   }
   const contacts = body.contacts.map((c) => clean(c ?? {})).filter((c): c is OutreachContact => c !== null);
+  const queue: OutreachQueueItem[] = (Array.isArray(body.queue) ? body.queue.slice(0, 200) : []).map((q: Record<string, unknown>) => ({
+    id: str(q?.id, 200),
+    business: str(q?.business, 200),
+    email: str(q?.email, 200),
+    subject: str(q?.subject, 300),
+    body: str(q?.body, 5000),
+    approved: q?.approved === true,
+    sent: str(q?.sent, 40),
+    skipped: str(q?.skipped, 200),
+  }));
 
   await saveOutreachSnapshot(db, {
     synced_at: new Date().toISOString(),
     enabled: body.enabled === true,
     from_email: str(body.from_email, 200),
     contacts,
+    queue,
   });
 
   // Replies not already in the pipeline (matched by outreach id or email).

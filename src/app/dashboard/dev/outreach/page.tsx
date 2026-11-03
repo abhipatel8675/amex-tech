@@ -63,6 +63,17 @@ export default async function OutreachPage() {
     .sort((a, b) => (b.replied_at || "").localeCompare(a.replied_at || ""))
     .slice(0, 10);
   const card = "bg-white border border-slate-200 rounded-2xl p-5";
+  const when = (iso: string) => new Date(iso).toLocaleString("en-US", { timeZone: "America/Los_Angeles", dateStyle: "medium", timeStyle: "short" });
+  const rank = (q: { approved: boolean; sent: string; skipped: string }) => (q.sent ? 3 : q.skipped ? 2 : q.approved ? 0 : 1);
+  const queue = [...(snap?.queue ?? [])].sort((a, b) => rank(a) - rank(b) || (b.sent || "").localeCompare(a.sent || ""));
+  const status = (q: (typeof queue)[number]) =>
+    q.sent
+      ? { text: /^\d{4}-/.test(q.sent) ? `Sent ${when(q.sent)} LA` : "Sent earlier", tone: "bg-emerald-50 text-emerald-700" }
+      : q.skipped
+        ? { text: `Skipped: ${q.skipped}`, tone: "bg-slate-100 text-slate-600" }
+        : q.approved
+          ? { text: "Approved, waiting to send", tone: "bg-amber-50 text-amber-800" }
+          : { text: "Draft, not approved", tone: "bg-slate-100 text-slate-600" };
 
   return (
     <main className="max-w-5xl mx-auto px-6 py-10">
@@ -96,6 +107,35 @@ export default async function OutreachPage() {
               );
             })}
           </div>
+
+          {queue.length > 0 && (
+            <section className={`${card} mb-4`}>
+              <h2 className="font-semibold mb-1">Email queue</h2>
+              <p className="text-xs text-slate-500 mb-3">
+                {queue.filter((q) => q.approved && !q.sent && !q.skipped).length} approved and waiting · {queue.filter((q) => !q.approved && !q.sent).length} drafts · {queue.filter((q) => q.sent).length} sent. One goes out every 10 minutes from 8 AM Los Angeles time, Monday to Saturday.
+              </p>
+              <ul className="divide-y divide-slate-100">
+                {queue.map((q) => {
+                  const s = status(q);
+                  return (
+                    <li key={q.id} className="py-3 text-sm">
+                      <div className="flex flex-wrap items-start justify-between gap-2">
+                        <div className="min-w-0">
+                          <p className="font-medium break-words">{q.subject}</p>
+                          <p className="text-xs text-slate-600 break-all">{q.business} · {q.email}</p>
+                        </div>
+                        <span className={`text-xs font-medium rounded-full px-2.5 py-1 flex-shrink-0 ${s.tone}`}>{s.text}</span>
+                      </div>
+                      <details className="mt-1.5">
+                        <summary className="text-xs text-[#B8860B] cursor-pointer select-none">Read email</summary>
+                        <p className="mt-2 whitespace-pre-wrap break-words rounded-lg bg-slate-50 p-3 text-[13px] text-slate-800">{q.body}</p>
+                      </details>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          )}
 
           <section className={`${card} mb-4`}>
             <h2 className="font-semibold mb-4">Emails sent, last 14 days</h2>
