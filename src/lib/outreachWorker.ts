@@ -1,6 +1,6 @@
 import type { OutreachQueueItem } from "@/lib/outreach";
 
-const WORKER_URL = process.env.OUTREACH_WORKER_URL || "https://amex-outreach.WORKERS_SUBDOMAIN.workers.dev";
+const WORKER_URL = process.env.OUTREACH_WORKER_URL || "https://amex-outreach.ipoai.workers.dev";
 
 export type QueueState = {
   queue: (OutreachQueueItem & { problem?: string; city?: string; category?: string; website?: string })[];
