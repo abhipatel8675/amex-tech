@@ -3,7 +3,7 @@ import type { OutreachQueueItem } from "@/lib/outreach";
 const WORKER_URL = process.env.OUTREACH_WORKER_URL || "https://amex-outreach.ipoai.workers.dev";
 
 export type QueueState = {
-  queue: (OutreachQueueItem & { problem?: string; city?: string; category?: string; website?: string })[];
+  queue: (OutreachQueueItem & { problem?: string; city?: string; category?: string; website?: string; first_name?: string })[];
   enabled: boolean;
   sent_today: number;
   daily_limit: number;

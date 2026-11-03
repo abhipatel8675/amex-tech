@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Send, MessageSquareReply, AlertTriangle, UserX, Clock, Ban } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
@@ -124,7 +125,10 @@ export default async function OutreachPage() {
                           <p className="font-medium break-words">{q.subject}</p>
                           <p className="text-xs text-slate-600 break-all">{q.business} · {q.email}</p>
                         </div>
-                        <span className={`text-xs font-medium rounded-full px-2.5 py-1 flex-shrink-0 ${s.tone}`}>{s.text}</span>
+                        <span className="flex items-center gap-2 flex-shrink-0">
+                          <span className={`text-xs font-medium rounded-full px-2.5 py-1 ${s.tone}`}>{s.text}</span>
+                          {!q.sent && <Link href={`/dashboard/dev/queue#${q.id}`} className="text-xs font-semibold text-[#7A5807] border border-[#B8860B]/40 rounded-lg px-2.5 py-1 hover:bg-[#B8860B]/10">Edit</Link>}
+                        </span>
                       </div>
                       <details className="mt-1.5">
                         <summary className="text-xs text-[#B8860B] cursor-pointer select-none">Read email</summary>
