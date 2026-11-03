@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import { Plus, Search, Mail, Phone, Globe, CalendarClock, DollarSign, Inbox, Trophy, Flame, Trash2, ChevronLeft, ChevronRight } from "lucide-react";
 import { LEAD_STATUSES, LEAD_SOURCES, LEAD_SOURCE_LABEL as SOURCE_LABEL, type Lead, type LeadStatus } from "@/lib/leadTypes";
 import { updateLead, addLead, deleteLead } from "@/app/dashboard/dev/leads/actions";
+import type { LeadEmail } from "@/lib/leadEmails";
+import EmailComposer from "./EmailComposer";
 
 const STATUS_META: Record<LeadStatus, { label: string; color: string }> = {
   new: { label: "New", color: "#2563eb" },
@@ -34,8 +36,9 @@ function StatusPill({ status }: { status: LeadStatus }) {
   );
 }
 
-function LeadRow({ lead }: { lead: Lead }) {
+function LeadRow({ lead, history }: { lead: Lead; history: LeadEmail[] }) {
   const [expanded, setExpanded] = useState(false);
+  const [writing, setWriting] = useState(false);
   const due = lead.next_follow_up && OPEN.includes(lead.status) && lead.next_follow_up <= today();
   const title = lead.company || lead.name || lead.email || "Unnamed lead";
 
@@ -50,10 +53,17 @@ function LeadRow({ lead }: { lead: Lead }) {
               {SOURCE_LABEL[lead.source] ?? lead.source}
               {lead.company && lead.name ? ` · ${lead.name}` : ""}
               {lead.email ? ` · ${lead.email}` : ""}
+              {history[0] ? ` · Emailed ${new Date(history[0].created_at).toLocaleDateString("en-US", { month: "short", day: "numeric" })}` : ""}
             </p>
           </div>
         </div>
-        <div className="text-right flex-shrink-0">
+        <div className="flex items-center gap-3 flex-shrink-0">
+          {lead.email && (
+            <button type="button" onClick={(e) => { e.stopPropagation(); setWriting(true); }} className="flex items-center gap-1.5 text-sm font-medium text-[#7A5807] border border-[#B8860B]/40 rounded-lg px-3 py-1.5 hover:bg-[#B8860B]/10">
+              <Mail className="w-4 h-4" /> Email
+            </button>
+          )}
+        <div className="text-right">
           {lead.quote_amount != null && <p className="font-bold text-[#7A5807]">{usd(Number(lead.quote_amount))}</p>}
           {due ? (
             <p className="text-xs font-semibold text-amber-600">Follow up {lead.next_follow_up === today() ? "today" : `(overdue ${lead.next_follow_up})`}</p>
@@ -61,7 +71,9 @@ function LeadRow({ lead }: { lead: Lead }) {
             <p className="text-xs text-slate-600">{new Date(lead.created_at).toLocaleDateString()}</p>
           )}
         </div>
+        </div>
       </div>
+      {writing && <EmailComposer lead={lead} history={history} onClose={() => setWriting(false)} />}
 
       {expanded && (
         <div className="px-5 pb-5 border-t border-slate-200 pt-4 space-y-4">
@@ -152,7 +164,12 @@ function AddLeadForm({ onDone }: { onDone: () => void }) {
   );
 }
 
-export default function LeadsBoard({ leads, loadError }: { leads: Lead[]; loadError: string | null }) {
+export default function LeadsBoard({ leads, emails = [], loadError }: { leads: Lead[]; emails?: LeadEmail[]; loadError: string | null }) {
+  const byLead = useMemo(() => {
+    const m = new Map<string, LeadEmail[]>();
+    for (const e of emails) if (e.lead_id) m.set(e.lead_id, [...(m.get(e.lead_id) ?? []), e]);
+    return m;
+  }, [emails]);
   const [filter, setFilter] = useState<"all" | "due" | LeadStatus>("all");
   const [query, setQuery] = useState("");
   const [adding, setAdding] = useState(false);
@@ -251,7 +268,7 @@ export default function LeadsBoard({ leads, loadError }: { leads: Lead[]; loadEr
         ) : (
           <>
             <div className="space-y-3">
-              {shown.map((lead) => <LeadRow key={lead.id} lead={lead} />)}
+              {shown.map((lead) => <LeadRow key={lead.id} lead={lead} history={byLead.get(lead.id) ?? []} />)}
             </div>
             {pages > 1 && (
               <div className="flex items-center justify-between gap-3 mt-6 text-sm">

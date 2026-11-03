@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { leadsDb, type Lead } from "@/lib/leads";
+import type { LeadEmail } from "@/lib/leadEmails";
 import LeadsBoard from "@/components/dashboard/LeadsBoard";
 
 export const metadata: Metadata = {
@@ -22,5 +23,9 @@ export default async function LeadsPage() {
     ? await db.from("leads").select("*").order("created_at", { ascending: false }).limit(1000)
     : { data: null, error: { message: "SUPABASE_SERVICE_ROLE_KEY is not set" } };
 
-  return <LeadsBoard leads={(leads as Lead[]) || []} loadError={error?.message ?? null} />;
+  const { data: emails } = db
+    ? await db.from("lead_emails").select("id, lead_id, to_email, subject, body, template, created_at").order("created_at", { ascending: false }).limit(1000)
+    : { data: [] };
+
+  return <LeadsBoard leads={(leads as Lead[]) || []} emails={(emails as LeadEmail[]) || []} loadError={error?.message ?? null} />;
 }
