@@ -61,3 +61,6 @@ export type ColdLead = {
 };
 
 export const coldLeads = () => callWorker<{ leads: ColdLead[] }>("/leads");
+
+export const draftOneLead = (id: string) => callWorker<{ ok?: boolean; subject?: string; skip?: string }>("/draft-one", { id });
+export const addToQueue = (add: { id: string; subject: string; body: string; approved: boolean }) => callWorker<QueueState>("/queue", { add });

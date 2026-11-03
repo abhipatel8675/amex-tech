@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { Globe, ChevronLeft, ChevronRight } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { coldLeads, type ColdLead } from "@/lib/outreachWorker";
+import ColdLeadActions from "@/components/dashboard/ColdLeadActions";
 
 export const metadata: Metadata = { title: "Cold leads", robots: { index: false, follow: false } };
 
@@ -87,7 +88,7 @@ export default async function ColdLeadsPage({ searchParams }: { searchParams: Pr
           {shown.map((l) => {
             const [label, tone] = STATUS[l.status] ?? [l.status, "bg-slate-100 text-slate-600"];
             return (
-              <li key={l.id} className="px-4 py-3 flex flex-wrap sm:flex-nowrap items-start gap-3">
+              <li key={l.id} className="px-4 py-3 flex flex-wrap items-start gap-x-3 gap-y-2">
                 <div className="min-w-0 flex-1 basis-full sm:basis-auto">
                   <p className="text-sm font-semibold truncate">{l.business}{l.first_name ? <span className="font-normal text-slate-500"> · {l.first_name}</span> : null}</p>
                   <p className="text-xs text-slate-600 truncate">{l.email} · {l.city || "?"} · {title(l.category || "")} · {l.source}</p>
@@ -95,13 +96,18 @@ export default async function ColdLeadsPage({ searchParams }: { searchParams: Pr
                   {l.last_sent_at && <p className="text-xs text-slate-500 truncate">Emailed {day(l.last_sent_at)}{l.subject ? `: "${l.subject}"` : ""}{l.replied_at ? ` · replied ${day(l.replied_at)}` : ""}</p>}
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
-                  <span className={`text-xs font-medium rounded-full px-2.5 py-1 whitespace-nowrap ${tone}`}>{label}</span>
+                  {l.status.startsWith("queue_") ? (
+                    <Link href={`/dashboard/dev/queue?tab=${l.status === "queue_approved" ? "waiting" : "drafts"}#${l.id}`} className={`text-xs font-medium rounded-full px-2.5 py-1 whitespace-nowrap hover:underline ${tone}`}>{label} →</Link>
+                  ) : (
+                    <span className={`text-xs font-medium rounded-full px-2.5 py-1 whitespace-nowrap ${tone}`}>{label}</span>
+                  )}
                   {l.website && (
                     <a href={l.website.startsWith("http") ? l.website : `https://${l.website}`} target="_blank" rel="noopener noreferrer" aria-label={`Open ${l.business} website`} className="p-1.5 rounded-lg border border-slate-200 text-slate-600 hover:border-slate-300">
                       <Globe className="w-4 h-4" />
                     </a>
                   )}
                 </div>
+                {l.status === "new" && <ColdLeadActions id={l.id} business={l.business} firstName={l.first_name} />}
               </li>
             );
           })}
