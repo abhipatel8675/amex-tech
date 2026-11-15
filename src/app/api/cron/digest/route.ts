@@ -2,6 +2,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import nodemailer from "nodemailer";
 import { leadsDb, LEAD_SOURCE_LABEL, type Lead } from "@/lib/leads";
 import { loadOutreachSnapshot } from "@/lib/outreach";
+import { apifySpendThisMonth, loadSettings } from "@/lib/prospects/engine";
+import { PLATFORM_LABEL, type Platform } from "@/lib/prospects/types";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -49,6 +51,27 @@ export async function GET(req: NextRequest) {
     if (emailed.length >= 20 && n("bounced") / emailed.length > 0.02) outreach.push("Warning: bounce rate is above 2%, which risks the sending domain.");
   }
 
+  // Fridays: the week's prospecting numbers per platform.
+  const weekly: string[] = [];
+  const isFriday = new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", weekday: "short" }).format(now) === "Fri";
+  if (isFriday) {
+    const weekAgo = new Date(now.getTime() - 7 * 86400000).toISOString();
+    const { data: rows } = await db.from("prospects").select("platform, status, created_at, sent_at, replied_at").or(`created_at.gte.${weekAgo},sent_at.gte.${weekAgo},replied_at.gte.${weekAgo}`).limit(5000);
+    const by = new Map<string, { found: number; sent: number; replied: number }>();
+    for (const r of rows ?? []) {
+      const k = PLATFORM_LABEL[r.platform as Platform] ?? r.platform;
+      const v = by.get(k) ?? { found: 0, sent: 0, replied: 0 };
+      if (r.created_at >= weekAgo && !["pending_ai", "filtered"].includes(r.status)) v.found++;
+      if (r.sent_at && r.sent_at >= weekAgo) v.sent++;
+      if (r.replied_at && r.replied_at >= weekAgo) v.replied++;
+      by.set(k, v);
+    }
+    const won = leads.filter((l) => l.source === "social" && l.status === "won" && l.updated_at >= weekAgo).length;
+    const [spend, ps] = await Promise.all([apifySpendThisMonth(db), loadSettings(db)]);
+    weekly.push(...[...by.entries()].sort((a, b) => b[1].replied - a[1].replied).map(([k, v]) => `${k}: ${v.found} found · ${v.sent} sent · ${v.replied} replied`));
+    weekly.push(`Won from social this week: ${won}`, `Apify spend this month: $${spend.toFixed(2)} of $${ps.monthlyBudgetUsd}`);
+  }
+
   const section = (heading: string, rows: string[], empty: string) => [`== ${heading} ==`, ...(rows.length ? rows : [empty]), ""];
   const text = [
     `Good morning. Here's your lead pipeline for ${today}.`,
@@ -61,6 +84,7 @@ export async function GET(req: NextRequest) {
       "  None yesterday.",
     ),
     ...section("OUTREACH", outreach.map((l) => `  ${l}`), "  No outreach data yet."),
+    ...(isFriday ? section("PROSPECTING THIS WEEK", weekly.map((l) => `  ${l}`), "  No prospecting activity this week.") : []),
     `Open quotes: $${quoted.toLocaleString("en-US")}`,
     "",
     "Dashboard: https://amextechnology.com/dashboard/dev",

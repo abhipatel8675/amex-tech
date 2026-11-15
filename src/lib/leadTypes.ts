@@ -3,7 +3,7 @@
 export const LEAD_STATUSES = ["new", "contacted", "replied", "call", "quoted", "won", "lost"] as const;
 export type LeadStatus = (typeof LEAD_STATUSES)[number];
 
-export const LEAD_SOURCES = ["contact_form", "contact_section", "app_checker", "website_grader", "booking", "newsletter", "manual", "outreach"] as const;
+export const LEAD_SOURCES = ["contact_form", "contact_section", "app_checker", "website_grader", "booking", "newsletter", "manual", "outreach", "social"] as const;
 export type LeadSource = (typeof LEAD_SOURCES)[number];
 
 export const LEAD_SOURCE_LABEL: Record<LeadSource, string> = {
@@ -15,6 +15,7 @@ export const LEAD_SOURCE_LABEL: Record<LeadSource, string> = {
   newsletter: "Newsletter",
   manual: "Manual",
   outreach: "Outreach",
+  social: "Social post",
 };
 
 export type Lead = {

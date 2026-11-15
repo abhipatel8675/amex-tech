@@ -1,0 +1,13 @@
+name = "amex-prospect-cron"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+TARGET_URL = "https://amextechnology.com/api/prospects/cron"
+
+# Every 3 minutes. Reddit is due every tick; HN, X and LinkedIn run less often.
+[triggers]
+crons = ["*/3 * * * *"]
+
+# Secret (same value as CRON_SECRET in Vercel):
+#   npx wrangler secret put CRON_SECRET

@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
+import { roleFor } from "@/lib/access";
 import ClientDashboard from "@/components/dashboard/ClientDashboard";
 
 export const metadata: Metadata = {
@@ -13,7 +14,9 @@ export default async function ClientDashboardPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
 
-  if (user.email === process.env.DEVELOPER_EMAIL) redirect("/dashboard/dev");
+  const role = roleFor(user.email);
+  if (role === "dev") redirect("/dashboard/dev");
+  if (role === "sales") redirect("/dashboard/sales");
 
   const { data: orders } = await supabase
     .from("orders")
