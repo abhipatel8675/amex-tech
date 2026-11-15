@@ -28,6 +28,72 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "portland-web-designing-studio",
+    title: "Portland Web Designing Studio",
+    category: "Web",
+    tags: ["Agency Website", "Lead Generation", "Next.js"],
+    shortDesc:
+      "A multi-page marketing website for a small-business agency that sells Website + CRM + AI packages, built to turn visitors into booked consultations.",
+    description:
+      "Portland Web Designing Studio sells one connected package to local businesses: a website, a CRM pipeline, automated SMS and email follow-up, and an AI customer assistant. We built the agency's own marketing website front to back, matched closely to the owner's reference designs, across three iterations: a PHP landing page, a multi-page HTML site on Vercel, and finally a Next.js 16 static export for the production domain.",
+    problem:
+      "The agency needed to explain a bundled offer to non-technical business owners and send every page toward one action: booking a free strategy consultation. The owner supplied reference designs that had to be matched closely, and the production domain sits on shared cPanel hosting with no terminal access, so the final site had to ship as plain static files.",
+    solution:
+      "We built Home, About, Our System, Portfolio, Pricing and Contact pages with a shared header, footer and a site-wide booking modal (date picker, time slots and business details). The portfolio has industry filters and case-study pop-ups. The final version is a Next.js 16 App Router project exported to static files with trailing-slash URLs, so it runs on Apache shared hosting with no rewrite rules.",
+    results: [
+      "Live at portlanddigitalstudio.com",
+      "Six pages plus a booking modal available from every page",
+      "Pixel-matched to the owner's reference designs, checked at 360px to 1920px",
+      "Next.js static export that runs on shared cPanel hosting",
+    ],
+    technologies: ["Next.js", "React", "HTML", "CSS", "JavaScript", "PHP", "Vercel", "cPanel"],
+    gradientFrom: "#f4b500",
+    gradientTo: "#0d0f11",
+    featured: true,
+    liveUrl: "https://portlanddigitalstudio.com",
+    image: "/images/portfolio/portland-web-designing-studio/mockup-1.webp",
+    gallery: [
+      {
+        src: "/images/portfolio/portland-web-designing-studio/mockup-1.webp",
+        alt: "Portland Web Designing Studio website on laptop and phone",
+        caption: "Website, CRM and AI explained in one clear offer",
+      },
+      {
+        src: "/images/portfolio/portland-web-designing-studio/mockup-2.webp",
+        alt: "Portland Web Designing Studio growth system section and footer",
+        caption: "The complete business growth system, on desktop and mobile",
+      },
+      {
+        src: "/images/portfolio/portland-web-designing-studio/mockup-3.webp",
+        alt: "Portland Web Designing Studio hero: turn more inquiries into customers",
+        caption: "A dark hero built to push visitors toward a consultation",
+      },
+      {
+        src: "/images/portfolio/portland-web-designing-studio/mockup-4.webp",
+        alt: "Portland Web Designing Studio booking modal for a free strategy consultation",
+        caption: "Site-wide booking modal with date and time picker",
+      },
+      {
+        src: "/images/portfolio/portland-web-designing-studio/ss-home.webp",
+        alt: "Portland Web Designing Studio homepage screenshot",
+        caption: "Homepage",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/portland-web-designing-studio/ss-portfolio.webp",
+        alt: "Portland Web Designing Studio portfolio page with industry filters",
+        caption: "Portfolio page with industry filters and case-study pop-ups",
+        span: "wide",
+      },
+      {
+        src: "/images/portfolio/portland-web-designing-studio/ss-about.webp",
+        alt: "Portland Web Designing Studio about page",
+        caption: "About page",
+        span: "wide",
+      },
+    ],
+  },
+  {
     slug: "firmsledger",
     title: "FirmsLedger",
     category: "Web",
@@ -345,22 +411,22 @@ export const projects: Project[] = [
     slug: "wide-eyed-giant",
     title: "Wide Eyed Giant",
     category: "Web",
-    tags: ["Web", "Food & Recipes", "Editorial"],
+    tags: ["WordPress", "Elementor", "CSS Fixes"],
     shortDesc:
-      "An editorial recipe website with a warm, magazine-style design across breakfast, mains and desserts.",
+      "Layout rescue for a WordPress + Elementor recipe membership site: alignment fixed on every screen size.",
     description:
-      "Wide Eyed Giant is a seasonal, high-protein recipe website built around creator Kelsey's food content. We designed and built an editorial-style site — a warm cream homepage for browsing, bold black category pages for structure, and a searchable recipe finder — that turns her recipes into a cohesive, magazine-quality experience.",
+      "Wide Eyed Giant is a membership recipe blog on self-hosted WordPress with Elementor Pro and ElementsKit. We were brought in to fix a layout that had drifted out of alignment on desktop, tablet and mobile, on top of a 1,735-line custom stylesheet that had grown mostly dead.",
     problem:
-      "Recipe content spread across social media is easy to lose and hard to browse. Kelsey needed a dedicated home for her seasonal, high-protein recipes that felt as considered and beautiful as the food itself, with an easy way for visitors to find recipes by category or craving.",
+      "The search bar crowded the logo and menu, category headings did not line up with the recipe grid, and mobile spacing was uneven. Most of the existing custom CSS targeted markup from an older template, and the real offsets were hidden in Elementor per-widget margin settings for each breakpoint.",
     solution:
-      "We built a two-tone editorial site: a light, warm homepage anchored by a fresh-post hero and category navigation, contrasting black category and search pages for visual rhythm, and a keyword-driven recipe finder across breakfast, mains, snacks, desserts and sides. An about page introduces Kelsey and the philosophy behind the recipes — seasonal, high protein, and beautiful enough to look at before you eat it.",
+      "We checked the live pages to find which rules still applied, traced the stacked negative margins in Elementor's responsive settings, and replaced the old stylesheet with a 265-line one scoped per category page, so a fix on one page cannot break another.",
     results: [
-      "Editorial homepage hero showcasing the latest recipe with a warm, magazine feel",
-      "Category pages (breakfast, mains, desserts) with a striking light/dark contrast",
-      "Keyword-searchable recipe finder across five categories",
-      "About page building a personal connection with the creator behind the recipes",
+      "Alignment fixed across desktop, tablet and mobile",
+      "1,735 lines of mostly dead CSS replaced with a 265-line stylesheet",
+      "Fixes scoped per category page so they cannot leak",
+      "Mobile menu and header height fixed at the source",
     ],
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    technologies: ["WordPress", "Elementor Pro", "ElementsKit", "CSS", "Hostinger"],
     gradientFrom: "#B8860B",
     gradientTo: "#1a1a1a",
     featured: false,
@@ -644,7 +710,7 @@ export const projects: Project[] = [
       "Sectioned storytelling that sells the experience — the details, the vibe, drinks, and location",
       "Shareable closing call-to-action driving RSVPs to @eastendvintagesale",
     ],
-    technologies: ["Figma", "Web Design", "Branding", "Social Campaign"],
+    technologies: ["HTML", "CSS", "Figma", "Branding"],
     gradientFrom: "#f9a8d4",
     gradientTo: "#1e293b",
     featured: false,
@@ -963,7 +1029,7 @@ export const projects: Project[] = [
   {
     slug: "herruby-app",
     title: "Herruby",
-    category: "Mobile App",
+    category: "SaaS",
     tags: ["Women's Health", "Wellness", "Mobile"],
     shortDesc: "Midlife wellness app helping Canadian women sustain energy, confidence, and performance.",
     description:
@@ -1192,4 +1258,29 @@ export const projects: Project[] = [
 ];
 
 export const categories = ["All", "Web", "Mobile App", "SaaS", "AI", "Automation"] as const;
+
+// Tech-stack groups used to showcase projects by stack (portfolio filter and
+// homepage). A project belongs to a group when any of its technologies match.
+export const stackGroups = [
+  { name: "Next.js", match: ["Next.js"] },
+  { name: "React", match: ["React", "Vite"] },
+  { name: "TypeScript", match: ["TypeScript"] },
+  { name: "Supabase", match: ["Supabase"] },
+  { name: "Node.js", match: ["Node.js", "Express"] },
+  { name: "PostgreSQL & MySQL", match: ["PostgreSQL", "Neon Postgres", "MySQL", "Drizzle ORM", "Prisma"] },
+  { name: "AI & OpenAI", match: ["OpenAI", "AI Voice Agents"] },
+  { name: "React Native", match: ["React Native", "Expo"] },
+  { name: "WordPress", match: ["WordPress", "Elementor Pro"] },
+  { name: "PHP", match: ["PHP"] },
+  { name: "HTML & CSS", match: ["HTML", "CSS"] },
+  { name: "GoHighLevel", match: ["GoHighLevel", "GoHighLevel API"] },
+  { name: "Lovable", match: ["Lovable"] },
+] as const;
+export type StackName = (typeof stackGroups)[number]["name"];
+
+export function projectsForStack(list: Project[], stack: string): Project[] {
+  const group = stackGroups.find((g) => g.name === stack);
+  if (!group) return list;
+  return list.filter((p) => p.technologies.some((t) => (group.match as readonly string[]).includes(t)));
+}
 export type Category = (typeof categories)[number];

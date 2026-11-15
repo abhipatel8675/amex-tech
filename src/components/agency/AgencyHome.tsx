@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, Braces } from "lucide-react";
-import { projects } from "@/data/projects";
+import { projects, projectsForStack, stackGroups } from "@/data/projects";
 import { testimonials } from "@/data/testimonials";
 import { blogPosts } from "@/data/blog";
 import {
@@ -16,9 +16,12 @@ import {
 import s from "./agency.module.css";
 
 export default function AgencyHome() {
-  const featured = ["goswiftfund", "island-traffic-defense", "molar-ai", "periscope-email"]
+  const featured = ["portland-web-designing-studio", "goswiftfund", "island-traffic-defense", "molar-ai"]
     .map((slug) => projects.find((p) => p.slug === slug))
     .filter((p): p is (typeof projects)[number] => Boolean(p?.image));
+  const stackShowcase = stackGroups
+    .map((g) => ({ name: g.name, list: projectsForStack(projects, g.name) }))
+    .filter((g) => g.list.length > 0);
   const review =
     testimonials.find((t) => t.name === "sarah_m_uk") ?? testimonials[0];
   return (
@@ -180,6 +183,45 @@ export default function AgencyHome() {
                 </div>
               </article>
             ))}
+          </div>
+          <div className="mt-20 border-t border-[#ffffff1f] pt-14">
+            <div className={s.sectionHead}>
+              <div>
+                <p className={s.eyebrow}>Projects by tech stack</p>
+                <h2 className={s.heading}>
+                  Pick your stack.
+                  <br />
+                  <em>See what we&apos;ve built with it.</em>
+                </h2>
+              </div>
+              <p className={s.sectionText}>
+                Every project below was delivered by our team. Choose a
+                technology to see the matching case studies.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {stackShowcase.map(({ name, list }) => (
+                <Link
+                  key={name}
+                  href={`/portfolio?stack=${encodeURIComponent(name)}`}
+                  className="group flex flex-col rounded-[6px] border border-[#ffffff1f] bg-[#ffffff08] p-5 transition-colors hover:border-[#d4ba7e] hover:bg-[#ffffff0f]"
+                >
+                  <span className="flex items-baseline justify-between gap-3">
+                    <span className="text-[17px] font-medium text-[#f7f5ed]">{name}</span>
+                    <span className="text-sm text-[#d4ba7e]">
+                      {list.length} project{list.length !== 1 ? "s" : ""}
+                    </span>
+                  </span>
+                  <span className="mt-3 text-[13px] leading-6 text-[#bdc3b4]">
+                    {list.slice(0, 3).map((p) => p.title).join(" · ")}
+                    {list.length > 3 ? ` +${list.length - 3} more` : ""}
+                  </span>
+                  <span className="mt-4 inline-flex items-center gap-2 text-[13px] font-medium text-[#e7c98a]">
+                    View projects <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>

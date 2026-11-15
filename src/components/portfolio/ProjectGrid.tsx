@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -14,7 +14,7 @@ import {
 } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { isDeviceMockup } from "@/lib/portfolioImages";
-import { categories, type Category, type Project } from "@/data/projects";
+import { categories, projectsForStack, stackGroups, type Category, type Project } from "@/data/projects";
 
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -208,10 +208,34 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
 
 export default function ProjectGrid({ projects }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [activeStack, setActiveStack] = useState<string>("All");
   const [hasFiltered, setHasFiltered] = useState(false);
 
-  const filtered =
+  // Homepage stack links arrive as /portfolio?stack=Next.js
+  useEffect(() => {
+    const stack = new URLSearchParams(window.location.search).get("stack");
+    if (stack && stackGroups.some((g) => g.name === stack)) {
+      setActiveStack(stack);
+      setHasFiltered(true);
+    }
+  }, []);
+
+  function chooseStack(stack: string) {
+    setHasFiltered(true);
+    setActiveStack(stack);
+    const url = new URL(window.location.href);
+    if (stack === "All") url.searchParams.delete("stack");
+    else url.searchParams.set("stack", stack);
+    window.history.replaceState(null, "", url);
+  }
+
+  const stacks = stackGroups
+    .map((g) => ({ name: g.name, count: projectsForStack(projects, g.name).length }))
+    .filter((g) => g.count > 0);
+
+  const byCategory =
     activeCategory === "All" ? projects : projects.filter((p) => p.category === activeCategory);
+  const filtered = activeStack === "All" ? byCategory : projectsForStack(byCategory, activeStack);
 
   return (
     <>
@@ -248,6 +272,43 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
           {filtered.length} project{filtered.length !== 1 ? "s" : ""}
         </span>
       </div>
+
+      {/* Tech stack filter */}
+      <div className="-mt-6 mb-12">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#626960]">
+          Filter by tech stack
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {[{ name: "All", count: projects.length }, ...stacks].map(({ name, count }) => {
+            const active = activeStack === name;
+            return (
+              <button
+                key={name}
+                type="button"
+                onClick={() => chooseStack(name)}
+                aria-pressed={active}
+                className={`inline-flex min-h-[40px] items-center gap-2 rounded-[5px] border px-3.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
+                  active
+                    ? "border-[#202a23] bg-[#202a23] text-white"
+                    : "border-[#dadcd1] bg-white text-[#3d453b] hover:border-[#9a722a] hover:text-[#1a211d]"
+                }`}
+              >
+                {name}
+                <span className={`text-xs ${active ? "text-[#e7c98a]" : "text-[#8a8e82]"}`}>{count}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {filtered.length === 0 && (
+        <p className="mb-12 text-[#626960]">
+          No {activeCategory} projects with {activeStack} yet.{" "}
+          <button type="button" className="font-medium text-[#7a5807] underline" onClick={() => { setActiveCategory("All"); chooseStack(activeStack); }}>
+            Show all {activeStack} projects
+          </button>
+        </p>
+      )}
 
       <motion.ul layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-12">
         <AnimatePresence mode="popLayout">

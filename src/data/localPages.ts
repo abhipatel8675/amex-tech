@@ -162,7 +162,7 @@ export const localPages: LocalPage[] = [
       { question: "I already have a website. Can you redo it?", answer: "Yes. Run the free Website Grader to see what's holding it back, and we'll rebuild it on your own domain." },
       { question: "What areas do you serve?", answer: `Small businesses across ${AREAS_NOTE}` },
     ],
-    work: ["buttercream-bus", "east-end-vintage-sale", "wide-eyed-giant"],
+    work: ["portland-web-designing-studio", "buttercream-bus", "east-end-vintage-sale"],
     related: [
       { label: "Websites for LA trade businesses", href: "/la-website" },
       { label: "Free Website Grader", href: "/tools/website-grader" },
