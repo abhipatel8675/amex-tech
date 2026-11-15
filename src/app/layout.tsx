@@ -1,28 +1,48 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { services } from "@/data/services";
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: [
+    {
+      path: "../../public/fonts/inter-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/inter-latin-500-normal.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/inter-latin-600-normal.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/inter-latin-700-normal.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-inter",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amextechnology.com"),
   title: {
-    default: "Amex Technology — AI & Software Development Agency",
+    default: "Amex Technology | Web Design, SEO & AI Development in Los Angeles",
     template: "%s | Amex Technology",
   },
   description:
-    "Amex Technology is an independent AI and software development agency, founded in 2019. We build AI agents and automations, websites and web apps, AI SaaS MVPs and mobile apps, and grow your visibility on Google and AI assistants with SEO, GEO and AEO.",
+    "Amex Technology is a Los Angeles web design, SEO and AI development company. We build websites, web apps, mobile apps and AI automations, and get businesses found on Google and in AI search with SEO and GEO.",
   keywords:
-    "AI development agency, AI agents, AI automation, website development, web app development, AI SaaS MVP, mobile app development, GEO, generative engine optimization, AEO, answer engine optimization, SEO services, GoHighLevel, CRM automation, Next.js, Supabase, Lovable app fixes",
+    "web design Los Angeles, SEO services Los Angeles, website developer Los Angeles, AI development agency, AI agents, AI automation, website development, web app development, AI SaaS MVP, mobile app development, GEO, generative engine optimization, AEO, answer engine optimization, SEO services, GoHighLevel, CRM automation, Next.js, Supabase, Lovable app fixes",
   authors: [{ name: "Abhi Patel", url: "https://amextechnology.com/about" }],
   creator: "Amex Technology",
   openGraph: {
@@ -30,23 +50,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://amextechnology.com",
     siteName: "Amex Technology",
-    title: "Amex Technology — AI & Software Development Agency",
+    title: "Amex Technology | Web Design, SEO & AI Development in Los Angeles",
     description:
-      "AI agents, websites, web apps, SaaS and mobile apps, plus SEO, GEO and AEO, built by one independent agency.",
+      "Websites, SEO, web apps, mobile apps and AI automation for businesses in Los Angeles and across the US.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Amex Technology — AI & Software Development Agency",
+        alt: "Amex Technology: web design, SEO and AI development in Los Angeles",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amex Technology — AI & Software Development Agency",
+    title: "Amex Technology | Web Design, SEO & AI Development in Los Angeles",
     description:
-      "AI agents, websites, web apps, SaaS and mobile apps, plus SEO, GEO and AEO, built by one independent agency.",
+      "Websites, SEO, web apps, mobile apps and AI automation for businesses in Los Angeles and across the US.",
     images: ["/opengraph-image"],
   },
   robots: {
@@ -54,25 +74,25 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "geo.region": "IN",
-    "geo.placename": "India",
+    "geo.region": "US-CA",
+    "geo.placename": "Los Angeles",
   },
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
   "@id": "https://amextechnology.com/#organization",
   name: "Amex Technology",
   alternateName: ["Amex Technology Agency", "amextechnology.com"],
   url: "https://amextechnology.com",
   logo: "https://amextechnology.com/images/logo.png",
   description:
-    "Independent AI and software development agency that builds AI agents, websites, web apps, SaaS products and mobile apps, and provides SEO, GEO and AEO services.",
+    "Los Angeles web design, SEO and AI development company. Builds websites, web apps, mobile apps and AI automations, and provides SEO, GEO and AEO services.",
   // "Amex Technology" is also the name of American Express's internal technology
   // organization; this tells search engines and AI assistants we're a different entity.
   disambiguatingDescription:
-    "Independent software and AI agency at amextechnology.com, founded by Abhi Patel in 2019. Not affiliated with American Express.",
+    "Independent software and AI agency at amextechnology.com, founded by Abhi Patel. Not affiliated with American Express.",
   foundingDate: "2019",
   founder: {
     "@type": "Person",
@@ -80,9 +100,16 @@ const organizationSchema = {
     name: "Abhi Patel",
     jobTitle: "Founder and Full-Stack Developer",
     url: "https://amextechnology.com/about",
-    sameAs: ["https://github.com/abhipatel8675", "https://www.fiverr.com/abhipatel956"],
+    sameAs: [
+      "https://github.com/abhipatel8675",
+      "https://www.fiverr.com/abhipatel956",
+    ],
   },
-  numberOfEmployees: { "@type": "QuantitativeValue", minValue: 2, maxValue: 10 },
+  numberOfEmployees: {
+    "@type": "QuantitativeValue",
+    minValue: 2,
+    maxValue: 10,
+  },
   knowsAbout: [
     ...services.map((s) => s.title),
     "Generative Engine Optimization",
@@ -93,7 +120,15 @@ const organizationSchema = {
     "GoHighLevel",
     "OpenAI API",
   ],
-  email: "abhipatel8675@gmail.com",
+  email: "abhi@amextech.org",
+  telephone: "+1-623-301-2035",
+  image: "https://amextechnology.com/images/logo.png",
+  areaServed: [
+    { "@type": "City", name: "Los Angeles" },
+    { "@type": "AdministrativeArea", name: "Los Angeles County" },
+    { "@type": "State", name: "California" },
+    { "@type": "Country", name: "United States" },
+  ],
   sameAs: [
     "https://www.fiverr.com/abhipatel956",
     "https://www.instagram.com/amextechnology/",
@@ -102,14 +137,24 @@ const organizationSchema = {
   ],
   address: {
     "@type": "PostalAddress",
-    addressCountry: "IN",
+    addressLocality: "Gardena",
+    addressRegion: "CA",
+    postalCode: "90247",
+    addressCountry: "US",
   },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
       opens: "09:00",
-      closes: "20:00",
+      closes: "18:00",
     },
   ],
 };
@@ -120,21 +165,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} h-full antialiased dark`}
-    >
+    <html lang="en" className={`${inter.variable} h-full antialiased dark`}>
       <head>
-        <meta name="theme-color" content="#FFFFFF" />
+        <meta name="theme-color" content="#f7f6f2" />
         {/* Google Search Console verification — replace content value with your verification code */}
         {/* <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_CODE" /> */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-white text-slate-700 antialiased">
+      <body className="min-h-full flex flex-col bg-[#f7f6f2] text-[#1a211d] antialiased">
         <ScrollProgress />
         {children}
         <SpeedInsights />

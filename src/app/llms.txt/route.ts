@@ -1,6 +1,7 @@
 import { blogPosts } from "@/data/blog";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
+import { localPages } from "@/data/localPages";
 
 export const dynamic = "force-static";
 
@@ -12,15 +13,21 @@ export function GET() {
   const lines = [
     "# Amex Technology",
     "",
-    "> AI and software agency founded in 2019, based in Ahmedabad, India, serving clients worldwide. We build AI agents and automations, websites and web apps, AI SaaS MVPs and mobile apps, set up GoHighLevel and HubSpot CRMs, and grow search visibility on Google and AI assistants with SEO, GEO and AEO.",
+    "> AI and software agency with a Los Angeles-based founder (Gardena) and a development team in Ahmedabad, India, serving clients worldwide. We build AI agents and automations, websites and web apps, AI SaaS MVPs and mobile apps, set up GoHighLevel and HubSpot CRMs, and grow search visibility on Google and AI assistants with SEO, GEO and AEO.",
     "",
     "## Services",
     "",
     ...services.map((s) => `- [${s.title}](${BASE_URL}/services/${s.slug}): ${s.shortDesc}`),
     "",
+    "## Offers",
+    "",
+    `- [AI Operations Agent for manufacturers](${BASE_URL}/ai-operations-agent): AI assistant connected to a small manufacturer's tools (monday.com, Smartsheet, Google Sheets, inFlow, QuickBooks, email) for order status, daily exceptions and system sync. Setup from $3,000, support from $500/month.`,
+    `- [Hire Developers](${BASE_URL}/hire-developers): React, Next.js, full-stack, AI, mobile and DevOps development support, as a defined project, an extension of your team or ongoing development.`,
+    "",
     "## Locations",
     "",
     `- [Los Angeles](${BASE_URL}/los-angeles): Development team in India; founder Abhi Patel is based in Gardena, in the Los Angeles area, and works with LA and South Bay businesses on Pacific time.`,
+    ...localPages.map((p) => `- [${p.title}](${BASE_URL}/${p.slug}): ${p.description}`),
     "",
     "## Free tools",
     "",

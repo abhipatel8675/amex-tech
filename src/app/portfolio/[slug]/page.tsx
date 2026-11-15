@@ -83,11 +83,11 @@ export default async function ProjectDetailPage({ params }: Props) {
   };
 
   return (
-    <div className="bg-white text-slate-900 min-h-screen antialiased">
+    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen antialiased">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeWorkSchema) }} />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Breadcrumb
           items={[
             { label: "Home", href: "/" },
@@ -100,11 +100,11 @@ export default async function ProjectDetailPage({ params }: Props) {
           {/* Header */}
           <header className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-10">
             <div>
-              <p className="mb-3 text-sm text-slate-500">
+              <p className="mb-3 text-sm text-[#626960]">
                 {project.category} · {project.tags.slice(0, 2).join(" · ")}
               </p>
               <h1
-                className="font-semibold text-slate-900 leading-[1.05]"
+                className="font-semibold text-[#1a211d] leading-[1.05]"
                 style={{ fontSize: "clamp(36px, 4.6vw, 68px)", letterSpacing: "-0.035em" }}
               >
                 {project.title}
@@ -122,15 +122,15 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <span
                   aria-hidden
                   className="absolute -inset-1.5 rounded-full opacity-70 blur-lg animate-pulse transition-opacity duration-500 group-hover:opacity-100"
-                  style={{ background: "linear-gradient(120deg, #F5C451, #B8860B 45%, #F59E0B)" }}
+                  style={{ background: "linear-gradient(120deg, #F5C451, #9a722a 45%, #F59E0B)" }}
                 />
-                <span className="relative inline-flex items-center gap-2.5 rounded-full bg-slate-900 pl-5 pr-2 py-2 text-sm font-medium text-white ring-1 ring-white/10 transition-transform duration-300 group-hover:-translate-y-0.5">
+                <span className="relative inline-flex items-center gap-2.5 rounded-full bg-[#1a211d] pl-5 pr-2 py-2 text-sm font-medium text-white ring-1 ring-white/10 transition-transform duration-300 group-hover:-translate-y-0.5">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                   </span>
                   Visit live site
-                  <span className="grid place-items-center w-8 h-8 rounded-full bg-white text-slate-900 transition-transform duration-300 group-hover:rotate-45">
+                  <span className="grid place-items-center w-8 h-8 rounded-full bg-white text-[#1a211d] transition-transform duration-300 group-hover:rotate-45">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </span>
@@ -145,7 +145,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
           {/* Tech stack */}
           <section className="mt-14 md:mt-16" aria-labelledby="stack-heading">
-            <h2 id="stack-heading" className="mb-5 text-sm font-medium text-slate-500">
+            <h2 id="stack-heading" className="mb-5 text-sm font-medium text-[#626960]">
               Tech stack
             </h2>
             <TechStack technologies={project.technologies} />
@@ -156,36 +156,36 @@ export default async function ProjectDetailPage({ params }: Props) {
             <section className="lg:col-span-7" aria-labelledby="about-heading">
               <h2
                 id="about-heading"
-                className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-slate-900"
+                className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-[#1a211d]"
               >
                 About the project
               </h2>
-              <p className="text-lg leading-8 text-slate-600">{project.description}</p>
+              <p className="text-lg leading-8 text-[#4d554b]">{project.description}</p>
             </section>
 
             <section className="lg:col-span-5" aria-labelledby="solved-heading">
               <h2
                 id="solved-heading"
-                className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-slate-900"
+                className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-[#1a211d]"
               >
                 What we solved
               </h2>
-              <p className="mb-6 text-base leading-7 text-slate-500">{project.problem}</p>
-              <ul className="divide-y divide-slate-200 border-y border-slate-200">
+              <p className="mb-6 text-base leading-7 text-[#626960]">{project.problem}</p>
+              <ul className="divide-y divide-[#dadcd1] border-y border-[#dadcd1]">
                 {project.results.map((r) => (
                   <li key={r} className="flex items-start gap-3 py-4">
                     <Check className="mt-1 w-4 h-4 shrink-0 text-emerald-600" />
-                    <span className="text-[15px] leading-7 text-slate-700">{r}</span>
+                    <span className="text-[15px] leading-7 text-[#3d453b]">{r}</span>
                   </li>
                 ))}
               </ul>
             </section>
           </div>
 
-          <div className="mt-20 md:mt-28 pt-8 border-t border-slate-200">
+          <div className="mt-20 md:mt-28 pt-8 border-t border-[#dadcd1]">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#4d554b] transition-colors hover:text-[#1a211d]"
             >
               <ArrowLeft className="w-4 h-4" /> All projects
             </Link>

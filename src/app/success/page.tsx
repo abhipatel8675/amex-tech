@@ -15,23 +15,23 @@ export default function SuccessPage() {
       <div className="flex items-center justify-center min-h-screen px-6">
         <div className="text-center max-w-md">
           <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-[#B8860B]/10 rounded-full flex items-center justify-center">
+            <div className="w-20 h-20 bg-[#9a722a]/10 rounded-full flex items-center justify-center">
               <CheckCircle className="w-10 h-10 text-[#7A5807]" />
             </div>
           </div>
           <h1 className="text-4xl font-bold mb-4">Payment Successful!</h1>
-          <p className="text-lg text-slate-600 mb-8">
+          <p className="text-lg text-[#4d554b] mb-8">
             We received your payment. Expect an email from us within 1 hour to kick off your project.
           </p>
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 mb-8 text-left space-y-2">
-            <p className="text-sm text-slate-600">📧 Check your inbox for confirmation</p>
-            <p className="text-sm text-slate-600">⚡ Work starts within 24 hours</p>
-            <p className="text-sm text-slate-600">💬 We'll reach out to collect project details</p>
+          <div className="bg-white border border-[#dadcd1] rounded-2xl p-6 mb-8 text-left space-y-2">
+            <p className="text-sm text-[#4d554b]">📧 Check your inbox for confirmation</p>
+            <p className="text-sm text-[#4d554b]">⚡ Work starts within 24 hours</p>
+            <p className="text-sm text-[#4d554b]">💬 We'll reach out to collect project details</p>
           </div>
           <a
             href="/"
             className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-xl transition-all"
-            style={{ background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)" }}
+            style={{ background: "linear-gradient(135deg, #9a722a 0%, #9C7208 100%)" }}
           >
             Back to Home
           </a>

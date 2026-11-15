@@ -3,6 +3,7 @@ import { blogPosts } from "@/data/blog";
 import { getProjects } from "@/lib/portfolio/data";
 import { services } from "@/data/services";
 import { servicePages } from "@/data/servicePages";
+import { localPages } from "@/data/localPages";
 
 const BASE_URL = "https://amextechnology.com";
 
@@ -19,6 +20,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: SITE_LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/hire-developers`,
+      lastModified: new Date("2026-11-10"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/ai-operations-agent`,
+      lastModified: new Date("2026-11-14"),
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     {
       url: `${BASE_URL}/services`,
@@ -92,6 +105,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    {
+      url: `${BASE_URL}/refund-policy`,
+      lastModified: new Date("2026-10-30"),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/delivery-policy`,
+      lastModified: new Date("2026-10-30"),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ];
 
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
@@ -117,5 +142,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     }));
 
-  return [...staticPages, ...servicePagesList, ...blogPages, ...portfolioPages];
+  const localPagesList: MetadataRoute.Sitemap = localPages.map((p) => ({
+    url: `${BASE_URL}/${p.slug}`,
+    lastModified: new Date("2026-11-14"),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...localPagesList, ...servicePagesList, ...blogPages, ...portfolioPages];
 }

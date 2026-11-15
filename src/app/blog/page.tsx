@@ -61,11 +61,11 @@ export default function BlogPage() {
   const rest = blogPosts.filter((p) => !p.featured);
 
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
         {/* Hero */}
@@ -76,7 +76,7 @@ export default function BlogPage() {
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mb-6 leading-tight">
             Fix Guides for Supabase, Firebase, Lovable & Next.js
           </h1>
-          <p className="text-slate-700 text-xl max-w-xl leading-8">
+          <p className="text-[#3d453b] text-xl max-w-xl leading-8">
             Step-by-step fixes for the errors we solve every week on client projects, plus setup guides for the tools
             around them.
           </p>
@@ -90,7 +90,7 @@ export default function BlogPage() {
           <section className="pb-12 max-w-[92rem] mx-auto px-6">
             <Link
               href={`/blog/${featured.slug}`}
-              className="group block rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden hover:border-slate-300 hover:bg-slate-100 transition-all duration-300"
+              className="group block rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] overflow-hidden hover:border-[#c9cbbf] hover:bg-[#efeee6] transition-all duration-300"
             >
               <div className="flex flex-col md:flex-row">
                 {/* Visual */}
@@ -125,17 +125,17 @@ export default function BlogPage() {
                 <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-5">
-                      <span className="text-sm text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-lg">
+                      <span className="text-sm text-[#4d554b] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg">
                         {featured.category}
                       </span>
-                      <span className="text-sm text-slate-600 flex items-center gap-1.5">
+                      <span className="text-sm text-[#4d554b] flex items-center gap-1.5">
                         <Clock className="w-3.5 h-3.5" /> {featured.readTime}
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 group-hover:text-[#7A5807] transition-colors leading-snug">
+                    <h2 className="text-2xl md:text-3xl font-bold text-[#1a211d] mb-4 group-hover:text-[#7A5807] transition-colors leading-snug">
                       {featured.title}
                     </h2>
-                    <p className="text-base text-slate-600 leading-7">{featured.excerpt}</p>
+                    <p className="text-base text-[#4d554b] leading-7">{featured.excerpt}</p>
                   </div>
                   <div className="flex items-center gap-2 text-base font-semibold text-[#7A5807] mt-7 group-hover:text-[#7A5807] transition-colors">
                     Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -153,7 +153,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden hover:border-slate-300 hover:bg-slate-100 transition-all duration-300 flex flex-col"
+                className="group rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] overflow-hidden hover:border-[#c9cbbf] hover:bg-[#efeee6] transition-all duration-300 flex flex-col"
               >
                 {/* Visual */}
                 <div className="h-44 relative overflow-hidden">
@@ -187,17 +187,17 @@ export default function BlogPage() {
                 {/* Content */}
                 <div className="p-6 flex flex-col gap-3.5 flex-1">
                   <div className="flex items-center gap-2.5">
-                    <span className="text-sm text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg">
+                    <span className="text-sm text-[#4d554b] bg-[#efeee6] border border-[#dadcd1] px-2.5 py-1 rounded-lg">
                       {post.category}
                     </span>
-                    <span className="text-sm text-slate-600 flex items-center gap-1.5">
+                    <span className="text-sm text-[#4d554b] flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5" /> {post.readTime}
                     </span>
                   </div>
-                  <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#7A5807] transition-colors leading-snug">
+                  <h3 className="text-base font-semibold text-[#1a211d] group-hover:text-[#7A5807] transition-colors leading-snug">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed flex-1">{post.excerpt}</p>
+                  <p className="text-sm text-[#4d554b] leading-relaxed flex-1">{post.excerpt}</p>
                   <div className="flex items-center gap-1.5 text-sm font-medium text-[#7A5807] group-hover:text-[#7A5807] transition-colors mt-1">
                     Read <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>

@@ -104,12 +104,12 @@ export default async function AppCheckerPage({ searchParams }: { searchParams: P
   const initialUrl = typeof url === "string" ? url.slice(0, 300) : "";
 
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "App Checker" }]} />
 
         <section className="pt-8 pb-10 max-w-5xl mx-auto px-6">
@@ -117,7 +117,7 @@ export default async function AppCheckerPage({ searchParams }: { searchParams: P
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
             Is your AI-built app leaking keys or invisible on Google?
           </h1>
-          <p className="text-slate-700 text-xl leading-8 mb-8">
+          <p className="text-[#3d453b] text-xl leading-8 mb-8">
             Paste your Lovable, Bolt, Replit, v0 or Next.js app&apos;s address. In about 30 seconds you&apos;ll get a security, SEO and speed score, and the
             problems that need fixing first.
           </p>
@@ -128,11 +128,11 @@ export default async function AppCheckerPage({ searchParams }: { searchParams: P
           <h2 className="text-2xl font-bold mb-6">What we check</h2>
           <div className="grid md:grid-cols-3 gap-4">
             {checks.map((group) => (
-              <div key={group.heading} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <div key={group.heading} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <h3 className="text-lg font-semibold mb-3">{group.heading}</h3>
                 <ul className="space-y-2">
                   {group.items.map((item) => (
-                    <li key={item} className="text-sm text-slate-700 leading-relaxed">
+                    <li key={item} className="text-sm text-[#3d453b] leading-relaxed">
                       {item}
                     </li>
                   ))}
@@ -146,13 +146,13 @@ export default async function AppCheckerPage({ searchParams }: { searchParams: P
           <h2 className="text-2xl font-bold mb-6">Questions</h2>
           <div className="space-y-4">
             {faq.map((q) => (
-              <div key={q.question} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <div key={q.question} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <h3 className="font-semibold mb-2">{q.question}</h3>
-                <p className="text-slate-600 leading-relaxed">{q.answer}</p>
+                <p className="text-[#4d554b] leading-relaxed">{q.answer}</p>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-slate-700">
+          <p className="mt-8 text-[#3d453b]">
             Already know what&apos;s broken?{" "}
             <Link href="/fix" className="font-semibold text-[#7A5807] hover:underline">
               Get it fixed in 24 hours

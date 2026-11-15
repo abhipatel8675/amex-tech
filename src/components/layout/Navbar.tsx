@@ -1,218 +1,142 @@
 "use client";
-
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { LogoMark } from "@/components/ui/Logo";
-
-const navLinks = [
-  { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Blog", href: "/blog" },
-  { label: "Free App Check", href: "/tools/app-checker" },
-  { label: "About", href: "/about" },
+import s from "./navbar.module.css";
+const links = [
+  ["Services", "/services"],
+  ["SEO Services", "/services/seo-services"],
+  ["AI Agents", "/ai-operations-agent"],
+  ["Hire Developers", "/hire-developers"],
+  ["Our Work", "/portfolio"],
+  ["About", "/about"],
+  ["Blog", "/blog"],
 ];
-
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
-
+  const toggle = useRef<HTMLButtonElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMobileOpen(false);
-  }, [pathname]);
-
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    panel.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggle.current?.focus();
+      }
+      if (event.key === "Tab") {
+        const focusables = [
+          toggle.current,
+          ...Array.from(
+            panel.current?.querySelectorAll<HTMLAnchorElement>("a") ?? [],
+          ),
+        ].filter(Boolean) as HTMLElement[];
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    }
+    function onResize() {
+      if (window.innerWidth > 1160) setOpen(false);
+    }
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [open]);
+  const active = (href: string) =>
+    pathname === href ||
+    (pathname.startsWith(href + "/") &&
+      !links.some(([, other]) => other !== href && other.startsWith(href + "/") && pathname.startsWith(other)));
   return (
     <>
-      <header
-        className={`fixed left-0 right-0 z-50 transition-all duration-500 top-0 ${
-          scrolled
-            ? "bg-white/85 backdrop-blur-2xl border-b border-slate-200 shadow-sm"
-            : "bg-transparent"
-        }`}
-      >
-        <nav className="max-w-[92rem] mx-auto px-6 h-16 flex items-center justify-between gap-8">
-
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
-            <LogoMark size={42} className="transition-transform duration-300 group-hover:scale-105" />
-            <span className="flex items-baseline gap-1">
-              <span
-                className="font-bold text-[22px] md:text-2xl tracking-tight"
-                style={{
-                  background: "linear-gradient(135deg, #CC9A1A, #B8860B)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Amex
-              </span>
-              <span className="text-slate-800 font-semibold text-[22px] md:text-2xl tracking-tight">Technology</span>
+      <a href="#main-content" className={s.skip}>
+        Skip to content
+      </a>
+      <header className={s.header}>
+        <nav className={s.nav} aria-label="Main navigation">
+          <Link
+            className={s.logo}
+            href="/"
+            onClick={() => setOpen(false)}
+            aria-label="Amex Technology home"
+          >
+            <LogoMark size={36} />
+            <span className={s.wordmark}>
+              Amex Technology<small>Ideas into impact</small>
             </span>
           </Link>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-0.5 flex-1 justify-center">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 group ${
-                    isActive
-                      ? "text-slate-900"
-                      : "text-slate-600 hover:text-slate-700"
-                  }`}
-                >
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-active"
-                      className="absolute inset-0 rounded-lg bg-slate-100"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{link.label}</span>
-                  {/* Hover dot indicator */}
-                  {!isActive && (
-                    <span
-                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#CC9A1A] opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                      aria-hidden="true"
-                    />
-                  )}
-                </Link>
-              );
-            })}
+          <div className={s.links}>
+            {links.map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
+                aria-current={active(href) ? "page" : undefined}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
-
-          {/* Right side */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-700 transition-colors px-3 py-2"
-            >
-              Contact
-            </Link>
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-white px-4 py-2 rounded-xl transition-all duration-200 btn-glow"
-              style={{
-                background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)",
-              }}
-            >
-              Get Free Quote
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-            <button
-              onClick={() => setMobileOpen((v) => !v)}
-              className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all"
-              aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-nav"
-            >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+          <Link className={s.cta} href="/contact">
+            Let&apos;s talk <ArrowUpRight size={15} />
+          </Link>
+          <button
+            ref={toggle}
+            className={s.toggle}
+            aria-controls="mobile-navigation"
+            aria-expanded={open}
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </nav>
-      </header>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
-              onClick={() => setMobileOpen(false)}
-            />
-            <motion.div
-              id="mobile-nav"
-              role="dialog"
-              aria-label="Navigation menu"
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 border-l border-slate-200 md:hidden flex flex-col"
-              style={{
-                background: "linear-gradient(160deg, #FFFFFF 0%, #F8FAFC 100%)",
-              }}
+        {open && (
+          <div
+            className={s.mobile}
+            ref={panel}
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
+          >
+            {[
+              ["Home", "/"],
+              ...links,
+              ["Free App Check", "/tools/app-checker"],
+              ["Free Website Grader", "/tools/website-grader"],
+            ].map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
+                aria-current={active(href) ? "page" : undefined}
+                onClick={() => setOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
+            <Link
+              className={s.cta}
+              href="/contact"
+              onClick={() => setOpen(false)}
             >
-              {/* Mobile header */}
-              <div className="flex items-center justify-between px-6 h-16 border-b border-slate-200">
-                <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
-                  <LogoMark size={36} />
-                  <span className="flex items-baseline gap-1">
-                    <span className="font-bold text-xl" style={{ background: "linear-gradient(135deg, #CC9A1A, #B8860B)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Amex</span>
-                    <span className="text-slate-900 font-semibold text-xl">Technology</span>
-                  </span>
-                </Link>
-                <button onClick={() => setMobileOpen(false)} className="p-2 text-slate-600 hover:text-slate-900 transition-colors" aria-label="Close navigation menu">
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Mobile links */}
-              <div className="flex flex-col gap-1 p-4 flex-1">
-                <Link
-                  href="/"
-                  onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${pathname === "/" ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"}`}
-                >
-                  Home
-                </Link>
-                {navLinks.map((link) => {
-                  const isActive = pathname === link.href;
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      aria-current={isActive ? "page" : undefined}
-                      className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isActive ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"}`}
-                    >
-                      {link.label}
-                    </Link>
-                  );
-                })}
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${pathname === "/contact" ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"}`}
-                >
-                  Contact
-                </Link>
-              </div>
-
-              {/* Mobile CTA */}
-              <div className="p-4 border-t border-slate-200">
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full text-sm font-semibold text-white py-3 rounded-xl transition-all btn-glow"
-                  style={{ background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)" }}
-                >
-                  Get Free Quote <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </motion.div>
-          </>
+              Tell us about your project <ArrowUpRight size={17} />
+            </Link>
+          </div>
         )}
-      </AnimatePresence>
+      </header>
     </>
   );
 }

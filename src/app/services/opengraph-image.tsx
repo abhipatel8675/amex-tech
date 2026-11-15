@@ -28,7 +28,7 @@ export default function OgImage() {
             left: 0,
             right: 0,
             height: "4px",
-            background: "linear-gradient(90deg, #B8860B, #9C7208)",
+            background: "linear-gradient(90deg, #9a722a, #9C7208)",
           }}
         />
 
@@ -37,7 +37,7 @@ export default function OgImage() {
             style={{
               fontSize: "28px",
               fontWeight: "700",
-              background: "linear-gradient(135deg, #CC9A1A, #B8860B)",
+              background: "linear-gradient(135deg, #CC9A1A, #9a722a)",
               backgroundClip: "text",
               color: "transparent",
             }}

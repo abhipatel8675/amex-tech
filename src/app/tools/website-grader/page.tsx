@@ -62,18 +62,18 @@ export default async function WebsiteGraderPage({ searchParams }: { searchParams
   const initialUrl = typeof url === "string" ? url.slice(0, 300) : "";
 
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
       {schemas.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <Navbar />
-      <main>
+      <main id="main-content">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Website Grader" }]} />
 
         <section className="pt-8 pb-10 max-w-5xl mx-auto px-6">
           <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-wider mb-4">Free tool</p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">Is your website losing you calls?</h1>
-          <p className="text-slate-700 text-xl leading-8 mb-8">
+          <p className="text-[#3d453b] text-xl leading-8 mb-8">
             Enter your business website. In about 10 seconds you&apos;ll see your score and the problems that stop visitors from calling you.
           </p>
           <WebsiteGrader initialUrl={initialUrl} />
@@ -83,11 +83,11 @@ export default async function WebsiteGraderPage({ searchParams }: { searchParams
           <h2 className="text-2xl font-bold mb-6">What we check</h2>
           <div className="grid md:grid-cols-3 gap-4">
             {checks.map((group) => (
-              <div key={group.heading} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <div key={group.heading} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <h3 className="text-lg font-semibold mb-3">{group.heading}</h3>
                 <ul className="space-y-2">
                   {group.items.map((item) => (
-                    <li key={item} className="text-sm text-slate-700 leading-relaxed">{item}</li>
+                    <li key={item} className="text-sm text-[#3d453b] leading-relaxed">{item}</li>
                   ))}
                 </ul>
               </div>
@@ -99,9 +99,9 @@ export default async function WebsiteGraderPage({ searchParams }: { searchParams
           <h2 className="text-2xl font-bold mb-6">Questions</h2>
           <div className="space-y-4">
             {faq.map((q) => (
-              <div key={q.question} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <div key={q.question} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <h3 className="font-semibold mb-2">{q.question}</h3>
-                <p className="text-slate-600 leading-relaxed">{q.answer}</p>
+                <p className="text-[#4d554b] leading-relaxed">{q.answer}</p>
               </div>
             ))}
           </div>

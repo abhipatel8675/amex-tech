@@ -4,12 +4,12 @@ export const faqs: { question: string; answer: string }[] = [
   {
     question: "Is Amex Technology part of American Express?",
     answer:
-      "No. Amex Technology (amextechnology.com) is an independent AI and software development agency founded by Abhi Patel in 2019. It has no affiliation with American Express or the American Express technology organization.",
+      "No. Amex Technology (amextechnology.com) is an independent AI and software development agency founded by Abhi Patel. It has no affiliation with American Express or the American Express technology organization.",
   },
   {
     question: "How much does custom software development cost?",
     answer:
-      "Cost depends on scope, complexity, and timeline. A professional website starts from $500–$2,000, a web application from $3,000–$10,000, and a full SaaS platform from $5,000+. We provide a detailed, itemised quote after a free discovery call — no commitment required.",
+      "Cost depends on scope, complexity, and timeline. After a free discovery call we send a detailed, itemised written quote, so you know the full cost before any work starts. No commitment required.",
   },
   {
     question: "How long does it take to build a web application?",

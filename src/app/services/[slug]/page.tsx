@@ -81,25 +81,25 @@ export default async function ServiceDetailPage({ params }: Props) {
   };
 
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services", href: "/services" }, { label: service.title }]} />
 
         <section className="pt-8 pb-12 max-w-5xl mx-auto px-6">
           <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-wider mb-4">Services</p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">{page.h1}</h1>
           {page.intro.map((p) => (
-            <p key={p.slice(0, 24)} className="text-slate-700 text-lg md:text-xl leading-8 mb-5">
+            <p key={p.slice(0, 24)} className="text-[#3d453b] text-lg md:text-xl leading-8 mb-5">
               {p}
             </p>
           ))}
           <div className="flex flex-wrap gap-2 mb-8">
             {service.technologies.map((t) => (
-              <span key={t} className="text-sm text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-lg">
+              <span key={t} className="text-sm text-[#4d554b] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg">
                 {t}
               </span>
             ))}
@@ -116,9 +116,9 @@ export default async function ServiceDetailPage({ params }: Props) {
           <h2 className="text-2xl font-bold mb-6">What we build</h2>
           <div className="grid md:grid-cols-2 gap-4">
             {page.deliverables.map((d) => (
-              <div key={d.title} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <div key={d.title} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <h3 className="text-lg font-semibold mb-2">{d.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{d.body}</p>
+                <p className="text-[#4d554b] leading-relaxed">{d.body}</p>
               </div>
             ))}
           </div>
@@ -128,8 +128,8 @@ export default async function ServiceDetailPage({ params }: Props) {
           <h2 className="text-2xl font-bold mb-6">Who it&apos;s for</h2>
           <ul className="grid sm:grid-cols-2 gap-3">
             {page.whoFor.map((w) => (
-              <li key={w} className="flex gap-3 text-slate-700 leading-relaxed">
-                <Check className="w-5 h-5 mt-0.5 shrink-0 text-[#B8860B]" aria-hidden />
+              <li key={w} className="flex gap-3 text-[#3d453b] leading-relaxed">
+                <Check className="w-5 h-5 mt-0.5 shrink-0 text-[#9a722a]" aria-hidden />
                 {w}
               </li>
             ))}
@@ -140,14 +140,14 @@ export default async function ServiceDetailPage({ params }: Props) {
           <h2 className="text-2xl font-bold mb-6">How we work</h2>
           <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {page.process.map((step, i) => (
-              <li key={step.title} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <li key={step.title} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <span className="text-sm font-semibold text-[#7A5807]">Step {i + 1}</span>
                 <h3 className="text-lg font-semibold mt-2 mb-2">{step.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{step.body}</p>
+                <p className="text-[#4d554b] leading-relaxed">{step.body}</p>
               </li>
             ))}
           </ol>
-          <p className="text-slate-600 mt-6 leading-relaxed">
+          <p className="text-[#4d554b] mt-6 leading-relaxed">
             Our development team is in India and our founder, Abhi Patel, is based in the Los Angeles area, so US clients
             get working hours that overlap with theirs.{" "}
             <Link href="/los-angeles" className="font-semibold text-[#7A5807] hover:underline">
@@ -165,16 +165,16 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <Link
                   key={p.slug}
                   href={`/portfolio/${p.slug}`}
-                  className="group rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-slate-300 transition-colors"
+                  className="group rounded-2xl border border-[#dadcd1] bg-white overflow-hidden hover:border-[#c9cbbf] transition-colors"
                 >
                   {p.image && (
-                    <div className="relative aspect-[16/10] bg-slate-100">
+                    <div className="relative aspect-[16/10] bg-[#efeee6]">
                       <Image src={p.image} alt={`${p.title} project`} fill sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw" className="object-cover" />
                     </div>
                   )}
                   <div className="p-5">
                     <p className="font-semibold group-hover:text-[#7A5807] transition-colors">{p.title}</p>
-                    <p className="text-sm text-slate-600 mt-1 leading-relaxed">{p.shortDesc}</p>
+                    <p className="text-sm text-[#4d554b] mt-1 leading-relaxed">{p.shortDesc}</p>
                   </div>
                 </Link>
               ))}
@@ -186,9 +186,9 @@ export default async function ServiceDetailPage({ params }: Props) {
           <h2 className="text-2xl font-bold mb-6">Questions</h2>
           <div className="space-y-4">
             {page.faq.map((q) => (
-              <div key={q.question} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <div key={q.question} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <h3 className="font-semibold mb-2">{q.question}</h3>
-                <p className="text-slate-600 leading-relaxed">{q.answer}</p>
+                <p className="text-[#4d554b] leading-relaxed">{q.answer}</p>
               </div>
             ))}
           </div>
@@ -202,9 +202,9 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group p-5 rounded-xl border border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-slate-100 transition-all duration-200"
+                  className="group p-5 rounded-xl border border-[#dadcd1] bg-[#f7f6f2] hover:border-[#c9cbbf] hover:bg-[#efeee6] transition-all duration-200"
                 >
-                  <p className="font-semibold text-slate-900 group-hover:text-[#7A5807] transition-colors leading-snug">{post.title}</p>
+                  <p className="font-semibold text-[#1a211d] group-hover:text-[#7A5807] transition-colors leading-snug">{post.title}</p>
                 </Link>
               ))}
             </div>
@@ -218,13 +218,25 @@ export default async function ServiceDetailPage({ params }: Props) {
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="text-sm font-medium text-slate-700 border border-slate-200 bg-white px-4 py-2 rounded-xl hover:border-[#B8860B] hover:text-[#7A5807] transition-colors"
+                className="text-sm font-medium text-[#3d453b] border border-[#dadcd1] bg-white px-4 py-2 rounded-xl hover:border-[#9a722a] hover:text-[#7A5807] transition-colors"
               >
                 {s.title}
               </Link>
             ))}
           </div>
         </section>
+
+        {slug === "ai-services" && (
+          <section className="pb-12 max-w-5xl mx-auto px-6">
+            <Link
+              href="/ai-operations-agent"
+              className="inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-[#7a5807] hover:underline"
+            >
+              For manufacturers: AI Operations Agent
+              <span aria-hidden="true">→</span>
+            </Link>
+          </section>
+        )}
 
         <CTASection />
       </main>

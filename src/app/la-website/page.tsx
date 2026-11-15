@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight, Clock, Globe, FileText, Smartphone, Search, ShieldCheck } from "lucide-react";
+import type { CSSProperties } from "react";
+import { CheckCircle2, ArrowUpRight, Clock, Globe, FileText, Smartphone, Search, ShieldCheck, X } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import WebsiteGrader from "@/components/tools/WebsiteGrader";
+import s from "@/components/agency/agency.module.css";
 
 // Landing page for LA trade businesses (plumbers, handymen, HVAC, contractors).
 // Outreach links here with ?site=theirsite.com so the free scan is prefilled.
 
-const PRICE = "$299";
 const pageUrl = "https://amextechnology.com/la-website";
 const title = "Website for LA Trade Businesses";
 const description =
-  "A new website for Los Angeles plumbers, handymen, HVAC and contractors: your own domain, a quote request form, and Google setup. $299 one-time, live in about 5 days.";
+  "A new website for Los Angeles plumbers, handymen, HVAC and contractors: your own domain, a quote request form, and Google setup. Fixed quote up front, live in about 5 days.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title}: ${PRICE}, Live in 5 Days | Amex Technology` },
+  title: { absolute: `${title}: Live in About 5 Days | Amex Technology` },
   description,
   alternates: { canonical: pageUrl },
   openGraph: { title: `${title} | Amex Technology`, description, url: pageUrl },
@@ -24,12 +25,12 @@ export const metadata: Metadata = {
 };
 
 const contactHref = `/contact?service=${encodeURIComponent("Websites & Web Apps")}&message=${encodeURIComponent(
-  `I'm interested in the ${PRICE} LA trade business website.\n\nBusiness name:\nCurrent website (if any):\nBest phone number:`
+  `I'm interested in an LA trade business website.\n\nBusiness name:\nCurrent website (if any):\nBest phone number:`
 )}`;
 
 const included = [
   { icon: FileText, title: "5-page website", body: "Home, Services, Gallery, Reviews and Contact, written for your trade and your area." },
-  { icon: Globe, title: "Your own domain", body: "Move off the free builder address to yourname.com. The domain is registered in your name, about $12 a year." },
+  { icon: Globe, title: "Your own domain", body: "Move off the free builder address to yourname.com. The domain is registered in your name." },
   { icon: CheckCircle2, title: "Quote request form", body: "Every request goes straight to your email and phone, so you get jobs even when you can't pick up." },
   { icon: Smartphone, title: "Built for phones", body: "Most customers find you on their phone. Tap-to-call and the quote form sit on every page." },
   { icon: Search, title: "Google basics", body: "Search Console, sitemap, page titles and local business details, so you show up for searches in your area." },
@@ -51,9 +52,9 @@ const steps = [
 
 const faq = [
   {
-    question: `What does ${PRICE} include?`,
+    question: "What is included?",
     answer:
-      "A 5-page website, your own domain connected, a quote request form, mobile design, Google Search Console and sitemap setup, and moving your existing photos, services and reviews. The only extra cost is the domain itself, about $12 a year, paid directly by you so it's in your name.",
+      "A 5-page website, your own domain connected, a quote request form, mobile design, Google Search Console and sitemap setup, and moving your existing photos, services and reviews. The domain is registered directly in your name so you always own it.",
   },
   { question: "Are there monthly fees?", answer: "No. Hosting is included with no monthly bill. Ongoing updates and local SEO are optional, and only if you want them." },
   { question: "How do I pay?", answer: "Half to start and half when the site is live and you're happy with it." },
@@ -75,17 +76,12 @@ const serviceSchema = {
   url: pageUrl,
   areaServed: { "@type": "City", name: "Los Angeles" },
   provider: { "@type": "Organization", name: "Amex Technology", url: "https://amextechnology.com" },
-  offers: { "@type": "Offer", price: "299", priceCurrency: "USD" },
 };
 
 function CTA({ label = "Get my new website" }: { label?: string }) {
   return (
-    <Link
-      href={contactHref}
-      className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3.5 rounded-xl transition-all hover:opacity-90"
-      style={{ background: "linear-gradient(135deg, #B8860B, #9C7208)" }}
-    >
-      {label} <ArrowRight className="w-4 h-4" />
+    <Link href={contactHref} className={s.button}>
+      {label} <ArrowUpRight size={17} />
     </Link>
   );
 }
@@ -95,96 +91,126 @@ export default async function LaWebsitePage({ searchParams }: { searchParams: Pr
   const initialUrl = typeof site === "string" ? site.slice(0, 300) : "";
 
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
+    <div className={s.site}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
-      <main>
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "LA Trade Websites" }]} />
-
-        <section className="pt-8 pb-12 max-w-5xl mx-auto px-6">
-          <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-wider mb-4">For Los Angeles plumbers, handymen, HVAC & contractors</p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
-            A website that turns Google searches into job requests.
-          </h1>
-          <p className="text-slate-700 text-xl leading-8 mb-8">
-            Your own domain, a quote form that sends every request to your phone, and Google set up properly.{" "}
-            <span className="font-semibold text-slate-900">{PRICE} one-time.</span> Live in about 5 days.
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <CTA />
-            <span className="flex items-center gap-1.5 text-slate-600 text-sm">
-              <Clock className="w-4 h-4" /> We reply within a few hours
-            </span>
-          </div>
-        </section>
-
-        <section className="pb-12 max-w-5xl mx-auto px-6">
-          <div className="p-6 md:p-8 rounded-2xl border border-slate-200 bg-slate-50">
-            <h2 className="text-2xl font-bold mb-2">Free: check your current website</h2>
-            <p className="text-slate-600 mb-6">
-              Paste your website address. In about 10 seconds you&apos;ll see your score and what&apos;s costing you calls.
+      <main id="main-content">
+        <section className={`${s.pageHero} ${s.pageHeroCompact}`}>
+          <div className={s.wrap}>
+            <Breadcrumb
+              variant="inline"
+              className={s.crumbs}
+              items={[{ label: "Home", href: "/" }, { label: "LA Trade Websites" }]}
+            />
+            <p className={s.eyebrow}>For Los Angeles plumbers, handymen, HVAC & contractors</p>
+            <h1>A website that turns Google searches into job requests.</h1>
+            <p className={s.intro} style={{ maxWidth: 640 }}>
+              Your own domain, a quote form that sends every request to your phone, and Google set up properly.{" "}
+              <strong className="font-semibold text-[#1a211d]">Fixed quote before we start.</strong> Live in about 5 days.
             </p>
-            <WebsiteGrader initialUrl={initialUrl} />
+            <div className={s.actions}>
+              <CTA />
+            </div>
+            <p className={s.heroNote}>
+              <Clock size={14} aria-hidden="true" /> We reply within a few hours
+            </p>
           </div>
         </section>
 
-        <section className="pb-12 max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-6">Sound familiar?</h2>
-          <ul className="grid md:grid-cols-2 gap-3">
-            {problems.map((p) => (
-              <li key={p} className="flex gap-3 p-4 rounded-xl border border-slate-200">
-                <span className="text-red-600 font-bold">✕</span>
-                <span className="text-slate-700">{p}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="pb-12 max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-2">Everything included for {PRICE}</h2>
-          <p className="text-slate-600 mb-6">One price, no monthly bill, no surprises.</p>
-          <div className="grid md:grid-cols-3 gap-4">
-            {included.map(({ icon: Icon, title: t, body }) => (
-              <div key={t} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
-                <Icon className="w-5 h-5 text-[#7A5807] mb-3" />
-                <h3 className="text-lg font-semibold mb-2">{t}</h3>
-                <p className="text-slate-600 leading-relaxed">{body}</p>
-              </div>
-            ))}
+        <section className={s.section}>
+          <div className={s.wrap}>
+            <div className={s.panel}>
+              <h2 className={`${s.heading} mb-2`} style={{ fontSize: "clamp(26px, 3vw, 36px)" }}>
+                Free: check your current website
+              </h2>
+              <p className={`${s.sectionText} mb-6`} style={{ maxWidth: 640 }}>
+                Paste your website address. In about 10 seconds you&apos;ll see your score and what&apos;s costing you calls.
+              </p>
+              <WebsiteGrader initialUrl={initialUrl} />
+            </div>
           </div>
         </section>
 
-        <section className="pb-12 max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-6">How it works</h2>
-          <ol className="grid md:grid-cols-3 gap-4">
-            {steps.map((step, i) => (
-              <li key={step.title} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
-                <span className="text-sm font-semibold text-[#7A5807]">Step {i + 1}</span>
-                <h3 className="text-lg font-semibold mt-2 mb-2">{step.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{step.body}</p>
-              </li>
-            ))}
-          </ol>
+        <section className={`${s.section} ${s.band}`}>
+          <div className={s.wrap}>
+            <div className={s.sectionHead}>
+              <h2 className={s.heading}>Sound familiar?</h2>
+            </div>
+            <ul className={s.checks}>
+              {problems.map((p) => (
+                <li key={p}>
+                  <X size={18} aria-hidden="true" style={{ color: "#9b3b2b" }} />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
-        <section className="pb-12 max-w-5xl mx-auto px-6">
-          <div className="p-8 rounded-2xl text-center border border-[#B8860B]/25 bg-[#B8860B]/5">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">Ready for a website that brings in work?</h2>
-            <p className="text-slate-700 mb-6">{PRICE} one-time. Half to start, half when you&apos;re happy.</p>
+        <section className={s.section}>
+          <div className={s.wrap}>
+            <div className={s.sectionHead}>
+              <h2 className={s.heading}>Everything you get</h2>
+              <p className={s.sectionText}>A clear written quote, no surprises.</p>
+            </div>
+            <div className={s.serviceGrid}>
+              {included.map(({ icon: Icon, title: t, body }, i) => (
+                <article key={t} className={s.service}>
+                  <div className={s.serviceTop}>
+                    <Icon aria-hidden="true" />
+                    <span>0{i + 1}</span>
+                  </div>
+                  <h3>{t}</h3>
+                  <p>{body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={`${s.section} border-t border-[#dadcd1]`}>
+          <div className={s.wrap}>
+            <h2 className={s.heading}>How it works</h2>
+            <ol
+              className={`${s.process} ${s.processAuto}`}
+              style={{ "--cols": steps.length } as CSSProperties}
+            >
+              {steps.map((step, i) => (
+                <li key={step.title} className={s.processStep}>
+                  <span>0{i + 1} /</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className={s.cta}>
+          <div className={`${s.wrap} ${s.ctaInner}`}>
+            <div>
+              <h2 className={s.heading}>Ready for a website that brings in work?</h2>
+              <p>Send us your business name and we&apos;ll reply with a plan and a written quote.</p>
+            </div>
             <CTA label="Start my website" />
           </div>
         </section>
 
-        <section className="pb-24 max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-6">Questions</h2>
-          <div className="space-y-4">
-            {faq.map((q) => (
-              <div key={q.question} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
-                <h3 className="font-semibold mb-2">{q.question}</h3>
-                <p className="text-slate-600 leading-relaxed">{q.answer}</p>
-              </div>
-            ))}
+        <section className={s.section}>
+          <div className={`${s.wrap} ${s.faqGrid}`}>
+            <div>
+              <p className={s.eyebrow}>Questions</p>
+              <h2 className={s.heading}>Questions</h2>
+            </div>
+            <div className={s.faq}>
+              {faq.map((q) => (
+                <details key={q.question}>
+                  <summary>{q.question}</summary>
+                  <p>{q.answer}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
       </main>

@@ -1,26 +1,25 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import AboutPageContent from "@/components/about/AboutPageContent";
-import Breadcrumb from "@/components/ui/Breadcrumb";
+import AgencyAbout from "@/components/agency/AgencyAbout";
 
 export const metadata: Metadata = {
-  title: "About Us — Founded 2019",
+  title: "About Amex Technology",
   description:
-    "Amex Technology is a software agency founded in 2019. Our engineers and designers have shipped 200+ projects for startups and enterprises worldwide.",
+    "Amex Technology is an independent software and AI agency founded by Abhi Patel. Founder in Los Angeles, development team in India, Top Rated Plus on Upwork.",
   alternates: {
     canonical: "https://amextechnology.com/about",
   },
   openGraph: {
-    title: "About Amex Technology — Founded 2019",
+    title: "About Amex Technology | Independent Software & AI Agency",
     description:
-      "Founded in 2019, Amex Technology has delivered 200+ software projects for startups and enterprises across North America, Europe, and beyond.",
+      "Amex Technology is an independent software and AI agency founded by Abhi Patel. Founder in Los Angeles, development team in India, Top Rated Plus on Upwork.",
     url: "https://amextechnology.com/about",
   },
   twitter: {
-    title: "About Amex Technology — Founded 2019",
+    title: "About Amex Technology | Independent Software & AI Agency",
     description:
-      "Founded in 2019, Amex Technology has delivered 200+ software projects for startups and enterprises across North America, Europe, and beyond.",
+      "Amex Technology is an independent software and AI agency founded by Abhi Patel. Founder in Los Angeles, development team in India, Top Rated Plus on Upwork.",
   },
 };
 
@@ -28,8 +27,18 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://amextechnology.com" },
-    { "@type": "ListItem", position: 2, name: "About", item: "https://amextechnology.com/about" },
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://amextechnology.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "About",
+      item: "https://amextechnology.com/about",
+    },
   ],
 };
 
@@ -46,7 +55,7 @@ const aboutSchema = {
     logo: "https://amextechnology.com/images/logo.png",
     foundingDate: "2019",
     description:
-      "Independent AI and software development agency founded by Abhi Patel in 2019, building AI agents, websites, web apps, SaaS products and mobile apps, plus SEO, GEO and AEO. Not affiliated with American Express.",
+      "Independent AI and software development agency founded by Abhi Patel, building AI agents, websites, web apps, SaaS products and mobile apps, plus SEO, GEO and AEO. Not affiliated with American Express.",
     founder: { "@id": "https://amextechnology.com/#founder" },
     sameAs: [
       "https://www.fiverr.com/abhipatel956",
@@ -59,13 +68,18 @@ const aboutSchema = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
+    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
       <Navbar />
-      <main>
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
-        <AboutPageContent />
+      <main id="main-content">
+        <AgencyAbout />
       </main>
       <Footer />
     </div>

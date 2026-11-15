@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import CTASection from "@/components/home/CTASection";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import { services } from "@/data/services";
+import s from "@/components/agency/agency.module.css";
 
 const BASE_URL = "https://amextechnology.com";
 const url = `${BASE_URL}/los-angeles`;
@@ -128,109 +128,165 @@ const breadcrumbSchema = {
   ],
 };
 
+const localLinks = [
+  { label: "Law firm web design", href: "/law-firm-web-design-los-angeles" },
+  { label: "Affordable web design", href: "/affordable-web-design-los-angeles" },
+  { label: "Google Business Profile setup", href: "/google-business-profile-setup-los-angeles" },
+  { label: "Websites for trade businesses", href: "/la-website" },
+];
+
+const quoteHref = "/contact?service=Los%20Angeles%20project";
+
 export default function LosAngelesPage() {
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
+    <div className={s.site}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
-      <main>
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Los Angeles" }]} />
-
-        <section className="pt-8 pb-12 max-w-5xl mx-auto px-6">
-          <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-wider mb-4">Los Angeles · South Bay</p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
-            Web & AI Development for Los Angeles Businesses
-          </h1>
-          <p className="text-slate-700 text-lg md:text-xl leading-8 mb-5">
-            Amex Technology builds websites, web apps, AI agents and CRM automations for Los Angeles businesses, and helps
-            them get found on Google and in AI assistants. Our founder, Abhi Patel, lives in Gardena, and our development
-            team is in India: a local contact on Pacific time, at a cost small and mid-sized businesses can manage.
-          </p>
-          <Link
-            href="/contact?service=Los%20Angeles%20project"
-            className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-white bg-[#111827] hover:bg-black transition-colors"
-          >
-            Get a free quote <ArrowRight className="w-4 h-4" />
-          </Link>
-        </section>
-
-        <section className="pb-12 max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-6">How we work with LA businesses</h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {reasons.map((r) => (
-              <div key={r.title} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
-                <h3 className="text-lg font-semibold mb-2">{r.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{r.body}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="pb-12 max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-6">What we do</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {services.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}`}
-                className="group p-5 rounded-xl border border-slate-200 bg-white hover:border-[#B8860B] transition-colors"
-              >
-                <p className="font-semibold group-hover:text-[#7A5807] transition-colors">{s.title}</p>
-                <p className="text-sm text-slate-600 mt-1 leading-relaxed">{s.shortDesc}</p>
+      <main id="main-content">
+        <section className={`${s.pageHero} ${s.pageHeroCompact}`}>
+          <div className={s.wrap}>
+            <Breadcrumb
+              variant="inline"
+              className={s.crumbs}
+              items={[{ label: "Home", href: "/" }, { label: "Los Angeles" }]}
+            />
+            <p className={s.eyebrow}>Los Angeles · South Bay</p>
+            <h1>Web & AI Development for Los Angeles Businesses</h1>
+            <p className={s.intro} style={{ maxWidth: 640 }}>
+              Amex Technology builds websites, web apps, AI agents and CRM automations for Los Angeles businesses, and helps
+              them get found on Google and in AI assistants. Our founder, Abhi Patel, lives in Gardena, and our development
+              team is in India: a local contact on Pacific time, at a cost small and mid-sized businesses can manage.
+            </p>
+            <div className={s.actions}>
+              <Link href={quoteHref} className={s.button}>
+                Get a free quote <ArrowUpRight size={17} />
               </Link>
-            ))}
+            </div>
           </div>
         </section>
 
-        <section className="pb-12 max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-6">Common projects for local businesses</h2>
-          <ul className="grid sm:grid-cols-2 gap-3">
-            {needs.map((n) => (
-              <li key={n} className="flex gap-3 text-slate-700 leading-relaxed">
-                <Check className="w-5 h-5 mt-0.5 shrink-0 text-[#B8860B]" aria-hidden />
-                {n}
-              </li>
-            ))}
-          </ul>
-          <p className="text-slate-600 mt-6 leading-relaxed">
-            Not sure where to start? Run your website through our free{" "}
-            <Link href="/tools/app-checker" className="font-semibold text-[#7A5807] hover:underline">
-              App Checker
-            </Link>{" "}
-            or browse our{" "}
-            <Link href="/portfolio" className="font-semibold text-[#7A5807] hover:underline">
-              portfolio
+        <section className={s.section}>
+          <div className={s.wrap}>
+            <div className={s.sectionHead}>
+              <h2 className={s.heading}>How we work with LA businesses</h2>
+            </div>
+            <div className={`${s.serviceGrid} ${s.twoGrid}`}>
+              {reasons.map((r, i) => (
+                <article key={r.title} className={s.service}>
+                  <div className={s.serviceTop}>
+                    <span>0{i + 1}</span>
+                  </div>
+                  <h3>{r.title}</h3>
+                  <p>{r.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={`${s.section} border-t border-[#dadcd1]`}>
+          <div className={s.wrap}>
+            <div className={s.sectionHead}>
+              <h2 className={s.heading}>What we do</h2>
+            </div>
+            <div className={s.serviceGrid}>
+              {services.map((svc) => (
+                <Link key={svc.slug} href={`/services/${svc.slug}`} className={s.service}>
+                  <h3>{svc.title}</h3>
+                  <p>{svc.shortDesc}</p>
+                  <span className={s.textLink}>
+                    Explore service <ArrowRight size={14} aria-hidden="true" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={`${s.section} ${s.band}`}>
+          <div className={s.wrap}>
+            <div className={s.sectionHead}>
+              <h2 className={s.heading}>Common projects for local businesses</h2>
+            </div>
+            <ul className={s.checks}>
+              {needs.map((n) => (
+                <li key={n}>
+                  <Check size={18} aria-hidden="true" />
+                  <span>{n}</span>
+                </li>
+              ))}
+            </ul>
+            <p className={`${s.sectionText} mt-8`} style={{ maxWidth: 640 }}>
+              Not sure where to start? Run your website through our free{" "}
+              <Link href="/tools/app-checker" className={s.goldLink}>
+                App Checker
+              </Link>{" "}
+              or browse our{" "}
+              <Link href="/portfolio" className={s.goldLink}>
+                portfolio
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+
+        <section className={s.section}>
+          <div className={s.wrap}>
+            <h2 className={`${s.heading} mb-6`}>Los Angeles services</h2>
+            <div className={s.chips}>
+              {localLinks.map((l) => (
+                <Link key={l.href} href={l.href}>
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={`${s.section} ${s.flushTop}`}>
+          <div className={s.wrap}>
+            <h2 className={`${s.heading} mb-6`}>Areas we serve</h2>
+            <div className={s.chips}>
+              {areas.map((a) => (
+                <span key={a}>{a}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={`${s.section} border-t border-[#dadcd1]`}>
+          <div className={`${s.wrap} ${s.faqGrid}`}>
+            <div>
+              <p className={s.eyebrow}>Questions</p>
+              <h2 className={s.heading}>Questions</h2>
+            </div>
+            <div className={s.faq}>
+              {faq.map((q) => (
+                <details key={q.question}>
+                  <summary>{q.question}</summary>
+                  <p>{q.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={s.cta}>
+          <div className={`${s.wrap} ${s.ctaInner}`}>
+            <div>
+              <h2 className={s.heading}>Ready to build your next digital product?</h2>
+              <p>
+                Tell us what you&apos;re building. We&apos;ll respond with a clear plan, honest scope estimate, and a
+                timeline — no obligations.
+              </p>
+            </div>
+            <Link href={quoteHref} className={s.button}>
+              Get a free quote <ArrowUpRight size={17} />
             </Link>
-            .
-          </p>
-        </section>
-
-        <section className="pb-12 max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-6">Areas we serve</h2>
-          <div className="flex flex-wrap gap-2">
-            {areas.map((a) => (
-              <span key={a} className="text-sm text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-lg">
-                {a}
-              </span>
-            ))}
           </div>
         </section>
-
-        <section className="pb-20 max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-6">Questions</h2>
-          <div className="space-y-4">
-            {faq.map((q) => (
-              <div key={q.question} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
-                <h3 className="font-semibold mb-2">{q.question}</h3>
-                <p className="text-slate-600 leading-relaxed">{q.answer}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <CTASection />
       </main>
       <Footer />
     </div>

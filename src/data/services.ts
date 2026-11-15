@@ -65,7 +65,7 @@ export const services: Service[] = [
   },
   {
     slug: "seo-services",
-    title: "SEO & GEO",
+    title: "SEO Services (SEO & GEO)",
     shortDesc: "Rank on Google and get recommended by ChatGPT, Perplexity and Gemini.",
     description:
       "Search now happens on Google and inside AI assistants. We fix technical SEO, build pages around real search intent, optimize your Google Business Profile for local search, and apply Generative Engine Optimization (GEO) so AI tools understand and recommend your business.",

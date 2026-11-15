@@ -91,12 +91,12 @@ const breadcrumbSchema = {
 
 export default function FixPage() {
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "24-Hour Bug Fix" }]} />
 
         <section className="pt-8 pb-12 max-w-5xl mx-auto px-6">
@@ -104,7 +104,7 @@ export default function FixPage() {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
             Your app is broken. We&apos;ll get it working again, fast.
           </h1>
-          <p className="text-slate-700 text-xl leading-8 mb-8">
+          <p className="text-[#3d453b] text-xl leading-8 mb-8">
             Stop losing days to an error message. Send it to our developers and get your project working again,
             usually within 24 hours.
           </p>
@@ -112,7 +112,7 @@ export default function FixPage() {
             {stacks.map((s) => (
               <span
                 key={s}
-                className="text-sm text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-lg"
+                className="text-sm text-[#4d554b] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg"
               >
                 {s}
               </span>
@@ -124,10 +124,10 @@ export default function FixPage() {
           <h2 className="text-2xl font-bold mb-6">How it works</h2>
           <ol className="grid md:grid-cols-3 gap-4">
             {steps.map((step, i) => (
-              <li key={step.title} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <li key={step.title} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <span className="text-sm font-semibold text-[#7A5807]">Step {i + 1}</span>
                 <h3 className="text-lg font-semibold mt-2 mb-2">{step.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{step.body}</p>
+                <p className="text-[#4d554b] leading-relaxed">{step.body}</p>
               </li>
             ))}
           </ol>
@@ -141,9 +141,9 @@ export default function FixPage() {
           <h2 className="text-2xl font-bold mb-6">Questions</h2>
           <div className="space-y-4">
             {faq.map((q) => (
-              <div key={q.question} className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <div key={q.question} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <h3 className="font-semibold mb-2">{q.question}</h3>
-                <p className="text-slate-600 leading-relaxed">{q.answer}</p>
+                <p className="text-[#4d554b] leading-relaxed">{q.answer}</p>
               </div>
             ))}
           </div>
@@ -152,7 +152,7 @@ export default function FixPage() {
         {troubleshootingPosts.length > 0 && (
           <section className="pb-24 max-w-5xl mx-auto px-6">
             <h2 className="text-2xl font-bold mb-2">Prefer to fix it yourself?</h2>
-            <p className="text-slate-600 mb-6">
+            <p className="text-[#4d554b] mb-6">
               Our free step-by-step guides cover the most common errors. Not sure what&apos;s wrong?{" "}
               <Link href="/tools/app-checker" className="font-semibold text-[#7A5807] hover:underline">
                 Run the free App Checker
@@ -164,9 +164,9 @@ export default function FixPage() {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group p-5 rounded-xl border border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-slate-100 transition-all duration-200"
+                  className="group p-5 rounded-xl border border-[#dadcd1] bg-[#f7f6f2] hover:border-[#c9cbbf] hover:bg-[#efeee6] transition-all duration-200"
                 >
-                  <p className="font-semibold text-slate-900 group-hover:text-[#7A5807] transition-colors leading-snug">
+                  <p className="font-semibold text-[#1a211d] group-hover:text-[#7A5807] transition-colors leading-snug">
                     {post.title}
                   </p>
                 </Link>

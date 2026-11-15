@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useSpring } from "framer-motion";
+import { motion, useReducedMotion, useSpring } from "framer-motion";
 
 export default function ScrollProgress() {
   const [progress, setProgress] = useState(0);
   const spring = useSpring(progress, { stiffness: 300, damping: 40 });
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const update = () => {
@@ -20,6 +21,8 @@ export default function ScrollProgress() {
   useEffect(() => {
     spring.set(progress);
   }, [progress, spring]);
+
+  if (reduceMotion) return null;
 
   return (
     <motion.div

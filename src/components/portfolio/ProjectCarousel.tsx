@@ -35,7 +35,7 @@ export default function ProjectCarousel({ slides, contain = false }: { slides: S
   return (
     <div className="group/carousel">
       <div
-        className="relative aspect-[16/10] overflow-hidden rounded-[28px] bg-slate-100 ring-1 ring-slate-900/[0.06] shadow-[0_40px_80px_-40px_rgba(15,23,42,0.35)]"
+        className="relative aspect-[16/10] overflow-hidden rounded-[28px] bg-[#efeee6] ring-1 ring-[#1a211d]/[0.06] shadow-[0_40px_80px_-40px_rgba(15,23,42,0.35)]"
         aria-roledescription="carousel"
       >
         <AnimatePresence initial={false} custom={dir} mode="popLayout">
@@ -74,7 +74,7 @@ export default function ProjectCarousel({ slides, contain = false }: { slides: S
                 key={d}
                 onClick={() => go(d === "prev" ? -1 : 1)}
                 aria-label={d === "prev" ? "Previous image" : "Next image"}
-                className={`absolute top-1/2 -translate-y-1/2 ${d === "prev" ? "left-4" : "right-4"} grid place-items-center w-11 h-11 rounded-full bg-white/85 text-slate-900 shadow-lg ring-1 ring-black/5 backdrop-blur-md transition-all duration-300 hover:bg-white hover:scale-105 md:opacity-0 md:group-hover/carousel:opacity-100 focus-visible:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B]`}
+                className={`absolute top-1/2 -translate-y-1/2 ${d === "prev" ? "left-4" : "right-4"} grid place-items-center w-11 h-11 rounded-full bg-white/85 text-[#1a211d] shadow-lg ring-1 ring-black/5 backdrop-blur-md transition-all duration-300 hover:bg-white hover:scale-105 md:opacity-0 md:group-hover/carousel:opacity-100 focus-visible:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a]`}
               >
                 {d === "prev" ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
               </button>
@@ -87,7 +87,7 @@ export default function ProjectCarousel({ slides, contain = false }: { slides: S
       </div>
 
       <div className="mt-4 flex items-center justify-between gap-6 min-h-6">
-        <p className="text-sm text-slate-500 truncate" aria-live="polite">
+        <p className="text-sm text-[#626960] truncate" aria-live="polite">
           {slide.caption}
         </p>
         {count > 1 && (
@@ -99,7 +99,7 @@ export default function ProjectCarousel({ slides, contain = false }: { slides: S
                 aria-label={`Show image ${i + 1}`}
                 aria-current={i === index}
                 className={`h-1.5 rounded-full transition-all duration-500 ${
-                  i === index ? "w-6 bg-slate-900" : "w-1.5 bg-slate-300 hover:bg-slate-400"
+                  i === index ? "w-6 bg-[#1a211d]" : "w-1.5 bg-[#c9cbbf] hover:bg-[#8a8e82]"
                 }`}
               />
             ))}

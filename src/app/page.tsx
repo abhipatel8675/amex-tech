@@ -1,41 +1,28 @@
 import type { Metadata } from "next";
-import { testimonials } from "@/data/testimonials";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Hero from "@/components/home/Hero";
-import { pickHeroPosts, pickHeroWork } from "@/data/heroPosts";
-import { blogPosts } from "@/data/blog";
-import { projects } from "@/data/projects";
-import TechMarquee from "@/components/home/TechMarquee";
-import StatsBar from "@/components/home/StatsBar";
-import ServicesPreview from "@/components/home/ServicesPreview";
-import WhyChooseUs from "@/components/home/WhyChooseUs";
-import ProcessSection from "@/components/home/ProcessSection";
-import FeaturedProjects from "@/components/home/FeaturedProjects";
-import Testimonials from "@/components/home/Testimonials";
-import CTASection from "@/components/home/CTASection";
+import AgencyHome from "@/components/agency/AgencyHome";
 import { services } from "@/data/services";
-import { faqs } from "@/data/faqs";
-import FAQSection from "@/components/home/FAQSection";
+import { agencyFaqs } from "@/components/agency/AgencySections";
 
 export const metadata: Metadata = {
-  title: { absolute: "Amex Technology — AI & Software Development Agency" },
+  title: { absolute: "Amex Technology | Web Design, SEO & AI Development in Los Angeles" },
   description:
-    "Independent AI and software agency: AI agents and automation, websites and web apps, AI SaaS MVPs and mobile apps, plus SEO, GEO and AEO so customers find you on Google and in AI assistants.",
+    "Los Angeles web design, SEO and AI development. We build websites, web apps, mobile apps and AI automations, and get you found on Google and in AI search. Free quote.",
   alternates: {
     canonical: "https://amextechnology.com",
   },
   openGraph: {
-    title: "Amex Technology — AI & Software Development Agency",
+    title: "Amex Technology | Web Design, SEO & AI Development in Los Angeles",
     description:
-      "AI agents, websites, web and mobile apps, plus SEO, GEO and AEO, built by one independent agency since 2019.",
+      "Websites, SEO, web and mobile apps and AI automation for businesses in Los Angeles and across the US.",
     url: "https://amextechnology.com",
     type: "website",
   },
   twitter: {
-    title: "Amex Technology — AI & Software Development Agency",
+    title: "Amex Technology | Web Design, SEO & AI Development in Los Angeles",
     description:
-      "AI agents, websites, web and mobile apps, plus SEO, GEO and AEO, built by one independent agency since 2019.",
+      "Websites, SEO, web and mobile apps and AI automation for businesses in Los Angeles and across the US.",
   },
 };
 
@@ -53,23 +40,39 @@ const localBusinessSchema = {
   "@id": "https://amextechnology.com/#organization",
   name: "Amex Technology",
   url: "https://amextechnology.com",
-  email: "abhipatel8675@gmail.com",
+  email: "abhi@amextech.org",
+  telephone: "+1-623-301-2035",
+  image: "https://amextechnology.com/images/logo.png",
   foundingDate: "2019",
   priceRange: "$$",
   currenciesAccepted: "USD, EUR, INR",
   paymentAccepted: "Bank Transfer, Credit Card",
-  areaServed: "Worldwide",
+  areaServed: [
+    { "@type": "City", name: "Los Angeles" },
+    { "@type": "State", name: "California" },
+    { "@type": "Country", name: "United States" },
+  ],
   serviceType: services.map((s) => s.title),
   address: {
     "@type": "PostalAddress",
-    addressCountry: "IN",
+    addressLocality: "Gardena",
+    addressRegion: "CA",
+    postalCode: "90247",
+    addressCountry: "US",
   },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
       opens: "09:00",
-      closes: "20:00",
+      closes: "18:00",
     },
   ],
 };
@@ -77,69 +80,33 @@ const localBusinessSchema = {
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
+  mainEntity: agencyFaqs.map(([question, answer]) => ({
     "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
-
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Client Reviews",
-  itemListElement: testimonials.map((t, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    item: {
-      "@type": "Review",
-      author: { "@type": "Person", name: t.name },
-      reviewRating: { "@type": "Rating", ratingValue: t.rating, bestRating: 5 },
-      reviewBody: t.content,
-      itemReviewed: { "@type": "Organization", name: "Amex Technology" },
-    },
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
   })),
 };
 
 export default function HomePage() {
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-      />
       <Navbar />
-      <main>
-        <Hero blogPosts={pickHeroPosts(blogPosts)} {...pickHeroWork(projects)} />
-        <TechMarquee />
-        <StatsBar />
-        <ServicesPreview />
-        <WhyChooseUs />
-        <ProcessSection />
-        <FeaturedProjects
-          featured={projects
-            .filter((p) => p.featured)
-            .slice(0, 3)
-            .map(({ slug, title, category, tags, shortDesc, gradientFrom, gradientTo, image, liveUrl }) => ({
-              slug, title, category, tags, shortDesc, gradientFrom, gradientTo, image, liveUrl,
-            }))}
-          totalCount={projects.length}
-        />
-        <Testimonials />
-        <FAQSection />
-        <CTASection />
+      <main id="main-content">
+        <AgencyHome />
       </main>
       <Footer />
     </div>

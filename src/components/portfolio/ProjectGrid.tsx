@@ -43,7 +43,7 @@ function TechChips({ items, max = 4, dark = false }: { items: string[]; max?: nu
   const rest = items.length - shown.length;
   const chip = dark
     ? "bg-white/12 text-white/90 ring-1 ring-white/15"
-    : "bg-slate-100 text-slate-600 ring-1 ring-slate-200";
+    : "bg-[#efeee6] text-[#4d554b] ring-1 ring-[#dadcd1]";
   return (
     <ul className="flex flex-wrap gap-1.5">
       {shown.map((t) => (
@@ -112,14 +112,14 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
         onPointerLeave={onPointerLeave}
         onFocus={() => setHovered(true)}
         onBlur={() => setHovered(false)}
-        className="group block rounded-[22px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-4"
+        className="group block rounded-[22px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] focus-visible:ring-offset-4"
         aria-label={`${project.title} — view case study`}
       >
         <motion.div
           style={interactive ? { rotateX, rotateY, transformStyle: "preserve-3d" } : undefined}
           animate={{ scale: showDetails && !reduceMotion ? 1.02 : 1 }}
           transition={{ duration: 0.5, ease: EASE }}
-          className="relative aspect-[16/10] rounded-[22px] overflow-hidden bg-slate-100 ring-1 ring-slate-900/[0.06] shadow-[0_1px_2px_rgba(15,23,42,0.06)] transition-shadow duration-500 group-hover:shadow-[0_30px_60px_-20px_rgba(15,23,42,0.35)]"
+          className="relative aspect-[16/10] rounded-[22px] overflow-hidden bg-[#efeee6] ring-1 ring-[#1a211d]/[0.06] shadow-[0_1px_2px_rgba(15,23,42,0.06)] transition-shadow duration-500 group-hover:shadow-[0_30px_60px_-20px_rgba(15,23,42,0.35)]"
         >
           {project.image ? (
             <>
@@ -146,7 +146,7 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
           )}
 
           {/* Darkening veil + glare, only while hovering */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-slate-950/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a211d]/95 via-[#1a211d]/60 to-[#1a211d]/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
           {interactive && (
             <motion.div
               className="absolute inset-0 pointer-events-none mix-blend-soft-light opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -175,7 +175,7 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
                   initial={{ scale: 0.6, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.45, ease: EASE, delay: 0.08 }}
-                  className="shrink-0 grid place-items-center w-11 h-11 rounded-full bg-white text-slate-900 shadow-lg"
+                  className="shrink-0 grid place-items-center w-11 h-11 rounded-full bg-white text-[#1a211d] shadow-lg"
                 >
                   <ArrowUpRight className="w-5 h-5" />
                 </motion.span>
@@ -187,16 +187,16 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
         {/* Caption */}
         <div className="pt-4 px-1">
           <div className="flex items-baseline justify-between gap-3">
-            <h3 className="text-[17px] font-medium text-slate-900 tracking-[-0.01em] truncate">
+            <h3 className="text-[17px] font-medium text-[#1a211d] tracking-[-0.01em] truncate">
               {project.title}
             </h3>
-            <span className="shrink-0 text-xs text-slate-500">{project.category}</span>
+            <span className="shrink-0 text-xs text-[#626960]">{project.category}</span>
           </div>
           {canHover ? (
-            <p className="mt-1 text-sm text-slate-500 truncate">{project.tags.slice(0, 2).join(" · ")}</p>
+            <p className="mt-1 text-sm text-[#626960] truncate">{project.tags.slice(0, 2).join(" · ")}</p>
           ) : (
             <div className="mt-2 space-y-3">
-              <p className="text-sm leading-relaxed text-slate-600">{project.shortDesc}</p>
+              <p className="text-sm leading-relaxed text-[#4d554b]">{project.shortDesc}</p>
               <TechChips items={project.technologies} />
             </div>
           )}
@@ -217,7 +217,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
     <>
       {/* Segmented filter */}
       <div className="flex flex-wrap items-center gap-4 mb-12">
-        <div className="inline-flex flex-wrap gap-1 p-1 rounded-full bg-slate-100 ring-1 ring-slate-200/70">
+        <div className="inline-flex flex-wrap gap-1 p-1 rounded-full bg-[#efeee6] ring-1 ring-[#dadcd1]/70">
           {categories.map((cat) => {
             const active = activeCategory === cat;
             return (
@@ -228,8 +228,8 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                   setActiveCategory(cat);
                 }}
                 aria-pressed={active}
-                className={`relative text-sm font-medium px-4 py-2 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] ${
-                  active ? "text-slate-900" : "text-slate-500 hover:text-slate-800"
+                className={`relative text-sm font-medium px-4 py-2 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
+                  active ? "text-[#1a211d]" : "text-[#626960] hover:text-[#1a211d]"
                 }`}
               >
                 {active && (
@@ -244,7 +244,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
             );
           })}
         </div>
-        <span className="ml-auto text-sm text-slate-500">
+        <span className="ml-auto text-sm text-[#626960]">
           {filtered.length} project{filtered.length !== 1 ? "s" : ""}
         </span>
       </div>

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "July 11, 2026";
-const CONTACT_EMAIL = "abhipatel8675@gmail.com";
+const CONTACT_EMAIL = "abhi@amextech.org";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -33,10 +33,10 @@ const breadcrumbSchema = {
 
 export default function TermsPage() {
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Terms of Service" }]} />
 
         {/* Hero */}
@@ -47,14 +47,14 @@ export default function TermsPage() {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             Terms of Service
           </h1>
-          <p className="text-slate-600 text-base leading-7">
-            Last updated: <span className="text-slate-700">{LAST_UPDATED}</span>
+          <p className="text-[#4d554b] text-base leading-7">
+            Last updated: <span className="text-[#3d453b]">{LAST_UPDATED}</span>
           </p>
         </section>
 
         {/* Content */}
         <article className="pb-28 max-w-[92rem] mx-auto px-6">
-          <div className="border-t border-slate-200 pt-10 flex flex-col gap-12">
+          <div className="border-t border-[#dadcd1] pt-10 flex flex-col gap-12">
 
             {/* 1 — Acceptance */}
             <Section id="acceptance" title="1. Acceptance of Terms">
@@ -283,8 +283,8 @@ export default function TermsPage() {
               <p>
                 If you have any questions about these Terms of Service, please contact us:
               </p>
-              <div className="mt-4 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-sm leading-7 text-slate-700">
-                <p className="font-semibold text-slate-900 mb-1">Amex Technology</p>
+              <div className="mt-4 p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] text-sm leading-7 text-[#3d453b]">
+                <p className="font-semibold text-[#1a211d] mb-1">Amex Technology</p>
                 <p>
                   Email:{" "}
                   <a
@@ -300,8 +300,8 @@ export default function TermsPage() {
             </Section>
 
             {/* Related links */}
-            <div className="pt-4 border-t border-slate-200">
-              <p className="text-sm text-slate-600">
+            <div className="pt-4 border-t border-[#dadcd1]">
+              <p className="text-sm text-[#4d554b]">
                 Also see our{" "}
                 <Link href="/privacy" className="text-[#7A5807] hover:text-[#7A5807] transition-colors">
                   Privacy Policy
@@ -330,10 +330,10 @@ function Section({
 }) {
   return (
     <section id={id} className="flex flex-col gap-4 scroll-mt-24">
-      <h2 className="text-xl font-bold text-slate-900" style={{ letterSpacing: "-0.015em" }}>
+      <h2 className="text-xl font-bold text-[#1a211d]" style={{ letterSpacing: "-0.015em" }}>
         {title}
       </h2>
-      <div className="flex flex-col gap-4 text-base leading-8 text-slate-600 [&_strong]:text-slate-700 [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7A5807]">
+      <div className="flex flex-col gap-4 text-base leading-8 text-[#4d554b] [&_strong]:text-[#3d453b] [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7A5807]">
         {children}
       </div>
     </section>

@@ -1,17 +1,46 @@
 "use client";
 
-import { useState, useRef, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { Send, CheckCircle2, ChevronDown } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 import { services as listedServices } from "@/data/services";
 
 // Listed services plus "Quick Bug Fix", which isn't a listed service but is
 // what the blog fix CTAs and App Checker prefill.
-const services = [...listedServices.map((s) => s.title), "Quick Bug Fix", "Other / Not Sure"];
+const services = [
+  ...listedServices.map((s) => s.title),
+  "AI Operations Agent",
+  "Hire Developers",
+  "Quick Bug Fix",
+  "Other / Not Sure",
+];
 
-const budgets = ["Under $1,000", "$1,000 – $5,000", "$5,000 – $15,000", "$15,000 – $50,000", "$50,000+"];
+// Older links (local SEO pages, /los-angeles, Website Grader emails) use these
+// service names; map them to an option in the list so the select is prefilled.
+const SERVICE_ALIASES: Record<string, string> = {
+  "Law firm website": "Websites & Web Apps",
+  "Google Business Profile setup": "SEO Services (SEO & GEO)",
+  "Los Angeles project": "Other / Not Sure",
+  Website: "Websites & Web Apps",
+};
 
-type FormState = { name: string; email: string; company: string; service: string; budget: string; message: string };
+const budgets = [
+  "Small fix or update",
+  "New website",
+  "Web or mobile app",
+  "AI or automation",
+  "Ongoing support",
+  "Not sure yet",
+];
+
+type FormState = {
+  name: string;
+  email: string;
+  company: string;
+  service: string;
+  budget: string;
+  message: string;
+};
 
 // Prefill from links like /contact?service=...&message=... (used by the blog fix CTA).
 // useSearchParams needs a Suspense boundary on prerendered pages; the fallback is
@@ -26,43 +55,61 @@ export default function ContactForm() {
 
 function ContactFormWithParams() {
   const params = useSearchParams();
-  const service = params.get("service");
+  const raw = params.get("service");
   const message = params.get("message");
+  const service = raw
+    ? services.includes(raw)
+      ? raw
+      : (SERVICE_ALIASES[raw] ?? "")
+    : "";
   return (
     <ContactFormFields
-      initialService={service && services.includes(service) ? service : ""}
+      key={`${raw}:${message}`}
+      initialService={service}
       initialMessage={message ? message.slice(0, 500) : ""}
     />
   );
 }
 
-function ContactFormFields({ initialService = "", initialMessage = "" }: { initialService?: string; initialMessage?: string }) {
-  const [form, setForm] = useState<FormState>({ name: "", email: "", company: "", service: initialService, budget: "", message: initialMessage });
+function ContactFormFields({
+  initialService = "",
+  initialMessage = "",
+}: {
+  initialService?: string;
+  initialMessage?: string;
+}) {
+  const [form, setForm] = useState<FormState>({
+    name: "",
+    email: "",
+    company: "",
+    service: initialService,
+    budget: "",
+    message: initialMessage,
+  });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
-  const [serviceOpen, setServiceOpen] = useState(false);
-  const serviceRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (serviceRef.current && !serviceRef.current.contains(e.target as Node)) {
-        setServiceOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  const set = (field: keyof FormState) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+  const set =
+    (field: keyof FormState) =>
+    (
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+      >,
+    ) =>
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
     setError("");
     setLoading(true);
-    const fullMessage = [form.message, form.company ? `Company: ${form.company}` : "", form.budget ? `Budget: ${form.budget}` : ""].filter(Boolean).join("\n\n");
+    const fullMessage = [
+      form.message,
+      form.company ? `Company: ${form.company}` : "",
+      form.budget ? `Project size: ${form.budget}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -84,23 +131,36 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
       fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: form.name, email: form.email, company: form.company, service: form.service, budget: form.budget, message: form.message }),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          service: form.service,
+          budget: form.budget,
+          message: form.message,
+        }),
       }).catch(() => {});
       setSuccess(true);
       // GA4 conversion tracking
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (window as any).gtag("event", "generate_lead", { event_category: "contact", event_label: form.service });
+      const w =
+        typeof window !== "undefined"
+          ? (window as unknown as { gtag?: (...args: unknown[]) => void })
+          : undefined;
+      if (w && typeof w.gtag === "function") {
+        w.gtag("event", "generate_lead", {
+          event_category: "contact",
+          event_label: form.service,
+        });
       }
     } catch {
-      setError("Something went wrong. Email us at abhipatel8675@gmail.com");
+      setError("Something went wrong. Email us at abhi@amextech.org");
     } finally {
       setLoading(false);
     }
   };
 
-  const inputCls = "w-full bg-slate-100 border border-slate-200 rounded-xl px-4 py-3.5 text-base text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#B8860B]/60 focus:bg-slate-100 focus:ring-1 focus:ring-[#B8860B]/20 transition-all duration-200";
+  const inputCls =
+    "w-full bg-white border border-[#dadcd1] rounded-[5px] px-4 py-3.5 text-base text-[#1a211d] placeholder-[#8a8e82] focus:outline-none focus:border-[#9a722a] focus:ring-1 focus:ring-[#9a722a]/25 transition-all duration-200";
 
   if (success) {
     return (
@@ -108,9 +168,10 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
         <div className="w-16 h-16 rounded-2xl bg-[#B8860B]/10 border border-[#B8860B]/25 flex items-center justify-center">
           <CheckCircle2 className="w-8 h-8 text-[#7A5807]" />
         </div>
-        <h3 className="text-2xl font-bold text-slate-900">Message Received</h3>
-        <p className="text-base text-slate-600 max-w-xs leading-7">
-          We&apos;ll review your project details and get back to you within 4 hours.
+        <h3 className="text-2xl font-bold text-[#1a211d]">Message Received</h3>
+        <p className="text-base text-[#4d554b] max-w-xs leading-7">
+          We&apos;ll review your project details and reply with practical next
+          steps.
         </p>
       </div>
     );
@@ -120,7 +181,12 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="contact-name" className="block text-sm font-medium text-slate-600 mb-2.5">Full Name <span className="text-[#7A5807]">*</span></label>
+          <label
+            htmlFor="contact-name"
+            className="block text-sm font-medium text-[#4d554b] mb-2.5"
+          >
+            Full Name <span className="text-[#7A5807]">*</span>
+          </label>
           <input
             id="contact-name"
             name="name"
@@ -134,7 +200,12 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
           />
         </div>
         <div>
-          <label htmlFor="contact-email" className="block text-sm font-medium text-slate-600 mb-2.5">Email <span className="text-[#7A5807]">*</span></label>
+          <label
+            htmlFor="contact-email"
+            className="block text-sm font-medium text-[#4d554b] mb-2.5"
+          >
+            Email <span className="text-[#7A5807]">*</span>
+          </label>
           <input
             id="contact-email"
             name="email"
@@ -151,7 +222,12 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
       </div>
 
       <div>
-        <label htmlFor="contact-company" className="block text-sm font-medium text-slate-600 mb-2.5">Company / Project Name</label>
+        <label
+          htmlFor="contact-company"
+          className="block text-sm font-medium text-[#4d554b] mb-2.5"
+        >
+          Company / Project Name
+        </label>
         <input
           id="contact-company"
           name="company"
@@ -165,60 +241,53 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-600 mb-2.5">Project Type <span className="text-[#7A5807]">*</span></label>
-        <div ref={serviceRef} className="relative">
-          <button
-            type="button"
-            aria-haspopup="listbox"
-            aria-expanded={serviceOpen}
-            onClick={() => setServiceOpen((o) => !o)}
-            className={`${inputCls} flex items-center justify-between text-left ${form.service ? "text-slate-900" : "text-slate-600"}`}
-          >
-            <span>{form.service || "Select a service..."}</span>
-            <ChevronDown className={`w-4 h-4 text-slate-600 shrink-0 transition-transform duration-200 ${serviceOpen ? "rotate-180" : ""}`} />
-          </button>
-
-          {serviceOpen && (
-            <ul
-              role="listbox"
-              aria-label="Project type"
-              className="absolute z-50 w-full mt-1.5 rounded-xl border border-slate-200 bg-slate-50 shadow-2xl overflow-hidden"
-            >
-              {services.map((s) => (
-                <li
-                  key={s}
-                  role="option"
-                  aria-selected={form.service === s}
-                  onClick={() => { setForm((p) => ({ ...p, service: s })); setServiceOpen(false); }}
-                  className={`px-4 py-3 text-sm cursor-pointer transition-colors duration-150 ${
-                    form.service === s
-                      ? "bg-[#B8860B]/20 text-[#7A5807]"
-                      : "text-slate-700 hover:bg-slate-100 hover:text-white"
-                  }`}
-                >
-                  {s}
-                </li>
-              ))}
-            </ul>
-          )}
-          {/* hidden input to satisfy form required validation */}
-          <input type="hidden" name="service" value={form.service} required />
-        </div>
+        <label
+          htmlFor="contact-service"
+          className="block text-sm font-medium text-[#4d554b] mb-2.5"
+        >
+          Project Type <span className="text-[#7A5807]">*</span>
+        </label>
+        <select
+          id="contact-service"
+          name="service"
+          required
+          value={form.service}
+          onChange={set("service")}
+          className={inputCls}
+        >
+          <option value="" disabled>
+            Select a service...
+          </option>
+          {services.map((service) => (
+            <option key={service} value={service}>
+              {service}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-600 mb-3.5" id="budget-label">Budget Range</label>
-        <div role="group" aria-labelledby="budget-label" className="flex flex-wrap gap-2.5">
+        <label
+          className="block text-sm font-medium text-[#4d554b] mb-3.5"
+          id="budget-label"
+        >
+          Project Size
+        </label>
+        <div
+          role="group"
+          aria-labelledby="budget-label"
+          className="flex flex-wrap gap-2.5"
+        >
           {budgets.map((b) => (
             <button
               key={b}
               type="button"
               aria-pressed={form.budget === b}
               onClick={() => setForm((p) => ({ ...p, budget: b }))}
-              className={`text-sm font-medium px-4 py-2 rounded-lg border transition-all duration-200 ${
+              className={`text-sm font-medium px-4 py-2 rounded-[5px] border transition-all duration-200 ${
                 form.budget === b
-                  ? "bg-[#B8860B]/15 border-[#B8860B]/40 text-[#7A5807]"
-                  : "border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-700"
+                  ? "bg-[#202a23] border-[#202a23] text-white"
+                  : "border-[#dadcd1] bg-white text-[#4d554b] hover:border-[#9a722a] hover:text-[#1a211d]"
               }`}
             >
               {b}
@@ -228,7 +297,12 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
       </div>
 
       <div>
-        <label htmlFor="contact-message" className="block text-sm font-medium text-slate-600 mb-2.5">Project Details <span className="text-[#7A5807]">*</span></label>
+        <label
+          htmlFor="contact-message"
+          className="block text-sm font-medium text-[#4d554b] mb-2.5"
+        >
+          Project Details <span className="text-[#7A5807]">*</span>
+        </label>
         <textarea
           id="contact-message"
           name="message"
@@ -242,16 +316,27 @@ function ContactFormFields({ initialService = "", initialMessage = "" }: { initi
         />
       </div>
 
-      {error && <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">{error}</p>}
+      {error && (
+        <p
+          role="alert"
+          className="text-sm text-red-700 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3"
+        >
+          {error}
+        </p>
+      )}
 
       <button
         type="submit"
         disabled={loading}
-        className="group w-full flex items-center justify-center gap-2 text-base font-semibold text-white py-4 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed btn-glow mt-1"
-        style={{ background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)" }}
+        className="group mt-1 flex w-full items-center justify-center gap-2 rounded-[5px] bg-[#202a23] py-4 text-base font-medium text-white transition-colors duration-200 hover:bg-[#3d493d] disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {loading ? "Sending..." : (
-          <>Send Message <Send className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" /></>
+        {loading ? (
+          "Sending..."
+        ) : (
+          <>
+            Send Message{" "}
+            <Send className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </>
         )}
       </button>
     </form>

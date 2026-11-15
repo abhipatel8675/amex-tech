@@ -6,7 +6,7 @@ import { ArrowRight, Clock, Check } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="py-10 md:py-14 border-t border-slate-200">
+    <section className="py-10 md:py-14 border-t border-[#dadcd1]">
       <div className="max-w-[92rem] mx-auto px-6">
         {/* Outer radial glow behind the box */}
         <div className="relative">
@@ -38,7 +38,7 @@ export default function CTASection() {
             />
 
             {/* Glow effects */}
-            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full opacity-25 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #B8860B, transparent 70%)" }} />
+            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full opacity-25 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #9a722a, transparent 70%)" }} />
             <div className="absolute -bottom-16 right-1/4 w-[300px] h-[200px] rounded-full opacity-12 blur-3xl pointer-events-none" style={{ background: "radial-gradient(ellipse, #9C7208, transparent 70%)" }} />
 
             {/* Grid pattern inside */}
@@ -47,18 +47,18 @@ export default function CTASection() {
             {/* Content */}
             <div className="relative z-10 px-8 py-14 md:px-14 md:py-20 text-center">
               {/* Status badge */}
-              <div className="inline-flex items-center gap-2.5 bg-slate-100 border border-slate-200 rounded-full px-5 py-2 mb-10">
+              <div className="inline-flex items-center gap-2.5 bg-[#efeee6] border border-[#dadcd1] rounded-full px-5 py-2 mb-10">
                 <Clock className="w-4 h-4 text-[#7A5807]" />
-                <span className="text-sm font-medium text-slate-700">Typically responds within 4 hours</span>
+                <span className="text-sm font-medium text-[#3d453b]">Free quote, practical next steps</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6 max-w-3xl mx-auto leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#1a211d] mb-6 max-w-3xl mx-auto leading-tight">
                 Ready to build your next{" "}
-                <span style={{ background: "linear-gradient(135deg, #CC9A1A 0%, #B8860B 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                <span style={{ background: "linear-gradient(135deg, #CC9A1A 0%, #9a722a 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                   digital product?
                 </span>
               </h2>
-              <p className="text-slate-700 text-xl max-w-xl mx-auto mb-10 leading-8">
+              <p className="text-[#3d453b] text-xl max-w-xl mx-auto mb-10 leading-8">
                 Tell us what you&apos;re building. We&apos;ll respond with a clear plan, honest scope estimate,
                 and a timeline — no obligations.
               </p>
@@ -68,13 +68,13 @@ export default function CTASection() {
                 {[
                   "No commitment required",
                   "Free consultation",
-                  "4-hour response",
+                  "Written quote before work starts",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
-                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#B8860B]/15 border border-[#B8860B]/30">
+                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#9a722a]/15 border border-[#9a722a]/30">
                       <Check className="w-3 h-3 text-[#7A5807]" strokeWidth={2.5} />
                     </span>
-                    <span className="text-sm text-slate-700">{item}</span>
+                    <span className="text-sm text-[#3d453b]">{item}</span>
                   </div>
                 ))}
               </div>
@@ -84,7 +84,7 @@ export default function CTASection() {
                   href="/contact"
                   className="group inline-flex items-center gap-2 text-base font-semibold text-white px-8 py-4 rounded-xl transition-all duration-300 btn-glow"
                   style={{
-                    background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)",
+                    background: "linear-gradient(135deg, #9a722a 0%, #9C7208 100%)",
                     boxShadow: "0 0 32px rgba(184,134,11,0.45), 0 0 8px rgba(156,114,8,0.3)",
                   }}
                 >
@@ -93,22 +93,22 @@ export default function CTASection() {
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center gap-2 text-base font-semibold text-slate-700 px-8 py-4 rounded-xl border border-slate-300 hover:border-slate-300 hover:bg-slate-100 hover:text-slate-900 transition-all duration-200"
+                  className="inline-flex items-center gap-2 text-base font-semibold text-[#3d453b] px-8 py-4 rounded-xl border border-[#c9cbbf] hover:border-[#c9cbbf] hover:bg-[#efeee6] hover:text-[#1a211d] transition-all duration-200"
                 >
                   View Our Work
                 </Link>
               </div>
 
               {/* Trust strip */}
-              <div className="mt-12 pt-10 border-t border-slate-200 flex flex-wrap items-center justify-center gap-8 sm:gap-14">
+              <div className="mt-12 pt-10 border-t border-[#dadcd1] flex flex-wrap items-center justify-center gap-8 sm:gap-14">
                 {[
                   { value: "No-commitment", label: "first call" },
                   { value: "4h", label: "response time" },
                   { value: "5+ years", label: "experience" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-baseline gap-2">
-                    <span className="text-base font-semibold text-slate-900">{item.value}</span>
-                    <span className="text-sm text-slate-600">{item.label}</span>
+                    <span className="text-base font-semibold text-[#1a211d]">{item.value}</span>
+                    <span className="text-sm text-[#4d554b]">{item.label}</span>
                   </div>
                 ))}
               </div>

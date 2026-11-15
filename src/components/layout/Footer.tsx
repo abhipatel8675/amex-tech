@@ -9,11 +9,58 @@ import { services } from "@/data/services";
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Blog", href: "/blog" },
+  { label: "Hire Developers", href: "/hire-developers" },
+  { label: "Our Work", href: "/portfolio" },
+  { label: "Insights", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
+
+const offerLinks = [
+  { label: "AI Operations Agent", href: "/ai-operations-agent" },
+  { label: "LA Trade Websites", href: "/la-website" },
+  { label: "24-Hour App Fix", href: "/fix" },
+  { label: "Free Website Grader", href: "/tools/website-grader" },
+  { label: "Free App Checker", href: "/tools/app-checker" },
+];
+
+const laLinks = [
+  { label: "Web & AI Development in LA", href: "/los-angeles" },
+  { label: "Law Firm Web Design", href: "/law-firm-web-design-los-angeles" },
+  { label: "Affordable Web Design", href: "/affordable-web-design-los-angeles" },
+  {
+    label: "Google Business Profile Setup",
+    href: "/google-business-profile-setup-los-angeles",
+  },
+];
+
+const linkClass =
+  "inline-flex min-h-[32px] items-center text-sm text-[#626960] transition-colors hover:text-[#7a5807]";
+const headingClass =
+  "mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#1a211d]";
+
+function LinkColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: { label: string; href: string }[];
+}) {
+  return (
+    <div>
+      <h2 className={headingClass}>{title}</h2>
+      <ul>
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link href={link.href} className={linkClass}>
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 const serviceLinks = services.map((s) => ({ label: s.title, href: `/services/${s.slug}` }));
 
@@ -36,7 +83,7 @@ export default function Footer() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Something went wrong.");
       setStatus("success");
-      setFeedback("You're subscribed! 🎉");
+      setFeedback("You're subscribed.");
       setEmail("");
     } catch (err) {
       setStatus("error");
@@ -45,216 +92,134 @@ export default function Footer() {
   }
 
   return (
-    <>
-      <footer
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)" }}
-      >
-        {/* Top gradient border line */}
-        <div
-          className="absolute top-0 left-0 right-0 h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent 0%, rgba(184,134,11,0.5) 50%, transparent 100%)",
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="relative max-w-[92rem] mx-auto px-6 pt-16 pb-10">
-
-          {/* Newsletter strip */}
-          <div className="mb-14 rounded-2xl border border-slate-200 bg-slate-50 px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-5">
-            <div>
-              <p className="text-sm font-semibold text-slate-900 mb-0.5">Get development tips in your inbox</p>
-              <p className="text-xs" style={{ color: "#475569" }}>
-                Practical insights on web, mobile, and product — no spam, ever.
-              </p>
-            </div>
-            <div className="w-full sm:w-auto">
-              <form
-                onSubmit={handleSubscribe}
-                className="flex items-center gap-2 w-full sm:w-auto"
-                aria-label="Newsletter signup"
+    <footer className="border-t border-[#dadcd1] bg-[#f7f6f2] text-[#1a211d]">
+      <div className="mx-auto w-[min(1280px,calc(100%-96px))] pt-16 pb-10 max-[1100px]:w-[calc(100%-64px)] max-[520px]:w-[calc(100%-40px)]">
+        {/* Newsletter */}
+        <div className="mb-14 flex flex-col items-start justify-between gap-5 rounded-lg border border-[#dddfd3] bg-white p-8 max-[520px]:p-5 sm:flex-row sm:items-center">
+          <div>
+            <p className="mb-1 text-[15px] font-semibold text-[#1a211d]">
+              Get development tips in your inbox
+            </p>
+            <p className="text-sm text-[#626960]">
+              Practical insights on web, mobile, and product — no spam, ever.
+            </p>
+          </div>
+          <div className="w-full sm:w-auto">
+            <form
+              onSubmit={handleSubscribe}
+              className="flex w-full items-center gap-2 sm:w-auto"
+              aria-label="Newsletter signup"
+            >
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (status !== "idle") setStatus("idle");
+                }}
+                placeholder="you@example.com"
+                required
+                disabled={status === "loading"}
+                aria-label="Email address"
+                className="min-h-[50px] min-w-0 flex-1 rounded-[5px] border border-[#dadcd1] bg-white px-4 text-sm text-[#1a211d] placeholder-[#6d7266] outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20] disabled:opacity-60 sm:w-60"
+              />
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="min-h-[50px] flex-shrink-0 rounded-[5px] bg-[#202a23] px-5 text-sm font-medium text-white transition-colors hover:bg-[#3d493d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20] disabled:cursor-not-allowed disabled:opacity-70"
               >
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    if (status !== "idle") setStatus("idle");
-                  }}
-                  placeholder="you@example.com"
-                  required
-                  disabled={status === "loading"}
-                  aria-label="Email address"
-                  className="flex-1 sm:w-56 text-sm bg-slate-100 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-700 placeholder-slate-400 outline-none transition-all focus:border-[#B8860B]/60 focus:ring-1 focus:ring-[#B8860B]/30 disabled:opacity-60"
-                />
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="text-sm font-semibold text-white px-4 py-2.5 rounded-xl transition-all btn-glow flex-shrink-0 disabled:opacity-70 disabled:cursor-not-allowed"
-                  style={{ background: "linear-gradient(135deg, #B8860B 0%, #9C7208 100%)" }}
-                >
-                  {status === "loading" ? "Subscribing…" : "Subscribe"}
-                </button>
-              </form>
-              {feedback && (
-                <p
-                  role="status"
-                  aria-live="polite"
-                  className="text-xs mt-2 text-left sm:text-right"
-                  style={{ color: status === "error" ? "#DC2626" : "#059669" }}
-                >
-                  {feedback}
-                </p>
-              )}
-            </div>
+                {status === "loading" ? "Subscribing…" : "Subscribe"}
+              </button>
+            </form>
+            {feedback && (
+              <p
+                role="status"
+                aria-live="polite"
+                className="mt-2 text-left text-sm sm:text-right"
+                style={{ color: status === "error" ? "#b42318" : "#2f6b45" }}
+              >
+                {feedback}
+              </p>
+            )}
+          </div>
+        </div>
+
+        {/* Main grid */}
+        <div className="mb-14 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
+          {/* Brand + contact */}
+          <div>
+            <Link
+              href="/"
+              className="mb-5 flex items-center gap-2.5"
+              aria-label="Amex Technology home"
+            >
+              <LogoMark size={40} />
+              <span className="flex flex-col text-[19px] font-semibold leading-[1.1] tracking-[-0.04em] text-[#1a211d]">
+                Amex Technology
+                <small className="mt-1 text-[10px] font-medium uppercase tracking-[0.23em] text-[#7a5807]">
+                  Ideas into impact
+                </small>
+              </span>
+            </Link>
+            <p className="mb-4 max-w-[240px] text-sm leading-7 text-[#626960]">
+              Web design, SEO and AI development for businesses in Los Angeles and across the US.
+            </p>
+            <p className="text-sm text-[#626960]">
+              Founder in{" "}
+              <Link
+                href="/los-angeles"
+                className="underline-offset-2 hover:text-[#7a5807] hover:underline"
+              >
+                Los Angeles
+              </Link>{" "}
+              · Development team in India
+            </p>
           </div>
 
-          {/* Main grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.4fr_1fr] gap-10 mb-14">
+          <LinkColumn title="Company" links={quickLinks} />
+          <LinkColumn title="Services" links={serviceLinks} />
+          <LinkColumn title="Offers & tools" links={offerLinks} />
 
-            {/* Brand column */}
+          <div className="flex flex-col gap-10">
+            <LinkColumn title="Los Angeles" links={laLinks} />
             <div>
-              <Link href="/" className="flex items-center gap-2 mb-5">
-                <LogoMark size={44} />
-                <span className="flex items-baseline gap-1">
-                  <span
-                    className="font-bold text-2xl tracking-tight"
-                    style={{
-                      background: "linear-gradient(135deg, #CC9A1A, #B8860B)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    Amex
-                  </span>
-                  <span className="text-slate-900 font-semibold text-2xl tracking-tight">Technology</span>
-                </span>
-              </Link>
-              <p className="text-sm leading-7 mb-5 max-w-[220px]" style={{ color: "#475569" }}>
-                Building digital products that drive real business growth.
+              <h2 className={headingClass}>Contact</h2>
+              <a
+                href="mailto:abhi@amextech.org"
+                className={`${linkClass} break-all`}
+              >
+                abhi@amextech.org
+              </a>
+              <a href="tel:+16233012035" className={linkClass}>
+                +1 (623) 301-2035
+              </a>
+              <p className="mt-2 text-sm leading-6 text-[#626960]">
+                Monday–Saturday, 9am–6pm Pacific time
               </p>
-              <p className="text-xs" style={{ color: "#475569" }}>
-                Based in India · Serving clients globally ·{" "}
-                <Link href="/los-angeles" className="underline-offset-2 hover:underline">
-                  Los Angeles
-                </Link>{" "}
-                · Est. 2019
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h2
-                className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-6"
-                style={{ letterSpacing: "0.12em" }}
-              >
-                Company
-              </h2>
-              <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm transition-colors hover:text-slate-900"
-                      style={{ color: "#475569" }}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h2
-                className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-6"
-                style={{ letterSpacing: "0.12em" }}
-              >
-                Services
-              </h2>
-              <ul className="space-y-3">
-                {serviceLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm transition-colors hover:text-slate-900"
-                      style={{ color: "#475569" }}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h2
-                className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-6"
-                style={{ letterSpacing: "0.12em" }}
-              >
-                Contact
-              </h2>
-              <div className="space-y-5">
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#475569", letterSpacing: "0.10em" }}>
-                    Email
-                  </p>
-                  <a
-                    href="mailto:abhipatel8675@gmail.com"
-                    className="text-sm flex items-center gap-1 transition-colors hover:text-slate-900 group"
-                    style={{ color: "#475569" }}
-                  >
-                    abhipatel8675@gmail.com
-                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                </div>
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#475569", letterSpacing: "0.10em" }}>
-                    Availability
-                  </p>
-                  <p className="text-sm" style={{ color: "#475569" }}>
-                    Mon – Sat, 9am – 8pm IST
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "#475569", letterSpacing: "0.10em" }}>
-                    Response time
-                  </p>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <p className="text-sm" style={{ color: "#475569" }}>Within 4 hours</p>
-                  </div>
-                </div>
-              </div>
               <Link
                 href="/contact"
-                className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-[#7A5807] hover:text-[#7A5807] transition-colors group"
+                className="mt-3 inline-flex min-h-[32px] items-center gap-1.5 text-sm font-semibold text-[#7a5807] hover:underline"
               >
                 Start a project
-                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>
+        </div>
 
-          {/* Separator + bottom bar */}
-          <div className="border-t border-slate-200 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <p className="text-xs" style={{ color: "#475569" }}>
-                © {new Date().getFullYear()} Amex Technology. An independent agency, not affiliated with American Express.
-              </p>
-              <span className="text-xs" style={{ color: "#475569" }}>·</span>
+        {/* Bottom bar */}
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-[#dadcd1] pt-7 sm:flex-row">
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-xs text-[#626960]">
+              © {new Date().getFullYear()} Amex Technology. An independent agency, not affiliated with American Express.
+            </p>
+            <span className="text-xs text-[#626960]" aria-hidden="true">·</span>
               <a
                 href="https://www.instagram.com/amextechnology/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on Instagram"
-                className="transition-colors hover:text-slate-900"
-                style={{ color: "#475569" }}
+                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#626960] transition-colors hover:text-[#7a5807]"
               >
                 <svg
                   width="16"
@@ -277,8 +242,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on Upwork"
-                className="transition-colors hover:text-slate-900"
-                style={{ color: "#475569" }}
+                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#626960] transition-colors hover:text-[#7a5807]"
               >
                 <svg
                   width="16"
@@ -295,8 +259,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on LinkedIn"
-                className="transition-colors hover:text-slate-900"
-                style={{ color: "#475569" }}
+                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#626960] transition-colors hover:text-[#7a5807]"
               >
                 <svg
                   width="16"
@@ -308,26 +271,25 @@ export default function Footer() {
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.114 20.452H3.558V9h3.556v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
               </a>
-            </div>
-            <div className="flex items-center gap-6">
+          </div>
+          <div className="flex flex-wrap items-center gap-6">
+            {[
+              ["Privacy Policy", "/privacy"],
+              ["Terms of Service", "/terms"],
+              ["Refund Policy", "/refund-policy"],
+              ["Delivery Policy", "/delivery-policy"],
+            ].map(([label, href]) => (
               <Link
-                href="/privacy"
-                className="text-xs hover:text-slate-700 transition-colors"
-                style={{ color: "#475569" }}
+                key={href}
+                href={href}
+                className="inline-flex min-h-[32px] items-center text-xs text-[#626960] transition-colors hover:text-[#7a5807]"
               >
-                Privacy Policy
+                {label}
               </Link>
-              <Link
-                href="/terms"
-                className="text-xs hover:text-slate-700 transition-colors"
-                style={{ color: "#475569" }}
-              >
-                Terms of Service
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }

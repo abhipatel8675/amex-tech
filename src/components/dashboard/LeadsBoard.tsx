@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { Plus, Search, Mail, Phone, Globe, CalendarClock, DollarSign, Inbox, Trophy, Flame, Trash2, ChevronLeft, ChevronRight } from "lucide-react";
+import { useMemo, useState, useTransition } from "react";
+import { Plus, Search, Mail, Phone, Globe, CalendarClock, DollarSign, Inbox, Trophy, Flame, Trash2, ChevronLeft, ChevronRight, CreditCard, Copy, Check, MessageCircle } from "lucide-react";
 import { LEAD_STATUSES, LEAD_SOURCES, LEAD_SOURCE_LABEL as SOURCE_LABEL, type Lead, type LeadStatus } from "@/lib/leadTypes";
-import { updateLead, addLead, deleteLead } from "@/app/dashboard/dev/leads/actions";
+import { updateLead, addLead, deleteLead, createLeadPaymentLink } from "@/app/dashboard/dev/leads/actions";
+import type { LeadPayment } from "@/lib/razorpay";
 
 const STATUS_META: Record<LeadStatus, { label: string; color: string }> = {
   new: { label: "New", color: "#2563eb" },
@@ -31,6 +32,94 @@ function StatusPill({ status }: { status: LeadStatus }) {
     <span className="text-xs px-2.5 py-1 rounded-full border flex-shrink-0" style={{ borderColor: `${s.color}40`, color: s.color, background: `${s.color}10` }}>
       {s.label}
     </span>
+  );
+}
+
+const PAY_STATUS: Record<LeadPayment["status"], string> = {
+  created: "text-[#7A5807] bg-[#B8860B]/10",
+  paid: "text-green-700 bg-green-50",
+  cancelled: "text-slate-500 bg-slate-100",
+  expired: "text-slate-500 bg-slate-100",
+};
+
+function CopyButton({ value }: { value: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={() => { navigator.clipboard.writeText(value); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
+      className="flex items-center gap-1 text-xs text-slate-600 hover:text-slate-900"
+    >
+      {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />} {copied ? "Copied" : "Copy"}
+    </button>
+  );
+}
+
+// Opens WhatsApp with the link prefilled. Only numbers with a country code (11+ digits)
+// are used, since a bare 10-digit number could be US or Indian.
+function WhatsAppButton({ lead, p }: { lead: Lead; p: { short_url: string; amount: number; currency: string; description: string } }) {
+  const phone = lead.phone?.replace(/\D/g, "") ?? "";
+  const hi = lead.name ? `Hi ${lead.name.split(" ")[0]}` : "Hi";
+  const msg = `${hi}, here is the payment link for ${p.description} (${p.currency} ${p.amount}): ${p.short_url}\n\nThank you!\nAbhi, Amex Technology`;
+  return (
+    <a
+      href={`https://wa.me/${phone.length >= 11 ? phone : ""}?text=${encodeURIComponent(msg)}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-1 text-xs text-green-700 hover:text-green-800"
+    >
+      <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
+    </a>
+  );
+}
+
+function PaymentPanel({ lead }: { lead: Lead }) {
+  const payments = (Array.isArray(lead.meta?.payments) ? lead.meta.payments : []) as LeadPayment[];
+  const [result, setResult] = useState<{ url?: string; error?: string } | null>(null);
+  const [pending, startTransition] = useTransition();
+
+  return (
+    <div className="border border-slate-200 rounded-xl p-4 space-y-3">
+      <p className="flex items-center gap-1.5 text-sm font-semibold"><CreditCard className="w-4 h-4" /> Razorpay payment link</p>
+      <form
+        action={(fd) => startTransition(async () => setResult(await createLeadPaymentLink(fd)))}
+        className="grid md:grid-cols-[110px_90px_1fr_auto] gap-2"
+      >
+        <input type="hidden" name="id" value={lead.id} />
+        <input name="amount" inputMode="decimal" defaultValue={lead.quote_amount ?? 299} placeholder="299" className={inputCls} />
+        <select name="currency" defaultValue="USD" className={inputCls}>
+          <option value="USD">USD</option>
+          <option value="INR">INR</option>
+        </select>
+        <input name="description" placeholder={`${lead.service || "Website"} - Amex Technology`} className={inputCls} />
+        <button type="submit" disabled={pending} className={btnCls} style={btnStyle}>{pending ? "Creating…" : "Create link"}</button>
+      </form>
+      {result?.error && <p className="text-sm text-red-600">{result.error}</p>}
+      {result?.url && (
+        <p className="flex flex-wrap items-center gap-2 text-sm">
+          <a href={result.url} target="_blank" rel="noopener noreferrer" className="text-[#7A5807] underline">{result.url}</a>
+          <CopyButton value={result.url} />
+        </p>
+      )}
+      {payments.length > 0 && (
+        <ul className="divide-y divide-slate-100 text-sm">
+          {[...payments].reverse().map((p) => (
+            <li key={p.link_id} className="flex flex-wrap items-center justify-between gap-2 py-2">
+              <span className="flex items-center gap-2 min-w-0">
+                <span className={`text-xs px-2 py-0.5 rounded-full ${PAY_STATUS[p.status]}`}>{p.status}</span>
+                <span className="font-semibold">{p.currency} {p.amount}</span>
+                <span className="text-slate-600 truncate">{p.description}</span>
+              </span>
+              <span className="flex items-center gap-3 text-xs text-slate-600">
+                {p.paid_at ? `Paid ${new Date(p.paid_at).toLocaleDateString()}` : new Date(p.created_at).toLocaleDateString()}
+                {p.status === "created" && <CopyButton value={p.short_url} />}
+                {p.status === "created" && <WhatsAppButton lead={lead} p={p} />}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
 
@@ -78,6 +167,8 @@ function LeadRow({ lead }: { lead: Lead }) {
               <p className="text-sm text-slate-700 whitespace-pre-wrap">{lead.message}</p>
             </div>
           )}
+
+          <PaymentPanel lead={lead} />
 
           <form action={updateLead} className="space-y-3">
             <input type="hidden" name="id" value={lead.id} />

@@ -81,7 +81,7 @@ export const servicePages: Record<string, ServicePage> = {
   },
 
   "web-development": {
-    metaTitle: "Website & Web App Development Company",
+    metaTitle: "Website & Web App Development Company in Los Angeles",
     metaDescription:
       "Fast marketing websites, customer portals, dashboards and web apps on Next.js and Supabase, built to rank on Google and AI search. Get a free quote.",
     h1: "Website & Web App Development",
@@ -125,7 +125,7 @@ export const servicePages: Record<string, ServicePage> = {
       {
         question: "How much does a website or web app cost?",
         answer:
-          "A professional website typically starts from $500 to $2,000, and a web application from $3,000 to $10,000, depending on pages, features and integrations. We send an itemised quote after a free discovery call. Our guide to web app development cost explains what drives the price.",
+          "It depends on the number of pages, features and integrations. We send a fixed, itemised quote after a free discovery call, before any work starts. Our guide to web app development cost explains what drives the price.",
       },
       {
         question: "How long does it take?",
@@ -190,7 +190,7 @@ export const servicePages: Record<string, ServicePage> = {
       {
         question: "How much does a SaaS MVP cost?",
         answer:
-          "A SaaS platform typically starts from $5,000, and the final figure depends on the number of user roles, integrations and AI features. After a discovery call we send a fixed, itemised quote for version one.",
+          "The cost depends on the number of user roles, integrations and AI features. After a discovery call we send a fixed, itemised quote for version one.",
       },
       {
         question: "Can you finish an app I started in Lovable, Bolt or Replit?",
@@ -211,10 +211,10 @@ export const servicePages: Record<string, ServicePage> = {
   },
 
   "seo-services": {
-    metaTitle: "SEO & GEO Services: Google and AI Search",
+    metaTitle: "SEO Services in Los Angeles: Google & AI Search (GEO)",
     metaDescription:
-      "Technical SEO, local SEO, Google Business Profile and Generative Engine Optimization (GEO) so customers find you on Google, ChatGPT and Perplexity.",
-    h1: "SEO & GEO: Get Found on Google and in AI Search",
+      "SEO services for Los Angeles and US businesses: technical SEO, local SEO, Google Business Profile and GEO so customers find you on Google, ChatGPT and Perplexity.",
+    h1: "SEO Services: Get Found on Google and in AI Search",
     intro: [
       "Customers now search on Google and inside AI assistants like ChatGPT, Perplexity and Gemini. Amex Technology fixes technical SEO, builds pages around what your customers actually search, optimises your Google Business Profile for local search, and applies Generative Engine Optimization (GEO) so AI tools understand and recommend your business.",
       "Because we also build websites, we fix the underlying problems directly in your site's code instead of handing you a report full of recommendations.",

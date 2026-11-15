@@ -2,7 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
-import { leadsDb, saveLead, LEAD_STATUSES, LEAD_SOURCES, type LeadStatus, type LeadSource } from "@/lib/leads";
+import { leadsDb, saveLead, LEAD_STATUSES, LEAD_SOURCES, type Lead, type LeadStatus, type LeadSource } from "@/lib/leads";
+import { createPaymentLink, razorpayConfigured, PAYMENT_CURRENCIES, type LeadPayment, type PaymentCurrency } from "@/lib/razorpay";
 
 // Server Functions are reachable by direct POST, so every one re-checks the user.
 async function requireDev() {
@@ -74,4 +75,52 @@ export async function deleteLead(formData: FormData) {
   const { error } = await db.from("leads").delete().eq("id", id);
   if (error) throw new Error(error.message);
   revalidatePath("/dashboard/dev/leads");
+}
+
+// Creates a Razorpay Payment Link for a lead and stores it in meta.payments.
+// The webhook (/api/razorpay/webhook) marks it paid and moves the lead to Won.
+export async function createLeadPaymentLink(formData: FormData): Promise<{ url?: string; error?: string }> {
+  const db = await requireDev();
+  if (!razorpayConfigured()) return { error: "Razorpay keys are not set in Vercel yet." };
+  const id = text(formData.get("id"));
+  const amount = money(formData.get("amount"));
+  const currency = (text(formData.get("currency")) ?? "USD") as PaymentCurrency;
+  if (!id || !amount || amount < 1 || !PAYMENT_CURRENCIES.includes(currency)) return { error: "Enter an amount of at least 1." };
+
+  const { data: lead, error } = await db.from("leads").select("*").eq("id", id).single<Lead>();
+  if (error || !lead) return { error: "Lead not found." };
+  const description = text(formData.get("description")) ?? `${lead.service || "Website"} - Amex Technology`;
+
+  try {
+    const link = await createPaymentLink({
+      leadId: id,
+      amount,
+      currency,
+      description,
+      customer: { name: lead.name || lead.company, email: lead.email, phone: lead.phone },
+    });
+    const payments = (Array.isArray(lead.meta?.payments) ? lead.meta.payments : []) as LeadPayment[];
+    payments.push({
+      link_id: link.id,
+      short_url: link.short_url,
+      amount,
+      currency,
+      description,
+      status: "created",
+      created_at: new Date().toISOString(),
+    });
+    const { error: saveError } = await db
+      .from("leads")
+      .update({
+        meta: { ...lead.meta, payments },
+        status: ["new", "contacted", "replied", "call"].includes(lead.status) ? "quoted" : lead.status,
+        quote_amount: lead.quote_amount ?? amount,
+      })
+      .eq("id", id);
+    if (saveError) return { url: link.short_url, error: `Link created but not saved: ${saveError.message}` };
+    revalidatePath("/dashboard/dev/leads");
+    return { url: link.short_url };
+  } catch (err) {
+    return { error: err instanceof Error ? err.message : "Razorpay request failed" };
+  }
 }

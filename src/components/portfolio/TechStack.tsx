@@ -52,7 +52,7 @@ export function TechIcon({ name }: { name: string }) {
   const icon = ICONS[name];
   if (!icon) {
     return (
-      <span aria-hidden className="grid place-items-center w-5 h-5 rounded-md bg-slate-900 text-[10px] font-semibold text-white">
+      <span aria-hidden className="grid place-items-center w-5 h-5 rounded-md bg-[#1a211d] text-[10px] font-semibold text-white">
         {name[0]}
       </span>
     );
@@ -70,7 +70,7 @@ export default function TechStack({ technologies }: { technologies: string[] }) 
       {technologies.map((t) => (
         <li
           key={t}
-          className="inline-flex items-center gap-2.5 rounded-full bg-white pl-2.5 pr-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
+          className="inline-flex items-center gap-2.5 rounded-full bg-white pl-2.5 pr-4 py-2 text-sm font-medium text-[#3d453b] ring-1 ring-[#dadcd1] shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
         >
           <TechIcon name={t} />
           {t}

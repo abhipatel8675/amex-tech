@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "July 11, 2026";
-const CONTACT_EMAIL = "abhipatel8675@gmail.com";
+const CONTACT_EMAIL = "abhi@amextech.org";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -32,10 +32,10 @@ const breadcrumbSchema = {
 
 export default function PrivacyPage() {
   return (
-    <div className="bg-white text-slate-900 min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]} />
 
         {/* Hero */}
@@ -46,14 +46,14 @@ export default function PrivacyPage() {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             Privacy Policy
           </h1>
-          <p className="text-slate-600 text-base leading-7">
-            Last updated: <span className="text-slate-700">{LAST_UPDATED}</span>
+          <p className="text-[#4d554b] text-base leading-7">
+            Last updated: <span className="text-[#3d453b]">{LAST_UPDATED}</span>
           </p>
         </section>
 
         {/* Content */}
         <article className="pb-28 max-w-[92rem] mx-auto px-6">
-          <div className="border-t border-slate-200 pt-10 flex flex-col gap-12">
+          <div className="border-t border-[#dadcd1] pt-10 flex flex-col gap-12">
 
             {/* 1 — Introduction */}
             <Section id="introduction" title="1. Introduction">
@@ -186,13 +186,13 @@ export default function PrivacyPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-200">
-                      <th className="text-left py-3 pr-6 text-slate-600 font-semibold">Service</th>
-                      <th className="text-left py-3 pr-6 text-slate-600 font-semibold">Purpose</th>
-                      <th className="text-left py-3 text-slate-600 font-semibold">Policy</th>
+                    <tr className="border-b border-[#dadcd1]">
+                      <th className="text-left py-3 pr-6 text-[#4d554b] font-semibold">Service</th>
+                      <th className="text-left py-3 pr-6 text-[#4d554b] font-semibold">Purpose</th>
+                      <th className="text-left py-3 text-[#4d554b] font-semibold">Policy</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-200">
+                  <tbody className="divide-y divide-[#dadcd1]">
                     {[
                       {
                         name: "Google Analytics",
@@ -232,8 +232,8 @@ export default function PrivacyPage() {
                       },
                     ].map((row) => (
                       <tr key={row.name}>
-                        <td className="py-3 pr-6 text-slate-700 font-medium">{row.name}</td>
-                        <td className="py-3 pr-6 text-slate-600">{row.purpose}</td>
+                        <td className="py-3 pr-6 text-[#3d453b] font-medium">{row.name}</td>
+                        <td className="py-3 pr-6 text-[#4d554b]">{row.purpose}</td>
                         <td className="py-3">
                           <a
                             href={row.url}
@@ -341,8 +341,8 @@ export default function PrivacyPage() {
                 If you have any questions or concerns about this Privacy Policy or our data practices, please
                 contact us:
               </p>
-              <div className="mt-4 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-sm leading-7 text-slate-700">
-                <p className="font-semibold text-slate-900 mb-1">Amex Technology</p>
+              <div className="mt-4 p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] text-sm leading-7 text-[#3d453b]">
+                <p className="font-semibold text-[#1a211d] mb-1">Amex Technology</p>
                 <p>
                   Email:{" "}
                   <a
@@ -377,10 +377,10 @@ function Section({
 }) {
   return (
     <section id={id} className="flex flex-col gap-4 scroll-mt-24">
-      <h2 className="text-xl font-bold text-slate-900" style={{ letterSpacing: "-0.015em" }}>
+      <h2 className="text-xl font-bold text-[#1a211d]" style={{ letterSpacing: "-0.015em" }}>
         {title}
       </h2>
-      <div className="flex flex-col gap-4 text-base leading-8 text-slate-600 [&_strong]:text-slate-700 [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#B8860B] [&_code]:text-[#CC9A1A] [&_code]:bg-[#B8860B]/[0.08] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm">
+      <div className="flex flex-col gap-4 text-base leading-8 text-[#4d554b] [&_strong]:text-[#3d453b] [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#9a722a] [&_code]:text-[#CC9A1A] [&_code]:bg-[#9a722a]/[0.08] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm">
         {children}
       </div>
     </section>
@@ -390,7 +390,7 @@ function Section({
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-3">
-      <h3 className="text-base font-semibold text-slate-700">{title}</h3>
+      <h3 className="text-base font-semibold text-[#3d453b]">{title}</h3>
       {children}
     </div>
   );

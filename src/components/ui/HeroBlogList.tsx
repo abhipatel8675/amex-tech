@@ -49,14 +49,14 @@ export function HeroBlogList({ posts }: { posts: HeroBlogPost[] }) {
   return (
     <div
       ref={containerRef}
-      className="flex-1 rounded-2xl border border-slate-200 p-2 shadow-[0_8px_30px_rgba(15,23,42,0.06)]"
+      className="flex-1 rounded-2xl border border-[#dadcd1] p-2 shadow-[0_8px_30px_rgba(15,23,42,0.06)]"
       style={{ background: "linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%)" }}
     >
       {posts.map((post) => (
         <Link
           key={post.slug}
           href={`/blog/${post.slug}`}
-          className="blog-row group flex items-center gap-4 rounded-xl p-3.5 transition-colors duration-300 hover:bg-slate-100"
+          className="blog-row group flex items-center gap-4 rounded-xl p-3.5 transition-colors duration-300 hover:bg-[#efeee6]"
         >
           <div
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border"
@@ -65,15 +65,15 @@ export function HeroBlogList({ posts }: { posts: HeroBlogPost[] }) {
             <FileText className="h-4 w-4 text-[#7A5807]" />
           </div>
           <div className="min-w-0 flex-1">
-            <div className="mb-1 flex items-center gap-2 text-xs text-slate-600">
+            <div className="mb-1 flex items-center gap-2 text-xs text-[#4d554b]">
               <span>{post.category}</span>
-              <span className="text-slate-300">·</span>
+              <span className="text-[#c9cbbf]">·</span>
               <span className="flex items-center gap-1">
                 <Clock className="h-3 w-3" />
                 {post.readTime}
               </span>
             </div>
-            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-slate-900 transition-colors group-hover:text-[#7A5807]">
+            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-[#1a211d] transition-colors group-hover:text-[#7A5807]">
               {post.title}
             </h4>
           </div>
@@ -83,7 +83,7 @@ export function HeroBlogList({ posts }: { posts: HeroBlogPost[] }) {
 
       <Link
         href="/blog"
-        className="group mt-1 flex items-center justify-center gap-1.5 rounded-xl border-t border-slate-200 px-3.5 py-3 text-sm font-semibold text-slate-600 transition-colors duration-300 hover:bg-slate-100 hover:text-[#7A5807]"
+        className="group mt-1 flex items-center justify-center gap-1.5 rounded-xl border-t border-[#dadcd1] px-3.5 py-3 text-sm font-semibold text-[#4d554b] transition-colors duration-300 hover:bg-[#efeee6] hover:text-[#7A5807]"
       >
         View All Articles
         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

@@ -74,7 +74,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-medium text-slate-900">Email</div>
-                  <div className="text-slate-600">abhipatel8675@gmail.com</div>
+                  <div className="text-slate-600">abhi@amextech.org</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 text-sm text-slate-600">
@@ -195,7 +195,7 @@ export default function Contact() {
 
             {status === "error" && (
               <p className="text-xs text-red-400 text-center">
-                Something went wrong. Email us directly at abhipatel8675@gmail.com
+                Something went wrong. Email us directly at abhi@amextech.org
               </p>
             )}
 
