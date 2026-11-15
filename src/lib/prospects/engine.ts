@@ -30,7 +30,8 @@ export async function storePosts(db: SupabaseClient, posts: RawPost[], s: Prospe
   if (!keep.length) return 0;
   const { data, error } = await db
     .from("prospects")
-    .upsert(keep.map((p) => ({ ...p, origin: "auto", status: "pending_ai" })), { onConflict: "url", ignoreDuplicates: true })
+    // Without an AI key, show posts unscored rather than holding them for screening.
+    .upsert(keep.map((p) => ({ ...p, origin: "auto", status: aiConfigured() ? "pending_ai" : "new" })), { onConflict: "url", ignoreDuplicates: true })
     .select("id");
   if (error) throw new Error(error.message);
   return data?.length ?? 0;
