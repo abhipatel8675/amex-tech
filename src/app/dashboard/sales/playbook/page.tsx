@@ -47,11 +47,12 @@ const SEARCHES: { group: string; note: string; links: { label: string; href: str
   },
   {
     group: "Check by hand daily, then Quick add",
-    note: "These sites block automatic checking.",
+    note: "These sites block automatic checking. (Bluesky, RemoteOK, Remotive and We Work Remotely are checked automatically.)",
     links: [
       { label: "Craigslist LA: computer gigs", href: "https://losangeles.craigslist.org/search/cpg" },
       { label: "Craigslist LA: 'website' gigs", href: "https://losangeles.craigslist.org/search/ggg?query=website" },
       { label: "Wellfound: contract roles", href: "https://wellfound.com/jobs" },
+      { label: "Upwork-style boards: Contra", href: "https://contra.com/" },
       { label: "Indie Hackers: looking to partner", href: "https://www.indiehackers.com/" },
       { label: "Hacker News: Who is hiring", href: "https://news.ycombinator.com/submitted?id=whoishiring" },
       { label: "Nextdoor (LA)", href: "https://nextdoor.com/" },

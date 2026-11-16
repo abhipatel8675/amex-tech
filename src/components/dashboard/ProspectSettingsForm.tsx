@@ -7,7 +7,7 @@ import { PLATFORM_LABEL, type Platform, type ProspectSettings } from "@/lib/pros
 
 const inputCls = "w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-[#B8860B]/50";
 const card = "bg-white border border-slate-200 rounded-xl p-4 sm:p-5 space-y-3";
-const CAP_PLATFORMS: Platform[] = ["reddit", "x", "linkedin", "hn", "facebook", "discord", "craigslist"];
+const CAP_PLATFORMS: Platform[] = ["reddit", "x", "linkedin", "hn", "bluesky", "jobboard", "facebook", "discord"];
 
 function Key({ ok, label, hint }: { ok: boolean; label: string; hint: string }) {
   return (
@@ -76,6 +76,21 @@ export default function ProspectSettingsForm({ settings: s, keys }: { settings: 
             <input type="checkbox" name="hn_enabled" defaultChecked={s.hn.enabled} /> Hacker News <span className="text-xs font-normal text-slate-500">(free, contract/freelance posts in &quot;Who is hiring?&quot;)</span>
           </h2>
           <Field label="Check every (minutes)"><input name="hn_every" type="number" min={5} defaultValue={s.hn.everyMin} className={inputCls} /></Field>
+        </section>
+
+        <section className={card}>
+          <h2 className="font-semibold text-slate-900 flex items-center gap-2">
+            <input type="checkbox" name="bsky_enabled" defaultChecked={s.bluesky.enabled} /> Bluesky <span className="text-xs font-normal text-slate-500">(free)</span>
+          </h2>
+          <Field label="Check every (minutes)"><input name="bsky_every" type="number" min={3} defaultValue={s.bluesky.everyMin} className={inputCls} /></Field>
+          <Field label="Exact phrases to search (one per line)"><textarea name="bsky_queries" rows={4} defaultValue={s.bluesky.queries.join("\n")} className={inputCls} /></Field>
+        </section>
+
+        <section className={card}>
+          <h2 className="font-semibold text-slate-900 flex items-center gap-2">
+            <input type="checkbox" name="jobs_enabled" defaultChecked={s.jobs.enabled} /> Remote job boards <span className="text-xs font-normal text-slate-500">(free: RemoteOK, Remotive, We Work Remotely; contract / freelance / part-time dev roles only)</span>
+          </h2>
+          <Field label="Check every (minutes)"><input name="jobs_every" type="number" min={15} defaultValue={s.jobs.everyMin} className={inputCls} /></Field>
         </section>
 
         <section className={card}>

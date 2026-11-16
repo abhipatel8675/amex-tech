@@ -78,14 +78,18 @@ export async function fetchReddit(s: ProspectSettings["reddit"]): Promise<RawPos
 
 const stripHtml = (html: string) =>
   html
-    .replace(/<p>/gi, "\n\n")
-    .replace(/<[^>]+>/g, "")
-    .replace(/&#x27;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&#x2F;/g, "/")
-    .replace(/&gt;/g, ">")
+    // Feeds often escape their HTML, so unescape tags before removing them.
     .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/<(br|\/p|\/li|\/h\d)\s*\/?>/gi, "\n")
+    .replace(/<li[^>]*>/gi, "• ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&#x27;|&#39;|&rsquo;|&lsquo;/g, "'")
+    .replace(/&quot;|&ldquo;|&rdquo;/g, '"')
+    .replace(/&#x2F;/g, "/")
+    .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 
 // Top-level comments in the newest "Who is hiring?" thread that mention contract
@@ -189,4 +193,127 @@ export function normalizeApifyItem(platform: "x" | "linkedin", o: Record<string,
     posted_at: toIso(pick(o, ["createdAt", "postedAt.date", "postedAt.timestamp", "postedAt", "postedDate", "date", "timestamp"])),
     community: null,
   };
+}
+
+// ---------- Bluesky (public AppView search; free, no login) ----------
+
+export async function fetchBluesky(queries: string[], sinceIso: string): Promise<RawPost[]> {
+  const calls = queries.filter(Boolean).map(async (q) => {
+    const url = `https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=${encodeURIComponent(q)}&sort=latest&limit=50&since=${encodeURIComponent(sinceIso)}`;
+    const res = await fetch(url, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(15000) });
+    if (!res.ok) throw new Error(`Bluesky ${res.status}`);
+    return ((await res.json()).posts ?? []) as Record<string, unknown>[];
+  });
+  const results = await Promise.allSettled(calls);
+  const ok = results.filter((r): r is PromiseFulfilledResult<Record<string, unknown>[]> => r.status === "fulfilled");
+  if (!ok.length && results.length) throw (results[0] as PromiseRejectedResult).reason;
+  return ok.flatMap((r) => r.value).map((p): RawPost | null => {
+    const author = (p.author ?? {}) as Record<string, unknown>;
+    const record = (p.record ?? {}) as Record<string, unknown>;
+    const handle = str(author.handle);
+    const rkey = String(p.uri ?? "").split("/").pop();
+    if (!handle || !rkey) return null;
+    return {
+      platform: "bluesky",
+      url: `https://bsky.app/profile/${handle}/post/${rkey}`,
+      external_id: str(p.uri),
+      author: str(author.displayName) ? `${author.displayName} (@${handle})` : `@${handle}`,
+      author_url: `https://bsky.app/profile/${handle}`,
+      title: null,
+      body: str(record.text),
+      posted_at: toIso(record.createdAt ?? p.indexedAt),
+      community: null,
+    };
+  }).filter((p): p is RawPost => p !== null && Boolean(p.body));
+}
+
+// ---------- Remote job boards (free feeds): contract / freelance / part-time dev roles ----------
+
+// Judged on the job title only: descriptions mention "AI" and "web" everywhere.
+const DEV_ROLE = /\b(developer|engineer|programmer|full[- ]?stack|front[- ]?end|back[- ]?end|react|next\.?js|node\.?js|python|django|ios|android|flutter|react native|wordpress|shopify|webflow)\b/i;
+const NOT_DEV = /\b(trainer|annotat\w*|rater|transcri\w*|reviewer|tutor|writer|evaluator|labell?er|tester|data entry|support|sales|recruit\w*)\b/i;
+const NON_FULL_TIME = /\b(contract|contractor|freelanc\w*|part[- ]time|consult\w*|project[- ]based|hourly)\b/i;
+const clip = (t: string | null, n: number) => (t && t.length > n ? `${t.slice(0, n)}…` : t);
+
+function rssField(item: string, tag: string) {
+  const m = item.match(new RegExp(`<${tag}>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?</${tag}>`));
+  return m ? m[1].trim() : null;
+}
+
+async function remotive(): Promise<RawPost[]> {
+  const res = await fetch("https://remotive.com/api/remote-jobs?category=software-dev&limit=100", { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(15000) });
+  if (!res.ok) throw new Error(`Remotive ${res.status}`);
+  const jobs = ((await res.json()).jobs ?? []) as Record<string, unknown>[];
+  return jobs
+    .filter((j) => ["contract", "freelance", "part_time"].includes(String(j.job_type)))
+    .map((j) => ({
+      platform: "jobboard" as const,
+      url: String(j.url),
+      external_id: `remotive:${j.id}`,
+      author: str(j.company_name),
+      author_url: null,
+      title: `${j.title} (${String(j.job_type).replace("_", "-")})`,
+      body: clip(stripHtml(String(j.description ?? "")), 3000),
+      posted_at: toIso(j.publication_date),
+      community: `Remotive${j.salary ? ` · ${j.salary}` : ""}`,
+    }));
+}
+
+async function weWorkRemotely(): Promise<RawPost[]> {
+  const feeds = ["remote-full-stack-programming-jobs", "remote-front-end-programming-jobs", "remote-back-end-programming-jobs"];
+  const out: RawPost[] = [];
+  for (const f of feeds) {
+    const res = await fetch(`https://weworkremotely.com/categories/${f}.rss`, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(15000) });
+    if (!res.ok) continue;
+    const xml = await res.text();
+    for (const item of xml.match(/<item>[\s\S]*?<\/item>/g) ?? []) {
+      const type = rssField(item, "type") ?? "";
+      if (!NON_FULL_TIME.test(type)) continue;
+      const title = rssField(item, "title") ?? "";
+      const link = rssField(item, "link");
+      if (!link) continue;
+      out.push({
+        platform: "jobboard",
+        url: link,
+        external_id: `wwr:${rssField(item, "guid") ?? link}`,
+        author: title.includes(":") ? title.split(":")[0].trim() : null,
+        author_url: null,
+        title: `${title} (${type})`,
+        body: clip(stripHtml(rssField(item, "description") ?? ""), 3000),
+        posted_at: toIso(rssField(item, "pubDate")),
+        community: `We Work Remotely${rssField(item, "region") ? ` · ${rssField(item, "region")}` : ""}`,
+      });
+    }
+  }
+  return out;
+}
+
+async function remoteOk(): Promise<RawPost[]> {
+  const res = await fetch("https://remoteok.com/api", { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(15000) });
+  if (!res.ok) throw new Error(`RemoteOK ${res.status}`);
+  const jobs = ((await res.json()) as Record<string, unknown>[]).filter((j) => j && typeof j === "object" && j.position);
+  return jobs
+    .filter((j) => {
+      const tags = Array.isArray(j.tags) ? (j.tags as string[]).join(" ") : "";
+      const text = `${j.position} ${tags}`;
+      return DEV_ROLE.test(String(j.position)) && NON_FULL_TIME.test(`${text} ${String(j.description ?? "").slice(0, 2000)}`);
+    })
+    .map((j) => ({
+      platform: "jobboard" as const,
+      url: String(j.url ?? `https://remoteok.com/remote-jobs/${j.slug}`),
+      external_id: `remoteok:${j.id}`,
+      author: str(j.company),
+      author_url: null,
+      title: String(j.position),
+      body: clip(stripHtml(String(j.description ?? "")), 3000),
+      posted_at: toIso(j.date ?? j.epoch),
+      community: `RemoteOK${j.location ? ` · ${j.location}` : ""}`,
+    }));
+}
+
+export async function fetchJobBoards(): Promise<RawPost[]> {
+  const results = await Promise.allSettled([remotive(), weWorkRemotely(), remoteOk()]);
+  const ok = results.filter((r): r is PromiseFulfilledResult<RawPost[]> => r.status === "fulfilled");
+  if (!ok.length) throw (results[0] as PromiseRejectedResult).reason;
+  return ok.flatMap((r) => r.value).filter((p) => DEV_ROLE.test(p.title ?? "") && !NOT_DEV.test(p.title ?? ""));
 }

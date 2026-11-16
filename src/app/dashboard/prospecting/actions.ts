@@ -248,6 +248,8 @@ export async function saveProspectSettings(formData: FormData): Promise<{ error?
     ...cur,
     reddit: { ...cur.reddit, enabled: on("reddit_enabled"), everyMin: num(formData.get("reddit_every"), 3, 2, 1440), subreddits: lines(formData.get("reddit_subs")), search: String(formData.get("reddit_search") ?? "").trim() },
     hn: { ...cur.hn, enabled: on("hn_enabled"), everyMin: num(formData.get("hn_every"), 15, 5, 1440) },
+    bluesky: { ...cur.bluesky, enabled: on("bsky_enabled"), everyMin: num(formData.get("bsky_every"), 10, 3, 1440), queries: lines(formData.get("bsky_queries")) },
+    jobs: { ...cur.jobs, enabled: on("jobs_enabled"), everyMin: num(formData.get("jobs_every"), 60, 15, 1440) },
     x: { ...cur.x, enabled: on("x_enabled"), everyMin: num(formData.get("x_every"), 120, 15, 1440), query: String(formData.get("x_query") ?? "").trim() || cur.x.query, maxItems: num(formData.get("x_max"), 50, 10, 500) },
     linkedin: { ...cur.linkedin, enabled: on("li_enabled"), everyMin: num(formData.get("li_every"), 180, 30, 1440), queries: lines(formData.get("li_queries")), maxPosts: num(formData.get("li_max"), 10, 5, 100) },
     keywords: lines(formData.get("keywords")),

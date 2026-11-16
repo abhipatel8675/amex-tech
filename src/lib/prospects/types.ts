@@ -1,6 +1,6 @@
 // Shared by server code and the dashboard UI; keep free of server imports.
 
-export const PLATFORMS = ["reddit", "x", "linkedin", "hn", "craigslist", "facebook", "discord", "slack", "nextdoor", "indiehackers", "other"] as const;
+export const PLATFORMS = ["reddit", "x", "linkedin", "hn", "bluesky", "jobboard", "craigslist", "facebook", "discord", "slack", "nextdoor", "indiehackers", "other"] as const;
 export type Platform = (typeof PLATFORMS)[number];
 
 export const PLATFORM_LABEL: Record<Platform, string> = {
@@ -8,6 +8,8 @@ export const PLATFORM_LABEL: Record<Platform, string> = {
   x: "X",
   linkedin: "LinkedIn",
   hn: "Hacker News",
+  bluesky: "Bluesky",
+  jobboard: "Job board",
   craigslist: "Craigslist",
   facebook: "Facebook",
   discord: "Discord",
@@ -22,6 +24,8 @@ export const PLATFORM_COLOR: Record<Platform, string> = {
   x: "#0f172a",
   linkedin: "#0A66C2",
   hn: "#FF6600",
+  bluesky: "#1185FE",
+  jobboard: "#0F766E",
   craigslist: "#5A2D82",
   facebook: "#1877F2",
   discord: "#5865F2",
@@ -32,7 +36,7 @@ export const PLATFORM_COLOR: Record<Platform, string> = {
 };
 
 // Sources fetched automatically. Everything else arrives through Quick add.
-export const AUTO_SOURCES = ["reddit", "hn", "x", "linkedin"] as const;
+export const AUTO_SOURCES = ["reddit", "hn", "bluesky", "jobs", "x", "linkedin"] as const;
 export type AutoSource = (typeof AUTO_SOURCES)[number];
 
 export const PROSPECT_STATUSES = ["pending_ai", "filtered", "new", "sent", "replied", "skipped", "lost", "expired"] as const;
@@ -87,6 +91,9 @@ export type ScheduledSource = {
 export type ProspectSettings = {
   reddit: ScheduledSource & { subreddits: string[]; search: string };
   hn: ScheduledSource;
+  bluesky: ScheduledSource & { queries: string[] };
+  // RemoteOK, Remotive and We Work Remotely: contract / freelance / part-time dev roles only.
+  jobs: ScheduledSource;
   x: ScheduledSource & { actor: string; query: string; maxItems: number; pricePerItem: number };
   linkedin: ScheduledSource & { actor: string; queries: string[]; maxPosts: number; pricePerItem: number };
   // A post must contain at least one of these (case-insensitive) to reach the AI.
@@ -116,6 +123,14 @@ export const DEFAULT_SETTINGS: ProspectSettings = {
     search: '"looking for a developer" OR "need a developer" OR "hire a developer" OR "technical cofounder" OR "need a web developer" OR "looking for an app developer"',
   },
   hn: { enabled: true, everyMin: 15, hoursPT: [0, 24], weekdaysOnly: false },
+  bluesky: {
+    enabled: true,
+    everyMin: 10,
+    hoursPT: [0, 24],
+    weekdaysOnly: false,
+    queries: ["need a developer", "looking for a developer", "hire a developer", "looking for a dev", "technical cofounder", "need a web developer"],
+  },
+  jobs: { enabled: true, everyMin: 60, hoursPT: [0, 24], weekdaysOnly: false },
   x: {
     enabled: true,
     everyMin: 120,
@@ -146,7 +161,7 @@ export const DEFAULT_SETTINGS: ProspectSettings = {
   ],
   exclude: ["[for hire]", "for hire", "i am a developer", "i'm a developer offering", "available for work", "seeking work", "hire me", "my portfolio"],
   monthlyBudgetUsd: 15,
-  dailyCaps: { reddit: 20, x: 30, linkedin: 15, hn: 10 },
+  dailyCaps: { reddit: 20, x: 30, linkedin: 15, hn: 10, bluesky: 20, jobboard: 10 },
   followUpDays: 3,
   projects: [
     "GoSwiftFund (goswiftfund.com): business funding marketplace, Next.js + Supabase + Plaid",
@@ -181,6 +196,8 @@ export function platformFromUrl(url: string): Platform {
   if (host === "x.com" || host.endsWith("twitter.com")) return "x";
   if (host.endsWith("linkedin.com")) return "linkedin";
   if (host === "news.ycombinator.com") return "hn";
+  if (host === "bsky.app") return "bluesky";
+  if (["remoteok.com", "remotive.com", "weworkremotely.com", "wellfound.com"].some((h) => host.endsWith(h))) return "jobboard";
   if (host.endsWith("craigslist.org")) return "craigslist";
   if (host.endsWith("facebook.com") || host === "fb.com") return "facebook";
   if (host.endsWith("discord.com") || host.endsWith("discord.gg")) return "discord";

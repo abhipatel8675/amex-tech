@@ -259,7 +259,7 @@ export default function ProspectFeed({ isDev }: { isDev: boolean }) {
   };
 
   const capLine = stats
-    ? (["reddit", "x", "linkedin", "hn"] as Platform[])
+    ? (["reddit", "x", "linkedin", "hn", "bluesky", "jobboard"] as Platform[])
         .filter((p) => stats.caps[p])
         .map((p) => `${PLATFORM_LABEL[p]} ${stats.sentToday[p] ?? 0}/${stats.caps[p]}`)
         .join(" · ")

@@ -1,7 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { mergeSettings, pacificDay, AUTO_SOURCES, type AutoSource, type Prospect, type ProspectSettings, type ScheduledSource } from "./types";
 import { classifyProspect, aiConfigured } from "./ai";
-import { fetchReddit, fetchHn, redditConfigured, apifyConfigured, apifyInput, startApifyRun, collectApifyRun, normalizeApifyItem, type RawPost } from "./sources";
+import { fetchReddit, fetchHn, fetchBluesky, fetchJobBoards, redditConfigured, apifyConfigured, apifyInput, startApifyRun, collectApifyRun, normalizeApifyItem, type RawPost } from "./sources";
 
 export async function loadSettings(db: SupabaseClient): Promise<ProspectSettings> {
   const { data } = await db.from("prospect_settings").select("data").eq("id", 1).maybeSingle();
@@ -18,14 +18,15 @@ export function passesKeywords(p: RawPost, s: ProspectSettings): boolean {
 }
 
 // Inserts new posts, skipping URLs already stored. Returns how many were new.
-export async function storePosts(db: SupabaseClient, posts: RawPost[], s: ProspectSettings, maxAgeHours = 48): Promise<number> {
+// Job-board posts are already filtered to contract dev roles, so they skip the keyword gate.
+export async function storePosts(db: SupabaseClient, posts: RawPost[], s: ProspectSettings, maxAgeHours = 48, skipKeywords = false): Promise<number> {
   const cutoff = Date.now() - maxAgeHours * 3600000;
   const seen = new Set<string>();
   const keep = posts.filter((p) => {
     if (seen.has(p.url)) return false;
     seen.add(p.url);
     if (p.posted_at && new Date(p.posted_at).getTime() < cutoff) return false;
-    return passesKeywords(p, s);
+    return skipKeywords || passesKeywords(p, s);
   });
   if (!keep.length) return 0;
   const { data, error } = await db
@@ -113,6 +114,17 @@ export async function tick(db: SupabaseClient, deadline: number): Promise<{ runs
         if (!redditConfigured()) continue;
         const posts = await fetchReddit(s.reddit);
         const kept = await storePosts(db, posts, s);
+        await logRun(db, { source, found: posts.length, kept });
+        runs.push({ source, result: `${posts.length} → ${kept} new` });
+      } else if (source === "bluesky") {
+        const since = new Date((last || Date.now() - 86400000) - 60000).toISOString();
+        const posts = await fetchBluesky(s.bluesky.queries, since);
+        const kept = await storePosts(db, posts, s);
+        await logRun(db, { source, found: posts.length, kept });
+        runs.push({ source, result: `${posts.length} → ${kept} new` });
+      } else if (source === "jobs") {
+        const posts = await fetchJobBoards();
+        const kept = await storePosts(db, posts, s, 72, true);
         await logRun(db, { source, found: posts.length, kept });
         runs.push({ source, result: `${posts.length} → ${kept} new` });
       } else if (source === "hn") {
