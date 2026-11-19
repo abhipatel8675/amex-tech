@@ -28,8 +28,14 @@ export default function ProjectCarousel({
   const [isAutoplay, setIsAutoplay] = useState(false);
   const filmstripRef = useRef<HTMLDivElement>(null);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const isInitialMount = useRef(true);
 
   const count = slides.length;
+
+  // Guarantee the page starts from the exact top on mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
 
   const goTo = useCallback(
     (newIndex: number) => {
@@ -53,15 +59,21 @@ export default function ProjectCarousel({
     return () => window.removeEventListener("keydown", onKey);
   }, [prev, next, count, lightboxOpen]);
 
-  // Scroll active thumbnail smoothly into view
+  // Scroll active thumbnail smoothly within the horizontal filmstrip container ONLY
+  // Never affects or touches the main window/page scroll!
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    const container = filmstripRef.current;
     const activeThumb = thumbnailRefs.current[index];
-    if (activeThumb && filmstripRef.current) {
-      activeThumb.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
+    if (container && activeThumb) {
+      const containerRect = container.getBoundingClientRect();
+      const thumbRect = activeThumb.getBoundingClientRect();
+      const offsetLeft = thumbRect.left - containerRect.left + container.scrollLeft;
+      const targetScroll = offsetLeft - (container.clientWidth / 2) + (activeThumb.clientWidth / 2);
+      container.scrollTo({ left: Math.max(0, targetScroll), behavior: "smooth" });
     }
   }, [index]);
 
@@ -210,7 +222,7 @@ export default function ProjectCarousel({
         </div>
       </div>
 
-      {/* ─── 2. VISUAL THUMBNAIL FILMSTRIP (FIXED CLIPPING & GOLD THEME) ─── */}
+      {/* ─── 2. VISUAL THUMBNAIL FILMSTRIP ─── */}
       {count > 1 && (
         <div className="space-y-1 pt-0.5">
           {/* Filmstrip Header & Controls */}
@@ -264,13 +276,13 @@ export default function ProjectCarousel({
 
           {/* 
             Scrollable Filmstrip Strip:
-            CRITICAL FIX: pt-3 pb-3 provides 12px vertical padding so active border-2,
-            translate-y and ring shadows are NEVER clipped by overflow-x-auto on top or bottom!
+            - pt-3 pb-3 provides ample vertical clearance so borders/shadows are never cut off.
+            - Horizontal container scrolling is handled exclusively via container.scrollTo
+              so the window/document never scrolls unexpectedly.
           */}
           <div
             ref={filmstripRef}
             className="flex items-stretch gap-3 overflow-x-auto pt-3 pb-3 px-1 scroll-smooth focus:outline-none"
-            tabIndex={0}
             role="tablist"
             aria-label="Project screen thumbnails"
           >
