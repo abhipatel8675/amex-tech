@@ -47,9 +47,13 @@ export default async function ProjectDetailPage({ params }: Props) {
   if (!project) notFound();
 
   const isMobile = project.category === "Mobile App";
+  const rawGallery = project.gallery ?? [];
+  const hasImageInGallery = rawGallery.some((g) => g.src === project.image);
   const slides = [
-    ...(project.image ? [{ src: project.image, alt: `${project.title} — ${project.shortDesc}` }] : []),
-    ...(project.gallery ?? []).filter((g) => g.src !== project.image),
+    ...(project.image && !hasImageInGallery
+      ? [{ src: project.image, alt: `${project.title} — ${project.shortDesc}`, caption: `${project.title} — Overview` }]
+      : []),
+    ...rawGallery,
   ];
 
   const breadcrumbSchema = {
