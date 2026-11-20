@@ -41,8 +41,8 @@ export default function AgencyHome() {
               <p className={s.intro}>
                 Amex Technology designs and builds websites, web apps, mobile
                 apps and AI automations, then does the SEO that gets them found
-                on Google and in AI search. Founded by Abhi Patel in Los
-                Angeles, with a development team in India.
+                on Google and in AI search. Development company based in
+                Ahmedabad, India. Founder Abhi Patel, Los Angeles.
               </p>
               <div className={s.actions}>
                 <Link className={s.button} href="/contact">
@@ -53,8 +53,8 @@ export default function AgencyHome() {
                 </Link>
               </div>
               <p className={s.heroNote}>
-                <Check size={13} /> Founder in Los Angeles · Development team
-                in India · Working with clients worldwide
+                <Check size={13} /> Based in Ahmedabad, India · Founder in Los
+                Angeles · Working with clients worldwide
               </p>
             </div>
             <div className={s.heroVisual}>

@@ -13,11 +13,11 @@ import {
 } from "@/components/agency/AgencySections";
 import s from "@/components/agency/agency.module.css";
 const pageUrl = "https://amextechnology.com/hire-developers";
-const pageTitle = "Hire Developers — React, Next.js, AI & Mobile | Amex Technology";
+const pageTitle = "Hire Developers: React, Next.js & AI | Amex Technology";
 const pageDescription =
   "Discuss React, Next.js, full-stack, AI, mobile and DevOps development support with Amex Technology. Explore project and ongoing collaboration options.";
 export const metadata: Metadata = {
-  title: "Hire Developers — React, Next.js, AI & Mobile",
+  title: "Hire Developers: React, Next.js & AI",
   description: pageDescription,
   alternates: { canonical: pageUrl },
   openGraph: { title: pageTitle, description: pageDescription, url: pageUrl },
@@ -85,6 +85,23 @@ const models = [
       "A clear scope for each iteration",
       "Regular planning and progress updates",
     ],
+  },
+];
+const timeZones = [
+  {
+    label: "US CLIENTS",
+    title: "Our team works overnight for you",
+    desc: "Our developers are in Ahmedabad on IST (UTC+5:30), roughly 12.5 to 13.5 hours ahead of Pacific time. Work you approve in your afternoon is often built overnight and ready to review the next morning.",
+  },
+  {
+    label: "AUSTRALIA & UK",
+    title: "Part of the day overlaps",
+    desc: "Our working day overlaps with Australian and UK business hours, so live calls and quick questions are easy to schedule.",
+  },
+  {
+    label: "FOUNDER IN LA",
+    title: "A contact on Pacific time",
+    desc: "Founder Abhi Patel is in Los Angeles and available Monday to Saturday, 9am to 6pm Pacific, for calls and scoping.",
   },
 ];
 export default function HireDevelopersPage() {
@@ -206,7 +223,34 @@ export default function HireDevelopersPage() {
             </div>
           </div>
         </section>
-        <section className={s.section}>
+        <section id="time-zones" className={s.section}>
+          <div className={s.wrap}>
+            <div className={s.sectionHead}>
+              <div>
+                <p className={s.eyebrow}>Time zones</p>
+                <h2 className={s.heading}>
+                  Based in India.
+                  <br />
+                  <em>Working around your day.</em>
+                </h2>
+              </div>
+              <p className={s.sectionText}>
+                Whether you are in the US, Australia or the UK, we agree the
+                overlap hours for calls up front.
+              </p>
+            </div>
+            <div className={s.models}>
+              {timeZones.map((zone) => (
+                <article className={s.model} key={zone.title}>
+                  <p className={s.eyebrow}>{zone.label}</p>
+                  <h3>{zone.title}</h3>
+                  <p>{zone.desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className={s.section} style={{ background: "#eeeee4" }}>
           <div className={s.wrap}>
             <p className={s.eyebrow}>Getting started</p>
             <h2 className={s.heading}>

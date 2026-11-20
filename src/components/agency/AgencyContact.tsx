@@ -1,7 +1,16 @@
 import Link from "next/link";
-import { Phone, ArrowUpRight, Mail, Clock, Globe, ShieldCheck } from "lucide-react";
+import { Phone, ArrowUpRight, Mail, Clock, Globe, ShieldCheck, MapPin } from "lucide-react";
 import ContactForm from "@/components/contact/ContactForm";
 import s from "./agency.module.css";
+import {
+  COMPANY_ADDRESS_LINE,
+  OFFICE_PHONE,
+  US_PHONE,
+  OFFICE_HOURS_IST,
+  OFFICE_HOURS_NOTE,
+  MAP_EMBED_URL,
+  MAP_LINK_URL,
+} from "@/data/company";
 export default function AgencyContact() {
   return (
     <div className={s.site}>
@@ -40,19 +49,31 @@ export default function AgencyContact() {
                   href: "mailto:abhi@amextech.org",
                 },
                 {
+                  icon: MapPin,
+                  title: "Our Ahmedabad office",
+                  text: COMPANY_ADDRESS_LINE,
+                  href: MAP_LINK_URL,
+                },
+                {
                   icon: Phone,
-                  title: "Prefer to call?",
-                  text: "+1 (623) 301-2035",
-                  href: "tel:+16233012035",
+                  title: "Call our Ahmedabad office",
+                  text: OFFICE_PHONE.display,
+                  href: `tel:${OFFICE_PHONE.tel}`,
+                },
+                {
+                  icon: Phone,
+                  title: "Call our founder in Los Angeles",
+                  text: US_PHONE.display,
+                  href: `tel:${US_PHONE.tel}`,
                 },
                 {
                   icon: Clock,
-                  title: "Our working hours",
-                  text: "Monday–Saturday, 9am–6pm Pacific time",
+                  title: "Office hours",
+                  text: `Ahmedabad office: Monday–Saturday, ${OFFICE_HOURS_IST} (${OFFICE_HOURS_NOTE}). Founder in Los Angeles: Monday–Saturday, 9am–6pm Pacific.`,
                 },
                 {
                   icon: Globe,
-                  title: "Los Angeles founder. Team in India.",
+                  title: "Based in Ahmedabad, India. Founder in Los Angeles.",
                   text: "US clients get Pacific-time calls; we agree on meeting times that work for your team.",
                 },
                 {
@@ -71,7 +92,7 @@ export default function AgencyContact() {
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-sm text-[#687061] break-all hover:underline"
+                        className="text-sm text-[#687061] break-words hover:underline"
                       >
                         {item.text}
                       </a>
@@ -97,6 +118,20 @@ export default function AgencyContact() {
             </p>
             <ContactForm />
           </div>
+        </div>
+      </section>
+      <section className={s.section} style={{ paddingTop: 0 }}>
+        <div className={s.wrap}>
+          <h2 className="text-2xl tracking-tight mb-5">Find us in Ahmedabad.</h2>
+          <iframe
+            title="Map showing the Amex Technology office in Ahmedabad, Gujarat"
+            src={MAP_EMBED_URL}
+            width="100%"
+            height="400"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full rounded-lg border border-[#dddfd3]"
+          />
         </div>
       </section>
     </div>

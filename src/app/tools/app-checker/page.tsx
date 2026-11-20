@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import AppChecker from "@/components/tools/AppChecker";
 
-const title = "Free Lovable, Bolt & Vibe-Coded App Checker";
+const title = "Free Lovable & Vibe-Coded App Checker";
 const description =
   "Check your Lovable, Bolt, Replit, v0 or Next.js app for exposed API keys, public Supabase service keys, SEO problems and slow loading. Free score in 30 seconds.";
 const pageUrl = "https://amextechnology.com/tools/app-checker";

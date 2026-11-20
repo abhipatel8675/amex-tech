@@ -1816,33 +1816,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "wolfeprppertyporta",
-    title: "Wolfe Property - Next.js Real Estate Investment Coaching Platform",
-    category: "SaaS",
-    tags: ["SaaS", "Web App", "Next.js"],
-    shortDesc: "Wolfe Property is a Next.js-built New Zealand real-estate coaching platform teaching a trademarked \"Cashflow Hacking\" methodology across four pillars: opport...",
-    description: "Wolfe Property is a Next.js-built New Zealand real-estate coaching platform teaching a trademarked \"Cashflow Hacking\" methodology across four pillars: opportunity spotting, ROI/rent modeling, an on-demand learning hub, and a nationwide trades directory. Monetization runs free Education Hub, then \"Accelerate Coaching,\" then \"Multi-Unit Boardroom,\" behind a members-only sign-in portal. This case study documents the live public site; the authenticated portal's content was not accessible.",
-    problem: "The client needed a modern, scalable solution for wolfe property - next.js real estate investment coaching platform.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
-    results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
-    ],
-    technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
-    gradientFrom: "#66bb6a",
-    gradientTo: "#43a047",
-    featured: false,
-    image: "/images/portfolio/wolfeprppertyporta/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/wolfeprppertyporta/mockup-1.webp", alt: "Wolfe Property - Next.js Real Estate Investment Coaching Platform screenshot 1", caption: "Wolfe Property - Next.js Real Estate Investment Coaching Platform - View 1" },
-    { src: "/images/portfolio/wolfeprppertyporta/mockup-2.webp", alt: "Wolfe Property - Next.js Real Estate Investment Coaching Platform screenshot 2", caption: "Wolfe Property - Next.js Real Estate Investment Coaching Platform - View 2" },
-    { src: "/images/portfolio/wolfeprppertyporta/mockup-3.webp", alt: "Wolfe Property - Next.js Real Estate Investment Coaching Platform screenshot 3", caption: "Wolfe Property - Next.js Real Estate Investment Coaching Platform - View 3" },
-    { src: "/images/portfolio/wolfeprppertyporta/mockup-4.webp", alt: "Wolfe Property - Next.js Real Estate Investment Coaching Platform screenshot 4", caption: "Wolfe Property - Next.js Real Estate Investment Coaching Platform - View 4" },
-    { src: "/images/portfolio/wolfeprppertyporta/mockup-5.webp", alt: "Wolfe Property - Next.js Real Estate Investment Coaching Platform screenshot 5", caption: "Wolfe Property - Next.js Real Estate Investment Coaching Platform - View 5" }
-    ],
-  },
-  {
     slug: "apollo-credit-processing",
     title: "Apollo Credit Processing — Secure Node.js Deployment on GoDaddy VPS",
     category: "AI",

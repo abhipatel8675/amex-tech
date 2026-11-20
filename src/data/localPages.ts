@@ -31,7 +31,7 @@ export type LocalPage = {
 };
 
 const AREAS_NOTE =
-  "Los Angeles County, especially the South Bay (Gardena, Torrance, Hawthorne, Carson, Redondo Beach), Downtown LA, Inglewood, Culver City, Santa Monica and Long Beach.";
+  "Los Angeles County, especially the South Bay (Torrance, Hawthorne, Carson, Redondo Beach), Downtown LA, Inglewood, Culver City, Santa Monica and Long Beach.";
 
 export const localPages: LocalPage[] = [
   {
@@ -155,7 +155,7 @@ export const localPages: LocalPage[] = [
       {
         question: "How do you keep it affordable?",
         answer:
-          "Our development team is in India, and we use a proven 5-page structure for local businesses instead of designing every site from scratch. You get a professional result without LA agency overhead, and a fixed quote before we start.",
+          "Our development team is in Ahmedabad, India, and we use a proven 5-page structure for local businesses instead of designing every site from scratch. You get a professional result without LA agency overhead, and a fixed quote before we start.",
       },
       { question: "Are there monthly fees?", answer: "No. Hosting is included with no monthly bill. Ongoing updates and local SEO are optional." },
       { question: "What if I need more than 5 pages or online booking or payments?", answer: "We'll send a written quote for the extra pages or features before starting. You only pay for what you ask for." },
@@ -171,7 +171,7 @@ export const localPages: LocalPage[] = [
   },
   {
     slug: "google-business-profile-setup-los-angeles",
-    title: "Google Business Profile Setup in Los Angeles",
+    title: "Google Business Profile Setup in LA",
     description:
       "We set up, verify and optimise your Google Business Profile so your Los Angeles business can appear in Google Maps and local search: categories, services, photos, reviews and website link.",
     eyebrow: "Google Business Profile · Los Angeles",

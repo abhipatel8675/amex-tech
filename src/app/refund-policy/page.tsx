@@ -3,7 +3,8 @@ import { LegalPage, Section, ContactBlock, LEGAL_EMAIL } from "@/components/lega
 
 export const metadata: Metadata = {
   title: "Refund & Cancellation Policy",
-  description: "How cancellations and refunds work for Amex Technology website, app and software development services.",
+  description:
+    "How cancellations and refunds work for Amex Technology website, app and software development: cancelling a project, refunds, monthly plans and payouts.",
   alternates: { canonical: "https://amextechnology.com/refund-policy" },
 };
 

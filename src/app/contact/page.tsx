@@ -48,10 +48,7 @@ const contactPageSchema = {
   name: "Contact Amex Technology",
   url: "https://amextechnology.com/contact",
   mainEntity: {
-    "@type": "Organization",
-    name: "Amex Technology",
-    url: "https://amextechnology.com",
-    email: "abhi@amextech.org",
+    "@id": "https://amextechnology.com/#organization",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
@@ -67,8 +64,8 @@ const contactPageSchema = {
           "Friday",
           "Saturday",
         ],
-        opens: "09:00",
-        closes: "20:00",
+        opens: "07:00",
+        closes: "19:00",
       },
     },
   },

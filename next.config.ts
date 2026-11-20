@@ -39,6 +39,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/portfolio/wolfeprppertyporta",
+        destination: "/portfolio/wolfe-property",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "www.amextechnology.com" }],
         destination: "https://amextechnology.com/:path*",

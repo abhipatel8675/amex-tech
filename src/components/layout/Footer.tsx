@@ -5,6 +5,14 @@ import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { LogoMark } from "@/components/ui/Logo";
 import { services } from "@/data/services";
+import {
+  COMPANY_ADDRESS_LINE,
+  OFFICE_PHONE,
+  US_PHONE,
+  OFFICE_HOURS_IST,
+  CLUTCH_URL,
+  UPWORK_URL,
+} from "@/data/company";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -162,8 +170,11 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mb-4 max-w-[240px] text-sm leading-7 text-[#626960]">
-              Web design, SEO and AI development for businesses in Los Angeles and across the US.
+              Web, app and AI development company based in Ahmedabad, India, working with clients in the US, Australia and UK.
             </p>
+            <address className="mb-2 max-w-[260px] text-sm not-italic leading-6 text-[#626960]">
+              {COMPANY_ADDRESS_LINE}
+            </address>
             <p className="text-sm text-[#626960]">
               Founder in{" "}
               <Link
@@ -171,9 +182,28 @@ export default function Footer() {
                 className="underline-offset-2 hover:text-[#7a5807] hover:underline"
               >
                 Los Angeles
-              </Link>{" "}
-              · Development team in India
+              </Link>
             </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <a
+                href={UPWORK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Amex Technology on Upwork, Top Rated Plus"
+                className="inline-flex items-center rounded-full border border-[#dadcd1] bg-white px-3 py-1.5 text-xs font-medium text-[#3d453b] transition-colors hover:border-[#9a722a] hover:text-[#7a5807]"
+              >
+                Upwork · Top Rated Plus
+              </a>
+              <a
+                href={CLUTCH_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Amex Technology on Clutch"
+                className="inline-flex items-center rounded-full border border-[#dadcd1] bg-white px-3 py-1.5 text-xs font-medium text-[#3d453b] transition-colors hover:border-[#9a722a] hover:text-[#7a5807]"
+              >
+                Clutch · Our profile
+              </a>
+            </div>
           </div>
 
           <LinkColumn title="Company" links={quickLinks} />
@@ -190,11 +220,17 @@ export default function Footer() {
               >
                 abhi@amextech.org
               </a>
-              <a href="tel:+16233012035" className={linkClass}>
-                +1 (623) 301-2035
+              <a href={`tel:${OFFICE_PHONE.tel}`} className={linkClass}>
+                {OFFICE_PHONE.display} (Office)
+              </a>
+              <a href={`tel:${US_PHONE.tel}`} className={linkClass}>
+                {US_PHONE.display} (US)
               </a>
               <p className="mt-2 text-sm leading-6 text-[#626960]">
-                Monday–Saturday, 9am–6pm Pacific time
+                Office: Monday–Saturday, {OFFICE_HOURS_IST}
+              </p>
+              <p className="text-sm leading-6 text-[#626960]">
+                US line: Monday–Saturday, 9am–6pm Pacific
               </p>
               <Link
                 href="/contact"

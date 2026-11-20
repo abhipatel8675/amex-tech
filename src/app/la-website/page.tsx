@@ -17,7 +17,7 @@ const description =
   "A new website for Los Angeles plumbers, handymen, HVAC and contractors: your own domain, a quote request form, and Google setup. Fixed quote up front, live in about 5 days.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title}: Live in About 5 Days | Amex Technology` },
+  title: { absolute: "LA Trade Business Website in 5 Days | Amex Technology" },
   description,
   alternates: { canonical: pageUrl },
   openGraph: { title: `${title} | Amex Technology`, description, url: pageUrl },
@@ -75,7 +75,7 @@ const serviceSchema = {
   description,
   url: pageUrl,
   areaServed: { "@type": "City", name: "Los Angeles" },
-  provider: { "@type": "Organization", name: "Amex Technology", url: "https://amextechnology.com" },
+  provider: { "@id": "https://amextechnology.com/#organization" },
 };
 
 function CTA({ label = "Get my new website" }: { label?: string }) {
