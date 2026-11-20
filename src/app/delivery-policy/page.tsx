@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { LegalPage, Section, ContactBlock } from "@/components/legal/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Shipping & Delivery Policy",
-  description: "How and when Amex Technology delivers website, app and software development work.",
+  title: "Service Delivery Policy",
+  description:
+    "How Amex Technology delivers website, app and software work online: delivery methods, typical timelines, how delays are handled and email confirmations.",
   alternates: { canonical: "https://amextechnology.com/delivery-policy" },
 };
 
 export default function DeliveryPolicyPage() {
   return (
-    <LegalPage title="Shipping & Delivery Policy" updated="October 30, 2026">
+    <LegalPage title="Service Delivery Policy" updated="October 30, 2026">
       <Section id="digital" title="1. Digital Services Only">
         <p>
           Amex Technology provides digital services. Nothing is physically shipped. All work is delivered online, so
