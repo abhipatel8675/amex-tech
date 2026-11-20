@@ -18,6 +18,8 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   compress: true,
   images: {
+    // Vercel's image optimization quota is exhausted (402); serve originals from the CDN instead.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
