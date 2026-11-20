@@ -174,15 +174,27 @@ export default async function BlogPostPage({ params }: Props) {
 
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">{post.title}</h1>
             <p className="text-[#3d453b] text-xl leading-8 mb-5">{post.excerpt}</p>
-            <p className="text-sm text-[#4d554b]">By the <strong className="text-[#4d554b]">Amex Technology</strong> Team</p>
+            {post.author?.name === "Abhi Patel" ? (
+              <p className="text-sm text-[#4d554b]">
+                By{" "}
+                <Link
+                  href={post.author.url?.replace("https://amextechnology.com", "") || "/about"}
+                  className="font-semibold text-[#4d554b] underline-offset-2 hover:text-[#7a5807] hover:underline"
+                >
+                  {post.author.name}
+                </Link>
+                , founder of Amex Technology
+              </p>
+            ) : (
+              <p className="text-sm text-[#4d554b]">By the <strong className="text-[#4d554b]">Amex Technology</strong> Team</p>
+            )}
           </div>
         </section>
 
         {/* Article content */}
         <article className="pb-24 max-w-7xl mx-auto px-6">
-          {/* Visual banner */}
-          <div className="w-full rounded-2xl border border-[#dadcd1] overflow-hidden mb-12 relative">
-            {post.image ? (
+          {post.image && (
+            <div className="w-full rounded-2xl border border-[#dadcd1] overflow-hidden mb-12 relative">
               <div className="relative w-full" style={{ aspectRatio: "16/7", minHeight: 320 }}>
                 <Image
                   src={post.image}
@@ -195,22 +207,8 @@ export default async function BlogPostPage({ params }: Props) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
-            ) : (
-              <div
-                className="w-full h-52"
-                style={{
-                  background: `linear-gradient(135deg, ${post.gradientFrom}20, ${post.gradientTo}20)`,
-                }}
-              >
-                <div
-                  className="absolute inset-0 opacity-30"
-                  style={{
-                    background: `radial-gradient(ellipse at 30% 60%, ${post.gradientFrom}70, transparent 70%)`,
-                  }}
-                />
-              </div>
-            )}
-          </div>
+            </div>
+          )}
 
           <FixItCTA topic={fixTopic} source={post.slug} variant="inline" />
 
