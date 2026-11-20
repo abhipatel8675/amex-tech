@@ -148,6 +148,7 @@ export default function ProjectCarousel({
                 src={currentSlide.src}
                 alt={currentSlide.alt || `Project mockup ${index + 1}`}
                 fill
+                unoptimized
                 priority={index === 0}
                 sizes="(min-width: 1280px) 1100px, 100vw"
                 draggable={false}
@@ -312,6 +313,7 @@ export default function ProjectCarousel({
                       src={slide.src}
                       alt={slide.alt || `Thumbnail ${i + 1}`}
                       fill
+                      unoptimized
                       sizes="180px"
                       className="object-contain p-0.5"
                     />
@@ -404,6 +406,7 @@ export default function ProjectCarousel({
                     src={currentSlide.src}
                     alt={currentSlide.alt || `Fullscreen view ${index + 1}`}
                     fill
+                    unoptimized
                     sizes="100vw"
                     className="object-contain p-2 md:p-4"
                     priority
@@ -452,6 +455,7 @@ export default function ProjectCarousel({
                       src={s.src}
                       alt={`Thumbnail ${i + 1}`}
                       fill
+                      unoptimized
                       sizes="60px"
                       className="object-cover"
                     />
