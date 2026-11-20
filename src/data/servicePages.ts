@@ -444,7 +444,7 @@ export const servicePages: Record<string, ServicePage> = {
       { title: "Build and test", body: "Test builds on your own phone through TestFlight and internal testing." },
       { title: "Publish", body: "Store submission, review fixes and launch, then updates as you grow." },
     ],
-    projectSlugs: ["cyber7", "emigo", "herruby-app"],
+    projectSlugs: ["emigo", "herruby-app"],
     blogSlugs: ["fix-firebase-auth-invalid-api-key", "fix-firestore-missing-or-insufficient-permissions"],
     faq: [
       {

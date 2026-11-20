@@ -5,6 +5,7 @@ import "./globals.css";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { services } from "@/data/services";
+import { COMPANY_ADDRESS, OFFICE_PHONE, US_PHONE, CLUTCH_URL } from "@/data/company";
 
 const inter = localFont({
   src: [
@@ -122,7 +123,22 @@ const organizationSchema = {
     "OpenAI API",
   ],
   email: "abhi@amextech.org",
-  telephone: "+1-623-301-2035",
+  telephone: OFFICE_PHONE.schema,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: OFFICE_PHONE.schema,
+      contactType: "customer service",
+      availableLanguage: "English",
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: US_PHONE.schema,
+      contactType: "sales",
+      areaServed: "US",
+      availableLanguage: "English",
+    },
+  ],
   image: "https://amextechnology.com/images/logo.png",
   areaServed: ["US", "AU", "GB", "CA", "IN"],
   sameAs: [
@@ -130,12 +146,15 @@ const organizationSchema = {
     "https://www.instagram.com/amextechnology/",
     "https://www.upwork.com/agencies/2067871097204619852/",
     "https://www.linkedin.com/company/amex-technology/",
+    CLUTCH_URL,
   ],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Ahmedabad",
-    addressRegion: "Gujarat",
-    addressCountry: "IN",
+    streetAddress: COMPANY_ADDRESS.street,
+    addressLocality: COMPANY_ADDRESS.locality,
+    addressRegion: COMPANY_ADDRESS.region,
+    postalCode: COMPANY_ADDRESS.postalCode,
+    addressCountry: COMPANY_ADDRESS.country,
   },
   openingHoursSpecification: [
     {
@@ -148,8 +167,8 @@ const organizationSchema = {
         "Friday",
         "Saturday",
       ],
-      opens: "09:00",
-      closes: "18:00",
+      opens: "07:00",
+      closes: "19:00",
     },
   ],
 };

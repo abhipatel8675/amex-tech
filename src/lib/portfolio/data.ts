@@ -57,7 +57,15 @@ function publicClient() {
  * Published portfolio projects. Falls back to the built-in list until the
  * database has been set up and populated from the admin panel.
  */
+// Duplicate of "wolfe-property"; hidden from the site without touching the database.
+const HIDDEN_SLUGS = new Set(["wolfeprppertyporta"]);
+
 export async function getProjects(): Promise<Project[]> {
+  const all = await loadProjects();
+  return all.filter((p) => !HIDDEN_SLUGS.has(p.slug));
+}
+
+async function loadProjects(): Promise<Project[]> {
   const supabase = publicClient();
   if (!supabase) return staticProjects;
   const { data, error } = await supabase
