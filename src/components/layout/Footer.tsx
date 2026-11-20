@@ -214,6 +214,7 @@ export default function Footer() {
             <LinkColumn title="Los Angeles" links={laLinks} />
             <div>
               <h2 className={headingClass}>Contact</h2>
+              <div className="flex flex-col items-start">
               <a
                 href="mailto:abhi@amextech.org"
                 className={`${linkClass} break-all`}
@@ -226,6 +227,7 @@ export default function Footer() {
               <a href={`tel:${US_PHONE.tel}`} className={linkClass}>
                 {US_PHONE.display} (US)
               </a>
+              </div>
               <p className="mt-2 text-sm leading-6 text-[#626960]">
                 Office: Monday–Saturday, {OFFICE_HOURS_IST}
               </p>
