@@ -15,7 +15,7 @@ import { AiAgentChat } from "@/components/agency/AgencySections";
 import s from "@/components/agency/agency.module.css";
 
 const url = "https://amextechnology.com/ai-operations-agent";
-const title = "AI Operations Agent for Small Manufacturers";
+const title = "AI Operations Agent for Manufacturers";
 const description =
   "Ask your factory anything. An AI assistant connected to monday.com, Smartsheet, Google Sheets, inFlow, QuickBooks and email: order status, daily exceptions and system sync. Fixed written quote before we start.";
 

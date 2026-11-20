@@ -17,7 +17,7 @@ const description =
   "A new website for Los Angeles plumbers, handymen, HVAC and contractors: your own domain, a quote request form, and Google setup. Fixed quote up front, live in about 5 days.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title}: Live in About 5 Days | Amex Technology` },
+  title: { absolute: "LA Trade Business Website in 5 Days | Amex Technology" },
   description,
   alternates: { canonical: pageUrl },
   openGraph: { title: `${title} | Amex Technology`, description, url: pageUrl },

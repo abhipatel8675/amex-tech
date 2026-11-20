@@ -171,7 +171,7 @@ export const localPages: LocalPage[] = [
   },
   {
     slug: "google-business-profile-setup-los-angeles",
-    title: "Google Business Profile Setup in Los Angeles",
+    title: "Google Business Profile Setup in LA",
     description:
       "We set up, verify and optimise your Google Business Profile so your Los Angeles business can appear in Google Maps and local search: categories, services, photos, reviews and website link.",
     eyebrow: "Google Business Profile · Los Angeles",

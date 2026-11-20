@@ -13,6 +13,23 @@ import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 
 type Props = { params: Promise<{ slug: string }> };
 
+// Titles where the client name isn't the first part of the project title.
+const SEO_TITLE_NAMES: Record<string, string> = {
+  "portland-self-defense-crm": "Portland Self-Defense CRM",
+  "portland-self-defense": "Portland Self-Defense",
+  "we-are-tag-group": "wearetag.ai Technical SEO",
+  "wharton-carpet-cleaning": "Wharton Carpet Cleaning CSS Fix",
+  "wavv-ghl-integration": "Wavv + GoHighLevel Sync",
+};
+
+// Google cuts titles at ~60 chars; "%s | Amex Technology" adds 18.
+function caseStudyTitle(slug: string, title: string) {
+  const full = `${title} — Case Study`;
+  if (full.length <= 42) return full;
+  const name = SEO_TITLE_NAMES[slug] ?? title.split(/\s[—–-]\s/)[0].trim();
+  return name.length <= 29 ? `${name} — Case Study` : `${name} Case Study`;
+}
+
 export async function generateStaticParams() {
   return (await getProjects()).map((p) => ({ slug: p.slug }));
 }
@@ -22,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = await getProject(slug);
   if (!project) return { title: "Project Not Found", robots: { index: false, follow: false } };
   return {
-    title: `${project.title} — Case Study`,
+    title: caseStudyTitle(slug, project.title),
     description: clampDescription(`${project.shortDesc} See how Amex Technology built ${project.title}.`),
     keywords: project.tags,
     alternates: {

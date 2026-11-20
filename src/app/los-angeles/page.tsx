@@ -13,12 +13,14 @@ const title = "Web & AI Development for Los Angeles Businesses";
 const description =
   "Websites, web apps, AI agents, CRM automation and local SEO, serving Los Angeles and South Bay businesses from our Ahmedabad, India team. Founder in LA.";
 
+const seoTitle = "Web & AI Development for LA Businesses | Amex Technology";
+
 export const metadata: Metadata = {
-  title: { absolute: `${title} | Amex Technology` },
+  title: { absolute: seoTitle },
   description,
   alternates: { canonical: url },
-  openGraph: { title: `${title} | Amex Technology`, description, url },
-  twitter: { title: `${title} | Amex Technology`, description },
+  openGraph: { title: seoTitle, description, url },
+  twitter: { title: seoTitle, description },
 };
 
 // Places we actively serve; used for the visible list and areaServed.

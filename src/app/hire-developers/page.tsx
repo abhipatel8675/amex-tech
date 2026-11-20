@@ -13,11 +13,11 @@ import {
 } from "@/components/agency/AgencySections";
 import s from "@/components/agency/agency.module.css";
 const pageUrl = "https://amextechnology.com/hire-developers";
-const pageTitle = "Hire Developers — React, Next.js, AI & Mobile | Amex Technology";
+const pageTitle = "Hire Developers: React, Next.js & AI | Amex Technology";
 const pageDescription =
   "Discuss React, Next.js, full-stack, AI, mobile and DevOps development support with Amex Technology. Explore project and ongoing collaboration options.";
 export const metadata: Metadata = {
-  title: "Hire Developers — React, Next.js, AI & Mobile",
+  title: "Hire Developers: React, Next.js & AI",
   description: pageDescription,
   alternates: { canonical: pageUrl },
   openGraph: { title: pageTitle, description: pageDescription, url: pageUrl },
