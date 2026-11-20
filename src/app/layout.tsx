@@ -36,13 +36,13 @@ const inter = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://amextechnology.com"),
   title: {
-    default: "Amex Technology | Web Design, SEO & AI Development in Los Angeles",
+    default: "Amex Technology | Web, App & AI Development Company",
     template: "%s | Amex Technology",
   },
   description:
-    "Amex Technology is a Los Angeles web design, SEO and AI development company. We build websites, web apps, mobile apps and AI automations, and get businesses found on Google and in AI search with SEO and GEO.",
+    "Web, app and AI development company in Ahmedabad, India, building websites, web apps, mobile apps and AI automations for clients in the US, Australia and UK. Free quote.",
   keywords:
-    "web design Los Angeles, SEO services Los Angeles, website developer Los Angeles, AI development agency, AI agents, AI automation, website development, web app development, AI SaaS MVP, mobile app development, GEO, generative engine optimization, AEO, answer engine optimization, SEO services, GoHighLevel, CRM automation, Next.js, Supabase, Lovable app fixes",
+    "web development company India, app development company Ahmedabad, AI development agency, web design for Los Angeles businesses, AI agents, AI automation, website development, web app development, AI SaaS MVP, mobile app development, GEO, generative engine optimization, AEO, answer engine optimization, SEO services, GoHighLevel, CRM automation, Next.js, Supabase, Lovable app fixes",
   authors: [{ name: "Abhi Patel", url: "https://amextechnology.com/about" }],
   creator: "Amex Technology",
   openGraph: {
@@ -50,23 +50,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://amextechnology.com",
     siteName: "Amex Technology",
-    title: "Amex Technology | Web Design, SEO & AI Development in Los Angeles",
+    title: "Amex Technology | Web, App & AI Development Company",
     description:
-      "Websites, SEO, web apps, mobile apps and AI automation for businesses in Los Angeles and across the US.",
+      "Web, app and AI development company in Ahmedabad, India, building websites, web and mobile apps and AI automations for clients in the US, Australia and UK.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Amex Technology: web design, SEO and AI development in Los Angeles",
+        alt: "Amex Technology: web, app and AI development company in Ahmedabad, India",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amex Technology | Web Design, SEO & AI Development in Los Angeles",
+    title: "Amex Technology | Web, App & AI Development Company",
     description:
-      "Websites, SEO, web apps, mobile apps and AI automation for businesses in Los Angeles and across the US.",
+      "Web, app and AI development company in Ahmedabad, India, building websites, web and mobile apps and AI automations for clients in the US, Australia and UK.",
     images: ["/opengraph-image"],
   },
   robots: {
@@ -74,8 +74,8 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "geo.region": "US-CA",
-    "geo.placename": "Los Angeles",
+    "geo.region": "IN-GJ",
+    "geo.placename": "Ahmedabad",
   },
 };
 
@@ -84,11 +84,11 @@ const organizationSchema = {
   "@type": ["Organization", "ProfessionalService"],
   "@id": "https://amextechnology.com/#organization",
   name: "Amex Technology",
-  alternateName: ["Amex Technology Agency", "amextechnology.com"],
+  alternateName: ["AmexTechnology", "Amex Technology India", "amextechnology.com"],
   url: "https://amextechnology.com",
   logo: "https://amextechnology.com/images/logo.png",
   description:
-    "Los Angeles web design, SEO and AI development company. Builds websites, web apps, mobile apps and AI automations, and provides SEO, GEO and AEO services.",
+    "Web, app and AI development company based in Ahmedabad, India. Builds websites, web apps, mobile apps and AI automations, and provides SEO, GEO and AEO services.",
   // "Amex Technology" is also the name of American Express's internal technology
   // organization; this tells search engines and AI assistants we're a different entity.
   disambiguatingDescription:
@@ -100,6 +100,7 @@ const organizationSchema = {
     name: "Abhi Patel",
     jobTitle: "Founder and Full-Stack Developer",
     url: "https://amextechnology.com/about",
+    homeLocation: { "@type": "Place", name: "Los Angeles, California, United States" },
     sameAs: [
       "https://github.com/abhipatel8675",
       "https://www.fiverr.com/abhipatel956",
@@ -123,12 +124,7 @@ const organizationSchema = {
   email: "abhi@amextech.org",
   telephone: "+1-623-301-2035",
   image: "https://amextechnology.com/images/logo.png",
-  areaServed: [
-    { "@type": "City", name: "Los Angeles" },
-    { "@type": "AdministrativeArea", name: "Los Angeles County" },
-    { "@type": "State", name: "California" },
-    { "@type": "Country", name: "United States" },
-  ],
+  areaServed: ["US", "AU", "GB", "CA", "IN"],
   sameAs: [
     "https://www.fiverr.com/abhipatel956",
     "https://www.instagram.com/amextechnology/",
@@ -137,10 +133,9 @@ const organizationSchema = {
   ],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Gardena",
-    addressRegion: "CA",
-    postalCode: "90247",
-    addressCountry: "US",
+    addressLocality: "Ahmedabad",
+    addressRegion: "Gujarat",
+    addressCountry: "IN",
   },
   openingHoursSpecification: [
     {

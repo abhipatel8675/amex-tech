@@ -13,7 +13,7 @@ export function GET() {
   const lines = [
     "# Amex Technology",
     "",
-    "> AI and software agency with a Los Angeles-based founder (Gardena) and a development team in Ahmedabad, India, serving clients worldwide. We build AI agents and automations, websites and web apps, AI SaaS MVPs and mobile apps, set up GoHighLevel and HubSpot CRMs, and grow search visibility on Google and AI assistants with SEO, GEO and AEO.",
+    "> Web, app and AI development company based in Ahmedabad, India, founded by Abhi Patel (Los Angeles), serving clients in the US, Australia, the UK and worldwide. We build AI agents and automations, websites and web apps, AI SaaS MVPs and mobile apps, set up GoHighLevel and HubSpot CRMs, and grow search visibility on Google and AI assistants with SEO, GEO and AEO.",
     "",
     "## Services",
     "",
@@ -26,7 +26,7 @@ export function GET() {
     "",
     "## Locations",
     "",
-    `- [Los Angeles](${BASE_URL}/los-angeles): Development team in India; founder Abhi Patel is based in Gardena, in the Los Angeles area, and works with LA and South Bay businesses on Pacific time.`,
+    `- [Los Angeles](${BASE_URL}/los-angeles): Serving Los Angeles businesses from our Ahmedabad development team; founder Abhi Patel is in Los Angeles and works with LA clients on Pacific time.`,
     ...localPages.map((p) => `- [${p.title}](${BASE_URL}/${p.slug}): ${p.description}`),
     "",
     "## Free tools",

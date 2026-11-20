@@ -75,7 +75,7 @@ const serviceSchema = {
   description,
   url: pageUrl,
   areaServed: { "@type": "City", name: "Los Angeles" },
-  provider: { "@type": "Organization", name: "Amex Technology", url: "https://amextechnology.com" },
+  provider: { "@id": "https://amextechnology.com/#organization" },
 };
 
 function CTA({ label = "Get my new website" }: { label?: string }) {

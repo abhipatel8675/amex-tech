@@ -11,7 +11,7 @@ const BASE_URL = "https://amextechnology.com";
 const url = `${BASE_URL}/los-angeles`;
 const title = "Web & AI Development for Los Angeles Businesses";
 const description =
-  "Websites, web apps, AI agents, CRM automation and local SEO for Los Angeles and South Bay businesses. LA-based founder, India-based development team.";
+  "Websites, web apps, AI agents, CRM automation and local SEO, serving Los Angeles and South Bay businesses from our Ahmedabad, India team. Founder in LA.";
 
 export const metadata: Metadata = {
   title: { absolute: `${title} | Amex Technology` },
@@ -23,7 +23,6 @@ export const metadata: Metadata = {
 
 // Places we actively serve; used for the visible list and areaServed.
 const areas = [
-  "Gardena",
   "Torrance",
   "Hawthorne",
   "Inglewood",
@@ -40,11 +39,11 @@ const areas = [
 const reasons = [
   {
     title: "A local point of contact",
-    body: "Our founder, Abhi Patel, lives in Gardena. You get a contact on Pacific time who knows the LA market, and in-person meetings around Los Angeles can be arranged.",
+    body: "Our founder, Abhi Patel, is based in Los Angeles. You get a contact on Pacific time who knows the LA market.",
   },
   {
-    title: "Development team in India",
-    body: "Amex Technology's development team is based in India. That's how we keep projects affordable for small and mid-sized LA businesses without cutting corners on quality.",
+    title: "Development team in Ahmedabad",
+    body: "Amex Technology is based in Ahmedabad, India, where our development team works. That's how we keep projects affordable for small and mid-sized LA businesses without cutting corners on quality.",
   },
   {
     title: "Work while you sleep",
@@ -67,9 +66,9 @@ const needs = [
 
 const faq = [
   {
-    question: "Is Amex Technology based in Los Angeles?",
+    question: "Where is Amex Technology based?",
     answer:
-      "Amex Technology is a software and AI agency with its development team in India. Our founder, Abhi Patel, lives in Gardena in the Los Angeles area, so LA clients have a local contact on Pacific time, and in-person meetings can be arranged.",
+      "Amex Technology is a web, app and AI development company based in Ahmedabad, India, serving Los Angeles businesses. Our founder, Abhi Patel, is in Los Angeles, so LA clients have a contact on Pacific time.",
   },
   {
     question: "Why work with you instead of an LA agency?",
@@ -84,7 +83,7 @@ const faq = [
   {
     question: "What areas do you serve?",
     answer:
-      "Businesses across Los Angeles County, especially the South Bay (Gardena, Torrance, Hawthorne, Carson, Redondo Beach), Downtown LA, Inglewood, Culver City, Santa Monica and Long Beach. We also work remotely with clients across the US.",
+      "Businesses across Los Angeles County, especially the South Bay (Torrance, Hawthorne, Carson, Redondo Beach), Downtown LA, Inglewood, Culver City, Santa Monica and Long Beach. We also work remotely with clients across the US.",
   },
   {
     question: "How do we get started?",
@@ -95,18 +94,17 @@ const faq = [
 
 const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": "Service",
   "@id": `${url}#service`,
-  name: "Amex Technology — Web & AI Development for Los Angeles",
+  name: "Web & AI Development serving Los Angeles businesses",
   url,
   description,
-  parentOrganization: { "@id": `${BASE_URL}/#organization` },
+  provider: { "@id": `${BASE_URL}/#organization` },
   areaServed: [
     { "@type": "City", name: "Los Angeles", containedInPlace: { "@type": "State", name: "California" } },
     ...areas.filter((a) => a !== "Downtown Los Angeles").map((name) => ({ "@type": "City", name })),
   ],
-  knowsAbout: services.map((s) => s.title),
-  founder: { "@id": `${BASE_URL}/#founder` },
+  serviceType: services.map((s) => s.title),
 };
 
 const faqSchema = {
@@ -156,8 +154,8 @@ export default function LosAngelesPage() {
             <h1>Web & AI Development for Los Angeles Businesses</h1>
             <p className={s.intro} style={{ maxWidth: 640 }}>
               Amex Technology builds websites, web apps, AI agents and CRM automations for Los Angeles businesses, and helps
-              them get found on Google and in AI assistants. Our founder, Abhi Patel, lives in Gardena, and our development
-              team is in India: a local contact on Pacific time, at a cost small and mid-sized businesses can manage.
+              them get found on Google and in AI assistants. We're based in Ahmedabad, India, and our founder, Abhi
+              Patel, is in Los Angeles: a contact on Pacific time, at a cost small and mid-sized businesses can manage.
             </p>
             <div className={s.actions}>
               <Link href={quoteHref} className={s.button}>

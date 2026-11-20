@@ -64,7 +64,7 @@ export default function Hero() {
         >
           <MapPin className="w-6 h-6 text-indigo-400" />
           <span className="text-2xl md:text-3xl font-semibold text-slate-900">
-            Gardena, California, USA
+            Ahmedabad, India
           </span>
         </motion.div>
 

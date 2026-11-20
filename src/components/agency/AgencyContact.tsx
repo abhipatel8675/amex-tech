@@ -48,11 +48,11 @@ export default function AgencyContact() {
                 {
                   icon: Clock,
                   title: "Our working hours",
-                  text: "Monday–Saturday, 9am–6pm Pacific time",
+                  text: "Monday–Saturday, 9am–6pm Pacific (10:30pm–7:30am IST)",
                 },
                 {
                   icon: Globe,
-                  title: "Los Angeles founder. Team in India.",
+                  title: "Based in Ahmedabad, India. Founder in Los Angeles.",
                   text: "US clients get Pacific-time calls; we agree on meeting times that work for your team.",
                 },
                 {

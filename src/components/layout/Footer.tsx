@@ -162,8 +162,11 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mb-4 max-w-[240px] text-sm leading-7 text-[#626960]">
-              Web design, SEO and AI development for businesses in Los Angeles and across the US.
+              Web, app and AI development company based in Ahmedabad, India, working with clients in the US, Australia and UK.
             </p>
+            <address className="mb-2 text-sm not-italic text-[#626960]">
+              Ahmedabad, Gujarat, India
+            </address>
             <p className="text-sm text-[#626960]">
               Founder in{" "}
               <Link
@@ -171,8 +174,7 @@ export default function Footer() {
                 className="underline-offset-2 hover:text-[#7a5807] hover:underline"
               >
                 Los Angeles
-              </Link>{" "}
-              · Development team in India
+              </Link>
             </p>
           </div>
 

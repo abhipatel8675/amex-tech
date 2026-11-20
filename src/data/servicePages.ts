@@ -81,7 +81,7 @@ export const servicePages: Record<string, ServicePage> = {
   },
 
   "web-development": {
-    metaTitle: "Website & Web App Development Company in Los Angeles",
+    metaTitle: "Website & Web App Development",
     metaDescription:
       "Fast marketing websites, customer portals, dashboards and web apps on Next.js and Supabase, built to rank on Google and AI search. Get a free quote.",
     h1: "Website & Web App Development",
@@ -211,7 +211,7 @@ export const servicePages: Record<string, ServicePage> = {
   },
 
   "seo-services": {
-    metaTitle: "SEO Services in Los Angeles: Google & AI Search (GEO)",
+    metaTitle: "SEO Services: Google & AI Search",
     metaDescription:
       "SEO services for Los Angeles and US businesses: technical SEO, local SEO, Google Business Profile and GEO so customers find you on Google, ChatGPT and Perplexity.",
     h1: "SEO Services: Get Found on Google and in AI Search",
