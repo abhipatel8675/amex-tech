@@ -39,6 +39,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
+    "image": "/images/blog/hire-nextjs-developer-india-cost/cover.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"
@@ -93,6 +94,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
+    "image": "/images/blog/offshore-vs-local-web-agency/cover.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"
@@ -147,6 +149,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
+    "image": "/images/blog/mvp-development-cost/cover.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"
@@ -201,6 +204,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
+    "image": "/images/blog/lovable-app-to-production-cost/cover.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"
