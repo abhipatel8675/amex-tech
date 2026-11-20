@@ -310,7 +310,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
         </p>
       )}
 
-      <motion.ul layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-12">
+      <motion.ul layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-12">
         <AnimatePresence mode="popLayout">
           {filtered.map((project, i) => (
             <ProjectCard key={project.slug} project={project} index={i} animateIn={hasFiltered} />

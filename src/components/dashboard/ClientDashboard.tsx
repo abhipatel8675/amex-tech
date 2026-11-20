@@ -157,13 +157,13 @@ export default function ClientDashboard({ user, orders }: { user: User; orders: 
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-8">
           {[
             { label: "Total Orders", value: stats.total, color: "#ededed" },
             { label: "In Progress", value: stats.active, color: "#CC9A1A" },
             { label: "Completed", value: stats.completed, color: "#CC9A1A" },
           ].map((s) => (
-            <div key={s.label} className="bg-white border border-slate-200 rounded-2xl p-4 text-center">
+            <div key={s.label} className="bg-white border border-slate-200 rounded-2xl p-3 sm:p-4 text-center">
               <div className="text-3xl font-bold mb-1" style={{ color: s.color }}>{s.value}</div>
               <div className="text-sm text-slate-600">{s.label}</div>
             </div>
