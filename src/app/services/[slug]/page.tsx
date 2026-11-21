@@ -97,13 +97,13 @@ export default async function ServiceDetailPage({ params }: Props) {
               {p}
             </p>
           ))}
-          <div className="flex flex-wrap gap-2 mb-8">
-            {service.technologies.map((t) => (
-              <span key={t} className="text-sm text-[#4d554b] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg">
-                {t}
-              </span>
+          <ul className="mb-8 grid gap-2 sm:grid-cols-2">
+            {service.benefits.map((b) => (
+              <li key={b} className="text-[#3d453b]">
+                {b}
+              </li>
             ))}
-          </div>
+          </ul>
           <Link
             href={`/contact?service=${encodeURIComponent(service.title)}`}
             className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-white bg-[#111827] hover:bg-black transition-colors"

@@ -81,13 +81,6 @@ export function ServiceGrid({ full = false }: { full?: boolean }) {
             </div>
             <h3>{service.title}</h3>
             <p>{full ? service.description : service.shortDesc}</p>
-            {full && (
-              <div className={s.tags}>
-                {service.technologies.slice(0, 4).map((tech) => (
-                  <span key={tech}>{tech}</span>
-                ))}
-              </div>
-            )}
             <Link className={s.textLink} href={`/services/${service.slug}`}>
               Explore service <ArrowRight size={14} />
               <span className="sr-only">: {service.title}</span>

@@ -1,5 +1,6 @@
-// Long-form content for the /services/<slug> landing pages. Keyed by the slug in
-// services.ts; projects and posts are referenced by slug so links never go stale.
+// Long-form content for the /services/<slug> pages. Keyed by the slug in
+// services.ts; projects are referenced by slug so links never go stale.
+// Written for business owners: what we do, who it helps and what changes for you.
 export type ServicePage = {
   metaTitle: string;
   metaDescription: string;
@@ -16,586 +17,513 @@ export type ServicePage = {
 
 export const servicePages: Record<string, ServicePage> = {
   "ai-services": {
-    metaTitle: "AI Agent Development & Automation Agency",
+    metaTitle: "AI Assistants & Business Automation",
     metaDescription:
-      "We build AI chat and voice agents, document pipelines and n8n, Make and Zapier automations with guardrails and human hand-off. Free consultation.",
-    h1: "AI Agent Development & Business Automation",
+      "AI assistants that answer customers, sort enquiries and handle paperwork, plus automations that connect your everyday tools. Free consultation.",
+    h1: "AI assistants and automation that take work off your team",
     intro: [
-      "Amex Technology builds AI agents and automations that take repetitive work off your team: agents that answer customers and qualify leads, pipelines that read documents and enter the data, and workflows that keep your tools in sync. We build on OpenAI and Claude, and automate with n8n, Make and Zapier.",
-      "Every agent ships with guardrails, logging and a hand-off to a person when the AI isn't sure, so it helps your customers instead of embarrassing you.",
+      "Amex Technology builds AI assistants and automations for businesses around the world. An assistant can answer your customers' questions, sort new enquiries and book appointments. An automation can read your invoices and forms, enter the details for you, and keep your everyday tools in sync.",
+      "Every assistant we build has clear limits and passes the conversation to a real person when it is unsure, so it helps your customers instead of embarrassing you.",
     ],
     whoFor: [
       "Small businesses answering the same customer questions all day",
-      "Sales teams that need every lead contacted and qualified quickly",
-      "Operations teams copying data between emails, PDFs, spreadsheets and a CRM",
-      "Founders adding AI features to an existing product",
+      "Sales teams who need every enquiry answered quickly",
+      "Operations teams retyping details between emails, PDFs and spreadsheets",
+      "Founders who want smart features inside their own product",
     ],
     deliverables: [
       {
-        title: "AI chat and voice agents",
-        body: "Website chat, SMS and voice agents that answer questions from your own content, book appointments and pass qualified leads to your team.",
+        title: "Chat and voice assistants",
+        body: "Assistants on your website, by text message or by phone that answer questions using your own information, book appointments and pass promising enquiries to your team.",
       },
       {
-        title: "Document and data extraction",
-        body: "Pipelines that read invoices, forms and emails, pull out the fields you need and write them into your database or CRM, with a review step for low-confidence results.",
+        title: "Paperwork done for you",
+        body: "Invoices, forms and emails are read automatically and the details are added to your records. Anything the assistant is unsure about is flagged for a person to check.",
       },
       {
-        title: "Workflow automation",
-        body: "n8n, Make and Zapier workflows that connect the tools you already pay for, so a new lead, order or form submission triggers the right steps automatically.",
+        title: "Your tools working together",
+        body: "A new enquiry, order or booking triggers the right next steps automatically, across the programs you already pay for.",
       },
       {
-        title: "AI features inside your product",
-        body: "Summaries, drafting, classification and search built into your web or mobile app, with usage limits so AI costs stay predictable.",
+        title: "Smart features inside your product",
+        body: "Summaries, drafting, sorting and search added to your website or app, with usage limits so costs stay predictable.",
       },
     ],
     process: [
       { title: "Map the work", body: "We list the repetitive tasks, how often they happen and what a good result looks like." },
-      { title: "Prototype on real data", body: "A small working version on your own examples, so you can judge the quality before committing." },
-      { title: "Build with guardrails", body: "Logging, fallbacks, cost limits and a human hand-off for anything the AI shouldn't decide alone." },
-      { title: "Launch and tune", body: "We watch real conversations and runs for the first weeks and adjust prompts and rules." },
+      { title: "Try it on real examples", body: "A small working version using your own examples, so you can judge the quality before committing." },
+      { title: "Build in safety", body: "Records of every conversation, spending limits and a hand-over to your team for anything the assistant should not decide alone." },
+      { title: "Launch and fine-tune", body: "We watch real conversations for the first weeks and adjust until it works the way you want." },
     ],
     projectSlugs: ["dialogix", "molar-ai", "periscope-email"],
     blogSlugs: [],
     faq: [
       {
-        question: "What's the difference between an AI agent and a chatbot?",
+        question: "What is the difference between an AI assistant and a normal chatbot?",
         answer:
-          "A traditional chatbot follows a fixed script. An AI agent understands free-form questions, looks up answers in your own content or systems, and can take actions such as booking an appointment or updating a CRM record. We still give agents clear limits and a hand-off to a person.",
+          "A normal chatbot follows a fixed script. An AI assistant understands everyday questions, looks up answers in your own information, and can take actions such as booking an appointment. We still give every assistant clear limits and a hand-over to a person.",
       },
       {
-        question: "Which AI models do you use?",
+        question: "Is my business information safe?",
         answer:
-          "Mostly OpenAI and Anthropic Claude models, chosen per task for quality, speed and cost. For automation we use n8n, Make or Zapier, depending on what your team already uses and whether you want to self-host.",
-      },
-      {
-        question: "Is my business data safe with an AI agent?",
-        answer:
-          "We only send the data a task needs, use API settings that don't train models on your data, and keep logs in your own accounts. Sensitive actions require a person to approve them.",
-      },
-      {
-        question: "How long does an AI automation project take?",
-        answer:
-          "A single focused automation often takes one to three weeks. A customer-facing agent connected to several systems usually takes four to eight weeks, including testing on real conversations.",
-      },
-    ],
-  },
-
-  "web-development": {
-    metaTitle: "Website & Web App Development",
-    metaDescription:
-      "Fast marketing websites, customer portals, dashboards and web apps on Next.js and Supabase, built to rank on Google and AI search. Get a free quote.",
-    h1: "Website & Web App Development",
-    intro: [
-      "Amex Technology designs and builds business websites and the web apps behind them: marketing sites, customer portals, dashboards, quoting tools and internal systems. Our main stack is Next.js, React, TypeScript and Supabase (PostgreSQL), hosted on Vercel.",
-      "One team handles the public site and the app, so your pages load fast, Google and AI assistants can read them, and your customers move from the website into the product without friction.",
-    ],
-    whoFor: [
-      "Businesses whose current website is slow, dated or hard to update",
-      "Companies that need a customer portal, booking flow or dashboard",
-      "Teams replacing spreadsheets with a proper internal tool",
-      "Founders who need a product built, not just a landing page",
-    ],
-    deliverables: [
-      {
-        title: "Marketing websites",
-        body: "Server-rendered pages with clean structure, schema markup and fast load times, plus a CMS or admin panel so you can edit content yourself.",
-      },
-      {
-        title: "Customer portals and dashboards",
-        body: "Secure logins, role-based access and the screens your customers or staff use every day.",
-      },
-      {
-        title: "Integrations and APIs",
-        body: "Payments, bank data, CRMs, email and third-party APIs connected properly, with retries and error logging.",
-      },
-      {
-        title: "Takeovers and rebuilds",
-        body: "We pick up existing codebases, fix what's broken and finish what's half-built, and only rewrite when it's genuinely cheaper.",
-      },
-    ],
-    process: [
-      { title: "Scope", body: "We agree the pages, user roles and integrations in writing, with what's in and out of version one." },
-      { title: "Design", body: "Wireframes and a visual design built on a solid component library, approved before development." },
-      { title: "Build in milestones", body: "You click through working features at each milestone, on a preview link." },
-      { title: "Launch and support", body: "Domain, analytics and Search Console set up at launch, followed by a support period." },
-    ],
-    projectSlugs: ["goswiftfund", "wolfe-property", "ultra-windows", "firmsledger", "island-traffic-defense"],
-    blogSlugs: ["web-app-development-cost", "connect-nextjs-react-with-supabase", "connect-vercel-app-godaddy-domain"],
-    faq: [
-      {
-        question: "How much does a website or web app cost?",
-        answer:
-          "It depends on the number of pages, features and integrations. We send a fixed, itemised quote after a free discovery call, before any work starts. Our guide to web app development cost explains what drives the price.",
+          "We only share the information a task needs, choose settings that stop your data being used to train other systems, and keep records in accounts you own. Sensitive actions need a person's approval.",
       },
       {
         question: "How long does it take?",
         answer:
-          "A business website usually takes two to four weeks. Most web applications take six to twelve weeks from kickoff to launch, depending on the number of workflows and integrations.",
-      },
-      {
-        question: "Why Next.js and Supabase?",
-        answer:
-          "Next.js renders pages on the server, which makes them fast and easy for Google and AI search to read. Supabase gives you a real PostgreSQL database, authentication and file storage with row-level security, without running your own servers.",
-      },
-      {
-        question: "Will I own the code and accounts?",
-        answer:
-          "Yes. The code lives in your GitHub account and the hosting, database and domain are in accounts you control, so you're never locked in to us.",
+          "A single focused automation often takes one to three weeks. A customer-facing assistant connected to several of your systems usually takes four to eight weeks, including testing with real conversations.",
       },
     ],
   },
-
-  "saas-development": {
-    metaTitle: "AI SaaS & MVP Development Agency",
+  "web-development": {
+    metaTitle: "Website & Web App Development",
     metaDescription:
-      "Launch a SaaS or AI product with auth, Stripe billing and multi-tenant security, or harden an app built in Lovable, Bolt or Replit for real users.",
-    h1: "AI SaaS & MVP Development",
+      "Fast, good-looking websites and online tools for businesses worldwide: customer accounts, dashboards, booking and ordering. Free consultation.",
+    h1: "Websites and online tools your customers will actually use",
     intro: [
-      "Amex Technology takes SaaS and AI product ideas from prototype to a launch-ready MVP: sign-up and login, Stripe subscriptions, multi-tenant data protected by row-level security, AI features with cost controls, and analytics.",
-      "Already built a first version in Lovable, Bolt or Replit? We review it, fix the security and data problems AI builders commonly leave behind, and get it ready for real users and real traffic.",
+      "Amex Technology builds business websites and the online tools behind them: customer accounts, dashboards, booking, ordering and internal systems. One team looks after the whole thing, so nothing gets lost between a designer, a developer and a host.",
+      "We build sites that load quickly, look right on phones, can be found on Google and are easy for your own team to update.",
     ],
     whoFor: [
-      "Founders who need a working MVP to show customers or investors",
-      "Non-technical founders with an AI-built prototype that's hitting its limits",
-      "Businesses turning an internal tool into a product they can sell",
-      "Products adding AI features without runaway API bills",
+      "Businesses whose current website is slow, dated or hard to use on a phone",
+      "Companies that need customers to log in, order, book or track something online",
+      "Teams still running things from spreadsheets and email",
+      "Founders who need a website and a working product from the same team",
     ],
     deliverables: [
       {
-        title: "Launch-ready MVP",
-        body: "The one core workflow your users pay for, with authentication, onboarding, email and Stripe billing.",
+        title: "A website that wins customers",
+        body: "Clear pages, honest content and easy ways to contact you, designed so visitors know what you do and what to do next.",
       },
       {
-        title: "Multi-tenant security",
-        body: "Each customer's data separated by row-level security policies in the database, not just in the front end.",
+        title: "Customer accounts and dashboards",
+        body: "Places where your customers or your staff can log in, see their information and get things done without a phone call.",
       },
       {
-        title: "AI features with limits",
-        body: "AI generation, summaries or agents inside the product, with per-plan usage limits and cost tracking.",
+        title: "Booking, ordering and payments",
+        body: "Online forms, orders and payments connected to your email and customer records, so every request reaches the right person.",
       },
       {
-        title: "Prototype-to-production hardening",
-        body: "Code export, security review, fixed RLS policies, environment variables, error monitoring and proper hosting for apps started in AI builders.",
+        title: "Easy updates",
+        body: "A simple way to change text, photos and offers yourself, without waiting for a developer.",
       },
     ],
     process: [
-      { title: "Define the core workflow", body: "We cut the idea down to what version one must do to be worth paying for." },
-      { title: "Architecture", body: "Data model, tenancy and billing designed up front, because they're expensive to change later." },
-      { title: "Build and demo weekly", body: "Short cycles with a preview link, so you can test with early users as we go." },
-      { title: "Launch and iterate", body: "Production hosting, monitoring and analytics, then improvements based on real usage." },
+      { title: "Understand your goals", body: "We learn about your business, your customers and what the website must achieve." },
+      { title: "Plan and preview", body: "You see the pages and the main journeys before we build them, and agree on details early." },
+      { title: "Build and review", body: "We build in steps and share working previews, so you can react along the way." },
+      { title: "Launch and support", body: "We test on phones, tablets and computers, launch the site and stay available afterwards." },
     ],
-    projectSlugs: ["hoursheets", "hmd", "periscope-email", "goswiftfund"],
-    blogSlugs: ["web-app-development-cost", "bolt-new-review", "how-to-export-code-from-lovable", "fix-new-row-violates-row-level-security-policy-supabase"],
+    projectSlugs: ["goswiftfund", "wolfe-property", "ultra-windows", "firmsledger", "island-traffic-defense"],
+    blogSlugs: [],
     faq: [
       {
-        question: "How much does a SaaS MVP cost?",
+        question: "How long does a website take?",
         answer:
-          "The cost depends on the number of user roles, integrations and AI features. After a discovery call we send a fixed, itemised quote for version one.",
+          "A simple business website is often ready in two to four weeks. A website with customer accounts, ordering or dashboards usually takes six to twelve weeks. We share a clear timeline with your quote.",
       },
       {
-        question: "Can you finish an app I started in Lovable, Bolt or Replit?",
+        question: "Can you improve the website I already have?",
         answer:
-          "Yes. We export the code to your own GitHub, review the database and security rules, and fix or finish it. In most cases that's cheaper than starting over, and we'll tell you honestly when it isn't. Our free App Checker gives a quick first look.",
+          "Yes. We can fix problems, speed it up, make it work better on phones, or rebuild it while keeping the page addresses you already rank for.",
       },
       {
-        question: "What stack do you use for SaaS?",
+        question: "Will I own the website?",
         answer:
-          "Usually Next.js and TypeScript on Vercel, Supabase for the database, auth and storage, Stripe for billing, and OpenAI or Claude for AI features. We adapt to an existing stack when you already have one.",
+          "Yes. Your website, domain and accounts stay in your name, so you are never locked in.",
       },
       {
-        question: "How do you keep AI costs under control?",
+        question: "How is the cost decided?",
         answer:
-          "We set usage limits per plan, cache repeat requests, choose the cheapest model that does the job well, and track AI spend per customer so pricing covers it.",
+          "It depends on how many pages and features you need. After a free call we send a clear written quote before any work starts.",
       },
     ],
   },
-
-  "seo-services": {
-    metaTitle: "SEO Services: Google & AI Search",
+  "saas-development": {
+    metaTitle: "Turn Your Idea Into a Product",
     metaDescription:
-      "SEO services for businesses worldwide: technical SEO, local SEO, Google Business Profile and GEO so customers find you on Google, ChatGPT and Perplexity.",
-    h1: "SEO Services: Get Found on Google and in AI Search",
+      "From product idea to a first version customers can sign up for and pay for. We also strengthen prototypes made with AI app builders. Free consultation.",
+    h1: "Turn your product idea into something customers can pay for",
     intro: [
-      "Customers now search on Google and inside AI assistants like ChatGPT, Perplexity and Gemini. Amex Technology fixes technical SEO, builds pages around what your customers actually search, optimises your Google Business Profile for local search, and applies Generative Engine Optimization (GEO) so AI tools understand and recommend your business.",
-      "Because we also build websites, we fix the underlying problems directly in your site's code instead of handing you a report full of recommendations.",
+      "Amex Technology helps founders and growing companies turn an idea into a working first version: sign-up, payments, the core features and the basics you need to grow. We keep the first version focused, so you can start learning from real customers quickly.",
+      "Already made a prototype with an AI app builder? We can make it solid enough for real customers: safer, faster and ready for more visitors.",
     ],
     whoFor: [
-      "Local businesses that don't show up in \"near me\" searches or the map pack",
-      "Companies with a website that gets little or no search traffic",
-      "Businesses that AI assistants don't mention, or describe incorrectly",
-      "Sites that lost rankings after a redesign or platform move",
+      "Founders with a product idea and no technical team",
+      "Businesses turning a service into software their customers can use",
+      "Anyone with an AI-built prototype that now needs to be reliable",
+      "Teams adding AI features to an existing product",
     ],
     deliverables: [
       {
-        title: "Technical SEO audit and fixes",
-        body: "Indexing, sitemaps, canonicals, redirects, page speed and Core Web Vitals, fixed in the code.",
+        title: "A launch-ready first version",
+        body: "Sign-up, login, the core features and a simple admin area, built so you can show it to real customers.",
       },
       {
-        title: "Local SEO",
-        body: "Google Business Profile setup and optimisation, consistent business listings, and location pages that match how people search.",
+        title: "Payments and subscriptions",
+        body: "Customers can pay, upgrade and cancel on their own, and you can see who is paying.",
       },
       {
-        title: "Content built on search demand",
-        body: "Service and location pages, plus articles targeting questions your customers ask, based on real keyword data.",
+        title: "Private, separate customer data",
+        body: "Each customer sees only their own information, with the protection that real business data deserves.",
       },
       {
-        title: "GEO for AI assistants",
-        body: "Clear entity information, Organization and Service schema, consistent profiles across the web, and content AI tools can quote.",
+        title: "Prototype clean-up",
+        body: "We review apps made with AI builders, fix what is fragile or unsafe, and prepare them for real traffic.",
       },
     ],
     process: [
-      { title: "Audit", body: "Crawl, rankings, Search Console data and a check of what AI assistants currently say about you." },
-      { title: "Fix the foundations", body: "Technical problems first, because content can't rank on a site search engines can't read properly." },
-      { title: "Build pages that match searches", body: "Service, location and answer pages for the searches that bring paying customers." },
-      { title: "Report monthly", body: "Rankings, traffic, leads and AI visibility, with the next month's priorities." },
+      { title: "Shape the idea", body: "We help decide what the first version must do, and what can wait." },
+      { title: "Design the experience", body: "You see how it will look and feel before we build it." },
+      { title: "Build in short steps", body: "Working previews every week or two, so you always see progress." },
+      { title: "Launch and learn", body: "We help you go live, read the early results and plan what comes next." },
+    ],
+    projectSlugs: ["hoursheets", "hmd", "periscope-email", "goswiftfund"],
+    blogSlugs: [],
+    faq: [
+      {
+        question: "How long until I can launch?",
+        answer:
+          "A focused first version commonly takes six to twelve weeks, depending on the features. We agree the plan and timeline with you up front.",
+      },
+      {
+        question: "My app was built with an AI builder. Can you take it further?",
+        answer:
+          "Yes. We review what exists, tell you honestly what to keep and what to rebuild, and then make it ready for real customers.",
+      },
+      {
+        question: "Do I keep ownership of the product?",
+        answer:
+          "Yes. The product, the accounts and everything behind it belong to you.",
+      },
+    ],
+  },
+  "seo-services": {
+    metaTitle: "Get Found on Google & AI Search",
+    metaDescription:
+      "Help customers find you on Google and get recommended by AI assistants: a clear check-up, your business listing, better pages and monthly reports.",
+    h1: "Get found on Google and recommended by AI assistants",
+    intro: [
+      "Customers now look for businesses in two places: on Google, and by asking AI assistants. Amex Technology helps you show up in both. We find what holds your site back, build pages around what your customers really search for, and set up your Google business listing properly.",
+      "We explain every step in plain language and report on results honestly. No one can promise a number one ranking, so we focus on the work that reliably helps.",
+    ],
+    whoFor: [
+      "Businesses that are hard to find when customers search",
+      "Shops and service companies that want more local enquiries",
+      "Companies whose competitors always appear above them",
+      "Owners who want to be recommended by AI assistants",
+    ],
+    deliverables: [
+      {
+        title: "A clear check-up",
+        body: "A plain-language report on what is holding your site back, in order of what matters most.",
+      },
+      {
+        title: "Your Google business listing",
+        body: "Your listing set up, verified and kept accurate, so you appear in map results and local searches.",
+      },
+      {
+        title: "Pages built around real searches",
+        body: "Pages and articles that answer the questions your customers actually ask.",
+      },
+      {
+        title: "Helping AI assistants understand you",
+        body: "Clear, consistent information about your business, so AI tools can describe and recommend you correctly.",
+      },
+    ],
+    process: [
+      { title: "Check-up", body: "We review your site, your listing and your competitors." },
+      { title: "Plan", body: "You get a short, prioritised plan in plain language." },
+      { title: "Do the work", body: "We fix the problems and create the content, with your approval." },
+      { title: "Report", body: "Each month you see how many more people found you, and what we will do next." },
     ],
     projectSlugs: ["firmsledger", "island-traffic-defense"],
     blogSlugs: [],
     faq: [
       {
-        question: "What is GEO (Generative Engine Optimization)?",
+        question: "Can you guarantee a number one spot on Google?",
         answer:
-          "GEO is the work of making AI assistants such as ChatGPT, Perplexity and Gemini understand your business and recommend it. It combines clear entity information, structured data, consistent profiles and listings across the web, and content written so it can be quoted directly.",
+          "No honest company can. Results depend on many things we do not control. We focus on the work that reliably improves your visibility and we report openly on what changes.",
       },
       {
-        question: "How long does SEO take to show results?",
+        question: "How long until I see results?",
         answer:
-          "Technical fixes can show results within weeks once pages are re-crawled. New content and local rankings usually take three to six months to build, depending on competition and how established your site already is.",
+          "Fixes to your listing can help within weeks. Pages and articles usually take a few months to build up. We show the early signs in your monthly report.",
       },
       {
-        question: "Do you do local SEO and Google Business Profile?",
+        question: "Do you also help with AI search?",
         answer:
-          "Yes. We set up or clean up your Google Business Profile, align your business details across directories, and build location pages so you appear in local and map results.",
-      },
-      {
-        question: "Is SEO still worth it with AI search?",
-        answer:
-          "Yes. AI assistants pull from search indexes and well-known websites, so pages that rank and are cited elsewhere are also the ones AI tools recommend. Good SEO is the foundation of AI visibility.",
+          "Yes. Part of our work is making sure AI assistants can understand your business and describe it accurately.",
       },
     ],
   },
-
   "aeo-services": {
-    metaTitle: "Answer Engine Optimization (AEO) Services",
+    metaTitle: "Be the Answer in AI Search",
     metaDescription:
-      "AEO services: answer-first content, FAQ schema and llms.txt so Google AI Overviews, ChatGPT and voice assistants quote your business directly.",
-    h1: "AEO: Answer Engine Optimization",
+      "Get quoted by Google's AI answers, ChatGPT and voice assistants. We research customer questions and write clear answers on your site.",
+    h1: "Be the answer when customers ask AI and voice assistants",
     intro: [
-      "Answer Engine Optimization (AEO) structures your content so answer engines quote you directly: Google AI Overviews, featured snippets, ChatGPT search, Perplexity and voice assistants. Amex Technology researches the questions your customers actually ask, writes clear answer-first pages, and adds FAQ structured data and llms.txt.",
-      "We use the same approach on amextechnology.com itself: answer-first articles, FAQ schema on key pages, and a published llms.txt file.",
+      "More people now get a direct answer instead of a list of links, from Google's AI answers, chat assistants and voice assistants. Amex Technology helps your business be the one that gets quoted.",
+      "We find the questions your customers ask, write clear answers on your site, set things up so answer engines can read it, and check where your name appears.",
     ],
     whoFor: [
-      "Businesses whose customers ask the same questions before buying",
-      "Experts and service firms who want to be the source AI tools quote",
-      "Sites that rank on Google but never appear in AI Overviews",
-      "Companies launching a new service that needs clear, quotable explanations",
+      "Businesses whose customers ask a lot of questions before buying",
+      "Experts and service companies who want to be seen as the authority",
+      "Companies who notice AI tools recommending their competitors",
+      "Anyone who wants to be found by voice search",
     ],
     deliverables: [
       {
-        title: "Question research",
-        body: "The real questions people ask about your service, from search suggestions, keyword data and your own sales conversations.",
+        title: "The questions your customers ask",
+        body: "Research into the real questions people type and say before they choose a business like yours.",
       },
       {
-        title: "Answer-first pages",
-        body: "Each page opens with a direct two- or three-sentence answer, followed by the detail, so it can be quoted as-is.",
+        title: "Clear, answer-first pages",
+        body: "Pages and FAQs that give a short, direct answer first and the detail after.",
       },
       {
-        title: "Structured data and llms.txt",
-        body: "FAQ, HowTo, Organization and Service schema, plus an llms.txt file that summarises your business for AI crawlers.",
+        title: "Behind-the-scenes setup",
+        body: "The invisible information that helps search and AI tools read, trust and quote your site.",
       },
       {
-        title: "Citation tracking",
-        body: "A monthly check of which AI assistants mention or cite your business for your key questions.",
+        title: "Brand mention checks",
+        body: "Regular checks on whether AI assistants mention you, and whether what they say is correct.",
       },
     ],
     process: [
-      { title: "Collect the questions", body: "We build a list of buyer questions, grouped by service and stage." },
-      { title: "Write the answers", body: "Clear, accurate answers reviewed by you, with no padding." },
-      { title: "Mark them up", body: "Schema, internal links and llms.txt so machines can find and trust them." },
-      { title: "Track citations", body: "We check AI assistants each month and refine the pages that aren't being picked up." },
+      { title: "Find the questions", body: "We collect the questions customers ask about your products and services." },
+      { title: "Write the answers", body: "We write clear answers in your voice and check every fact with you." },
+      { title: "Set it up", body: "We prepare your site so answer engines can read it easily." },
+      { title: "Check and improve", body: "We track where you appear and keep improving the answers." },
     ],
     projectSlugs: ["firmsledger"],
     blogSlugs: [],
     faq: [
       {
-        question: "What's the difference between SEO, AEO and GEO?",
+        question: "How is this different from normal search work?",
         answer:
-          "SEO gets your pages ranked in search results. AEO shapes individual answers so search features and assistants quote them directly. GEO is the broader work of making AI assistants understand and recommend your business. The three overlap, and we usually combine them.",
+          "Normal search work helps you appear in a list of links. This work helps you be the answer itself, quoted in a summary or spoken aloud.",
       },
       {
-        question: "What is llms.txt?",
+        question: "Can you promise AI tools will mention my business?",
         answer:
-          "llms.txt is a plain-text file at the root of your website that summarises who you are and links to your key pages, written for AI tools to read. It's a small, low-cost addition alongside structured data and clear content.",
-      },
-      {
-        question: "Does FAQ schema still help?",
-        answer:
-          "Google shows FAQ rich results for far fewer sites than before, but FAQ structured data still describes your questions and answers in a format machines can parse, and answer-first content is what AI Overviews and assistants tend to quote.",
-      },
-      {
-        question: "Can you guarantee ChatGPT will recommend us?",
-        answer:
-          "No one can guarantee that. What we can do is remove the reasons AI tools skip you: unclear entity information, missing structured data, thin answers and a lack of mentions elsewhere, and then track progress monthly.",
+          "No. These tools decide for themselves. We make your information clear, accurate and easy to use, which gives you the best chance.",
       },
     ],
   },
-
   "crm-automation": {
-    metaTitle: "GoHighLevel & CRM Automation Services",
+    metaTitle: "Customer Follow-Up Automation",
     metaDescription:
-      "GoHighLevel and HubSpot setup, repair and automation: forms and calls synced to your pipeline, automatic SMS and email follow-up, and lead-leak audits.",
-    h1: "GoHighLevel & CRM Automation",
+      "Never lose a lead: enquiries from your website, calls and ads land in one place and get automatic follow-ups by text and email.",
+    h1: "Never lose a lead: every enquiry followed up automatically",
     intro: [
-      "Amex Technology sets up and repairs CRMs so no lead slips through. Website forms and calls flow into your GoHighLevel or HubSpot pipeline, follow-ups run automatically by SMS and email, and you can see which sources actually turn into customers.",
-      "We also handle the technical side most CRM consultants don't: custom website integrations, APIs, webhooks, dialers and payment connections.",
+      "Amex Technology sets up and repairs the system you use to track customers, so no enquiry slips through the cracks. Website forms, phone calls and ads all feed one clear list, and follow-ups go out by text and email at the right time.",
+      "You can see at a glance who is waiting, who has replied and what is turning into sales.",
     ],
     whoFor: [
-      "Businesses losing leads between the website form and the CRM",
-      "Teams paying for GoHighLevel or HubSpot but still following up by hand",
-      "Agencies that need a technical partner for custom CRM integrations",
-      "Owners who can't tell which marketing channel brings paying customers",
+      "Businesses who miss or forget to follow up on enquiries",
+      "Teams with a customer system that is half set up or broken",
+      "Companies running ads and unsure which ones bring customers",
+      "Owners who want less admin and more booked work",
     ],
     deliverables: [
       {
-        title: "Pipelines and follow-up automations",
-        body: "Stages, tags, and SMS and email sequences that contact every lead quickly and stop when they reply or book.",
+        title: "One clear pipeline",
+        body: "A simple view of every customer from first enquiry to sale, so nothing is forgotten.",
       },
       {
-        title: "Website and form integrations",
-        body: "Forms on any website, including custom-coded ones, sent to your CRM with the source and campaign attached.",
+        title: "Automatic follow-ups",
+        body: "Friendly texts and emails sent at the right moments, from a quick thank-you to a gentle reminder.",
       },
       {
-        title: "Dialer, SMS and payment connections",
-        body: "Twilio, dialers, Stripe and other tools connected through APIs and webhooks.",
+        title: "Everything connected",
+        body: "Website forms, calls, ads and payments all feeding the same place.",
       },
       {
-        title: "CRM audits",
-        body: "We trace every lead path and find broken automations, duplicate contacts and leads that never arrived.",
+        title: "A health check",
+        body: "We find broken steps and lost leads in your current setup and fix them.",
       },
     ],
     process: [
-      { title: "Trace the lead paths", body: "Every form, call and ad that should create a lead, and where each one actually ends up." },
-      { title: "Fix and rebuild", body: "Broken integrations repaired, pipelines and tags cleaned up." },
-      { title: "Automate follow-up", body: "Sequences written and tested end to end with real submissions." },
-      { title: "Hand over", body: "A short guide and a walkthrough so your team knows how it works." },
+      { title: "Review what you have", body: "We look at how enquiries arrive and where they get lost today." },
+      { title: "Design the journey", body: "We agree the steps from enquiry to customer, and the messages along the way." },
+      { title: "Set up and test", body: "We build it, test it with real examples and train your team." },
+      { title: "Watch and improve", body: "We check the first weeks of results and fine-tune." },
     ],
     projectSlugs: ["portland-self-defense-crm", "dialogix"],
     blogSlugs: [],
     faq: [
       {
-        question: "Do you work with GoHighLevel agencies and sub-accounts?",
+        question: "Can you fix a system that is already half set up?",
         answer:
-          "Yes. We work directly with businesses and as a technical partner for agencies, inside your agency account or a client's sub-account.",
+          "Yes. Many projects start that way. We review what exists, keep what works and repair the rest.",
       },
       {
-        question: "Can you connect a custom website to GoHighLevel?",
+        question: "Will the messages sound robotic?",
         answer:
-          "Yes. We connect custom-coded and CMS websites through the GoHighLevel API or webhooks, keeping spam protection in place and passing the lead source so reporting stays accurate.",
-      },
-      {
-        question: "How do I know if my CRM is losing leads?",
-        answer:
-          "Compare form submissions and calls on your website with new contacts in the CRM over the same period. If the numbers don't match, leads are leaking. A CRM audit traces each path and finds where they're lost.",
-      },
-      {
-        question: "Do you work with HubSpot too?",
-        answer:
-          "Yes. We set up and automate HubSpot, and connect it to your website, forms and other tools with Zapier, Make or direct API integrations.",
+          "No. We write them in your voice, keep them short and personal, and make it easy for people to reply or opt out.",
       },
     ],
   },
-
   "mobile-app-development": {
-    metaTitle: "Mobile App Development: iOS & Android",
+    metaTitle: "Mobile App Development: iPhone & Android",
     metaDescription:
-      "Cross-platform iOS and Android apps with React Native and Expo, including AI features, push notifications and App Store and Google Play submission.",
-    h1: "Mobile App Development for iOS & Android",
+      "iPhone and Android apps built from one project, with smart features and publishing to both app stores handled for you.",
+    h1: "Mobile apps for iPhone and Android, built once",
     intro: [
-      "Amex Technology builds iOS and Android apps from one codebase with React Native and Expo, backed by Firebase or Supabase. We add AI features like chat, voice and image recognition where they help, and we handle App Store and Google Play submission.",
-      "One codebase means one team, one set of fixes and both stores updated together, which keeps the cost and timeline well below building two native apps.",
+      "Amex Technology designs and builds mobile apps that work on both iPhone and Android from a single project. That means one team, one budget and one set of features, instead of building everything twice.",
+      "We can add smart features such as chat, voice and photo recognition, and we take care of publishing to the App Store and Google Play.",
     ],
     whoFor: [
-      "Startups launching a mobile product on both stores",
-      "Businesses that need an app for customers, members or field staff",
-      "Companies with a web app that needs a mobile companion",
-      "Founders with an existing app that needs fixes or new features",
+      "Businesses who want to put their service in customers' pockets",
+      "Founders launching a new app",
+      "Companies whose staff need a tool for the field",
+      "Teams with an existing app that needs fixing or updating",
     ],
     deliverables: [
       {
-        title: "Cross-platform apps",
-        body: "React Native and Expo apps that look and feel native on iPhone and Android.",
+        title: "One app, both phones",
+        body: "A single app that feels at home on iPhone and Android.",
       },
       {
-        title: "Backend and accounts",
-        body: "Sign-in, user data, file uploads and real-time updates on Firebase or Supabase.",
+        title: "Smart features",
+        body: "Chat, voice and camera features that make the app genuinely useful.",
       },
       {
-        title: "Push notifications and alerts",
-        body: "Notifications, deep links and in-app messages, set up and tested on real devices.",
+        title: "Store publishing",
+        body: "We prepare and submit your app to the App Store and Google Play and deal with the review process.",
       },
       {
-        title: "Store submission",
-        body: "App Store and Google Play listings, builds, review requirements and release management.",
+        title: "Notifications and reports",
+        body: "Messages to your users, and simple reports on how the app is used.",
       },
     ],
     process: [
-      { title: "Plan the screens", body: "User flows and the screens for version one, agreed up front." },
-      { title: "Design", body: "A mobile design that follows iOS and Android conventions." },
-      { title: "Build and test", body: "Test builds on your own phone through TestFlight and internal testing." },
-      { title: "Publish", body: "Store submission, review fixes and launch, then updates as you grow." },
+      { title: "Define the app", body: "We agree who it is for and what the first version must do." },
+      { title: "Design the screens", body: "You can click through a preview of the app before it is built." },
+      { title: "Build and test", body: "We build in steps and test on real phones." },
+      { title: "Publish and support", body: "We publish to both stores and stay on hand after launch." },
     ],
     projectSlugs: ["emigo", "herruby-app"],
-    blogSlugs: ["fix-firebase-auth-invalid-api-key", "fix-firestore-missing-or-insufficient-permissions"],
+    blogSlugs: [],
     faq: [
       {
-        question: "Should I build native or cross-platform?",
+        question: "Will it work properly on both iPhone and Android?",
         answer:
-          "For most business apps, cross-platform with React Native is the better choice: one codebase, a lower cost and both stores at once. Fully native development makes sense mainly for apps that push the limits of device hardware or graphics.",
+          "Yes. It is built as one project but follows the habits and look of each phone, and we test on real devices.",
       },
       {
-        question: "Do you handle App Store and Google Play submission?",
+        question: "Do you handle the App Store review?",
         answer:
-          "Yes. We prepare the builds, store listings and privacy details, submit to both stores and handle any review feedback.",
-      },
-      {
-        question: "Can the app share a backend with my website?",
-        answer:
-          "Yes. Using Supabase or Firebase, the app and website can share the same accounts and data, so customers sign in once and see the same information everywhere.",
-      },
-      {
-        question: "How long does a mobile app take to build?",
-        answer:
-          "A focused first version usually takes eight to fourteen weeks including store review, depending on the number of screens, integrations and AI features.",
+          "Yes. We prepare everything the stores ask for and respond to any questions during review.",
       },
     ],
   },
-
   "ui-ux-design": {
-    metaTitle: "UI/UX Design for Websites, Apps & SaaS",
+    metaTitle: "Website & App Design",
     metaDescription:
-      "UI/UX and product design: user flows, wireframes, design systems and Figma prototypes that developers can build exactly. Design and development in one team.",
-    h1: "UI/UX & Product Design",
+      "Clear, modern designs that turn visitors into customers: research, layouts, clickable previews and designs ready for building.",
+    h1: "Clear, modern design that turns visitors into customers",
     intro: [
-      "Amex Technology designs websites, web apps and mobile apps with clear user flows, modern interfaces and design systems that scale. We work in Figma and hand over designs developers can build exactly.",
-      "Because the same team designs and builds, designs are realistic to build, and nothing gets lost between the designer and the developer.",
+      "Good products start with good design. Amex Technology works out what your visitors want to do, sketches the experience, and builds previews you can click through before anything is built.",
+      "You get designs that are easy to use, consistent across every page and ready for developers to build exactly as drawn.",
     ],
     whoFor: [
-      "Startups that need a product design before development starts",
-      "Businesses whose website looks dated or doesn't convert",
-      "SaaS products with confusing onboarding or dashboards",
-      "Brands launching a campaign, event or new product",
+      "Businesses whose website or app is confusing to use",
+      "Founders who want to test an idea before building it",
+      "Companies refreshing an out-of-date look",
+      "Teams who need a design that builders can follow",
     ],
     deliverables: [
       {
-        title: "User flows and wireframes",
-        body: "The steps users take and the layout of each screen, agreed before visual design begins.",
+        title: "Understanding your visitors",
+        body: "Research into who uses your product, what they want and where they get stuck.",
       },
       {
-        title: "Visual design",
-        body: "Modern, on-brand interfaces for desktop and mobile, designed for clarity and conversion.",
+        title: "Layouts and previews",
+        body: "Page layouts and clickable previews you can try early, when changes are cheap.",
       },
       {
-        title: "Design systems",
-        body: "Reusable components, colours and type styles, so new screens stay consistent and are faster to build.",
+        title: "A consistent look",
+        body: "Colours, type and buttons that work together across your whole product.",
       },
       {
-        title: "Interactive prototypes",
-        body: "Clickable Figma prototypes for testing with users or showing investors before any code is written.",
+        title: "Ready to build",
+        body: "Clear designs and notes handed to your builders, so the finished product matches.",
       },
     ],
     process: [
-      { title: "Understand", body: "Your users, goals and what your competitors do well and badly." },
-      { title: "Wireframe", body: "Structure and flow first, without colour or detail getting in the way." },
-      { title: "Design", body: "Visual design and a component library, reviewed with you." },
-      { title: "Hand off or build", body: "Developer-ready files, or we build it ourselves." },
+      { title: "Listen and research", body: "We learn about your business and your visitors." },
+      { title: "Sketch", body: "Early layouts that explore different ways to solve the problem." },
+      { title: "Refine", body: "We polish the best idea together with you." },
+      { title: "Hand over", body: "Final designs and a guide, ready for building." },
     ],
     projectSlugs: ["east-end-vintage-sale", "zenscroll", "wide-eyed-giant", "buttercream-bus"],
     blogSlugs: [],
     faq: [
       {
-        question: "Do you only design, or also build?",
+        question: "Can you redesign my existing website?",
         answer:
-          "Both. We can hand over Figma files to your developers, or design and build the product ourselves so the finished result matches the design exactly.",
+          "Yes. We can refresh the look, improve how it works, or rethink it completely, while keeping what already works well.",
       },
       {
-        question: "What tools do you use?",
+        question: "Do you also build what you design?",
         answer:
-          "Figma for design and prototypes, and component libraries such as shadcn/ui with Tailwind CSS for development, which keeps the design and the code in step.",
-      },
-      {
-        question: "Can you redesign my existing website or app?",
-        answer:
-          "Yes. We review what works and what doesn't, keep the parts your users rely on, and redesign the rest, then build it or hand it over.",
-      },
-      {
-        question: "How long does a design project take?",
-        answer:
-          "A website design usually takes one to three weeks. A full web or mobile app design typically takes three to six weeks, depending on the number of screens.",
+          "Yes, if you would like. Having the same team design and build keeps everything accurate and avoids delays.",
       },
     ],
   },
-
   "devops-deployment": {
-    metaTitle: "Cloud Hosting, DevOps & Website Care Plans",
+    metaTitle: "Hosting, Upkeep & Website Care Plans",
     metaDescription:
-      "Vercel, AWS and Cloudflare setup, CI/CD, monitoring, backups and monthly care plans so your website or app stays fast, secure and online.",
-    h1: "Cloud, DevOps & Care Plans",
+      "Reliable hosting, backups, security updates and monthly care so your website or app stays online and up to date.",
+    h1: "Hosting and care so your site or app stays up and up to date",
     intro: [
-      "Amex Technology sets up the hosting and deployment for your website or app and then looks after it. Automated deployments, monitoring and backups keep it online, and a monthly care plan covers updates, fixes and small improvements.",
-      "We work with Vercel, AWS, Cloudflare, Supabase, Docker and GitHub Actions, and we also sort out the parts that quietly break things: domains, DNS, SSL and email deliverability.",
+      "A website is not finished when it launches. Amex Technology sets up reliable hosting and then looks after it: backups, monitoring and security updates keep you online, and a monthly care plan covers fixes and small improvements.",
+      "If something goes wrong, you have someone to call, who already knows your site.",
     ],
     whoFor: [
-      "Businesses whose site or app goes down and nobody notices until a customer complains",
-      "Teams deploying by hand and afraid to release",
-      "Founders whose developer has moved on and left no one in charge",
-      "Companies with email landing in spam because of DNS problems",
+      "Businesses whose site goes down or runs slowly",
+      "Owners who inherited a site and don't know how it works",
+      "Companies that want fixes and updates handled each month",
+      "Anyone whose business emails land in spam",
     ],
     deliverables: [
       {
-        title: "Hosting and CI/CD",
-        body: "Hosting set up on the right platform, with automatic preview and production deploys from GitHub.",
+        title: "Smooth updates",
+        body: "Changes go live without taking your site offline.",
       },
       {
-        title: "Monitoring and backups",
-        body: "Uptime, error and security monitoring, plus database backups you've actually tested restoring.",
+        title: "Watching over your site",
+        body: "Alerts when something slows down, breaks or looks unsafe.",
       },
       {
-        title: "Domains, DNS and email",
-        body: "Domain and DNS setup on Cloudflare or your registrar, SSL, and SPF, DKIM and DMARC for email deliverability.",
+        title: "Backups and updates",
+        body: "Regular backups and security updates, so a problem is never a disaster.",
       },
       {
-        title: "Monthly care plans",
-        body: "Dependency and security updates, fixes and small improvements each month, with a short report.",
+        title: "Address and email set-up",
+        body: "Your web address, security certificate and business email set up correctly, so messages arrive in inboxes, not spam.",
       },
     ],
     process: [
-      { title: "Review", body: "Where everything is hosted, who has access and what would happen if it broke." },
-      { title: "Set up", body: "Deployments, monitoring, backups and access cleaned up and documented." },
-      { title: "Hand over access", body: "Everything stays in accounts you own, with a written runbook." },
-      { title: "Look after it", body: "Monthly updates and fixes, and a fast response when something goes wrong." },
+      { title: "Review", body: "We look at where your site lives today and how it is looked after." },
+      { title: "Secure and move", body: "We put access in accounts you own and fix any risks." },
+      { title: "Set up monitoring", body: "We add alerts and backups so problems are caught early." },
+      { title: "Ongoing care", body: "Each month we update, fix and improve, and tell you what we did." },
     ],
     projectSlugs: ["firmsledger", "goswiftfund", "tiancheng-development-group"],
-    blogSlugs: ["how-to-setup-cloudflare-dns", "fix-vercel-404-not-found-after-deploy", "how-to-setup-resend-email", "fix-vercel-build-fails-supabase-env-variables"],
+    blogSlugs: [],
     faq: [
       {
-        question: "What's included in a care plan?",
+        question: "Can you take over a website another developer built?",
         answer:
-          "Security and dependency updates, uptime and error monitoring, backups, small fixes and content changes, and a short monthly report. Plans range from a few hours a month to ongoing development.",
+          "Yes. We review it, move access into accounts you own, document how it works and then look after it.",
       },
       {
-        question: "Which hosting do you recommend?",
+        question: "Why do my business emails go to spam?",
         answer:
-          "For Next.js and React sites, usually Vercel with Cloudflare for DNS. For apps that need more control or long-running servers, AWS or a container platform. We recommend based on your traffic, budget and team.",
-      },
-      {
-        question: "Can you take over a site another developer built?",
-        answer:
-          "Yes. We review the code and hosting, move access into accounts you own, document how it works and then maintain it.",
-      },
-      {
-        question: "Why do my emails go to spam?",
-        answer:
-          "Usually because SPF, DKIM or DMARC records are missing or wrong for your domain. We check and fix the DNS records and test deliverability with your email provider.",
+          "Usually because a few behind-the-scenes settings for your web address are missing or wrong. We check and correct them, then test that messages arrive properly.",
       },
     ],
   },

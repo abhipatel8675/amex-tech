@@ -19,8 +19,16 @@ const services = [
 // service names; map them to an option in the list so the select is prefilled.
 const SERVICE_ALIASES: Record<string, string> = {
   "Law firm website": "Websites & Web Apps",
-  "Google Business Profile setup": "SEO Services (SEO & GEO)",
+  "Google Business Profile setup": "Get Found on Google & AI Search",
   Website: "Websites & Web Apps",
+  // Previous service names, kept so bookmarked and emailed links still prefill.
+  "AI Agents & Automation": "AI Assistants & Automation",
+  "AI SaaS & MVP Development": "New Product & First Version",
+  "SEO Services (SEO & GEO)": "Get Found on Google & AI Search",
+  "AEO (Answer Engine Optimization)": "Be the Answer in AI Search",
+  "CRM & Marketing Automation": "Customer Follow-Up Automation",
+  "UI/UX & Product Design": "Website & App Design",
+  "Cloud, DevOps & Care Plans": "Hosting, Upkeep & Care Plans",
 };
 
 const budgets = [

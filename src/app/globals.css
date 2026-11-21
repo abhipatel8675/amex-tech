@@ -460,3 +460,26 @@
   outline: 3px solid var(--ax-amber);
   outline-offset: 3px;
 }
+
+/* ---- Smooth scrolling (Lenis) + anchor offset under the floating navbar ---- */
+html { scroll-padding-top: 100px; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: clip; }
+
+/* ---- Light theme tokens (primary surface of the site) ---- */
+:root {
+  --ax-bg: #fbfaf8;
+  --ax-bg-2: #f3f0ea;
+  --ax-card: #ffffff;
+  --ax-ink: #1c1624;
+  --ax-ink-soft: #5b5366;
+  --ax-line: rgba(28, 22, 36, 0.1);
+  --ax-accent: #ffb534;       /* solid amber for buttons */
+  --ax-accent-hover: #f5a012;
+  --ax-accent-text: #b8530b;  /* readable orange for text on light */
+  --ax-tint: #fff1d6;         /* soft amber tint for highlighted panels */
+  --ax-deep: #1c1624;         /* deep plum for the dark sections */
+  --ax-sand: #f5ead6;         /* third background: warm sand */
+}

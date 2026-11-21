@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import SmoothScroll from "@/components/site/SmoothScroll";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { services } from "@/data/services";
 import { COMPANY_ADDRESS, OFFICE_PHONE, US_PHONE, CLUTCH_URL } from "@/data/company";
@@ -200,6 +201,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-[#f7f6f2] text-[#1a211d] antialiased">
         <ScrollProgress />
+        <SmoothScroll />
         {children}
         <SpeedInsights />
         <Script

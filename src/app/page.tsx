@@ -1,27 +1,28 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import AgencyHome from "@/components/agency/AgencyHome";
-import { agencyFaqs } from "@/components/agency/AgencySections";
+import Home from "@/components/home/Home";
+import { homeFaqs } from "@/data/homeFaqs";
+
+const title = "Amex Technology | Websites, Apps & AI Tools for Growing Businesses";
+const description =
+  "Amex Technology designs and builds websites, apps and AI tools for businesses around the world, and helps customers find you on Google and in AI search. Free quote.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Amex Technology | Web, App & AI Development Company" },
-  description:
-    "Web, app and AI development company in Ahmedabad, India, building websites, web apps, mobile apps and AI automations for clients in the US, Australia and UK. Free quote.",
+  title: { absolute: title },
+  description,
   alternates: {
     canonical: "https://amextechnology.com",
   },
   openGraph: {
-    title: "Amex Technology | Web, App & AI Development Company",
-    description:
-      "Web, app and AI development company in Ahmedabad, India, building websites, web and mobile apps and AI automations for clients in the US, Australia and UK.",
+    title,
+    description,
     url: "https://amextechnology.com",
     type: "website",
   },
   twitter: {
-    title: "Amex Technology | Web, App & AI Development Company",
-    description:
-      "Web, app and AI development company in Ahmedabad, India, building websites, web and mobile apps and AI automations for clients in the US, Australia and UK.",
+    title,
+    description,
   },
 };
 
@@ -36,7 +37,7 @@ const websiteSchema = {
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: agencyFaqs.map(([question, answer]) => ({
+  mainEntity: homeFaqs.map(({ question, answer }) => ({
     "@type": "Question",
     name: question,
     acceptedAnswer: { "@type": "Answer", text: answer },
@@ -45,18 +46,12 @@ const faqSchema = {
 
 export default function HomePage() {
   return (
-    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+    <div className="bg-[#fbfaf8] text-[#1c1624] min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
       <main id="main-content">
-        <AgencyHome />
+        <Home />
       </main>
       <Footer />
     </div>

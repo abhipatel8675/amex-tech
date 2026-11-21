@@ -33,6 +33,7 @@ export default function Navbar() {
     if (!open) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    window.dispatchEvent(new CustomEvent("amex:scroll-lock", { detail: true }));
     function onKey(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOrigin();
@@ -58,6 +59,7 @@ export default function Navbar() {
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = previous;
+      window.dispatchEvent(new CustomEvent("amex:scroll-lock", { detail: false }));
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);
@@ -123,6 +125,7 @@ export default function Navbar() {
         data-open={open}
         ref={panel}
         role="dialog"
+        data-lenis-prevent
         aria-modal="true"
         aria-label="Site menu"
         inert={!open}
