@@ -148,10 +148,9 @@ export default async function ServiceDetailPage({ params }: Props) {
             ))}
           </ol>
           <p className="text-[#4d554b] mt-6 leading-relaxed">
-            Our development team is in India and our founder, Abhi Patel, is based in the Los Angeles area, so US clients
-            get working hours that overlap with theirs.{" "}
-            <Link href="/los-angeles" className="font-semibold text-[#7A5807] hover:underline">
-              Working with Los Angeles businesses
+            Our development team is in India and we work with clients worldwide, agreeing meeting times that suit your time zone.{" "}
+            <Link href="/web-and-ai-development" className="font-semibold text-[#7A5807] hover:underline">
+              How we work with clients worldwide
             </Link>
             .
           </p>

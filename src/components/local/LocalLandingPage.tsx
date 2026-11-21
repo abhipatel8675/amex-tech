@@ -36,7 +36,7 @@ export default function LocalLandingPage({ page }: { page: LocalPage }) {
     description: page.description,
     url,
     provider: { "@id": `${BASE_URL}/#organization` },
-    areaServed: { "@type": "City", name: "Los Angeles", containedInPlace: { "@type": "State", name: "California" } },
+    areaServed: "Worldwide",
   };
 
   const faqSchema = {
@@ -54,7 +54,7 @@ export default function LocalLandingPage({ page }: { page: LocalPage }) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
-      { "@type": "ListItem", position: 2, name: "Los Angeles", item: `${BASE_URL}/los-angeles` },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${BASE_URL}/services` },
       { "@type": "ListItem", position: 3, name: page.breadcrumb, item: url },
     ],
   };
@@ -81,7 +81,7 @@ export default function LocalLandingPage({ page }: { page: LocalPage }) {
             <Breadcrumb
               variant="inline"
               className={s.crumbs}
-              items={[{ label: "Home", href: "/" }, { label: "Los Angeles", href: "/los-angeles" }, { label: page.breadcrumb }]}
+              items={[{ label: "Home", href: "/" }, { label: "Services", href: "/services" }, { label: page.breadcrumb }]}
             />
             <p className={s.eyebrow}>{page.eyebrow}</p>
             <h1>{page.h1}</h1>

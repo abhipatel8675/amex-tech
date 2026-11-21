@@ -257,7 +257,7 @@ export const agencyFaqs = [
   ],
   [
     "Do you work with international clients?",
-    "Yes. Our founder, Abhi Patel, is based in Los Angeles and our development team is in India, so we work with clients across the US and internationally. We agree on communication, meeting times and delivery expectations at the start.",
+    "Yes. Our development team is in India and we work with clients across the US, UK, Australia, Canada and beyond. We agree on communication, meeting times and delivery expectations at the start.",
   ],
 ];
 export function AgencyFAQ({ hiring = false }: { hiring?: boolean }) {
@@ -324,9 +324,9 @@ export function AiAgentFeature() {
 }
 const offers = [
   {
-    title: "Websites for LA trade businesses",
+    title: "Websites for trade businesses",
     desc: "A 5-page site on your own domain with a quote form and Google basics, for plumbers, HVAC, handymen and contractors.",
-    href: "/la-website",
+    href: "/trade-business-websites",
   },
   {
     title: "Fix your app error in 24 hours",

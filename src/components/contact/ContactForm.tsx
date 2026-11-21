@@ -15,12 +15,11 @@ const services = [
   "Other / Not Sure",
 ];
 
-// Older links (local SEO pages, /los-angeles, Website Grader emails) use these
+// Older links (local SEO pages, Website Grader emails) use these
 // service names; map them to an option in the list so the select is prefilled.
 const SERVICE_ALIASES: Record<string, string> = {
   "Law firm website": "Websites & Web Apps",
   "Google Business Profile setup": "SEO Services (SEO & GEO)",
-  "Los Angeles project": "Other / Not Sure",
   Website: "Websites & Web Apps",
 };
 

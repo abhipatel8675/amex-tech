@@ -6,20 +6,20 @@ import AgencyAbout from "@/components/agency/AgencyAbout";
 export const metadata: Metadata = {
   title: "About Us: Development Team, Ahmedabad",
   description:
-    "Amex Technology is a web, app and AI development company based in Ahmedabad, India, founded by Abhi Patel (Los Angeles). Top Rated Plus on Upwork.",
+    "Amex Technology is a web, app and AI development company based in Ahmedabad, India, founded by Abhi Patel. Top Rated Plus on Upwork.",
   alternates: {
     canonical: "https://amextechnology.com/about",
   },
   openGraph: {
     title: "About Us: Development Team, Ahmedabad | Amex Technology",
     description:
-      "Amex Technology is a web, app and AI development company based in Ahmedabad, India, founded by Abhi Patel (Los Angeles). Top Rated Plus on Upwork.",
+      "Amex Technology is a web, app and AI development company based in Ahmedabad, India, founded by Abhi Patel. Top Rated Plus on Upwork.",
     url: "https://amextechnology.com/about",
   },
   twitter: {
     title: "About Us: Development Team, Ahmedabad | Amex Technology",
     description:
-      "Amex Technology is a web, app and AI development company based in Ahmedabad, India, founded by Abhi Patel (Los Angeles). Top Rated Plus on Upwork.",
+      "Amex Technology is a web, app and AI development company based in Ahmedabad, India, founded by Abhi Patel. Top Rated Plus on Upwork.",
   },
 };
 

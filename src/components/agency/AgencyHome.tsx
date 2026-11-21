@@ -31,7 +31,7 @@ export default function AgencyHome() {
           <div className={s.heroGrid}>
             <div>
               <p className={s.eyebrow}>
-                Web, SEO &amp; AI development · Los Angeles
+                Web, SEO &amp; AI development · Worldwide
               </p>
               <h1>
                 Websites, apps and AI tools
@@ -42,7 +42,7 @@ export default function AgencyHome() {
                 Amex Technology designs and builds websites, web apps, mobile
                 apps and AI automations, then does the SEO that gets them found
                 on Google and in AI search. Development company based in
-                Ahmedabad, India. Founder Abhi Patel, Los Angeles.
+                Ahmedabad, India, serving clients worldwide.
               </p>
               <div className={s.actions}>
                 <Link className={s.button} href="/contact">

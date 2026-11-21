@@ -1,7 +1,7 @@
 import LocalLandingPage, { localPageMetadata } from "@/components/local/LocalLandingPage";
 import { getLocalPage } from "@/data/localPages";
 
-const page = getLocalPage("law-firm-web-design-los-angeles");
+const page = getLocalPage("google-business-profile-setup");
 
 export const metadata = localPageMetadata(page);
 

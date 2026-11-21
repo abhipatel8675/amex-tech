@@ -5,11 +5,11 @@ export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export const alt = "Web & AI Development for Los Angeles Businesses";
+export const alt = "Web & AI Development for Businesses Worldwide";
 
 export default function OgImage() {
-  const title = "Web & AI Development for Los Angeles Businesses";
-  const category = "Los Angeles";
+  const title = "Web & AI Development for Businesses Worldwide";
+  const category = "Worldwide";
 
   return new ImageResponse(
     (
@@ -59,7 +59,7 @@ export default function OgImage() {
         </h1>
 
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <span style={{ color: "#9a722a", fontSize: "18px" }}>amextechnology.com/los-angeles</span>
+          <span style={{ color: "#9a722a", fontSize: "18px" }}>amextechnology.com/web-and-ai-development</span>
         </div>
       </div>
     ),

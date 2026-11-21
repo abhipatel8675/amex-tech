@@ -62,19 +62,19 @@ export default function AgencyContact() {
                 },
                 {
                   icon: Phone,
-                  title: "Call our founder in Los Angeles",
+                  title: "Call our US line",
                   text: US_PHONE.display,
                   href: `tel:${US_PHONE.tel}`,
                 },
                 {
                   icon: Clock,
                   title: "Office hours",
-                  text: `Ahmedabad office: Monday–Saturday, ${OFFICE_HOURS_IST} (${OFFICE_HOURS_NOTE}). Founder in Los Angeles: Monday–Saturday, 9am–6pm Pacific.`,
+                  text: `Ahmedabad office: Monday–Saturday, ${OFFICE_HOURS_IST} (${OFFICE_HOURS_NOTE}). US line: Monday–Saturday, 9am–6pm Pacific.`,
                 },
                 {
                   icon: Globe,
-                  title: "Based in Ahmedabad, India. Founder in Los Angeles.",
-                  text: "US clients get Pacific-time calls; we agree on meeting times that work for your team.",
+                  title: "Based in Ahmedabad, India. Working worldwide.",
+                  text: "We agree on meeting times that work for your team, wherever you are.",
                 },
                 {
                   icon: ShieldCheck,

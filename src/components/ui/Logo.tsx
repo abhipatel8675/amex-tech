@@ -14,7 +14,7 @@ export function LogoMark({
 }) {
   return (
     <Image
-      src="/images/logo-mark.png"
+      src={size > 96 ? "/icons/icon-512x512.png" : "/icons/icon-192x192.png"}
       alt="Amex Technology"
       width={size}
       height={size}

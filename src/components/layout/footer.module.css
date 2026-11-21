@@ -1,0 +1,86 @@
+/* Footer: a warm gradient panel with rounded top corners. The brand tile echoes the app icon. */
+.footer {
+  background: var(--ax-grad); color: var(--ax-on-amber);
+  border-radius: clamp(28px, 4vw, 56px) clamp(28px, 4vw, 56px) 0 0;
+  margin-top: -1px;
+}
+.inner { padding: clamp(56px, 7vw, 104px) var(--ax-gutter) 28px; max-width: 1480px; margin-inline: auto; }
+
+.top {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: clamp(32px, 6vw, 96px); align-items: center;
+  margin-bottom: clamp(48px, 6vw, 88px);
+}
+.newsletter { order: 1; }
+.tile {
+  order: 2; justify-self: end; width: min(100%, 300px); aspect-ratio: 1;
+  display: grid; place-items: center;
+  background: var(--ax-black); border-radius: 22%;
+  box-shadow: 0 24px 60px -24px rgba(23, 15, 8, 0.6);
+}
+.mark { width: 56%; height: auto; }
+.big {
+  font-size: clamp(2rem, 1.2rem + 3.4vw, 4rem); font-weight: 800; letter-spacing: -0.045em; line-height: 1;
+  margin: 0 0 16px; max-width: 16ch;
+}
+.lead { font-size: var(--ax-body); max-width: 46ch; margin: 0 0 24px; line-height: 1.45; }
+
+.form {
+  display: flex; gap: 6px; max-width: 540px; padding: 6px;
+  background: rgba(255, 255, 255, 0.35); border-radius: var(--ax-pill);
+}
+.form input {
+  flex: 1; min-width: 0; min-height: 52px; padding: 0 20px;
+  background: transparent; color: var(--ax-on-amber); border: 0; border-radius: var(--ax-pill);
+  font: inherit; font-size: 1rem;
+}
+.form input::placeholder { color: rgba(23, 15, 8, 0.6); }
+.form button, .button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; padding: 0 26px; border: 0; border-radius: var(--ax-pill); cursor: pointer;
+  background: var(--ax-black); color: var(--ax-paper); font: inherit; font-weight: 700; font-size: 1rem;
+  transition: background-color 200ms linear, transform 200ms var(--ax-ease);
+}
+.form button:hover, .button:hover { background: var(--ax-black-2); transform: translateY(-1px); }
+.form button:active, .button:active { transform: scale(0.97); }
+.form button:disabled { opacity: 0.7; cursor: not-allowed; }
+.form input:focus-visible { outline: none; }
+.form:focus-within { box-shadow: 0 0 0 3px var(--ax-black); }
+.button:focus-visible, .form button:focus-visible, .footer a:focus-visible { outline: 3px solid var(--ax-black); outline-offset: 3px; }
+.feedback { margin: 12px 0 0 20px; font-weight: 600; }
+.feedback[data-status="error"] { color: #5c0a1c; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.columns {
+  display: grid; gap: 40px; grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: clamp(28px, 3vw, 44px); margin-bottom: clamp(32px, 4vw, 56px);
+  background: rgba(23, 15, 8, 0.08); border-radius: var(--ax-radius);
+}
+.colTitle { font-size: 1rem; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 12px; }
+.list { list-style: none; margin: 0 0 16px; padding: 0; }
+.list a, .address a, .legal a {
+  display: inline-flex; align-items: center; min-height: 34px; font-weight: 600; font-size: 0.9375rem;
+  text-underline-offset: 4px; text-decoration-thickness: 2px;
+}
+.list a:hover, .address a:hover, .legal a:hover { text-decoration-line: underline; }
+.address { font-style: normal; display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 12px; }
+.address span { max-width: 30ch; line-height: 1.5; margin-top: 6px; font-size: var(--ax-small); }
+.button { margin-top: 6px; padding-inline: 22px; }
+
+.bottom {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 12px 32px; font-size: var(--ax-small);
+}
+.bottom p { margin: 0; max-width: 56ch; }
+.legal { display: flex; flex-wrap: wrap; gap: 0 20px; list-style: none; margin: 0; padding: 0; }
+
+@media (max-width: 1000px) {
+  .columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .top { grid-template-columns: 1fr; }
+  .tile { order: 0; justify-self: start; width: 120px; }
+}
+@media (max-width: 560px) {
+  .columns { grid-template-columns: 1fr; }
+  .form { flex-direction: column; border-radius: 28px; }
+  .form input { min-height: 48px; }
+}

@@ -7,7 +7,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-schibsted), var(--font-inter), system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Fira Code", monospace;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -393,3 +393,70 @@
 .blog-checklist li:last-child { border-bottom: none; }
 .blog-checklist li.done { color: #059669; }
 .blog-checklist li.warn { color: #B45309; }
+
+/* ==========================================================================
+   AMEX design system — derived from the logo (amber chevron on black).
+   Colour chapters: each section is one flat field. No gradients, no shadows.
+   ========================================================================== */
+:root {
+  /* Brand: warm logo hues over a deep plum-black */
+  --ax-black: #0d0a14;
+  --ax-black-2: #17111f;      /* raised surface */
+  --ax-surface: #1f1829;      /* cards on black */
+  --ax-amber: #ffc247;        /* logo amber, lifted a touch */
+  --ax-orange: #ff8c3a;       /* logo orange */
+  --ax-coral: #ff5c7a;        /* warm end of the gradient */
+  --ax-grad: linear-gradient(120deg, #ffc247 0%, #ff8c3a 52%, #ff5c7a 100%);
+  --ax-paper: #f6f3f8;        /* soft lilac-white */
+  --ax-paper-2: #e9e4ef;
+  /* Text on each field */
+  --ax-on-black: #f6f3f8;
+  --ax-on-black-soft: #bdb6c9;
+  --ax-on-amber: #170f08;
+  --ax-on-paper: #140f1c;
+  --ax-on-paper-soft: #4d4559;
+  /* Glass */
+  --ax-glass: rgba(44, 16, 20, 0.82);
+  --ax-glass-line: rgba(255, 190, 110, 0.3);
+  /* Layout */
+  --ax-gutter: clamp(20px, 3vw, 40px);
+  --ax-radius: 22px;
+  --ax-pill: 999px;
+  /* Type steps (five only) */
+  --ax-small: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --ax-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --ax-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --ax-head: clamp(2.25rem, 1.3rem + 4vw, 5rem);
+  --ax-display: clamp(3.25rem, 1rem + 9vw, 9rem);
+  /* Motion */
+  --ax-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ax-dur: 700ms;
+}
+
+/* Scroll reveal. Hidden only when scripting runs; content never stays hidden. */
+.ax-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--ax-dur) var(--ax-ease) calc(var(--d, 0) * 80ms),
+    transform var(--ax-dur) var(--ax-ease) calc(var(--d, 0) * 80ms);
+}
+.ax-reveal[data-in="true"] {
+  opacity: 1;
+  transform: none;
+}
+@media (scripting: none) {
+  .ax-reveal { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ax-reveal { transform: none; transition: opacity 200ms linear; }
+  html { scroll-behavior: auto; }
+}
+
+/* Visible keyboard focus everywhere on the new system */
+.ax-focus:focus-visible,
+.ax-field a:focus-visible,
+.ax-field button:focus-visible {
+  outline: 3px solid var(--ax-amber);
+  outline-offset: 3px;
+}

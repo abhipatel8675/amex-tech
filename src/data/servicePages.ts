@@ -213,7 +213,7 @@ export const servicePages: Record<string, ServicePage> = {
   "seo-services": {
     metaTitle: "SEO Services: Google & AI Search",
     metaDescription:
-      "SEO services for Los Angeles and US businesses: technical SEO, local SEO, Google Business Profile and GEO so customers find you on Google, ChatGPT and Perplexity.",
+      "SEO services for businesses worldwide: technical SEO, local SEO, Google Business Profile and GEO so customers find you on Google, ChatGPT and Perplexity.",
     h1: "SEO Services: Get Found on Google and in AI Search",
     intro: [
       "Customers now search on Google and inside AI assistants like ChatGPT, Perplexity and Gemini. Amex Technology fixes technical SEO, builds pages around what your customers actually search, optimises your Google Business Profile for local search, and applies Generative Engine Optimization (GEO) so AI tools understand and recommend your business.",

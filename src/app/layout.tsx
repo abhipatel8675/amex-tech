@@ -34,6 +34,12 @@ const inter = localFont({
   display: "swap",
 });
 
+const schibsted = localFont({
+  src: [{ path: "../../public/fonts/schibsted-grotesk-latin.woff2", weight: "400 800", style: "normal" }],
+  variable: "--font-schibsted",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://amextechnology.com"),
   title: {
@@ -43,7 +49,7 @@ export const metadata: Metadata = {
   description:
     "Web, app and AI development company in Ahmedabad, India, building websites, web apps, mobile apps and AI automations for clients in the US, Australia and UK. Free quote.",
   keywords:
-    "web development company India, app development company Ahmedabad, AI development agency, web design for Los Angeles businesses, AI agents, AI automation, website development, web app development, AI SaaS MVP, mobile app development, GEO, generative engine optimization, AEO, answer engine optimization, SEO services, GoHighLevel, CRM automation, Next.js, Supabase, Lovable app fixes",
+    "web development company India, app development company Ahmedabad, AI development agency, AI agents, AI automation, website development, web app development, AI SaaS MVP, mobile app development, GEO, generative engine optimization, AEO, answer engine optimization, SEO services, CRM automation",
   authors: [{ name: "Abhi Patel", url: "https://amextechnology.com/about" }],
   creator: "Amex Technology",
   openGraph: {
@@ -87,7 +93,7 @@ const organizationSchema = {
   name: "Amex Technology",
   alternateName: ["AmexTechnology", "Amex Technology India", "amextechnology.com"],
   url: "https://amextechnology.com",
-  logo: "https://amextechnology.com/images/logo.png",
+  logo: "https://amextechnology.com/icons/icon-512x512.png",
   description:
     "Web, app and AI development company based in Ahmedabad, India. Builds websites, web apps, mobile apps and AI automations, and provides SEO, GEO and AEO services.",
   // "Amex Technology" is also the name of American Express's internal technology
@@ -139,7 +145,7 @@ const organizationSchema = {
       availableLanguage: "English",
     },
   ],
-  image: "https://amextechnology.com/images/logo.png",
+  image: "https://amextechnology.com/icons/icon-512x512.png",
   areaServed: ["US", "AU", "GB", "CA", "IN"],
   sameAs: [
     "https://www.fiverr.com/abhipatel956",
@@ -179,9 +185,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased dark`}>
+    <html lang="en" className={`${schibsted.variable} ${inter.variable} h-full antialiased dark`}>
       <head>
-        <meta name="theme-color" content="#f7f6f2" />
+        <meta name="theme-color" content="#0a0a0a" />
         {/* Google Search Console verification — replace content value with your verification code */}
         {/* <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_CODE" /> */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />

@@ -49,7 +49,7 @@ export default function AgencyAbout() {
             </p>
             <p>
               Amex Technology is based in Ahmedabad, India, where our
-              development team works. Our founder, Abhi Patel, is in Los Angeles. We keep collaboration direct and
+              development team works. We keep collaboration direct and
               practical: clear milestones, regular conversations, and work you
               can see as it develops.
             </p>
@@ -72,7 +72,7 @@ export default function AgencyAbout() {
               Abhi Patel founded Amex Technology and leads every project
               personally. He is based in Los Angeles and works with the
               development team in Ahmedabad, which keeps projects affordable while
-              giving US clients a contact on Pacific time. Over 5 years he has
+              keeping a direct line to the person leading your project. Over 5 years he has
               built websites, web and mobile apps, and AI automations for
               clients around the world, and is Top Rated Plus on Upwork with
               more than $80K earned on the platform.
@@ -86,8 +86,8 @@ export default function AgencyAbout() {
               >
                 View our Upwork profile <ArrowUpRight size={17} />
               </a>
-              <Link href="/los-angeles" className={s.textLink}>
-                Serving Los Angeles businesses{" "}
+              <Link href="/web-and-ai-development" className={s.textLink}>
+                How we work with clients worldwide{" "}
                 <ArrowUpRight size={17} />
               </Link>
             </div>

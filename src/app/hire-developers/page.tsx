@@ -91,7 +91,7 @@ const timeZones = [
   {
     label: "US CLIENTS",
     title: "Our team works overnight for you",
-    desc: "Our developers are in Ahmedabad on IST (UTC+5:30), roughly 12.5 to 13.5 hours ahead of Pacific time. Work you approve in your afternoon is often built overnight and ready to review the next morning.",
+    desc: "Our developers are in Ahmedabad on IST (UTC+5:30), roughly 12.5 to 13.5 hours ahead of the US West Coast. Work you approve in your afternoon is often built overnight and ready to review the next morning.",
   },
   {
     label: "AUSTRALIA & UK",
@@ -99,9 +99,9 @@ const timeZones = [
     desc: "Our working day overlaps with Australian and UK business hours, so live calls and quick questions are easy to schedule.",
   },
   {
-    label: "FOUNDER IN LA",
-    title: "A contact on Pacific time",
-    desc: "Founder Abhi Patel is in Los Angeles and available Monday to Saturday, 9am to 6pm Pacific, for calls and scoping.",
+    label: "DIRECT ACCESS",
+    title: "Talk to the founder",
+    desc: "Founder Abhi Patel is available Monday to Saturday for calls and scoping, at a time that works in your time zone.",
   },
 ];
 export default function HireDevelopersPage() {
