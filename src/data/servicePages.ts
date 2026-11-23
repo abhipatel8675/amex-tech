@@ -120,7 +120,7 @@ export const servicePages: Record<string, ServicePage> = {
       { title: "Launch and support", body: "Domain, visitor tracking and Google setup at launch, followed by a support period." },
     ],
     projectSlugs: ["goswiftfund", "wolfe-property", "ultra-windows", "firmsledger", "island-traffic-defense"],
-    blogSlugs: ["web-app-development-cost", "connect-nextjs-react-with-supabase", "connect-vercel-app-godaddy-domain"],
+    blogSlugs: ["web-app-development-cost"],
     faq: [
       {
         question: "How much does a website or web app cost?",
@@ -185,7 +185,7 @@ export const servicePages: Record<string, ServicePage> = {
       { title: "Launch and improve", body: "Live hosting, monitoring and reporting, then improvements based on real use." },
     ],
     projectSlugs: ["hoursheets", "hmd", "periscope-email", "goswiftfund"],
-    blogSlugs: ["web-app-development-cost", "bolt-new-review", "how-to-export-code-from-lovable", "fix-new-row-violates-row-level-security-policy-supabase"],
+    blogSlugs: ["web-app-development-cost", "bolt-new-review", "how-to-export-code-from-lovable"],
     faq: [
       {
         question: "How much does a software MVP cost?",
@@ -325,7 +325,7 @@ export const servicePages: Record<string, ServicePage> = {
       {
         question: "What is the summary file for AI tools?",
         answer:
-          "It's a plain-text file on your website, called llms.txt, that describes who you are and links to your key pages, written for AI tools to read. It's a small, low-cost addition alongside clear content.",
+          "It's a plain-text page on your website that describes who you are and links to your key pages, written for AI tools to read. It's a small, low-cost addition alongside clear content.",
       },
       {
         question: "Do FAQ sections still help?",
@@ -445,7 +445,7 @@ export const servicePages: Record<string, ServicePage> = {
       { title: "Publish", body: "Store submission, review fixes and launch, then updates as you grow." },
     ],
     projectSlugs: ["emigo", "herruby-app"],
-    blogSlugs: ["fix-firebase-auth-invalid-api-key", "fix-firestore-missing-or-insufficient-permissions"],
+    blogSlugs: [],
     faq: [
       {
         question: "Should I build one app for both phones or separate apps?",
@@ -575,7 +575,7 @@ export const servicePages: Record<string, ServicePage> = {
       { title: "Look after it", body: "Monthly updates and fixes, and a fast response when something goes wrong." },
     ],
     projectSlugs: ["firmsledger", "goswiftfund", "tiancheng-development-group"],
-    blogSlugs: ["how-to-setup-cloudflare-dns", "fix-vercel-404-not-found-after-deploy", "how-to-setup-resend-email", "fix-vercel-build-fails-supabase-env-variables"],
+    blogSlugs: [],
     faq: [
       {
         question: "What's included in a care plan?",
@@ -585,7 +585,7 @@ export const servicePages: Record<string, ServicePage> = {
       {
         question: "Which hosting do you recommend?",
         answer:
-          "It depends on your traffic, budget and team. For most business websites we use Vercel with Cloudflare for domain management. For larger apps we use AWS. We'll explain the options before we choose.",
+          "It depends on your traffic, budget and team. For most business websites we use a modern hosting service together with a separate service that manages your domain. For larger apps we use Amazon's cloud hosting. We'll explain the options before we choose.",
       },
       {
         question: "Can you take over a site another developer built?",

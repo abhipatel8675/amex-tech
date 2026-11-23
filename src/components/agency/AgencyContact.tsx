@@ -69,7 +69,7 @@ export default function AgencyContact() {
                 {
                   icon: Clock,
                   title: "Office hours",
-                  text: `Ahmedabad office: Monday–Saturday, ${OFFICE_HOURS_IST} (${OFFICE_HOURS_NOTE}). US line: Monday–Saturday, 9am–6pm Pacific.`,
+                  text: `Ahmedabad office: Monday–Saturday, ${OFFICE_HOURS_IST} (${OFFICE_HOURS_NOTE}). US line: Monday–Saturday, during US business hours.`,
                 },
                 {
                   icon: Globe,

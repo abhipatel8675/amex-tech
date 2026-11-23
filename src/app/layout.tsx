@@ -81,7 +81,7 @@ const organizationSchema = {
   "@type": ["Organization", "ProfessionalService"],
   "@id": "https://amextechnology.com/#organization",
   name: "Amex Technology",
-  alternateName: ["AmexTechnology", "Amex Technology India", "amextechnology.com"],
+  alternateName: ["AmexTechnology", "amextechnology.com"],
   url: "https://amextechnology.com",
   logo: "https://amextechnology.com/icons/icon-512x512.png",
   description:

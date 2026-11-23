@@ -100,7 +100,7 @@ export default async function PortfolioPage() {
             </h1>
             <p className={s.intro}>
               Explore the products we&apos;ve designed and built across web, mobile,
-              SaaS, and AI, with the story and technology behind each one.
+              software, and AI, with the story and results behind each one.
             </p>
             <dl className="mt-10 grid grid-cols-3 border-t border-[#d8dbce]">
               {stats.map((stat) => (

@@ -223,7 +223,7 @@ export default function Footer() {
                 Office: Monday–Saturday, {OFFICE_HOURS_IST}
               </p>
               <p className="text-sm leading-6 text-[#626960]">
-                US line: Monday–Saturday, 9am–6pm Pacific
+                US line: Monday–Saturday, US business hours
               </p>
               <Link
                 href="/contact"

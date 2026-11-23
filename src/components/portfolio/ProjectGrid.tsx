@@ -211,7 +211,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
   const [activeStack, setActiveStack] = useState<string>("All");
   const [hasFiltered, setHasFiltered] = useState(false);
 
-  // Homepage stack links arrive as /portfolio?stack=Next.js
+  // Homepage stack links arrive as /portfolio?stack=Modern websites
   useEffect(() => {
     const stack = new URLSearchParams(window.location.search).get("stack");
     if (stack && stackGroups.some((g) => g.name === stack)) {
@@ -276,7 +276,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
       {/* Tech stack filter */}
       <div className="-mt-6 mb-12">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#626960]">
-          Filter by tech stack
+          Filter by type of work
         </p>
         <div className="flex flex-wrap gap-2">
           {[{ name: "All", count: projects.length }, ...stacks].map(({ name, count }) => {

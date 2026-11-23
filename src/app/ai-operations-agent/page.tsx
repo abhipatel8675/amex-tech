@@ -109,7 +109,7 @@ const faqs = [
   {
     question: "What tools can the AI Operations Assistant connect to?",
     answer:
-      "It works with monday.com, Smartsheet, Google Sheets, inventory software like inFlow and QuickBooks, email (Gmail or Outlook) and Slack. Other tools can usually be connected if they have an API or a regular export; we confirm this on the first call.",
+      "It works with monday.com, Smartsheet, Google Sheets, inventory software like inFlow and QuickBooks, email (Gmail or Outlook) and Slack. Other tools can usually be connected if they can share their data automatically or export it regularly; we confirm this on the first call.",
   },
   {
     question: "Do we have to change how we work or move to new software?",
@@ -309,7 +309,7 @@ export default function AiOperationsAgentPage() {
               ))}
             </div>
             <p className="mt-6 text-sm text-[#626960]">
-              Using something else? If it has an API or a regular export, it can
+              Using something else? If it can share its data automatically or export it regularly, it can
               usually be connected. We confirm this on the first call.
             </p>
           </div>

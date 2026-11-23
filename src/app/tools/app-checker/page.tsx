@@ -118,7 +118,7 @@ export default async function AppCheckerPage({ searchParams }: { searchParams: P
             Is your AI-built app leaking keys or invisible on Google?
           </h1>
           <p className="text-[#3d453b] text-xl leading-8 mb-8">
-            Paste your Lovable, Bolt, Replit, v0 or Next.js app&apos;s address. In about 30 seconds you&apos;ll get a security, SEO and speed score, and the
+            Paste your Lovable, Bolt, Replit or v0 app&apos;s address. In about 30 seconds you&apos;ll get a security, SEO and speed score, and the
             problems that need fixing first.
           </p>
           <AppChecker initialUrl={initialUrl} />

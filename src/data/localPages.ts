@@ -62,7 +62,7 @@ export const localPages: LocalPage[] = [
       },
       {
         title: "Local SEO and Google Business Profile",
-        body: "Page titles, schema markup, consistent business details and a properly set-up Google Business Profile so you can appear in the map results.",
+        body: "Page titles, behind-the-scenes page details, consistent business details and a properly set-up Google Business Profile so you can appear in the map results.",
       },
       {
         title: "Fast and mobile-first",

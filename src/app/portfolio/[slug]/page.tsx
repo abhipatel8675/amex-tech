@@ -195,7 +195,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {/* Tech stack */}
           <section className="mt-14 md:mt-16" aria-labelledby="stack-heading">
             <h2 id="stack-heading" className="mb-5 text-sm font-medium text-[#626960]">
-              Tech stack
+              Tools used
             </h2>
             <TechStack technologies={project.technologies} />
           </section>
