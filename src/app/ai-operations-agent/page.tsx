@@ -377,7 +377,7 @@ export default function AiOperationsAgentPage() {
                   workflow, not a demo. Amex Technology is an independent
                   software and AI agency: our founder, Abhi Patel, leads every
                   project, our development team is in India, and we are Top
-                  Rated Plus on Upwork, backed by client reviews and 75+ delivered
+                  Rated Plus on Upwork, backed by client reviews and 60+ delivered
                   projects over 5 years of building software.
                 </p>
                 <div className={s.checkList}>

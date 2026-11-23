@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { projects as staticProjects, type Project } from "@/data/projects";
+import { duplicateProjectSlugs } from "@/data/projectPlain";
 
 export type ProjectRow = {
   id: string;
@@ -58,7 +59,7 @@ function publicClient() {
  * database has been set up and populated from the admin panel.
  */
 // Duplicate of "wolfe-property"; hidden from the site without touching the database.
-const HIDDEN_SLUGS = new Set(["wolfeprppertyporta"]);
+const HIDDEN_SLUGS = new Set(["wolfeprppertyporta", ...Object.keys(duplicateProjectSlugs)]);
 
 export async function getProjects(): Promise<Project[]> {
   const all = await loadProjects();

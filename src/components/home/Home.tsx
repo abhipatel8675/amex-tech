@@ -4,7 +4,7 @@ import { ArrowRight, ArrowUpRight, Check, FileText, Mail, Phone } from "lucide-r
 import Reveal from "@/components/site/Reveal";
 import ServicesExplorer from "./ServicesExplorer";
 import ReviewsSlider from "./ReviewsSlider";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/lib/portfolio/data";
 import { testimonials } from "@/data/testimonials";
 import { blogPosts } from "@/data/blog";
 import { homeFaqs } from "@/data/homeFaqs";
@@ -65,7 +65,8 @@ const hireRoles = [
   "Hosting and care engineers",
 ];
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProjects();
   const heroProjects = heroSlugs
     .map((slug) => projects.find((p) => p.slug === slug))
     .filter((p): p is (typeof projects)[number] => Boolean(p?.image));

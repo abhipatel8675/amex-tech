@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { duplicateProjectSlugs } from "./src/data/projectPlain";
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -38,6 +39,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Shorter duplicate project pages now point to the main case study.
+      ...Object.entries(duplicateProjectSlugs).map(([from, to]) => ({
+        source: `/portfolio/${from}`,
+        destination: `/portfolio/${to}`,
+        permanent: true,
+      })),
       // Former Los Angeles landing pages, now global service pages.
       { source: "/los-angeles", destination: "/web-and-ai-development", permanent: true },
       { source: "/la-website", destination: "/trade-business-websites", permanent: true },

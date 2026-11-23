@@ -75,7 +75,7 @@ export default function AgencyAbout() {
               keeping a direct line to the person leading your project. Over 5 years he has
               built websites, web and mobile apps, and AI automations for
               clients around the world, and is Top Rated Plus on Upwork, backed
-              by verified client reviews and 75+ delivered projects.
+              by verified client reviews and 60+ delivered projects.
             </p>
             <div className="flex flex-wrap gap-x-8">
               <a

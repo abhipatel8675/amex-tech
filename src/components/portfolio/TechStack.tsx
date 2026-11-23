@@ -1,3 +1,4 @@
+import s from "./portfolio.module.css";
 import {
   siNextdotjs, siReact, siTypescript, siJavascript, siTailwindcss, siDrizzle, siNeon,
   siPostgresql, siReactquery, siResend, siCloudflare, siPython, siVercel, siSupabase,
@@ -52,13 +53,13 @@ export function TechIcon({ name }: { name: string }) {
   const icon = ICONS[name];
   if (!icon) {
     return (
-      <span aria-hidden className="grid place-items-center w-5 h-5 rounded-md bg-[#1a211d] text-[10px] font-semibold text-white">
+      <span aria-hidden className={s.techBadge}>
         {name[0]}
       </span>
     );
   }
   return (
-    <svg aria-hidden viewBox="0 0 24 24" className="w-5 h-5" fill={`#${icon.hex}`}>
+    <svg aria-hidden viewBox="0 0 24 24" className={s.techIcon}>
       <path d={icon.path} />
     </svg>
   );
@@ -66,12 +67,9 @@ export function TechIcon({ name }: { name: string }) {
 
 export default function TechStack({ technologies }: { technologies: string[] }) {
   return (
-    <ul className="flex flex-wrap gap-2.5">
+    <ul className={s.techList}>
       {technologies.map((t) => (
-        <li
-          key={t}
-          className="inline-flex items-center gap-2.5 rounded-full bg-white pl-2.5 pr-4 py-2 text-sm font-medium text-[#3d453b] ring-1 ring-[#dadcd1] shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
-        >
+        <li key={t} className={s.techChip}>
           <TechIcon name={t} />
           {t}
         </li>

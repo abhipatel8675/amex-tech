@@ -1,0 +1,76 @@
+/* Shared styles for inner pages: same light theme, spacing and components as the homepage.
+   Backgrounds: near-white, warm sand, deep plum. Amber for buttons only. */
+.page { background: var(--ax-bg); color: var(--ax-ink); min-height: 100vh; overflow-x: clip; }
+.wrap { width: min(1280px, calc(100% - 96px)); margin-inline: auto; }
+
+/* ---------- type ---------- */
+.h1 { font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; margin: 0 0 14px; text-wrap: balance; }
+.h2 { font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem); font-weight: 800; letter-spacing: -0.028em; line-height: 1.2; margin: 0 0 10px; }
+.h3 { font-size: 1.1875rem; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 8px; }
+.lead { font-size: 1.1875rem; line-height: 1.6; color: var(--ax-ink-soft); max-width: 62ch; margin: 0; }
+.sub { font-size: 1.0625rem; line-height: 1.6; color: var(--ax-ink-soft); max-width: 62ch; margin: 0; }
+.link { color: var(--ax-accent-text); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- buttons ---------- */
+.primary, .ghost, .dark {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding-inline: 22px;
+  border-radius: var(--ax-pill); font-weight: 700; font-size: 1rem; white-space: nowrap;
+  transition: transform 200ms var(--ax-ease), background-color 250ms linear, border-color 250ms linear;
+}
+.primary { background: var(--ax-accent); color: var(--ax-on-amber); }
+.primary:hover { background: var(--ax-accent-hover); transform: translateY(-1px); }
+.ghost { background: var(--ax-card); color: var(--ax-ink); border: 1px solid var(--ax-line); }
+.ghost:hover { border-color: rgba(28, 22, 36, 0.3); transform: translateY(-1px); }
+.dark { background: var(--ax-ink); color: #fff; }
+.dark:hover { background: #33293f; transform: translateY(-1px); }
+.primary:active, .ghost:active, .dark:active { transform: scale(0.97); }
+.primary svg, .ghost svg, .dark svg { transition: transform 250ms var(--ax-ease); }
+.primary:hover svg, .dark:hover svg { transform: translate(2px, -2px); }
+.ghost:hover svg { transform: translateX(3px); }
+.page a:focus-visible, .page button:focus-visible, .page summary:focus-visible { outline: 3px solid #e08a0a; outline-offset: 3px; border-radius: 10px; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; padding: clamp(112px, 12vw, 140px) 0 clamp(36px, 4vw, 56px); }
+.glow {
+  position: absolute; pointer-events: none; width: 60vmax; height: 50vmax; right: -18vmax; top: -22vmax;
+  border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 170, 40, 0.34), rgba(255, 170, 40, 0.12) 55%, transparent 100%);
+}
+.heroInner { position: relative; }
+.crumbs { margin-bottom: 18px; }
+.crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; list-style: none; margin: 0; padding: 0; font-size: 0.9375rem; color: var(--ax-ink-soft); }
+.crumbs li { display: inline-flex; align-items: center; gap: 6px; }
+.crumbs a { color: var(--ax-ink-soft); text-underline-offset: 3px; }
+.crumbs a:hover { color: var(--ax-ink); text-decoration: underline; }
+.crumbs [aria-current="page"] { color: var(--ax-ink); font-weight: 600; }
+
+/* ---------- sections ---------- */
+.section { padding: clamp(48px, 6vw, 88px) 0; }
+.sand { background: var(--ax-sand); }
+.deep { background: var(--ax-deep); color: var(--ax-on-black); }
+.deep .sub { color: var(--ax-on-black-soft); }
+
+/* ---------- contact band (shared closing section) ---------- */
+.band { padding: clamp(48px, 6vw, 88px) 0; }
+.bandCard {
+  display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 56px); align-items: center;
+  background: var(--ax-tint); border: 1px solid rgba(224, 138, 10, 0.25); border-radius: 28px; padding: clamp(24px, 4vw, 52px);
+}
+.bandText .sub { color: #5a4a2e; margin-bottom: 22px; }
+.bandActions { display: flex; flex-wrap: wrap; gap: 12px; }
+.ways { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.way {
+  display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 16px; background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(224, 138, 10, 0.2); transition: transform 250ms var(--ax-ease), background-color 200ms linear, box-shadow 250ms linear;
+}
+.way:hover { transform: translateX(4px); background: #fff; box-shadow: 0 10px 24px -18px rgba(28, 22, 36, 0.5); }
+.way > span:last-child { display: grid; line-height: 1.35; }
+.way strong { font-size: 1rem; }
+.way small { color: var(--ax-ink-soft); font-size: 0.9375rem; }
+.wayIcon { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--ax-tint); color: var(--ax-accent-text); }
+
+@media (max-width: 1100px) { .wrap { width: calc(100% - 64px); } }
+@media (max-width: 1000px) { .bandCard { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .wrap { width: calc(100% - 40px); } }
+@media (prefers-reduced-motion: reduce) {
+  .primary:hover, .ghost:hover, .dark:hover, .way:hover { transform: none; }
+}
