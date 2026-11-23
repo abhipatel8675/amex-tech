@@ -14,13 +14,14 @@ export default function ServicesPageContent() {
         <div className={s.wrap}>
           <p className={s.eyebrow}>From possibility to product</p>
           <h1>
-            Your ambition.
+            Your goals.
             <br />
-            <em>Our technical know-how.</em>
+            <em>Our team to deliver them.</em>
           </h1>
           <p className={s.intro}>
-            We bring design, engineering, AI, and growth services together to
-            help you build useful products and better digital experiences.
+            We bring design, development, AI, and online marketing together
+            in one team to help you build useful products and reach more
+            customers.
           </p>
           <div className={s.actions}>
             <Link href="/contact" className={s.button}>

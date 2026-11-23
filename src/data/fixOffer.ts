@@ -3,12 +3,12 @@ import type { BlogPost } from "@/data/blog";
 // "We'll fix it for you" offer shown on troubleshooting blog posts. Every CTA
 // leads to the contact form with the service and a starter message prefilled.
 export const FIX_OFFER = {
-  name: "Bug Fix Service",
+  name: "App Fix Service",
   contactService: "Quick Bug Fix",
   includes: [
-    "Your bug or error fixed by a senior developer",
+    "Your problem or error fixed by an experienced developer",
     "Most fixes delivered within 24 hours",
-    "Short write-up of the root cause and what changed",
+    "A short note on the cause and what changed",
     "Free assessment before any work starts",
   ],
 };

@@ -13,7 +13,7 @@ export const OFFICE_PHONE = { display: "+91 87993 31867", tel: "+918799331867", 
 export const US_PHONE = { display: "+1 (623) 301-2035", tel: "+16233012035", schema: "+1-623-301-2035" };
 
 export const OFFICE_HOURS_IST = "7:00 AM–7:00 PM IST";
-export const OFFICE_HOURS_NOTE = "about 5:30 PM–5:30 AM Pacific and 8:30 PM–8:30 AM Eastern in winter";
+export const OFFICE_HOURS_NOTE = "we arrange calls at times that suit your time zone";
 
 export const CLUTCH_URL = "https://clutch.co/profile/amex-technology";
 export const UPWORK_URL = "https://www.upwork.com/agencies/2067871097204619852/";

@@ -1,6 +1,6 @@
-// Niche local landing pages for Los Angeles searches.
+// Niche service landing pages for businesses anywhere in the world.
 // Each entry targets a specific, lower-competition search (checked against the
-// live LA results page, not just a tool's difficulty score) and renders through
+// live search results, not just a tool's difficulty score) and renders through
 // src/components/local/LocalLandingPage.tsx. Keep claims factual: no invented
 // clients, rankings or results.
 
@@ -30,19 +30,19 @@ export type LocalPage = {
   work?: string[];
 };
 
-const AREAS_NOTE =
-  "Los Angeles County, especially the South Bay (Torrance, Hawthorne, Carson, Redondo Beach), Downtown LA, Inglewood, Culver City, Santa Monica and Long Beach.";
+const REACH_NOTE =
+  "We work remotely with clients across the US, UK, Australia, Canada and beyond, and arrange calls in your time zone.";
 
 export const localPages: LocalPage[] = [
   {
-    slug: "law-firm-web-design-los-angeles",
-    title: "Law Firm Web Design in Los Angeles",
+    slug: "law-firm-web-design",
+    title: "Law Firm Web Design",
     description:
-      "Fast, credible websites for Los Angeles law firms and solo attorneys: practice-area pages, intake forms, Google Business Profile and local SEO. Fixed quote before work starts.",
-    eyebrow: "For Los Angeles law firms & solo attorneys",
+      "Fast, credible websites for law firms and solo attorneys worldwide: practice-area pages, intake forms, Google Business Profile and local SEO. Fixed quote before work starts.",
+    eyebrow: "For law firms & solo attorneys",
     h1: "Law firm websites that turn searches into consultations.",
     intro:
-      "We build fast, professional websites for Los Angeles law firms and solo practitioners: clear practice-area pages, a secure intake form, and local SEO so you show up when people search for a lawyer in your area. You get a written, fixed quote before any work starts.",
+      "We build fast, professional websites for law firms and solo practitioners anywhere: clear practice-area pages, a secure intake form, and local SEO so you show up when people search for a lawyer in your area. You get a written, fixed quote before any work starts.",
     breadcrumb: "Law Firm Web Design",
     service: "Law firm website",
     ctaLabel: "Get a free quote",
@@ -94,9 +94,9 @@ export const localPages: LocalPage[] = [
           "We draft clear, plain-English pages based on a short questionnaire and your input. Your firm reviews and approves every page before it goes live, because you are responsible for what your website says.",
       },
       {
-        question: "Do you follow California attorney advertising rules?",
+        question: "Do you follow attorney advertising rules?",
         answer:
-          "We avoid the common problems, such as guarantees of results, unverifiable 'best lawyer' claims and testimonials without the required context, and we flag anything that may need a disclaimer. Final compliance with the California Rules of Professional Conduct is the firm's call, so your firm approves all content.",
+          "We avoid the common problems, such as guarantees of results, unverifiable 'best lawyer' claims and testimonials without the required context, and we flag anything that may need a disclaimer. Final compliance with the professional conduct and advertising rules where you practise is the firm's call, so your firm approves all content.",
       },
       {
         question: "Can you redesign our existing website?",
@@ -108,24 +108,24 @@ export const localPages: LocalPage[] = [
         answer:
           "It depends on the number of practice areas and features such as booking, intake forms or multiple languages. We send a written, fixed quote after a short call, before any work starts.",
       },
-      { question: "What areas do you serve?", answer: `Law firms across ${AREAS_NOTE} We also work remotely with firms across the US.` },
+      { question: "What areas do you serve?", answer: `Law firms anywhere in the world. ${REACH_NOTE}` },
     ],
     work: ["island-traffic-defense", "wolfe-property", "tiancheng-development-group"],
     related: [
-      { label: "Google Business Profile setup", href: "/google-business-profile-setup-los-angeles" },
-      { label: "Web & AI development for Los Angeles", href: "/los-angeles" },
+      { label: "Google Business Profile setup", href: "/google-business-profile-setup" },
+      { label: "Web & AI development", href: "/web-and-ai-development" },
       { label: "Free Website Grader", href: "/tools/website-grader" },
     ],
   },
   {
-    slug: "affordable-web-design-los-angeles",
-    title: "Affordable Web Design in Los Angeles",
+    slug: "affordable-web-design",
+    title: "Affordable Web Design for Small Businesses",
     description:
-      "Affordable websites for Los Angeles small businesses: 5 pages, your own domain, a contact or quote form and Google setup, with a fixed written quote and no monthly fee.",
-    eyebrow: "Affordable web design · Los Angeles",
-    h1: "A professional website for your LA business, without agency overhead.",
+      "Affordable websites for small businesses anywhere: 5 pages, your own domain, a contact or quote form and Google setup, with a fixed written quote and no monthly fee.",
+    eyebrow: "Affordable web design",
+    h1: "A professional website for your business, without agency overhead.",
     intro:
-      "We build clean, fast 5-page websites for Los Angeles small businesses: your own domain, a contact or quote form, Google basics set up, and no monthly hosting fee. You get a written, fixed quote before any work starts.",
+      "We build clean, fast 5-page websites for small businesses around the world: your own domain, a contact or quote form, Google basics set up, and no monthly hosting fee. You get a written, fixed quote before any work starts.",
     breadcrumb: "Affordable Web Design",
     service: "Websites & Web Apps",
     ctaLabel: "Get my website",
@@ -155,27 +155,27 @@ export const localPages: LocalPage[] = [
       {
         question: "How do you keep it affordable?",
         answer:
-          "Our development team is in Ahmedabad, India, and we use a proven 5-page structure for local businesses instead of designing every site from scratch. You get a professional result without LA agency overhead, and a fixed quote before we start.",
+          "We use a proven 5-page structure for small businesses instead of designing every site from scratch. You get a professional result without big-agency overhead, and a fixed quote before we start.",
       },
       { question: "Are there monthly fees?", answer: "No. Hosting is included with no monthly bill. Ongoing updates and local SEO are optional." },
       { question: "What if I need more than 5 pages or online booking or payments?", answer: "We'll send a written quote for the extra pages or features before starting. You only pay for what you ask for." },
       { question: "I already have a website. Can you redo it?", answer: "Yes. Run the free Website Grader to see what's holding it back, and we'll rebuild it on your own domain." },
-      { question: "What areas do you serve?", answer: `Small businesses across ${AREAS_NOTE}` },
+      { question: "What areas do you serve?", answer: `Small businesses anywhere. ${REACH_NOTE}` },
     ],
     work: ["portland-web-designing-studio", "buttercream-bus", "east-end-vintage-sale"],
     related: [
-      { label: "Websites for LA trade businesses", href: "/la-website" },
+      { label: "Websites for trade businesses", href: "/trade-business-websites" },
       { label: "Free Website Grader", href: "/tools/website-grader" },
-      { label: "Google Business Profile setup", href: "/google-business-profile-setup-los-angeles" },
+      { label: "Google Business Profile setup", href: "/google-business-profile-setup" },
     ],
   },
   {
-    slug: "google-business-profile-setup-los-angeles",
-    title: "Google Business Profile Setup in LA",
+    slug: "google-business-profile-setup",
+    title: "Google Business Profile Setup",
     description:
-      "We set up, verify and optimise your Google Business Profile so your Los Angeles business can appear in Google Maps and local search: categories, services, photos, reviews and website link.",
-    eyebrow: "Google Business Profile · Los Angeles",
-    h1: "Get your LA business on Google Maps, set up properly.",
+      "We set up, verify and optimise your Google Business Profile so your local business can appear in Google Maps and local search: categories, services, photos, reviews and website link.",
+    eyebrow: "Google Business Profile",
+    h1: "Get your business on Google Maps, set up properly.",
     intro:
       "Your Google Business Profile is often the first thing customers see, before your website. We set it up or fix it: the right categories, services, hours, photos and website link, and a simple way to collect reviews, so your business can appear in the map results for your area.",
     breadcrumb: "Google Business Profile Setup",
@@ -221,7 +221,7 @@ export const localPages: LocalPage[] = [
       {
         question: "Do I need a website too?",
         answer:
-          "A profile works without one, but a website gives Google and customers more to trust. See our affordable 5-page website for LA businesses.",
+          "A profile works without one, but a website gives Google and customers more to trust. See our affordable 5-page website for small businesses.",
       },
       {
         question: "How much does it cost?",
@@ -230,9 +230,9 @@ export const localPages: LocalPage[] = [
     ],
     work: ["island-traffic-defense", "buttercream-bus", "wolfe-property"],
     related: [
-      { label: "Affordable web design in Los Angeles", href: "/affordable-web-design-los-angeles" },
-      { label: "Law firm web design", href: "/law-firm-web-design-los-angeles" },
-      { label: "Web & AI development for Los Angeles", href: "/los-angeles" },
+      { label: "Affordable web design", href: "/affordable-web-design" },
+      { label: "Law firm web design", href: "/law-firm-web-design" },
+      { label: "Web & AI development", href: "/web-and-ai-development" },
     ],
   },
 ];

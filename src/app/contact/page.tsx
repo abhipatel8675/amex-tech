@@ -6,20 +6,20 @@ import AgencyContact from "@/components/agency/AgencyContact";
 export const metadata: Metadata = {
   title: "Start a Project — Get a Free Quote",
   description:
-    "Get a free quote for your website, web app, mobile app or bug fix. Tell Amex Technology what you're building and we'll reply with practical next steps.",
+    "Get a free quote for your website, web app, mobile app or app fix. Tell Amex Technology what you need and we'll reply with practical next steps.",
   alternates: {
     canonical: "https://amextechnology.com/contact",
   },
   openGraph: {
     title: "Start a Project — Get a Free Quote | Amex Technology",
     description:
-      "Get a free quote for your website, web app, mobile app or bug fix. Tell Amex Technology what you're building and we'll reply with practical next steps.",
+      "Get a free quote for your website, web app, mobile app or app fix. Tell Amex Technology what you need and we'll reply with practical next steps.",
     url: "https://amextechnology.com/contact",
   },
   twitter: {
     title: "Start a Project — Get a Free Quote | Amex Technology",
     description:
-      "Get a free quote for your website, web app, mobile app or bug fix. Tell Amex Technology what you're building and we'll reply with practical next steps.",
+      "Get a free quote for your website, web app, mobile app or app fix. Tell Amex Technology what you need and we'll reply with practical next steps.",
   },
 };
 

@@ -4,61 +4,61 @@ export const faqs: { question: string; answer: string }[] = [
   {
     question: "Is Amex Technology part of American Express?",
     answer:
-      "No. Amex Technology (amextechnology.com) is an independent AI and software development agency founded by Abhi Patel. It has no affiliation with American Express or the American Express technology organization.",
+      "No. Amex Technology (amextechnology.com) is an independent website, app and AI company founded by Abhi Patel. It has no affiliation with American Express or the American Express technology organization.",
   },
   {
-    question: "How much does custom software development cost?",
+    question: "How much does a website or custom software project cost?",
     answer:
-      "Cost depends on scope, complexity, and timeline. After a free discovery call we send a detailed, itemised written quote, so you know the full cost before any work starts. No commitment required.",
+      "Cost depends on what you need, how complex it is and the timeline. After a free discovery call we send a detailed, itemized written quote, so you know the full cost before any work starts. No commitment required.",
   },
   {
-    question: "How long does it take to build a web application?",
+    question: "How long does it take to build a web app?",
     answer:
-      "Most web applications take 6–12 weeks from kickoff to launch. A simple website can be delivered in 2–4 weeks. A complex SaaS platform with custom features typically takes 3–6 months. We share a milestone-by-milestone timeline during the proposal stage so you always know what's next.",
+      "Most web apps take 6–12 weeks from start to launch. A simple website can be delivered in 2–4 weeks. A larger software product with custom features typically takes 3–6 months. We share a stage-by-stage timeline with our proposal so you always know what's next.",
   },
   {
-    question: "Do you work with clients outside India?",
+    question: "Do you work with clients around the world?",
     answer:
-      "Yes — the majority of our clients are based in North America, Europe, and Australia. We work fully remotely and are comfortable with time zone differences. All communication is in English and we maintain overlapping working hours with every client.",
+      "Yes. We work with clients worldwide, including North America, Europe and Australia. We work fully remotely, communicate in English and arrange calls at times that suit your time zone.",
   },
   {
-    question: "What technologies do you specialise in?",
+    question: "What tools and technology do you use?",
     answer:
-      "Our core stack is Next.js, React, TypeScript, Node.js, and PostgreSQL (via Supabase). For mobile, we use React Native and Expo. For AI automation, we work with n8n, Zapier, Make, and the OpenAI, Claude and LangChain APIs. We choose the right technology for the job rather than forcing a single stack.",
+      "We choose proven, widely used tools for each project rather than forcing one approach, and we explain our choices in plain language. For mobile apps we build one app that works on both iPhone and Android. For AI automation we work with OpenAI, Claude, n8n, Zapier and Make.",
   },
   {
-    question: "Do you offer SEO, GEO and AEO services?",
+    question: "Can you help my business show up on Google and in AI search?",
     answer:
-      "Yes. SEO gets you ranked on Google: technical audits, on-page optimisation, Core Web Vitals, local SEO and Google Business Profile. GEO (Generative Engine Optimization) helps ChatGPT, Perplexity and Gemini understand and recommend your business. AEO (Answer Engine Optimization) structures your content with answer-first pages, FAQ schema and llms.txt so AI Overviews and voice assistants quote you directly.",
+      "Yes. We improve your website so Google can find and rank it, set up your Google Business Profile for local searches, and write clear answers to your customers' questions so assistants like ChatGPT, Perplexity and Gemini understand and recommend your business.",
   },
   {
-    question: "Do you build AI agents and automations?",
+    question: "Do you build AI assistants and automations?",
     answer:
-      "Yes. We build AI chat and voice agents, document and data extraction pipelines, and workflow automations with n8n, Zapier and Make, plus GoHighLevel and HubSpot CRM automations. Each one ships with guardrails, logging and a human hand-off where it matters.",
+      "Yes. We build AI chat and phone assistants, tools that read documents and enter the details for you, and automations that connect your business tools, including GoHighLevel and HubSpot customer management systems. Each one has clear limits, activity records and a hand-off to your team when it matters.",
   },
   {
-    question: "Can you build a SaaS product from scratch?",
+    question: "Can you build a software product from scratch?",
     answer:
-      "Absolutely. We've built multiple SaaS platforms from idea to production — covering multi-tenant architecture, subscription billing with Stripe, role-based access control, usage analytics dashboards, and automated onboarding flows. We handle the full stack so you can focus on your customers.",
+      "Yes. We've built several software products from idea to launch, including customer sign-up, subscription payments, private accounts for each customer, staff access levels and usage reports. We handle the whole build so you can focus on your customers.",
   },
   {
-    question: "Can you work with an existing codebase or an app built in Lovable or Bolt?",
+    question: "Can you take over an existing website or an app built in Lovable or Bolt?",
     answer:
-      "Yes. We regularly inherit codebases from other agencies, internal teams, and AI builders like Lovable, Bolt and Replit. We start with an audit (our free App Checker is a quick first look), document what we find, and propose a clear, costed path forward. We don't rewrite unless it's genuinely necessary.",
+      "Yes. We regularly take over projects from other agencies, in-house teams and AI app builders like Lovable, Bolt and Replit. We start with a review (our free App Checker is a quick first look), write down what we find, and propose a clear, costed plan. We don't rebuild unless it's genuinely necessary.",
   },
   {
     question: "Do you offer maintenance and support after launch?",
     answer:
-      "Yes. Every project includes a post-launch support period, and we offer ongoing care plans for maintenance, fixes, dependency updates, performance monitoring, and feature development. Plans are flexible — from a few hours per month to a full ongoing development partnership.",
+      "Yes. Every project includes a support period after launch, and we offer ongoing care plans covering updates, fixes, monitoring and new features. Plans are flexible, from a few hours a month to a full ongoing partnership.",
   },
   {
-    question: "How do you handle project communication and updates?",
+    question: "How do you keep me updated during a project?",
     answer:
-      "We use a structured process: weekly video calls, a shared project board (Notion or Linear), and a dedicated Slack channel for async communication. You'll always know the current status, what's in progress, and what's coming next — no chasing required.",
+      "We use a simple process: a weekly video call, a shared project board and a dedicated chat channel for day-to-day questions. You always know what's done, what's in progress and what's next, with no need to chase us.",
   },
   {
-    question: "Do you sign NDAs and protect client IP?",
+    question: "Do you sign NDAs and protect my ideas?",
     answer:
-      "Yes. We sign NDAs before any sensitive discussions and our contracts include full IP assignment — everything we build for you is yours. We also follow secure development practices including environment isolation, secret management, and role-based access on all repositories.",
+      "Yes. We sign NDAs before any sensitive discussions, and our contracts make everything we build for you yours. We also follow secure working practices, including keeping access private and limited to the people who need it.",
   },
 ];

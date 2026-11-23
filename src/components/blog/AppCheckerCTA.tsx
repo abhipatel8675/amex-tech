@@ -17,7 +17,7 @@ export default function AppCheckerCTA({ topic, source }: { topic: string; source
         <ShieldCheck className="w-5 h-5 text-[#7A5807] shrink-0 mt-0.5" />
         <p className="text-[#3d453b] leading-relaxed">
           <strong className="text-[#1a211d]">Fixed it? Check the rest of your {topic === "app" ? "app" : `${topic} app`} for free.</strong>{" "}
-          Our App Checker scans for exposed API keys, public Supabase service keys, SEO problems and slow loading in about 30 seconds.
+          Our App Checker scans for exposed private keys, search visibility problems and slow loading in about 30 seconds.
         </p>
       </div>
       <Link

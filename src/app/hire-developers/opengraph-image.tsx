@@ -6,5 +6,5 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OgImage() {
-  return renderOgImage("Hire Developers: React, Next.js, AI & Mobile", "Dedicated developers from our Ahmedabad team, working on your time zone.");
+  return renderOgImage("Hire Developers for Your Business", "Experienced developers for websites, apps and AI, working on your time zone.");
 }

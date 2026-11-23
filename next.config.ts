@@ -38,6 +38,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Old location-based page addresses now point to the matching service pages.
+      { source: "/los-angeles", destination: "/web-and-ai-development", permanent: true },
+      { source: "/la-website", destination: "/trade-business-websites", permanent: true },
+      { source: "/law-firm-web-design-los-angeles", destination: "/law-firm-web-design", permanent: true },
+      { source: "/affordable-web-design-los-angeles", destination: "/affordable-web-design", permanent: true },
+      { source: "/google-business-profile-setup-los-angeles", destination: "/google-business-profile-setup", permanent: true },
       {
         source: "/portfolio/wolfeprppertyporta",
         destination: "/portfolio/wolfe-property",

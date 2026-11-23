@@ -31,7 +31,7 @@ export default function AgencyHome() {
           <div className={s.heroGrid}>
             <div>
               <p className={s.eyebrow}>
-                Web, SEO &amp; AI development · Los Angeles
+                Websites, apps &amp; AI for businesses · Worldwide
               </p>
               <h1>
                 Websites, apps and AI tools
@@ -40,9 +40,9 @@ export default function AgencyHome() {
               </h1>
               <p className={s.intro}>
                 Amex Technology designs and builds websites, web apps, mobile
-                apps and AI automations, then does the SEO that gets them found
-                on Google and in AI search. Development company based in
-                Ahmedabad, India. Founder Abhi Patel, Los Angeles.
+                apps and AI automations, then helps customers find them on
+                Google and in AI search. We work with businesses around the
+                world.
               </p>
               <div className={s.actions}>
                 <Link className={s.button} href="/contact">
@@ -53,8 +53,7 @@ export default function AgencyHome() {
                 </Link>
               </div>
               <p className={s.heroNote}>
-                <Check size={13} /> Based in Ahmedabad, India · Founder in Los
-                Angeles · Working with clients worldwide
+                <Check size={13} /> Working with clients worldwide
               </p>
             </div>
             <div className={s.heroVisual}>
@@ -66,7 +65,7 @@ export default function AgencyHome() {
                 <span className={s.artTag}>Recent work · FirmsLedger</span>
                 <Image
                   src="/images/portfolio/firmsledger/mockup-1.webp"
-                  alt="FirmsLedger, a US manufacturer directory we built, shown on a laptop and phone"
+                  alt="FirmsLedger, a manufacturer directory we built, shown on a laptop and phone"
                   fill
                   sizes="(max-width: 800px) 100vw, 45vw"
                   preload
@@ -87,18 +86,18 @@ export default function AgencyHome() {
           </div>
           <div className={s.trust}>
             <p>
-              Built with the tools
+              Tools we work
               <br />
-              we use every day
+              with every day
             </p>
             <div className={s.stack}>
               {[
-                "Next.js",
-                "React",
-                "TypeScript",
-                "Supabase",
-                "OpenAI",
-                "AWS",
+                "Websites",
+                "Mobile apps",
+                "AI tools",
+                "Online payments",
+                "Google search",
+                "Hosting",
               ].map((name) => (
                 <span key={name}>{name}</span>
               ))}
@@ -113,7 +112,7 @@ export default function AgencyHome() {
             >
               Upwork
             </a>{" "}
-            · $80K+ earned on Upwork · 5 years building software
+            · 5 years in business
           </p>
         </div>
       </section>
@@ -187,16 +186,16 @@ export default function AgencyHome() {
           <div className="mt-20 border-t border-[#ffffff1f] pt-14">
             <div className={s.sectionHead}>
               <div>
-                <p className={s.eyebrow}>Projects by tech stack</p>
+                <p className={s.eyebrow}>Projects by tool</p>
                 <h2 className={s.heading}>
-                  Pick your stack.
+                  Pick a tool.
                   <br />
                   <em>See what we&apos;ve built with it.</em>
                 </h2>
               </div>
               <p className={s.sectionText}>
                 Every project below was delivered by our team. Choose a
-                technology to see the matching case studies.
+                tool to see the matching projects.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -255,7 +254,7 @@ export default function AgencyHome() {
         <div className={s.wrap}>
           <div className={s.sectionHead}>
             <div>
-              <p className={s.eyebrow}>How a project runs</p>
+              <p className={s.eyebrow}>How a project works</p>
               <h2 className={s.heading}>
                 Four steps.
                 <br />

@@ -9,18 +9,17 @@ import { services as listedServices } from "@/data/services";
 // what the blog fix CTAs and App Checker prefill.
 const services = [
   ...listedServices.map((s) => s.title),
-  "AI Operations Agent",
+  "AI Operations Assistant",
   "Hire Developers",
   "Quick Bug Fix",
   "Other / Not Sure",
 ];
 
-// Older links (local SEO pages, /los-angeles, Website Grader emails) use these
+// Older links (local SEO pages, Website Grader emails) use these
 // service names; map them to an option in the list so the select is prefilled.
 const SERVICE_ALIASES: Record<string, string> = {
   "Law firm website": "Websites & Web Apps",
-  "Google Business Profile setup": "SEO Services (SEO & GEO)",
-  "Los Angeles project": "Other / Not Sure",
+  "Google Business Profile setup": "SEO & Getting Found Online",
   Website: "Websites & Web Apps",
 };
 

@@ -8,12 +8,12 @@ import { services } from "@/data/services";
 import s from "@/components/agency/agency.module.css";
 
 const BASE_URL = "https://amextechnology.com";
-const url = `${BASE_URL}/los-angeles`;
-const title = "Web & AI Development for Los Angeles Businesses";
+const url = `${BASE_URL}/web-and-ai-development`;
+const title = "Websites & AI for Businesses Worldwide";
 const description =
-  "Websites, web apps, AI agents, CRM automation and local SEO, serving Los Angeles and South Bay businesses from our Ahmedabad, India team. Founder in LA.";
+  "Websites, web apps, AI assistants, business automation and search visibility for growing businesses worldwide.";
 
-const seoTitle = "Web & AI Development for LA Businesses | Amex Technology";
+const seoTitle = "Websites & AI for Businesses Worldwide | Amex Technology";
 
 export const metadata: Metadata = {
   title: { absolute: seoTitle },
@@ -24,68 +24,56 @@ export const metadata: Metadata = {
 };
 
 // Places we actively serve; used for the visible list and areaServed.
-const areas = [
-  "Torrance",
-  "Hawthorne",
-  "Inglewood",
-  "Carson",
-  "Redondo Beach",
-  "Manhattan Beach",
-  "El Segundo",
-  "Long Beach",
-  "Downtown Los Angeles",
-  "Culver City",
-  "Santa Monica",
-];
+const areas = ["United States", "United Kingdom", "Australia", "Canada", "New Zealand", "United Arab Emirates", "Europe", "India"];
 
 const reasons = [
   {
-    title: "A local point of contact",
-    body: "Our founder, Abhi Patel, is based in Los Angeles. You get a contact on Pacific time who knows the LA market.",
+    title: "One clear point of contact",
+    body: "You deal directly with our founder, Abhi Patel, and a small team. We schedule calls around your time zone.",
   },
   {
-    title: "Development team in Ahmedabad",
-    body: "Amex Technology is based in Ahmedabad, India, where our development team works. That's how we keep projects affordable for small and mid-sized LA businesses without cutting corners on quality.",
+    title: "Affordable for growing businesses",
+    body: "We keep projects affordable for small and mid-sized businesses without cutting corners on quality.",
   },
   {
     title: "Work while you sleep",
-    body: "The time difference means work you approve in the afternoon is often built overnight and ready to review the next morning.",
+    body: "For many clients the time difference works in your favor: work you approve in the afternoon is often built overnight and ready to review the next morning.",
   },
   {
     title: "Everything in your name",
-    body: "Your code, domain, hosting and Google Business Profile stay in accounts you own, so you're never locked in.",
+    body: "Your website, domain, hosting and Google Business Profile stay in accounts you own, so you're never locked in.",
   },
 ];
 
 const needs = [
-  "Restaurants, cafes and food trucks that need online ordering, booking or a faster website",
+  "Restaurants, cafes and food businesses that need online ordering, booking or a faster website",
   "Clinics, salons and studios losing bookings to a clunky website or missed calls",
   "Contractors and home-service businesses that don't appear in the Google map pack",
   "Apparel, print and e-commerce brands that need a store or an order portal",
   "Real estate, legal and professional firms that need a credible, fast website",
-  "Startups and founders building an MVP or fixing an app made in Lovable, Bolt or Replit",
+  "Startups and founders building a first version of their product, or fixing an app built with an AI app builder",
 ];
 
 const faq = [
   {
-    question: "Where is Amex Technology based?",
+    question: "Where does Amex Technology work?",
     answer:
-      "Amex Technology is a web, app and AI development company based in Ahmedabad, India, serving Los Angeles businesses. Our founder, Abhi Patel, is in Los Angeles, so LA clients have a contact on Pacific time.",
+      "Amex Technology works with businesses worldwide, entirely online. You work directly with our founder, Abhi Patel, and calls are arranged in your time zone.",
   },
   {
-    question: "Why work with you instead of an LA agency?",
+    question: "Why work with you instead of a big agency?",
     answer:
-      "You get a local point of contact with the cost of an India-based development team. LA agency rates are among the highest in the US; our structure lets small and mid-sized businesses get a professional website, app or automation within a realistic budget.",
+      "You get direct access to the people doing the work. Our structure lets small and mid-sized businesses get a professional website, app or automation within a realistic budget.",
   },
   {
     question: "Do you help with local SEO and Google Business Profile?",
     answer:
-      "Yes. We set up or optimise your Google Business Profile, make your business details consistent across directories, and build pages that match how people in your area search, so you show up in local and map results.",
+      "Yes. We set up or improve your Google Business Profile, make your business details consistent across directories, and build pages that match how people in your area search, so you show up in local and map results.",
   },
   {
     question: "What areas do you serve?",
     answer:
-      "Businesses across Los Angeles County, especially the South Bay (Torrance, Hawthorne, Carson, Redondo Beach), Downtown LA, Inglewood, Culver City, Santa Monica and Long Beach. We also work remotely with clients across the US.",
+      "We work online with businesses around the world, including the US, UK, Australia, Canada, New Zealand, the Middle East, Europe and India.",
   },
   {
     question: "How do we get started?",
@@ -98,14 +86,11 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${url}#service`,
-  name: "Web & AI Development serving Los Angeles businesses",
+  name: "Websites & AI for businesses worldwide",
   url,
   description,
   provider: { "@id": `${BASE_URL}/#organization` },
-  areaServed: [
-    { "@type": "City", name: "Los Angeles", containedInPlace: { "@type": "State", name: "California" } },
-    ...areas.filter((a) => a !== "Downtown Los Angeles").map((name) => ({ "@type": "City", name })),
-  ],
+  areaServed: "Worldwide",
   serviceType: services.map((s) => s.title),
 };
 
@@ -124,20 +109,20 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
-    { "@type": "ListItem", position: 2, name: "Los Angeles", item: url },
+    { "@type": "ListItem", position: 2, name: "Websites & AI", item: url },
   ],
 };
 
 const localLinks = [
-  { label: "Law firm web design", href: "/law-firm-web-design-los-angeles" },
-  { label: "Affordable web design", href: "/affordable-web-design-los-angeles" },
-  { label: "Google Business Profile setup", href: "/google-business-profile-setup-los-angeles" },
-  { label: "Websites for trade businesses", href: "/la-website" },
+  { label: "Law firm web design", href: "/law-firm-web-design" },
+  { label: "Affordable web design", href: "/affordable-web-design" },
+  { label: "Google Business Profile setup", href: "/google-business-profile-setup" },
+  { label: "Websites for trade businesses", href: "/trade-business-websites" },
 ];
 
-const quoteHref = "/contact?service=Los%20Angeles%20project";
+const quoteHref = "/contact";
 
-export default function LosAngelesPage() {
+export default function WebAndAiDevelopmentPage() {
   return (
     <div className={s.site}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
@@ -150,14 +135,14 @@ export default function LosAngelesPage() {
             <Breadcrumb
               variant="inline"
               className={s.crumbs}
-              items={[{ label: "Home", href: "/" }, { label: "Los Angeles" }]}
+              items={[{ label: "Home", href: "/" }, { label: "Websites & AI" }]}
             />
-            <p className={s.eyebrow}>Los Angeles · South Bay</p>
-            <h1>Web & AI Development for Los Angeles Businesses</h1>
+            <p className={s.eyebrow}>Worldwide</p>
+            <h1>Websites & AI for Businesses Worldwide</h1>
             <p className={s.intro} style={{ maxWidth: 640 }}>
-              Amex Technology builds websites, web apps, AI agents and CRM automations for Los Angeles businesses, and helps
-              them get found on Google and in AI assistants. We're based in Ahmedabad, India, and our founder, Abhi
-              Patel, is in Los Angeles: a contact on Pacific time, at a cost small and mid-sized businesses can manage.
+              Amex Technology builds websites, web apps, AI assistants and business automations for companies around the world, and helps
+              them get found on Google and in AI assistants. You work directly with our founder, Abhi Patel: a clear
+              contact, at a cost small and mid-sized businesses can manage.
             </p>
             <div className={s.actions}>
               <Link href={quoteHref} className={s.button}>
@@ -170,7 +155,7 @@ export default function LosAngelesPage() {
         <section className={s.section}>
           <div className={s.wrap}>
             <div className={s.sectionHead}>
-              <h2 className={s.heading}>How we work with LA businesses</h2>
+              <h2 className={s.heading}>How we work with you</h2>
             </div>
             <div className={`${s.serviceGrid} ${s.twoGrid}`}>
               {reasons.map((r, i) => (
@@ -208,7 +193,7 @@ export default function LosAngelesPage() {
         <section className={`${s.section} ${s.band}`}>
           <div className={s.wrap}>
             <div className={s.sectionHead}>
-              <h2 className={s.heading}>Common projects for local businesses</h2>
+              <h2 className={s.heading}>Common projects for small businesses</h2>
             </div>
             <ul className={s.checks}>
               {needs.map((n) => (
@@ -234,7 +219,7 @@ export default function LosAngelesPage() {
 
         <section className={s.section}>
           <div className={s.wrap}>
-            <h2 className={`${s.heading} mb-6`}>Los Angeles services</h2>
+            <h2 className={`${s.heading} mb-6`}>Popular services</h2>
             <div className={s.chips}>
               {localLinks.map((l) => (
                 <Link key={l.href} href={l.href}>
@@ -247,7 +232,7 @@ export default function LosAngelesPage() {
 
         <section className={`${s.section} ${s.flushTop}`}>
           <div className={s.wrap}>
-            <h2 className={`${s.heading} mb-6`}>Areas we serve</h2>
+            <h2 className={`${s.heading} mb-6`}>Where our clients are</h2>
             <div className={s.chips}>
               {areas.map((a) => (
                 <span key={a}>{a}</span>
@@ -276,7 +261,7 @@ export default function LosAngelesPage() {
         <section className={s.cta}>
           <div className={`${s.wrap} ${s.ctaInner}`}>
             <div>
-              <h2 className={s.heading}>Ready to build your next digital product?</h2>
+              <h2 className={s.heading}>Ready to get started?</h2>
               <p>
                 Tell us what you&apos;re building. We&apos;ll respond with a clear plan, honest scope estimate, and a
                 timeline — no obligations.

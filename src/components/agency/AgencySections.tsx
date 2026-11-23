@@ -15,44 +15,44 @@ import s from "./agency.module.css";
 
 export const roles = [
   {
-    title: "React & Next.js developers",
-    skill: "React / Next.js",
+    title: "Website developers",
+    skill: "Website development",
     icon: Code2,
-    desc: "Fast websites, customer portals, and thoughtfully built web applications.",
+    desc: "Fast websites, customer portals and web apps built with care.",
   },
   {
-    title: "Full-stack developers",
-    skill: "Full-stack",
+    title: "Web app developers",
+    skill: "Web apps",
     icon: Layers,
-    desc: "Frontend, backend, APIs, and databases that work together as one product.",
+    desc: "Everything customers see and everything behind the scenes, built to work together as one product.",
   },
   {
-    title: "AI & automation developers",
+    title: "AI & automation specialists",
     skill: "AI & Automation",
     icon: Bot,
-    desc: "Practical AI agents, integrations, and workflows for your daily operations.",
+    desc: "Practical AI assistants and automations for your daily operations.",
   },
   {
     title: "Mobile app developers",
     skill: "Mobile App Development",
     icon: Smartphone,
-    desc: "Cross-platform iOS and Android applications with React Native and Expo.",
+    desc: "Apps that work on both iPhone and Android.",
   },
   {
-    title: "Cloud & DevOps engineers",
-    skill: "Cloud & DevOps",
+    title: "Hosting & maintenance specialists",
+    skill: "Hosting & Maintenance",
     icon: Cloud,
-    desc: "Reliable deployments, infrastructure, monitoring, and application maintenance.",
+    desc: "Reliable hosting, monitoring and ongoing maintenance for your website or app.",
   },
   {
-    title: "Website developers",
+    title: "Business website developers",
     skill: "Websites & Web Apps",
     icon: Globe,
     desc: "Conversion-focused business websites and improvements to your existing site.",
   },
 ];
 export function hireLink(skill: string) {
-  return `/contact?service=${encodeURIComponent("Hire Developers")}&message=${encodeURIComponent(`I'd like to discuss development support for ${skill}.\n\nProject overview:\nPreferred engagement:\nTimeline:\nRequired timezone overlap:`)}`;
+  return `/contact?service=${encodeURIComponent("Hire Developers")}&message=${encodeURIComponent(`I'd like to discuss development support for ${skill}.\n\nProject overview:\nPreferred engagement:\nTimeline:\nPreferred time zone for calls:`)}`;
 }
 export function ServiceGrid({ full = false }: { full?: boolean }) {
   const slugs = [
@@ -107,7 +107,7 @@ export function Process({ hiring = false }: { hiring?: boolean }) {
         ],
         [
           "Agree the fit",
-          "We discuss technical requirements, available expertise, and how we'll collaborate with your existing team.",
+          "We discuss what you need, the expertise available, and how we'll work with your existing team.",
         ],
         [
           "Set the terms",
@@ -121,19 +121,19 @@ export function Process({ hiring = false }: { hiring?: boolean }) {
     : [
         [
           "Discover & align",
-          "We understand your users, business goals, and technical needs. You get a clear scope and a practical plan.",
+          "We learn about your customers and business goals. You get a clear scope and a practical plan.",
         ],
         [
           "Design with purpose",
-          "We shape the experience, prototype the important flows, and agree on the details before development.",
+          "We shape how it will look and work, mock up the important screens, and agree on the details before building.",
         ],
         [
           "Build together",
-          "Work moves in focused milestones, with regular demos and direct communication with your engineers.",
+          "Work moves in focused stages, with regular demos and direct communication with the people building it.",
         ],
         [
           "Launch & improve",
-          "We test across devices, prepare the handover, and help your product grow after launch.",
+          "We test on different devices, prepare the handover, and help your product grow after launch.",
         ],
       ];
   return (
@@ -160,7 +160,7 @@ export function HirePreview() {
             <em>to your team.</em>
           </h2>
           <p className={s.sectionText}>
-            Need an engineer for an existing product or a team to build
+            Need a developer for an existing product or a team to build
             something new? Tell us the skills and support you need. We&apos;ll
             shape an engagement around your project.
           </p>
@@ -223,41 +223,41 @@ export function AgencyCTA() {
 export const hiringFaqs = [
   [
     "Can I hire a developer for an existing project?",
-    "Yes. Share your codebase, current priorities, and required skills. We start by understanding the project and agree on responsibilities before work begins.",
+    "Yes. Share your current project, priorities and the skills you need. We start by understanding the project and agree on responsibilities before work begins.",
   ],
   [
     "What engagement options can we discuss?",
-    "We can discuss a defined project, ongoing engineering support, or a dedicated development engagement. Scope, availability, schedule, and pricing are agreed in your proposal.",
+    "We can discuss a defined project, ongoing development support, or a dedicated developer. Scope, availability, schedule, and pricing are agreed in your proposal.",
   ],
   [
     "Can your developers work with our team?",
-    "Yes. Tell us about your tools, delivery process, and time zone. We agree on communication and the required overlap during scoping.",
+    "Yes. Tell us about your tools, how your team works, and your time zone. We agree on communication and meeting times at the start.",
   ],
   [
     "Who owns the work and source code?",
-    "Ownership and confidentiality terms are documented in the engagement agreement. We discuss access, repositories, documentation, and handover before the project starts.",
+    "Ownership and confidentiality terms are documented in the engagement agreement. We discuss access, documentation, and handover before the project starts.",
   ],
 ];
 export const agencyFaqs = [
   [
     "What can Amex Technology help us build?",
-    "We build websites, web applications, SaaS products, mobile apps, and AI automations. Our services also include product design, CRM integrations, cloud support, and search optimization.",
+    "We build websites, web apps, software products, mobile apps, and AI automations. Our services also include design, CRM setup, hosting and maintenance, and search optimization.",
   ],
   [
     "Can you improve an existing website or app?",
-    "Yes. We can review your current product, fix bugs, improve mobile usability and performance, or plan a larger redesign. You don't need to start from scratch.",
+    "Yes. We can review your current product, fix problems, make it faster and easier to use on phones, or plan a larger redesign. You don't need to start from scratch.",
   ],
   [
     "Can we hire developers for our own team?",
-    "Yes. Visit Hire Developers to explore our core skills and tell us what support you need. We'll discuss the scope, collaboration model, and availability with you.",
+    "Yes. Visit Hire Developers to explore our skills and tell us what support you need. We'll discuss the scope, how we'll work together, and availability with you.",
   ],
   [
     "How are cost and timelines decided?",
-    "We scope the work around your goals, existing systems, and priorities. You receive a proposal with deliverables, milestones, and pricing before development begins.",
+    "We scope the work around your goals, existing systems, and priorities. You receive a proposal with what you'll get, key dates, and pricing before building begins.",
   ],
   [
     "Do you work with international clients?",
-    "Yes. Our founder, Abhi Patel, is based in Los Angeles and our development team is in India, so we work with clients across the US and internationally. We agree on communication, meeting times and delivery expectations at the start.",
+    "Yes. We work with clients around the world, including the US, UK, Australia and Canada. We agree on communication, meeting times and delivery expectations at the start.",
   ],
 ];
 export function AgencyFAQ({ hiring = false }: { hiring?: boolean }) {
@@ -289,7 +289,7 @@ export function AgencyFAQ({ hiring = false }: { hiring?: boolean }) {
   );
 }
 export const aiAgentExample = {
-  question: "Where is order 1042 for Westside Kitchens?",
+  question: "Where is order 1042 for Harbor Kitchens?",
   answer:
     "Order 1042 is in finishing. 9 of 12 cabinet boxes are done; 3 are waiting on hinges that are on back order until Thursday. The ship date in your production schedule is the 18th, but the customer was quoted the 15th. Want me to draft an update to the customer?",
 };
@@ -307,7 +307,7 @@ export function AiAgentFeature() {
     <div className={`${s.panel} ${s.featurePanel}`}>
       <div>
         <span className={s.badge}>New</span>
-        <h3>AI Operations Agent for small manufacturers</h3>
+        <h3>AI Assistant for small manufacturers</h3>
         <p>
           Ask your factory anything. An AI assistant connected to the tools you
           already use (monday.com, Smartsheet, Google Sheets, inFlow,
@@ -324,13 +324,13 @@ export function AiAgentFeature() {
 }
 const offers = [
   {
-    title: "Websites for LA trade businesses",
-    desc: "A 5-page site on your own domain with a quote form and Google basics, for plumbers, HVAC, handymen and contractors.",
-    href: "/la-website",
+    title: "Websites for trade businesses",
+    desc: "A 5-page site on your own domain with a quote form and Google basics, for plumbers, heating and cooling companies, handymen and contractors.",
+    href: "/trade-business-websites",
   },
   {
-    title: "Fix your app error in 24 hours",
-    desc: "Stuck on a Supabase, Firebase, Lovable, Next.js or Vercel error? Send it over for a free assessment.",
+    title: "Fix your app problem in 24 hours",
+    desc: "Stuck on an error in an app built with Lovable, Bolt, Supabase or Firebase? Send it over for a free assessment.",
     href: "/fix",
   },
   {
@@ -340,7 +340,7 @@ const offers = [
   },
   {
     title: "Free App Checker",
-    desc: "Check a web app for common launch problems before your users find them.",
+    desc: "Check a web app for common problems before your customers find them.",
     href: "/tools/app-checker",
   },
 ];

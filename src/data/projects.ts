@@ -33,18 +33,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["Agency Website", "Lead Generation", "Next.js"],
     shortDesc:
-      "A multi-page marketing website for a small-business agency that sells Website + CRM + AI packages, built to turn visitors into booked consultations.",
+      "A multi-page website for a small-business agency that sells website, customer follow-up and AI packages, built to turn visitors into booked consultations.",
     description:
-      "Portland Web Designing Studio sells one connected package to local businesses: a website, a CRM pipeline, automated SMS and email follow-up, and an AI customer assistant. We built the agency's own marketing website front to back, matched closely to the owner's reference designs, across three iterations: a PHP landing page, a multi-page HTML site on Vercel, and finally a Next.js 16 static export for the production domain.",
+      "Portland Web Designing Studio sells one connected package to local businesses: a website, a customer follow-up system, automatic text and email messages, and an AI customer assistant. We built the agency's own website from start to finish, matched closely to the owner's reference designs, and improved it over three versions until it was ready for their live domain.",
     problem:
-      "The agency needed to explain a bundled offer to non-technical business owners and send every page toward one action: booking a free strategy consultation. The owner supplied reference designs that had to be matched closely, and the production domain sits on shared cPanel hosting with no terminal access, so the final site had to ship as plain static files.",
+      "The agency needed to explain a bundled offer to business owners with no technical background and send every page toward one action: booking a free strategy consultation. The owner supplied reference designs that had to be matched closely, and the live domain uses basic shared hosting, so the final site had to be simple enough to run there.",
     solution:
-      "We built Home, About, Our System, Portfolio, Pricing and Contact pages with a shared header, footer and a site-wide booking modal (date picker, time slots and business details). The portfolio has industry filters and case-study pop-ups. The final version is a Next.js 16 App Router project exported to static files with trailing-slash URLs, so it runs on Apache shared hosting with no rewrite rules.",
+      "We built Home, About, Our System, Portfolio, Pricing and Contact pages with a shared header and footer and a booking pop-up (date picker, time slots and business details) available from every page. The portfolio has industry filters and case-study pop-ups. The final site is built to run on the agency's existing shared hosting without any special setup.",
     results: [
       "Live at portlanddigitalstudio.com",
-      "Six pages plus a booking modal available from every page",
-      "Pixel-matched to the owner's reference designs, checked at 360px to 1920px",
-      "Next.js static export that runs on shared cPanel hosting",
+      "Six pages plus a booking pop-up available from every page",
+      "Closely matched to the owner's reference designs and checked on screens from small phones to large monitors",
+      "Runs on the agency's existing shared hosting"
     ],
     technologies: ["Next.js", "React", "HTML", "CSS", "JavaScript", "PHP", "Vercel", "cPanel"],
     gradientFrom: "#f4b500",
@@ -86,18 +86,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["B2B Directory", "Programmatic SEO", "Manufacturing"],
     shortDesc:
-      "A US manufacturer directory built for programmatic SEO — browse verified manufacturers by category and state.",
+      "A US manufacturer directory built to be found on Google: browse verified manufacturers by category and state.",
     description:
-      "FirmsLedger is our own product: a US-only, SEO-first directory where buyers — procurement managers, engineers and OEMs — browse manufacturers by category and state, and manufacturers get a free profile page that brings in leads. It started as a general business directory and was rebuilt on the Next.js App Router as a manufacturing-only directory with a Postgres backend.",
+      "FirmsLedger is our own product: a US-only directory where buyers such as purchasing managers, engineers and equipment makers browse manufacturers by category and state, and manufacturers get a free profile page that brings in enquiries. It started as a general business directory and was rebuilt as a manufacturing-only directory.",
     problem:
-      "Buyers sourcing US manufacturers rely on fragmented directories, trade-show contacts and generic web search. A directory that wants to win that traffic needs real, crawlable landing pages for every category and state — and has to stay fast, indexable and affordable as the company count grows into the hundreds of thousands.",
+      "Buyers looking for US manufacturers rely on scattered directories, trade-show contacts and general web searches. A directory that wants to win that search traffic needs a real page for every category and state, and has to stay fast, easy for Google to read and affordable to run as the number of companies grows into the hundreds of thousands.",
     solution:
-      "We built category, state and subcategory pages as bounded, enumerable routes, and company profiles as on-demand ISR pages that only become indexable once approved and filled in. Search queries are canonicalized so \"top 10\" and \"best\" variants don't create duplicate pages. Manufacturers can list themselves through a free public form or an invite link, a single-operator admin panel handles approvals, and an offline Python + Playwright pipeline seeds company data with fuzzy duplicate detection. Caching and ISR intervals were tuned so the serverless Postgres database can actually scale to zero between visits.",
+      "We built pages for every category, state and subcategory, and company profile pages that only appear in Google once they are approved and filled in. Similar searches such as \"top 10\" and \"best\" lead to a single page, so there are no duplicates. Manufacturers can list themselves through a free form or an invite link, and a simple admin area handles approvals. A separate tool collects company information and flags likely duplicates. We also tuned how pages are stored so the site stays inexpensive to run when traffic is quiet.",
     results: [
       "Live at firmsledger.com, covering all 50 US states",
-      "Category × state × subcategory landing pages built for programmatic SEO",
-      "Free self-serve listing form plus invite-link onboarding with admin approval",
-      "Profiles only indexed once approved and described — kept in sync with the sitemap",
+      "Pages for every category, state and subcategory, built to be found on Google",
+      "Free self-service listing form plus invite-link sign-up with admin approval",
+      "Profiles only shown to Google once approved and complete"
     ],
     technologies: [
       "Next.js",
@@ -156,18 +156,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["Fintech", "Business Funding", "Marketplace"],
     shortDesc:
-      "A business-funding marketplace — apply once, link your bank, and get matched with a lending partner.",
+      "A business-funding marketplace: apply once, link your bank, and get matched with a lending partner.",
     description:
-      "GoSwiftFund is a business-funding marketplace for small-business owners. It isn't a lender — it's the intake, qualification and routing layer in front of lenders. Owners pick a funding product, apply once through a guided wizard, link their business bank account, and their application is stored securely and routed to the right lending partner.",
+      "GoSwiftFund is a business-funding marketplace for small-business owners. It isn't a lender. It's the application and matching service that sits in front of lenders. Owners pick a funding product, apply once through a guided form, link their business bank account, and their application is stored securely and sent to the right lending partner.",
     problem:
-      "A funding broker has to collect highly sensitive data — SSN, EIN, revenue, bank access — in a way that survives a compliance review, decide which lending partner each applicant should go to, and do it while partner agreements and legal copy are still being finalized.",
+      "A funding broker has to collect highly sensitive information, including Social Security numbers, business tax IDs, revenue and bank access, in a way that passes a compliance review. It also has to decide which lending partner each applicant should go to, while partner agreements and legal wording are still being finalized.",
     solution:
-      "We built a Next.js 16 marketing site and a multi-product application wizard where each product (Instant, Merchant Cash Advance, Commercial and SBA) validates its own fields with a shared Zod schema on client and server. Business bank linking runs through Plaid Link, FCRA soft-pull and TCPA contact consent are recorded with a timestamp and disclosure version, and SSNs and bank tokens are encrypted at rest with AES-256-GCM. A rate-limited submission API feeds a lender-routing engine that picks a primary partner and fallbacks from credit band, revenue, amount and purpose, and stores the decision for follow-up. Dedicated SBA and revenue-based funding pages and an English/Spanish toggle round it out.",
+      "We built the marketing website and a guided application with a separate path for each product (Instant, Merchant Cash Advance, Commercial and SBA), each checking its own fields. Business bank linking runs through Plaid, and credit-check and contact consent are recorded with a date and the version of the wording shown. Social Security numbers and bank connections are stored in encrypted form. Each submission is matched to a main lending partner and backups based on credit range, revenue, amount and purpose, and the decision is saved for follow-up. Dedicated SBA and revenue-based funding pages and an English/Spanish switch complete the site.",
     results: [
-      "Live at goswiftfund.com with a product-specific application flow",
-      "Lighthouse mobile accessibility raised from 92 to 100",
-      "SSNs and bank tokens encrypted at rest with AES-256-GCM",
-      "End-to-end test passed: Plaid sandbox bank link → SBA application → routed and stored",
+      "Live at goswiftfund.com with a separate application path for each product",
+      "Mobile accessibility score raised from 92 to 100",
+      "Social Security numbers and bank connections stored in encrypted form",
+      "Full test passed: bank link, SBA application, matched and saved"
     ],
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "Plaid", "Zod", "Vercel"],
     gradientFrom: "#16a34a",
@@ -209,18 +209,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["Bilingual", "Arabic / RTL", "Startup"],
     shortDesc:
-      "A bilingual English/Arabic landing page for a Saudi shared-commuting startup, built RTL-ready from day one.",
+      "A bilingual English and Arabic website for a Saudi shared-commuting startup, designed for right-to-left reading from day one.",
     description:
-      "Sawa (سوا) is a Jeddah-based shared-commuting startup. Instead of on-demand rides, it organises fixed, recurring routes: drivers publish daily routes, employees join on monthly plans, and companies sign corporate commute partnerships. We built its main marketing page in English and Arabic on a single codebase.",
+      "Sawa (سوا) is a Jeddah-based shared-commuting startup. Instead of on-demand rides, it organizes fixed, recurring routes: drivers publish daily routes, employees join on monthly plans, and companies sign corporate commute partnerships. We built its main website in English and Arabic as a single site.",
     problem:
-      "Sawa needed one page that speaks to two audiences — commuters and companies — and works just as well in English as in right-to-left Arabic. The source material was an investor pitch deck that mixed public brand content with investor-only data that must not be published.",
+      "Sawa needed one page that speaks to two audiences, commuters and companies, and works just as well in English as in Arabic, which reads right to left. The source material was an investor presentation that mixed public brand content with investor-only information that must not be published.",
     solution:
-      "We built the page on Next.js 16 and Tailwind v4 with locale routes for /en and /ar, using only CSS logical properties so the layout mirrors cleanly in RTL. All copy lives in per-language dictionaries, so the Arabic milestone was a content drop rather than a rebuild. Arabic uses IBM Plex Sans Arabic and never falls back to a Latin font. A corporate enquiry form sends a branded HTML email through Resend, and each language has its own SEO metadata, hreflang alternates and share image.",
+      "We built separate English and Arabic versions that share the same design, with layouts that flip correctly for right-to-left reading. All the wording for each language is kept separately, so adding Arabic later was a content update rather than a rebuild. Arabic uses a proper Arabic font throughout. A company enquiry form sends a branded email, and each language has its own search settings and sharing image.",
     results: [
-      "Bilingual EN/AR with full RTL layout from one codebase",
-      "Arabic version shipped as a dictionary drop — no refactor needed",
-      "Corporate enquiries delivered as a branded HTML email via Resend",
-      "Per-language SEO: canonical, hreflang and separate share images",
+      "English and Arabic versions with full right-to-left layout from one site",
+      "Arabic added as a content update with no redesign needed",
+      "Company enquiries delivered as a branded email",
+      "Separate search settings and sharing images for each language"
     ],
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Resend", "Vercel"],
     gradientFrom: "#8ba653",
@@ -256,19 +256,19 @@ export const projects: Project[] = [
     category: "Automation",
     tags: ["GoHighLevel", "CRM Integration", "Lead Capture"],
     shortDesc:
-      "Fixed a silent lead leak and rebuilt the website-to-GoHighLevel integration so every enquiry lands in the CRM, sourced and tagged.",
+      "Fixed a silent loss of enquiries and rebuilt the website-to-GoHighLevel connection so every enquiry lands in the CRM with its source and labels.",
     description:
-      "Portland Academy of Self-Defense is a martial-arts school serving the Portland, Oregon metro. Their existing custom PHP website feeds a sales pipeline in GoHighLevel. We were brought in to fix the lead-capture path between the site and the CRM — not to build the website — so that every enquiry reaches GoHighLevel with the right source, tags and notes.",
+      "Portland Academy of Self-Defense is a martial-arts school serving the Portland, Oregon area. Their existing website feeds a sales pipeline in GoHighLevel. We were brought in to fix the path between the website and the CRM, not to build the website, so that every enquiry reaches GoHighLevel with the right source, labels and notes.",
     problem:
-      "Leads were quietly being lost. The CRM token in production had been revoked, so every website lead was saved and emailed but never reached GoHighLevel — while visitors still saw a thank-you page. The enquiry form also failed intermittently with \"Submission expired or invalid\", free-text and workshop fields were dropped before reaching anyone, and a repeat enquiry could wipe a contact's earlier program tags.",
+      "Leads were quietly being lost. The connection between the website and the CRM had been switched off, so every website enquiry was saved and emailed but never reached GoHighLevel, while visitors still saw a thank-you page. The enquiry form also failed now and then with a \"Submission expired or invalid\" message, free-text and workshop details were dropped before reaching anyone, and a repeat enquiry could wipe a contact's earlier program labels.",
     solution:
-      "We traced the failure to a 401 from GoHighLevel, replaced the token and verified the live API. We then rewrote the integration as one shared, non-blocking function: it finds existing contacts by email or phone, keeps the original lead source, merges tags instead of replacing them, and adds a readable note with the prospect's program interest and message. Each of the four lead forms maps to its own GoHighLevel source and tags. The form's CSRF check was changed to a ring of single-use tokens, so a second tab or debugging session no longer breaks submissions.",
+      "We traced the failure to an expired connection with GoHighLevel, replaced it and tested it live. We then rebuilt the connection as one shared process: it finds existing contacts by email or phone, keeps the original lead source, adds new labels without removing old ones, and writes a readable note with the person's program interest and message. Each of the four lead forms now maps to its own GoHighLevel source and labels. We also fixed the form's spam protection so a second browser tab or testing session no longer breaks submissions.",
     results: [
-      "Website leads reach GoHighLevel again — verified on the live contacts API",
-      "Four lead forms each mapped to their own GoHighLevel source and tags",
-      "Repeat enquiries keep the original source and merge tags into one contact",
-      "Messages and workshop details now captured in the CRM contact note",
-      "\"Submission expired\" form errors fixed without weakening CSRF protection",
+      "Website enquiries reach GoHighLevel again, tested on the live account",
+      "Four lead forms each mapped to their own source and labels",
+      "Repeat enquiries keep the original source and add labels to the same contact",
+      "Messages and workshop details now saved in the contact note",
+      "\"Submission expired\" errors fixed without weakening spam protection"
     ],
     technologies: ["PHP", "MySQL", "GoHighLevel API", "cURL", "reCAPTCHA v3"],
     gradientFrom: "#f59e0b",
@@ -314,18 +314,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["Web", "Legal", "Local Business"],
     shortDesc:
-      "A conversion-focused website for a Long Island traffic-defense attorney serving Nassau and Suffolk County.",
+      "A website built to win calls for a Long Island traffic-defense attorney serving Nassau and Suffolk County.",
     description:
-      "Island Traffic Defense is a single-page marketing site for a Long Island attorney who handles traffic-ticket and moving-violation cases across Nassau and Suffolk County, New York. It's built around one audience — drivers who just got a ticket — and one action: call or schedule a consultation.",
+      "Island Traffic Defense is a single-page website for a Long Island attorney who handles traffic-ticket and moving-violation cases across Nassau and Suffolk County, New York. It is built around one audience, drivers who just got a ticket, and one action: call or schedule a consultation.",
     problem:
-      "Drivers with a ticket have a short window to decide what to do, have usually never hired a traffic lawyer, and underestimate what a conviction really costs through points and higher insurance. The site had to build trust fast, make contact effortless on a phone, and reach the area's Spanish-speaking drivers.",
+      "Drivers with a ticket have a short time to decide what to do, have usually never hired a traffic lawyer, and underestimate what a conviction really costs through points and higher insurance. The site had to build trust quickly, make contact easy on a phone, and reach the area's Spanish-speaking drivers.",
     solution:
-      "We built a fast, dark-themed single page in plain HTML, CSS and JavaScript: a locality-first hero, three value-proposition cards, six practice-area cards, a section on the multi-year insurance cost of a conviction, and a local-court expertise section naming the Nassau and Suffolk County traffic agencies. A tap-to-call button stays in the header, call-to-action pairs repeat down the page, and Spanish-language support is called out in the hero itself.",
+      "We built a fast, dark-themed single page: an opening section focused on the local area, three cards explaining the value, six cards for the types of cases handled, a section on the multi-year insurance cost of a conviction, and a section on local court knowledge naming the Nassau and Suffolk County traffic agencies. A tap-to-call button stays at the top, calls to action repeat down the page, and Spanish-language support is mentioned at the very top.",
     results: [
-      "Live on Vercel — responsive from desktop card grids to a single mobile column",
-      "Tap-to-call header button visible at every scroll position",
-      "Spanish-language support called out in the hero",
-      "Local-SEO copy built around Nassau, Suffolk and Long Island",
+      "Live online and easy to use from large screens down to a single phone column",
+      "Tap-to-call button visible at every point of the page",
+      "Spanish-language support highlighted at the top of the page",
+      "Wording written around Nassau, Suffolk and Long Island searches"
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
     gradientFrom: "#3b82f6",
@@ -368,18 +368,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["Web", "Real Estate", "B2B"],
     shortDesc:
-      "Corporate site for an integrated real estate development group, from first drawing to finished building.",
+      "A company website for a real estate development group that handles projects from first drawing to finished building.",
     description:
-      "TianCheng Development Group is a real estate development company that carries projects end-to-end — feasibility, design, entitlements, construction and delivery — under one accountable team. We built a corporate website that presents their services, project portfolio, client roster and a direct line for new site and building inquiries.",
+      "TianCheng Development Group is a real estate development company that carries projects from start to finish, including feasibility, design, permits, construction and delivery, with one accountable team. We built a company website that presents their services, project portfolio, client list and a direct way for new site and building enquiries to reach them.",
     problem:
-      "Property owners and investors evaluating a developer want proof of scale and process before they hand over a site. TianCheng needed a credible web presence that laid out their full service range, showcased completed projects, and named the caliber of clients they'd already delivered for.",
+      "Property owners and investors evaluating a developer want proof of scale and process before they hand over a site. TianCheng needed a credible website that laid out their full range of services, showed completed projects, and named the kind of clients they had already delivered for.",
     solution:
-      "We built a clean, dark-toned corporate site anchored by a full-bleed city skyline hero, a services section walking through the feasibility-to-delivery process, a projects showcase with individual project pages, and a clients page naming enterprise partners. A contact page with an embedded map and inquiry form gives prospects a direct path to reach the team.",
+      "We built a clean, dark-toned website with a full-width city skyline image at the top, a services section walking through the process from feasibility to delivery, a projects showcase with a page for each project, and a clients page naming major partners. A contact page with a map and enquiry form gives visitors a direct way to reach the team.",
     results: [
-      "Services section framing the full feasibility-to-delivery development process",
-      "Individual project pages showcasing completed developments like Aura Boutique Hotel & Lounge",
-      "Client roster naming enterprise partners including Hilton, Marriott and Chevron",
-      "Contact page with embedded map and inquiry form for new site and building leads",
+      "Services section explaining the full process from feasibility to delivery",
+      "Individual pages for completed developments such as Aura Boutique Hotel & Lounge",
+      "Client list naming major partners including Hilton, Marriott and Chevron",
+      "Contact page with a map and enquiry form for new site and building leads"
     ],
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
     gradientFrom: "#1e293b",
@@ -421,18 +421,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["WordPress", "Elementor", "CSS Fixes"],
     shortDesc:
-      "Layout rescue for a WordPress + Elementor recipe membership site: alignment fixed on every screen size.",
+      "Layout rescue for a WordPress recipe membership site: alignment fixed on every screen size.",
     description:
-      "Wide Eyed Giant is a membership recipe blog on self-hosted WordPress with Elementor Pro and ElementsKit. We were brought in to fix a layout that had drifted out of alignment on desktop, tablet and mobile, on top of a 1,735-line custom stylesheet that had grown mostly dead.",
+      "Wide Eyed Giant is a membership recipe blog on WordPress. We were brought in to fix a layout that had drifted out of alignment on computers, tablets and phones, on top of a very large set of custom styling rules that had grown mostly out of date.",
     problem:
-      "The search bar crowded the logo and menu, category headings did not line up with the recipe grid, and mobile spacing was uneven. Most of the existing custom CSS targeted markup from an older template, and the real offsets were hidden in Elementor per-widget margin settings for each breakpoint.",
+      "The search bar crowded the logo and menu, category headings did not line up with the recipe grid, and spacing on phones was uneven. Most of the existing custom styling was written for an older version of the site, and the real spacing problems were hidden in the page builder's settings for each screen size.",
     solution:
-      "We checked the live pages to find which rules still applied, traced the stacked negative margins in Elementor's responsive settings, and replaced the old stylesheet with a 265-line one scoped per category page, so a fix on one page cannot break another.",
+      "We checked the live pages to find which rules still applied, traced the stacked spacing settings in the page builder's controls for each screen size, and replaced the old styling with a much smaller set organized by category page, so a fix on one page cannot break another.",
     results: [
-      "Alignment fixed across desktop, tablet and mobile",
-      "1,735 lines of mostly dead CSS replaced with a 265-line stylesheet",
-      "Fixes scoped per category page so they cannot leak",
-      "Mobile menu and header height fixed at the source",
+      "Alignment fixed on computers, tablets and phones",
+      "1,735 lines of mostly outdated styling replaced with 265 lines",
+      "Fixes kept separate for each category page so they cannot affect others",
+      "Phone menu and header height fixed at the source"
     ],
     technologies: ["WordPress", "Elementor Pro", "ElementsKit", "CSS", "Hostinger"],
     gradientFrom: "#B8860B",
@@ -475,18 +475,18 @@ export const projects: Project[] = [
     category: "AI",
     tags: ["AI", "Sales Automation", "SaaS"],
     shortDesc:
-      "An AI sales-automation platform that calls, emails, texts and messages prospects in 6 languages — 24/7.",
+      "An AI sales platform that calls, emails, texts and messages prospects in 6 languages, 24 hours a day.",
     description:
-      "Dialogix is an AI-powered sales command center — 'Your Sales Team Never Sleeps.' It deploys AI agents that call, email, text and message prospects across channels in six languages, finding leads, booking demos and nurturing deals around the clock so founders and sales teams can focus on closing.",
+      "Dialogix is an AI-powered sales platform with the tagline \"Your Sales Team Never Sleeps.\" It uses AI assistants that call, email, text and message prospects in six languages, finding leads, booking demos and following up around the clock so founders and sales teams can focus on closing deals.",
     problem:
-      "Scaling outbound sales usually means hiring and managing more SDRs — expensive, slow, and hard to keep consistent across channels and time zones. Manual prospecting caps how many leads a team can reach, and follow-up routinely falls through the cracks.",
+      "Growing outbound sales usually means hiring and managing more sales reps, which is expensive, slow and hard to keep consistent across channels and time zones. Finding prospects by hand limits how many people a team can reach, and follow-up regularly falls through the cracks.",
     solution:
-      "We built Dialogix as an AI sales command center that runs outreach autonomously across phone, email, SMS and LinkedIn in six languages. AI voice agents qualify leads on calls, behavior-adaptive email and SMS sequences follow up intelligently, and campaigns run 24/7 — with tiered plans ranging from self-serve SaaS to a fully managed revenue-cycle service.",
+      "We built Dialogix to run outreach automatically by phone, email, text and LinkedIn in six languages. AI voice assistants qualify leads on calls, email and text sequences adjust to how people respond, and campaigns run 24 hours a day. Options range from self-service to a fully managed sales service.",
     results: [
-      "AI agents across four channels — phone calls, email, SMS and LinkedIn",
-      "Multilingual outreach in 6 languages (English, Spanish, Mandarin, French, Portuguese, Italian)",
-      "24/7 autonomous prospecting, demo booking and intelligent follow-up",
-      "Flexible plans from $97/mo self-serve to a fully managed revenue-cycle service",
+      "AI assistants across four channels: phone, email, text and LinkedIn",
+      "Outreach in 6 languages (English, Spanish, Mandarin, French, Portuguese, Italian)",
+      "Round-the-clock prospecting, demo booking and follow-up",
+      "Options from self-service to a fully managed sales service"
     ],
     technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "AI Voice Agents"],
     gradientFrom: "#14b8a6",
@@ -528,18 +528,18 @@ export const projects: Project[] = [
     category: "Mobile App",
     tags: ["Mobile App", "Accessibility", "Events"],
     shortDesc:
-      "An accessibility-first events app that helps people find and RSVP to genuinely accessible experiences.",
+      "An events app that helps people find and RSVP to genuinely accessible experiences.",
     description:
-      "EmiGo is a mobile app that makes accessibility a first-class part of discovering local events. Attendees browse, search and filter events by accessibility features — wheelchair access, ASL, sensory-friendly, free — RSVP with their specific needs and group size, and save favorites. Organizers get their own side of the app to publish accessibility-aware events and manage RSVPs.",
+      "EmiGo is a mobile app that makes accessibility a central part of finding local events. Attendees browse, search and filter events by accessibility features such as wheelchair access, sign-language interpretation, sensory-friendly settings and free admission, RSVP with their specific needs and group size, and save favorites. Organizers get their own side of the app to publish events and manage RSVPs.",
     problem:
-      "Finding events that genuinely accommodate accessibility needs is hard. Standard event apps rarely say whether a venue is wheelchair-accessible, ASL-interpreted, sensory-friendly or free — leaving people to guess, call ahead, or miss out entirely.",
+      "Finding events that genuinely meet accessibility needs is hard. Standard event apps rarely say whether a venue is wheelchair accessible, has sign-language interpreters, is sensory-friendly or is free, leaving people to guess, call ahead or miss out.",
     solution:
-      "We built EmiGo around accessibility as core metadata, not an afterthought. Every event surfaces accessibility badges and can be filtered by them, attendees RSVP with specific accessibility requests and group details, and organizers publish accessibility-aware events and receive those requests directly — all in a fast, native mobile experience.",
+      "We built EmiGo around accessibility information instead of treating it as an afterthought. Every event shows accessibility badges and can be filtered by them, attendees RSVP with specific requests and group details, and organizers publish events and receive those requests directly, all in a fast mobile app.",
     results: [
-      "Accessibility-first discovery — filter by wheelchair, ASL, sensory-friendly, free and more",
-      "Group RSVP capturing per-request accessibility needs and notes",
-      "Organizer dashboard to create events and manage incoming RSVPs",
-      "Native maps, saved events and an upcoming-events view",
+      "Search by accessibility: wheelchair access, sign language, sensory-friendly, free and more",
+      "Group RSVPs that capture each person's accessibility needs and notes",
+      "Organizer area to create events and manage incoming RSVPs",
+      "Built-in maps, saved events and an upcoming-events view"
     ],
     technologies: ["React Native", "Expo", "TypeScript", "Firebase", "React Query"],
     gradientFrom: "#38bdf8",
@@ -553,18 +553,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["Web App", "PropTech", "FinTech"],
     shortDesc:
-      "A gated client portal and property-investment calculator for a New Zealand property-coaching firm.",
+      "A private client portal and property-investment calculator for a New Zealand property-coaching firm.",
     description:
-      "Wolfe Property Portal is a client portal for a New Zealand property-investment coaching business. It guides prospects through a qualification funnel and gives approved clients an interactive calculator that models 15-year cash flow, top-ups, yield and ROI for rental deals — comparing an 'as-is' scenario against an optimized 'Cashflow Hacking' one.",
+      "Wolfe Property Portal is a client portal for a New Zealand property-investment coaching business. It guides prospects through a qualification process and gives approved clients an interactive calculator that models 15 years of cash flow, top-ups, yield and return on investment for rental deals, comparing a current scenario against an improved \"Cashflow Hacking\" one.",
     problem:
-      "The coaching business ran its property-investment math in a Google Sheet — not scalable, not client-friendly, and impossible to gate behind qualification. Prospects also needed to be qualified on usable equity before consuming valuable coaching time.",
+      "The coaching business ran its property-investment calculations in a Google Sheet, which did not scale, was not client-friendly and could not be limited to qualified prospects. Prospects also needed to be checked for usable equity before using up valuable coaching time.",
     solution:
-      "We built a Next.js portal that reproduces the spreadsheet's calculations exactly — verified to within ±$1 by a 26-test suite — inside an interactive live-preview UI, and wrapped it in a funnel that captures leads, auto-computes equity qualification and programme tier, and routes clients through admin approval before granting dashboard access. Client records and approvals live in Notion so non-technical staff can run it.",
+      "We built an online portal that reproduces the spreadsheet's calculations exactly, checked to within $1 by 26 tests, with an interactive screen that updates as you type. Around it is a sign-up process that captures leads, works out equity qualification and program level automatically, and sends clients through admin approval before they can see their dashboard. Client records and approvals are kept in Notion so non-technical staff can run it.",
     results: [
-      "Spreadsheet-parity investment calculator verified to ±$1 across a 26-test suite",
-      "15-year cash-flow model with NZ tax, GST and depreciation, and a two-scenario comparison",
-      "Equity-qualification onboarding funnel with automatic programme tiering",
-      "Passwordless magic-link auth with admin approval gating and a Notion-backed CRM",
+      "Investment calculator matching the original spreadsheet to within $1, checked with 26 tests",
+      "15-year cash-flow model with New Zealand tax, GST and depreciation, and a side-by-side comparison of two scenarios",
+      "Sign-up process that checks equity and assigns a program level automatically",
+      "Password-free email sign-in, admin approval and client records kept in Notion"
     ],
     technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "Notion API", "Tailwind CSS"],
     gradientFrom: "#db2777",
@@ -607,18 +607,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["Web App", "B2B", "Manufacturing"],
     shortDesc:
-      "An end-to-end quoting and operations platform for a UK aluminium windows & doors manufacturer.",
+      "A complete quoting and operations system for a UK aluminum windows and doors manufacturer.",
     description:
-      "Ultra Windows is a complete B2B operations platform for a UK aluminium windows-and-doors fabricator. Trade customers and staff configure bespoke products — bifolds, sliders, rooflights, bay windows and more — with live 3D previews and instant pricing, then convert quotes to orders that flow straight into production scheduling, delivery routing, a driver app, stock, and Sage accounting.",
+      "Ultra Windows is a complete business-to-business operations system for a UK aluminum windows-and-doors manufacturer. Trade customers and staff design custom products such as bifold doors, sliding doors, roof lights and bay windows with live 3D previews and instant pricing, then turn quotes into orders that flow straight into production scheduling, delivery routes, a driver app, stock and Sage accounting.",
     problem:
-      "Bespoke window and door manufacturers rely on manual, error-prone quoting in spreadsheets and email, disconnected from pricing, production, delivery and accounting. Complex configurations make accurate quotes slow, and there's no self-serve channel for trade customers or real-time visibility for drivers and office staff.",
+      "Custom window and door manufacturers rely on manual quoting in spreadsheets and email that is error-prone and disconnected from pricing, production, delivery and accounting. Complex configurations make accurate quotes slow, and there is no self-service option for trade customers or live visibility for drivers and office staff.",
     solution:
-      "We designed and built a unified platform where accurate, visual, priced configurations are produced right in the browser with live 3D previews, then flow straight into orders — driving production scheduling, delivery routing and driver dispatch, and Sage 200 accounting. Role-scoped access serves office staff, trade customers and drivers, all backed by Supabase with row-level security.",
+      "We designed and built one system where accurate, priced designs are created right in the web browser with live 3D previews, then flow directly into orders, driving production scheduling, delivery routes and driver dispatch, and Sage 200 accounting. Staff, trade customers and drivers each see only what they need, with customer data kept private.",
     results: [
-      "In-browser configurators with live 3D previews for 13+ bespoke product types",
-      "Instant, customer-specific pricing and one-click quote-to-order conversion",
-      "Route Master logistics with Mapbox route planning and a dedicated driver app",
-      "Sage 200 accounting integration plus a self-serve trade customer portal",
+      "Design tools with live 3D previews for more than 13 custom product types",
+      "Instant customer-specific pricing and one-click conversion from quote to order",
+      "Route planning with maps and a dedicated driver app",
+      "Sage 200 accounting connection plus a self-service trade customer portal"
     ],
     technologies: ["React", "TypeScript", "Vite", "Supabase", "Three.js", "Tailwind CSS", "Mapbox"],
     gradientFrom: "#f97316",
@@ -666,18 +666,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["Web Design", "Branding", "Event"],
     shortDesc:
-      "A bold retro event microsite and brand system for a Toronto sidewalk vintage sale.",
+      "A bold retro event website and brand look for a Toronto sidewalk vintage sale.",
     description:
-      "East End Vintage Sale is a community sidewalk vintage-clothing sale in East York, Toronto. We designed a bold, retro-inspired event microsite and brand system to launch its second edition — a pink-and-white striped, halftone-photo, crumpled-paper aesthetic that captures the laid-back Sunday-market vibe and drives turnout.",
+      "East End Vintage Sale is a community sidewalk vintage-clothing sale in East York, Toronto. We designed a bold, retro-inspired event website and brand look to launch its second edition, with pink-and-white stripes, halftone photos and a crumpled-paper feel that captures the laid-back Sunday-market vibe and drives turnout.",
     problem:
-      "A one-day, word-of-mouth pop-up lives or dies on turnout. The organizers needed to rebuild hype for a second edition, communicate the essentials — date, place, what to expect — at a glance, and stand out on social, all without a big budget or a permanent website.",
+      "A one-day, word-of-mouth pop-up lives or dies on turnout. The organizers needed to rebuild excitement for a second edition, show the essentials of date, place and what to expect at a glance, and stand out on social media, all without a big budget or a permanent website.",
     solution:
-      "We crafted a scroll-through event landing experience with a distinctive vintage brand system: a striped-paper hero, halftone photo cut-outs, and hand-drawn accents. Each section answers a single question — the details, the vibe, drinks, and location — and the whole thing closes on a shareable 'Come early, bring a tote, tell a friend' call to action tied to their social handles.",
+      "We created a scrolling event page with a distinctive vintage look: a striped-paper opening, halftone photo cut-outs and hand-drawn touches. Each section answers one question: the details, the vibe, drinks and the location. The page closes with a shareable \"Come early, bring a tote, tell a friend\" message tied to their social media accounts.",
     results: [
-      "Cohesive retro brand system — striped paper, halftone photography, hand-drawn accents",
-      "Scannable 'everything in one glance' details: date, address, and rain-or-shine",
-      "Sectioned storytelling that sells the experience — the details, the vibe, drinks, and location",
-      "Shareable closing call-to-action driving RSVPs to @eastendvintagesale",
+      "A consistent retro look with striped paper, halftone photos and hand-drawn touches",
+      "Easy-to-scan details: date, address and rain-or-shine",
+      "Sections that sell the experience: the details, the vibe, drinks and location",
+      "A shareable closing message encouraging RSVPs through @eastendvintagesale"
     ],
     technologies: ["HTML", "CSS", "Figma", "Branding"],
     gradientFrom: "#f9a8d4",
@@ -719,18 +719,18 @@ export const projects: Project[] = [
     category: "Web",
     tags: ["Web", "E-Commerce", "Food & Beverage"],
     shortDesc:
-      "A playful web experience for a mobile bakery — live truck tracking, pre-ordering, event booking and an AI cake designer.",
+      "A playful website for a mobile bakery with live truck tracking, pre-ordering, event booking and an AI cake designer.",
     description:
-      "Buttercream Bus is 'Fresh Baked Dreams on Wheels' — a mobile bakery food truck. We built a warm, playful website that lets customers track the wandering oven in real time, pre-order signature treats to skip the line, book the bus for weddings and events, sign up for baking classes, and even generate custom cake concepts with an AI cake designer.",
+      "Buttercream Bus is \"Fresh Baked Dreams on Wheels,\" a mobile bakery food truck. We built a warm, playful website where customers can follow the truck in real time, pre-order treats to skip the line, book the bus for weddings and events, sign up for baking classes, and even create custom cake ideas with an AI cake designer.",
     problem:
-      "A food truck's biggest challenge is that customers never know where it is. On top of that, walk-up lines cost sales, event bookings lived in DMs and spreadsheets, and there was no way to showcase the menu or capture demand between stops.",
+      "A food truck's biggest challenge is that customers never know where it is. On top of that, walk-up lines cost sales, event bookings lived in direct messages and spreadsheets, and there was no way to show the menu or capture demand between stops.",
     solution:
-      "We designed and shipped a single friendly hub for the whole business: real-time GPS truck tracking with a neighborhood voting system to unlock pop-up stops, a pre-order 'Baker's Box' flow, an events booking calendar with availability checks, a classes catalog, and an AI 'Cake Architect' that turns a prompt into visual cake concepts — all wrapped in the brand's warm buttercream palette.",
+      "We built one friendly home for the whole business: live truck tracking with a neighborhood voting feature to unlock pop-up stops, a pre-order \"Baker's Box\" flow, an events calendar with availability checks, a classes list, and an AI \"Cake Architect\" that turns a description into cake design ideas, all in the brand's warm buttercream colors.",
     results: [
-      "Real-time bus tracking with 'Get Notified' alerts so fans never miss a stop",
-      "Pre-order flow that lets customers skip the line and lock in favorites",
-      "Self-serve event booking for weddings, birthdays and corporate catering",
-      "AI Cake Architect that generates custom cake design concepts on demand",
+      "Live bus tracking with \"Get Notified\" alerts so fans never miss a stop",
+      "Pre-ordering that lets customers skip the line and lock in favorites",
+      "Self-service event booking for weddings, birthdays and corporate catering",
+      "An AI Cake Architect that creates custom cake design ideas on request"
     ],
     technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Lovable"],
     gradientFrom: "#f59e0b",
@@ -772,18 +772,18 @@ export const projects: Project[] = [
     category: "SaaS",
     tags: ["SaaS", "Time Tracking", "Project Management"],
     shortDesc:
-      "Time-tracking and project management built for small architecture firms.",
+      "Time tracking and project management built for small architecture firms.",
     description:
-      "HourSheets is a clean, focused workspace for small architectural firms to log time, monitor project progress, and keep the studio running on schedule. Administrators manage projects, the team directory and firm-wide reports, while team members log their own hours against the projects they contribute to.",
+      "HourSheets is a clean, focused workspace for small architecture firms to log time, monitor project progress and keep the studio on schedule. Administrators manage projects, the team list and firm-wide reports, while team members log their own hours against the projects they work on.",
     problem:
-      "Small architecture studios bleed billable time. Hours get tracked in scattered spreadsheets, project budgets drift without anyone noticing, and partners have no real-time view of where staff time is actually going — making it hard to price work, catch overruns, or bill accurately.",
+      "Small architecture studios lose billable time. Hours get tracked in scattered spreadsheets, project budgets drift without anyone noticing, and partners have no live view of where staff time is going, which makes it hard to price work, catch overruns or bill accurately.",
     solution:
-      "We built HourSheets as an OpenAPI-first web app with a fast, keyboard-friendly interface. Every hour is logged against a project and an employee, dashboards compute firm-wide aggregates directly in SQL, and admins get budget-vs-spent tracking, a staged approval workflow, daily task assignment, and per-project and per-employee breakdowns — all in one drafting-paper-clean UI.",
+      "We built HourSheets as a fast web app that is easy to use from the keyboard. Every hour is logged against a project and an employee, dashboards add up firm-wide totals automatically, and admins get budget-versus-spent tracking, a step-by-step approval process, daily task assignment and breakdowns by project and by employee, all in one clean interface.",
     results: [
-      "Firm-wide dashboard: active projects, staff count and hours logged this week/month at a glance",
-      "Per-project budget vs. spent vs. remaining — with fee, cost and profit tracked automatically",
-      "Staged project-approval workflow with nested sub-tasks and per-stage assignees",
-      "Filterable time log and role-based access (admin vs. team member)",
+      "Firm-wide dashboard showing active projects, staff count and hours logged this week and month at a glance",
+      "Budget, spent and remaining for each project, with fee, cost and profit tracked automatically",
+      "Step-by-step project approval with sub-tasks and a named person for each stage",
+      "Filterable time log and separate access for admins and team members"
     ],
     technologies: [
       "React",
@@ -825,18 +825,18 @@ export const projects: Project[] = [
     title: "Torqron",
     category: "Web",
     tags: ["Industrial", "Petrochemical", "B2B"],
-    shortDesc: "Industrial web presence for a global petrochemical products and solutions provider.",
+    shortDesc: "A professional website for a global petrochemical products and solutions provider.",
     description:
-      "Torqron delivers industrial excellence to global petrochemical operations — precision granulation tools, advanced polymer additives, mission-critical spare parts, and integrated supply chain solutions. With 20+ years of engineering expertise across 28 facilities in 12 countries, they needed a web presence that communicated that authority.",
+      "Torqron supplies global petrochemical operations with precision granulation tools, advanced polymer additives, critical spare parts and complete supply chain solutions. With 20+ years of engineering experience across 28 facilities in 12 countries, they needed a website that communicated that authority.",
     problem:
-      "Torqron's previous web presence failed to reflect their scale, engineering depth, or global reach. Enterprise procurement teams evaluating industrial suppliers expect a site that signals technical credibility and operational reliability — theirs did not.",
+      "Torqron's previous website did not reflect their size, expertise or global reach. Purchasing teams at large companies expect a supplier's website to show credibility and reliability, and theirs did not.",
     solution:
-      "We built a high-performance industrial website featuring detailed product and application pages, a clear services overview, and a Contact/RFQ flow built for enterprise buyers. The design language communicates precision and reliability — matching the quality of the products themselves.",
+      "We built a polished, fast website with detailed product and application pages, a clear overview of services, and a contact and quote-request flow designed for business buyers. The design communicates precision and reliability, matching the quality of the products.",
     results: [
-      "20+ years of engineering expertise clearly communicated to enterprise buyers",
-      "Products, Applications, and Services architecture supports complex procurement journeys",
-      "RFQ flow converts high-intent visitors into qualified sales conversations",
-      "Site reflects the credibility of a supplier trusted by 28 major industrial facilities",
+      "20+ years of engineering experience clearly shown to business buyers",
+      "Products, Applications and Services sections that support a complex buying process",
+      "Quote-request flow that turns interested visitors into qualified sales conversations",
+      "A website that reflects the credibility of a supplier trusted by 28 major industrial facilities"
     ],
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Framer Motion"],
     gradientFrom: "#1d4ed8",
@@ -877,18 +877,18 @@ export const projects: Project[] = [
     title: "Expert Village Media",
     category: "Web",
     tags: ["Shopify", "E-Commerce", "Partner Agency"],
-    shortDesc: "Shopify Select Partner Agency building high-converting stores for growth-focused brands.",
+    shortDesc: "A website for a Shopify Select Partner agency that builds high-converting online stores for growth-focused brands.",
     description:
-      "Expert Village Media is a Shopify Select Partner Agency and Certified Expert that transforms e-commerce visions into high-converting Shopify stores. Spanning custom theme design, app integration, store migration, and performance optimization — they handle every aspect of a brand's Shopify journey.",
+      "Expert Village Media is a Shopify Select Partner Agency and Certified Expert that turns online store ideas into high-converting Shopify stores. They cover custom store design, app connections, store migration and speed improvements, handling every part of a brand's Shopify journey.",
     problem:
-      "Expert Village Media needed a web presence that established their authority as a leading Shopify development agency, clearly communicated their service offering, and generated consistent inbound leads from brands seeking serious e-commerce expertise.",
+      "Expert Village Media needed a website that established their authority as a leading Shopify agency, clearly explained their services and brought in a steady flow of enquiries from brands looking for serious e-commerce expertise.",
     solution:
-      "We built a clean, conversion-focused agency website featuring service showcases, a portfolio of client work, partner credentials (Shopify, Google, Upwork), and a seamless schedule-a-call flow. The site positions Expert Village Media as the obvious choice for brands investing in Shopify.",
+      "We built a clean website focused on winning enquiries, with service showcases, a portfolio of client work, partner credentials (Shopify, Google, Upwork) and a simple way to schedule a call. The site presents Expert Village Media as the obvious choice for brands investing in Shopify.",
     results: [
-      "Partner credentials (Shopify Select, Google, Upwork) prominently communicated",
-      "Portfolio and case studies converting visitors into qualified discovery calls",
-      "Clean, trust-building design that matches the caliber of their Shopify work",
-      "SEO-optimized structure driving organic discovery from Shopify-seeking brands",
+      "Partner credentials (Shopify Select, Google, Upwork) clearly shown",
+      "Portfolio and case studies that turn visitors into qualified discovery calls",
+      "A clean, trustworthy design that matches the quality of their Shopify work",
+      "Page structure that helps brands searching for Shopify help find them on Google"
     ],
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Framer Motion"],
     gradientFrom: "#2563eb",
@@ -929,19 +929,19 @@ export const projects: Project[] = [
     title: "ZenScroll",
     category: "Web",
     tags: ["Digital Wellness", "Web Design", "Mindfulness"],
-    shortDesc: "Marketing website for the app that makes you earn your scroll — one breath at a time.",
+    shortDesc: "A website for the app that makes you earn your scroll, one breath at a time.",
     description:
-      "ZenScroll is a digital wellness platform and marketing website for an app that balances social media with meditation. Every minute of mindfulness practice earns two to six minutes of scroll time — the ratio is yours to set, but the pause is non-negotiable. We designed and built the full website to communicate this concept with clarity, calm, and conviction.",
+      "ZenScroll is a digital wellness app and website that balances social media with meditation. Every minute of mindfulness practice earns two to six minutes of scroll time. The ratio is yours to set, but the pause is non-negotiable. We designed and built the full website to explain this idea with clarity, calm and conviction.",
     problem:
-      "ZenScroll had a genuinely novel product idea — earning scroll time through meditation — but needed a website that could explain an unfamiliar mechanic quickly, build trust with skeptical users, and convert visitors into app downloads without feeling preachy or restrictive.",
+      "ZenScroll had a genuinely new product idea, earning scroll time through meditation, but needed a website that could explain an unfamiliar idea quickly, build trust with skeptical users and turn visitors into app downloads without feeling preachy or restrictive.",
     solution:
-      "We crafted a dark, immersive marketing website built around a single, powerful message: breathe first, then the feed opens. The design language — deep browns, nature photography, warm typography — reinforces the meditative purpose of the product. The copy leads with the mechanic, not the mission, making it immediately legible to anyone who has ever doomscrolled.",
+      "We created a dark, immersive website built around one message: breathe first, then the feed opens. The deep browns, nature photography and warm typography reinforce the calm purpose of the product. The wording leads with how it works, not the mission, so anyone who has ever scrolled too long understands it immediately.",
     results: [
-      "Conversion-focused landing page driving App Store and Google Play downloads",
-      "Earn-to-scroll mechanic communicated clearly through structured 3-step flow section",
-      "Testimonials section ('Voices') builds social proof with real user outcomes",
-      "Dark, calming aesthetic that matches the product's meditative identity",
-      "CTA section — 'Begin with a single breath' — drives installs with zero friction",
+      "A landing page focused on driving App Store and Google Play downloads",
+      "The earn-to-scroll idea explained clearly in a simple 3-step section",
+      "A \"Voices\" section that builds trust with real user stories",
+      "A dark, calming look that matches the product's meditative identity",
+      "A closing call to action, \"Begin with a single breath,\" that makes installing easy"
     ],
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
     gradientFrom: "#7c2d12",
@@ -983,18 +983,18 @@ export const projects: Project[] = [
     title: "Herruby",
     category: "SaaS",
     tags: ["Women's Health", "Wellness", "Mobile"],
-    shortDesc: "Midlife wellness app helping Canadian women sustain energy, confidence, and performance.",
+    shortDesc: "A midlife wellness app helping Canadian women sustain energy, confidence and performance.",
     description:
-      "Herruby is a PIPEDA-compliant wellness platform built exclusively for Canadian women navigating midlife. It provides personalized tools, expert-backed resources, and a supportive community to help women sustain their energy, confidence, and performance through this life stage.",
+      "Herruby is a wellness app built exclusively for Canadian women going through midlife, and it follows Canada's PIPEDA privacy law. It provides personalized tools, expert-backed resources and a supportive community to help women sustain their energy, confidence and performance through this stage of life.",
     problem:
-      "Women going through midlife — perimenopause, hormonal shifts, energy changes — had nowhere to turn for a dedicated, privacy-first digital health experience that understood their specific needs. Generic wellness apps were not built for them.",
+      "Women going through midlife, including perimenopause, hormonal changes and energy shifts, had nowhere to turn for a dedicated, privacy-first digital health experience that understood their needs. Generic wellness apps were not built for them.",
     solution:
-      "We designed and built Herruby as a mobile-first platform purpose-built for Canadian women in midlife. The product combines personalized wellness tracking, expert content, and community features, with full PIPEDA compliance baked into the architecture from day one.",
+      "We designed and built Herruby as a phone-first app made for Canadian women in midlife. It combines personalized wellness tracking, expert content and community features, with compliance with Canada's PIPEDA privacy law built in from day one.",
     results: [
-      "First wellness platform purpose-built for Canadian women in midlife",
-      "Full PIPEDA compliance built into the data architecture from the ground up",
-      "Personalized energy, confidence, and performance tracking tailored to life stage",
-      "Expert-backed content library addressing the specific needs of midlife women",
+      "The first wellness app built for Canadian women in midlife",
+      "Full compliance with Canada's PIPEDA privacy law built in from the start",
+      "Personalized tracking of energy, confidence and performance for each life stage",
+      "An expert-backed content library covering the specific needs of midlife women"
     ],
     technologies: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS", "Vercel"],
     gradientFrom: "#9f1239",
@@ -1030,18 +1030,18 @@ export const projects: Project[] = [
     title: "HMD",
     category: "SaaS",
     tags: ["Medical Education", "E-Learning", "SaaS"],
-    shortDesc: "Elite medical education platform advancing physicians through evidence and leadership.",
+    shortDesc: "A premium medical education platform advancing physicians through evidence and leadership.",
     description:
-      "HMD is a premium medical education platform delivering elite physician training, evidence-based programs, and physician-executive development to medical trainees, physicians, and institutions worldwide. Built around the principle of medicine via pristina — pure, rigorous, and leadership-driven.",
+      "HMD is a premium medical education platform offering physician training, evidence-based programs and executive development to medical trainees, physicians and institutions worldwide. It is built around the idea of medicine via pristina: pure, rigorous and leadership-driven.",
     problem:
-      "Physicians seeking elite continuing education and executive development faced a fragmented landscape of low-quality platforms. Institutions needed a trusted, scalable home for structured medical programs that matched the prestige of the training itself.",
+      "Physicians looking for high-quality continuing education and leadership development faced a scattered market of low-quality platforms. Institutions needed a trusted, scalable home for structured medical programs that matched the prestige of the training itself.",
     solution:
-      "We built HMD as a full-featured medical education SaaS — featuring structured program pathways, a curated library of clinical resources, a physician community hub (iConnect), and a clean, authoritative interface that reflects the caliber of the education delivered.",
+      "We built HMD as a complete online medical education product with structured program paths, a curated library of clinical resources, a physician community area (iConnect) and a clean, authoritative design that reflects the quality of the education.",
     results: [
-      "Integrated 4-year and 3-year physician programs delivered asynchronously online",
-      "100% asynchronous curriculum accessible globally for active physicians",
-      "iConnect community hub fostering peer collaboration among medical professionals",
-      "Institutional partnerships extending the reach of elite physician development",
+      "Combined 4-year and 3-year physician programs delivered fully online",
+      "100% self-paced curriculum available worldwide for working physicians",
+      "iConnect community area for peer collaboration among medical professionals",
+      "Institutional partnerships that extend the reach of physician development"
     ],
     technologies: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS", "Vercel"],
     gradientFrom: "#1e3a5f",
@@ -1082,18 +1082,18 @@ export const projects: Project[] = [
     title: "Periscope Email",
     category: "SaaS",
     tags: ["AI Outreach", "B2B Sales", "SaaS"],
-    shortDesc: "Turns real-time news triggers into ready-to-send enterprise outreach in seconds.",
+    shortDesc: "Turns breaking news about target companies into ready-to-send sales emails in seconds.",
     description:
-      "Periscope transforms breaking news about named accounts into researched contact lists and personalized, enterprise-grade emails — in seconds, not 30+ minutes. It gives B2B sales teams a revenue intelligence layer that acts on signals the moment they happen.",
+      "Periscope turns breaking news about named companies into researched contact lists and personalized, professional emails in seconds instead of 30+ minutes. It gives business-to-business sales teams a way to act on buying signals the moment they happen.",
     problem:
-      "Enterprise sales teams are slow to react to buying signals. By the time reps research a news trigger, find contacts, and write a relevant email, the moment has passed. Existing tools give you the data but leave all the work to the rep.",
+      "Sales teams at large companies are slow to react to buying signals. By the time a rep researches a news item, finds the right contacts and writes a relevant email, the moment has passed. Existing tools provide the data but leave all the work to the rep.",
     solution:
-      "We built Periscope as an end-to-end signal-to-send workflow. It monitors news across named accounts, automatically researches relevant contacts, and generates personalized, ready-to-send enterprise emails — collapsing 30+ minutes of rep work into seconds.",
+      "We built Periscope as a complete flow from news to sent email. It watches the news for the companies you name, automatically researches the right contacts and writes personalized, ready-to-send emails, reducing 30+ minutes of rep work to seconds.",
     results: [
-      "Breaking news about target accounts converted to outreach in seconds",
-      "Researched contact lists generated automatically alongside each email",
-      "Enterprise-grade personalization at the speed of a news alert",
-      "Sales teams react to buying signals before the competition can",
+      "Breaking news about target companies turned into outreach in seconds",
+      "Researched contact lists created automatically alongside each email",
+      "Professional, personalized emails at the speed of a news alert",
+      "Sales teams that can react to buying signals before the competition"
     ],
     technologies: ["Next.js", "React", "Node.js", "TypeScript", "OpenAI", "Supabase"],
     gradientFrom: "#eab308",
@@ -1134,18 +1134,18 @@ export const projects: Project[] = [
     title: "Molar AI",
     category: "AI",
     tags: ["AI", "Social Media", "Dental Tech"],
-    shortDesc: "AI-powered social media automation built exclusively for dental practices.",
+    shortDesc: "AI-powered social media posting built exclusively for dental practices.",
     description:
-      "Molar AI is an AI platform that fully automates social media content for dental practices — posting to Instagram and Facebook daily in any language, in the practice's authentic voice. Branded, converting, and completely hands-off.",
+      "Molar AI is an AI service that fully automates social media content for dental practices. It posts to Instagram and Facebook every day, in any language, in the practice's own voice. Branded, effective and completely hands-off.",
     problem:
-      "Dental practices know they need a consistent social media presence to attract patients, but they have no time to create content. Hiring social media managers is expensive, generic agencies produce lifeless posts, and DIY efforts burn out within weeks.",
+      "Dental practices know they need a steady social media presence to attract patients, but they have no time to create content. Hiring a social media manager is expensive, generic agencies produce lifeless posts, and doing it yourself burns out within weeks.",
     solution:
-      "We built Molar AI to make social media invisible work for dental practices. The platform generates on-brand, clinically credible content daily, schedules it automatically across Instagram and Facebook, and adapts to each practice's voice and patient demographics.",
+      "We built Molar AI so social media becomes invisible work for dental practices. It creates on-brand, professional content every day, schedules it automatically on Instagram and Facebook, and adapts to each practice's voice and patients.",
     results: [
       "Daily social media posts in any language, fully automated",
-      "Authentic, branded content that converts followers into booked patients",
-      "Zero time investment from the dental team after initial setup",
-      "Consistent online presence that compounds patient trust over time",
+      "Authentic, branded content that turns followers into booked patients",
+      "No ongoing time needed from the dental team after the initial setup",
+      "A consistent online presence that builds patient trust over time"
     ],
     technologies: ["Next.js", "TypeScript", "OpenAI", "Supabase", "Tailwind CSS", "Vercel"],
     gradientFrom: "#6366f1",
@@ -1184,17 +1184,18 @@ export const projects: Project[] = [
 
   {
     slug: "divine-reach",
-    title: "Divine Reach — GoHighLevel & ClickFunnels Booking Funnel Diagnostic",
+    title: "Divine Reach - Booking Funnel Diagnosis (GoHighLevel & ClickFunnels)",
     category: "Automation",
     tags: ["CRM", "Automation", "API"],
-    shortDesc: "I diagnosed why bookings from a GoHighLevel + ClickFunnels funnel weren't reaching people's calendars. The invites worked but only auto-add for Gmail users. ...",
-    description: "I diagnosed why bookings from a GoHighLevel + ClickFunnels funnel weren't reaching people's calendars. The invites worked but only auto-add for Gmail users. I ruled out both obvious fixes with evidence and designed an Add-to-Calendar block driven by the redirect parameters. A GHL API audit of 1,300+ appointments showed the reported no-show rate was unsupported and cancellations ran at 27–37%.",
-    problem: "The client needed a modern, scalable solution for divine reach — gohighlevel & clickfunnels booking funnel diagnostic.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "I worked out why bookings from a GoHighLevel and ClickFunnels funnel weren't reaching people's calendars, and designed a fix.",
+    description: "I worked out why bookings from a GoHighLevel and ClickFunnels funnel weren't reaching people's calendars. The invitations were being sent but only added to calendars automatically for Gmail users. I ruled out both obvious fixes with evidence and designed an Add-to-Calendar button that works for everyone. A review of 1,300+ appointments in GoHighLevel showed the reported no-show rate was unsupported and that cancellations ran at 27–37%.",
+    problem: "Bookings made through the funnel were not showing up in many people's calendars, and the client's reported no-show numbers did not match what was happening.",
+    solution: "We checked how the booking invitations were sent, found that only Gmail users had them added to their calendars automatically, and ruled out the two obvious fixes with evidence. We then designed an Add-to-Calendar button for all email providers, and reviewed more than 1,300 appointments to check the real no-show and cancellation numbers.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Found the real reason bookings were missing from calendars",
+      "Designed an Add-to-Calendar button that works for everyone",
+      "Reviewed 1,300+ appointments and showed the reported no-show rate was unsupported",
+      "Showed cancellations were running at 27–37%"
     ],
     technologies: ["Node.js", "REST API", "Webhooks", "CRM Integration"],
     gradientFrom: "#f093fb",
@@ -1215,14 +1216,15 @@ export const projects: Project[] = [
     title: "Wavv Dialer ↔ GoHighLevel Pipeline Sync for a Real Estate Team",
     category: "Automation",
     tags: ["CRM", "Automation", "API"],
-    shortDesc: "I built a one-way sync so a real estate team's reps work only in the Wavv dialer while GoHighLevel opportunities follow automatically. After finding disposit...",
-    description: "I built a one-way sync so a real estate team's reps work only in the Wavv dialer while GoHighLevel opportunities follow automatically. After finding dispositions are shared across every stage, I rebuilt the design around stage: 15 Wavv automations write stage tags and 15 GHL workflows move opportunities. It's loop-proof because only entry tags have connections. Writeback is verified via the GHL API.",
-    problem: "The client needed a modern, scalable solution for wavv dialer ↔ gohighlevel pipeline sync for a real estate team.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "I built a one-way sync so a real estate team's reps work only in the Wavv dialer while GoHighLevel updates automatically.",
+    description: "I built a one-way sync so a real estate team's reps work only in the Wavv phone dialer while their GoHighLevel pipeline follows automatically. After finding that call outcomes are shared across every stage, I redesigned the setup around the pipeline stage: 15 automations in Wavv label each stage and 15 workflows in GoHighLevel move the deals. It cannot loop back on itself, and the updates are checked against GoHighLevel.",
+    problem: "The real estate team's reps were working in the Wavv dialer while their sales pipeline lived in GoHighLevel, so updates had to be made twice or were missed.",
+    solution: "We built a one-way sync from Wavv to GoHighLevel. Because call outcomes are shared across every stage, we organized the setup around the pipeline stage instead: 15 automations in Wavv label each stage and 15 workflows in GoHighLevel move the deals. Only the starting labels trigger changes, so it cannot loop, and we checked the results directly in GoHighLevel.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Reps work only in the Wavv dialer while GoHighLevel deals move automatically",
+      "15 Wavv automations and 15 GoHighLevel workflows, one for each pipeline stage",
+      "Built so updates cannot loop back and forth",
+      "Results checked directly in GoHighLevel"
     ],
     technologies: ["Node.js", "REST API", "Webhooks", "CRM Integration"],
     gradientFrom: "#a1c4fd",
@@ -1238,17 +1240,17 @@ export const projects: Project[] = [
   },
   {
     slug: "chatappai",
-    title: "OpenChat - AI Chat Web App (Next.js, Prisma, MongoDB, OpenAI)",
+    title: "OpenChat - AI Chat Web App",
     category: "AI",
     tags: ["AI", "Machine Learning", "Next.js"],
-    shortDesc: "OpenChat is an AI-powered chat web app I built using Next.js, Prisma, and MongoDB, with OpenAI's language model integrated into the application. It combines ...",
-    description: "OpenChat is an AI-powered chat web app I built using Next.js, Prisma, and MongoDB, with OpenAI's language model integrated into the application. It combines OpenAI's advanced language model with Prisma's data layer, giving users intelligent, AI-driven chat capabilities through a streamlined, user-friendly interface with a single, low-friction Google OAuth sign-up flow.",
-    problem: "The client needed a modern, scalable solution for openchat - ai chat web app (next.js, prisma, mongodb, openai).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "OpenChat is an AI chat web app I built, with OpenAI's language model and simple Google sign-up.",
+    description: "OpenChat is an AI-powered chat web app I built, with OpenAI's language model connected to it. It gives users intelligent, AI-driven chat through a streamlined, user-friendly design with a single, low-effort Google sign-up.",
+    problem: "The project needed a simple, easy-to-use way for people to chat with an AI assistant, with as little friction as possible to get started.",
+    solution: "We built a web app that connects OpenAI's language model to a clean chat screen, with sign-up through a Google account so users can start in one step.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "AI chat powered by OpenAI's language model",
+      "One-step sign-up with a Google account",
+      "A streamlined, user-friendly chat design"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#5c6bc0",
@@ -1261,17 +1263,18 @@ export const projects: Project[] = [
   },
   {
     slug: "course-selling-website",
-    title: "Kids Coding Course Platform - UI Design & Firebase Backend",
+    title: "Kids Coding Course Platform - Design & Online Setup",
     category: "Mobile App",
     tags: ["Mobile App", "React Native", "Mobile"],
-    shortDesc: "IPlusCoding is a kids' coding course platform (Scratch Junior curriculum, Beginner/Elementary/Intermediate tiers) I took from a static template to a real, dy...",
-    description: "IPlusCoding is a kids' coding course platform (Scratch Junior curriculum, Beginner/Elementary/Intermediate tiers) I took from a static template to a real, dynamic product. I designed the UI and integrated Firebase into the backend for scalability, security, and real-time capability on a serverless architecture, transforming the site from static to dynamic, made it fully responsive across mobile/tablet/desktop, uploaded real content, and structured pages for SEO — turning a template shell into a sellable, production-ready course platform.",
-    problem: "The client needed a modern, scalable solution for kids coding course platform - ui design & firebase backend.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A kids' coding course platform, taken from a static template to a real, working product.",
+    description: "IPlusCoding is a kids' coding course platform (Scratch Junior lessons in Beginner, Elementary and Intermediate levels) that I took from a static template to a real, working product. I designed the screens and connected it to Firebase so it can grow securely and update live. I turned the site from static to dynamic, made it work well on phones, tablets and computers, added real content, and organized the pages so Google can find them, turning a template into a sellable course platform.",
+    problem: "The platform started as a static template that could not manage courses, update content or work as a real course business.",
+    solution: "We redesigned the screens and connected Firebase behind the scenes, so the site is no longer static and can grow securely with live updates. We made it work on every screen size, added real course content and organized the pages so Google can find them.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Turned a static template into a dynamic course platform",
+      "Works on phones, tablets and computers",
+      "Real course content added and pages organized for Google",
+      "Built to grow securely with live updates"
     ],
     technologies: ["React Native", "Expo", "TypeScript"],
     gradientFrom: "#ef5350",
@@ -1287,17 +1290,18 @@ export const projects: Project[] = [
   },
   {
     slug: "cypress-bridge",
-    title: "Cypress Bridge - Hospital ED Analytics Platform (Python ETL)",
+    title: "Cypress Bridge - Hospital Emergency Department Analytics Platform",
     category: "AI",
     tags: ["AI", "Machine Learning", "React", "Next.js", "Dashboard"],
-    shortDesc: "Cypress Bridge is a secure analytics platform I built for a healthcare consulting firm, turning fragmented raw CMS hospital data into clear Emergency Departm...",
-    description: "Cypress Bridge is a secure analytics platform I built for a healthcare consulting firm, turning fragmented raw CMS hospital data into clear Emergency Department KPIs, state/national benchmarks, and a computed \"Opportunity Value\" figure. I designed a Python ETL pipeline (fetch, clean, normalize CMS data, compute metrics) loading into Supabase/PostgreSQL, automated on a schedule via GitHub Actions, paired with a React/Next.js dashboard giving executives filterable KPI cards, trend charts, and benchmarks for fast, non-technical insight.",
-    problem: "The client needed a modern, scalable solution for cypress bridge - hospital ed analytics platform (python etl).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A secure analytics platform for a healthcare consulting firm, turning scattered hospital data into clear Emergency Department performance figures.",
+    description: "Cypress Bridge is a secure analytics platform I built for a healthcare consulting firm. It turns scattered raw hospital data from CMS (the US Medicare agency) into clear Emergency Department performance figures, state and national comparisons, and a calculated \"Opportunity Value\" figure. The data is collected, cleaned and calculated automatically on a schedule and stored in a database, and a dashboard gives executives filterable performance cards, trend charts and comparisons for fast insight with no technical knowledge needed.",
+    problem: "The consulting firm needed to understand how hospital Emergency Departments perform, but the raw public data was scattered across many files and hard for executives to use.",
+    solution: "We built an automatic process that collects and cleans the CMS hospital data, calculates the performance figures and saves them to a database on a schedule. On top of it we built an executive dashboard with filterable performance cards, trend charts and comparisons against state and national figures.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Raw hospital data turned into clear Emergency Department performance figures",
+      "State and national comparisons plus a calculated Opportunity Value",
+      "Data refreshed automatically on a schedule",
+      "A dashboard with filters, trend charts and comparisons that executives can use without technical knowledge"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#29b6f6",
@@ -1313,17 +1317,19 @@ export const projects: Project[] = [
   },
   {
     slug: "fulltimewin",
-    title: "FullTimeWin.live - Next.js Sports Platform (Fixes & Features)",
+    title: "FullTimeWin.live - Sports Platform (Fixes & Features)",
     category: "AI",
     tags: ["AI", "Machine Learning", "Next.js"],
-    shortDesc: "FullTimeWin is a live, Indonesian-language sports livescore, predictions, and news platform built on Next.js. I added a new \"Live\" tab to the live-score sect...",
-    description: "FullTimeWin is a live, Indonesian-language sports livescore, predictions, and news platform built on Next.js. I added a new \"Live\" tab to the live-score section, built a sitemap feature to improve SEO, implemented infinite scrolling, made minor revisions, hid an exposed secret key as a security fix, improved overall SEO, and resolved an intermittent bug that broke the page roughly 10% of the time.",
-    problem: "The client needed a modern, scalable solution for fulltimewin.live - next.js sports platform (fixes & features).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A live Indonesian-language sports scores, predictions and news website. I added new features and fixed problems.",
+    description: "FullTimeWin is a live, Indonesian-language sports scores, predictions and news website. I added a new \"Live\" tab to the live-score section, built a site map to help Google find the pages, added endless scrolling, made smaller revisions, hid an exposed private key as a security fix, improved overall search visibility, and fixed an intermittent problem that broke the page roughly 10% of the time.",
+    problem: "The site needed new features and a set of fixes: a clearer way to see live matches, better visibility on Google, a security risk from an exposed private key, and an intermittent problem that broke pages about 10% of the time.",
+    solution: "We added the Live tab to the live-score section, built a site map for Google, added endless scrolling, hid the exposed private key, improved search visibility across the site, and found and fixed the cause of the intermittent page problem.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "New \"Live\" tab in the live-score section",
+      "Site map added to help Google find pages",
+      "Endless scrolling added",
+      "Exposed private key hidden as a security fix",
+      "Intermittent problem that broke pages about 10% of the time resolved"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#fd7043",
@@ -1337,17 +1343,18 @@ export const projects: Project[] = [
   },
   {
     slug: "keyglowmax",
-    title: "KeyGlowMax - Solana DeFi Token Creator (UI Redesign)",
+    title: "KeyGlowMax - Crypto Token Creator (Design Refresh)",
     category: "AI",
     tags: ["AI", "Machine Learning"],
-    shortDesc: "KeyGlowMax is a no-code Solana SPL token creator (mint, add liquidity, burn liquidity pools). I led a full UI redesign: a sleek, modern aesthetic with clean ...",
-    description: "KeyGlowMax is a no-code Solana SPL token creator (mint, add liquidity, burn liquidity pools). I led a full UI redesign: a sleek, modern aesthetic with clean lines and intuitive layouts, full responsiveness across desktop/tablet/smartphone, clearer presentation of complex DeFi data through charts and visualization tools, and a simplified, optimized navigation system across the token-creation and liquidity flows.",
-    problem: "The client needed a modern, scalable solution for keyglowmax - solana defi token creator (ui redesign).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A full redesign of a no-code tool for creating Solana crypto tokens, making a complicated process easier to follow.",
+    description: "KeyGlowMax is a no-code tool for creating Solana crypto tokens and managing their liquidity pools. I led a full redesign: a sleek, modern look with clean lines and clear layouts, a layout that works on computers, tablets and phones, a clearer presentation of complex crypto data through charts and visuals, and simpler navigation through the token-creation and liquidity steps.",
+    problem: "Creating a crypto token and managing its liquidity involves complicated information, and the existing design made that harder to follow than it needed to be.",
+    solution: "We redesigned the whole interface with a modern look, clear layouts and a navigation that guides people step by step through creating a token and managing liquidity. Charts and visuals make complex data easier to read, and the design works on every screen size.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "A sleek, modern look with clean lines and clear layouts",
+      "Works on computers, tablets and phones",
+      "Charts and visuals that make complex crypto data easier to read",
+      "Simpler navigation through the token and liquidity steps"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#667eea",
@@ -1366,14 +1373,15 @@ export const projects: Project[] = [
     title: "LiteJob - City-Based Local Business & Service Directory",
     category: "AI",
     tags: ["AI", "Machine Learning"],
-    shortDesc: "LiteJob is an online portal I built connecting cities, businesses, and services in one place. Users search by city to browse categorized local businesses — r...",
-    description: "LiteJob is an online portal I built connecting cities, businesses, and services in one place. Users search by city to browse categorized local businesses — restaurants, salons, repair services, and more — with each business listing its own range of services. I built the platform around two distinct account types, Client and Business, with a role selector on both the signup and login flows, giving users a centralized place to compare prices and services in a few clicks.",
-    problem: "The client needed a modern, scalable solution for litejob - city-based local business & service directory.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "An online directory connecting cities, businesses and services in one place.",
+    description: "LiteJob is an online directory I built that connects cities, businesses and services in one place. Users search by city to browse local businesses by type, such as restaurants, salons and repair services, with each business listing its own range of services. The platform has two kinds of accounts, Client and Business, with a role choice on both sign-up and login, giving people one place to compare prices and services in a few clicks.",
+    problem: "People looking for local services had no single place to browse businesses by city and compare their prices and services, and businesses had no simple way to list what they offer.",
+    solution: "We built a directory where people search by city and browse local businesses by category. It has separate Client and Business accounts, with a role choice at sign-up and login, so businesses can list their services and clients can compare them.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "City search with local businesses sorted by category",
+      "Separate Client and Business accounts",
+      "Each business lists its own range of services",
+      "One place to compare prices and services in a few clicks"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#a1c4fd",
@@ -1389,17 +1397,18 @@ export const projects: Project[] = [
   },
   {
     slug: "nexus-by-aps",
-    title: "Nexus by APS - Enterprise RFQ Coordination Platform",
+    title: "Nexus by APS - Enterprise Quote-Request Platform",
     category: "AI",
     tags: ["AI", "Machine Learning"],
-    shortDesc: "Nexus by APS is an enterprise-grade RFQ management and vendor bidding platform I built to streamline procurement and supplier collaboration. It centralizes R...",
-    description: "Nexus by APS is an enterprise-grade RFQ management and vendor bidding platform I built to streamline procurement and supplier collaboration. It centralizes RFQ creation (an eight-stage wizard), vendor bid submission with supporting documentation, real-time bid-status tracking, a historical data repository, and deep analytics/reporting for cost-saving and vendor-performance insights, plus a built-in \"Sera AI\" assistant, transforming procurement into a modern, data-driven workflow.",
-    problem: "The client needed a modern, scalable solution for nexus by aps - enterprise rfq coordination platform.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A business platform for managing supplier quote requests and bidding, built to streamline buying and supplier collaboration.",
+    description: "Nexus by APS is a business platform for managing quote requests and supplier bidding that I built to streamline purchasing and supplier collaboration. It brings together quote request creation (an eight-step guide), supplier bid submission with supporting documents, live bid-status tracking, a historical records library, and detailed reports on cost savings and supplier performance, plus a built-in \"Sera AI\" assistant, turning purchasing into a modern, data-driven process.",
+    problem: "Companies handling quote requests and supplier bids by email and spreadsheets struggle to keep requests, bids and supporting documents in one place or to measure savings and supplier performance.",
+    solution: "We built one platform that guides buyers through an eight-step quote request, lets suppliers submit bids with supporting documents, tracks bid status live, keeps a history of past requests and offers detailed reporting, with a built-in \"Sera AI\" assistant to help along the way.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "An eight-step guide for creating quote requests",
+      "Supplier bids with supporting documents and live status tracking",
+      "A historical library and reports on cost savings and supplier performance",
+      "A built-in \"Sera AI\" assistant"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#667eea",
@@ -1415,17 +1424,18 @@ export const projects: Project[] = [
   },
   {
     slug: "prognosticz",
-    title: "Prognosticz - VC & Startup Analytics (Performance Engineering)",
+    title: "Prognosticz - VC & Startup Analytics (Speed Improvements)",
     category: "AI",
     tags: ["AI", "Machine Learning", "React", "Next.js", "Dashboard"],
-    shortDesc: "I contributed to Prognosticz, an investor and startup analytics dashboard covering global VC networks, funding trends, and company insights at real productio...",
-    description: "I contributed to Prognosticz, an investor and startup analytics dashboard covering global VC networks, funding trends, and company insights at real production scale (6,255+ companies, 61,031+ investors), backed by Supabase. My work focused on performance across the Investors, Companies, and Funding Rounds pages: reducing graph loading time via API optimization and caching, refactoring Supabase functions for query efficiency, and improving chart/table rendering and code quality. Stack: React.js, Next.js, Supabase, Recharts, TypeScript, Tailwind CSS. Contributor role, not the original build.",
-    problem: "The client needed a modern, scalable solution for prognosticz - vc & startup analytics (performance engineering).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "I made an investor and startup analytics dashboard faster, covering thousands of companies and investors.",
+    description: "I contributed to Prognosticz, an investor and startup analytics dashboard covering global venture capital networks, funding trends and company insights at real-world scale (6,255+ companies and 61,031+ investors). My work focused on speed across the Investors, Companies and Funding Rounds pages: cutting the time charts take to load by making data requests faster and storing results for reuse, making the database queries more efficient, and improving how charts and tables display. This was a contributor role, not the original build.",
+    problem: "With thousands of companies and investors on the platform, pages with charts and tables were slow to load.",
+    solution: "We made the data behind the Investors, Companies and Funding Rounds pages faster to fetch, stored results so repeat requests load quickly, made the database queries more efficient, and improved how charts and tables display.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Faster chart loading on the Investors, Companies and Funding Rounds pages",
+      "More efficient database queries",
+      "Improved chart and table display",
+      "Works at scale: 6,255+ companies and 61,031+ investors"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#667eea",
@@ -1443,14 +1453,15 @@ export const projects: Project[] = [
     title: "The Lookbook - Fashion Platform Search & Admin Fixes",
     category: "AI",
     tags: ["AI", "Machine Learning", "E-Commerce", "API"],
-    shortDesc: "I contributed to The Lookbook, a curated fashion discovery platform (\"Shop the Edit,\" 50+ products), improving its product/moodboard management system: dynam...",
-    description: "I contributed to The Lookbook, a curated fashion discovery platform (\"Shop the Edit,\" 50+ products), improving its product/moodboard management system: dynamic API-sourced tag loading for moodboards, partial-word product search with correct image rendering, reliable bulk publish/unpublish/delete actions, and fixed, verified create/update flows for products and moodboards — resulting in faster content management and more reliable admin controls. Contributor engagement, not the original build.",
-    problem: "The client needed a modern, scalable solution for the lookbook - fashion platform search & admin fixes.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "I improved how products and mood boards are managed on a curated fashion discovery website.",
+    description: "I contributed to The Lookbook, a curated fashion discovery platform (\"Shop the Edit,\" 50+ products), improving how products and mood boards are managed: mood board labels that load automatically, product search that works with partial words and shows the right images, reliable bulk publish, unpublish and delete actions, and fixed, tested create and update functions for products and mood boards. The result is faster content management and more reliable admin controls. This was a contributor engagement, not the original build.",
+    problem: "The admin tools for managing products and mood boards were unreliable: searching didn't work well with partial words, bulk actions failed, and creating or updating items wasn't dependable.",
+    solution: "We made mood board labels load automatically, fixed product search so partial words work and the right images show, made bulk publish, unpublish and delete actions reliable, and fixed and tested the create and update functions for products and mood boards.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Search that works with partial words and shows the right images",
+      "Reliable bulk publish, unpublish and delete actions",
+      "Fixed and tested create and update functions for products and mood boards",
+      "Faster content management and more reliable admin controls"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#667eea",
@@ -1470,14 +1481,15 @@ export const projects: Project[] = [
     title: "Roueen Rafeyan MD - Psychiatry & Wellness Practice Website",
     category: "AI",
     tags: ["AI", "Machine Learning"],
-    shortDesc: "This is the practice website for Roueen Rafeyan MD, Psychiatry & Wellness, built around \"Take ownership of your mental health\" and an \"Accepting New Patients...",
-    description: "This is the practice website for Roueen Rafeyan MD, Psychiatry & Wellness, built around \"Take ownership of your mental health\" and an \"Accepting New Patients\" badge. Its standout is an unusually detailed Insurance & Billing section — out-of-network status, a superbill process, and specific CPT codes with a realistic reimbursement range. This case study documents the live public site; the Patient Portal was referenced but not independently accessed, per standard patient-data privacy boundaries.",
-    problem: "The client needed a modern, scalable solution for roueen rafeyan md - psychiatry & wellness practice website.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A practice website for a psychiatry and wellness practice, with an unusually detailed insurance and billing section.",
+    description: "This is the practice website for Roueen Rafeyan MD, Psychiatry & Wellness, built around the message \"Take ownership of your mental health\" and an \"Accepting New Patients\" badge. Its standout is an unusually detailed Insurance & Billing section covering out-of-network status, the superbill process, and specific billing codes with a realistic reimbursement range. This write-up covers the live public website; the Patient Portal was not accessed, out of respect for patient privacy.",
+    problem: "Patients considering a psychiatry practice want to know right away whether the practice is accepting new patients and how insurance and payment work.",
+    solution: "The practice website puts \"Accepting New Patients\" and the message \"Take ownership of your mental health\" up front, and includes a detailed Insurance & Billing section explaining out-of-network status, the superbill process and a realistic reimbursement range.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "An \"Accepting New Patients\" badge shown up front",
+      "A clear message: \"Take ownership of your mental health\"",
+      "A detailed Insurance & Billing section covering out-of-network status, superbills and billing codes",
+      "A patient portal linked from the public site"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#f093fb",
@@ -1494,17 +1506,18 @@ export const projects: Project[] = [
   },
   {
     slug: "wharton-carpet-cleaning",
-    title: "WordPress SiteOrigin CSS Debugging - Wharton Carpet Cleaning",
+    title: "WordPress Page Builder Styling Fixes - Wharton Carpet Cleaning",
     category: "AI",
     tags: ["AI", "Machine Learning", "WordPress"],
-    shortDesc: "Wharton Carpet Cleaning runs a WordPress site built with SiteOrigin Page Builder. I resolved three CSS issues: button hover states failing due to specificity...",
-    description: "Wharton Carpet Cleaning runs a WordPress site built with SiteOrigin Page Builder. I resolved three CSS issues: button hover states failing due to specificity conflicts from page-builder inline styles, border-radius rendering incorrectly from widget-wrapper style conflicts and missing overflow: hidden, and inline styles overriding the global stylesheet site-wide. Using browser DevTools to trace each to its root cause, I applied targeted fixes without fragile !important chains, verified working across all pages.",
-    problem: "The client needed a modern, scalable solution for wordpress siteorigin css debugging - wharton carpet cleaning.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "I fixed three display problems on a WordPress website for a carpet cleaning company.",
+    description: "Wharton Carpet Cleaning runs a WordPress website built with the SiteOrigin page builder. I resolved three display problems: buttons that didn't change on hover because of conflicting page builder styles, rounded corners that displayed incorrectly because of conflicting widget styles, and page-builder styles overriding the site's main styling everywhere. I traced each problem to its cause using the browser's built-in inspection tools and applied targeted fixes, then checked that everything worked across all pages.",
+    problem: "Three display problems were affecting the website: buttons didn't respond on hover, rounded corners looked wrong, and the page builder was overriding the site's main styling.",
+    solution: "We traced each problem to its cause and fixed it directly, without piling on forced overrides that break easily later, and then checked every page.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Button hover effects working again",
+      "Rounded corners displaying correctly",
+      "Site-wide styling no longer overridden by the page builder",
+      "All pages checked after the fixes"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#66bb6a",
@@ -1520,17 +1533,18 @@ export const projects: Project[] = [
   },
   {
     slug: "pro-dent-html",
-    title: "Pro-Dent Club — Free Membership Promotional Email",
+    title: "Pro-Dent Club - Free Membership Promotional Email",
     category: "Web",
     tags: ["Web Design", "Web"],
-    shortDesc: "I built a fully self-contained HTML/CSS recruitment email for Pro-Dent Club, a Canadian dental GPO — logo embedded as base64, every icon as inline SVG, zero ...",
-    description: "I built a fully self-contained HTML/CSS recruitment email for Pro-Dent Club, a Canadian dental GPO — logo embedded as base64, every icon as inline SVG, zero external image dependencies. It opens on a pop-art \"FREE Membership\" hero, moves through an authority statement, value-prop bubbles, sample member-pricing cards, and a $72,000-savings highlight with a CSS bar chart, with three responsive breakpoints for reliable rendering from desktop Outlook to phone.",
-    problem: "The client needed a modern, scalable solution for pro-dent club — free membership promotional email.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A fully self-contained recruitment email for a Canadian dental group purchasing organization.",
+    description: "I built a fully self-contained recruitment email for Pro-Dent Club, a Canadian dental group purchasing organization. The logo is embedded and every icon is drawn in place, so no outside images are needed. It opens with a pop-art \"FREE Membership\" banner and moves through an authority statement, benefit bubbles, sample member-pricing cards and a savings highlight with a bar chart. It is designed for three screen sizes so it displays reliably from desktop Outlook to phones.",
+    problem: "Pro-Dent Club needed a promotional email that looks the same in every email program and on every device, without depending on outside images that email programs often block.",
+    solution: "We built the email as one self-contained piece, with the logo embedded and every icon drawn in place, so nothing relies on outside images. It tells the story in order: a \"FREE Membership\" banner, an authority statement, benefit bubbles, sample member prices and a savings highlight with a bar chart. It is designed for three screen sizes.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "No outside images needed, so nothing gets blocked",
+      "Looks right from desktop Outlook to phones",
+      "Pop-art \"FREE Membership\" banner and sample member-pricing cards",
+      "A savings highlight with a bar chart"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#ffca28",
@@ -1549,17 +1563,18 @@ export const projects: Project[] = [
   },
   {
     slug: "cricket-tournament-app",
-    title: "TCL — Tournament Management & Live Cricket Scoring App",
+    title: "TCL - Tournament Management & Live Cricket Scoring App",
     category: "Mobile App",
     tags: ["Mobile App", "React Native"],
-    shortDesc: "TCL is a tournament-management and live cricket-scoring web app (with an Android wrapper) I built end to end, including the full over-by-over scoring engine ...",
-    description: "TCL is a tournament-management and live cricket-scoring web app (with an Android wrapper) I built end to end, including the full over-by-over scoring engine from scratch in plain JavaScript — strike rotation, extras, wickets, target/chase, per-player figures. It's offline-first, sync-second: every action writes to localStorage instantly, then mirrors to Firebase Firestore in real time. Single-file vanilla JS frontend, installable as a PWA, wrapped in an Android WebView shell with AdMob.",
-    problem: "The client needed a modern, scalable solution for tcl — tournament management & live cricket scoring app.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A tournament management and live cricket scoring app, built from start to finish, with an Android version.",
+    description: "TCL is a tournament management and live cricket scoring web app (with an Android version) that I built from start to finish, including the full ball-by-ball scoring system from scratch: strike rotation, extras, wickets, target and chase, and each player's figures. It works without an internet connection first and syncs second: every action is saved on the device instantly, then copied to Firebase in real time. It can be installed like an app on a phone and also comes as an Android app with ads.",
+    problem: "Cricket tournaments need scoring that is fast, accurate and reliable even when the internet connection is poor.",
+    solution: "We built a full scoring system covering strike rotation, extras, wickets, targets and chases, and each player's figures. Everything is saved on the device instantly and then synced to Firebase in real time, so scoring keeps working without a connection. It can be installed on a phone and comes as an Android app.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "A complete ball-by-ball scoring system built from scratch",
+      "Works without an internet connection and syncs when connected",
+      "Can be installed on a phone like an app",
+      "An Android version with ads"
     ],
     technologies: ["React Native", "Expo", "TypeScript"],
     gradientFrom: "#78909c",
@@ -1577,17 +1592,18 @@ export const projects: Project[] = [
   },
   {
     slug: "ipo-app",
-    title: "IPO AI — Indian IPO Research App with AI Analysis",
+    title: "IPO AI - Indian IPO Research App with AI Analysis",
     category: "Mobile App",
     tags: ["Mobile App", "React Native", "React", "API"],
-    shortDesc: "IPO AI is an Expo/React Native app I built for Indian retail investors researching Mainboard and SME IPOs — price bands, key dates, subscription levels, and ...",
-    description: "IPO AI is an Expo/React Native app I built for Indian retail investors researching Mainboard and SME IPOs — price bands, key dates, subscription levels, and an on-demand 14-factor AI investment analysis. Its defining trait is a strict \"never fabricate financial data\" discipline: a quota-aware cached data layer, a fixture-tested scraping fallback that degrades to null rather than guessing, and an AI pipeline where all arithmetic is precomputed in code, not trusted from the model's prose.",
-    problem: "The client needed a modern, scalable solution for ipo ai — indian ipo research app with ai analysis.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "An app for Indian retail investors researching new share offerings, with on-request AI analysis.",
+    description: "IPO AI is a mobile app I built for Indian retail investors researching Mainboard and SME IPOs (new share offerings): price ranges, key dates, subscription levels and an on-request 14-factor AI investment analysis. Its defining principle is \"never make up financial data\": stored data respects usage limits, a backup source shows nothing rather than guessing when information is missing, and in the AI analysis all the arithmetic is calculated by the app, not trusted from the AI's wording.",
+    problem: "Retail investors researching IPOs need accurate figures, and AI tools can make up or miscalculate numbers.",
+    solution: "We built an app that shows price ranges, key dates and subscription levels and offers an on-request 14-factor AI analysis. To avoid made-up numbers, it stores data within usage limits, shows nothing when a backup source has no answer, and calculates all the arithmetic itself instead of relying on the AI's wording.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Price ranges, key dates and subscription levels for Mainboard and SME IPOs",
+      "An on-request 14-factor AI investment analysis",
+      "Never makes up financial data: blank when unknown",
+      "All arithmetic calculated by the app, not the AI"
     ],
     technologies: ["React Native", "Expo", "TypeScript"],
     gradientFrom: "#ef5350",
@@ -1605,17 +1621,19 @@ export const projects: Project[] = [
   },
   {
     slug: "slice-up",
-    title: "SliceUp — Expense Tracker with AI Insights (React Native)",
+    title: "SliceUp - Expense Tracker with AI Insights",
     category: "Mobile App",
     tags: ["Mobile App", "React Native", "React"],
-    shortDesc: "SliceUp is a React Native expense tracker I designed and built end-to-end: fast expense logging, monthly/yearly analysis with charts, camera-based receipt sc...",
-    description: "SliceUp is a React Native expense tracker I designed and built end-to-end: fast expense logging, monthly/yearly analysis with charts, camera-based receipt scanning, and group/trip expense-splitting with automatic settlement math. An AI chat feature voiced by a mascot, Teddy, answers natural-language spending questions with witty, number-backed commentary. Published live on Google Play.",
-    problem: "The client needed a modern, scalable solution for sliceup — expense tracker with ai insights (react native).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "An expense tracker with receipt scanning, group expense splitting and an AI chat, live on Google Play.",
+    description: "SliceUp is an expense tracker I designed and built from start to finish: fast expense entry, monthly and yearly charts, receipt scanning with the camera, and group and trip expense splitting with automatic settlement calculations. An AI chat feature voiced by a mascot, Teddy, answers everyday-language questions about spending with witty, number-backed comments. It is published live on Google Play.",
+    problem: "People who share expenses on trips or with groups struggle to log spending quickly and work out who owes whom.",
+    solution: "We built an app for fast expense entry, monthly and yearly charts, receipt scanning with the camera, and group and trip splitting with automatic settlement calculations. An AI chat, voiced by a mascot called Teddy, answers questions about spending with witty, number-backed comments.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Fast expense entry with monthly and yearly charts",
+      "Receipt scanning with the camera",
+      "Group and trip expense splitting with automatic settlement",
+      "AI chat with a mascot, Teddy, that answers spending questions",
+      "Live on Google Play"
     ],
     technologies: ["React Native", "Expo", "TypeScript"],
     gradientFrom: "#9ccc65",
@@ -1631,17 +1649,17 @@ export const projects: Project[] = [
   },
   {
     slug: "beeminor",
-    title: "BeeMinor - Gamified Play-and-Win Multi-Language Web App",
+    title: "BeeMinor - Play-and-Win Multi-Language Web App",
     category: "AI",
     tags: ["AI", "Machine Learning"],
-    shortDesc: "BeeMinor is a gamified \"play and win\" consumer web app localized into nine languages, branded around a bee mascot with the tagline \"Rejoins les BeeMinor, jou...",
-    description: "BeeMinor is a gamified \"play and win\" consumer web app localized into nine languages, branded around a bee mascot with the tagline \"Rejoins les BeeMinor, joue et gagne.\" Its entire public surface is a login/signup screen — there's no browsable landing page, and the actual game mechanic sits behind authentication. This case study documents the branding, localization, and auth flow visible from the outside; the in-app product itself was not accessible for this write-up.",
-    problem: "The client needed a modern, scalable solution for beeminor - gamified play-and-win multi-language web app.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A \"play and win\" consumer web app available in nine languages, with a bee mascot.",
+    description: "BeeMinor is a \"play and win\" consumer web app available in nine languages, branded around a bee mascot with the tagline \"Rejoins les BeeMinor, joue et gagne.\" Its entire public face is a sign-up and login screen. There is no public landing page, and the game itself sits behind the login. This write-up covers the branding, languages and sign-up process visible from the outside; the app itself was not accessible for this write-up.",
+    problem: "A consumer game needs a welcoming, simple entry point that works for players in many countries and languages.",
+    solution: "We built the brand and sign-up experience around a bee mascot, with the whole interface available in nine languages and a single sign-up and login screen as the entry point.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Available in nine languages",
+      "Branded around a bee mascot and the tagline \"Rejoins les BeeMinor, joue et gagne.\"",
+      "A single, simple sign-up and login screen as the entry point"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#78909c",
@@ -1658,17 +1676,18 @@ export const projects: Project[] = [
   },
   {
     slug: "expert-village",
-    title: "Expert Village Media - Shopify Development Agency Website",
+    title: "Expert Village Media - Shopify Agency Website",
     category: "AI",
     tags: ["AI", "Machine Learning", "Shopify", "E-Commerce"],
-    shortDesc: "Expert Village Media's site markets a Shopify development agency positioned as \"not just developers — strategic growth partners,\" leading with Shopify Select...",
-    description: "Expert Village Media's site markets a Shopify development agency positioned as \"not just developers — strategic growth partners,\" leading with Shopify Select Partner status, 800+ reviews, and 2,000+ brands served, backed by case studies and a six-stage delivery process (Discovery through Maintenance). Services span custom development, redesign, migration, optimization, and marketing/SEO/PPC. This case study documents the live public site; no client-supplied source code was used.",
-    problem: "The client needed a modern, scalable solution for expert village media - shopify development agency website.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A website marketing a Shopify agency as \"not just developers, strategic growth partners.\"",
+    description: "Expert Village Media's website markets a Shopify agency positioned as \"not just developers, strategic growth partners,\" leading with Shopify Select Partner status, 800+ reviews and 2,000+ brands served, backed by case studies and a six-stage process from first discovery to ongoing maintenance. Services range from custom store building, redesign and migration to speed improvements and marketing, search and paid ads. This write-up covers the live public website; no client-supplied source files were used.",
+    problem: "An agency selling Shopify services to growth-focused brands needs a website that shows its credentials, explains its process and makes it easy to get in touch.",
+    solution: "The website leads with Shopify Select Partner status, review counts and the number of brands served, backs them up with case studies and a six-stage process, and explains the full range of services.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Shopify Select Partner status, 800+ reviews and 2,000+ brands served shown up front",
+      "A six-stage process explained from discovery to maintenance",
+      "Services covering store building, redesign, migration, speed improvements, marketing, search and paid ads",
+      "Case studies that back up the claims"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#f093fb",
@@ -1685,17 +1704,18 @@ export const projects: Project[] = [
   },
   {
     slug: "hypelive",
-    title: "HYPE Live - Creator App Install Landing Page (Built on Lovable)",
+    title: "HYPE Live - Creator App Download Page",
     category: "Mobile App",
     tags: ["Mobile App", "React Native"],
-    shortDesc: "HYPE Live is a single-screen, Lovable-built landing page for the \"HYPE\" creator app, with one job: convert visitors into App Store/Google Play installs under...",
-    description: "HYPE Live is a single-screen, Lovable-built landing page for the \"HYPE\" creator app, with one job: convert visitors into App Store/Google Play installs under the tagline \"Creators First. Always.\" It leans on aspirational creator photography over a feature tour, with Login/Signup buttons hinting at a companion web layer. This case study documents the live public landing page; the native app's in-app functionality was outside its scope.",
-    problem: "The client needed a modern, scalable solution for hype live - creator app install landing page (built on lovable).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A single-screen landing page for the \"HYPE\" creator app, built to turn visitors into app downloads.",
+    description: "HYPE Live is a single-screen landing page for the \"HYPE\" creator app, built with Lovable and with one job: to turn visitors into App Store and Google Play downloads under the tagline \"Creators First. Always.\" It leans on inspiring creator photography instead of a feature tour, with Login and Sign-up buttons hinting at a companion website. This write-up covers the live public landing page; the app's own features were outside its scope.",
+    problem: "A new creator app needs a simple page that gets visitors to download it quickly.",
+    solution: "We built a single-screen page under the tagline \"Creators First. Always.\" that uses creator photography to inspire and puts App Store and Google Play download buttons front and center.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "One page, one goal: App Store and Google Play downloads",
+      "Tagline: \"Creators First. Always.\"",
+      "Creator photography instead of a long feature list",
+      "Login and Sign-up buttons for a companion website"
     ],
     technologies: ["React Native", "Expo", "TypeScript"],
     gradientFrom: "#4facfe",
@@ -1709,17 +1729,18 @@ export const projects: Project[] = [
   },
   {
     slug: "kasbu",
-    title: "Kasbu - Free Link-in-Bio & Personal Page Builder SaaS",
+    title: "Kasbu - Free Link-in-Bio & Personal Page Builder",
     category: "Mobile App",
     tags: ["Mobile App", "React Native"],
-    shortDesc: "Kasbu is a free-first link-in-bio and personal-page builder (Linktree/Beacons category) leading with a 3D carousel of real multi-language example pages and t...",
-    description: "Kasbu is a free-first link-in-bio and personal-page builder (Linktree/Beacons category) leading with a 3D carousel of real multi-language example pages and the trust line \"+10K pages already made.\" Its nav spans Cards, Explore, Wallet, a Blog, and Pricing — a Wallet feature is an uncommon differentiator among free competitors. This case study documents the live public homepage and navigation; the authenticated builder and Wallet mechanics were not accessible.",
-    problem: "The client needed a modern, scalable solution for kasbu - free link-in-bio & personal page builder saas.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A free-first tool for building link-in-bio and personal pages, with a rotating showcase of real example pages.",
+    description: "Kasbu is a free-first link-in-bio and personal page builder (in the same category as Linktree and Beacons) that leads with a rotating 3D showcase of real multi-language example pages and the trust line \"+10K pages already made.\" Its menu covers Cards, Explore, Wallet, a Blog and Pricing, and the Wallet is an uncommon feature among free competitors. This write-up covers the live public homepage and menu; the logged-in builder and Wallet were not accessible.",
+    problem: "Free link-in-bio builders are crowded, so a new one needs to show quickly what makes it different and prove that people already use it.",
+    solution: "The homepage leads with a rotating 3D showcase of real example pages in several languages and the trust line \"+10K pages already made,\" and its menu highlights a Wallet feature that few free competitors offer.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "A rotating showcase of real multi-language example pages",
+      "Trust line: \"+10K pages already made\"",
+      "Menu covering Cards, Explore, Wallet, Blog and Pricing",
+      "A Wallet feature that is uncommon among free competitors"
     ],
     technologies: ["React Native", "Expo", "TypeScript"],
     gradientFrom: "#fa709a",
@@ -1737,17 +1758,18 @@ export const projects: Project[] = [
   },
   {
     slug: "kitaplimani",
-    title: "Kitap Limani — Islamic Books & Educational E-commerce Store",
+    title: "Kitap Limani - Islamic Books & Educational Online Store",
     category: "AI",
     tags: ["AI", "Machine Learning", "E-Commerce"],
-    shortDesc: "Kitap Limani is an Islamic books and educational e-commerce storefront I built on the Ikas platform, combining strong visual merchandising with straightforwa...",
-    description: "Kitap Limani is an Islamic books and educational e-commerce storefront I built on the Ikas platform, combining strong visual merchandising with straightforward catalog navigation across dedicated sections (Ajanda, Atlas, Qur'an editions). The visual system balances the store's cultural identity — restrained green/white/neutral tones with premium editorial photography — with modern e-commerce usability, supporting German/Turkish content for its European customer base.",
-    problem: "The client needed a modern, scalable solution for kitap limani — islamic books & educational e-commerce store.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "An online store for Islamic books and educational products, with strong visuals and simple navigation.",
+    description: "Kitap Limani is an online store for Islamic books and educational products that I built on the Ikas store platform, combining strong visual presentation with simple navigation across dedicated sections (Ajanda, Atlas, Qur'an editions). The design balances the store's cultural identity, with calm green, white and neutral tones and premium editorial photography, with modern online-shopping ease, and supports German and Turkish content for its European customers.",
+    problem: "The store needed to feel true to its cultural identity while being easy to browse and buy from, for customers who read German and Turkish.",
+    solution: "We built the store on the Ikas platform with strong product presentation and simple navigation across dedicated sections, using calm green, white and neutral tones with premium editorial photography, and German and Turkish content.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Dedicated sections such as Ajanda, Atlas and Qur'an editions",
+      "Calm green, white and neutral design with premium editorial photography",
+      "German and Turkish content for European customers",
+      "Built on the Ikas store platform"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#78909c",
@@ -1762,17 +1784,17 @@ export const projects: Project[] = [
   },
   {
     slug: "thebuttercreambus",
-    title: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design",
+    title: "Mobile Bakery Website - Online Shop, Truck Tracking & AI Cake Design",
     category: "Mobile App",
     tags: ["Mobile App", "React Native", "E-Commerce", "Mobile"],
-    shortDesc: "The Buttercream Bus is a mobile-bakery website unifying retail e-commerce, live GPS truck tracking, event-catering booking, and baking-class registration und...",
-    description: "The Buttercream Bus is a mobile-bakery website unifying retail e-commerce, live GPS truck tracking, event-catering booking, and baking-class registration under one brand. Its standout feature is an AI cake-design tool: a customer describes a concept and it generates four visual style options before ordering. This is a live-site case study documented from the public site, covering the e-commerce, tracking, booking, and AI-tool flows as observed.",
-    problem: "The client needed a modern, scalable solution for mobile bakery site - e-commerce, gps tracking, ai cake design.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A mobile bakery website bringing together an online shop, live truck tracking, event catering booking and baking class sign-up.",
+    description: "The Buttercream Bus is a mobile bakery website that brings together an online shop, live truck tracking, event catering booking and baking class registration under one brand. Its standout feature is an AI cake design tool: a customer describes an idea and it creates four visual style options before ordering. This write-up covers the live public website, including the shop, tracking, booking and AI tool as they appear to visitors.",
+    problem: "A mobile bakery needs customers to know where it is, buy from it, book it for events and sign up for classes, all in one place.",
+    solution: "One branded website brings together an online shop, live truck tracking, event catering booking and baking class sign-up, plus an AI cake design tool that creates four style options from a customer's description.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Online shop, live truck tracking, event booking and class sign-up under one brand",
+      "AI cake design tool that creates four visual styles from a description",
+      "Everything customers need in one place"
     ],
     technologies: ["React Native", "Expo", "TypeScript"],
     gradientFrom: "#26c6da",
@@ -1789,17 +1811,17 @@ export const projects: Project[] = [
   },
   {
     slug: "ultrawindows",
-    title: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal",
+    title: "Ultra Windows - Aluminum Glazing Online Store & Trade Portal",
     category: "AI",
     tags: ["AI", "Machine Learning", "E-Commerce"],
-    shortDesc: "Ultra Windows is a UK premium aluminium-glazing manufacturer's site built around a live-pricing \"Design & Quote\" configurator with a faster \"Quick Sizes\" pre...",
-    description: "Ultra Windows is a UK premium aluminium-glazing manufacturer's site built around a live-pricing \"Design & Quote\" configurator with a faster \"Quick Sizes\" preset path, backed by a 10-year guarantee and UK manufacturing as trust signals. A separate trade-professional portal on its own subdomain gives installers saved quotes and order tracking. This case study documents the live consumer site; the trade portal was referenced but not independently audited.",
-    problem: "The client needed a modern, scalable solution for ultra windows - aluminium glazing e-commerce & trade portal.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "The public website for a UK premium aluminum glazing manufacturer, built around a live-pricing \"Design & Quote\" tool.",
+    description: "Ultra Windows is a UK premium aluminum glazing manufacturer's website built around a live-pricing \"Design & Quote\" tool, with a faster \"Quick Sizes\" option, backed by a 10-year guarantee and UK manufacturing as trust signals. A separate trade portal on its own address gives installers saved quotes and order tracking. This write-up covers the live customer-facing website; the trade portal was mentioned but not independently reviewed.",
+    problem: "Customers buying custom windows and doors want to see a price quickly and trust that the product is high quality.",
+    solution: "The website lets customers design a product and see a live price, with a faster \"Quick Sizes\" option for standard sizes, and builds trust with a 10-year guarantee and UK manufacturing. Installers have a separate trade portal with saved quotes and order tracking.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Live-pricing \"Design & Quote\" tool with a faster \"Quick Sizes\" option",
+      "10-year guarantee and UK manufacturing shown as trust signals",
+      "A separate trade portal with saved quotes and order tracking"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#29b6f6",
@@ -1817,17 +1839,19 @@ export const projects: Project[] = [
   },
   {
     slug: "apollo-credit-processing",
-    title: "Apollo Credit Processing — Secure Node.js Deployment on GoDaddy VPS",
+    title: "Apollo Credit Processing - Secure Server Setup on GoDaddy",
     category: "AI",
     tags: ["AI", "Machine Learning", "Node.js"],
-    shortDesc: "Deployed a client-supplied Node.js credit-repair portal to a GoDaddy Ubuntu VPS in one day. Hardened the server (key-only SSH, root login off, ufw, fail2ban,...",
-    description: "Deployed a client-supplied Node.js credit-repair portal to a GoDaddy Ubuntu VPS in one day. Hardened the server (key-only SSH, root login off, ufw, fail2ban, fixed silently disabled auto-updates), ran the app as a sandboxed systemd service behind Caddy with Let's Encrypt HTTPS, got Microsoft 365 SMTP working, verified the Square token live, set up nightly backups, and cut over DNS without touching mail records. Live at apollocreditprocessing.com.",
-    problem: "The client needed a modern, scalable solution for apollo credit processing — secure node.js deployment on godaddy vps.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "Moved a client's credit-repair web portal onto a secure, properly protected GoDaddy server in one day.",
+    description: "I moved a client's credit-repair web portal onto a GoDaddy server in one day. I locked down the server so only approved access is allowed, turned on protection against repeated sign-in attempts, fixed automatic updates that had silently stopped, ran the app in a secure, isolated way with a secure HTTPS connection, got Microsoft 365 email sending working, tested the Square payment connection live, set up nightly backups, and switched the domain over without touching email settings. Live at apollocreditprocessing.com.",
+    problem: "The client had a finished credit-repair portal but needed it put online securely, with email, payments, backups and a smooth domain switch.",
+    solution: "We set up and protected the GoDaddy server, ran the portal in a secure, isolated way with HTTPS, connected Microsoft 365 email and the Square payment connection, set up nightly backups and moved the domain over without affecting email.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Live at apollocreditprocessing.com",
+      "Server locked down, with protection against repeated sign-in attempts and fixed automatic updates",
+      "Secure HTTPS connection, Microsoft 365 email and Square payments working",
+      "Nightly backups set up",
+      "Domain switched over without touching email settings"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#ffca28",
@@ -1844,17 +1868,18 @@ export const projects: Project[] = [
   },
   {
     slug: "bizbuybox",
-    title: "Biz Buy Box — AI Deal Sourcing & Underwriting Platform",
+    title: "Biz Buy Box - AI Deal Sourcing & Evaluation Platform",
     category: "SaaS",
     tags: ["SaaS", "Web App", "Next.js", "Dashboard"],
-    shortDesc: "Biz Buy Box is an AI-powered deal-sourcing and underwriting SaaS I built end-to-end in Next.js for independent business searchers. It scores acquisition list...",
-    description: "Biz Buy Box is an AI-powered deal-sourcing and underwriting SaaS I built end-to-end in Next.js for independent business searchers. It scores acquisition listings against the buyer's own weighted criteria, models SBA/seller-note/conventional funding stacks with real DSCR output, and includes a four-part AI suite (Deal Inspector, CIM Review, Business Plan, Buyer Profile) plus a full deal pipeline dashboard — replacing manual spreadsheet underwriting with one auditable workspace.",
-    problem: "The client needed a modern, scalable solution for biz buy box — ai deal sourcing & underwriting platform.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "An AI-powered platform for independent business buyers to find, score and evaluate businesses for sale.",
+    description: "Biz Buy Box is an AI-powered business-buying platform I built from start to finish for independent business searchers. It scores businesses for sale against the buyer's own weighted criteria, models SBA, seller-note and conventional financing combinations with real debt-coverage figures, and includes a four-part AI toolkit (Deal Inspector, CIM Review, Business Plan, Buyer Profile) plus a full deal pipeline dashboard, replacing spreadsheet-based evaluation with one clear, auditable workspace.",
+    problem: "People searching for a business to buy evaluate deals manually in spreadsheets, which is slow and hard to compare across listings.",
+    solution: "We built one workspace that scores listings against each buyer's own criteria, models different financing combinations with real debt-coverage figures, and offers a four-part AI toolkit (Deal Inspector, CIM Review, Business Plan, Buyer Profile) and a deal pipeline dashboard.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Listings scored against the buyer's own weighted criteria",
+      "SBA, seller-note and conventional financing modeled with real debt-coverage figures",
+      "A four-part AI toolkit: Deal Inspector, CIM Review, Business Plan and Buyer Profile",
+      "A full deal pipeline dashboard replacing manual spreadsheets"
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
     gradientFrom: "#ff7043",
@@ -1871,17 +1896,18 @@ export const projects: Project[] = [
   },
   {
     slug: "buyshopo",
-    title: "Shopo Admin — Fashion E-commerce Admin Dashboard (React/Redux)",
+    title: "Shopo Admin - Fashion Online Store Admin Dashboard",
     category: "AI",
     tags: ["AI", "Machine Learning", "React", "Dashboard", "E-Commerce"],
-    shortDesc: "Shopo Admin is a Larkon-based React/Redux admin dashboard I built for the Buyshopo fashion e-commerce storefront, covering the full back-office surface: a st...",
-    description: "Shopo Admin is a Larkon-based React/Redux admin dashboard I built for the Buyshopo fashion e-commerce storefront, covering the full back-office surface: a stats-first dashboard, catalog and multi-vendor brand management with commission tracking, orders and customers, a banner-marketing tool with click-through tracking, and a full theme/layout settings panel — giving non-technical staff complete control without touching code.",
-    problem: "The client needed a modern, scalable solution for shopo admin — fashion e-commerce admin dashboard (react/redux).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "An admin dashboard for a fashion online store, covering the whole back office without any coding.",
+    description: "Shopo Admin is an admin dashboard I built for the Buyshopo fashion online store, covering the whole back office: a dashboard that leads with key numbers, catalog and multi-vendor brand management with commission tracking, orders and customers, a banner marketing tool with click tracking, and a full appearance and layout settings panel, giving non-technical staff complete control without touching code.",
+    problem: "Store staff needed a single place to manage products, brands, orders, customers and marketing banners without needing a developer.",
+    solution: "We built an admin dashboard that leads with key numbers and covers catalog and multi-vendor brand management with commission tracking, orders and customers, a banner marketing tool with click tracking, and a full appearance and layout settings panel.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "A dashboard that leads with key numbers",
+      "Catalog and multi-vendor brand management with commission tracking",
+      "Orders and customers in one place",
+      "A banner marketing tool with click tracking and full appearance settings"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#26c6da",
@@ -1898,17 +1924,18 @@ export const projects: Project[] = [
   },
   {
     slug: "carsuvparts",
-    title: "CarSUVParts — Auto Parts Storefront with VIN Search (Phase 1)",
+    title: "CarSUVParts - Auto Parts Online Store with Vehicle Search (Phase 1)",
     category: "AI",
     tags: ["AI", "Machine Learning", "React", "Dashboard", "API"],
-    shortDesc: "I built phase 1 of CarSUVParts, the pre-launch website for a planned dropshipping auto parts store, live at carsuvparts.com: a Vite + React 19 + TypeScript s...",
-    description: "I built phase 1 of CarSUVParts, the pre-launch website for a planned dropshipping auto parts store, live at carsuvparts.com: a Vite + React 19 + TypeScript storefront with real VIN decoding via the NHTSA API, a working cart that sends orders by email, search suggestions, a 71-make brand grid, policies, SEO, and an admin dashboard mockup with demo data. Still in progress: suppliers and payments are not connected yet.",
-    problem: "The client needed a modern, scalable solution for carsuvparts — auto parts storefront with vin search (phase 1).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "Phase 1 of an online auto parts store, live at carsuvparts.com, with vehicle lookup by VIN.",
+    description: "I built phase 1 of CarSUVParts, the pre-launch website for a planned drop-shipping auto parts store, live at carsuvparts.com. It includes real vehicle lookup by VIN using a US government database, a working cart that sends orders by email, search suggestions, a 71-make brand grid, policy pages, search optimization and a mock-up of an admin dashboard with demo data. Still in progress: suppliers and payments are not connected yet.",
+    problem: "A new auto parts store needs customers to find the right part for their exact vehicle before it can be launched.",
+    solution: "We built a store where customers look up their vehicle by VIN using a US government database, then search by make or brand. A working cart sends orders by email, and the site includes policy pages and search optimization. Supplier and payment connections come in a later phase.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Live at carsuvparts.com",
+      "Real vehicle lookup by VIN using a US government database",
+      "A working cart that sends orders by email, with search suggestions and a 71-make brand grid",
+      "Policy pages, search optimization and an admin dashboard mock-up with demo data"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#ef5350",
@@ -1925,17 +1952,19 @@ export const projects: Project[] = [
   },
   {
     slug: "custom-ink-and-thread",
-    title: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration",
+    title: "Custom Ink & Thread - Apparel Ordering Platform Takeover & Improvements",
     category: "SaaS",
     tags: ["SaaS", "Web App", "Next.js"],
-    shortDesc: "I took over development of a live custom apparel ordering platform (Next.js 16, Supabase, Stripe) built by a previous developer. I audited 17 owner-reported ...",
-    description: "I took over development of a live custom apparel ordering platform (Next.js 16, Supabase, Stripe) built by a previous developer. I audited 17 owner-reported issues, then added QuickBooks Online order sync, UPS label cleaning and tracking, embroidery and DTF pricing fixes, guest capture with staff alerts and cart reminders, same-cart re-checkout, a New today admin inbox and SEO/404 fixes. A database-pool resilience fix is on a branch, not yet merged.",
-    problem: "The client needed a modern, scalable solution for custom ink & thread — apparel ordering platform takeover & integration.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "I took over a live custom apparel ordering website and fixed and extended it, including QuickBooks and UPS connections.",
+    description: "I took over a live custom apparel ordering platform built by a previous developer. I reviewed 17 owner-reported issues, then added order syncing to QuickBooks Online, cleaner UPS shipping labels and tracking, fixes to embroidery and DTF pricing, capture of guest customers with staff alerts and cart reminders, re-ordering from the same cart, a \"New today\" admin inbox, and search and error-page fixes. A fix to make the database connection more resilient is prepared separately and not yet applied.",
+    problem: "The owner had 17 reported problems with a live ordering platform, and the previous developer was no longer maintaining it.",
+    solution: "We reviewed all 17 owner-reported issues and then fixed and extended the platform: order syncing to QuickBooks Online, cleaner UPS labels and tracking, corrected embroidery and DTF pricing, guest customer capture with staff alerts and cart reminders, re-ordering from the same cart, a \"New today\" admin inbox and search and error-page fixes.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "17 owner-reported issues reviewed",
+      "Orders sync to QuickBooks Online",
+      "Cleaner UPS labels and tracking",
+      "Embroidery and DTF pricing fixed",
+      "Guest customers captured, with staff alerts and cart reminders"
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
     gradientFrom: "#a1c4fd",
@@ -1952,17 +1981,18 @@ export const projects: Project[] = [
   },
   {
     slug: "fine-eat-ap",
-    title: "Fina Eat — AI Kitchen Assistant for Instant Recipes & Shopping Lists",
+    title: "Fina Eat - AI Kitchen Assistant for Instant Recipes & Shopping Lists",
     category: "AI",
     tags: ["AI", "Machine Learning", "React", "E-Commerce"],
-    shortDesc: "Fina Eat is an AI-powered web app I designed and built that turns a few preferences (cuisine, time, allergies, household size) into 5 tailored recipes plus a...",
-    description: "Fina Eat is an AI-powered web app I designed and built that turns a few preferences (cuisine, time, allergies, household size) into 5 tailored recipes plus a ready-to-shop grocery list in about 60 seconds, cutting meal-planning time from 70-105 minutes down to 25-60. Built with Bolt.new, React, and JavaScript, covering the full loop from a conversion-focused marketing site to AI recipe generation and shopping-list handoff.",
-    problem: "The client needed a modern, scalable solution for fina eat — ai kitchen assistant for instant recipes & shopping lists.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "An AI-powered web app that turns a few preferences into 5 tailored recipes and a ready-to-shop grocery list in about 60 seconds.",
+    description: "Fina Eat is an AI-powered web app I designed and built that turns a few preferences (cuisine, time, allergies, household size) into 5 tailored recipes and a ready-to-shop grocery list in about 60 seconds, cutting meal-planning time from 70-105 minutes down to 25-60. It was built with Bolt.new and covers the whole journey, from a marketing website designed to win sign-ups to AI recipe creation and the shopping-list handoff.",
+    problem: "Planning meals and writing a shopping list takes 70-105 minutes, and has to account for everyone's tastes, allergies and household size.",
+    solution: "We built a web app where users enter a few preferences and get 5 tailored recipes and a ready-to-shop grocery list in about 60 seconds, with a marketing website to win sign-ups.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "5 tailored recipes and a grocery list in about 60 seconds",
+      "Meal-planning time cut from 70-105 minutes to 25-60",
+      "Takes cuisine, time, allergies and household size into account",
+      "A marketing website and the app in one complete journey"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#43e97b",
@@ -1979,17 +2009,18 @@ export const projects: Project[] = [
   },
   {
     slug: "gojetparts",
-    title: "GoJetParts — Aviation Parts Referral Marketplace (Next.js 16 MVP)",
+    title: "GoJetParts - Aviation Parts Referral Marketplace (First Version)",
     category: "AI",
     tags: ["AI", "Machine Learning", "Next.js", "API"],
-    shortDesc: "I built the phase-1 MVP of GoJetParts.com, an aviation-parts referral marketplace, on Next.js 16 and Tailwind v4: URL-based catalog search, static part pages...",
-    description: "I built the phase-1 MVP of GoJetParts.com, an aviation-parts referral marketplace, on Next.js 16 and Tailwind v4: URL-based catalog search, static part pages built as ad landing pages, an RFQ dialog with UTM/gclid attribution that survives navigation, and a lead API that resolves partner and tracking code server-side, then emails the lead and fires a GA4 conversion. Assumptions documented for phase 2.",
-    problem: "The client needed a modern, scalable solution for gojetparts — aviation parts referral marketplace (next.js 16 mvp).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "The first version of an aviation parts referral marketplace, with part search and quote requests that track where each lead came from.",
+    description: "I built the first-phase version of GoJetParts.com, an aviation parts referral marketplace. It has catalog search, a page for each part designed to work as an advertising landing page, a quote-request pop-up that remembers where the visitor came from (including from ads) as they browse, and a lead system that identifies the partner and tracking code behind the scenes, then emails the lead and records a Google Analytics conversion. Assumptions are documented for phase 2.",
+    problem: "A parts referral marketplace needs to pass leads to partners and know exactly which ads and pages produced each lead.",
+    solution: "We built a catalog that visitors can search, a page for each part designed to work as an advertising landing page, and a quote-request pop-up that remembers where the visitor came from as they browse. Behind the scenes, the lead system identifies the partner and tracking code, emails the lead and records a Google Analytics conversion.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Searchable parts catalog and a page for each part designed for ads",
+      "A quote-request pop-up that remembers where each visitor came from",
+      "Leads emailed and recorded as Google Analytics conversions",
+      "Assumptions documented for phase 2"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#78909c",
@@ -2006,17 +2037,18 @@ export const projects: Project[] = [
   },
   {
     slug: "guardremote",
-    title: "GuardRemote — Smart-Security Storefront on Next.js 16 (In Progress)",
+    title: "GuardRemote - Smart Security Online Store (In Progress)",
     category: "AI",
     tags: ["AI", "Machine Learning", "React", "Next.js"],
-    shortDesc: "Ongoing build of GuardRemote, a smart-security hardware storefront live at guardremote.com. On Next.js 16, React 19, TypeScript and Tailwind v4, I built a st...",
-    description: "Ongoing build of GuardRemote, a smart-security hardware storefront live at guardremote.com. On Next.js 16, React 19, TypeScript and Tailwind v4, I built a statically generated store with 17 product pages, 10 audience landing pages, bundles, quote forms backed by an email route with a mailto fallback, a supplier feed importer that applies a 30% margin, and SEO basics. I also redesigned it to a light glassmorphism look. Checkout isn't built yet and the catalog is still placeholder data.",
-    problem: "The client needed a modern, scalable solution for guardremote — smart-security storefront on next.js 16 (in progress).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "An ongoing build of a smart-security hardware store, live at guardremote.com.",
+    description: "An ongoing build of GuardRemote, a smart-security hardware store live at guardremote.com. I built a fast store with 17 product pages, 10 landing pages for different audiences, product bundles, quote forms that send by email with a backup option, a supplier feed importer that applies a 30% margin, and search optimization basics. I also redesigned it with a light, frosted-glass look. Checkout isn't built yet and the catalog still uses placeholder data.",
+    problem: "A new smart-security store needed a fast online shop that can speak to different types of customers and handle quote requests, ahead of full checkout.",
+    solution: "We built a fast store with product pages, audience-specific landing pages, bundles and quote forms, a supplier feed importer that applies a 30% margin, and search optimization basics, then redesigned it with a light, frosted-glass look. Checkout and real catalog data come later.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Live at guardremote.com",
+      "17 product pages and 10 landing pages for different audiences",
+      "Bundles, quote forms and a supplier feed importer with a 30% margin",
+      "Still in progress: checkout isn't built yet and the catalog uses placeholder data"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#66bb6a",
@@ -2033,17 +2065,18 @@ export const projects: Project[] = [
   },
   {
     slug: "herruby",
-    title: "Her Ruby — Midlife Wellness Platform for Canadian Women",
+    title: "Her Ruby - Midlife Wellness Platform for Canadian Women",
     category: "SaaS",
     tags: ["SaaS", "Web App", "Mobile"],
-    shortDesc: "Her Ruby is a mobile-first, PIPEDA-compliant wellness platform I designed and built for Canadian women navigating perimenopause and midlife burnout, built ar...",
-    description: "Her Ruby is a mobile-first, PIPEDA-compliant wellness platform I designed and built for Canadian women navigating perimenopause and midlife burnout, built around four pillars: personalized body tracking, expert-curated programmes, verified peer communities, and an employer-fundable \"Wellness Wallet\" credits system. It also serves HR teams with anonymous aggregate reporting. Since launch it has supported 2,400+ women, with 94% reporting increased energy and a 4.9-star rating.",
-    problem: "The client needed a modern, scalable solution for her ruby — midlife wellness platform for canadian women.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A phone-first wellness platform for Canadian women going through perimenopause and midlife burnout.",
+    description: "Her Ruby is a phone-first wellness platform I designed and built for Canadian women going through perimenopause and midlife burnout, following Canada's PIPEDA privacy law. It is built around four pillars: personalized body tracking, expert-curated programs, verified peer communities and an employer-fundable \"Wellness Wallet\" credits system. It also serves HR teams with anonymous group reports. Since launch it has supported 2,400+ women, with 94% reporting increased energy and a 4.9-star rating.",
+    problem: "Women going through perimenopause and midlife burnout had few wellness options built for them, and employers had no easy way to support them privately.",
+    solution: "We built a phone-first platform around four pillars: personalized body tracking, expert-curated programs, verified peer communities and an employer-fundable \"Wellness Wallet\" credits system, plus anonymous group reporting for HR teams, all following Canada's PIPEDA privacy law.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Supported 2,400+ women since launch",
+      "94% reporting increased energy and a 4.9-star rating",
+      "Four pillars: body tracking, expert programs, peer communities and a Wellness Wallet",
+      "Anonymous group reporting for HR teams"
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
     gradientFrom: "#a1c4fd",
@@ -2059,17 +2092,19 @@ export const projects: Project[] = [
   },
   {
     slug: "moja-platform",
-    title: "Moja Platform — DICOM Medical-Imaging Distribution System",
+    title: "Moja Platform - Medical Imaging Sharing System",
     category: "SaaS",
     tags: ["SaaS", "Web App", "React"],
-    shortDesc: "Moja Platform is a DICOM medical-imaging distribution system I built for small clinics in Uganda and Kenya, collapsing \"get a patient their scan\" down to a t...",
-    description: "Moja Platform is a DICOM medical-imaging distribution system I built for small clinics in Uganda and Kenya, collapsing \"get a patient their scan\" down to a token-secured link that opens in under 10 seconds on a cheap phone — no app, no login. I built dual DICOM intake paths, idempotent usage-quota billing, an offline-tolerant on-prem buffering gateway, per-country SMS/WhatsApp notifications, and a super-admin console with full audit trail. Stack: NestJS, PostgreSQL, Orthanc, React.",
-    problem: "The client needed a modern, scalable solution for moja platform — dicom medical-imaging distribution system.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A system that lets small clinics in Uganda and Kenya share scans with patients through a secure link on a basic phone.",
+    description: "Moja Platform is a medical imaging sharing system I built for small clinics in Uganda and Kenya. It reduces \"get a patient their scan\" to a secure link that opens in under 10 seconds on an inexpensive phone, with no app and no login. I built two ways to receive scans, usage-based billing that safely handles repeats, an on-site gateway that keeps working when the internet drops, SMS and WhatsApp notifications for each country, and an administrator console with a full activity record.",
+    problem: "Small clinics needed a simple way to get patients their medical scans, without requiring an app, an account or a fast internet connection.",
+    solution: "We built a system where a scan is shared as a secure link that opens in under 10 seconds on an inexpensive phone, with no app and no login. Clinics can send scans in two ways, an on-site gateway keeps working when the internet drops, patients are notified by SMS or WhatsApp depending on the country, and administrators have a console with a full activity record.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Scans open in under 10 seconds on an inexpensive phone, with no app and no login",
+      "Two ways for clinics to send scans",
+      "An on-site gateway that keeps working when the internet drops",
+      "SMS and WhatsApp notifications for each country",
+      "Usage-based billing and an administrator console with a full activity record"
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
     gradientFrom: "#5c6bc0",
@@ -2086,17 +2121,17 @@ export const projects: Project[] = [
   },
   {
     slug: "moler-ai",
-    title: "Molar AI — Automated Social Media Growth Platform for Dental Practices",
+    title: "Molar AI - Automated Social Media Growth for Dental Practices",
     category: "SaaS",
     tags: ["SaaS", "Web App", "Next.js", "API"],
-    shortDesc: "Molar AI is a SaaS platform I built (Next.js, TypeScript, OpenAI API, Supabase) that automatically generates and schedules daily, brand-matched, clinically c...",
-    description: "Molar AI is a SaaS platform I built (Next.js, TypeScript, OpenAI API, Supabase) that automatically generates and schedules daily, brand-matched, clinically credible social posts for dental practices, live in about 24 hours after onboarding. For one client it grew a following from 159 to 10.2K, contributing to 5.8M+ organic views platform-wide — at a flat $497/month versus the $3,000-5,000/month agencies typically charge.",
-    problem: "The client needed a modern, scalable solution for molar ai — automated social media growth platform for dental practices.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A service that automatically creates and schedules daily social media posts for dental practices.",
+    description: "Molar AI is a service I built that automatically creates and schedules daily, on-brand, professionally credible social media posts for dental practices, live about 24 hours after sign-up. For one client it grew a following from 159 to 10.2K, contributing to 5.8M+ organic views across the platform.",
+    problem: "Dental practices need a steady social media presence but agencies are expensive and doing it themselves takes too much time.",
+    solution: "We built a service that creates and schedules daily, on-brand posts for each practice and is live about 24 hours after onboarding.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Live about 24 hours after sign-up",
+      "One client grew from 159 to 10.2K followers",
+      "5.8M+ organic views across the platform"
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
     gradientFrom: "#4facfe",
@@ -2113,17 +2148,18 @@ export const projects: Project[] = [
   },
   {
     slug: "moveempire",
-    title: "MoveEmpire — Deploy, Security & Integration Fixes (Contributor)",
+    title: "MoveEmpire - Publishing, Security & Connection Fixes (Contributor)",
     category: "SaaS",
     tags: ["SaaS", "Web App", "React", "Node.js"],
-    shortDesc: "Contributor on MoveEmpire, a client-owned multi-brand platform for a moving company (React, Node/Express, Prisma, Supabase, Railway). I audited a 7-item brie...",
-    description: "Contributor on MoveEmpire, a client-owned multi-brand platform for a moving company (React, Node/Express, Prisma, Supabase, Railway). I audited a 7-item brief against current code and fixed the real gaps: a pre-deploy check that blocked releases on an optional variable, helmet security headers, clear SendGrid errors, a stale-toast race, and Google Search Console/GA4 status. All tested; pushed to a feature branch for review, not yet merged.",
-    problem: "The client needed a modern, scalable solution for moveempire — deploy, security & integration fixes (contributor).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "Contributor on a client-owned platform for a moving company's brands. I reviewed a 7-item brief and fixed the real gaps.",
+    description: "I was a contributor on MoveEmpire, a client-owned platform serving a moving company's several brands. I reviewed a 7-item brief against the current work and fixed the real gaps: a pre-publish check that blocked releases because of an optional setting, added security protections, made email-sending errors clear, fixed a confusing message-timing problem, and set up Google Search Console and Google Analytics status. Everything was tested and sent for review on a separate branch, not yet merged.",
+    problem: "The platform had a 7-item list of issues that needed checking against the current work, including releases being blocked, unclear errors and missing security and tracking setup.",
+    solution: "We reviewed the 7-item brief against the current work and fixed the real gaps: the pre-publish check that blocked releases, missing security protections, unclear email-sending errors, a confusing message-timing problem, and Google Search Console and Google Analytics status. Everything was tested and sent for review.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "7-item brief reviewed against the current work",
+      "Releases no longer blocked by an optional setting",
+      "Security protections added and email-sending errors made clear",
+      "Everything tested and sent for review, not yet merged"
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
     gradientFrom: "#43e97b",
@@ -2140,17 +2176,17 @@ export const projects: Project[] = [
   },
   {
     slug: "neighborfront",
-    title: "The NeighborFRONT — Publishing Platform + Newsroom Dashboard",
+    title: "The NeighborFRONT - Publishing Platform & Newsroom Dashboard",
     category: "SaaS",
     tags: ["SaaS", "Web App", "React", "Dashboard"],
-    shortDesc: "The NeighborFRONT is a publishing platform I built for an independent Houston community-news brand — a public newsroom SPA with 140 pre-written articles and ...",
-    description: "The NeighborFRONT is a publishing platform I built for an independent Houston community-news brand — a public newsroom SPA with 140 pre-written articles and instant search, plus an internal ~15-screen newsroom-operations dashboard managing articles, tips, sources, and ad sponsors around a shared editorial pipeline. Both apps share an 8-category taxonomy and 15-neighborhood domain model. Built with React 19, Vite 6, Tailwind CSS v4, and React Router 7 as a monorepo.",
-    problem: "The client needed a modern, scalable solution for the neighborfront — publishing platform + newsroom dashboard.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A publishing platform and newsroom dashboard for an independent Houston community-news brand.",
+    description: "The NeighborFRONT is a publishing platform I built for an independent Houston community-news brand: a public newsroom website with 140 pre-written articles and instant search, plus an internal newsroom dashboard of about 15 screens for managing articles, tips, sources and ad sponsors around a shared editorial process. Both parts share the same 8 categories and 15 neighborhoods.",
+    problem: "A community-news brand needed a public site for readers and a separate internal system to run the newsroom, kept consistent with each other.",
+    solution: "We built a public newsroom website with 140 pre-written articles and instant search, plus an internal dashboard of about 15 screens covering articles, tips, sources and ad sponsors. Both parts use the same 8 categories and 15 neighborhoods so they stay consistent.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Public newsroom with 140 pre-written articles and instant search",
+      "An internal dashboard of about 15 screens for articles, tips, sources and ad sponsors",
+      "Shared 8 categories and 15 neighborhoods across both parts"
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
     gradientFrom: "#29b6f6",
@@ -2167,17 +2203,18 @@ export const projects: Project[] = [
   },
   {
     slug: "paul-holland-mountain",
-    title: "Holland Mountain — Email-OTP Access Gate (Next.js + Clerk)",
+    title: "Holland Mountain - Email Code Access Gate",
     category: "AI",
     tags: ["AI", "Machine Learning", "Next.js", "API"],
-    shortDesc: "I built a server-side authentication gate for Holland Mountain, a private-capital consultancy, protecting a client-facing interactive deck of 68 AI use cases...",
-    description: "I built a server-side authentication gate for Holland Mountain, a private-capital consultancy, protecting a client-facing interactive deck of 68 AI use cases. Built with Next.js 16 and Clerk, the gate enforces an email allowlist at sign-up so only approved addresses ever receive an OTP, with a custom branded sign-in screen (not Clerk's hosted page) and the gated content served verbatim from disk so a new deck drops in with zero risk to login logic.",
-    problem: "The client needed a modern, scalable solution for holland mountain — email-otp access gate (next.js + clerk).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A secure sign-in gate protecting an interactive presentation of 68 AI use cases for a private-capital consultancy.",
+    description: "I built a secure sign-in gate for Holland Mountain, a private-capital consultancy, protecting a client-facing interactive presentation of 68 AI use cases. It uses an approved list of email addresses, so only approved people ever receive a one-time sign-in code, with a custom branded sign-in screen and the protected content stored separately, so a new presentation can be dropped in with no risk to the sign-in system.",
+    problem: "The consultancy needed to share an interactive presentation of 68 AI use cases with approved clients only.",
+    solution: "We built a sign-in gate that checks an approved list of email addresses before sending anyone a one-time code, with a custom branded sign-in screen. The protected presentation is stored separately, so a new one can be dropped in without touching the sign-in.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Only approved email addresses can receive a sign-in code",
+      "A custom branded sign-in screen",
+      "A new presentation can be added with no risk to the sign-in",
+      "Protects an interactive presentation of 68 AI use cases"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#ffca28",
@@ -2194,17 +2231,19 @@ export const projects: Project[] = [
   },
   {
     slug: "robin-cut-scorer",
-    title: "Cricket Live-Scoring App — Refresh & Scoring-Freeze Bug Fixes",
+    title: "Cricket Live-Scoring App - Refresh & Scoring-Freeze Fixes",
     category: "AI",
     tags: ["AI", "Machine Learning"],
-    shortDesc: "Bug-fix engagement on a client's existing cricket live-scoring app (single-file JavaScript, Supabase, GitHub Pages). I traced tournaments vanishing on refres...",
-    description: "Bug-fix engagement on a client's existing cricket live-scoring app (single-file JavaScript, Supabase, GitHub Pages). I traced tournaments vanishing on refresh to a stray token halting the script, and scoring freezes to Undo snapshots overflowing browser storage. Fixed both with no database changes, added a retrying cloud-save queue and paging past 1,000 rows, and verified 19/19 on the live database. Later added RLS scorer roles and NRR.",
-    problem: "The client needed a modern, scalable solution for cricket live-scoring app — refresh & scoring-freeze bug fixes.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A bug-fix project on a client's cricket live-scoring app: tournaments vanishing on refresh and scoring freezing.",
+    description: "A bug-fix project on a client's existing cricket live-scoring app. I traced tournaments vanishing on refresh to a stray character stopping the app from loading, and scoring freezes to the Undo history filling up the browser's storage. I fixed both without changing the database, added a retrying save queue and support for lists beyond 1,000 rows, and verified 19 of 19 checks on the live data. I later added scorer roles with protected access and net run rate.",
+    problem: "Tournaments disappeared when the page was refreshed, and scoring sometimes froze.",
+    solution: "We traced the disappearing tournaments to a stray character that stopped the app from loading, and the scoring freezes to the Undo history filling the browser's storage. We fixed both without changing the database, added a retrying save queue and support for lists beyond 1,000 rows, and checked everything against the live data.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Tournaments no longer vanish on refresh",
+      "Scoring no longer freezes",
+      "A retrying save queue and support for lists beyond 1,000 rows",
+      "19 of 19 checks passed on the live data",
+      "Later added scorer roles with protected access and net run rate"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#fccb90",
@@ -2221,17 +2260,18 @@ export const projects: Project[] = [
   },
   {
     slug: "tryofferiq",
-    title: "OfferIQ DealStream — Deal Sourcing & Live Analysis Platform",
+    title: "OfferIQ DealStream - Deal Sourcing & Live Analysis Platform",
     category: "SaaS",
     tags: ["SaaS", "Web App", "Next.js", "Node.js"],
-    shortDesc: "OfferIQ DealStream is a two-sided SaaS platform I built for real estate wholesalers, letting investors run instant MAO calculations and five parallel exit-st...",
-    description: "OfferIQ DealStream is a two-sided SaaS platform I built for real estate wholesalers, letting investors run instant MAO calculations and five parallel exit-strategy analyses in real time via \"Live Call Mode,\" then generate a matching contract for e-signature before the call ends. On the demand side it matches off-market deals to buyers' custom buy-box criteria and alerts them by email with a full profit breakdown. Built with Next.js, Node.js, and integrated subscription billing.",
-    problem: "The client needed a modern, scalable solution for offeriq dealstream — deal sourcing & live analysis platform.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A two-sided platform for real estate wholesalers: instant offer calculations during calls and deal matching for buyers.",
+    description: "OfferIQ DealStream is a two-sided subscription platform I built for real estate wholesalers. Investors run instant maximum-allowable-offer calculations and five side-by-side exit strategy analyses in real time with \"Live Call Mode,\" then create a matching contract for e-signature before the call ends. On the buyer side, it matches off-market deals to each buyer's custom buying criteria and alerts them by email with a full profit breakdown. It includes subscription billing.",
+    problem: "Wholesalers need to work out an offer and generate a contract while the seller is still on the phone, and buyers need to hear quickly about deals that match what they want.",
+    solution: "We built \"Live Call Mode,\" where investors run instant offer calculations and five side-by-side exit strategy analyses during the call, then create a matching contract for e-signature before the call ends. For buyers, the platform matches off-market deals to their custom criteria and emails them a full profit breakdown. Subscription billing is built in.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Instant offer calculations and five exit strategy analyses in real time",
+      "A matching contract ready for e-signature before the call ends",
+      "Deals matched to each buyer's custom criteria and emailed with a full profit breakdown",
+      "Subscription billing built in"
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
     gradientFrom: "#29b6f6",
@@ -2248,17 +2288,18 @@ export const projects: Project[] = [
   },
   {
     slug: "wellness-platinum-spa",
-    title: "Platinum Wellness Spa — Booking PWA with Locked-Down PMS Integration",
+    title: "Platinum Wellness Spa - Booking App with Locked-Down Practice System",
     category: "AI",
     tags: ["AI", "Machine Learning", "API"],
-    shortDesc: "I built an installable booking PWA for a luxury day/med-spa sitting in front of a locked-down, HIPAA-relevant PMS with a daily API budget. A Netlify Function...",
-    description: "I built an installable booking PWA for a luxury day/med-spa sitting in front of a locked-down, HIPAA-relevant PMS with a daily API budget. A Netlify Functions proxy batches availability queries and learns a qualified-providers map at runtime, while booking requests flow through a separate Supabase/Resend path that never touches the PMS and always reads as a \"request,\" not a confirmed booking. Also built: rebooking, an FAQ chatbot, and a linked lead-capture microsite.",
-    problem: "The client needed a modern, scalable solution for platinum wellness spa — booking pwa with locked-down pms integration.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "An installable booking app for a luxury spa that sits in front of a locked-down, health-privacy-sensitive practice system.",
+    description: "I built an installable booking app for a luxury day and medical spa. It sits in front of a locked-down, health-privacy-sensitive practice management system that allows only a limited number of requests per day. A middle layer groups availability checks and learns which providers are qualified, while booking requests go through a separate email path that never touches the practice system and always appears as a \"request,\" not a confirmed booking. Also built: rebooking, an FAQ chatbot and a linked lead-capture website.",
+    problem: "The spa's practice management system holds sensitive health-related information and limits how many requests can be made each day, so a booking app could not simply connect to it directly.",
+    solution: "We built an installable booking app with a middle layer that groups availability checks to stay within the daily limit and learns which providers are qualified for each service. Booking requests go through a separate email path that never touches the practice system, and always appear as a \"request,\" not a confirmed booking. We also built rebooking, an FAQ chatbot and a linked lead-capture website.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "An installable booking app for a luxury spa",
+      "Availability checks grouped to stay within the daily limit",
+      "Booking requests that never touch the practice system",
+      "Rebooking, an FAQ chatbot and a linked lead-capture website"
     ],
     technologies: ["Python", "TensorFlow", "React", "FastAPI"],
     gradientFrom: "#ffca28",
@@ -2275,17 +2316,17 @@ export const projects: Project[] = [
   },
   {
     slug: "amex-website",
-    title: "Amex Technology — Agency Website & SEO Blog Platform",
+    title: "Amex Technology - Agency Website & Blog",
     category: "Web",
     tags: ["Web Design", "Next.js", "Web"],
-    shortDesc: "I designed and built amextechnology.com, my own software agency's site, on Next.js — a homepage covering services, trust metrics, and a portfolio, plus a tec...",
-    description: "I designed and built amextechnology.com, my own software agency's site, on Next.js — a homepage covering services, trust metrics, and a portfolio, plus a technical centerpiece: a strongly-typed, statically-generated blog with no CMS. The content strategy deliberately targets low-competition, exact-error search queries around AI app builders (Bolt, Lovable, Replit) and their backend pairings, positioning the agency in front of developers most likely to need help.",
-    problem: "The client needed a modern, scalable solution for amex technology — agency website & seo blog platform.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "The Amex Technology website itself: services, trust figures, a portfolio and a blog written to be found on Google.",
+    description: "I designed and built amextechnology.com, my own agency's website: a homepage covering services, trust figures and a portfolio, plus a blog built without a separate content management system. The content approach deliberately targets specific, low-competition searches around AI app builders (Bolt, Lovable, Replit) and the tools used with them, putting the agency in front of the people most likely to need help.",
+    problem: "A small agency needs a website that explains its services, shows its work and brings in the right visitors from Google.",
+    solution: "We built a homepage covering services, trust figures and a portfolio, plus a blog written around specific, low-competition searches about AI app builders such as Bolt, Lovable and Replit.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "A homepage with services, trust figures and a portfolio",
+      "A blog built without a separate content management system",
+      "Content targeting specific searches around AI app builders"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#ffca28",
@@ -2307,17 +2348,18 @@ export const projects: Project[] = [
   },
   {
     slug: "bukky-osifeso",
-    title: "Bukky Osifeso — Personal & Speaker Website (hand-coded, single-file)",
+    title: "Bukky Osifeso - Personal & Speaker Website",
     category: "Web",
     tags: ["Web Design", "Next.js", "Web"],
-    shortDesc: "I built the personal and professional website for Bukky Osifeso, a People/HR strategist and author, as a single hand-coded HTML file with no framework, depen...",
-    description: "I built the personal and professional website for Bukky Osifeso, a People/HR strategist and author, as a single hand-coded HTML file with no framework, dependencies, or backend. It's a dark editorial long-scroll routing four audiences to four next steps, featuring a hand-built inline-SVG world map plotting 44 cities across 32 countries, runtime-computed statistics that never go stale, and a thorough prefers-reduced-motion implementation across every animation.",
-    problem: "The client needed a modern, scalable solution for bukky osifeso — personal & speaker website (hand-coded, single-file).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A personal and professional website for a People/HR strategist and author, built as a single hand-coded page.",
+    description: "I built the personal and professional website for Bukky Osifeso, a People/HR strategist and author, as a single hand-coded page with no outside tools or backend. It's a dark, editorial long-scroll page that directs four types of visitors to four next steps, with a hand-built world map plotting 44 cities across 32 countries, statistics that are always calculated fresh so they never go out of date, and careful support for visitors who prefer reduced motion across every animation.",
+    problem: "A strategist and author needed a personal website that speaks to four different audiences and shows her global reach.",
+    solution: "We built a dark, editorial long-scroll page that sends four types of visitors to four different next steps, with a hand-built world map showing 44 cities in 32 countries and statistics that are always calculated fresh. Every animation respects visitors who prefer reduced motion.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Four audiences directed to four next steps",
+      "A hand-built world map plotting 44 cities across 32 countries",
+      "Statistics calculated fresh so they never go out of date",
+      "Animations that respect visitors who prefer reduced motion"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#5c6bc0",
@@ -2334,17 +2376,17 @@ export const projects: Project[] = [
   },
   {
     slug: "cdieng",
-    title: "TianCheng Development Group — Marketing Website (Next.js)",
+    title: "TianCheng Development Group - Marketing Website",
     category: "Web",
     tags: ["Web Design", "Next.js", "Web"],
-    shortDesc: "I built the public marketing website for TianCheng Development Group, a Southern California real estate developer whose pitch is one accountable team handlin...",
-    description: "I built the public marketing website for TianCheng Development Group, a Southern California real estate developer whose pitch is one accountable team handling design, entitlement, and construction. It's a fast, server-rendered Next.js site covering a five-phase process, six development sectors, and a validated contact form, with a full SEO layer (metadata, Open Graph, sitemap) and a component system built to a matched visual reference, then filled with the client's real content.",
-    problem: "The client needed a modern, scalable solution for tiancheng development group — marketing website (next.js).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "The public marketing website for TianCheng Development Group, a real estate developer whose pitch is one accountable team.",
+    description: "I built the public marketing website for TianCheng Development Group, a real estate developer whose pitch is one accountable team handling design, permits and construction. It's a fast website covering a five-phase process, six development sectors and a contact form with checks, with the details Google needs to show it properly, and a set of page components built to match a visual reference and then filled with the client's real content.",
+    problem: "A developer whose pitch is one accountable team needed a website that explains its process and the types of projects it handles.",
+    solution: "We built a fast website covering a five-phase process, six development sectors and a contact form with checks, with the details Google needs to show it properly. The pages were built to match a visual reference and then filled with the client's real content.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "A five-phase process and six development sectors clearly explained",
+      "A contact form with checks",
+      "Details set up so Google and social sites show the website properly"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#9ccc65",
@@ -2361,17 +2403,17 @@ export const projects: Project[] = [
   },
   {
     slug: "eastendvintagesale",
-    title: "East End Vintage Sale — Event Branding for a Toronto Pop-Up",
+    title: "East End Vintage Sale - Event Branding for a Toronto Pop-Up",
     category: "Web",
     tags: ["Web Design", "Web"],
-    shortDesc: "I designed a retro pink-and-white, halftone-photography brand identity and a single-page event microsite for a Toronto community vintage-clothing pop-up's se...",
-    description: "I designed a retro pink-and-white, halftone-photography brand identity and a single-page event microsite for a Toronto community vintage-clothing pop-up's second edition, on a limited budget with no permanent website. The page communicates date, place, and what to expect at a glance, answering visitors' likely questions about atmosphere and location — driving RSVPs and social engagement ahead of the event.",
-    problem: "The client needed a modern, scalable solution for east end vintage sale — event branding for a toronto pop-up.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A retro pink-and-white brand look and a single-page event website for a Toronto community vintage-clothing pop-up.",
+    description: "I designed a retro pink-and-white, halftone-photography brand look and a single-page event website for the second edition of a Toronto community vintage-clothing pop-up, on a limited budget and with no permanent website. The page shows the date, place and what to expect at a glance, and answers visitors' likely questions about the atmosphere and location, driving RSVPs and social media activity ahead of the event.",
+    problem: "A one-day pop-up with a limited budget and no permanent website needed to bring people back for its second edition.",
+    solution: "We designed a retro pink-and-white brand look with halftone photography and a single-page event website showing the date, place and what to expect at a glance, and answering questions about the atmosphere and location.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "A retro pink-and-white brand look with halftone photography",
+      "Date, place and what to expect at a glance",
+      "Designed to drive RSVPs and social media activity ahead of the event"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#78909c",
@@ -2388,17 +2430,18 @@ export const projects: Project[] = [
   },
   {
     slug: "island-traffic",
-    title: "Long Island Traffic Defense — Attorney Website",
+    title: "Long Island Traffic Defense - Attorney Website",
     category: "Web",
     tags: ["Web Design", "Mobile", "Web"],
-    shortDesc: "I built a conversion-oriented, bilingual (English/Spanish) single-page site for a Long Island traffic-defense attorney, covering core practice areas and lead...",
-    description: "I built a conversion-oriented, bilingual (English/Spanish) single-page site for a Long Island traffic-defense attorney, covering core practice areas and leading with trust signals: 20+ years appearing in named Nassau/Suffolk courts, the real insurance-premium cost of an uncontested ticket, and Spanish-language support called out in the hero. Redundant tap-first CTAs and a dark navy theme target an anxious, mobile-first audience. Deployed on Vercel with local-SEO-structured content.",
-    problem: "The client needed a modern, scalable solution for long island traffic defense — attorney website.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A bilingual (English and Spanish) single-page website for a Long Island traffic-defense attorney, designed to win calls.",
+    description: "I built a bilingual (English and Spanish) single-page website for a Long Island traffic-defense attorney, covering the main practice areas and leading with trust signals: 20+ years appearing in named Nassau and Suffolk courts, the real insurance cost of an unchallenged ticket, and Spanish-language support called out at the top. Repeated tap-to-act buttons and a dark navy theme are designed for an anxious, phone-first audience. It is live online with content written around local searches.",
+    problem: "Drivers with a ticket are anxious, usually on their phone, and need to quickly trust a lawyer and contact them.",
+    solution: "We built a bilingual single page that leads with trust signals: 20+ years in named Nassau and Suffolk courts, the real insurance cost of an unchallenged ticket, and Spanish-language support at the top. Repeated tap-to-act buttons and a dark navy theme are designed for an anxious, phone-first audience, and the content is written around local searches.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "English and Spanish on one page",
+      "Trust signals: 20+ years in named Nassau and Suffolk courts",
+      "Repeated tap-to-act buttons for phone visitors",
+      "Content written around local searches"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#f093fb",
@@ -2415,17 +2458,17 @@ export const projects: Project[] = [
   },
   {
     slug: "mito-shred",
-    title: "MitoShred — Direct-Response Supplement Offer Page + Compliance Pages",
+    title: "MitoShred - Direct-Response Supplement Offer Page & Legal Pages",
     category: "Web",
     tags: ["Web Design", "Payments", "Web"],
-    shortDesc: "I built the direct-response sales page and compliance pages for MitoShred, a fat-loss supplement offer for men over 40 — a long-form problem-mechanism-proof-...",
-    description: "I built the direct-response sales page and compliance pages for MitoShred, a fat-loss supplement offer for men over 40 — a long-form problem-mechanism-proof-offer narrative with tiered pricing, a 60-day guarantee, and an objection-handling FAQ, plus FTC/FDA-style Terms, Privacy, and Refunds pages required for ad platforms and payment processors. Built as static HTML/Tailwind with no build step, editable by a non-technical marketer.",
-    problem: "The client needed a modern, scalable solution for mitoshred — direct-response supplement offer page + compliance pages.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A long-form sales page and the required legal pages for a fat-loss supplement offer aimed at men over 40.",
+    description: "I built the sales page and the required legal pages for MitoShred, a fat-loss supplement offer for men over 40. The long-form page tells the story from the problem to the offer, with tiered pricing, a 60-day guarantee and an FAQ that answers common doubts, plus Terms, Privacy and Refund pages in the style required by advertising platforms and payment processors. It is simple enough for a non-technical marketer to edit.",
+    problem: "A supplement offer needed a persuasive sales page and the legal pages that advertising platforms and payment processors require.",
+    solution: "We built a long-form sales page that tells the story from the problem to the offer, with tiered pricing, a 60-day guarantee and an FAQ that answers common doubts, plus Terms, Privacy and Refund pages in the style advertising platforms and payment processors require. It is simple enough for a non-technical marketer to edit.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "A long-form sales page with tiered pricing, a 60-day guarantee and an FAQ",
+      "Terms, Privacy and Refund pages for advertising platforms and payment processors",
+      "Simple enough for a non-technical marketer to edit"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#8d6e63",
@@ -2442,17 +2485,18 @@ export const projects: Project[] = [
   },
   {
     slug: "portland-self-defense",
-    title: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense",
+    title: "Form Security, GoHighLevel CRM & Meta Tracking - Portland Self-Defense",
     category: "Web",
     tags: ["Web Design", "API", "Web"],
-    shortDesc: "A fix-and-verify engagement on a large custom PHP/MySQL martial-arts school site: I delivered a hardened public-form security stack (reCAPTCHA v3, honeypot, ...",
-    description: "A fix-and-verify engagement on a large custom PHP/MySQL martial-arts school site: I delivered a hardened public-form security stack (reCAPTCHA v3, honeypot, CSRF, rate limiting), a GoHighLevel CRM integration upserting every lead correctly tagged, and deduplicated Meta Pixel + Conversions API purchase tracking on the Stripe intro-offer checkout — consolidating four separate lead forms onto one shared handler so fixes land once, centrally.",
-    problem: "The client needed a modern, scalable solution for form security, gohighlevel crm & meta capi — portland self-defense.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A fix-and-verify project on a large martial-arts school website: safer forms, CRM connection and accurate ad tracking.",
+    description: "A fix-and-verify project on a large martial-arts school website. I delivered stronger protection for the public forms (spam and bot checks), a GoHighLevel CRM connection that records every lead correctly labeled, and de-duplicated Meta (Facebook) purchase tracking on the Stripe introductory-offer checkout. Four separate lead forms were combined into one shared process so fixes are made once, in one place.",
+    problem: "The school's large website had lead forms open to spam, leads not reaching the CRM correctly, and purchase tracking that was counting purchases twice.",
+    solution: "We added stronger spam and bot protection to the public forms, connected every lead to GoHighLevel with the right labels, and de-duplicated Meta purchase tracking on the Stripe introductory-offer checkout. Four separate lead forms now use one shared process, so a fix is made once and applies everywhere.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Stronger protection against spam and bots on public forms",
+      "Every lead recorded in GoHighLevel with the right labels",
+      "De-duplicated Meta purchase tracking on the introductory-offer checkout",
+      "Four lead forms combined into one shared process"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#fa709a",
@@ -2470,17 +2514,18 @@ export const projects: Project[] = [
   },
   {
     slug: "rooted-and-rising",
-    title: "Rooted and Rising — Book Launch Landing Page",
+    title: "Rooted and Rising - Book Launch Landing Page",
     category: "Web",
     tags: ["Web Design", "Web"],
-    shortDesc: "I built the launch site for Rooted and Rising, Bukky Osifeso's book — a cream-and-serif, JavaScript-free long-scroll page positioning the book to six reader ...",
-    description: "I built the launch site for Rooted and Rising, Bukky Osifeso's book — a cream-and-serif, JavaScript-free long-scroll page positioning the book to six reader archetypes, framing chapters with Yoruba proverbs, and linking straight to Amazon. It's one ~39KB HTML file with inline CSS and zero JavaScript, capturing reader emails via a single webhook call, deliberately styled distinct from the author's separate personal site.",
-    problem: "The client needed a modern, scalable solution for rooted and rising — book launch landing page.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A launch website for Bukky Osifeso's book, positioned for six types of readers and linking straight to Amazon.",
+    description: "I built the launch website for Rooted and Rising, Bukky Osifeso's book: a cream-and-serif long-scroll page that positions the book for six types of readers, frames chapters with Yoruba proverbs and links straight to Amazon. It is one small page that loads very quickly and collects reader emails with a single behind-the-scenes call, deliberately styled differently from the author's separate personal website.",
+    problem: "A new book needed its own launch page that speaks to different kinds of readers and sends them to buy it.",
+    solution: "We built a cream-and-serif long-scroll page that positions the book for six types of readers, frames the chapters with Yoruba proverbs and links straight to Amazon. It loads very quickly, collects reader emails, and is deliberately styled differently from the author's personal website.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Positioned for six types of readers",
+      "Chapters framed with Yoruba proverbs",
+      "A direct link to Amazon and an email sign-up",
+      "A very fast-loading page, styled differently from the author's personal site"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#667eea",
@@ -2497,17 +2542,18 @@ export const projects: Project[] = [
   },
   {
     slug: "tame-the-jungle",
-    title: "Tame The Jungle — HTML to Native Wix Rebuild (In Progress)",
+    title: "Tame The Jungle - Rebuild as a Native Wix Site (In Progress)",
     category: "Web",
     tags: ["Web Design", "Next.js", "Node.js", "Mobile", "API"],
-    shortDesc: "I'm rebuilding Tame The Jungle's HTML design as a native Wix site (in progress). I decoded the bundler-exported source with a Node script into exact per-page...",
-    description: "I'm rebuilding Tame The Jungle's HTML design as a native Wix site (in progress). I decoded the bundler-exported source with a Node script into exact per-page copy, confirmed Wix has no HTML import or layout API, and produced a Wix design system, an 8-page map that keeps existing ranked URLs, optimized assets, and a full build guide with editor prompts. The Editor build and mobile pass come next.",
-    problem: "The client needed a modern, scalable solution for tame the jungle — html to native wix rebuild (in progress).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "Rebuilding Tame The Jungle's website design as a native Wix site. Work is in progress.",
+    description: "I'm rebuilding Tame The Jungle's website design as a native Wix site (in progress). I extracted the exact wording for every page from the design files, confirmed that Wix has no way to import an existing design, and produced a Wix style guide, an 8-page map that keeps the existing ranked page addresses, optimized images and a full build guide with editor prompts. The build in the Wix editor and the phone layout come next.",
+    problem: "The design existed as a finished website, but Wix can't import one, so it has to be rebuilt in Wix without losing existing Google rankings.",
+    solution: "We extracted the exact wording for every page, confirmed that Wix has no import option, and produced a Wix style guide, an 8-page map that keeps the existing ranked page addresses, optimized images and a full build guide. The build in the Wix editor and the phone layout come next.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Exact wording extracted for every page",
+      "A Wix style guide and an 8-page map that keeps existing ranked page addresses",
+      "Optimized images and a full build guide",
+      "In progress: the Wix editor build and phone layout come next"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#a18cd1",
@@ -2523,17 +2569,18 @@ export const projects: Project[] = [
   },
   {
     slug: "we-are-tag-group",
-    title: "Technical SEO Diagnosis, Fix & Monitoring — wearetag.ai (WordPress)",
+    title: "SEO Diagnosis, Fix & Monitoring - wearetag.ai (WordPress)",
     category: "Web",
     tags: ["Web Design", "WordPress", "Web"],
-    shortDesc: "I ran a technical SEO diagnosis and fix for The TAG Group's WordPress/Elementor site, which was appearing in Google as a bare URL with no title. I traced the...",
-    description: "I ran a technical SEO diagnosis and fix for The TAG Group's WordPress/Elementor site, which was appearing in Google as a bare URL with no title. I traced the real cause to a site-wide \"Discourage search engines\" setting injecting noindex on every page, disabled it, verified the fix live, and re-checked metadata and structured data — also setting up Search Console and a recurring monthly SEO monitoring cadence.",
-    problem: "The client needed a modern, scalable solution for technical seo diagnosis, fix & monitoring — wearetag.ai (wordpress).",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "Fixed a WordPress website that was showing up in Google as a bare web address with no title.",
+    description: "I diagnosed and fixed a search visibility problem on The TAG Group's WordPress website, which was appearing in Google as a bare web address with no title. I traced the real cause to a site-wide \"Discourage search engines\" setting telling Google to ignore every page, turned it off, checked the fix live, and re-checked the page details Google reads. I also set up Google Search Console and a recurring monthly SEO check.",
+    problem: "The website appeared in Google as a bare web address with no title.",
+    solution: "We traced the real cause to a site-wide \"Discourage search engines\" setting that told Google to ignore every page, turned it off, checked the fix live and re-checked the page details Google reads. We also set up Google Search Console and a recurring monthly SEO check.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Found the real cause: a site-wide \"Discourage search engines\" setting",
+      "Fix checked live",
+      "Google Search Console set up",
+      "A recurring monthly SEO check"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#667eea",
@@ -2551,17 +2598,18 @@ export const projects: Project[] = [
   },
   {
     slug: "whartoncarpetcleaning",
-    title: "Wharton Carpet Cleaning — Local Service Business Website",
+    title: "Wharton Carpet Cleaning - Local Service Business Website",
     category: "Web",
     tags: ["Web Design", "Web"],
-    shortDesc: "I built a conversion-focused local-service website for Joel Wharton, an IICRC-certified Phoenix carpet cleaner, with an above-the-fold lead form, six dedicat...",
-    description: "I built a conversion-focused local-service website for Joel Wharton, an IICRC-certified Phoenix carpet cleaner, with an above-the-fold lead form, six dedicated service pages, a repeatable 3-step process on each, and live Google review integration (475 reviews, 5 stars). Every CTA offers three equal-weight paths — text, call, or form — with local SEO structured across seven Phoenix-metro cities. Built with hand-coded HTML, CSS, and JavaScript for fast load times.",
-    problem: "The client needed a modern, scalable solution for wharton carpet cleaning — local service business website.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "A website built to win enquiries for an IICRC-certified Phoenix carpet cleaner.",
+    description: "I built a website designed to win enquiries for Joel Wharton, an IICRC-certified Phoenix carpet cleaner. It has an enquiry form at the top of the page, six dedicated service pages, a repeatable 3-step process on each, and live Google reviews (475 reviews, 5 stars). Every call to action offers three equal ways to get in touch (text, call or form), with local search content for seven Phoenix-area cities. It is hand-built for fast loading.",
+    problem: "A local carpet cleaner needed a website that wins enquiries quickly and shows proof that customers are happy.",
+    solution: "We built a website with an enquiry form at the top of the page, six dedicated service pages, a repeatable 3-step process on each, and live Google reviews. Every call to action offers three equal ways to get in touch, with local search content for seven Phoenix-area cities, hand-built for fast loading.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Enquiry form at the top of the page and six dedicated service pages",
+      "Live Google reviews: 475 reviews, 5 stars",
+      "Text, call or form on every call to action",
+      "Local search content for seven Phoenix-area cities"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#5c6bc0",
@@ -2579,17 +2627,18 @@ export const projects: Project[] = [
   },
   {
     slug: "wideeyedgiantcom",
-    title: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup",
+    title: "Wide Eyed Giant - WordPress Layout Rescue & Styling Cleanup",
     category: "Web",
     tags: ["Web Design", "WordPress", "Web"],
-    shortDesc: "I diagnosed and fixed a WordPress/Elementor layout-drift bug on a membership recipe blog: the real offsets were per-widget Elementor margin settings invisibl...",
-    description: "I diagnosed and fixed a WordPress/Elementor layout-drift bug on a membership recipe blog: the real offsets were per-widget Elementor margin settings invisible in the stylesheet, not the 1,735-line Additional CSS (which mostly targeted a removed template). I replaced it with 265 scoped lines, rebuilt the subcategory row as a fixed grid, and verified alignment across six breakpoints — also catching a silent WordPress CSS-sanitizer data-loss bug along the way.",
-    problem: "The client needed a modern, scalable solution for wide eyed giant — wordpress / elementor layout rescue & css cleanup.",
-    solution: "We designed and developed a comprehensive solution leveraging modern technologies, ensuring performance, scalability, and an exceptional user experience.",
+    shortDesc: "Found and fixed a layout alignment problem on a membership recipe blog.",
+    description: "I diagnosed and fixed a layout alignment problem on a membership recipe blog: the real spacing came from per-widget settings in the page builder that cannot be seen in the stylesheet, not from the 1,735 lines of additional styling (which mostly targeted a template that had been removed). I replaced it with 265 lines organized per page, rebuilt the subcategory row as a fixed grid, and checked alignment across six screen sizes, also catching a silent WordPress problem that was quietly losing styling data.",
+    problem: "The recipe blog's layout had drifted out of alignment across screen sizes, and the existing styling didn't explain why.",
+    solution: "We found that the real spacing came from per-widget settings in the page builder that cannot be seen in the stylesheet. We replaced 1,735 lines of mostly outdated styling with 265 lines organized per page, rebuilt the subcategory row as a fixed grid, and checked alignment across six screen sizes.",
     results: [
-    "Delivered a high-quality, production-ready solution",
-    "Improved user experience with modern UI/UX design",
-    "Ensured cross-platform compatibility and responsive design"
+      "Layout alignment fixed across six screen sizes",
+      "1,735 lines of outdated styling replaced with 265",
+      "Subcategory row rebuilt as a fixed grid",
+      "Caught a silent WordPress problem that was quietly losing styling data"
     ],
     technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
     gradientFrom: "#4facfe",

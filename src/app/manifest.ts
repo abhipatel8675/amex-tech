@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Amex Technology — Software Development Agency",
+    name: "Amex Technology: Websites, Apps & AI for Businesses",
     short_name: "Amex Technology",
     description:
-      "Premium software development agency. We build scalable web apps, mobile apps, and SaaS platforms.",
+      "We build websites, web apps, mobile apps and AI tools for businesses worldwide.",
     start_url: "/",
     display: "standalone",
     background_color: "#0B0F19",

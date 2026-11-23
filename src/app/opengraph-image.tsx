@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Amex Technology — Software Development Agency";
+export const alt = "Amex Technology: Websites, Apps & AI for Businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -62,7 +62,7 @@ export default function OgImage() {
             margin: "0 0 24px 0",
           }}
         >
-          Software Development Agency
+          Websites, Apps & AI for Businesses
         </h1>
 
         {/* Tagline */}
@@ -75,7 +75,7 @@ export default function OgImage() {
             margin: 0,
           }}
         >
-          Websites, apps & AI agents. Top Rated Plus on Upwork.
+          Websites, apps and AI tools. Top Rated Plus on Upwork.
         </p>
 
         {/* Bottom decorative elements */}

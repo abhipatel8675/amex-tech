@@ -7,24 +7,24 @@ import ServicesPageContent from "@/components/services/ServicesPageContent";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "AI, Web & Search Services",
+  title: "Website, AI & SEO Services",
   keywords:
-    "AI agents, AI automation, website development, web app development, AI SaaS MVP, GEO services, AEO, answer engine optimization, generative engine optimization, local SEO, GoHighLevel, CRM automation, mobile app development",
+    "AI automation, website development, web app development, software MVP, SEO services, AI search visibility, local SEO, GoHighLevel, CRM automation, mobile app development",
   description:
-    "AI agents and automation, websites and web apps, AI SaaS MVPs, mobile apps, CRM automation, and SEO, GEO and AEO so you're found on Google and in AI assistants.",
+    "AI assistants and automation, websites and web apps, software products, mobile apps, CRM automation, and SEO so customers find you on Google and in AI assistants.",
   alternates: {
     canonical: "https://amextechnology.com/services",
   },
   openGraph: {
-    title: "AI, Web & Search Services | Amex Technology",
+    title: "Website, AI & SEO Services | Amex Technology",
     description:
-      "AI agents and automation, websites and web apps, AI SaaS MVPs, mobile apps, CRM automation, and SEO, GEO and AEO so you're found on Google and in AI assistants.",
+      "AI assistants and automation, websites and web apps, software products, mobile apps, CRM automation, and SEO so customers find you on Google and in AI assistants.",
     url: "https://amextechnology.com/services",
   },
   twitter: {
-    title: "AI, Web & Search Services | Amex Technology",
+    title: "Website, AI & SEO Services | Amex Technology",
     description:
-      "AI agents and automation, websites and web apps, AI SaaS MVPs, mobile apps, CRM automation, and SEO, GEO and AEO so you're found on Google and in AI assistants.",
+      "AI assistants and automation, websites and web apps, software products, mobile apps, CRM automation, and SEO so customers find you on Google and in AI assistants.",
   },
 };
 
@@ -53,10 +53,10 @@ const servicesSchema = {
   name: "Amex Technology",
   url: "https://amextechnology.com",
   description:
-    "AI and software agency building AI agents, websites, web apps, SaaS products and mobile apps, plus SEO, GEO and AEO for Google and AI search.",
+    "Website, app and AI company building AI assistants, websites, web apps, software products and mobile apps, plus SEO for Google and AI search.",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "AI, Software and Search Services",
+    name: "Website, AI and Search Services",
     itemListElement: services.map((s) => ({
       "@type": "Offer",
       itemOffered: {

@@ -13,11 +13,11 @@ import {
 } from "@/components/agency/AgencySections";
 import s from "@/components/agency/agency.module.css";
 const pageUrl = "https://amextechnology.com/hire-developers";
-const pageTitle = "Hire Developers: React, Next.js & AI | Amex Technology";
+const pageTitle = "Hire Developers for Your Business | Amex Technology";
 const pageDescription =
-  "Discuss React, Next.js, full-stack, AI, mobile and DevOps development support with Amex Technology. Explore project and ongoing collaboration options.";
+  "Talk to Amex Technology about adding developers to your team for websites, web apps, AI, mobile apps and ongoing maintenance. Explore project and ongoing options.";
 export const metadata: Metadata = {
-  title: "Hire Developers: React, Next.js & AI",
+  title: "Hire Developers for Your Business",
   description: pageDescription,
   alternates: { canonical: pageUrl },
   openGraph: { title: pageTitle, description: pageDescription, url: pageUrl },
@@ -50,7 +50,7 @@ const serviceSchema = {
   "@type": "Service",
   "@id": `${pageUrl}#service`,
   name: "Hire Developers",
-  serviceType: "Software developer staffing",
+  serviceType: "Developer hiring",
   description: pageDescription,
   url: pageUrl,
   provider: { "@id": "https://amextechnology.com/#organization" },
@@ -62,27 +62,27 @@ const models = [
     desc: "A focused engagement for a website, application, integration, or product milestone.",
     bullets: [
       "Agreed scope and deliverables",
-      "Milestones and regular reviews",
-      "Documentation and handover",
+      "Key dates and regular reviews",
+      "Written notes and handover",
     ],
   },
   {
     title: "An extension of your team",
     label: "MOVE YOUR PRODUCT FORWARD",
-    desc: "Discuss dedicated engineering support that fits your existing team and delivery process.",
+    desc: "Discuss dedicated development support that fits your existing team and the way you work.",
     bullets: [
       "Skills matched to your needs",
-      "Direct engineering collaboration",
-      "Agreed availability and overlap",
+      "Direct collaboration with the developers",
+      "Agreed availability and meeting times",
     ],
   },
   {
     title: "Ongoing development",
     label: "KEEP GETTING BETTER",
-    desc: "A continuing partnership for product improvements, maintenance, and technical support.",
+    desc: "A continuing partnership for product improvements, maintenance, and support.",
     bullets: [
-      "A prioritized development backlog",
-      "A clear scope for each iteration",
+      "A prioritized list of improvements",
+      "A clear scope for each round of work",
       "Regular planning and progress updates",
     ],
   },
@@ -90,8 +90,8 @@ const models = [
 const timeZones = [
   {
     label: "US CLIENTS",
-    title: "Our team works overnight for you",
-    desc: "Our developers are in Ahmedabad on IST (UTC+5:30), roughly 12.5 to 13.5 hours ahead of Pacific time. Work you approve in your afternoon is often built overnight and ready to review the next morning.",
+    title: "Work is often done overnight for you",
+    desc: "Our developers work several hours ahead of the US, so work you approve in your afternoon is often built overnight and ready to review the next morning.",
   },
   {
     label: "AUSTRALIA & UK",
@@ -99,9 +99,9 @@ const timeZones = [
     desc: "Our working day overlaps with Australian and UK business hours, so live calls and quick questions are easy to schedule.",
   },
   {
-    label: "FOUNDER IN LA",
-    title: "A contact on Pacific time",
-    desc: "Founder Abhi Patel is in Los Angeles and available Monday to Saturday, 9am to 6pm Pacific, for calls and scoping.",
+    label: "DIRECT ACCESS",
+    title: "Talk to the founder",
+    desc: "Founder Abhi Patel is available Monday to Saturday for calls and scoping, at a time that works in your time zone.",
   },
 ];
 export default function HireDevelopersPage() {
@@ -118,14 +118,14 @@ export default function HireDevelopersPage() {
       <main id="main-content" className={s.site}>
         <section className={s.pageHero}>
           <div className={s.wrap}>
-            <p className={s.eyebrow}>Good people. Thoughtful engineering.</p>
+            <p className={s.eyebrow}>Good people. Careful work.</p>
             <h1>
               The expertise you need.
               <br />
               <em>The collaboration you want.</em>
             </h1>
             <p className={s.intro}>
-              Bring the right technical skills into your next chapter. Tell us
+              Bring the right skills into your next project. Tell us
               what you&apos;re building and we&apos;ll discuss how our
               developers can help, from one focused project to ongoing product
               development.
@@ -158,7 +158,7 @@ export default function HireDevelopersPage() {
           <div className={s.wrap}>
             <div className={s.sectionHead}>
               <div>
-                <p className={s.eyebrow}>Find your technical fit</p>
+                <p className={s.eyebrow}>Find the right fit</p>
                 <h2 className={s.heading}>
                   Skills that make
                   <br />
@@ -166,8 +166,8 @@ export default function HireDevelopersPage() {
                 </h2>
               </div>
               <p className={s.sectionText}>
-                Explore our core areas of development. Specific skills,
-                developer availability, and team composition are confirmed when
+                Explore our core areas of work. Specific skills,
+                developer availability, and team makeup are confirmed when
                 we scope your engagement.
               </p>
             </div>
@@ -229,9 +229,9 @@ export default function HireDevelopersPage() {
               <div>
                 <p className={s.eyebrow}>Time zones</p>
                 <h2 className={s.heading}>
-                  Based in India.
+                  Working around
                   <br />
-                  <em>Working around your day.</em>
+                  <em>your day.</em>
                 </h2>
               </div>
               <p className={s.sectionText}>

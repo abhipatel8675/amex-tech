@@ -10,22 +10,22 @@ import { getProjects } from "@/lib/portfolio/data";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Portfolio — Client Case Studies",
+  title: "Our Work: Client Projects",
   description:
-    "Real case studies from Amex Technology: web apps, mobile apps, SaaS platforms and AI products, with the problem, solution and stack for each.",
+    "Real projects from Amex Technology: websites, web apps, mobile apps and AI products, with the problem, solution and results for each.",
   alternates: {
     canonical: "https://amextechnology.com/portfolio",
   },
   openGraph: {
-    title: "Portfolio — Client Case Studies | Amex Technology",
+    title: "Our Work: Client Projects | Amex Technology",
     description:
-      "Real case studies from Amex Technology: web apps, mobile apps, SaaS platforms and AI products, with the problem, solution and stack for each.",
+      "Real projects from Amex Technology: websites, web apps, mobile apps and AI products, with the problem, solution and results for each.",
     url: "https://amextechnology.com/portfolio",
   },
   twitter: {
-    title: "Portfolio — Client Case Studies | Amex Technology",
+    title: "Our Work: Client Projects | Amex Technology",
     description:
-      "Real case studies from Amex Technology: web apps, mobile apps, SaaS platforms and AI products, with the problem, solution and stack for each.",
+      "Real projects from Amex Technology: websites, web apps, mobile apps and AI products, with the problem, solution and results for each.",
   },
 };
 

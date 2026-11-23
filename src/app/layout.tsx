@@ -37,13 +37,13 @@ const inter = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://amextechnology.com"),
   title: {
-    default: "Amex Technology | Web, App & AI Development Company",
+    default: "Amex Technology | Websites, Apps & AI for Businesses",
     template: "%s | Amex Technology",
   },
   description:
-    "Web, app and AI development company in Ahmedabad, India, building websites, web apps, mobile apps and AI automations for clients in the US, Australia and UK. Free quote.",
+    "We build websites, web apps, mobile apps and AI automations for businesses worldwide, and help customers find them on Google and in AI search. Free quote.",
   keywords:
-    "web development company India, app development company Ahmedabad, AI development agency, web design for Los Angeles businesses, AI agents, AI automation, website development, web app development, AI SaaS MVP, mobile app development, GEO, generative engine optimization, AEO, answer engine optimization, SEO services, GoHighLevel, CRM automation, Next.js, Supabase, Lovable app fixes",
+    "website development company, app development company, AI automation, AI assistants, website design, web app development, software MVP development, mobile app development, SEO services, AI search visibility, CRM automation",
   authors: [{ name: "Abhi Patel", url: "https://amextechnology.com/about" }],
   creator: "Amex Technology",
   openGraph: {
@@ -51,32 +51,28 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://amextechnology.com",
     siteName: "Amex Technology",
-    title: "Amex Technology | Web, App & AI Development Company",
+    title: "Amex Technology | Websites, Apps & AI for Businesses",
     description:
-      "Web, app and AI development company in Ahmedabad, India, building websites, web and mobile apps and AI automations for clients in the US, Australia and UK.",
+      "We build websites, web and mobile apps and AI automations for businesses worldwide, and help customers find them online.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Amex Technology: web, app and AI development company in Ahmedabad, India",
+        alt: "Amex Technology: websites, apps and AI for businesses worldwide",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amex Technology | Web, App & AI Development Company",
+    title: "Amex Technology | Websites, Apps & AI for Businesses",
     description:
-      "Web, app and AI development company in Ahmedabad, India, building websites, web and mobile apps and AI automations for clients in the US, Australia and UK.",
+      "We build websites, web and mobile apps and AI automations for businesses worldwide, and help customers find them online.",
     images: ["/opengraph-image"],
   },
   robots: {
     index: true,
     follow: true,
-  },
-  other: {
-    "geo.region": "IN-GJ",
-    "geo.placename": "Ahmedabad",
   },
 };
 
@@ -87,21 +83,20 @@ const organizationSchema = {
   name: "Amex Technology",
   alternateName: ["AmexTechnology", "Amex Technology India", "amextechnology.com"],
   url: "https://amextechnology.com",
-  logo: "https://amextechnology.com/images/logo.png",
+  logo: "https://amextechnology.com/icons/icon-512x512.png",
   description:
-    "Web, app and AI development company based in Ahmedabad, India. Builds websites, web apps, mobile apps and AI automations, and provides SEO, GEO and AEO services.",
+    "Builds websites, web apps, mobile apps and AI automations for businesses worldwide, and provides SEO and AI search visibility services.",
   // "Amex Technology" is also the name of American Express's internal technology
   // organization; this tells search engines and AI assistants we're a different entity.
   disambiguatingDescription:
-    "Independent software and AI agency at amextechnology.com, founded by Abhi Patel. Not affiliated with American Express.",
+    "Independent website, app and AI company at amextechnology.com, founded by Abhi Patel. Not affiliated with American Express.",
   foundingDate: "2019",
   founder: {
     "@type": "Person",
     "@id": "https://amextechnology.com/#founder",
     name: "Abhi Patel",
-    jobTitle: "Founder and Full-Stack Developer",
+    jobTitle: "Founder",
     url: "https://amextechnology.com/about",
-    homeLocation: { "@type": "Place", name: "Los Angeles, California, United States" },
     sameAs: [
       "https://github.com/abhipatel8675",
       "https://www.fiverr.com/abhipatel956",
@@ -114,13 +109,8 @@ const organizationSchema = {
   },
   knowsAbout: [
     ...services.map((s) => s.title),
-    "Generative Engine Optimization",
-    "Answer Engine Optimization",
-    "Next.js",
-    "Supabase",
-    "React Native",
+    "AI search visibility",
     "GoHighLevel",
-    "OpenAI API",
   ],
   email: "abhi@amextech.org",
   telephone: OFFICE_PHONE.schema,
@@ -139,8 +129,8 @@ const organizationSchema = {
       availableLanguage: "English",
     },
   ],
-  image: "https://amextechnology.com/images/logo.png",
-  areaServed: ["US", "AU", "GB", "CA", "IN"],
+  image: "https://amextechnology.com/icons/icon-512x512.png",
+  areaServed: "Worldwide",
   sameAs: [
     "https://www.fiverr.com/abhipatel956",
     "https://www.instagram.com/amextechnology/",

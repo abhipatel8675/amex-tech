@@ -10,22 +10,22 @@ import FixItCTA from "@/components/blog/FixItCTA";
 import { ArrowRight, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Supabase, Firebase & Next.js Fix Guides",
+  title: "Guides for Business Owners & App Builders",
   description:
-    "Step-by-step fixes for common Supabase, Firebase, Lovable, Next.js and Vercel errors, written by the Amex Technology team from real client projects.",
+    "Practical guides on website and app costs, hiring developers and fixing common app problems, written by the Amex Technology team from real client projects.",
   alternates: {
     canonical: "https://amextechnology.com/blog",
   },
   openGraph: {
-    title: "Supabase, Firebase & Next.js Fix Guides | Amex Technology",
+    title: "Guides for Business Owners & App Builders | Amex Technology",
     description:
-      "Step-by-step fixes for common Supabase, Firebase, Lovable, Next.js and Vercel errors, written by the Amex Technology team from real client projects.",
+      "Practical guides on website and app costs, hiring developers and fixing common app problems, written by the Amex Technology team from real client projects.",
     url: "https://amextechnology.com/blog",
   },
   twitter: {
-    title: "Supabase, Firebase & Next.js Fix Guides | Amex Technology",
+    title: "Guides for Business Owners & App Builders | Amex Technology",
     description:
-      "Step-by-step fixes for common Supabase, Firebase, Lovable, Next.js and Vercel errors, written by the Amex Technology team from real client projects.",
+      "Practical guides on website and app costs, hiring developers and fixing common app problems, written by the Amex Technology team from real client projects.",
   },
 };
 
@@ -41,9 +41,9 @@ const breadcrumbSchema = {
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: "Supabase, Firebase & Next.js Fix Guides",
+  name: "Guides for Business Owners & App Builders",
   description:
-    "Architecture decisions, tech stack deep-dives, and practical tutorials from the Amex Technology engineering team.",
+    "Practical guides on website and app costs, hiring developers and fixing common problems from the Amex Technology team.",
   url: "https://amextechnology.com/blog",
   mainEntity: {
     "@type": "ItemList",

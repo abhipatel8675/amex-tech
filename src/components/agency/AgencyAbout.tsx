@@ -14,9 +14,9 @@ export default function AgencyAbout() {
             <em>Purposeful technology.</em>
           </h1>
           <p className={s.intro}>
-            We&apos;re Amex Technology, an independent software and AI agency
+            We&apos;re Amex Technology, an independent website, app and AI company
             founded by Abhi Patel. We help startups and growing
-            businesses turn good ideas into useful digital products.
+            businesses turn good ideas into useful products and services.
           </p>
           <div className={s.actions}>
             <Link href="/contact" className={s.button}>
@@ -37,21 +37,19 @@ export default function AgencyAbout() {
           </div>
           <div>
             <p>
-              Good technology starts with understanding the people who use it.
-              Before we choose frameworks or write code, we get to know your
-              business, your users, and what success should look like.
+              Good work starts with understanding the people who use it.
+              Before we plan anything or start building, we get to know your
+              business, your customers, and what success should look like.
             </p>
             <p>
-              We work across websites, web and mobile applications, SaaS, AI
-              automation, product design, and cloud infrastructure. That
-              connected perspective helps us make choices that fit the whole
-              product.
+              We work across websites, web and mobile apps, software products, AI
+              automation, design, and hosting. Having all of this in one team
+              helps us make choices that fit your whole business.
             </p>
             <p>
-              Amex Technology is based in Ahmedabad, India, where our
-              development team works. Our founder, Abhi Patel, is in Los Angeles. We keep collaboration direct and
-              practical: clear milestones, regular conversations, and work you
-              can see as it develops.
+              We work with clients around the world. We keep collaboration
+              direct and practical: clear milestones, regular conversations,
+              and work you can see as it develops.
             </p>
             <Link href="/portfolio" className={s.textLink}>
               See what we&apos;ve built <ArrowUpRight size={17} />
@@ -70,12 +68,10 @@ export default function AgencyAbout() {
           <div>
             <p>
               Abhi Patel founded Amex Technology and leads every project
-              personally. He is based in Los Angeles and works with the
-              development team in Ahmedabad, which keeps projects affordable while
-              giving US clients a contact on Pacific time. Over 5 years he has
-              built websites, web and mobile apps, and AI automations for
-              clients around the world, and is Top Rated Plus on Upwork with
-              more than $80K earned on the platform.
+              personally. He works with our development team, which keeps projects
+              affordable while giving you a direct line to the person leading your
+              project. Over 5 years he has built websites, web and mobile apps,
+              and AI automations for clients around the world, and is Top Rated Plus on Upwork.
             </p>
             <div className="flex flex-wrap gap-x-8">
               <a
@@ -86,8 +82,8 @@ export default function AgencyAbout() {
               >
                 View our Upwork profile <ArrowUpRight size={17} />
               </a>
-              <Link href="/los-angeles" className={s.textLink}>
-                Serving Los Angeles businesses{" "}
+              <Link href="/web-and-ai-development" className={s.textLink}>
+                How we work with clients worldwide{" "}
                 <ArrowUpRight size={17} />
               </Link>
             </div>
@@ -109,12 +105,12 @@ export default function AgencyAbout() {
                 "We discuss tradeoffs, scope, and constraints early. A good partnership starts with a shared understanding of what we're building and why.",
               ],
               [
-                "Engineering with care",
-                "Readable code, sensible architecture, accessible interfaces, and useful documentation help your product stay maintainable as it grows.",
+                "Quality and care",
+                "Clean, well-organized work, easy-to-use screens and clear written notes help your product stay easy to maintain as it grows.",
               ],
               [
                 "A longer view",
-                "We think beyond the initial launch. The right technical decisions should support your next iteration and the team who takes it forward.",
+                "We think beyond the launch. The right decisions today should support your next version and whoever takes the project forward.",
               ],
             ].map(([title, desc]) => (
               <article key={title}>

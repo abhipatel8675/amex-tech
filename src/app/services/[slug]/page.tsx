@@ -59,7 +59,7 @@ export default async function ServiceDetailPage({ params }: Props) {
     description: page.metaDescription,
     url,
     provider: { "@id": `${BASE_URL}/#organization` },
-    areaServed: ["United States", "Canada", "United Kingdom", "Australia", "India"],
+    areaServed: "Worldwide",
   };
   const faqSchema = {
     "@context": "https://schema.org",
@@ -113,7 +113,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         </section>
 
         <section className="pb-12 max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-6">What we build</h2>
+          <h2 className="text-2xl font-bold mb-6">What we do</h2>
           <div className="grid md:grid-cols-2 gap-4">
             {page.deliverables.map((d) => (
               <div key={d.title} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
@@ -148,10 +148,9 @@ export default async function ServiceDetailPage({ params }: Props) {
             ))}
           </ol>
           <p className="text-[#4d554b] mt-6 leading-relaxed">
-            Our development team is in India and our founder, Abhi Patel, is based in the Los Angeles area, so US clients
-            get working hours that overlap with theirs.{" "}
-            <Link href="/los-angeles" className="font-semibold text-[#7A5807] hover:underline">
-              Working with Los Angeles businesses
+            We work with clients around the world, agreeing meeting times that suit your time zone.{" "}
+            <Link href="/web-and-ai-development" className="font-semibold text-[#7A5807] hover:underline">
+              How we work with clients worldwide
             </Link>
             .
           </p>
@@ -232,7 +231,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               href="/ai-operations-agent"
               className="inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-[#7a5807] hover:underline"
             >
-              For manufacturers: AI Operations Agent
+              For manufacturers: AI Operations Assistant
               <span aria-hidden="true">→</span>
             </Link>
           </section>

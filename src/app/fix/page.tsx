@@ -7,9 +7,9 @@ import FixItCTA from "@/components/blog/FixItCTA";
 import { FIX_OFFER } from "@/data/fixOffer";
 import { blogPosts } from "@/data/blog";
 
-const title = "Fix Your App Error in 24 Hours";
+const title = "Fix Your App Problem in 24 Hours";
 const description =
-  "Stuck on a Supabase, Firebase, Lovable, Next.js or Vercel error? Our senior developers fix it, usually within 24 hours. Get a free assessment.";
+  "Stuck on an error in an app built with Lovable, Bolt, Supabase, Firebase or Vercel? Our experienced developers fix it, usually within 24 hours. Get a free assessment.";
 
 export const metadata: Metadata = {
   title: { absolute: `${title} | Amex Technology` },
@@ -23,21 +23,21 @@ const steps = [
   { title: "Contact us", body: "Tell us what's broken. We'll review it for free and reply within a few hours." },
   {
     title: "Share access",
-    body: "Once you're happy with the plan, share the error message, a screenshot and access to your repo or project.",
+    body: "Once you're happy with the plan, share the error message, a screenshot and access to your project.",
   },
   {
     title: "We fix it, usually within 24 hours",
-    body: "A senior developer finds the root cause, fixes it, and sends you a short write-up of what changed.",
+    body: "An experienced developer finds the cause, fixes it, and sends you a short note on what changed.",
   },
 ];
 
-const stacks = ["Supabase", "Firebase", "Lovable", "Bolt.new", "Replit", "Next.js", "React", "Vercel", "Cloudflare & DNS", "Resend & email"];
+const stacks = ["Supabase", "Firebase", "Lovable", "Bolt.new", "Replit", "Vercel", "Domain setup", "Business email"];
 
 const faq = [
   {
     question: "What kind of problems do you fix?",
     answer:
-      "Failing builds, auth errors, RLS policies blocking inserts, broken deploys, CORS errors, DNS and domain issues, and most other errors in Supabase, Firebase, Lovable, Bolt, Replit, Next.js and Vercel projects.",
+      "Apps that won't publish, sign-in problems, forms that won't save, broken updates, domain and email issues, and most other errors in apps built with Supabase, Firebase, Lovable, Bolt, Replit and Vercel.",
   },
   {
     question: "How much does it cost?",
@@ -46,7 +46,7 @@ const faq = [
   {
     question: "What access do you need?",
     answer:
-      "Usually read/write access to your GitHub repo plus the dashboard involved (Supabase, Firebase, Vercel, Lovable, etc.). We'll tell you exactly what's needed, and you can revoke access once the fix is done.",
+      "Usually access to your project and the account involved (Supabase, Firebase, Vercel, Lovable, etc.). We'll tell you exactly what's needed, and you can remove our access once the fix is done.",
   },
   {
     question: "When does the 24 hours start?",

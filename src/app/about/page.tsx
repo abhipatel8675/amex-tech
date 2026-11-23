@@ -4,22 +4,22 @@ import Footer from "@/components/layout/Footer";
 import AgencyAbout from "@/components/agency/AgencyAbout";
 
 export const metadata: Metadata = {
-  title: "About Us: Development Team, Ahmedabad",
+  title: "About Us: Our Team and How We Work",
   description:
-    "Amex Technology is a web, app and AI development company based in Ahmedabad, India, founded by Abhi Patel (Los Angeles). Top Rated Plus on Upwork.",
+    "Amex Technology is an independent website, app and AI company founded by Abhi Patel, working with businesses worldwide. Top Rated Plus on Upwork.",
   alternates: {
     canonical: "https://amextechnology.com/about",
   },
   openGraph: {
-    title: "About Us: Development Team, Ahmedabad | Amex Technology",
+    title: "About Us: Our Team and How We Work | Amex Technology",
     description:
-      "Amex Technology is a web, app and AI development company based in Ahmedabad, India, founded by Abhi Patel (Los Angeles). Top Rated Plus on Upwork.",
+      "Amex Technology is an independent website, app and AI company founded by Abhi Patel, working with businesses worldwide. Top Rated Plus on Upwork.",
     url: "https://amextechnology.com/about",
   },
   twitter: {
-    title: "About Us: Development Team, Ahmedabad | Amex Technology",
+    title: "About Us: Our Team and How We Work | Amex Technology",
     description:
-      "Amex Technology is a web, app and AI development company based in Ahmedabad, India, founded by Abhi Patel (Los Angeles). Top Rated Plus on Upwork.",
+      "Amex Technology is an independent website, app and AI company founded by Abhi Patel, working with businesses worldwide. Top Rated Plus on Upwork.",
   },
 };
 
@@ -55,7 +55,7 @@ const aboutSchema = {
     logo: "https://amextechnology.com/images/logo.png",
     foundingDate: "2019",
     description:
-      "Independent AI and software development agency founded by Abhi Patel, building AI agents, websites, web apps, SaaS products and mobile apps, plus SEO, GEO and AEO. Not affiliated with American Express.",
+      "Independent website, app and AI company founded by Abhi Patel, building AI assistants, websites, web apps, software products and mobile apps, plus SEO and AI search visibility. Not affiliated with American Express.",
     founder: { "@id": "https://amextechnology.com/#founder" },
     sameAs: [
       "https://www.fiverr.com/abhipatel956",

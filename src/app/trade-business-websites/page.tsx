@@ -8,16 +8,16 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 import WebsiteGrader from "@/components/tools/WebsiteGrader";
 import s from "@/components/agency/agency.module.css";
 
-// Landing page for LA trade businesses (plumbers, handymen, HVAC, contractors).
+// Landing page for trade businesses (plumbers, handymen, HVAC, contractors).
 // Outreach links here with ?site=theirsite.com so the free scan is prefilled.
 
-const pageUrl = "https://amextechnology.com/la-website";
-const title = "Website for LA Trade Businesses";
+const pageUrl = "https://amextechnology.com/trade-business-websites";
+const title = "Website for Trade Businesses";
 const description =
-  "A new website for Los Angeles plumbers, handymen, HVAC and contractors: your own domain, a quote request form, and Google setup. Fixed quote up front, live in about 5 days.";
+  "A new website for plumbers, handymen, HVAC engineers and contractors anywhere: your own domain, a quote request form, and Google setup. Fixed quote up front, live in about 5 days.";
 
 export const metadata: Metadata = {
-  title: { absolute: "LA Trade Business Website in 5 Days | Amex Technology" },
+  title: { absolute: "Trade Business Website in 5 Days | Amex Technology" },
   description,
   alternates: { canonical: pageUrl },
   openGraph: { title: `${title} | Amex Technology`, description, url: pageUrl },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 const contactHref = `/contact?service=${encodeURIComponent("Websites & Web Apps")}&message=${encodeURIComponent(
-  `I'm interested in an LA trade business website.\n\nBusiness name:\nCurrent website (if any):\nBest phone number:`
+  `I'm interested in a trade business website.\n\nBusiness name:\nCurrent website (if any):\nBest phone number:`
 )}`;
 
 const included = [
@@ -59,7 +59,7 @@ const faq = [
   { question: "Are there monthly fees?", answer: "No. Hosting is included with no monthly bill. Ongoing updates and local SEO are optional, and only if you want them." },
   { question: "How do I pay?", answer: "Half to start and half when the site is live and you're happy with it." },
   { question: "I already have a website. Can you redo it?", answer: "Yes. Run the free scan above to see what's holding it back, and we'll rebuild it on your own domain." },
-  { question: "Which businesses is this for?", answer: "Plumbers, handymen, HVAC, electricians, contractors, cleaners, landscapers and other local service businesses in Los Angeles." },
+  { question: "Which businesses is this for?", answer: "Plumbers, handymen, HVAC, electricians, contractors, cleaners, landscapers and other local service businesses, wherever you are." },
 ];
 
 const faqSchema = {
@@ -74,7 +74,7 @@ const serviceSchema = {
   name: title,
   description,
   url: pageUrl,
-  areaServed: { "@type": "City", name: "Los Angeles" },
+  areaServed: "Worldwide",
   provider: { "@id": "https://amextechnology.com/#organization" },
 };
 
@@ -86,7 +86,7 @@ function CTA({ label = "Get my new website" }: { label?: string }) {
   );
 }
 
-export default async function LaWebsitePage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
+export default async function TradeBusinessWebsitesPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
   const { site } = await searchParams;
   const initialUrl = typeof site === "string" ? site.slice(0, 300) : "";
 
@@ -101,9 +101,9 @@ export default async function LaWebsitePage({ searchParams }: { searchParams: Pr
             <Breadcrumb
               variant="inline"
               className={s.crumbs}
-              items={[{ label: "Home", href: "/" }, { label: "LA Trade Websites" }]}
+              items={[{ label: "Home", href: "/" }, { label: "Trade Business Websites" }]}
             />
-            <p className={s.eyebrow}>For Los Angeles plumbers, handymen, HVAC & contractors</p>
+            <p className={s.eyebrow}>For plumbers, handymen, HVAC & contractors</p>
             <h1>A website that turns Google searches into job requests.</h1>
             <p className={s.intro} style={{ maxWidth: 640 }}>
               Your own domain, a quote form that sends every request to your phone, and Google set up properly.{" "}

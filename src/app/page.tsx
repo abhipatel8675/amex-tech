@@ -5,23 +5,23 @@ import AgencyHome from "@/components/agency/AgencyHome";
 import { agencyFaqs } from "@/components/agency/AgencySections";
 
 export const metadata: Metadata = {
-  title: { absolute: "Amex Technology | Web, App & AI Development Company" },
+  title: { absolute: "Amex Technology | Websites, Apps & AI for Businesses" },
   description:
-    "Web, app and AI development company in Ahmedabad, India, building websites, web apps, mobile apps and AI automations for clients in the US, Australia and UK. Free quote.",
+    "We build websites, web apps, mobile apps and AI automations for businesses worldwide, and help customers find them on Google and in AI search. Free quote.",
   alternates: {
     canonical: "https://amextechnology.com",
   },
   openGraph: {
-    title: "Amex Technology | Web, App & AI Development Company",
+    title: "Amex Technology | Websites, Apps & AI for Businesses",
     description:
-      "Web, app and AI development company in Ahmedabad, India, building websites, web and mobile apps and AI automations for clients in the US, Australia and UK.",
+      "We build websites, web and mobile apps and AI automations for businesses worldwide, and help customers find them online.",
     url: "https://amextechnology.com",
     type: "website",
   },
   twitter: {
-    title: "Amex Technology | Web, App & AI Development Company",
+    title: "Amex Technology | Websites, Apps & AI for Businesses",
     description:
-      "Web, app and AI development company in Ahmedabad, India, building websites, web and mobile apps and AI automations for clients in the US, Australia and UK.",
+      "We build websites, web and mobile apps and AI automations for businesses worldwide, and help customers find them online.",
   },
 };
 

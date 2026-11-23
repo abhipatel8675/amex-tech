@@ -15,7 +15,7 @@ import { AiAgentChat } from "@/components/agency/AgencySections";
 import s from "@/components/agency/agency.module.css";
 
 const url = "https://amextechnology.com/ai-operations-agent";
-const title = "AI Operations Agent for Manufacturers";
+const title = "AI Operations Assistant for Manufacturers";
 const description =
   "Ask your factory anything. An AI assistant connected to monday.com, Smartsheet, Google Sheets, inFlow, QuickBooks and email: order status, daily exceptions and system sync. Fixed written quote before we start.";
 
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   twitter: { title: `${title} | Amex Technology`, description },
 };
 
-const contactHref = `/contact?service=${encodeURIComponent("AI Operations Agent")}&message=${encodeURIComponent(
-  "I'd like to talk about the AI Operations Agent founding-client pilot.\n\nCompany:\nWhat we make:\nNumber of staff:\nTools we use today (monday.com, Smartsheet, Google Sheets, inFlow, QuickBooks, other):\nBiggest order-status headache:",
+const contactHref = `/contact?service=${encodeURIComponent("AI Operations Assistant")}&message=${encodeURIComponent(
+  "I'd like to talk about the AI Operations Assistant founding-client pilot.\n\nCompany:\nWhat we make:\nNumber of staff:\nTools we use today (monday.com, Smartsheet, Google Sheets, inFlow, QuickBooks, other):\nBiggest order-status headache:",
 )}`;
 
 const problems = [
@@ -47,7 +47,7 @@ const features = [
   {
     icon: MessageSquare,
     title: "Order status on demand",
-    body: "Ask in chat, email or Slack: “Where is order 1042?” The agent checks your schedule, inventory and email and replies with one plain-English answer, with links back to the source.",
+    body: "Ask in chat, email or Slack: “Where is order 1042?” The assistant checks your schedule, inventory and email and replies with one plain-English answer, with links back to the source.",
   },
   {
     icon: ClipboardList,
@@ -107,14 +107,14 @@ const steps = [
 
 const faqs = [
   {
-    question: "What tools can the AI Operations Agent connect to?",
+    question: "What tools can the AI Operations Assistant connect to?",
     answer:
       "It works with monday.com, Smartsheet, Google Sheets, inventory software like inFlow and QuickBooks, email (Gmail or Outlook) and Slack. Other tools can usually be connected if they have an API or a regular export; we confirm this on the first call.",
   },
   {
     question: "Do we have to change how we work or move to new software?",
     answer:
-      "No. The agent sits on top of the tools you already use. Your team keeps working in the same boards and sheets, and asks the agent questions in chat, email or Slack.",
+      "No. The assistant sits on top of the tools you already use. Your team keeps working in the same boards and sheets, and asks the assistant questions in chat, email or Slack.",
   },
   {
     question: "Is our data safe?",
@@ -129,7 +129,7 @@ const faqs = [
   {
     question: "What is the founding-client pilot?",
     answer:
-      "We are onboarding a small number of manufacturers as founding clients. You work directly with the founder, the agent is set up around your real orders, and your feedback shapes what it does next. Scope and price are agreed before we begin.",
+      "We are onboarding a small number of manufacturers as founding clients. You work directly with the founder, the assistant is set up around your real orders, and your feedback shapes what it does next. Scope and price are agreed before we begin.",
   },
 ];
 
@@ -137,7 +137,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${url}#service`,
-  name: "AI Operations Agent for Small Manufacturers",
+  name: "AI Operations Assistant for Small Manufacturers",
   serviceType: "AI operations assistant and workflow automation",
   description,
   url,
@@ -169,7 +169,7 @@ const breadcrumbSchema = {
       name: "Home",
       item: "https://amextechnology.com",
     },
-    { "@type": "ListItem", position: 2, name: "AI Operations Agent", item: url },
+    { "@type": "ListItem", position: 2, name: "AI Operations Assistant", item: url },
   ],
 };
 
@@ -195,14 +195,14 @@ export default function AiOperationsAgentPage() {
                 </li>
                 <li aria-hidden="true">/</li>
                 <li>
-                  <span aria-current="page">AI Operations Agent</span>
+                  <span aria-current="page">AI Operations Assistant</span>
                 </li>
               </ol>
             </nav>
             <div className={s.heroGrid}>
               <div>
                 <p className={s.eyebrow}>
-                  AI Operations Agent · For small manufacturers
+                  AI Operations Assistant · For small manufacturers
                 </p>
                 <h1>
                   Ask your factory anything.
@@ -299,7 +299,7 @@ export default function AiOperationsAgentPage() {
                 </h2>
               </div>
               <p className={s.sectionText}>
-                The agent connects to the systems you already pay for. These are
+                The assistant connects to the systems you already pay for. These are
                 tools it can connect to, not partnerships or endorsements.
               </p>
             </div>
@@ -373,12 +373,11 @@ export default function AiOperationsAgentPage() {
               </div>
               <div>
                 <p className={s.sectionText}>
-                  This agent was built for a real manufacturer&apos;s production
+                  This assistant was built for a real manufacturer&apos;s production
                   workflow, not a demo. Amex Technology is an independent
-                  software and AI agency: our founder, Abhi Patel, is based in
-                  Los Angeles, our development team is in India, and we are Top
-                  Rated Plus on Upwork with $80K+ earned and 5 years of building
-                  software for clients.
+                  website, app and AI company: our founder, Abhi Patel, leads every
+                  project, and we are Top Rated Plus on Upwork with
+                  5 years of experience building for clients.
                 </p>
                 <div className={s.checkList}>
                   {[
@@ -413,7 +412,7 @@ export default function AiOperationsAgentPage() {
             <div className={s.priceGrid}>
               <article className={s.model}>
                 <h3>Setup</h3>
-                <p>One-time project to connect your tools and set up the agent.</p>
+                <p>One-time project to connect your tools and set up the assistant.</p>
                 <ul>
                   <li>Discovery and system mapping</li>
                   <li>Connections to your tools</li>
@@ -423,7 +422,7 @@ export default function AiOperationsAgentPage() {
               </article>
               <article className={s.model}>
                 <h3>Monthly support</h3>
-                <p>Ongoing care so the agent keeps up as your business changes.</p>
+                <p>Ongoing care so the assistant keeps up as your business changes.</p>
                 <ul>
                   <li>Monitoring and fixes</li>
                   <li>Changes as your process changes</li>
@@ -440,7 +439,7 @@ export default function AiOperationsAgentPage() {
               <p className="max-w-[720px] text-[15px] leading-[1.8] text-[#626960]">
                 We are onboarding a small number of founding clients. Pilot
                 clients work directly with the founder and help shape what the
-                agent does next. Scope and price are agreed in writing before
+                assistant does next. Scope and price are agreed in writing before
                 any work starts.
               </p>
               <div className={s.actions}>

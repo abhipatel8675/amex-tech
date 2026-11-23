@@ -40,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/los-angeles`,
+      url: `${BASE_URL}/web-and-ai-development`,
       lastModified: new Date("2026-10-18"),
       changeFrequency: "monthly",
       priority: 0.8,
@@ -52,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/la-website`,
+      url: `${BASE_URL}/trade-business-websites`,
       lastModified: new Date("2026-10-27"),
       changeFrequency: "monthly",
       priority: 0.8,

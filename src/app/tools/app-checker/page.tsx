@@ -5,9 +5,9 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import AppChecker from "@/components/tools/AppChecker";
 
-const title = "Free Lovable & Vibe-Coded App Checker";
+const title = "Free App Checker for Lovable, Bolt & AI-Built Apps";
 const description =
-  "Check your Lovable, Bolt, Replit, v0 or Next.js app for exposed API keys, public Supabase service keys, SEO problems and slow loading. Free score in 30 seconds.";
+  "Check an app built with Lovable, Bolt, Replit or v0 for security problems, search visibility problems and slow loading. Free score in 30 seconds.";
 const pageUrl = "https://amextechnology.com/tools/app-checker";
 
 export const metadata: Metadata = {
@@ -22,26 +22,26 @@ const checks = [
   {
     heading: "Security",
     items: [
-      "API keys shipped to the browser (OpenAI, Anthropic, Stripe, Resend, SendGrid, GitHub, AWS)",
-      "Supabase service_role key exposed in your frontend",
-      "Supabase and Firebase keys that need RLS or restrictions",
-      "Public source maps that reveal your source code",
-      "HTTPS and missing security headers",
+      "Private passwords and keys accidentally visible to anyone who visits your site",
+      "Database master keys left exposed on your public site",
+      "Database access that isn't properly restricted",
+      "Files that reveal how your app is built",
+      "Secure connection (HTTPS) and missing security settings",
     ],
   },
   {
     heading: "SEO & AI search",
     items: [
-      "Empty HTML that Google and AI search tools can't read",
-      "Template titles like “Vite + React” or “Lovable App”",
-      "Missing descriptions, social previews, canonical and H1",
-      "noindex left on from staging",
-      "robots.txt, sitemap.xml and soft 404s",
+      "Pages that look empty to Google and AI search tools",
+      "Placeholder page titles like “Lovable App”",
+      "Missing page descriptions, social sharing previews and main headings",
+      "A “do not show in Google” setting left on from testing",
+      "Missing site map and pages that wrongly look like errors",
     ],
   },
   {
     heading: "Speed",
-    items: ["Server response time", "Total JavaScript your homepage loads", "Compression"],
+    items: ["How quickly your site responds", "How much your homepage has to download", "File compression"],
   },
 ];
 
@@ -54,17 +54,17 @@ const faq = [
   {
     question: "Do you access my database or log in to my app?",
     answer:
-      "No. We only read what any visitor's browser downloads from your public homepage: the HTML, your own JavaScript files, robots.txt and sitemap.xml. We never log in, send data to your database or try hidden pages.",
+      "No. We only look at what any visitor's browser can see on your public homepage. We never log in, send data to your database or try hidden pages.",
   },
   {
     question: "Which apps does it work with?",
     answer:
-      "Any public website, and it's tuned for apps built with Lovable, Bolt.new, Replit, v0, Cursor and other AI builders, plus Next.js, Vite, React, Supabase and Firebase projects.",
+      "Any public website. It's tuned for apps built with Lovable, Bolt.new, Replit, v0, Cursor and other AI app builders, and for apps that use Supabase or Firebase.",
   },
   {
-    question: "Why does an exposed Supabase service_role key matter so much?",
+    question: "Why does an exposed database master key matter so much?",
     answer:
-      "The service_role key skips Row Level Security. Anyone who copies it from your site can read, change or delete every row in your database. If the check finds one, rotate it immediately.",
+      "A master key bypasses all the protections on your database. Anyone who copies it from your site can read, change or delete all of your data. If the check finds one, replace it immediately.",
   },
   {
     question: "Can you fix the problems for me?",

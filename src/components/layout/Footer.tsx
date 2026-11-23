@@ -25,20 +25,20 @@ const quickLinks = [
 ];
 
 const offerLinks = [
-  { label: "AI Operations Agent", href: "/ai-operations-agent" },
-  { label: "LA Trade Websites", href: "/la-website" },
+  { label: "AI Assistant for Manufacturers", href: "/ai-operations-agent" },
+  { label: "Websites for Trade Businesses", href: "/trade-business-websites" },
   { label: "24-Hour App Fix", href: "/fix" },
   { label: "Free Website Grader", href: "/tools/website-grader" },
   { label: "Free App Checker", href: "/tools/app-checker" },
 ];
 
 const laLinks = [
-  { label: "Web & AI Development in LA", href: "/los-angeles" },
-  { label: "Law Firm Web Design", href: "/law-firm-web-design-los-angeles" },
-  { label: "Affordable Web Design", href: "/affordable-web-design-los-angeles" },
+  { label: "Websites & AI for Businesses", href: "/web-and-ai-development" },
+  { label: "Law Firm Web Design", href: "/law-firm-web-design" },
+  { label: "Affordable Web Design", href: "/affordable-web-design" },
   {
     label: "Google Business Profile Setup",
-    href: "/google-business-profile-setup-los-angeles",
+    href: "/google-business-profile-setup",
   },
 ];
 
@@ -170,20 +170,11 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mb-4 max-w-[240px] text-sm leading-7 text-[#626960]">
-              Web, app and AI development company based in Ahmedabad, India, working with clients in the US, Australia and UK.
+              Websites, apps and AI tools for businesses worldwide.
             </p>
             <address className="mb-2 max-w-[260px] text-sm not-italic leading-6 text-[#626960]">
               {COMPANY_ADDRESS_LINE}
             </address>
-            <p className="text-sm text-[#626960]">
-              Founder in{" "}
-              <Link
-                href="/los-angeles"
-                className="underline-offset-2 hover:text-[#7a5807] hover:underline"
-              >
-                Los Angeles
-              </Link>
-            </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <a
                 href={UPWORK_URL}
@@ -211,7 +202,7 @@ export default function Footer() {
           <LinkColumn title="Offers & tools" links={offerLinks} />
 
           <div className="flex flex-col gap-10">
-            <LinkColumn title="Los Angeles" links={laLinks} />
+            <LinkColumn title="Popular Services" links={laLinks} />
             <div>
               <h2 className={headingClass}>Contact</h2>
               <div className="flex flex-col items-start">
