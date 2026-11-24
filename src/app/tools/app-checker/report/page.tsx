@@ -46,7 +46,7 @@ async function paidUrl(sessionId: string): Promise<{ url?: string; error?: strin
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#111111] min-h-screen">
       <Navbar />
       <main id="main-content" className="pt-32 pb-24 max-w-4xl mx-auto px-6">{children}</main>
       <Footer />

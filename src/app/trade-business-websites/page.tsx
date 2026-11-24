@@ -107,7 +107,7 @@ export default async function TradeBusinessWebsitesPage({ searchParams }: { sear
             <h1>A website that turns Google searches into job requests.</h1>
             <p className={s.intro} style={{ maxWidth: 640 }}>
               Your own domain, a quote form that sends every request to your phone, and Google set up properly.{" "}
-              <strong className="font-semibold text-[#1a211d]">Fixed quote before we start.</strong> Live in about 5 days.
+              <strong className="font-semibold text-[#111111]">Fixed quote before we start.</strong> Live in about 5 days.
             </p>
             <div className={s.actions}>
               <CTA />

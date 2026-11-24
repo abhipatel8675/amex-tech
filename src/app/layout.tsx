@@ -182,7 +182,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#f7f6f2] text-[#1a211d] antialiased">
+      <body className="min-h-full flex flex-col bg-[#f7f6f2] text-[#111111] antialiased">
         <ScrollProgress />
         {children}
         <SpeedInsights />

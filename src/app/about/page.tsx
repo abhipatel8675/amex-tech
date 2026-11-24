@@ -68,7 +68,7 @@ const aboutSchema = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#111111] min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

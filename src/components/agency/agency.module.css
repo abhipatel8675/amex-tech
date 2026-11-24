@@ -1,5 +1,5 @@
 .site {
-  --ink: #1a211d;
+  --ink: #111111;
   --paper: #f7f6f2;
   --muted: #626960;
   --gold: #ba8b35;
@@ -74,7 +74,7 @@
   min-height: 50px;
   padding: 13px 21px;
   border-radius: 5px;
-  background: #202a23;
+  background: #1a1a1a;
   color: #fff;
   font-weight: 500;
   font-size: 13px;
@@ -89,14 +89,14 @@
 }
 .buttonLight {
   background: #e7c98a;
-  color: #20251e;
+  color: #161616;
 }
 .buttonLight:hover {
   background: #f2dba9;
 }
 .outline {
   background: transparent;
-  color: #273027;
+  color: #1f1f1f;
   border: 1px solid #d8d9cf;
 }
 .outline:hover {
@@ -131,7 +131,7 @@
   aspect-ratio: 4 / 3;
   border-radius: 10px;
   overflow: hidden;
-  background: #1b1d18;
+  background: #161616;
 }
 .art img {
   object-fit: cover;
@@ -142,7 +142,7 @@
   right: 20px;
   padding: 7px 12px;
   border-radius: 4px;
-  background: #1a211dd9;
+  background: #111111d9;
   color: #e8dfc9;
   font-size: 12px;
   letter-spacing: 0.12em;
@@ -155,7 +155,7 @@
   right: 20px;
   padding: 7px 12px;
   border-radius: 4px;
-  background: #1a211dd9;
+  background: #111111d9;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -325,7 +325,7 @@
   color: #687061;
 }
 .dark {
-  background: #202922;
+  background: #1a1a1a;
   color: #f7f5ed;
 }
 .dark .eyebrow {
@@ -989,7 +989,7 @@
   }
 }
 .chat {
-  background: #1b1d18;
+  background: #161616;
   color: #f7f5ed;
   border-radius: 10px;
   padding: 24px;

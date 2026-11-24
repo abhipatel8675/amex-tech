@@ -130,7 +130,7 @@ export default function ProjectCarousel({
 
         {/* Stage Container: Clamped height, warm studio frame with gold border accent */}
         <div
-          className="relative w-full h-[260px] xs:h-[320px] sm:h-[390px] md:h-[470px] lg:h-[520px] max-h-[58vh] overflow-hidden rounded-[20px] sm:rounded-[24px] md:rounded-[28px] bg-[#121613] ring-1 ring-[#f5c451]/30 shadow-[0_20px_50px_-15px_rgba(154,114,42,0.25)] cursor-pointer select-none"
+          className="relative w-full h-[260px] xs:h-[320px] sm:h-[390px] md:h-[470px] lg:h-[520px] max-h-[58vh] overflow-hidden rounded-[20px] sm:rounded-[24px] md:rounded-[28px] bg-[#0f0f0f] ring-1 ring-[#f5c451]/30 shadow-[0_20px_50px_-15px_rgba(154,114,42,0.25)] cursor-pointer select-none"
           onClick={() => setLightboxOpen(true)}
           role="region"
           aria-label="Project images hero stage"
@@ -164,7 +164,7 @@ export default function ProjectCarousel({
           {/* Top Controls Overlay */}
           <div className="absolute top-3 sm:top-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between pointer-events-none z-10">
             {/* Screen Index Counter Badge in Amex Gold */}
-            <div className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-[#181d18]/90 px-3.5 py-1.5 text-xs font-semibold text-[#f5c451] backdrop-blur-md ring-1 ring-[#f5c451]/35 shadow-sm">
+            <div className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-[#161616]/90 px-3.5 py-1.5 text-xs font-semibold text-[#f5c451] backdrop-blur-md ring-1 ring-[#f5c451]/35 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#f5c451] shadow-[0_0_8px_#f5c451] animate-pulse" />
               <span>
                 Screen {index + 1} of {count}
@@ -178,7 +178,7 @@ export default function ProjectCarousel({
                 setLightboxOpen(true);
               }}
               aria-label="Expand image to fullscreen"
-              className="pointer-events-auto grid place-items-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#181d18]/90 text-[#f5c451] backdrop-blur-md ring-1 ring-[#f5c451]/35 hover:bg-[#f5c451] hover:text-[#121613] hover:scale-105 transition-all shadow-sm"
+              className="pointer-events-auto grid place-items-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#161616]/90 text-[#f5c451] backdrop-blur-md ring-1 ring-[#f5c451]/35 hover:bg-[#f5c451] hover:text-[#0f0f0f] hover:scale-105 transition-all shadow-sm"
               title="Click to view full screen"
             >
               <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -194,7 +194,7 @@ export default function ProjectCarousel({
                   prev();
                 }}
                 aria-label="Previous image"
-                className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 grid place-items-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#181d18]/90 text-[#f5c451] ring-1 ring-[#f5c451]/40 shadow-lg backdrop-blur-md transition-all duration-300 hover:bg-[#f5c451] hover:text-[#121613] hover:scale-110 opacity-80 sm:opacity-0 sm:group-hover/studio:opacity-100 focus-visible:opacity-100 focus:outline-none z-10"
+                className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 grid place-items-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#161616]/90 text-[#f5c451] ring-1 ring-[#f5c451]/40 shadow-lg backdrop-blur-md transition-all duration-300 hover:bg-[#f5c451] hover:text-[#0f0f0f] hover:scale-110 opacity-80 sm:opacity-0 sm:group-hover/studio:opacity-100 focus-visible:opacity-100 focus:outline-none z-10"
               >
                 <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
@@ -204,7 +204,7 @@ export default function ProjectCarousel({
                   next();
                 }}
                 aria-label="Next image"
-                className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 grid place-items-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#181d18]/90 text-[#f5c451] ring-1 ring-[#f5c451]/40 shadow-lg backdrop-blur-md transition-all duration-300 hover:bg-[#f5c451] hover:text-[#121613] hover:scale-110 opacity-80 sm:opacity-0 sm:group-hover/studio:opacity-100 focus-visible:opacity-100 focus:outline-none z-10"
+                className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 grid place-items-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#161616]/90 text-[#f5c451] ring-1 ring-[#f5c451]/40 shadow-lg backdrop-blur-md transition-all duration-300 hover:bg-[#f5c451] hover:text-[#0f0f0f] hover:scale-110 opacity-80 sm:opacity-0 sm:group-hover/studio:opacity-100 focus-visible:opacity-100 focus:outline-none z-10"
               >
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
@@ -214,7 +214,7 @@ export default function ProjectCarousel({
           {/* Floating Caption Badge (Hover only, zero image obstruction) */}
           {currentSlide.caption && (
             <div className="pointer-events-none absolute bottom-3 sm:bottom-4 left-3 sm:left-4 z-10 transition-all duration-300 opacity-90 sm:opacity-0 sm:group-hover/studio:opacity-100">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#181d18]/90 px-3.5 py-1.5 text-xs font-medium text-white backdrop-blur-md ring-1 ring-[#f5c451]/30 shadow-sm max-w-[85vw] sm:max-w-md">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#161616]/90 px-3.5 py-1.5 text-xs font-medium text-white backdrop-blur-md ring-1 ring-[#f5c451]/30 shadow-sm max-w-[85vw] sm:max-w-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#f5c451] shadow-[0_0_6px_#f5c451]" />
                 <span className="truncate">{currentSlide.caption}</span>
               </div>
@@ -308,7 +308,7 @@ export default function ProjectCarousel({
                   }`}
                 >
                   {/* Thumbnail Image Container */}
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#18201c] mb-1.5">
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#161616] mb-1.5">
                     <Image
                       src={slide.src}
                       alt={slide.alt || `Thumbnail ${i + 1}`}
@@ -327,8 +327,8 @@ export default function ProjectCarousel({
                     <span
                       className={`absolute top-1 left-1 px-1.5 py-0.5 rounded text-[10px] font-bold tabular-nums shadow-xs ${
                         isActive
-                          ? "bg-[#f5c451] text-[#131713]"
-                          : "bg-[#181d18]/85 text-[#f5c451] ring-1 ring-[#f5c451]/25 backdrop-blur-sm"
+                          ? "bg-[#f5c451] text-[#0f0f0f]"
+                          : "bg-[#161616]/85 text-[#f5c451] ring-1 ring-[#f5c451]/25 backdrop-blur-sm"
                       }`}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -382,7 +382,7 @@ export default function ProjectCarousel({
               <button
                 onClick={() => setLightboxOpen(false)}
                 aria-label="Close fullscreen view"
-                className="grid place-items-center w-10 h-10 rounded-full bg-white/10 text-[#f5c451] hover:bg-[#f5c451] hover:text-[#121613] hover:scale-105 transition-all ring-1 ring-[#f5c451]/30"
+                className="grid place-items-center w-10 h-10 rounded-full bg-white/10 text-[#f5c451] hover:bg-[#f5c451] hover:text-[#0f0f0f] hover:scale-105 transition-all ring-1 ring-[#f5c451]/30"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -420,14 +420,14 @@ export default function ProjectCarousel({
                   <button
                     onClick={prev}
                     aria-label="Previous image"
-                    className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 grid place-items-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#181d18]/90 text-[#f5c451] hover:bg-[#f5c451] hover:text-[#121613] hover:scale-110 transition-all backdrop-blur-md ring-1 ring-[#f5c451]/40 shadow-lg"
+                    className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 grid place-items-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#161616]/90 text-[#f5c451] hover:bg-[#f5c451] hover:text-[#0f0f0f] hover:scale-110 transition-all backdrop-blur-md ring-1 ring-[#f5c451]/40 shadow-lg"
                   >
                     <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
                   </button>
                   <button
                     onClick={next}
                     aria-label="Next image"
-                    className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 grid place-items-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#181d18]/90 text-[#f5c451] hover:bg-[#f5c451] hover:text-[#121613] hover:scale-110 transition-all backdrop-blur-md ring-1 ring-[#f5c451]/40 shadow-lg"
+                    className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 grid place-items-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#161616]/90 text-[#f5c451] hover:bg-[#f5c451] hover:text-[#0f0f0f] hover:scale-110 transition-all backdrop-blur-md ring-1 ring-[#f5c451]/40 shadow-lg"
                   >
                     <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                   </button>

@@ -52,7 +52,7 @@ export function TechIcon({ name }: { name: string }) {
   const icon = ICONS[name];
   if (!icon) {
     return (
-      <span aria-hidden className="grid place-items-center w-5 h-5 rounded-md bg-[#1a211d] text-[10px] font-semibold text-white">
+      <span aria-hidden className="grid place-items-center w-5 h-5 rounded-md bg-[#111111] text-[10px] font-semibold text-white">
         {name[0]}
       </span>
     );

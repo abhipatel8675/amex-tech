@@ -9,7 +9,7 @@ export const LEGAL_EMAIL = "abhi@amextech.org";
 
 export function LegalPage({ title, updated, children }: { title: string; updated: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white text-[#1a211d] min-h-screen">
+    <div className="bg-white text-[#111111] min-h-screen">
       <Navbar />
       <main id="main-content">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: title }]} />
@@ -43,7 +43,7 @@ export function LegalPage({ title, updated, children }: { title: string; updated
 export function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
     <section id={id} className="flex flex-col gap-4 scroll-mt-24">
-      <h2 className="text-xl font-bold text-[#1a211d]" style={{ letterSpacing: "-0.015em" }}>{title}</h2>
+      <h2 className="text-xl font-bold text-[#111111]" style={{ letterSpacing: "-0.015em" }}>{title}</h2>
       <div className="flex flex-col gap-4 text-base leading-8 text-[#4d554b] [&_strong]:text-[#3d453b] [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7A5807]">
         {children}
       </div>
@@ -54,7 +54,7 @@ export function Section({ id, title, children }: { id: string; title: string; ch
 export function ContactBlock() {
   return (
     <div className="mt-2 p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] text-sm leading-7 text-[#3d453b]">
-      <p className="font-semibold text-[#1a211d] mb-1">Amex Technology</p>
+      <p className="font-semibold text-[#111111] mb-1">Amex Technology</p>
       <p>
         Email: <a href={`mailto:${LEGAL_EMAIL}`} className="text-[#7A5807]">{LEGAL_EMAIL}</a>
       </p>

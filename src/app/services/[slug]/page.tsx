@@ -81,7 +81,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   };
 
   return (
-    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#111111] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -203,7 +203,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                   href={`/blog/${post.slug}`}
                   className="group p-5 rounded-xl border border-[#dadcd1] bg-[#f7f6f2] hover:border-[#c9cbbf] hover:bg-[#efeee6] transition-all duration-200"
                 >
-                  <p className="font-semibold text-[#1a211d] group-hover:text-[#7A5807] transition-colors leading-snug">{post.title}</p>
+                  <p className="font-semibold text-[#111111] group-hover:text-[#7A5807] transition-colors leading-snug">{post.title}</p>
                 </Link>
               ))}
             </div>

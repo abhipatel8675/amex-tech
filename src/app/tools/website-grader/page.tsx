@@ -62,7 +62,7 @@ export default async function WebsiteGraderPage({ searchParams }: { searchParams
   const initialUrl = typeof url === "string" ? url.slice(0, 300) : "";
 
   return (
-    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#111111] min-h-screen">
       {schemas.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}

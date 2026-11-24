@@ -119,7 +119,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   };
 
   return (
-    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen antialiased">
+    <div className="bg-[#f7f6f2] text-[#111111] min-h-screen antialiased">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeWorkSchema) }} />
       {reviewSchema && (
@@ -143,7 +143,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 {project.category} · {project.tags.slice(0, 2).join(" · ")}
               </p>
               <h1
-                className="font-semibold text-[#1a211d] leading-[1.05]"
+                className="font-semibold text-[#111111] leading-[1.05]"
                 style={{ fontSize: "clamp(36px, 4.6vw, 68px)", letterSpacing: "-0.035em" }}
               >
                 {project.title}
@@ -153,7 +153,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                   {factItems.map(([label, value]) => (
                     <div key={label} className="flex gap-2">
                       <dt className="text-[#626960]">{label}</dt>
-                      <dd className="font-medium text-[#1a211d]">{value}</dd>
+                      <dd className="font-medium text-[#111111]">{value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -173,13 +173,13 @@ export default async function ProjectDetailPage({ params }: Props) {
                   className="absolute -inset-1.5 rounded-full opacity-70 blur-lg animate-pulse transition-opacity duration-500 group-hover:opacity-100"
                   style={{ background: "linear-gradient(120deg, #F5C451, #9a722a 45%, #F59E0B)" }}
                 />
-                <span className="relative inline-flex items-center gap-2.5 rounded-full bg-[#1a211d] pl-5 pr-2 py-2 text-sm font-medium text-white ring-1 ring-white/10 transition-transform duration-300 group-hover:-translate-y-0.5">
+                <span className="relative inline-flex items-center gap-2.5 rounded-full bg-[#111111] pl-5 pr-2 py-2 text-sm font-medium text-white ring-1 ring-white/10 transition-transform duration-300 group-hover:-translate-y-0.5">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                   </span>
                   Visit live site
-                  <span className="grid place-items-center w-8 h-8 rounded-full bg-white text-[#1a211d] transition-transform duration-300 group-hover:rotate-45">
+                  <span className="grid place-items-center w-8 h-8 rounded-full bg-white text-[#111111] transition-transform duration-300 group-hover:rotate-45">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </span>
@@ -206,7 +206,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               <section aria-labelledby="about-heading">
                 <h2
                   id="about-heading"
-                  className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-[#1a211d]"
+                  className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-[#111111]"
                 >
                   About the project
                 </h2>
@@ -217,7 +217,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <section aria-labelledby="built-heading">
                   <h2
                     id="built-heading"
-                    className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-[#1a211d]"
+                    className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-[#111111]"
                   >
                     What we built
                   </h2>
@@ -231,7 +231,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <section aria-labelledby="problem-heading">
                   <h2
                     id="problem-heading"
-                    className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-[#1a211d]"
+                    className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-[#111111]"
                   >
                     The problem
                   </h2>
@@ -243,7 +243,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <section aria-labelledby="results-heading">
                   <h2
                     id="results-heading"
-                    className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-[#1a211d]"
+                    className="mb-5 text-2xl md:text-3xl font-semibold tracking-[-0.025em] text-[#111111]"
                   >
                     Results
                   </h2>
@@ -262,7 +262,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
           {facts.quote && (
             <figure className="mt-16 md:mt-20 max-w-3xl border-l-2 border-[#CC9A1A] pl-6">
-              <blockquote className="text-xl leading-8 text-[#1a211d]">&ldquo;{facts.quote.text}&rdquo;</blockquote>
+              <blockquote className="text-xl leading-8 text-[#111111]">&ldquo;{facts.quote.text}&rdquo;</blockquote>
               <figcaption className="mt-3 text-sm text-[#626960]">
                 {facts.quote.name}
                 {facts.quote.role ? `, ${facts.quote.role}` : ""}
@@ -272,7 +272,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
           <section
             aria-labelledby="similar-heading"
-            className="mt-16 md:mt-24 rounded-[24px] bg-[#1a211d] px-6 py-10 md:px-12 md:py-14 text-white"
+            className="mt-16 md:mt-24 rounded-[24px] bg-[#111111] px-6 py-10 md:px-12 md:py-14 text-white"
           >
             <h2 id="similar-heading" className="text-2xl md:text-3xl font-semibold tracking-[-0.025em]">
               Want something like this?
@@ -282,7 +282,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#F5C451] px-6 py-3 text-sm font-semibold text-[#121613] transition-transform hover:-translate-y-0.5"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#F5C451] px-6 py-3 text-sm font-semibold text-[#0f0f0f] transition-transform hover:-translate-y-0.5"
             >
               Start a similar project <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -291,7 +291,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           <div className="mt-20 md:mt-28 pt-8 border-t border-[#dadcd1]">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#4d554b] transition-colors hover:text-[#1a211d]"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#4d554b] transition-colors hover:text-[#111111]"
             >
               <ArrowLeft className="w-4 h-4" /> All projects
             </Link>

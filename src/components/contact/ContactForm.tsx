@@ -159,7 +159,7 @@ function ContactFormFields({
   };
 
   const inputCls =
-    "w-full bg-white border border-[#dadcd1] rounded-[5px] px-4 py-3.5 text-base text-[#1a211d] placeholder-[#8a8e82] focus:outline-none focus:border-[#9a722a] focus:ring-1 focus:ring-[#9a722a]/25 transition-all duration-200";
+    "w-full bg-white border border-[#dadcd1] rounded-[5px] px-4 py-3.5 text-base text-[#111111] placeholder-[#8a8e82] focus:outline-none focus:border-[#9a722a] focus:ring-1 focus:ring-[#9a722a]/25 transition-all duration-200";
 
   if (success) {
     return (
@@ -167,7 +167,7 @@ function ContactFormFields({
         <div className="w-16 h-16 rounded-2xl bg-[#B8860B]/10 border border-[#B8860B]/25 flex items-center justify-center">
           <CheckCircle2 className="w-8 h-8 text-[#7A5807]" />
         </div>
-        <h3 className="text-2xl font-bold text-[#1a211d]">Message Received</h3>
+        <h3 className="text-2xl font-bold text-[#111111]">Message Received</h3>
         <p className="text-base text-[#4d554b] max-w-xs leading-7">
           We&apos;ll review your project details and reply with practical next
           steps.
@@ -285,8 +285,8 @@ function ContactFormFields({
               onClick={() => setForm((p) => ({ ...p, budget: b }))}
               className={`text-sm font-medium px-4 py-2 rounded-[5px] border transition-all duration-200 ${
                 form.budget === b
-                  ? "bg-[#202a23] border-[#202a23] text-white"
-                  : "border-[#dadcd1] bg-white text-[#4d554b] hover:border-[#9a722a] hover:text-[#1a211d]"
+                  ? "bg-[#1a1a1a] border-[#1a1a1a] text-white"
+                  : "border-[#dadcd1] bg-white text-[#4d554b] hover:border-[#9a722a] hover:text-[#111111]"
               }`}
             >
               {b}
@@ -327,7 +327,7 @@ function ContactFormFields({
       <button
         type="submit"
         disabled={loading}
-        className="group mt-1 flex w-full items-center justify-center gap-2 rounded-[5px] bg-[#202a23] py-4 text-base font-medium text-white transition-colors duration-200 hover:bg-[#3d493d] disabled:cursor-not-allowed disabled:opacity-50"
+        className="group mt-1 flex w-full items-center justify-center gap-2 rounded-[5px] bg-[#1a1a1a] py-4 text-base font-medium text-white transition-colors duration-200 hover:bg-[#3d493d] disabled:cursor-not-allowed disabled:opacity-50"
       >
         {loading ? (
           "Sending..."

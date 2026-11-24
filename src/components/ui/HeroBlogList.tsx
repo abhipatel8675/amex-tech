@@ -73,7 +73,7 @@ export function HeroBlogList({ posts }: { posts: HeroBlogPost[] }) {
                 {post.readTime}
               </span>
             </div>
-            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-[#1a211d] transition-colors group-hover:text-[#7A5807]">
+            <h4 className="line-clamp-1 text-sm font-semibold leading-snug text-[#111111] transition-colors group-hover:text-[#7A5807]">
               {post.title}
             </h4>
           </div>

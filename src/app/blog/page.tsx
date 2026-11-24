@@ -61,7 +61,7 @@ export default function BlogPage() {
   const rest = blogPosts.filter((p) => !p.featured);
 
   return (
-    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#111111] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <Navbar />
@@ -132,7 +132,7 @@ export default function BlogPage() {
                         <Clock className="w-3.5 h-3.5" /> {featured.readTime}
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-[#1a211d] mb-4 group-hover:text-[#7A5807] transition-colors leading-snug">
+                    <h2 className="text-2xl md:text-3xl font-bold text-[#111111] mb-4 group-hover:text-[#7A5807] transition-colors leading-snug">
                       {featured.title}
                     </h2>
                     <p className="text-base text-[#4d554b] leading-7">{featured.excerpt}</p>
@@ -194,7 +194,7 @@ export default function BlogPage() {
                       <Clock className="w-3.5 h-3.5" /> {post.readTime}
                     </span>
                   </div>
-                  <h3 className="text-base font-semibold text-[#1a211d] group-hover:text-[#7A5807] transition-colors leading-snug">
+                  <h3 className="text-base font-semibold text-[#111111] group-hover:text-[#7A5807] transition-colors leading-snug">
                     {post.title}
                   </h3>
                   <p className="text-sm text-[#4d554b] leading-relaxed flex-1">{post.excerpt}</p>

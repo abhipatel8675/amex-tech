@@ -129,7 +129,7 @@ export default async function BlogPostPage({ params }: Props) {
   };
 
   return (
-    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#111111] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {faqSchema && (
@@ -155,7 +155,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="max-w-7xl mx-auto px-6">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm text-[#4d554b] hover:text-[#1a211d] transition-colors mb-8"
+              className="inline-flex items-center gap-1.5 text-sm text-[#4d554b] hover:text-[#111111] transition-colors mb-8"
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to Blog
             </Link>
@@ -264,7 +264,7 @@ export default async function BlogPostPage({ params }: Props) {
                     href={`/blog/${related.slug}`}
                     className="group p-5 rounded-xl border border-[#dadcd1] bg-[#f7f6f2] hover:border-[#c9cbbf] hover:bg-[#efeee6] transition-all duration-200"
                   >
-                    <p className="text-base font-semibold text-[#1a211d] group-hover:text-[#7A5807] transition-colors mb-2 leading-snug">
+                    <p className="text-base font-semibold text-[#111111] group-hover:text-[#7A5807] transition-colors mb-2 leading-snug">
                       {related.title}
                     </p>
                     <p className="text-sm text-[#4d554b] flex items-center gap-1.5">

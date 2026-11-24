@@ -119,7 +119,7 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
           style={interactive ? { rotateX, rotateY, transformStyle: "preserve-3d" } : undefined}
           animate={{ scale: showDetails && !reduceMotion ? 1.02 : 1 }}
           transition={{ duration: 0.5, ease: EASE }}
-          className="relative aspect-[16/10] rounded-[22px] overflow-hidden bg-[#efeee6] ring-1 ring-[#1a211d]/[0.06] shadow-[0_1px_2px_rgba(15,23,42,0.06)] transition-shadow duration-500 group-hover:shadow-[0_30px_60px_-20px_rgba(15,23,42,0.35)]"
+          className="relative aspect-[16/10] rounded-[22px] overflow-hidden bg-[#efeee6] ring-1 ring-[#111111]/[0.06] shadow-[0_1px_2px_rgba(15,23,42,0.06)] transition-shadow duration-500 group-hover:shadow-[0_30px_60px_-20px_rgba(15,23,42,0.35)]"
         >
           {project.image ? (
             <>
@@ -146,7 +146,7 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
           )}
 
           {/* Darkening veil + glare, only while hovering */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1a211d]/95 via-[#1a211d]/60 to-[#1a211d]/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/95 via-[#111111]/60 to-[#111111]/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
           {interactive && (
             <motion.div
               className="absolute inset-0 pointer-events-none mix-blend-soft-light opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -175,7 +175,7 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
                   initial={{ scale: 0.6, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.45, ease: EASE, delay: 0.08 }}
-                  className="shrink-0 grid place-items-center w-11 h-11 rounded-full bg-white text-[#1a211d] shadow-lg"
+                  className="shrink-0 grid place-items-center w-11 h-11 rounded-full bg-white text-[#111111] shadow-lg"
                 >
                   <ArrowUpRight className="w-5 h-5" />
                 </motion.span>
@@ -187,7 +187,7 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
         {/* Caption */}
         <div className="pt-4 px-1">
           <div className="flex items-baseline justify-between gap-3">
-            <h3 className="text-[17px] font-medium text-[#1a211d] tracking-[-0.01em] truncate">
+            <h3 className="text-[17px] font-medium text-[#111111] tracking-[-0.01em] truncate">
               {project.title}
             </h3>
             <span className="shrink-0 text-xs text-[#626960]">{project.category}</span>
@@ -253,7 +253,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 }}
                 aria-pressed={active}
                 className={`relative text-sm font-medium px-4 py-2 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
-                  active ? "text-[#1a211d]" : "text-[#626960] hover:text-[#1a211d]"
+                  active ? "text-[#111111]" : "text-[#626960] hover:text-[#111111]"
                 }`}
               >
                 {active && (
@@ -289,8 +289,8 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 aria-pressed={active}
                 className={`inline-flex min-h-[40px] items-center gap-2 rounded-[5px] border px-3.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
                   active
-                    ? "border-[#202a23] bg-[#202a23] text-white"
-                    : "border-[#dadcd1] bg-white text-[#3d453b] hover:border-[#9a722a] hover:text-[#1a211d]"
+                    ? "border-[#1a1a1a] bg-[#1a1a1a] text-white"
+                    : "border-[#dadcd1] bg-white text-[#3d453b] hover:border-[#9a722a] hover:text-[#111111]"
                 }`}
               >
                 {name}

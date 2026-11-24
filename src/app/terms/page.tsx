@@ -33,7 +33,7 @@ const breadcrumbSchema = {
 
 export default function TermsPage() {
   return (
-    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen">
+    <div className="bg-[#f7f6f2] text-[#111111] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -284,7 +284,7 @@ export default function TermsPage() {
                 If you have any questions about these Terms of Service, please contact us:
               </p>
               <div className="mt-4 p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] text-sm leading-7 text-[#3d453b]">
-                <p className="font-semibold text-[#1a211d] mb-1">Amex Technology</p>
+                <p className="font-semibold text-[#111111] mb-1">Amex Technology</p>
                 <p>
                   Email:{" "}
                   <a
@@ -330,7 +330,7 @@ function Section({
 }) {
   return (
     <section id={id} className="flex flex-col gap-4 scroll-mt-24">
-      <h2 className="text-xl font-bold text-[#1a211d]" style={{ letterSpacing: "-0.015em" }}>
+      <h2 className="text-xl font-bold text-[#111111]" style={{ letterSpacing: "-0.015em" }}>
         {title}
       </h2>
       <div className="flex flex-col gap-4 text-base leading-8 text-[#4d554b] [&_strong]:text-[#3d453b] [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7A5807]">

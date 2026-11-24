@@ -31,7 +31,7 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 font-bold text-lg">
           <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #9a722a, #9C7208)" }}>
-            <Zap className="w-4 h-4 text-[#1a211d]" />
+            <Zap className="w-4 h-4 text-[#111111]" />
           </div>
           <span>Amex<span className="text-[#7A5807]">Technology</span></span>
         </a>
@@ -41,7 +41,7 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-[#4d554b] hover:text-[#1a211d] transition-colors"
+              className="text-sm text-[#4d554b] hover:text-[#111111] transition-colors"
             >
               {l.label}
             </a>
@@ -56,7 +56,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden text-[#4d554b] hover:text-[#1a211d]"
+          className="md:hidden text-[#4d554b] hover:text-[#111111]"
           onClick={() => setOpen(!open)}
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -75,7 +75,7 @@ export default function Navbar() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm text-[#4d554b] hover:text-[#1a211d]"
+                className="text-sm text-[#4d554b] hover:text-[#111111]"
                 onClick={() => setOpen(false)}
               >
                 {l.label}

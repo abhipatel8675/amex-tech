@@ -40,7 +40,7 @@ export default function LoginPage() {
         <div className="text-center mb-8">
           <a href="/" className="inline-flex items-center gap-2 font-bold text-xl mb-6">
             <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: "linear-gradient(135deg, #9a722a, #9C7208)" }}>
-              <Zap className="w-4 h-4 text-[#1a211d]" />
+              <Zap className="w-4 h-4 text-[#111111]" />
             </div>
             Amex<span className="text-[#7A5807]">Technology</span>
           </a>
@@ -59,7 +59,7 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full bg-white border border-[#dadcd1] rounded-lg px-3 py-2.5 text-base text-[#1a211d] placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#9a722a]/50 transition-colors"
+              className="w-full bg-white border border-[#dadcd1] rounded-lg px-3 py-2.5 text-base text-[#111111] placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#9a722a]/50 transition-colors"
             />
           </div>
           <div>
@@ -71,12 +71,12 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-white border border-[#dadcd1] rounded-lg px-3 py-2.5 pr-10 text-base text-[#1a211d] placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#9a722a]/50 transition-colors"
+                className="w-full bg-white border border-[#dadcd1] rounded-lg px-3 py-2.5 pr-10 text-base text-[#111111] placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#9a722a]/50 transition-colors"
               />
               <button
                 type="button"
                 onClick={() => setShowPass(!showPass)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#4d554b] hover:text-[#1a211d]"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#4d554b] hover:text-[#111111]"
               >
                 {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>

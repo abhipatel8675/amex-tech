@@ -52,7 +52,7 @@ export default function CTASection() {
                 <span className="text-sm font-medium text-[#3d453b]">Free quote, practical next steps</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#1a211d] mb-6 max-w-3xl mx-auto leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#111111] mb-6 max-w-3xl mx-auto leading-tight">
                 Ready to build your next{" "}
                 <span style={{ background: "linear-gradient(135deg, #CC9A1A 0%, #9a722a 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                   digital product?
@@ -93,7 +93,7 @@ export default function CTASection() {
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center gap-2 text-base font-semibold text-[#3d453b] px-8 py-4 rounded-xl border border-[#c9cbbf] hover:border-[#c9cbbf] hover:bg-[#efeee6] hover:text-[#1a211d] transition-all duration-200"
+                  className="inline-flex items-center gap-2 text-base font-semibold text-[#3d453b] px-8 py-4 rounded-xl border border-[#c9cbbf] hover:border-[#c9cbbf] hover:bg-[#efeee6] hover:text-[#111111] transition-all duration-200"
                 >
                   View Our Work
                 </Link>
@@ -107,7 +107,7 @@ export default function CTASection() {
                   { value: "5+ years", label: "experience" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-baseline gap-2">
-                    <span className="text-base font-semibold text-[#1a211d]">{item.value}</span>
+                    <span className="text-base font-semibold text-[#111111]">{item.value}</span>
                     <span className="text-sm text-[#4d554b]">{item.label}</span>
                   </div>
                 ))}

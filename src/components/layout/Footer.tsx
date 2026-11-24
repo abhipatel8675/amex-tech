@@ -45,7 +45,7 @@ const laLinks = [
 const linkClass =
   "inline-flex min-h-[32px] items-center text-sm text-[#626960] transition-colors hover:text-[#7a5807]";
 const headingClass =
-  "mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#1a211d]";
+  "mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#111111]";
 
 function LinkColumn({
   title,
@@ -100,12 +100,12 @@ export default function Footer() {
   }
 
   return (
-    <footer className="border-t border-[#dadcd1] bg-[#f7f6f2] text-[#1a211d]">
+    <footer className="border-t border-[#dadcd1] bg-[#f7f6f2] text-[#111111]">
       <div className="mx-auto w-[min(1280px,calc(100%-96px))] pt-16 pb-10 max-[1100px]:w-[calc(100%-64px)] max-[520px]:w-[calc(100%-40px)]">
         {/* Newsletter */}
         <div className="mb-14 flex flex-col items-start justify-between gap-5 rounded-lg border border-[#dddfd3] bg-white p-8 max-[520px]:p-5 sm:flex-row sm:items-center">
           <div>
-            <p className="mb-1 text-[15px] font-semibold text-[#1a211d]">
+            <p className="mb-1 text-[15px] font-semibold text-[#111111]">
               Get development tips in your inbox
             </p>
             <p className="text-sm text-[#626960]">
@@ -129,12 +129,12 @@ export default function Footer() {
                 required
                 disabled={status === "loading"}
                 aria-label="Email address"
-                className="min-h-[50px] min-w-0 flex-1 rounded-[5px] border border-[#dadcd1] bg-white px-4 text-sm text-[#1a211d] placeholder-[#6d7266] outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20] disabled:opacity-60 sm:w-60"
+                className="min-h-[50px] min-w-0 flex-1 rounded-[5px] border border-[#dadcd1] bg-white px-4 text-sm text-[#111111] placeholder-[#6d7266] outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20] disabled:opacity-60 sm:w-60"
               />
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="min-h-[50px] flex-shrink-0 rounded-[5px] bg-[#202a23] px-5 text-sm font-medium text-white transition-colors hover:bg-[#3d493d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20] disabled:cursor-not-allowed disabled:opacity-70"
+                className="min-h-[50px] flex-shrink-0 rounded-[5px] bg-[#1a1a1a] px-5 text-sm font-medium text-white transition-colors hover:bg-[#3d493d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {status === "loading" ? "Subscribing…" : "Subscribe"}
               </button>
@@ -162,7 +162,7 @@ export default function Footer() {
               aria-label="Amex Technology home"
             >
               <LogoMark size={40} />
-              <span className="flex flex-col text-[19px] font-semibold leading-[1.1] tracking-[-0.04em] text-[#1a211d]">
+              <span className="flex flex-col text-[19px] font-semibold leading-[1.1] tracking-[-0.04em] text-[#111111]">
                 Amex Technology
                 <small className="mt-1 text-[10px] font-medium uppercase tracking-[0.23em] text-[#7a5807]">
                   Ideas into impact

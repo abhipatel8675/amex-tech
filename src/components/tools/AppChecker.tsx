@@ -96,7 +96,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
   return (
     <div>
       <form onSubmit={runCheck} className="p-6 md:p-8 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
-        <label htmlFor="app-url" className="block text-sm font-semibold text-[#1a211d] mb-2">
+        <label htmlFor="app-url" className="block text-sm font-semibold text-[#111111] mb-2">
           Your app&apos;s address
         </label>
         <div className="flex flex-col sm:flex-row gap-3">
@@ -109,7 +109,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             required
-            className="flex-1 min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#1a211d] placeholder:text-[#8a8e82] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
+            className="flex-1 min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#8a8e82] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
           />
           <button
             type="submit"
@@ -140,7 +140,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
             </div>
             <div>
               <p className="text-sm text-[#4d554b] mb-1 break-all">{result.finalUrl}</p>
-              <h2 className="text-2xl font-bold text-[#1a211d] mb-3">
+              <h2 className="text-2xl font-bold text-[#111111] mb-3">
                 {result.total === 0 ? "No problems found. Nice work!" : `We found ${result.total} ${result.total === 1 ? "issue" : "issues"}`}
               </h2>
               <div className="flex flex-wrap gap-2 mb-3">
@@ -162,14 +162,14 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
 
           {result.preview.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-lg font-bold text-[#1a211d]">Most serious problems</h3>
+              <h3 className="text-lg font-bold text-[#111111]">Most serious problems</h3>
               {result.preview.map((f) => (
                 <div key={f.id} className="p-5 rounded-2xl border border-[#dadcd1] bg-white">
                   <div className="flex items-center gap-2 mb-2">
                     <span className={`text-xs font-semibold px-2 py-0.5 rounded-md border ${SEVERITY_STYLE[f.severity]}`}>{f.severity}</span>
                     <span className="text-xs text-[#8a8e82] uppercase tracking-wider">{f.category}</span>
                   </div>
-                  <p className="font-semibold text-[#1a211d] mb-1">{f.title}</p>
+                  <p className="font-semibold text-[#111111] mb-1">{f.title}</p>
                   <p className="text-sm text-[#3d453b] leading-relaxed">{f.detail}</p>
                 </div>
               ))}
@@ -180,7 +180,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
             <div className="flex items-start gap-3 mb-4">
               <Mail className="w-5 h-5 text-[#7A5807] shrink-0 mt-1" />
               <div>
-                <h3 className="text-xl font-bold text-[#1a211d]">
+                <h3 className="text-xl font-bold text-[#111111]">
                   {result.total === 0
                     ? "Get a copy of this report by email"
                     : locked > 0
@@ -198,7 +198,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
               <li className="flex items-center gap-2"><Gauge className="w-4 h-4 text-[#7A5807]" /> Speed improvements</li>
             </ul>
             {emailSent ? (
-              <p className="flex items-center gap-2 text-[#1a211d] font-semibold" role="status">
+              <p className="flex items-center gap-2 text-[#111111] font-semibold" role="status">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600" /> Sent! Check your inbox (and spam folder) for your full report.
               </p>
             ) : (
@@ -212,7 +212,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     aria-label="Email address"
-                    className="flex-1 min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#1a211d] placeholder:text-[#8a8e82] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
+                    className="flex-1 min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#8a8e82] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
                   />
                   <input
                     type="text"
@@ -221,7 +221,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     aria-label="First name"
-                    className="sm:w-48 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#1a211d] placeholder:text-[#8a8e82] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
+                    className="sm:w-48 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#8a8e82] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
                   />
                   <button
                     type="submit"
@@ -244,7 +244,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
               <Link
                 href={appCheckerFixHref(result.finalUrl, result.total)}
                 onClick={() => track("app_check_fix_click", result.finalUrl)}
-                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#3d453b] hover:text-[#1a211d]"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#3d453b] hover:text-[#111111]"
               >
                 <Wrench className="w-4 h-4" /> Or have us fix everything for you <ArrowRight className="w-3.5 h-3.5" />
               </Link>

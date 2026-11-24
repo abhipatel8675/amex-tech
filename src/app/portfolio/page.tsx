@@ -77,7 +77,7 @@ export default async function PortfolioPage() {
   const projects = await getProjects();
   const stats = getStats(projects);
   return (
-    <div className="bg-[#f7f6f2] text-[#1a211d] min-h-screen antialiased">
+    <div className="bg-[#f7f6f2] text-[#111111] min-h-screen antialiased">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
