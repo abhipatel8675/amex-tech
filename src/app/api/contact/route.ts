@@ -15,7 +15,7 @@ export async function POST(req: Request) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        access_key: "034118ee-2ebc-45db-813d-1d54e5dff988",
+        access_key: "6f0ed673-ac8c-4571-b8a1-e02c9fa3773e",
         subject: `New inquiry from ${name} — ${service}`,
         from_name: name,
         replyto: email,
