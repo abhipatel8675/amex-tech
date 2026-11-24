@@ -7,7 +7,6 @@ import { LogoMark } from "@/components/ui/Logo";
 import s from "./navbar.module.css";
 const links = [
   ["Services", "/services"],
-  ["SEO Services", "/services/seo-services"],
   ["AI Agents", "/ai-operations-agent"],
   ["Hire Developers", "/hire-developers"],
   ["Our Work", "/portfolio"],
