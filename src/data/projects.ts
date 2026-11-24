@@ -1080,7 +1080,7 @@ export const projects: Project[] = [
   {
     slug: "periscope-email",
     title: "Periscope Email",
-    category: "SaaS",
+    category: "AI",
     tags: ["AI Outreach", "B2B Sales", "Software"],
     shortDesc: "Turns breaking news about target companies into ready-to-send sales emails in seconds.",
     description:
@@ -1197,7 +1197,7 @@ export const projects: Project[] = [
       "Reviewed 1,300+ appointments and showed the reported no-show rate was unsupported",
       "Showed cancellations were running at 27–37%"
     ],
-    technologies: ["Node.js", "REST API", "Webhooks", "CRM Integration"],
+    technologies: ["GoHighLevel", "ClickFunnels", "Calendly"],
     gradientFrom: "#f093fb",
     gradientTo: "#f5576c",
     featured: false,
@@ -1226,7 +1226,7 @@ export const projects: Project[] = [
       "Built so updates cannot loop back and forth",
       "Results checked directly in GoHighLevel"
     ],
-    technologies: ["Node.js", "REST API", "Webhooks", "CRM Integration"],
+    technologies: ["GoHighLevel", "GoHighLevel API", "Wavv"],
     gradientFrom: "#a1c4fd",
     gradientTo: "#c2e9fb",
     featured: false,
@@ -1252,7 +1252,7 @@ export const projects: Project[] = [
       "One-step sign-up with a Google account",
       "A streamlined, user-friendly chat design"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Next.js", "Prisma", "MongoDB", "OpenAI"],
     gradientFrom: "#5c6bc0",
     gradientTo: "#3949ab",
     featured: false,
@@ -1264,7 +1264,7 @@ export const projects: Project[] = [
   {
     slug: "course-selling-website",
     title: "Kids Coding Course Platform - Design & Online Setup",
-    category: "Mobile App",
+    category: "Web",
     tags: ["Mobile App", "Mobile"],
     shortDesc: "A kids' coding course platform, taken from a static template to a real, working product.",
     description: "IPlusCoding is a kids' coding course platform (Scratch Junior lessons in Beginner, Elementary and Intermediate levels) that I took from a static template to a real, working product. I designed the screens and connected it to Firebase so it can grow securely and update live. I turned the site from static to dynamic, made it work well on phones, tablets and computers, added real content, and organized the pages so Google can find them, turning a template into a sellable course platform.",
@@ -1276,7 +1276,7 @@ export const projects: Project[] = [
       "Real course content added and pages organized for Google",
       "Built to grow securely with live updates"
     ],
-    technologies: ["React Native", "Expo", "TypeScript"],
+    technologies: ["Firebase"],
     gradientFrom: "#ef5350",
     gradientTo: "#e53935",
     featured: false,
@@ -1291,7 +1291,7 @@ export const projects: Project[] = [
   {
     slug: "cypress-bridge",
     title: "Cypress Bridge - Hospital Emergency Department Analytics Platform",
-    category: "AI",
+    category: "SaaS",
     tags: ["AI", "Web App", "Website", "Dashboard"],
     shortDesc: "A secure analytics platform for a healthcare consulting firm, turning scattered hospital data into clear Emergency Department performance figures.",
     description: "Cypress Bridge is a secure analytics platform I built for a healthcare consulting firm. It turns scattered raw hospital data from CMS (the US Medicare agency) into clear Emergency Department performance figures, state and national comparisons, and a calculated \"Opportunity Value\" figure. The data is collected, cleaned and calculated automatically on a schedule and stored in a database, and a dashboard gives executives filterable performance cards, trend charts and comparisons for fast insight with no technical knowledge needed.",
@@ -1303,7 +1303,7 @@ export const projects: Project[] = [
       "Data refreshed automatically on a schedule",
       "A dashboard with filters, trend charts and comparisons that executives can use without technical knowledge"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Python", "Supabase", "PostgreSQL", "React", "Next.js"],
     gradientFrom: "#29b6f6",
     gradientTo: "#0288d1",
     featured: false,
@@ -1318,7 +1318,7 @@ export const projects: Project[] = [
   {
     slug: "fulltimewin",
     title: "FullTimeWin.live - Sports Platform (Fixes & Features)",
-    category: "AI",
+    category: "Web",
     tags: ["AI", "Website"],
     shortDesc: "A live Indonesian-language sports scores, predictions and news website. I added new features and fixed problems.",
     description: "FullTimeWin is a live, Indonesian-language sports scores, predictions and news website. I added a new \"Live\" tab to the live-score section, built a site map to help Google find the pages, added endless scrolling, made smaller revisions, hid an exposed private key as a security fix, improved overall search visibility, and fixed an intermittent problem that broke the page roughly 10% of the time.",
@@ -1331,7 +1331,7 @@ export const projects: Project[] = [
       "Exposed private key hidden as a security fix",
       "Intermittent problem that broke pages about 10% of the time resolved"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Next.js"],
     gradientFrom: "#fd7043",
     gradientTo: "#ff8a65",
     featured: false,
@@ -1344,7 +1344,7 @@ export const projects: Project[] = [
   {
     slug: "keyglowmax",
     title: "KeyGlowMax - Crypto Token Creator (Design Refresh)",
-    category: "AI",
+    category: "Web",
     tags: ["AI"],
     shortDesc: "A full redesign of a no-code tool for creating Solana crypto tokens, making a complicated process easier to follow.",
     description: "KeyGlowMax is a no-code tool for creating Solana crypto tokens and managing their liquidity pools. I led a full redesign: a sleek, modern look with clean lines and clear layouts, a layout that works on computers, tablets and phones, a clearer presentation of complex crypto data through charts and visuals, and simpler navigation through the token-creation and liquidity steps.",
@@ -1356,7 +1356,7 @@ export const projects: Project[] = [
       "Charts and visuals that make complex crypto data easier to read",
       "Simpler navigation through the token and liquidity steps"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: [],
     gradientFrom: "#667eea",
     gradientTo: "#764ba2",
     featured: false,
@@ -1371,7 +1371,7 @@ export const projects: Project[] = [
   {
     slug: "litejob",
     title: "LiteJob - City-Based Local Business & Service Directory",
-    category: "AI",
+    category: "Web",
     tags: ["AI"],
     shortDesc: "An online directory connecting cities, businesses and services in one place.",
     description: "LiteJob is an online directory I built that connects cities, businesses and services in one place. Users search by city to browse local businesses by type, such as restaurants, salons and repair services, with each business listing its own range of services. The platform has two kinds of accounts, Client and Business, with a role choice on both sign-up and login, giving people one place to compare prices and services in a few clicks.",
@@ -1383,7 +1383,7 @@ export const projects: Project[] = [
       "Each business lists its own range of services",
       "One place to compare prices and services in a few clicks"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: [],
     gradientFrom: "#a1c4fd",
     gradientTo: "#c2e9fb",
     featured: false,
@@ -1398,7 +1398,7 @@ export const projects: Project[] = [
   {
     slug: "nexus-by-aps",
     title: "Nexus by APS - Enterprise Quote-Request Platform",
-    category: "AI",
+    category: "SaaS",
     tags: ["AI"],
     shortDesc: "A business platform for managing supplier quote requests and bidding, built to streamline buying and supplier collaboration.",
     description: "Nexus by APS is a business platform for managing quote requests and supplier bidding that I built to streamline purchasing and supplier collaboration. It brings together quote request creation (an eight-step guide), supplier bid submission with supporting documents, live bid-status tracking, a historical records library, and detailed reports on cost savings and supplier performance, plus a built-in \"Sera AI\" assistant, turning purchasing into a modern, data-driven process.",
@@ -1410,7 +1410,7 @@ export const projects: Project[] = [
       "A historical library and reports on cost savings and supplier performance",
       "A built-in \"Sera AI\" assistant"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: [],
     gradientFrom: "#667eea",
     gradientTo: "#764ba2",
     featured: false,
@@ -1425,7 +1425,7 @@ export const projects: Project[] = [
   {
     slug: "prognosticz",
     title: "Prognosticz - VC & Startup Analytics (Speed Improvements)",
-    category: "AI",
+    category: "SaaS",
     tags: ["AI", "Web App", "Website", "Dashboard"],
     shortDesc: "I made an investor and startup analytics dashboard faster, covering thousands of companies and investors.",
     description: "I contributed to Prognosticz, an investor and startup analytics dashboard covering global venture capital networks, funding trends and company insights at real-world scale (6,255+ companies and 61,031+ investors). My work focused on speed across the Investors, Companies and Funding Rounds pages: cutting the time charts take to load by making data requests faster and storing results for reuse, making the database queries more efficient, and improving how charts and tables display. This was a contributor role, not the original build.",
@@ -1437,7 +1437,7 @@ export const projects: Project[] = [
       "Improved chart and table display",
       "Works at scale: 6,255+ companies and 61,031+ investors"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["React", "Next.js", "Supabase", "Recharts"],
     gradientFrom: "#667eea",
     gradientTo: "#764ba2",
     featured: false,
@@ -1451,7 +1451,7 @@ export const projects: Project[] = [
   {
     slug: "the-lookbook",
     title: "The Lookbook - Fashion Platform Search & Admin Fixes",
-    category: "AI",
+    category: "Web",
     tags: ["AI", "E-Commerce", "Integrations"],
     shortDesc: "I improved how products and mood boards are managed on a curated fashion discovery website.",
     description: "I contributed to The Lookbook, a curated fashion discovery platform (\"Shop the Edit,\" 50+ products), improving how products and mood boards are managed: mood board labels that load automatically, product search that works with partial words and shows the right images, reliable bulk publish, unpublish and delete actions, and fixed, tested create and update functions for products and mood boards. The result is faster content management and more reliable admin controls. This was a contributor engagement, not the original build.",
@@ -1463,7 +1463,7 @@ export const projects: Project[] = [
       "Fixed and tested create and update functions for products and mood boards",
       "Faster content management and more reliable admin controls"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Vite"],
     gradientFrom: "#667eea",
     gradientTo: "#764ba2",
     featured: false,
@@ -1479,7 +1479,7 @@ export const projects: Project[] = [
   {
     slug: "webflix-roueen-rafeyan-md",
     title: "Roueen Rafeyan MD - Psychiatry & Wellness Practice Website",
-    category: "AI",
+    category: "Web",
     tags: ["AI"],
     shortDesc: "A practice website for a psychiatry and wellness practice, with an unusually detailed insurance and billing section.",
     description: "This is the practice website for Roueen Rafeyan MD, Psychiatry & Wellness, built around the message \"Take ownership of your mental health\" and an \"Accepting New Patients\" badge. Its standout is an unusually detailed Insurance & Billing section covering out-of-network status, the superbill process, and specific billing codes with a realistic reimbursement range. This write-up covers the live public website; the Patient Portal was not accessed, out of respect for patient privacy.",
@@ -1491,7 +1491,7 @@ export const projects: Project[] = [
       "A detailed Insurance & Billing section covering out-of-network status, superbills and billing codes",
       "A patient portal linked from the public site"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: [],
     gradientFrom: "#f093fb",
     gradientTo: "#f5576c",
     featured: false,
@@ -1507,7 +1507,7 @@ export const projects: Project[] = [
   {
     slug: "wharton-carpet-cleaning",
     title: "WordPress Page Builder Styling Fixes - Wharton Carpet Cleaning",
-    category: "AI",
+    category: "Web",
     tags: ["AI", "WordPress"],
     shortDesc: "I fixed three display problems on a WordPress website for a carpet cleaning company.",
     description: "Wharton Carpet Cleaning runs a WordPress website built with the SiteOrigin page builder. I resolved three display problems: buttons that didn't change on hover because of conflicting page builder styles, rounded corners that displayed incorrectly because of conflicting widget styles, and page-builder styles overriding the site's main styling everywhere. I traced each problem to its cause using the browser's built-in inspection tools and applied targeted fixes, then checked that everything worked across all pages.",
@@ -1519,7 +1519,7 @@ export const projects: Project[] = [
       "Site-wide styling no longer overridden by the page builder",
       "All pages checked after the fixes"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["WordPress", "SiteOrigin Page Builder"],
     gradientFrom: "#66bb6a",
     gradientTo: "#43a047",
     featured: false,
@@ -1546,7 +1546,7 @@ export const projects: Project[] = [
       "Pop-art \"FREE Membership\" banner and sample member-pricing cards",
       "A savings highlight with a bar chart"
     ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
+    technologies: ["HTML"],
     gradientFrom: "#ffca28",
     gradientTo: "#ffb300",
     featured: false,
@@ -1576,7 +1576,7 @@ export const projects: Project[] = [
       "Can be installed on a phone like an app",
       "An Android version with ads"
     ],
-    technologies: ["React Native", "Expo", "TypeScript"],
+    technologies: ["JavaScript", "Firebase"],
     gradientFrom: "#78909c",
     gradientTo: "#546e7a",
     featured: false,
@@ -1650,7 +1650,7 @@ export const projects: Project[] = [
   {
     slug: "beeminor",
     title: "BeeMinor - Play-and-Win Multi-Language Web App",
-    category: "AI",
+    category: "SaaS",
     tags: ["AI"],
     shortDesc: "A \"play and win\" consumer web app available in nine languages, with a bee mascot.",
     description: "BeeMinor is a \"play and win\" consumer web app available in nine languages, branded around a bee mascot with the tagline \"Rejoins les BeeMinor, joue et gagne.\" Its entire public face is a sign-up and login screen. There is no public landing page, and the game itself sits behind the login. This write-up covers the branding, languages and sign-up process visible from the outside; the app itself was not accessible for this write-up.",
@@ -1661,7 +1661,7 @@ export const projects: Project[] = [
       "Branded around a bee mascot and the tagline \"Rejoins les BeeMinor, joue et gagne.\"",
       "A single, simple sign-up and login screen as the entry point"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: [],
     gradientFrom: "#78909c",
     gradientTo: "#546e7a",
     featured: false,
@@ -1675,37 +1675,9 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "expert-village",
-    title: "Expert Village Media - Shopify Agency Website",
-    category: "AI",
-    tags: ["AI", "Shopify", "E-Commerce"],
-    shortDesc: "A website marketing a Shopify agency as \"not just developers, strategic growth partners.\"",
-    description: "Expert Village Media's website markets a Shopify agency positioned as \"not just developers, strategic growth partners,\" leading with Shopify Select Partner status, 800+ reviews and 2,000+ brands served, backed by case studies and a six-stage process from first discovery to ongoing maintenance. Services range from custom store building, redesign and migration to speed improvements and marketing, search and paid ads. This write-up covers the live public website; no client-supplied source files were used.",
-    problem: "An agency selling Shopify services to growth-focused brands needs a website that shows its credentials, explains its process and makes it easy to get in touch.",
-    solution: "The website leads with Shopify Select Partner status, review counts and the number of brands served, backs them up with case studies and a six-stage process, and explains the full range of services.",
-    results: [
-      "Shopify Select Partner status, 800+ reviews and 2,000+ brands served shown up front",
-      "A six-stage process explained from discovery to maintenance",
-      "Services covering store building, redesign, migration, speed improvements, marketing, search and paid ads",
-      "Case studies that back up the claims"
-    ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
-    gradientFrom: "#f093fb",
-    gradientTo: "#f5576c",
-    featured: false,
-    image: "/images/portfolio/expert-village/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/expert-village/mockup-1.webp", alt: "Expert Village Media - Shopify Development Agency Website screenshot 1", caption: "Expert Village Media - Shopify Development Agency Website - View 1" },
-    { src: "/images/portfolio/expert-village/mockup-2.webp", alt: "Expert Village Media - Shopify Development Agency Website screenshot 2", caption: "Expert Village Media - Shopify Development Agency Website - View 2" },
-    { src: "/images/portfolio/expert-village/mockup-3.webp", alt: "Expert Village Media - Shopify Development Agency Website screenshot 3", caption: "Expert Village Media - Shopify Development Agency Website - View 3" },
-    { src: "/images/portfolio/expert-village/mockup-4.webp", alt: "Expert Village Media - Shopify Development Agency Website screenshot 4", caption: "Expert Village Media - Shopify Development Agency Website - View 4" },
-    { src: "/images/portfolio/expert-village/mockup-5.webp", alt: "Expert Village Media - Shopify Development Agency Website screenshot 5", caption: "Expert Village Media - Shopify Development Agency Website - View 5" }
-    ],
-  },
-  {
     slug: "hypelive",
     title: "HYPE Live - Creator App Download Page",
-    category: "Mobile App",
+    category: "Web",
     tags: ["Mobile App"],
     shortDesc: "A single-screen landing page for the \"HYPE\" creator app, built to turn visitors into app downloads.",
     description: "HYPE Live is a single-screen landing page for the \"HYPE\" creator app, built with Lovable and with one job: to turn visitors into App Store and Google Play downloads under the tagline \"Creators First. Always.\" It leans on inspiring creator photography instead of a feature tour, with Login and Sign-up buttons hinting at a companion website. This write-up covers the live public landing page; the app's own features were outside its scope.",
@@ -1717,7 +1689,7 @@ export const projects: Project[] = [
       "Creator photography instead of a long feature list",
       "Login and Sign-up buttons for a companion website"
     ],
-    technologies: ["React Native", "Expo", "TypeScript"],
+    technologies: ["Lovable"],
     gradientFrom: "#4facfe",
     gradientTo: "#00f2fe",
     featured: false,
@@ -1730,7 +1702,7 @@ export const projects: Project[] = [
   {
     slug: "kasbu",
     title: "Kasbu - Free Link-in-Bio & Personal Page Builder",
-    category: "Mobile App",
+    category: "SaaS",
     tags: ["Mobile App"],
     shortDesc: "A free-first tool for building link-in-bio and personal pages, with a rotating showcase of real example pages.",
     description: "Kasbu is a free-first link-in-bio and personal page builder (in the same category as Linktree and Beacons) that leads with a rotating 3D showcase of real multi-language example pages and the trust line \"+10K pages already made.\" Its menu covers Cards, Explore, Wallet, a Blog and Pricing, and the Wallet is an uncommon feature among free competitors. This write-up covers the live public homepage and menu; the logged-in builder and Wallet were not accessible.",
@@ -1742,7 +1714,7 @@ export const projects: Project[] = [
       "Menu covering Cards, Explore, Wallet, Blog and Pricing",
       "A Wallet feature that is uncommon among free competitors"
     ],
-    technologies: ["React Native", "Expo", "TypeScript"],
+    technologies: [],
     gradientFrom: "#fa709a",
     gradientTo: "#fee140",
     featured: false,
@@ -1759,7 +1731,7 @@ export const projects: Project[] = [
   {
     slug: "kitaplimani",
     title: "Kitap Limani - Islamic Books & Educational Online Store",
-    category: "AI",
+    category: "Web",
     tags: ["AI", "E-Commerce"],
     shortDesc: "An online store for Islamic books and educational products, with strong visuals and simple navigation.",
     description: "Kitap Limani is an online store for Islamic books and educational products that I built on the Ikas store platform, combining strong visual presentation with simple navigation across dedicated sections (Ajanda, Atlas, Qur'an editions). The design balances the store's cultural identity, with calm green, white and neutral tones and premium editorial photography, with modern online-shopping ease, and supports German and Turkish content for its European customers.",
@@ -1771,7 +1743,7 @@ export const projects: Project[] = [
       "German and Turkish content for European customers",
       "Built on the Ikas store platform"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Ikas"],
     gradientFrom: "#78909c",
     gradientTo: "#546e7a",
     featured: false,
@@ -1783,64 +1755,9 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "thebuttercreambus",
-    title: "Mobile Bakery Website - Online Shop, Truck Tracking & AI Cake Design",
-    category: "Mobile App",
-    tags: ["Mobile App", "E-Commerce", "Mobile"],
-    shortDesc: "A mobile bakery website bringing together an online shop, live truck tracking, event catering booking and baking class sign-up.",
-    description: "The Buttercream Bus is a mobile bakery website that brings together an online shop, live truck tracking, event catering booking and baking class registration under one brand. Its standout feature is an AI cake design tool: a customer describes an idea and it creates four visual style options before ordering. This write-up covers the live public website, including the shop, tracking, booking and AI tool as they appear to visitors.",
-    problem: "A mobile bakery needs customers to know where it is, buy from it, book it for events and sign up for classes, all in one place.",
-    solution: "One branded website brings together an online shop, live truck tracking, event catering booking and baking class sign-up, plus an AI cake design tool that creates four style options from a customer's description.",
-    results: [
-      "Online shop, live truck tracking, event booking and class sign-up under one brand",
-      "AI cake design tool that creates four visual styles from a description",
-      "Everything customers need in one place"
-    ],
-    technologies: ["React Native", "Expo", "TypeScript"],
-    gradientFrom: "#26c6da",
-    gradientTo: "#00acc1",
-    featured: false,
-    image: "/images/portfolio/thebuttercreambus/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/thebuttercreambus/mockup-1.webp", alt: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design screenshot 1", caption: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design - View 1" },
-    { src: "/images/portfolio/thebuttercreambus/mockup-2.webp", alt: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design screenshot 2", caption: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design - View 2" },
-    { src: "/images/portfolio/thebuttercreambus/mockup-3.webp", alt: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design screenshot 3", caption: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design - View 3" },
-    { src: "/images/portfolio/thebuttercreambus/mockup-4.webp", alt: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design screenshot 4", caption: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design - View 4" },
-    { src: "/images/portfolio/thebuttercreambus/mockup-5.webp", alt: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design screenshot 5", caption: "Mobile Bakery Site - E-Commerce, GPS Tracking, AI Cake Design - View 5" }
-    ],
-  },
-  {
-    slug: "ultrawindows",
-    title: "Ultra Windows - Aluminum Glazing Online Store & Trade Portal",
-    category: "AI",
-    tags: ["AI", "E-Commerce"],
-    shortDesc: "The public website for a UK premium aluminum glazing manufacturer, built around a live-pricing \"Design & Quote\" tool.",
-    description: "Ultra Windows is a UK premium aluminum glazing manufacturer's website built around a live-pricing \"Design & Quote\" tool, with a faster \"Quick Sizes\" option, backed by a 10-year guarantee and UK manufacturing as trust signals. A separate trade portal on its own address gives installers saved quotes and order tracking. This write-up covers the live customer-facing website; the trade portal was mentioned but not independently reviewed.",
-    problem: "Customers buying custom windows and doors want to see a price quickly and trust that the product is high quality.",
-    solution: "The website lets customers design a product and see a live price, with a faster \"Quick Sizes\" option for standard sizes, and builds trust with a 10-year guarantee and UK manufacturing. Installers have a separate trade portal with saved quotes and order tracking.",
-    results: [
-      "Live-pricing \"Design & Quote\" tool with a faster \"Quick Sizes\" option",
-      "10-year guarantee and UK manufacturing shown as trust signals",
-      "A separate trade portal with saved quotes and order tracking"
-    ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
-    gradientFrom: "#29b6f6",
-    gradientTo: "#0288d1",
-    featured: false,
-    image: "/images/portfolio/ultrawindows/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/ultrawindows/mockup-1.webp", alt: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal screenshot 1", caption: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal - View 1" },
-    { src: "/images/portfolio/ultrawindows/mockup-2.webp", alt: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal screenshot 2", caption: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal - View 2" },
-    { src: "/images/portfolio/ultrawindows/mockup-3.webp", alt: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal screenshot 3", caption: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal - View 3" },
-    { src: "/images/portfolio/ultrawindows/mockup-4.webp", alt: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal screenshot 4", caption: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal - View 4" },
-    { src: "/images/portfolio/ultrawindows/mockup-5.webp", alt: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal screenshot 5", caption: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal - View 5" },
-    { src: "/images/portfolio/ultrawindows/mockup-6.webp", alt: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal screenshot 6", caption: "Ultra Windows - Aluminium Glazing E-Commerce & Trade Portal - View 6" }
-    ],
-  },
-  {
     slug: "apollo-credit-processing",
     title: "Apollo Credit Processing - Secure Server Setup on GoDaddy",
-    category: "AI",
+    category: "Web",
     tags: ["AI", "Web App"],
     shortDesc: "Moved a client's credit-repair web portal onto a secure, properly protected GoDaddy server in one day.",
     description: "I moved a client's credit-repair web portal onto a GoDaddy server in one day. I locked down the server so only approved access is allowed, turned on protection against repeated sign-in attempts, fixed automatic updates that had silently stopped, ran the app in a secure, isolated way with a secure HTTPS connection, got Microsoft 365 email sending working, tested the Square payment connection live, set up nightly backups, and switched the domain over without touching email settings. Live at apollocreditprocessing.com.",
@@ -1853,7 +1770,7 @@ export const projects: Project[] = [
       "Nightly backups set up",
       "Domain switched over without touching email settings"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Node.js", "Ubuntu", "Caddy", "Square"],
     gradientFrom: "#ffca28",
     gradientTo: "#ffb300",
     featured: false,
@@ -1869,7 +1786,7 @@ export const projects: Project[] = [
   {
     slug: "bizbuybox",
     title: "Biz Buy Box - AI Deal Sourcing & Evaluation Platform",
-    category: "SaaS",
+    category: "AI",
     tags: ["Software", "Web App", "Website", "Dashboard"],
     shortDesc: "An AI-powered platform for independent business buyers to find, score and evaluate businesses for sale.",
     description: "Biz Buy Box is an AI-powered business-buying platform I built from start to finish for independent business searchers. It scores businesses for sale against the buyer's own weighted criteria, models SBA, seller-note and conventional financing combinations with real debt-coverage figures, and includes a four-part AI toolkit (Deal Inspector, CIM Review, Business Plan, Buyer Profile) plus a full deal pipeline dashboard, replacing spreadsheet-based evaluation with one clear, auditable workspace.",
@@ -1881,7 +1798,7 @@ export const projects: Project[] = [
       "A four-part AI toolkit: Deal Inspector, CIM Review, Business Plan and Buyer Profile",
       "A full deal pipeline dashboard replacing manual spreadsheets"
     ],
-    technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
+    technologies: ["Next.js"],
     gradientFrom: "#ff7043",
     gradientTo: "#f4511e",
     featured: false,
@@ -1897,7 +1814,7 @@ export const projects: Project[] = [
   {
     slug: "buyshopo",
     title: "Shopo Admin - Fashion Online Store Admin Dashboard",
-    category: "AI",
+    category: "SaaS",
     tags: ["AI", "Web App", "Dashboard", "E-Commerce"],
     shortDesc: "An admin dashboard for a fashion online store, covering the whole back office without any coding.",
     description: "Shopo Admin is an admin dashboard I built for the Buyshopo fashion online store, covering the whole back office: a dashboard that leads with key numbers, catalog and multi-vendor brand management with commission tracking, orders and customers, a banner marketing tool with click tracking, and a full appearance and layout settings panel, giving non-technical staff complete control without touching code.",
@@ -1909,7 +1826,7 @@ export const projects: Project[] = [
       "Orders and customers in one place",
       "A banner marketing tool with click tracking and full appearance settings"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["React", "Redux"],
     gradientFrom: "#26c6da",
     gradientTo: "#00acc1",
     featured: false,
@@ -1925,7 +1842,7 @@ export const projects: Project[] = [
   {
     slug: "carsuvparts",
     title: "CarSUVParts - Auto Parts Online Store with Vehicle Search (Phase 1)",
-    category: "AI",
+    category: "Web",
     tags: ["AI", "Web App", "Dashboard", "Integrations"],
     shortDesc: "Phase 1 of an online auto parts store, live at carsuvparts.com, with vehicle lookup by VIN.",
     description: "I built phase 1 of CarSUVParts, the pre-launch website for a planned drop-shipping auto parts store, live at carsuvparts.com. It includes real vehicle lookup by VIN using a US government database, a working cart that sends orders by email, search suggestions, a 71-make brand grid, policy pages, search optimization and a mock-up of an admin dashboard with demo data. Still in progress: suppliers and payments are not connected yet.",
@@ -1937,7 +1854,7 @@ export const projects: Project[] = [
       "A working cart that sends orders by email, with search suggestions and a 71-make brand grid",
       "Policy pages, search optimization and an admin dashboard mock-up with demo data"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Vite", "React", "TypeScript", "Vercel"],
     gradientFrom: "#ef5350",
     gradientTo: "#e53935",
     featured: false,
@@ -1966,7 +1883,7 @@ export const projects: Project[] = [
       "Embroidery and DTF pricing fixed",
       "Guest customers captured, with staff alerts and cart reminders"
     ],
-    technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
+    technologies: ["Next.js", "Supabase", "Clerk", "Stripe", "UPS", "QuickBooks"],
     gradientFrom: "#a1c4fd",
     gradientTo: "#c2e9fb",
     featured: false,
@@ -1994,7 +1911,7 @@ export const projects: Project[] = [
       "Takes cuisine, time, allergies and household size into account",
       "A marketing website and the app in one complete journey"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Bolt.new", "React"],
     gradientFrom: "#43e97b",
     gradientTo: "#38f9d7",
     featured: false,
@@ -2010,7 +1927,7 @@ export const projects: Project[] = [
   {
     slug: "gojetparts",
     title: "GoJetParts - Aviation Parts Referral Marketplace (First Version)",
-    category: "AI",
+    category: "Web",
     tags: ["AI", "Website", "Integrations"],
     shortDesc: "The first version of an aviation parts referral marketplace, with part search and quote requests that track where each lead came from.",
     description: "I built the first-phase version of GoJetParts.com, an aviation parts referral marketplace. It has catalog search, a page for each part designed to work as an advertising landing page, a quote-request pop-up that remembers where the visitor came from (including from ads) as they browse, and a lead system that identifies the partner and tracking code behind the scenes, then emails the lead and records a Google Analytics conversion. Assumptions are documented for phase 2.",
@@ -2022,7 +1939,7 @@ export const projects: Project[] = [
       "Leads emailed and recorded as Google Analytics conversions",
       "Assumptions documented for phase 2"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Next.js", "Tailwind CSS", "Resend"],
     gradientFrom: "#78909c",
     gradientTo: "#546e7a",
     featured: false,
@@ -2038,7 +1955,7 @@ export const projects: Project[] = [
   {
     slug: "guardremote",
     title: "GuardRemote - Smart Security Online Store (In Progress)",
-    category: "AI",
+    category: "Web",
     tags: ["AI", "Web App", "Website"],
     shortDesc: "An ongoing build of a smart-security hardware store, live at guardremote.com.",
     description: "An ongoing build of GuardRemote, a smart-security hardware store live at guardremote.com. I built a fast store with 17 product pages, 10 landing pages for different audiences, product bundles, quote forms that send by email with a backup option, a supplier feed importer that applies a 30% margin, and search optimization basics. I also redesigned it with a light, frosted-glass look. Checkout isn't built yet and the catalog still uses placeholder data.",
@@ -2050,7 +1967,7 @@ export const projects: Project[] = [
       "Bundles, quote forms and a supplier feed importer with a 30% margin",
       "Still in progress: checkout isn't built yet and the catalog uses placeholder data"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Next.js", "Tailwind CSS", "Vercel"],
     gradientFrom: "#66bb6a",
     gradientTo: "#43a047",
     featured: false,
@@ -2061,33 +1978,6 @@ export const projects: Project[] = [
     { src: "/images/portfolio/guardremote/mockup-3.webp", alt: "GuardRemote — Smart-Security Storefront on Next.js 16 (In Progress) screenshot 3", caption: "GuardRemote — Smart-Security Storefront on Next.js 16 (In Progress) - View 3" },
     { src: "/images/portfolio/guardremote/mockup-4.webp", alt: "GuardRemote — Smart-Security Storefront on Next.js 16 (In Progress) screenshot 4", caption: "GuardRemote — Smart-Security Storefront on Next.js 16 (In Progress) - View 4" },
     { src: "/images/portfolio/guardremote/mockup-5.webp", alt: "GuardRemote — Smart-Security Storefront on Next.js 16 (In Progress) screenshot 5", caption: "GuardRemote — Smart-Security Storefront on Next.js 16 (In Progress) - View 5" }
-    ],
-  },
-  {
-    slug: "herruby",
-    title: "Her Ruby - Midlife Wellness Platform for Canadian Women",
-    category: "SaaS",
-    tags: ["Software", "Web App", "Mobile"],
-    shortDesc: "A phone-first wellness platform for Canadian women going through perimenopause and midlife burnout.",
-    description: "Her Ruby is a phone-first wellness platform I designed and built for Canadian women going through perimenopause and midlife burnout, following Canada's PIPEDA privacy law. It is built around four pillars: personalized body tracking, expert-curated programs, verified peer communities and an employer-fundable \"Wellness Wallet\" credits system. It also serves HR teams with anonymous group reports. Since launch it has supported 2,400+ women, with 94% reporting increased energy and a 4.9-star rating.",
-    problem: "Women going through perimenopause and midlife burnout had few wellness options built for them, and employers had no easy way to support them privately.",
-    solution: "We built a phone-first platform around four pillars: personalized body tracking, expert-curated programs, verified peer communities and an employer-fundable \"Wellness Wallet\" credits system, plus anonymous group reporting for HR teams, all following Canada's PIPEDA privacy law.",
-    results: [
-      "Supported 2,400+ women since launch",
-      "94% reporting increased energy and a 4.9-star rating",
-      "Four pillars: body tracking, expert programs, peer communities and a Wellness Wallet",
-      "Anonymous group reporting for HR teams"
-    ],
-    technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
-    gradientFrom: "#a1c4fd",
-    gradientTo: "#c2e9fb",
-    featured: false,
-    image: "/images/portfolio/herruby/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/herruby/mockup-1.webp", alt: "Her Ruby — Midlife Wellness Platform for Canadian Women screenshot 1", caption: "Her Ruby — Midlife Wellness Platform for Canadian Women - View 1" },
-    { src: "/images/portfolio/herruby/mockup-2.webp", alt: "Her Ruby — Midlife Wellness Platform for Canadian Women screenshot 2", caption: "Her Ruby — Midlife Wellness Platform for Canadian Women - View 2" },
-    { src: "/images/portfolio/herruby/mockup-3.webp", alt: "Her Ruby — Midlife Wellness Platform for Canadian Women screenshot 3", caption: "Her Ruby — Midlife Wellness Platform for Canadian Women - View 3" },
-    { src: "/images/portfolio/herruby/mockup-4.webp", alt: "Her Ruby — Midlife Wellness Platform for Canadian Women screenshot 4", caption: "Her Ruby — Midlife Wellness Platform for Canadian Women - View 4" }
     ],
   },
   {
@@ -2106,7 +1996,7 @@ export const projects: Project[] = [
       "SMS and WhatsApp notifications for each country",
       "Usage-based billing and an administrator console with a full activity record"
     ],
-    technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
+    technologies: ["NestJS", "PostgreSQL", "Orthanc"],
     gradientFrom: "#5c6bc0",
     gradientTo: "#3949ab",
     featured: false,
@@ -2117,33 +2007,6 @@ export const projects: Project[] = [
     { src: "/images/portfolio/moja-platform/mockup-3.webp", alt: "Moja Platform — DICOM Medical-Imaging Distribution System screenshot 3", caption: "Moja Platform — DICOM Medical-Imaging Distribution System - View 3" },
     { src: "/images/portfolio/moja-platform/mockup-4.webp", alt: "Moja Platform — DICOM Medical-Imaging Distribution System screenshot 4", caption: "Moja Platform — DICOM Medical-Imaging Distribution System - View 4" },
     { src: "/images/portfolio/moja-platform/mockup-5.webp", alt: "Moja Platform — DICOM Medical-Imaging Distribution System screenshot 5", caption: "Moja Platform — DICOM Medical-Imaging Distribution System - View 5" }
-    ],
-  },
-  {
-    slug: "moler-ai",
-    title: "Molar AI - Automated Social Media Growth for Dental Practices",
-    category: "SaaS",
-    tags: ["Software", "Web App", "Website", "Integrations"],
-    shortDesc: "A service that automatically creates and schedules daily social media posts for dental practices.",
-    description: "Molar AI is a service I built that automatically creates and schedules daily, on-brand, professionally credible social media posts for dental practices, live about 24 hours after sign-up. For one client it grew a following from 159 to 10.2K, contributing to 5.8M+ organic views across the platform.",
-    problem: "Dental practices need a steady social media presence but agencies are expensive and doing it themselves takes too much time.",
-    solution: "We built a service that creates and schedules daily, on-brand posts for each practice and is live about 24 hours after onboarding.",
-    results: [
-      "Live about 24 hours after sign-up",
-      "One client grew from 159 to 10.2K followers",
-      "5.8M+ organic views across the platform"
-    ],
-    technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
-    gradientFrom: "#4facfe",
-    gradientTo: "#00f2fe",
-    featured: false,
-    image: "/images/portfolio/moler-ai/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/moler-ai/mockup-1.webp", alt: "Molar AI — Automated Social Media Growth Platform for Dental Practices screenshot 1", caption: "Molar AI — Automated Social Media Growth Platform for Dental Practices - View 1" },
-    { src: "/images/portfolio/moler-ai/mockup-2.webp", alt: "Molar AI — Automated Social Media Growth Platform for Dental Practices screenshot 2", caption: "Molar AI — Automated Social Media Growth Platform for Dental Practices - View 2" },
-    { src: "/images/portfolio/moler-ai/mockup-3.webp", alt: "Molar AI — Automated Social Media Growth Platform for Dental Practices screenshot 3", caption: "Molar AI — Automated Social Media Growth Platform for Dental Practices - View 3" },
-    { src: "/images/portfolio/moler-ai/mockup-4.webp", alt: "Molar AI — Automated Social Media Growth Platform for Dental Practices screenshot 4", caption: "Molar AI — Automated Social Media Growth Platform for Dental Practices - View 4" },
-    { src: "/images/portfolio/moler-ai/mockup-5.webp", alt: "Molar AI — Automated Social Media Growth Platform for Dental Practices screenshot 5", caption: "Molar AI — Automated Social Media Growth Platform for Dental Practices - View 5" }
     ],
   },
   {
@@ -2161,7 +2024,7 @@ export const projects: Project[] = [
       "Security protections added and email-sending errors made clear",
       "Everything tested and sent for review, not yet merged"
     ],
-    technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
+    technologies: ["React", "Vite", "Express", "Prisma", "Supabase", "Railway"],
     gradientFrom: "#43e97b",
     gradientTo: "#38f9d7",
     featured: false,
@@ -2188,7 +2051,7 @@ export const projects: Project[] = [
       "An internal dashboard of about 15 screens for articles, tips, sources and ad sponsors",
       "Shared 8 categories and 15 neighborhoods across both parts"
     ],
-    technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
+    technologies: ["React", "Vite"],
     gradientFrom: "#29b6f6",
     gradientTo: "#0288d1",
     featured: false,
@@ -2204,7 +2067,7 @@ export const projects: Project[] = [
   {
     slug: "paul-holland-mountain",
     title: "Holland Mountain - Email Code Access Gate",
-    category: "AI",
+    category: "Web",
     tags: ["AI", "Website", "Integrations"],
     shortDesc: "A secure sign-in gate protecting an interactive presentation of 68 AI use cases for a private-capital consultancy.",
     description: "I built a secure sign-in gate for Holland Mountain, a private-capital consultancy, protecting a client-facing interactive presentation of 68 AI use cases. It uses an approved list of email addresses, so only approved people ever receive a one-time sign-in code, with a custom branded sign-in screen and the protected content stored separately, so a new presentation can be dropped in with no risk to the sign-in system.",
@@ -2216,7 +2079,7 @@ export const projects: Project[] = [
       "A new presentation can be added with no risk to the sign-in",
       "Protects an interactive presentation of 68 AI use cases"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["Next.js", "Clerk"],
     gradientFrom: "#ffca28",
     gradientTo: "#ffb300",
     featured: false,
@@ -2232,7 +2095,7 @@ export const projects: Project[] = [
   {
     slug: "robin-cut-scorer",
     title: "Cricket Live-Scoring App - Refresh & Scoring-Freeze Fixes",
-    category: "AI",
+    category: "SaaS",
     tags: ["AI"],
     shortDesc: "A bug-fix project on a client's cricket live-scoring app: tournaments vanishing on refresh and scoring freezing.",
     description: "A bug-fix project on a client's existing cricket live-scoring app. I traced tournaments vanishing on refresh to a stray character stopping the app from loading, and scoring freezes to the Undo history filling up the browser's storage. I fixed both without changing the database, added a retrying save queue and support for lists beyond 1,000 rows, and verified 19 of 19 checks on the live data. I later added scorer roles with protected access and net run rate.",
@@ -2245,7 +2108,7 @@ export const projects: Project[] = [
       "19 of 19 checks passed on the live data",
       "Later added scorer roles with protected access and net run rate"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["JavaScript", "Supabase"],
     gradientFrom: "#fccb90",
     gradientTo: "#d57eeb",
     featured: false,
@@ -2273,7 +2136,7 @@ export const projects: Project[] = [
       "Deals matched to each buyer's custom criteria and emailed with a full profit breakdown",
       "Subscription billing built in"
     ],
-    technologies: ["React", "Node.js", "PostgreSQL", "REST API"],
+    technologies: ["Next.js", "Node.js"],
     gradientFrom: "#29b6f6",
     gradientTo: "#0288d1",
     featured: false,
@@ -2289,7 +2152,7 @@ export const projects: Project[] = [
   {
     slug: "wellness-platinum-spa",
     title: "Platinum Wellness Spa - Booking App with Locked-Down Practice System",
-    category: "AI",
+    category: "SaaS",
     tags: ["AI", "Integrations"],
     shortDesc: "An installable booking app for a luxury spa that sits in front of a locked-down, health-privacy-sensitive practice system.",
     description: "I built an installable booking app for a luxury day and medical spa. It sits in front of a locked-down, health-privacy-sensitive practice management system that allows only a limited number of requests per day. A middle layer groups availability checks and learns which providers are qualified, while booking requests go through a separate email path that never touches the practice system and always appears as a \"request,\" not a confirmed booking. Also built: rebooking, an FAQ chatbot and a linked lead-capture website.",
@@ -2301,7 +2164,7 @@ export const projects: Project[] = [
       "Booking requests that never touch the practice system",
       "Rebooking, an FAQ chatbot and a linked lead-capture website"
     ],
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+    technologies: ["JavaScript", "Netlify Functions", "Supabase"],
     gradientFrom: "#ffca28",
     gradientTo: "#ffb300",
     featured: false,
@@ -2328,7 +2191,7 @@ export const projects: Project[] = [
       "A blog built without a separate content management system",
       "Content targeting specific searches around AI app builders"
     ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
+    technologies: ["Next.js", "React"],
     gradientFrom: "#ffca28",
     gradientTo: "#ffb300",
     featured: false,
@@ -2361,7 +2224,7 @@ export const projects: Project[] = [
       "Statistics calculated fresh so they never go out of date",
       "Animations that respect visitors who prefer reduced motion"
     ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
+    technologies: ["HTML", "CSS", "JavaScript"],
     gradientFrom: "#5c6bc0",
     gradientTo: "#3949ab",
     featured: false,
@@ -2372,88 +2235,6 @@ export const projects: Project[] = [
     { src: "/images/portfolio/bukky-osifeso/mockup-3.webp", alt: "Bukky Osifeso — Personal & Speaker Website (hand-coded, single-file) screenshot 3", caption: "Bukky Osifeso — Personal & Speaker Website (hand-coded, single-file) - View 3" },
     { src: "/images/portfolio/bukky-osifeso/mockup-4.webp", alt: "Bukky Osifeso — Personal & Speaker Website (hand-coded, single-file) screenshot 4", caption: "Bukky Osifeso — Personal & Speaker Website (hand-coded, single-file) - View 4" },
     { src: "/images/portfolio/bukky-osifeso/mockup-5.webp", alt: "Bukky Osifeso — Personal & Speaker Website (hand-coded, single-file) screenshot 5", caption: "Bukky Osifeso — Personal & Speaker Website (hand-coded, single-file) - View 5" }
-    ],
-  },
-  {
-    slug: "cdieng",
-    title: "TianCheng Development Group - Marketing Website",
-    category: "Web",
-    tags: ["Web Design", "Website", "Web"],
-    shortDesc: "The public marketing website for TianCheng Development Group, a real estate developer whose pitch is one accountable team.",
-    description: "I built the public marketing website for TianCheng Development Group, a real estate developer whose pitch is one accountable team handling design, permits and construction. It's a fast website covering a five-phase process, six development sectors and a contact form with checks, with the details Google needs to show it properly, and a set of page components built to match a visual reference and then filled with the client's real content.",
-    problem: "A developer whose pitch is one accountable team needed a website that explains its process and the types of projects it handles.",
-    solution: "We built a fast website covering a five-phase process, six development sectors and a contact form with checks, with the details Google needs to show it properly. The pages were built to match a visual reference and then filled with the client's real content.",
-    results: [
-      "A five-phase process and six development sectors clearly explained",
-      "A contact form with checks",
-      "Details set up so Google and social sites show the website properly"
-    ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
-    gradientFrom: "#9ccc65",
-    gradientTo: "#7cb342",
-    featured: false,
-    image: "/images/portfolio/cdieng/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/cdieng/mockup-1.webp", alt: "TianCheng Development Group — Marketing Website (Next.js) screenshot 1", caption: "TianCheng Development Group — Marketing Website (Next.js) - View 1" },
-    { src: "/images/portfolio/cdieng/mockup-2.webp", alt: "TianCheng Development Group — Marketing Website (Next.js) screenshot 2", caption: "TianCheng Development Group — Marketing Website (Next.js) - View 2" },
-    { src: "/images/portfolio/cdieng/mockup-3.webp", alt: "TianCheng Development Group — Marketing Website (Next.js) screenshot 3", caption: "TianCheng Development Group — Marketing Website (Next.js) - View 3" },
-    { src: "/images/portfolio/cdieng/mockup-4.webp", alt: "TianCheng Development Group — Marketing Website (Next.js) screenshot 4", caption: "TianCheng Development Group — Marketing Website (Next.js) - View 4" },
-    { src: "/images/portfolio/cdieng/mockup-5.webp", alt: "TianCheng Development Group — Marketing Website (Next.js) screenshot 5", caption: "TianCheng Development Group — Marketing Website (Next.js) - View 5" }
-    ],
-  },
-  {
-    slug: "eastendvintagesale",
-    title: "East End Vintage Sale - Event Branding for a Toronto Pop-Up",
-    category: "Web",
-    tags: ["Web Design", "Web"],
-    shortDesc: "A retro pink-and-white brand look and a single-page event website for a Toronto community vintage-clothing pop-up.",
-    description: "I designed a retro pink-and-white, halftone-photography brand look and a single-page event website for the second edition of a Toronto community vintage-clothing pop-up, on a limited budget and with no permanent website. The page shows the date, place and what to expect at a glance, and answers visitors' likely questions about the atmosphere and location, driving RSVPs and social media activity ahead of the event.",
-    problem: "A one-day pop-up with a limited budget and no permanent website needed to bring people back for its second edition.",
-    solution: "We designed a retro pink-and-white brand look with halftone photography and a single-page event website showing the date, place and what to expect at a glance, and answering questions about the atmosphere and location.",
-    results: [
-      "A retro pink-and-white brand look with halftone photography",
-      "Date, place and what to expect at a glance",
-      "Designed to drive RSVPs and social media activity ahead of the event"
-    ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
-    gradientFrom: "#78909c",
-    gradientTo: "#546e7a",
-    featured: false,
-    image: "/images/portfolio/eastendvintagesale/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/eastendvintagesale/mockup-1.webp", alt: "East End Vintage Sale — Event Branding for a Toronto Pop-Up screenshot 1", caption: "East End Vintage Sale — Event Branding for a Toronto Pop-Up - View 1" },
-    { src: "/images/portfolio/eastendvintagesale/mockup-2.webp", alt: "East End Vintage Sale — Event Branding for a Toronto Pop-Up screenshot 2", caption: "East End Vintage Sale — Event Branding for a Toronto Pop-Up - View 2" },
-    { src: "/images/portfolio/eastendvintagesale/mockup-3.webp", alt: "East End Vintage Sale — Event Branding for a Toronto Pop-Up screenshot 3", caption: "East End Vintage Sale — Event Branding for a Toronto Pop-Up - View 3" },
-    { src: "/images/portfolio/eastendvintagesale/mockup-4.webp", alt: "East End Vintage Sale — Event Branding for a Toronto Pop-Up screenshot 4", caption: "East End Vintage Sale — Event Branding for a Toronto Pop-Up - View 4" },
-    { src: "/images/portfolio/eastendvintagesale/mockup-5.webp", alt: "East End Vintage Sale — Event Branding for a Toronto Pop-Up screenshot 5", caption: "East End Vintage Sale — Event Branding for a Toronto Pop-Up - View 5" }
-    ],
-  },
-  {
-    slug: "island-traffic",
-    title: "Long Island Traffic Defense - Attorney Website",
-    category: "Web",
-    tags: ["Web Design", "Mobile", "Web"],
-    shortDesc: "A bilingual (English and Spanish) single-page website for a Long Island traffic-defense attorney, designed to win calls.",
-    description: "I built a bilingual (English and Spanish) single-page website for a Long Island traffic-defense attorney, covering the main practice areas and leading with trust signals: 20+ years appearing in named Nassau and Suffolk courts, the real insurance cost of an unchallenged ticket, and Spanish-language support called out at the top. Repeated tap-to-act buttons and a dark navy theme are designed for an anxious, phone-first audience. It is live online with content written around local searches.",
-    problem: "Drivers with a ticket are anxious, usually on their phone, and need to quickly trust a lawyer and contact them.",
-    solution: "We built a bilingual single page that leads with trust signals: 20+ years in named Nassau and Suffolk courts, the real insurance cost of an unchallenged ticket, and Spanish-language support at the top. Repeated tap-to-act buttons and a dark navy theme are designed for an anxious, phone-first audience, and the content is written around local searches.",
-    results: [
-      "English and Spanish on one page",
-      "Trust signals: 20+ years in named Nassau and Suffolk courts",
-      "Repeated tap-to-act buttons for phone visitors",
-      "Content written around local searches"
-    ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
-    gradientFrom: "#f093fb",
-    gradientTo: "#f5576c",
-    featured: false,
-    image: "/images/portfolio/island-traffic/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/island-traffic/mockup-1.webp", alt: "Long Island Traffic Defense — Attorney Website screenshot 1", caption: "Long Island Traffic Defense — Attorney Website - View 1" },
-    { src: "/images/portfolio/island-traffic/mockup-2.webp", alt: "Long Island Traffic Defense — Attorney Website screenshot 2", caption: "Long Island Traffic Defense — Attorney Website - View 2" },
-    { src: "/images/portfolio/island-traffic/mockup-3.webp", alt: "Long Island Traffic Defense — Attorney Website screenshot 3", caption: "Long Island Traffic Defense — Attorney Website - View 3" },
-    { src: "/images/portfolio/island-traffic/mockup-4.webp", alt: "Long Island Traffic Defense — Attorney Website screenshot 4", caption: "Long Island Traffic Defense — Attorney Website - View 4" },
-    { src: "/images/portfolio/island-traffic/mockup-5.webp", alt: "Long Island Traffic Defense — Attorney Website screenshot 5", caption: "Long Island Traffic Defense — Attorney Website - View 5" }
     ],
   },
   {
@@ -2470,7 +2251,7 @@ export const projects: Project[] = [
       "Terms, Privacy and Refund pages for advertising platforms and payment processors",
       "Simple enough for a non-technical marketer to edit"
     ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
+    technologies: ["HTML", "Tailwind CSS"],
     gradientFrom: "#8d6e63",
     gradientTo: "#6d4c41",
     featured: false,
@@ -2481,35 +2262,6 @@ export const projects: Project[] = [
     { src: "/images/portfolio/mito-shred/mockup-3.webp", alt: "MitoShred — Direct-Response Supplement Offer Page + Compliance Pages screenshot 3", caption: "MitoShred — Direct-Response Supplement Offer Page + Compliance Pages - View 3" },
     { src: "/images/portfolio/mito-shred/mockup-4.webp", alt: "MitoShred — Direct-Response Supplement Offer Page + Compliance Pages screenshot 4", caption: "MitoShred — Direct-Response Supplement Offer Page + Compliance Pages - View 4" },
     { src: "/images/portfolio/mito-shred/mockup-5.webp", alt: "MitoShred — Direct-Response Supplement Offer Page + Compliance Pages screenshot 5", caption: "MitoShred — Direct-Response Supplement Offer Page + Compliance Pages - View 5" }
-    ],
-  },
-  {
-    slug: "portland-self-defense",
-    title: "Form Security, GoHighLevel CRM & Meta Tracking - Portland Self-Defense",
-    category: "Web",
-    tags: ["Web Design", "Integrations", "Web"],
-    shortDesc: "A fix-and-verify project on a large martial-arts school website: safer forms, CRM connection and accurate ad tracking.",
-    description: "A fix-and-verify project on a large martial-arts school website. I delivered stronger protection for the public forms (spam and bot checks), a GoHighLevel CRM connection that records every lead correctly labeled, and de-duplicated Meta (Facebook) purchase tracking on the Stripe introductory-offer checkout. Four separate lead forms were combined into one shared process so fixes are made once, in one place.",
-    problem: "The school's large website had lead forms open to spam, leads not reaching the CRM correctly, and purchase tracking that was counting purchases twice.",
-    solution: "We added stronger spam and bot protection to the public forms, connected every lead to GoHighLevel with the right labels, and de-duplicated Meta purchase tracking on the Stripe introductory-offer checkout. Four separate lead forms now use one shared process, so a fix is made once and applies everywhere.",
-    results: [
-      "Stronger protection against spam and bots on public forms",
-      "Every lead recorded in GoHighLevel with the right labels",
-      "De-duplicated Meta purchase tracking on the introductory-offer checkout",
-      "Four lead forms combined into one shared process"
-    ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
-    gradientFrom: "#fa709a",
-    gradientTo: "#fee140",
-    featured: false,
-    image: "/images/portfolio/portland-self-defense/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/portland-self-defense/mockup-1.webp", alt: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense screenshot 1", caption: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense - View 1" },
-    { src: "/images/portfolio/portland-self-defense/mockup-2.webp", alt: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense screenshot 2", caption: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense - View 2" },
-    { src: "/images/portfolio/portland-self-defense/mockup-3.webp", alt: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense screenshot 3", caption: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense - View 3" },
-    { src: "/images/portfolio/portland-self-defense/mockup-4.webp", alt: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense screenshot 4", caption: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense - View 4" },
-    { src: "/images/portfolio/portland-self-defense/mockup-5.webp", alt: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense screenshot 5", caption: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense - View 5" },
-    { src: "/images/portfolio/portland-self-defense/mockup-6.webp", alt: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense screenshot 6", caption: "Form Security, GoHighLevel CRM & Meta CAPI — Portland Self-Defense - View 6" }
     ],
   },
   {
@@ -2527,7 +2279,7 @@ export const projects: Project[] = [
       "A direct link to Amazon and an email sign-up",
       "A very fast-loading page, styled differently from the author's personal site"
     ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
+    technologies: ["HTML", "CSS"],
     gradientFrom: "#667eea",
     gradientTo: "#764ba2",
     featured: false,
@@ -2555,7 +2307,7 @@ export const projects: Project[] = [
       "Optimized images and a full build guide",
       "In progress: the Wix editor build and phone layout come next"
     ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
+    technologies: ["Wix"],
     gradientFrom: "#a18cd1",
     gradientTo: "#fbc2eb",
     featured: false,
@@ -2582,7 +2334,7 @@ export const projects: Project[] = [
       "Google Search Console set up",
       "A recurring monthly SEO check"
     ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
+    technologies: ["WordPress", "Elementor"],
     gradientFrom: "#667eea",
     gradientTo: "#764ba2",
     featured: false,
@@ -2611,7 +2363,7 @@ export const projects: Project[] = [
       "Text, call or form on every call to action",
       "Local search content for seven Phoenix-area cities"
     ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
+    technologies: ["HTML", "CSS", "JavaScript"],
     gradientFrom: "#5c6bc0",
     gradientTo: "#3949ab",
     featured: false,
@@ -2623,34 +2375,6 @@ export const projects: Project[] = [
     { src: "/images/portfolio/whartoncarpetcleaning/mockup-4.webp", alt: "Wharton Carpet Cleaning — Local Service Business Website screenshot 4", caption: "Wharton Carpet Cleaning — Local Service Business Website - View 4" },
     { src: "/images/portfolio/whartoncarpetcleaning/mockup-5.webp", alt: "Wharton Carpet Cleaning — Local Service Business Website screenshot 5", caption: "Wharton Carpet Cleaning — Local Service Business Website - View 5" },
     { src: "/images/portfolio/whartoncarpetcleaning/mockup-6.webp", alt: "Wharton Carpet Cleaning — Local Service Business Website screenshot 6", caption: "Wharton Carpet Cleaning — Local Service Business Website - View 6" }
-    ],
-  },
-  {
-    slug: "wideeyedgiantcom",
-    title: "Wide Eyed Giant - WordPress Layout Rescue & Styling Cleanup",
-    category: "Web",
-    tags: ["Web Design", "WordPress", "Web"],
-    shortDesc: "Found and fixed a layout alignment problem on a membership recipe blog.",
-    description: "I diagnosed and fixed a layout alignment problem on a membership recipe blog: the real spacing came from per-widget settings in the page builder that cannot be seen in the stylesheet, not from the 1,735 lines of additional styling (which mostly targeted a template that had been removed). I replaced it with 265 lines organized per page, rebuilt the subcategory row as a fixed grid, and checked alignment across six screen sizes, also catching a silent WordPress problem that was quietly losing styling data.",
-    problem: "The recipe blog's layout had drifted out of alignment across screen sizes, and the existing styling didn't explain why.",
-    solution: "We found that the real spacing came from per-widget settings in the page builder that cannot be seen in the stylesheet. We replaced 1,735 lines of mostly outdated styling with 265 lines organized per page, rebuilt the subcategory row as a fixed grid, and checked alignment across six screen sizes.",
-    results: [
-      "Layout alignment fixed across six screen sizes",
-      "1,735 lines of outdated styling replaced with 265",
-      "Subcategory row rebuilt as a fixed grid",
-      "Caught a silent WordPress problem that was quietly losing styling data"
-    ],
-    technologies: ["React", "Next.js", "TailwindCSS", "Node.js"],
-    gradientFrom: "#4facfe",
-    gradientTo: "#00f2fe",
-    featured: false,
-    image: "/images/portfolio/wideeyedgiantcom/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/wideeyedgiantcom/mockup-1.webp", alt: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup screenshot 1", caption: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup - View 1" },
-    { src: "/images/portfolio/wideeyedgiantcom/mockup-2.webp", alt: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup screenshot 2", caption: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup - View 2" },
-    { src: "/images/portfolio/wideeyedgiantcom/mockup-3.webp", alt: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup screenshot 3", caption: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup - View 3" },
-    { src: "/images/portfolio/wideeyedgiantcom/mockup-4.webp", alt: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup screenshot 4", caption: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup - View 4" },
-    { src: "/images/portfolio/wideeyedgiantcom/mockup-5.webp", alt: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup screenshot 5", caption: "Wide Eyed Giant — WordPress / Elementor Layout Rescue & CSS Cleanup - View 5" }
     ],
   },
 ];

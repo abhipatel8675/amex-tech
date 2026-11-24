@@ -49,6 +49,23 @@ const nextConfig: NextConfig = {
         destination: "/portfolio/wolfe-property",
         permanent: true,
       },
+      // Duplicate case studies (same client listed twice) now point to the one we keep.
+      ...[
+        ["expert-village", "expert-village-media"],
+        ["ultrawindows", "ultra-windows"],
+        ["thebuttercreambus", "buttercream-bus"],
+        ["island-traffic", "island-traffic-defense"],
+        ["eastendvintagesale", "east-end-vintage-sale"],
+        ["wideeyedgiantcom", "wide-eyed-giant"],
+        ["moler-ai", "molar-ai"],
+        ["herruby", "herruby-app"],
+        ["cdieng", "tiancheng-development-group"],
+        ["portland-self-defense", "portland-self-defense-crm"],
+      ].map(([from, to]) => ({
+        source: `/portfolio/${from}`,
+        destination: `/portfolio/${to}`,
+        permanent: true,
+      })),
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.amextechnology.com" }],

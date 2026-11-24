@@ -47,12 +47,12 @@ function TechChips({ items, max = 4, dark = false }: { items: string[]; max?: nu
   return (
     <ul className="flex flex-wrap gap-1.5">
       {shown.map((t) => (
-        <li key={t} className={`text-[11px] font-medium px-2 py-0.5 rounded-full ${chip}`}>
+        <li key={t} className={`text-[13px] font-medium px-2 py-0.5 rounded-full ${chip}`}>
           {t}
         </li>
       ))}
       {rest > 0 && (
-        <li className={`text-[11px] font-medium px-2 py-0.5 rounded-full ${chip}`}>+{rest}</li>
+        <li className={`text-[13px] font-medium px-2 py-0.5 rounded-full ${chip}`}>+{rest}</li>
       )}
     </ul>
   );
@@ -166,7 +166,7 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
                 className="absolute inset-x-0 bottom-0 p-5 flex items-end gap-4"
               >
                 <div className="flex-1 min-w-0">
-                  <p className="text-[13px] leading-relaxed text-white/90 mb-3 line-clamp-3">
+                  <p className="text-[14px] leading-relaxed text-white/90 mb-3 line-clamp-3">
                     {project.shortDesc}
                   </p>
                   <TechChips items={project.technologies} dark />
@@ -190,10 +190,10 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
             <h3 className="text-[17px] font-medium text-[#111111] tracking-[-0.01em] truncate">
               {project.title}
             </h3>
-            <span className="shrink-0 text-xs text-[#626960]">{project.category}</span>
+            <span className="shrink-0 text-xs text-[#444444]">{project.category}</span>
           </div>
           {canHover ? (
-            <p className="mt-1 text-sm text-[#626960] truncate">{project.tags.slice(0, 2).join(" · ")}</p>
+            <p className="mt-1 text-sm text-[#444444] truncate">{project.tags.slice(0, 2).join(" · ")}</p>
           ) : (
             <div className="mt-2 space-y-3">
               <p className="text-sm leading-relaxed text-[#4d554b]">{project.shortDesc}</p>
@@ -253,7 +253,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 }}
                 aria-pressed={active}
                 className={`relative text-sm font-medium px-4 py-2 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
-                  active ? "text-[#111111]" : "text-[#626960] hover:text-[#111111]"
+                  active ? "text-[#111111]" : "text-[#444444] hover:text-[#111111]"
                 }`}
               >
                 {active && (
@@ -263,19 +263,24 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
-                <span className="relative">{cat}</span>
+                <span className="relative">
+                  {cat}
+                  <span className={`ml-1.5 text-xs ${active ? "text-[#7a5807]" : "text-[#555555]"}`}>
+                    {cat === "All" ? projects.length : projects.filter((p) => p.category === cat).length}
+                  </span>
+                </span>
               </button>
             );
           })}
         </div>
-        <span className="ml-auto text-sm text-[#626960]">
+        <span className="ml-auto text-sm text-[#444444]">
           {filtered.length} project{filtered.length !== 1 ? "s" : ""}
         </span>
       </div>
 
       {/* Tech stack filter */}
       <div className="-mt-6 mb-12">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#626960]">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#444444]">
           Filter by type of work
         </p>
         <div className="flex flex-wrap gap-2">
@@ -294,7 +299,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 }`}
               >
                 {name}
-                <span className={`text-xs ${active ? "text-[#e7c98a]" : "text-[#8a8e82]"}`}>{count}</span>
+                <span className={`text-xs ${active ? "text-[#e7c98a]" : "text-[#555555]"}`}>{count}</span>
               </button>
             );
           })}
@@ -302,7 +307,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
       </div>
 
       {filtered.length === 0 && (
-        <p className="mb-12 text-[#626960]">
+        <p className="mb-12 text-[#444444]">
           No {activeCategory} projects with {activeStack} yet.{" "}
           <button type="button" className="font-medium text-[#7a5807] underline" onClick={() => { setActiveCategory("All"); chooseStack(activeStack); }}>
             Show all {activeStack} projects

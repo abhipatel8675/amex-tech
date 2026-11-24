@@ -17,7 +17,6 @@ type Props = { params: Promise<{ slug: string }> };
 // Titles where the client name isn't the first part of the project title.
 const SEO_TITLE_NAMES: Record<string, string> = {
   "portland-self-defense-crm": "Portland Self-Defense CRM",
-  "portland-self-defense": "Portland Self-Defense",
   "we-are-tag-group": "wearetag.ai Technical SEO",
   "wharton-carpet-cleaning": "Wharton Carpet Cleaning CSS Fix",
   "wavv-ghl-integration": "Wavv + GoHighLevel Sync",
@@ -139,7 +138,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {/* Header */}
           <header className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-10">
             <div>
-              <p className="mb-3 text-sm text-[#626960]">
+              <p className="mb-3 text-sm text-[#444444]">
                 {project.category} · {project.tags.slice(0, 2).join(" · ")}
               </p>
               <h1
@@ -152,7 +151,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-2 text-sm">
                   {factItems.map(([label, value]) => (
                     <div key={label} className="flex gap-2">
-                      <dt className="text-[#626960]">{label}</dt>
+                      <dt className="text-[#444444]">{label}</dt>
                       <dd className="font-medium text-[#111111]">{value}</dd>
                     </div>
                   ))}
@@ -193,12 +192,14 @@ export default async function ProjectDetailPage({ params }: Props) {
           )}
 
           {/* Tech stack */}
-          <section className="mt-14 md:mt-16" aria-labelledby="stack-heading">
-            <h2 id="stack-heading" className="mb-5 text-sm font-medium text-[#626960]">
-              Tools used
-            </h2>
-            <TechStack technologies={project.technologies} />
-          </section>
+          {project.technologies.length > 0 && (
+            <section className="mt-14 md:mt-16" aria-labelledby="stack-heading">
+              <h2 id="stack-heading" className="mb-5 text-sm font-medium text-[#444444]">
+                Tools used
+              </h2>
+              <TechStack technologies={project.technologies} />
+            </section>
+          )}
 
           {/* About + What we built | The problem + Results */}
           <div className="mt-16 md:mt-24 grid gap-16 lg:grid-cols-12">
@@ -235,7 +236,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                   >
                     The problem
                   </h2>
-                  <p className="text-base leading-7 text-[#626960]">{project.problem}</p>
+                  <p className="text-base leading-7 text-[#444444]">{project.problem}</p>
                 </section>
               )}
 
@@ -263,7 +264,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {facts.quote && (
             <figure className="mt-16 md:mt-20 max-w-3xl border-l-2 border-[#CC9A1A] pl-6">
               <blockquote className="text-xl leading-8 text-[#111111]">&ldquo;{facts.quote.text}&rdquo;</blockquote>
-              <figcaption className="mt-3 text-sm text-[#626960]">
+              <figcaption className="mt-3 text-sm text-[#444444]">
                 {facts.quote.name}
                 {facts.quote.role ? `, ${facts.quote.role}` : ""}
               </figcaption>

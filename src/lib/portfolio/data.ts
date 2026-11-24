@@ -57,8 +57,21 @@ function publicClient() {
  * Published portfolio projects. Falls back to the built-in list until the
  * database has been set up and populated from the admin panel.
  */
-// Duplicate of "wolfe-property"; hidden from the site without touching the database.
-const HIDDEN_SLUGS = new Set(["wolfeprppertyporta"]);
+// Duplicates of projects we already show (same client listed twice); hidden from
+// the site without touching the database. Their old addresses redirect in next.config.ts.
+const HIDDEN_SLUGS = new Set([
+  "wolfeprppertyporta",
+  "expert-village",
+  "ultrawindows",
+  "thebuttercreambus",
+  "island-traffic",
+  "eastendvintagesale",
+  "wideeyedgiantcom",
+  "moler-ai",
+  "herruby",
+  "cdieng",
+  "portland-self-defense",
+]);
 
 export async function getProjects(): Promise<Project[]> {
   const all = await loadProjects();
