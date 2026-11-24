@@ -109,7 +109,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             required
-            className="flex-1 min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#8a8e82] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
+            className="flex-1 min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#555555] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
           />
           <button
             type="submit"
@@ -167,7 +167,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
                 <div key={f.id} className="p-5 rounded-2xl border border-[#dadcd1] bg-white">
                   <div className="flex items-center gap-2 mb-2">
                     <span className={`text-xs font-semibold px-2 py-0.5 rounded-md border ${SEVERITY_STYLE[f.severity]}`}>{f.severity}</span>
-                    <span className="text-xs text-[#8a8e82] uppercase tracking-wider">{f.category}</span>
+                    <span className="text-xs text-[#555555] uppercase tracking-wider">{f.category}</span>
                   </div>
                   <p className="font-semibold text-[#111111] mb-1">{f.title}</p>
                   <p className="text-sm text-[#3d453b] leading-relaxed">{f.detail}</p>
@@ -212,7 +212,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     aria-label="Email address"
-                    className="flex-1 min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#8a8e82] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
+                    className="flex-1 min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#555555] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
                   />
                   <input
                     type="text"
@@ -221,7 +221,7 @@ export default function AppChecker({ initialUrl = "" }: { initialUrl?: string })
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     aria-label="First name"
-                    className="sm:w-48 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#8a8e82] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
+                    className="sm:w-48 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#555555] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50"
                   />
                   <button
                     type="submit"

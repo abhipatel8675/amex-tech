@@ -30,7 +30,7 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: {
         <div className="flex items-start gap-3">
           {/* Number badge */}
           <span
-            className="shrink-0 mt-0.5 text-[11px] font-bold tabular-nums px-1.5 py-0.5 rounded-md"
+            className="shrink-0 mt-0.5 text-[13px] font-bold tabular-nums px-1.5 py-0.5 rounded-md"
             style={{
               color: isOpen ? "#CC9A1A" : "#4B5568",
               background: isOpen ? "rgba(184,134,11,0.12)" : "rgba(15,23,42,0.04)",

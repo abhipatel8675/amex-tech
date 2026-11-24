@@ -292,7 +292,7 @@ export default function ProspectFeed({ isDev }: { isDev: boolean }) {
             <div key={s.label} className="bg-white border border-slate-200 rounded-xl p-3">
               <p className="text-xs text-slate-500">{s.label}</p>
               <p className="text-2xl font-bold text-slate-900">{s.value}</p>
-              <p className="text-[11px] text-slate-500 truncate">{s.sub}</p>
+              <p className="text-[13px] text-slate-500 truncate">{s.sub}</p>
             </div>
           ))}
         </div>

@@ -142,7 +142,7 @@ export default function ProcessSection() {
                   }}
                 >
                   <span
-                    className="text-[9px] font-bold"
+                    className="text-[11px] font-bold"
                     style={{
                       background: "linear-gradient(135deg, #CC9A1A, #B8860B)",
                       WebkitBackgroundClip: "text",

@@ -102,12 +102,12 @@ export default async function OutreachPage() {
             <div className="flex items-end gap-1.5 h-32" role="img" aria-label="Emails sent per day">
               {perDay.map((p) => (
                 <div key={p.d} className="flex-1 flex flex-col items-center justify-end h-full" title={`${p.d}: ${p.n}`}>
-                  {p.n > 0 && <span className="text-[10px] text-slate-500 mb-0.5">{p.n}</span>}
+                  {p.n > 0 && <span className="text-[12px] text-slate-500 mb-0.5">{p.n}</span>}
                   <div className="w-full rounded-t bg-[#B8860B]" style={{ height: `${(p.n / maxDay) * 100}%`, minHeight: p.n ? 2 : 0 }} />
                 </div>
               ))}
             </div>
-            <div className="flex justify-between text-[10px] text-slate-500 mt-1.5">
+            <div className="flex justify-between text-[12px] text-slate-500 mt-1.5">
               <span>{days[0].slice(5)}</span>
               <span>{days[13].slice(5)}</span>
             </div>

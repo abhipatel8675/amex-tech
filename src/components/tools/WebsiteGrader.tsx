@@ -7,7 +7,7 @@ import type { GradePreview } from "@/lib/siteGrader/grade";
 const BOOKING_URL = process.env.NEXT_PUBLIC_CAL_LINK || "/contact?service=Website";
 const STEPS = ["Loading your homepage", "Checking phone and speed basics", "Checking what Google sees", "Scoring"];
 const inputCls =
-  "min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#8a8e82] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50";
+  "min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#555555] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50";
 const btnCls =
   "inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3 rounded-xl transition-all btn-glow disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap";
 const btnStyle = { background: "linear-gradient(135deg, #9a722a 0%, #9C7208 100%)" };
@@ -131,7 +131,7 @@ export default function WebsiteGrader({ initialUrl = "" }: { initialUrl?: string
                 <div key={c.id} className="p-5 rounded-2xl border border-[#dadcd1] bg-white flex gap-3">
                   <XCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-xs text-[#626960] uppercase tracking-wider mb-1">{c.group}</p>
+                    <p className="text-xs text-[#444444] uppercase tracking-wider mb-1">{c.group}</p>
                     <p className="font-semibold text-[#111111] mb-1">{c.title}</p>
                     <p className="text-sm text-[#3d453b] leading-relaxed">{c.why}</p>
                   </div>

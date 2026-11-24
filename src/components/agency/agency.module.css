@@ -1,7 +1,7 @@
 .site {
   --ink: #111111;
   --paper: #f7f6f2;
-  --muted: #626960;
+  --muted: #444444;
   --gold: #ba8b35;
   color: var(--ink);
   background: var(--paper);
@@ -14,11 +14,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #6d6758;
+  color: #444444;
   margin-bottom: 24px;
 }
 .eyebrow::before {
@@ -52,7 +52,7 @@
   color: #9a722a;
 }
 .intro {
-  color: #626960;
+  color: #444444;
   font-size: 16px;
   line-height: 1.85;
   max-width: 460px;
@@ -77,7 +77,7 @@
   background: #1a1a1a;
   color: #fff;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 14.5px;
   transition:
     background 0.2s,
     transform 0.2s;
@@ -106,7 +106,7 @@
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  font-size: 13px;
+  font-size: 14.5px;
   font-weight: 500;
   min-height: 44px;
 }
@@ -118,8 +118,8 @@
   gap: 8px;
   align-items: center;
   margin-top: 26px;
-  color: #626960;
-  font-size: 12px;
+  color: #444444;
+  font-size: 13.5px;
 }
 .heroVisual {
   position: relative;
@@ -144,7 +144,7 @@
   border-radius: 4px;
   background: #111111d9;
   color: #e8dfc9;
-  font-size: 12px;
+  font-size: 13.5px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   z-index: 1;
@@ -160,7 +160,7 @@
   align-items: center;
   justify-content: flex-end;
   color: #e4dcc8;
-  font-size: 12px;
+  font-size: 13.5px;
   z-index: 1;
 }
 .artBottom strong {
@@ -180,16 +180,16 @@
   border-radius: 6px;
 }
 .heroCard small {
-  color: #666b5d;
+  color: #444444;
   display: block;
-  font-size: 12px;
+  font-size: 13.5px;
   margin-bottom: 8px;
 }
 .heroCard strong {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: 15.5px;
   font-weight: 500;
 }
 .heroCard svg {
@@ -207,7 +207,7 @@
 }
 .trust p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13.5px;
   max-width: 150px;
   line-height: 1.6;
 }
@@ -249,9 +249,9 @@
   color: #96702b;
 }
 .sectionText {
-  font-size: 14px;
+  font-size: 15.5px;
   line-height: 1.8;
-  color: #687061;
+  color: #444444;
   max-width: 370px;
 }
 .serviceGrid {
@@ -288,8 +288,8 @@
   color: #92712f;
 }
 .serviceTop span {
-  font-size: 12px;
-  color: #6d7266;
+  font-size: 13.5px;
+  color: #444444;
   font-family: monospace;
 }
 .service h3,
@@ -301,14 +301,14 @@
   line-height: 1.3;
 }
 .service p {
-  color: #687061;
-  font-size: 14px;
+  color: #444444;
+  font-size: 15.5px;
   line-height: 1.8;
   margin-bottom: 20px;
   flex: 1;
 }
 .service .textLink {
-  font-size: 13px;
+  font-size: 14.5px;
   gap: 10px;
 }
 .tags {
@@ -318,11 +318,11 @@
   margin-bottom: 18px;
 }
 .tags span {
-  font-size: 12px;
+  font-size: 13.5px;
   border: 1px solid #dadcd1;
   padding: 4px 8px;
   border-radius: 3px;
-  color: #687061;
+  color: #444444;
 }
 .dark {
   background: #1a1a1a;
@@ -378,14 +378,14 @@
 }
 .workMeta p {
   color: #c4c8b9;
-  font-size: 14px;
+  font-size: 15.5px;
   margin-top: 8px;
   line-height: 1.8;
   max-width: 420px;
 }
 .workMeta span {
   color: #cbbc97;
-  font-size: 12px;
+  font-size: 13.5px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -425,8 +425,8 @@
   gap: 15px;
 }
 .roleRow small {
-  font-size: 12px;
-  color: #6d7266;
+  font-size: 13.5px;
+  color: #444444;
   font-family: monospace;
 }
 .roleRow:hover {
@@ -437,8 +437,8 @@
   gap: 20px;
   flex-wrap: wrap;
   margin-top: 24px;
-  color: #646d60;
-  font-size: 12px;
+  color: #444444;
+  font-size: 13.5px;
 }
 .checkList span {
   display: flex;
@@ -456,7 +456,7 @@
   padding-top: 20px;
 }
 .processStep > span {
-  font-size: 12px;
+  font-size: 13.5px;
   color: #7a5807;
 }
 .processStep h3 {
@@ -466,8 +466,8 @@
   letter-spacing: -0.03em;
 }
 .processStep p {
-  font-size: 14px;
-  color: #697263;
+  font-size: 15.5px;
+  color: #444444;
   line-height: 1.85;
 }
 .quote {
@@ -490,9 +490,9 @@
 .quote cite {
   display: block;
   margin-top: 22px;
-  font-size: 12px;
+  font-size: 13.5px;
   font-style: normal;
-  color: #6d7466;
+  color: #444444;
 }
 .stars {
   color: #7a5807;
@@ -519,7 +519,7 @@
   align-items: center;
   gap: 16px;
   padding: 22px 0;
-  font-size: 14px;
+  font-size: 15.5px;
   font-weight: 500;
 }
 .faq summary::-webkit-details-marker {
@@ -535,8 +535,8 @@
   content: "−";
 }
 .faq details p {
-  font-size: 14px;
-  color: #687061;
+  font-size: 15.5px;
+  color: #444444;
   line-height: 1.9;
   padding: 0 30px 22px 0;
 }
@@ -555,7 +555,7 @@
 }
 .cta p {
   color: #4f4b3a;
-  font-size: 14px;
+  font-size: 15.5px;
   margin-top: 18px;
 }
 .blogGrid {
@@ -568,7 +568,7 @@
   padding-top: 20px;
 }
 .article small {
-  font-size: 12px;
+  font-size: 13.5px;
   color: #7a5807;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -614,9 +614,9 @@
 }
 .model p,
 .model li {
-  font-size: 14px;
+  font-size: 15.5px;
   line-height: 1.8;
-  color: #67705f;
+  color: #444444;
 }
 .model ul {
   padding-left: 18px;
@@ -631,7 +631,7 @@
 .aboutSplit p {
   font-size: 16px;
   line-height: 1.9;
-  color: #626c5d;
+  color: #444444;
   margin-bottom: 20px;
 }
 .values {
@@ -646,7 +646,7 @@
   margin-bottom: 15px;
 }
 .values p {
-  font-size: 14px;
+  font-size: 15.5px;
   line-height: 1.9;
   color: #c4c8b9;
 }
@@ -762,12 +762,12 @@
     font-size: clamp(42px, 11.5vw, 60px);
   }
   .eyebrow {
-    font-size: 12px;
+    font-size: 13.5px;
     letter-spacing: 0.12em;
     margin-bottom: 20px;
   }
   .intro {
-    font-size: 14px;
+    font-size: 15.5px;
   }
   .actions {
     gap: 10px;
@@ -775,12 +775,12 @@
   .button,
   .outline,
   .buttonLight {
-    font-size: 14px;
+    font-size: 15.5px;
     gap: 16px;
     padding-inline: 17px;
   }
   .heroNote {
-    font-size: 12px;
+    font-size: 13.5px;
   }
   .heroCard {
     width: 205px;
@@ -788,7 +788,7 @@
     margin-top: -28px;
   }
   .artTag {
-    font-size: 12px;
+    font-size: 13.5px;
     top: 17px;
     left: 17px;
   }
@@ -796,10 +796,10 @@
     bottom: 20px;
     left: 17px;
     right: 17px;
-    font-size: 12px;
+    font-size: 13.5px;
   }
   .artBottom strong {
-    font-size: 12px;
+    font-size: 13.5px;
   }
   .trust {
     flex-direction: column;
@@ -887,7 +887,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  font-size: 13px;
+  font-size: 14.5px;
   color: var(--muted);
   margin-bottom: 28px;
 }
@@ -910,7 +910,7 @@
   font-weight: 500;
 }
 .priceNote {
-  font-size: 14px;
+  font-size: 15.5px;
   color: var(--muted);
 }
 .priceNote strong {
@@ -956,7 +956,7 @@
   gap: 8px;
 }
 .chips > * {
-  font-size: 13px;
+  font-size: 14.5px;
   padding: 7px 12px;
   border: 1px solid #dadcd1;
   border-radius: 5px;
@@ -968,7 +968,7 @@
 }
 .badge {
   display: inline-flex;
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -993,7 +993,7 @@
   color: #f7f5ed;
   border-radius: 10px;
   padding: 24px;
-  font-size: 14px;
+  font-size: 15.5px;
   line-height: 1.6;
 }
 .chat .q {
@@ -1005,7 +1005,7 @@
 }
 .chat small {
   display: block;
-  font-size: 12px;
+  font-size: 13.5px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #c4c8b9;
@@ -1033,7 +1033,7 @@
   color: var(--muted);
 }
 .featurePanel .chat p {
-  font-size: 14px;
+  font-size: 15.5px;
   line-height: 1.6;
 }
 .featurePanel .chat .q {
@@ -1083,7 +1083,7 @@
 
 .proofLine {
   margin-top: 16px;
-  font-size: 13px;
+  font-size: 14.5px;
   color: var(--muted);
 }
 .proofLine a {

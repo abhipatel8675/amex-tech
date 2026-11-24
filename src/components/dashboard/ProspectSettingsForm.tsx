@@ -23,7 +23,7 @@ function Field({ label, children, hint }: { label: string; children: React.React
     <label className="block">
       <span className="text-xs font-medium text-slate-600">{label}</span>
       {children}
-      {hint && <span className="text-[11px] text-slate-500">{hint}</span>}
+      {hint && <span className="text-[13px] text-slate-500">{hint}</span>}
     </label>
   );
 }

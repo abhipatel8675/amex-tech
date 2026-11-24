@@ -159,7 +159,7 @@ function ContactFormFields({
   };
 
   const inputCls =
-    "w-full bg-white border border-[#dadcd1] rounded-[5px] px-4 py-3.5 text-base text-[#111111] placeholder-[#8a8e82] focus:outline-none focus:border-[#9a722a] focus:ring-1 focus:ring-[#9a722a]/25 transition-all duration-200";
+    "w-full bg-white border border-[#dadcd1] rounded-[5px] px-4 py-3.5 text-base text-[#111111] placeholder-[#666666] focus:outline-none focus:border-[#9a722a] focus:ring-1 focus:ring-[#9a722a]/25 transition-all duration-200";
 
   if (success) {
     return (

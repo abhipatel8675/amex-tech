@@ -129,7 +129,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           <ul className="grid sm:grid-cols-2 gap-3">
             {page.whoFor.map((w) => (
               <li key={w} className="flex gap-3 text-[#3d453b] leading-relaxed">
-                <Check className="w-5 h-5 mt-0.5 shrink-0 text-[#9a722a]" aria-hidden />
+                <Check className="w-5 h-5 mt-0.5 shrink-0 text-[#7a5807]" aria-hidden />
                 {w}
               </li>
             ))}

@@ -199,7 +199,7 @@ export default function Contact() {
               </p>
             )}
 
-            <p className="text-[10px] text-slate-600 text-center">
+            <p className="text-[12px] text-slate-600 text-center">
               We respond within 24 hours with a clear proposal. No spam, ever.
             </p>
           </motion.form>

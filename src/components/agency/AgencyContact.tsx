@@ -92,12 +92,12 @@ export default function AgencyContact() {
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-sm text-[#687061] break-words hover:underline"
+                        className="text-sm text-[#444444] break-words hover:underline"
                       >
                         {item.text}
                       </a>
                     ) : (
-                      <p className="text-sm leading-7 text-[#687061]">
+                      <p className="text-sm leading-7 text-[#444444]">
                         {item.text}
                       </p>
                     )}
@@ -113,7 +113,7 @@ export default function AgencyContact() {
             <h2 className="text-2xl tracking-tight mb-2">
               Send us a message.
             </h2>
-            <p className="text-sm text-[#687061] mb-8">
+            <p className="text-sm text-[#444444] mb-8">
               Fields marked * are required.
             </p>
             <ContactForm />

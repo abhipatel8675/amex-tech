@@ -229,7 +229,7 @@ export default function ProjectCarousel({
           {/* Filmstrip Header & Controls */}
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-2 min-w-0">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#9a722a] shrink-0">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#7a5807] shrink-0">
                 All Project Screens
               </span>
               <span className="text-xs font-semibold text-[#CC9A1A]/80 shrink-0">
@@ -237,8 +237,8 @@ export default function ProjectCarousel({
               </span>
               {currentSlide.caption && (
                 <>
-                  <span className="text-xs text-[#9a722a]/40 hidden md:inline">·</span>
-                  <span className="text-xs text-[#626960] font-medium truncate hidden md:inline max-w-sm">
+                  <span className="text-xs text-[#7a5807]/40 hidden md:inline">·</span>
+                  <span className="text-xs text-[#444444] font-medium truncate hidden md:inline max-w-sm">
                     {currentSlide.caption}
                   </span>
                 </>
@@ -252,7 +252,7 @@ export default function ProjectCarousel({
                 className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold transition-all ${
                   isAutoplay
                     ? "bg-[#9a722a] text-white shadow-sm ring-1 ring-[#f5c451]/50"
-                    : "bg-[#9a722a]/10 text-[#9a722a] ring-1 ring-[#9a722a]/30 hover:bg-[#9a722a]/20"
+                    : "bg-[#9a722a]/10 text-[#7a5807] ring-1 ring-[#9a722a]/30 hover:bg-[#9a722a]/20"
                 }`}
                 title={isAutoplay ? "Pause slideshow" : "Play slideshow automatically"}
               >
@@ -263,13 +263,13 @@ export default function ProjectCarousel({
                   </>
                 ) : (
                   <>
-                    <Play className="w-3 h-3 text-[#9a722a]" />
+                    <Play className="w-3 h-3 text-[#7a5807]" />
                     <span className="hidden xs:inline">Auto-cycle</span>
                   </>
                 )}
               </button>
 
-              <span className="text-[11px] text-[#8a8e82] hidden lg:inline">
+              <span className="text-[13px] text-[#555555] hidden lg:inline">
                 Use ← → keys
               </span>
             </div>
@@ -325,7 +325,7 @@ export default function ProjectCarousel({
 
                     {/* Step number badge in logo gold */}
                     <span
-                      className={`absolute top-1 left-1 px-1.5 py-0.5 rounded text-[10px] font-bold tabular-nums shadow-xs ${
+                      className={`absolute top-1 left-1 px-1.5 py-0.5 rounded text-[12px] font-bold tabular-nums shadow-xs ${
                         isActive
                           ? "bg-[#f5c451] text-[#0f0f0f]"
                           : "bg-[#161616]/85 text-[#f5c451] ring-1 ring-[#f5c451]/25 backdrop-blur-sm"
@@ -340,8 +340,8 @@ export default function ProjectCarousel({
                     <p
                       className={`text-xs truncate ${
                         isActive
-                          ? "text-[#9a722a] font-bold"
-                          : "text-[#626960] font-medium group-hover/thumb:text-[#9a722a]"
+                          ? "text-[#7a5807] font-bold"
+                          : "text-[#444444] font-medium group-hover/thumb:text-[#7a5807]"
                       }`}
                     >
                       {label}

@@ -308,7 +308,7 @@ export default function AiOperationsAgentPage() {
                 <span key={tool}>{tool}</span>
               ))}
             </div>
-            <p className="mt-6 text-sm text-[#626960]">
+            <p className="mt-6 text-sm text-[#444444]">
               Using something else? If it can share its data automatically or export it regularly, it can
               usually be connected. We confirm this on the first call.
             </p>
@@ -436,7 +436,7 @@ export default function AiOperationsAgentPage() {
               <h3 className="mt-4 mb-3 text-[22px] font-medium tracking-[-0.03em]">
                 Be one of our first manufacturers.
               </h3>
-              <p className="max-w-[720px] text-[15px] leading-[1.8] text-[#626960]">
+              <p className="max-w-[720px] text-[15px] leading-[1.8] text-[#444444]">
                 We are onboarding a small number of founding clients. Pilot
                 clients work directly with the founder and help shape what the
                 assistant does next. Scope and price are agreed in writing before
@@ -448,7 +448,7 @@ export default function AiOperationsAgentPage() {
                 </Link>
               </div>
             </div>
-            <p className="mt-5 text-[13px] leading-[1.7] text-[#626960]">
+            <p className="mt-5 text-[14px] leading-[1.7] text-[#444444]">
               Scope depends on the number of systems and how much custom
               work is needed. Results depend on the quality of the data in your
               tools; we don&apos;t promise specific savings.

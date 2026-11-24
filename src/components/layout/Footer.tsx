@@ -43,7 +43,7 @@ const laLinks = [
 ];
 
 const linkClass =
-  "inline-flex min-h-[32px] items-center text-sm text-[#626960] transition-colors hover:text-[#7a5807]";
+  "inline-flex min-h-[32px] items-center text-sm text-[#444444] transition-colors hover:text-[#7a5807]";
 const headingClass =
   "mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#111111]";
 
@@ -108,7 +108,7 @@ export default function Footer() {
             <p className="mb-1 text-[15px] font-semibold text-[#111111]">
               Get development tips in your inbox
             </p>
-            <p className="text-sm text-[#626960]">
+            <p className="text-sm text-[#444444]">
               Practical insights on web, mobile, and product — no spam, ever.
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function Footer() {
                 required
                 disabled={status === "loading"}
                 aria-label="Email address"
-                className="min-h-[50px] min-w-0 flex-1 rounded-[5px] border border-[#dadcd1] bg-white px-4 text-sm text-[#111111] placeholder-[#6d7266] outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20] disabled:opacity-60 sm:w-60"
+                className="min-h-[50px] min-w-0 flex-1 rounded-[5px] border border-[#dadcd1] bg-white px-4 text-sm text-[#111111] placeholder-[#666666] outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20] disabled:opacity-60 sm:w-60"
               />
               <button
                 type="submit"
@@ -164,15 +164,15 @@ export default function Footer() {
               <LogoMark size={40} />
               <span className="flex flex-col text-[19px] font-semibold leading-[1.1] tracking-[-0.04em] text-[#111111]">
                 Amex Technology
-                <small className="mt-1 text-[10px] font-medium uppercase tracking-[0.23em] text-[#7a5807]">
+                <small className="mt-1 text-[12px] font-medium uppercase tracking-[0.23em] text-[#7a5807]">
                   Ideas into impact
                 </small>
               </span>
             </Link>
-            <p className="mb-4 max-w-[240px] text-sm leading-7 text-[#626960]">
+            <p className="mb-4 max-w-[240px] text-sm leading-7 text-[#444444]">
               Websites, apps and AI tools for businesses worldwide.
             </p>
-            <address className="mb-2 max-w-[260px] text-sm not-italic leading-6 text-[#626960]">
+            <address className="mb-2 max-w-[260px] text-sm not-italic leading-6 text-[#444444]">
               {COMPANY_ADDRESS_LINE}
             </address>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -219,10 +219,10 @@ export default function Footer() {
                 {US_PHONE.display} (US)
               </a>
               </div>
-              <p className="mt-2 text-sm leading-6 text-[#626960]">
+              <p className="mt-2 text-sm leading-6 text-[#444444]">
                 Office: Monday–Saturday, {OFFICE_HOURS_IST}
               </p>
-              <p className="text-sm leading-6 text-[#626960]">
+              <p className="text-sm leading-6 text-[#444444]">
                 US line: Monday–Saturday, US business hours
               </p>
               <Link
@@ -239,16 +239,16 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-[#dadcd1] pt-7 sm:flex-row">
           <div className="flex flex-wrap items-center gap-3">
-            <p className="text-xs text-[#626960]">
+            <p className="text-xs text-[#444444]">
               © {new Date().getFullYear()} Amex Technology. An independent agency, not affiliated with American Express.
             </p>
-            <span className="text-xs text-[#626960]" aria-hidden="true">·</span>
+            <span className="text-xs text-[#444444]" aria-hidden="true">·</span>
               <a
                 href="https://www.instagram.com/amextechnology/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on Instagram"
-                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#626960] transition-colors hover:text-[#7a5807]"
+                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#444444] transition-colors hover:text-[#7a5807]"
               >
                 <svg
                   width="16"
@@ -271,7 +271,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on Upwork"
-                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#626960] transition-colors hover:text-[#7a5807]"
+                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#444444] transition-colors hover:text-[#7a5807]"
               >
                 <svg
                   width="16"
@@ -288,7 +288,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Amex Technology on LinkedIn"
-                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#626960] transition-colors hover:text-[#7a5807]"
+                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#444444] transition-colors hover:text-[#7a5807]"
               >
                 <svg
                   width="16"
@@ -311,7 +311,7 @@ export default function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="inline-flex min-h-[32px] items-center text-xs text-[#626960] transition-colors hover:text-[#7a5807]"
+                className="inline-flex min-h-[32px] items-center text-xs text-[#444444] transition-colors hover:text-[#7a5807]"
               >
                 {label}
               </Link>

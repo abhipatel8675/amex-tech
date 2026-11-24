@@ -105,7 +105,7 @@ export default async function PortfolioPage() {
             <dl className="mt-10 grid grid-cols-3 border-t border-[#d8dbce]">
               {stats.map((stat) => (
                 <div key={stat.label} className="pt-6 pr-3">
-                  <dt className="text-xs text-[#687061]">{stat.label}</dt>
+                  <dt className="text-xs text-[#444444]">{stat.label}</dt>
                   <dd className="text-3xl font-medium tracking-tight mt-2">
                     {stat.value}
                   </dd>
