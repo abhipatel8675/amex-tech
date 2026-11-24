@@ -13,6 +13,7 @@ import {
   Process,
   ServiceGrid,
 } from "./AgencySections";
+import StackExplorer from "./StackExplorer";
 import s from "./agency.module.css";
 
 export default function AgencyHome() {
@@ -198,29 +199,12 @@ export default function AgencyHome() {
                 tool to see the matching projects.
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {stackShowcase.map(({ name, list }) => (
-                <Link
-                  key={name}
-                  href={`/portfolio?stack=${encodeURIComponent(name)}`}
-                  className="group flex flex-col rounded-[6px] border border-[#ffffff1f] bg-[#ffffff08] p-5 transition-colors hover:border-[#d4ba7e] hover:bg-[#ffffff0f]"
-                >
-                  <span className="flex items-baseline justify-between gap-3">
-                    <span className="text-[17px] font-medium text-[#f7f5ed]">{name}</span>
-                    <span className="text-sm text-[#d4ba7e]">
-                      {list.length} project{list.length !== 1 ? "s" : ""}
-                    </span>
-                  </span>
-                  <span className="mt-3 text-[13px] leading-6 text-[#bdc3b4]">
-                    {list.slice(0, 3).map((p) => p.title).join(" · ")}
-                    {list.length > 3 ? ` +${list.length - 3} more` : ""}
-                  </span>
-                  <span className="mt-4 inline-flex items-center gap-2 text-[13px] font-medium text-[#e7c98a]">
-                    View projects <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                </Link>
-              ))}
-            </div>
+            <StackExplorer
+              groups={stackShowcase.map(({ name, list }) => ({
+                name,
+                projects: list.map((p) => ({ slug: p.slug, title: p.title, image: p.image })),
+              }))}
+            />
           </div>
         </div>
       </section>
