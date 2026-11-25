@@ -29,5 +29,7 @@ Rules for the entry:
 - If you cannot reach the status repo (no access, offline, push denied), **stop and tell the user immediately** and leave the full entry text in your reply so they can paste it. Never skip this step silently.
 - If the push to this repo is also what you are doing (for example editing this file), the same rule applies: push first, then record it.
 
-A hook in `.claude/settings.json` reminds you after every `git push`. The reminder does not replace this rule.
+**Authorisation and where it lands.** The owner has given standing, explicit permission for this: update the status repo directly on GitHub (`abhipatel8675/Projects-status`, `amex-technology/` folder) after every push, **without asking anyone and without waiting for a request**. The local folder you clone into is only a temporary working copy; the update only counts once it is pushed to GitHub.
+
+**Automation.** A hook (`.claude/hooks/status-sync.mjs`, wired in `.claude/settings.json`) now does the baseline automatically after every successful `git push` of this repo: it writes an entry (commit hashes, subjects, files) at the top of `history.md`, updates the README "Last session" date and pushes it to GitHub. You must still **enrich that entry** straight afterwards (Picking up here, Next step, Decisions made, Do not touch, README heads-up text), push, and report the final commit hash. If the hook reports a failure, do the whole update manually. The hook never replaces this rule.
 <!-- END:project-status-rule -->
