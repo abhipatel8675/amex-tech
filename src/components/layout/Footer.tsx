@@ -24,24 +24,6 @@ const quickLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-const offerLinks = [
-  { label: "AI Assistant for Manufacturers", href: "/ai-operations-agent" },
-  { label: "Websites for Trade Businesses", href: "/trade-business-websites" },
-  { label: "24-Hour App Fix", href: "/fix" },
-  { label: "Free Website Grader", href: "/tools/website-grader" },
-  { label: "Free App Checker", href: "/tools/app-checker" },
-];
-
-const laLinks = [
-  { label: "Websites & AI for Businesses", href: "/web-and-ai-development" },
-  { label: "Law Firm Web Design", href: "/law-firm-web-design" },
-  { label: "Affordable Web Design", href: "/affordable-web-design" },
-  {
-    label: "Google Business Profile Setup",
-    href: "/google-business-profile-setup",
-  },
-];
-
 const linkClass =
   "inline-flex min-h-[32px] items-center text-sm text-[#444444] transition-colors hover:text-[#7a5807]";
 const headingClass =
@@ -153,7 +135,7 @@ export default function Footer() {
         </div>
 
         {/* Main grid */}
-        <div className="mb-14 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
+        <div className="mb-14 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           {/* Brand + contact */}
           <div>
             <Link
@@ -199,10 +181,8 @@ export default function Footer() {
 
           <LinkColumn title="Company" links={quickLinks} />
           <LinkColumn title="Services" links={serviceLinks} />
-          <LinkColumn title="Offers & tools" links={offerLinks} />
 
           <div className="flex flex-col gap-10">
-            <LinkColumn title="Popular Services" links={laLinks} />
             <div>
               <h2 className={headingClass}>Contact</h2>
               <div className="flex flex-col items-start">

@@ -7,7 +7,6 @@ import { blogPosts } from "@/data/blog";
 import {
   AgencyCTA,
   AgencyFAQ,
-  AiAgentFeature,
   HirePreview,
   OffersSection,
   Process,
@@ -139,7 +138,6 @@ export default function AgencyHome() {
             </div>
           </div>
           <ServiceGrid />
-          <AiAgentFeature />
         </div>
       </section>
       <section className={`${s.section} ${s.dark}`}>
@@ -271,6 +269,17 @@ export default function AgencyHome() {
                 href={`/blog/${post.slug}`}
                 className={s.article}
               >
+                {post.image && (
+                  <div className={s.articleImage}>
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 900px) 100vw, 33vw"
+                      style={{ objectFit: "cover", objectPosition: post.imagePosition }}
+                    />
+                  </div>
+                )}
                 <small>{post.category}</small>
                 <h3>{post.title}</h3>
                 <span className={`${s.textLink} mt-4`}>
