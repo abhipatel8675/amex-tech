@@ -2869,6 +2869,102 @@ Explore our [web development services](/services#web-development), browse our [P
     ],
   },
   {
+    slug: "ai-support-assistant-ahmedabad-service-business",
+    title: "AI Assistants for Ahmedabad Service Businesses: Handle Enquiries, Bookings, and Support",
+    excerpt: "Plan an AI assistant around approved answers, booking handoffs, bilingual support, and a clear path to a person.",
+    category: "Business",
+    tags: ["AI Automation", "Customer Support", "Ahmedabad", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#B8860B",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "AI Support Assistants for Ahmedabad Service Businesses",
+    metaDescription: "Plan an AI assistant around approved answers, booking handoffs, bilingual support, and a clear path to a person.",
+    keywords: ["AI chatbot development Ahmedabad", "AI automation services", "Ahmedabad business technology"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+A service business can spend a surprising amount of time answering the same questions about hours, availability, and bookings. An assistant can help if it has reliable information and staff can take over at the right moment. Start by picking a narrow job, such as answering basic questions and collecting information for a booking request.
+
+List the questions your Ahmedabad or India-wide team receives every week. Mark the ones people answer consistently and the ones that require judgment. The first group is the best starting point.
+
+## Build an approved set of answers
+
+Gather your current service descriptions, opening hours, service area, and answers staff already use. Give someone ownership of those details. If your availability or policy changes, that person needs a clear way to update what the assistant knows.
+
+Decide which answers can be given in English, Hindi, or Gujarati, according to what your customers and team need. Have a speaker of each supported language review how the assistant handles dates, numbers, and business names. Test a message that mixes languages the way a real customer might.
+
+## Handle booking requests with clear boundaries
+
+**Hypothetical example.** An Ahmedabad training centre wants help answering questions about course dates. The assistant can show published dates and collect a preferred session. When a visitor needs an exception or a firm confirmation, the assistant passes the request to the office with a short summary.
+
+If you give the assistant access to a calendar, choose whether it can read availability, request a booking, or confirm it. Test what happens when someone else takes the last slot between lookup and confirmation. Give the customer a clear next step if the appointment is pending.
+
+## Give staff a way to take over
+
+Route complaints, unusual requests, payment disputes, and sensitive questions to a person. Make it easy for a customer to ask for help. Define who receives the handoff, which details go with it, and how the customer can tell when someone will reply. If you use WhatsApp, check Meta’s messaging rules and the handoff options that apply to your setup. [WhatsApp Business Messaging Policy](https://business.whatsapp.com/policy) · [Meta Business Agent documentation](https://developers.facebook.com/documentation/meta-business-agent/changelog)
+
+Avoid collecting information the assistant does not need. Let staff handle sensitive details in the appropriate system. Review access to conversation history and document who can edit the sources it reads.
+
+## Measure a small trial
+
+- Test common questions, unclear wording, and at least one question the assistant should hand off.
+- Check that the answer matches a current source and that staff can see where a conversation went.
+- Track how often people reach a person successfully and which questions still take time to answer.
+- Update the source material before expanding to more tasks or channels.
+
+If your team wants help with repeated questions or booking requests, send Amex three examples with personal details removed. We can help plan an assistant and decide which steps should stay with your staff. [Amex AI services](/services/ai-services) · [Discuss an AI assistant](/contact)
+`,
+  },
+  {
+    slug: "claude-mcp-skills-tasks-sales-workflow",
+    title: "Claude MCP Skills and Tasks: A Practical Example for Sales Teams",
+    excerpt: "See how Claude’s MCP capabilities could support enquiry triage and reply drafting with limited access and human approval.",
+    category: "Engineering",
+    tags: ["Claude", "MCP", "AI Automation", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#4F46E5",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Claude MCP Skills and Tasks for a Sales Workflow",
+    metaDescription: "See how Claude’s MCP capabilities could support enquiry triage and reply drafting with limited access and human approval.",
+    keywords: ["Claude MCP skills", "AI automation services"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+A new enquiry arrives with a short question and an attachment. A salesperson checks the CRM for context, finds the right service information, and drafts a reply. An assistant could help with the lookup and the draft while leaving the final response in the salesperson’s hands. That workflow is a useful way to understand Anthropic’s November 24 release for the Model Context Protocol, or MCP. [Anthropic’s announcement](https://claude.com/resources/articles/skills-over-mcp-tasks-and-more)
+
+MCP is a standard through which an AI client can connect to a server that makes certain information or actions available. With the announced updates, supported servers can supply skills and handle richer tasks. Availability depends on the server and client your team uses. Verify which capabilities are supported before planning around them.
+
+## Start with one enquiry and an approved set of sources
+
+**Hypothetical example.** A service business in Ahmedabad gets a web enquiry from someone asking whether it supports appointments in another city. The assistant checks the enquiry, reads the allowed CRM contact fields, and looks up the published service area. It drafts a short reply and points the salesperson to the information used.
+
+An internal skill can describe what a draft should contain and when to flag a question for staff. A task can represent a delegated piece of work when the connected server supports it. The team should be able to tell what is in progress, what completed, and what still needs a person’s decision. [Anthropic’s MCP update](https://claude.com/resources/articles/skills-over-mcp-tasks-and-more)
+
+## Keep the first integration narrow
+
+- **Inputs:** The new enquiry and only the CRM fields needed for the lookup.
+- **Approved information:** Service descriptions, locations, and response guidelines someone on the team maintains.
+- **Output:** A draft and its supporting context for a salesperson to review.
+- **Human decision:** Confirm the details, edit the message, and send it through the usual channel.
+
+Use a read-only connection where your first workflow only needs to find information. If it needs to create a task or add a note, specify which records it can change and what staff should verify first. Keep unrelated sources and customer documents outside the first integration.
+
+## Test what happens when the input is incomplete
+
+Create a small set of sample enquiries. Include a returning contact, a duplicate, a question about a service outside your coverage, and an attachment the assistant cannot use. Test how the workflow behaves when the CRM is temporarily unavailable. Have the assistant show what it found and route uncertain cases to staff.
+
+## Choose what to check in the first week
+
+Ask the salesperson to mark every draft ready to send, needs correction, or needs escalation. Review the reasons at the end of the week. A wrong service area suggests a source or retrieval problem. A good draft that takes too long to review suggests the output needs a shorter summary or a direct link to the record.
+
+Track how often the draft needs correction and whether the lookup saves staff time. A workflow can be successful when it produces accurate drafts and hands tricky cases to the right person promptly.
+
+If your team wants to connect an AI assistant to its CRM or enquiry process, share one workflow and the systems it touches. Amex can help design the integration and review steps with your Ahmedabad team or remotely across India. [Amex AI services](/services/ai-services) · [Discuss your workflow](/contact)
+`,
+  },
+  {
     slug: "connect-vercel-app-godaddy-domain",
     title: "How to Connect a GoDaddy Domain to Vercel (2026 Step-by-Step Guide)",
     excerpt:
