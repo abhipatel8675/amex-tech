@@ -2371,6 +2371,107 @@ We ship production apps on Next.js, Supabase, and Vercel every week. If you want
     ],
   },
   {
+    slug: "website-maintenance-checklist-ahmedabad",
+    title: "What Should a Website Maintenance Plan Cover? A Checklist for Ahmedabad Businesses",
+    excerpt: "Review uptime, enquiry forms, backups, access, and updates when choosing who will maintain your Ahmedabad business website.",
+    category: "Business",
+    tags: ["Website Maintenance", "Hosting", "Ahmedabad"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#B8860B",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Website Maintenance Checklist for Ahmedabad Businesses",
+    metaDescription: "Review uptime, enquiry forms, backups, access, and updates when choosing who will maintain your Ahmedabad business website.",
+    keywords: ["website maintenance services Ahmedabad", "Ahmedabad business technology"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+A website can load normally while its contact form sends enquiries to the wrong inbox. A scheduled update can also break a booking widget that staff rely on. A useful maintenance plan tells you who checks these things, how often they check, and what happens when something fails.
+
+Start by listing the pages and workflows that matter during a normal business week. For many Ahmedabad businesses, that means service pages, mobile contact buttons, a Maps link, and a form or booking flow. Include the admin tasks your team performs, such as updating opening hours or replacing service photos.
+
+## Define what gets checked and who owns it
+
+| Area | A practical check |
+|---|---|
+| Uptime | Confirm a visitor can open the homepage and a key service page from outside the office. |
+| Enquiries | Send a labelled test submission and check delivery to the right person. |
+| Software updates | Review needed updates and test changes that can affect forms, checkout, or the editor. |
+| Backups | Check when a backup ran, who can access it, and how to restore it. |
+| Accounts | Verify who controls the domain, hosting, analytics, and website editor. |
+| Performance | Compare a few important pages on mobile and investigate substantial regressions. |
+
+Monitoring can help spot errors and slow requests between manual checks. Choose alerts someone can act on. If a service immediately notifies five people when a check fails, decide who responds and when the issue can be escalated. [Vercel monitoring documentation](https://vercel.com/changelog/create-custom-monitors-in-vercel-observability)
+
+## Ask to see a recovery plan
+
+A backup is one part of recovery. Ask what is included and where the data can be restored. A site can have a data backup while still needing the correct application code, uploads, and configuration to run again. Practise recovery in a separate environment where possible.
+
+Decide how changes are approved. If an update breaks the live site, the maintainer should know who can approve a rollback and whether the last release also changed the database or content. Keep an internal note with the website’s important accounts and the people who own them.
+
+## Match the checks to your website
+
+A marketing site may need a reliable editor, working contact buttons, an intact sitemap, and a form that reaches the right inbox. A customer portal also needs signed-in tests. Verify that each sample customer sees their own records, that access can be removed, and that outgoing notifications point to the live application.
+
+**Hypothetical example.** An Ahmedabad training business changes its upcoming class schedule every month. Its maintainer tests the booking link and form after each update, checks that email confirmations show the correct dates, and records the test in a shared log. The office can see which change was made and who verified it.
+
+## Use a short monthly handover
+
+Ask for a readable summary with the checks performed, problems found, fixes shipped, and proposed next steps. Include any unresolved dependency, such as an old account that needs a new owner. Note your agreed support hours and who to contact if a customer-facing issue arrives at another time.
+
+If you own a website in Ahmedabad and want a clear maintenance plan, send Amex the URL and list the tasks that must work every week. We can help scope the checks and agree how to handle updates and incidents. [Amex website care plans](/services/devops-deployment) · [Contact our Ahmedabad office](/contact)
+`,
+  },
+  {
+    slug: "core-web-vitals-audit-business-website",
+    title: "Core Web Vitals Audit: What to Fix First on a Slow Business Website",
+    excerpt: "Find out whether slow loading, delayed interaction, or layout shifts are hurting your site, and make a plan to verify each fix.",
+    category: "Marketing",
+    tags: ["Core Web Vitals", "Performance", "SEO", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#047857",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Core Web Vitals Audit for Business Websites",
+    metaDescription: "Find out whether slow loading, delayed interaction, or layout shifts are hurting your site, and make a plan to verify each fix.",
+    keywords: ["Core Web Vitals audit"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+If your homepage feels quick in the office and slow on a customer’s phone, test a few real journeys before changing the whole site. Choose the homepage, an important service page, and the page where customers enquire. A performance problem that slows down a reservation or quote request is a good place to start.
+
+Core Web Vitals are Google’s measurements of loading, interaction responsiveness, and visual stability. They give you a common language for describing what visitors experience. [Google’s Web Vitals guide](https://web.dev/articles/vitals)
+
+## Start with field data and a repeatable test
+
+Run the pages through PageSpeed Insights and check mobile results. If field data is available, it reflects actual Chrome user experiences collected over time. Lab data comes from a controlled test and helps diagnose which resources slow a page down. A low-traffic page may have little individual field data, so use lab results and testing on a real phone to find practical issues. [PageSpeed Insights overview](https://developers.google.com/speed/docs/insights/v5/about)
+
+Record the page, device type, date, and result. Repeat the same test after changes. If you only measure the homepage, issues on an enquiry or checkout page can go unnoticed.
+
+## Match the fix to what is going wrong
+
+| What the visitor notices | Metric | Where to look first |
+|---|---|---|
+| The main image or heading takes a long time to appear | LCP, or Largest Contentful Paint | Oversized hero images, delayed fonts or assets, slow server responses |
+| The menu or form responds slowly to a tap | INP, or Interaction to Next Paint | Heavy scripts, third-party widgets, expensive work after a click |
+| Text or buttons jump around as the page loads | CLS, or Cumulative Layout Shift | Images without reserved space, late banners, shifting fonts |
+
+Avoid changing several unrelated parts at once. If a hero image appears late, check whether a properly sized image or a different loading strategy helps before removing content. If a form responds slowly, record which interaction delays and see whether a widget or validation step is doing too much work. [Google’s Web Vitals guide](https://web.dev/articles/vitals)
+
+## Prioritise the pages that matter to the business
+
+**Hypothetical example.** An Ahmedabad services website displays a large photo on its homepage and embeds a heavy booking widget on each service page. The photo makes the opening page slow. The booking widget also delays the tap that starts an enquiry. The team could test both changes and ship the booking improvement first if that is where customers repeatedly get stuck.
+
+Include third-party scripts in the review. A chat widget, analytics tag, or embedded map can be valuable when it helps customers. Ask whether it needs to load immediately, whether it is needed on every page, and who reviews any impact after changes.
+
+## Check the fix after it ships
+
+Measure the same pages again on the same type of phone or in the same lab setup. Submit a test enquiry. Verify that key buttons still respond, important images still display, and visitors can complete the workflow. Compare field data over time once enough visits have accumulated.
+
+If you want a first look at a site that feels slow, run the URL through the Amex Website Grader or send us a page and describe what you see. We work with website owners in Ahmedabad and across India. [Amex Website Grader](/tools/website-grader) · [Discuss a performance audit](/contact)
+`,
+  },
+  {
     slug: "fix-lovable-white-screen-build-failed-after-publish",
     title: "Fix: Lovable White Screen or Build Failed After Publish",
     excerpt:
