@@ -43,19 +43,19 @@ export default function Breadcrumb({
   }
   return (
     <nav aria-label="Breadcrumb" className="max-w-[92rem] mx-auto px-6 pt-28 md:pt-32 pb-2">
-      <ol className="flex flex-wrap items-center gap-1.5 text-sm text-[#4d554b]">
+      <ol className="flex flex-wrap items-center gap-1.5 text-sm text-[#111111]">
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-1.5">
-            {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-[#555555] shrink-0" />}
+            {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-[#111111] shrink-0" />}
             {item.href ? (
               <Link
                 href={item.href}
-                className="hover:text-[#3d453b] transition-colors"
+                className="hover:text-[#111111] transition-colors"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className="text-[#3d453b] font-medium" aria-current="page">
+              <span className="text-[#111111] font-medium" aria-current="page">
                 {item.label}
               </span>
             )}

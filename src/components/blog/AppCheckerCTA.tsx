@@ -15,7 +15,7 @@ export default function AppCheckerCTA({ topic, source }: { topic: string; source
     <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 p-5 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
       <div className="flex items-start gap-3 flex-1">
         <ShieldCheck className="w-5 h-5 text-[#7A5807] shrink-0 mt-0.5" />
-        <p className="text-[#3d453b] leading-relaxed">
+        <p className="text-[#111111] leading-relaxed">
           <strong className="text-[#111111]">Fixed it? Check the rest of your {topic === "app" ? "app" : `${topic} app`} for free.</strong>{" "}
           Our App Checker scans for exposed private keys, search visibility problems and slow loading in about 30 seconds.
         </p>

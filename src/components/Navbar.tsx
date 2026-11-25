@@ -41,7 +41,7 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-[#4d554b] hover:text-[#111111] transition-colors"
+              className="text-sm text-[#111111] hover:text-[#111111] transition-colors"
             >
               {l.label}
             </a>
@@ -56,7 +56,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden text-[#4d554b] hover:text-[#111111]"
+          className="md:hidden text-[#111111] hover:text-[#111111]"
           onClick={() => setOpen(!open)}
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -75,7 +75,7 @@ export default function Navbar() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm text-[#4d554b] hover:text-[#111111]"
+                className="text-sm text-[#111111] hover:text-[#111111]"
                 onClick={() => setOpen(false)}
               >
                 {l.label}

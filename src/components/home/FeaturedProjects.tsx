@@ -125,7 +125,7 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2 py-1 rounded-md"
+              className="text-xs text-[#111111] bg-slate-100 border border-slate-200 px-2 py-1 rounded-md"
             >
               {tag}
             </span>
@@ -136,7 +136,7 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
         <div className="flex items-center justify-between pt-4 border-t border-slate-200">
           <Link
             href={`/portfolio/${project.slug}`}
-            className="text-sm font-semibold text-slate-600 hover:text-[#7A5807] transition-colors flex items-center gap-1.5"
+            className="text-sm font-semibold text-[#111111] hover:text-[#7A5807] transition-colors flex items-center gap-1.5"
           >
             Case Study <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -145,7 +145,7 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-medium text-slate-600 hover:text-[#7A5807] transition-colors flex items-center gap-1 group/live"
+              className="text-xs font-medium text-[#111111] hover:text-[#7A5807] transition-colors flex items-center gap-1 group/live"
             >
               View Live
               <span className="opacity-60 group-hover/live:opacity-100 group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5 transition-all duration-200">↗</span>
@@ -216,7 +216,7 @@ export default function FeaturedProjects({ featured, totalCount }: { featured: F
             href="/portfolio"
             className="group flex items-center justify-between w-full px-8 py-5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 transition-all duration-300"
           >
-            <span className="text-lg font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">
+            <span className="text-lg font-semibold text-[#111111] group-hover:text-slate-900 transition-colors">
               See All {totalCount} Projects
             </span>
             <motion.span

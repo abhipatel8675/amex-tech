@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -81,6 +82,16 @@ export function ServiceGrid({ full = false }: { full?: boolean }) {
             {service.aliases?.map((alias) => (
               <span id={alias} key={alias} />
             ))}
+            {service.image && (
+              <div className={s.serviceImage}>
+                <Image
+                  src={service.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px"
+                />
+              </div>
+            )}
             <div className={s.serviceTop}>
               <Icon aria-hidden="true" />
               <span>0{i + 1}</span>
@@ -331,58 +342,5 @@ export function AiAgentFeature() {
       </div>
       <AiAgentChat />
     </div>
-  );
-}
-const offers = [
-  {
-    title: "Websites for trade businesses",
-    desc: "A 5-page site on your own domain with a quote form and Google basics, for plumbers, heating and cooling companies, handymen and contractors.",
-    href: "/trade-business-websites",
-  },
-  {
-    title: "Fix your app problem in 24 hours",
-    desc: "Stuck on an error in an app built with Lovable, Bolt, Supabase or Firebase? Send it over for a free assessment.",
-    href: "/fix",
-  },
-  {
-    title: "Free Website Grader",
-    desc: "See your site's score and what's costing you calls, in about 10 seconds.",
-    href: "/tools/website-grader",
-  },
-  {
-    title: "Free App Checker",
-    desc: "Check a web app for common problems before your customers find them.",
-    href: "/tools/app-checker",
-  },
-];
-export function OffersSection() {
-  return (
-    <section className={`${s.section} border-t border-[#dadcd1]`}>
-      <div className={s.wrap}>
-        <div className={s.sectionHead}>
-          <div>
-            <p className={s.eyebrow}>Quick ways to start</p>
-            <h2 className={s.heading}>
-              Start small. <em>See results first.</em>
-            </h2>
-          </div>
-        </div>
-        <div className={`${s.serviceGrid} ${s.offerGrid}`}>
-          {offers.map((offer, i) => (
-            <article className={s.service} key={offer.href}>
-              <div className={s.serviceTop}>
-                <span>0{i + 1}</span>
-              </div>
-              <h3>{offer.title}</h3>
-              <p>{offer.desc}</p>
-              <Link className={s.textLink} href={offer.href}>
-                Learn more <ArrowRight size={14} />
-                <span className="sr-only">: {offer.title}</span>
-              </Link>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }

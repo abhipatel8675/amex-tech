@@ -87,7 +87,7 @@ export default function TechMarquee() {
           {[...technologies, ...technologies].map((tech, i) => (
             <span
               key={i}
-              className="group relative shrink-0 whitespace-nowrap rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 backdrop-blur-md transition-all duration-300 hover:text-slate-900 hover:border-[#CC9A1A]/40 hover:-translate-y-0.5"
+              className="group relative shrink-0 whitespace-nowrap rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-[#111111] backdrop-blur-md transition-all duration-300 hover:text-slate-900 hover:border-[#CC9A1A]/40 hover:-translate-y-0.5"
               style={{
                 background: "linear-gradient(145deg, rgba(15,23,42,0.06) 0%, rgba(15,23,42,0.02) 100%)",
                 boxShadow: "inset 0 1px 0 rgba(15,23,42,0.08), 0 0 0 1px rgba(15,23,42,0.03)",

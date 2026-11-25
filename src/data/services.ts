@@ -7,6 +7,8 @@ export type Service = {
   benefits: string[];
   accentColor: string;
   iconName: string;
+  // Card image used in the services grid (public path)
+  image?: string;
   // Anchors of services that were merged into this one, so old /services#... links still land here.
   aliases?: string[];
 };
@@ -16,8 +18,8 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "ai-services",
-    title: "AI Assistants & Automation",
-    shortDesc: "AI assistants and automated processes that take repetitive work off your team.",
+    title: "AI Agents",
+    shortDesc: "Custom AI agents that answer customers, qualify leads and handle routine work around the clock, connected to the tools you already use.",
     description:
       "We set up AI assistants and automated processes that answer customer questions, follow up with new enquiries, handle paperwork and keep your business tools working together. A person can always step in when it matters.",
     technologies: ["Customer chat assistants", "Voice assistants", "Document handling", "Workflow automation", "Lead follow-up", "AI tools"],
@@ -29,11 +31,12 @@ export const services: Service[] = [
     ],
     accentColor: "#B8860B",
     iconName: "Bot",
+    image: "/images/services/ai-services.webp",
   },
   {
     slug: "web-development",
     title: "Websites & Web Apps",
-    shortDesc: "Business websites, customer portals and online tools that are fast and easy to manage.",
+    shortDesc: "Business websites and web apps built on WordPress, Wix, Shopify, Next.js or React: fast, secure and easy for you to manage.",
     description:
       "One team for your website and the online tools behind it. We build business websites, customer portals, dashboards and internal tools that load quickly, stay secure and are simple for your team to update.",
     technologies: ["Business websites", "Customer portals", "Dashboards", "Online booking", "Payments", "Easy content editing"],
@@ -45,6 +48,7 @@ export const services: Service[] = [
     ],
     accentColor: "#B8860B",
     iconName: "Globe",
+    image: "/images/services/web-development.webp",
     aliases: ["web-app-development", "api-development", "backend-development"],
   },
   {
@@ -62,11 +66,12 @@ export const services: Service[] = [
     ],
     accentColor: "#B8860B",
     iconName: "Rocket",
+    image: "/images/services/saas-development.webp",
   },
   {
     slug: "seo-services",
-    title: "SEO & Getting Found Online",
-    shortDesc: "Show up on Google and get recommended by ChatGPT, Perplexity and Gemini.",
+    title: "SEO, AEO & GEO",
+    shortDesc: "Rank on Google, win featured answers and voice search, and get recommended by ChatGPT, Perplexity and Gemini.",
     description:
       "People now search on Google and by asking AI assistants. We fix the problems that hold your website back, build pages around what your customers search for, set up your Google Business Profile for local searches, and make sure AI tools understand and recommend your business.",
     technologies: ["Search engine optimization", "Local search", "Google Business Profile", "Website fixes", "AI search visibility", "Monthly reports"],
@@ -78,6 +83,7 @@ export const services: Service[] = [
     ],
     accentColor: "#B8860B",
     iconName: "Search",
+    image: "/images/services/seo-services.webp",
   },
   {
     slug: "aeo-services",
@@ -97,8 +103,8 @@ export const services: Service[] = [
   },
   {
     slug: "crm-automation",
-    title: "CRM & Follow-Up Automation",
-    shortDesc: "Customer management setups in GoHighLevel and HubSpot that follow up with every enquiry.",
+    title: "Automation",
+    shortDesc: "Automatic follow-ups, lead routing, reminders and reports across GoHighLevel, HubSpot, email and your other tools, so routine work runs itself.",
     description:
       "We set up and repair customer management systems (CRMs) so no enquiry is lost. Website forms and calls go straight into your system, text and email follow-ups send automatically, and you can see which sources bring in customers. We also connect it to your website, phone system and ad accounts.",
     technologies: ["GoHighLevel", "HubSpot", "Text & email follow-up", "Phone system setup", "Online payments", "Lead tracking"],
@@ -110,11 +116,12 @@ export const services: Service[] = [
     ],
     accentColor: "#B8860B",
     iconName: "Workflow",
+    image: "/images/services/crm-automation.webp",
   },
   {
     slug: "mobile-app-development",
     title: "Mobile App Development",
-    shortDesc: "iPhone and Android apps built together, with AI features if you need them.",
+    shortDesc: "Smooth, store-ready iPhone and Android apps built from one codebase with React Native, with AI features when you need them.",
     description:
       "We build apps that work on both iPhone and Android, including AI features such as chat, voice and photo recognition. We also handle publishing on the App Store and Google Play so you can launch on both.",
     technologies: ["iPhone apps", "Android apps", "App Store publishing", "Google Play publishing", "AI features", "Notifications"],
@@ -126,6 +133,7 @@ export const services: Service[] = [
     ],
     accentColor: "#B8860B",
     iconName: "Smartphone",
+    image: "/images/services/mobile-app-development.webp",
   },
   {
     slug: "ui-ux-design",

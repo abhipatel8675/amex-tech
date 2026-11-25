@@ -93,13 +93,13 @@ export default async function ServiceDetailPage({ params }: Props) {
           <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-wider mb-4">Services</p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">{page.h1}</h1>
           {page.intro.map((p) => (
-            <p key={p.slice(0, 24)} className="text-[#3d453b] text-lg md:text-xl leading-8 mb-5">
+            <p key={p.slice(0, 24)} className="text-[#111111] text-lg md:text-xl leading-8 mb-5">
               {p}
             </p>
           ))}
           <div className="flex flex-wrap gap-2 mb-8">
             {service.technologies.map((t) => (
-              <span key={t} className="text-sm text-[#4d554b] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg">
+              <span key={t} className="text-sm text-[#111111] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg">
                 {t}
               </span>
             ))}
@@ -118,7 +118,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             {page.deliverables.map((d) => (
               <div key={d.title} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <h3 className="text-lg font-semibold mb-2">{d.title}</h3>
-                <p className="text-[#4d554b] leading-relaxed">{d.body}</p>
+                <p className="text-[#111111] leading-relaxed">{d.body}</p>
               </div>
             ))}
           </div>
@@ -128,7 +128,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           <h2 className="text-2xl font-bold mb-6">Who it&apos;s for</h2>
           <ul className="grid sm:grid-cols-2 gap-3">
             {page.whoFor.map((w) => (
-              <li key={w} className="flex gap-3 text-[#3d453b] leading-relaxed">
+              <li key={w} className="flex gap-3 text-[#111111] leading-relaxed">
                 <Check className="w-5 h-5 mt-0.5 shrink-0 text-[#7a5807]" aria-hidden />
                 {w}
               </li>
@@ -143,11 +143,11 @@ export default async function ServiceDetailPage({ params }: Props) {
               <li key={step.title} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <span className="text-sm font-semibold text-[#7A5807]">Step {i + 1}</span>
                 <h3 className="text-lg font-semibold mt-2 mb-2">{step.title}</h3>
-                <p className="text-[#4d554b] leading-relaxed">{step.body}</p>
+                <p className="text-[#111111] leading-relaxed">{step.body}</p>
               </li>
             ))}
           </ol>
-          <p className="text-[#4d554b] mt-6 leading-relaxed">
+          <p className="text-[#111111] mt-6 leading-relaxed">
             We work with clients around the world, agreeing meeting times that suit your time zone.{" "}
             <Link href="/web-and-ai-development" className="font-semibold text-[#7A5807] hover:underline">
               How we work with clients worldwide
@@ -173,7 +173,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                   )}
                   <div className="p-5">
                     <p className="font-semibold group-hover:text-[#7A5807] transition-colors">{p.title}</p>
-                    <p className="text-sm text-[#4d554b] mt-1 leading-relaxed">{p.shortDesc}</p>
+                    <p className="text-sm text-[#111111] mt-1 leading-relaxed">{p.shortDesc}</p>
                   </div>
                 </Link>
               ))}
@@ -187,7 +187,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             {page.faq.map((q) => (
               <div key={q.question} className="p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2]">
                 <h3 className="font-semibold mb-2">{q.question}</h3>
-                <p className="text-[#4d554b] leading-relaxed">{q.answer}</p>
+                <p className="text-[#111111] leading-relaxed">{q.answer}</p>
               </div>
             ))}
           </div>
@@ -217,7 +217,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="text-sm font-medium text-[#3d453b] border border-[#dadcd1] bg-white px-4 py-2 rounded-xl hover:border-[#9a722a] hover:text-[#7A5807] transition-colors"
+                className="text-sm font-medium text-[#111111] border border-[#dadcd1] bg-white px-4 py-2 rounded-xl hover:border-[#9a722a] hover:text-[#7A5807] transition-colors"
               >
                 {s.title}
               </Link>

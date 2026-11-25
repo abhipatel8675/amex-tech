@@ -12,6 +12,7 @@ import {
   OFFICE_HOURS_IST,
   CLUTCH_URL,
   UPWORK_URL,
+  FIVERR_URL,
 } from "@/data/company";
 
 const quickLinks = [
@@ -38,6 +39,15 @@ const socials = [
     icon: (
       <svg {...iconProps} fill="currentColor">
         <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06a2.834 2.834 0 0 1 2.833 2.833 2.834 2.834 0 0 1-2.834 2.572zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.15-4.036-2.699-5.892H7.548v7.112c-.002 1.406-1.144 2.548-2.55 2.548-1.405 0-2.547-1.142-2.549-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.283 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.557l1.213-5.71c1.063.679 2.285 1.109 3.664 1.109h.02c3.045-.028 5.526-2.53 5.526-5.582 0-3.061-2.481-5.577-5.526-5.577z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Amex Technology on Fiverr",
+    href: FIVERR_URL,
+    icon: (
+      <svg {...iconProps} fill="currentColor">
+        <path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z" />
       </svg>
     ),
   },
@@ -74,7 +84,7 @@ const socials = [
 ];
 
 const linkClass =
-  "inline-flex min-h-[32px] items-center text-sm text-[#444444] transition-colors hover:text-[#7a5807]";
+  "inline-flex min-h-[32px] items-center text-sm text-[#111111] transition-colors hover:text-[#7a5807]";
 const headingClass =
   "mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#111111]";
 
@@ -101,7 +111,21 @@ function LinkColumn({
   );
 }
 
-const serviceLinks = services.map((s) => ({ label: s.title, href: `/services/${s.slug}` }));
+// Same six services, in the same order, as the homepage "What we build" grid.
+const FOOTER_SERVICE_SLUGS = [
+  "web-development",
+  "seo-services",
+  "ai-services",
+  "saas-development",
+  "mobile-app-development",
+  "crm-automation",
+];
+const serviceLinks = [
+  ...FOOTER_SERVICE_SLUGS.map((slug) => services.find((s) => s.slug === slug))
+    .filter((s): s is (typeof services)[number] => Boolean(s))
+    .map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
+  { label: "All services", href: "/services" },
+];
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -139,7 +163,7 @@ export default function Footer() {
             <p className="mb-1 text-[15px] font-semibold text-[#111111]">
               Get development tips in your inbox
             </p>
-            <p className="text-sm text-[#444444]">
+            <p className="text-sm text-[#111111]">
               Practical insights on web, mobile, and product — no spam, ever.
             </p>
           </div>
@@ -200,10 +224,10 @@ export default function Footer() {
                 </small>
               </span>
             </Link>
-            <p className="mb-4 max-w-[240px] text-sm leading-7 text-[#444444]">
+            <p className="mb-4 max-w-[240px] text-sm leading-7 text-[#111111]">
               Websites, apps and AI tools for businesses worldwide.
             </p>
-            <address className="mb-2 max-w-[260px] text-sm not-italic leading-6 text-[#444444]">
+            <address className="mb-2 max-w-[260px] text-sm not-italic leading-6 text-[#111111]">
               {COMPANY_ADDRESS_LINE}
             </address>
             <ul className="mt-5 flex flex-wrap items-center gap-2.5" aria-label="Amex Technology profiles">
@@ -215,7 +239,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label={label}
                     title={label}
-                    className="grid h-10 w-10 place-items-center rounded-full border border-[#dadcd1] bg-white text-[#3d453b] transition-colors hover:border-[#9a722a] hover:text-[#7a5807] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20]"
+                    className="grid h-10 w-10 place-items-center rounded-full border border-[#dadcd1] bg-white text-[#111111] transition-colors hover:border-[#9a722a] hover:text-[#7a5807] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20]"
                   >
                     {icon}
                   </a>
@@ -244,10 +268,10 @@ export default function Footer() {
                 {US_PHONE.display} (US)
               </a>
               </div>
-              <p className="mt-2 text-sm leading-6 text-[#444444]">
+              <p className="mt-2 text-sm leading-6 text-[#111111]">
                 Office: Monday–Saturday, {OFFICE_HOURS_IST}
               </p>
-              <p className="text-sm leading-6 text-[#444444]">
+              <p className="text-sm leading-6 text-[#111111]">
                 US line: Monday–Saturday, US business hours
               </p>
               <Link
@@ -263,7 +287,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-3 border-t border-[#dadcd1] pt-7 sm:flex-row">
-          <p className="text-xs text-[#444444]">© {new Date().getFullYear()} Amex Technology.</p>
+          <p className="text-xs text-[#111111]">© {new Date().getFullYear()} Amex Technology.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6">
             {[
               ["Privacy Policy", "/privacy"],
@@ -272,7 +296,7 @@ export default function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="inline-flex min-h-[32px] items-center text-xs text-[#444444] transition-colors hover:text-[#7a5807]"
+                className="inline-flex min-h-[32px] items-center text-xs text-[#111111] transition-colors hover:text-[#7a5807]"
               >
                 {label}
               </Link>

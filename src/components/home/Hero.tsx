@@ -80,7 +80,7 @@ export default function Hero({
                 <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] animate-pulse" />
                 AI &amp; Software Agency
               </span>
-              <span className="text-xs font-medium text-slate-700 bg-slate-100 border border-slate-200 rounded-full px-4 py-1.5">
+              <span className="text-xs font-medium text-[#111111] bg-slate-100 border border-slate-200 rounded-full px-4 py-1.5">
                 Est. 2019
               </span>
             </div>
@@ -106,7 +106,7 @@ export default function Hero({
               initial={{ y: 12 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-lg sm:text-xl leading-8 max-w-[600px] mb-10 text-slate-700"
+              className="text-lg sm:text-xl leading-8 max-w-[600px] mb-10 text-[#111111]"
             >
               We build fast websites, web and mobile apps, and AI automations, then make sure people find you on Google and
               in ChatGPT, Perplexity and Gemini.
@@ -128,14 +128,14 @@ export default function Hero({
               </Link>
               <Link
                 href="/portfolio"
-                className="group inline-flex items-center gap-2 text-base font-semibold text-slate-700 px-7 py-4 rounded-xl border border-slate-300 bg-white/70 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
+                className="group inline-flex items-center gap-2 text-base font-semibold text-[#111111] px-7 py-4 rounded-xl border border-slate-300 bg-white/70 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
               >
                 See Our Work
-                <ChevronRight className="w-4 h-4 text-slate-600 group-hover:translate-x-0.5 transition-transform" />
+                <ChevronRight className="w-4 h-4 text-[#111111] group-hover:translate-x-0.5 transition-transform" />
               </Link>
               <Link
                 href="/tools/app-checker"
-                className="group inline-flex items-center gap-1.5 text-base font-medium text-slate-700 hover:text-slate-900 transition-colors"
+                className="group inline-flex items-center gap-1.5 text-base font-medium text-[#111111] hover:text-slate-900 transition-colors"
               >
                 <ShieldCheck className="w-4 h-4 text-[#7A5807]" />
                 Free App Check
@@ -153,25 +153,25 @@ export default function Hero({
                       </svg>
                     ))}
                   </div>
-                  <span className="text-sm font-medium text-slate-600">100% satisfaction</span>
+                  <span className="text-sm font-medium text-[#111111]">100% satisfaction</span>
                 </div>
                 <span className="hidden sm:block w-px h-4 bg-slate-200" />
                 <div className="flex items-center gap-2">
                   <CircleCheck className="w-3.5 h-3.5 text-[#7A5807]" />
-                  <span className="text-sm text-slate-600">5+ years experience</span>
+                  <span className="text-sm text-[#111111]">5+ years experience</span>
                 </div>
                 <span className="hidden sm:block w-px h-4 bg-slate-200" />
                 <div className="flex items-center gap-2">
                   <CircleCheck className="w-3.5 h-3.5 text-[#7A5807]" />
-                  <span className="text-sm text-slate-600">200+ projects shipped</span>
+                  <span className="text-sm text-[#111111]">200+ projects shipped</span>
                 </div>
               </div>
               {recentWork.length > 0 && (
-                <p className="mt-5 text-sm text-slate-600">
+                <p className="mt-5 text-sm text-[#111111]">
                   Recent work:{" "}
                   {recentWork.map((p, i) => (
                     <span key={p.slug}>
-                      <Link href={`/portfolio/${p.slug}`} className="font-medium text-slate-700 hover:text-[#7A5807] transition-colors">
+                      <Link href={`/portfolio/${p.slug}`} className="font-medium text-[#111111] hover:text-[#7A5807] transition-colors">
                         {p.title}
                       </Link>
                       {i < recentWork.length - 1 ? <span className="text-slate-300"> · </span> : null}
@@ -231,8 +231,8 @@ export default function Hero({
                     </svg>
                   ))}
                 </div>
-                <p className="text-sm text-slate-700 leading-relaxed italic line-clamp-4">&ldquo;{heroReview.content}&rdquo;</p>
-                <p className="text-xs text-slate-600 mt-2">
+                <p className="text-sm text-[#111111] leading-relaxed italic line-clamp-4">&ldquo;{heroReview.content}&rdquo;</p>
+                <p className="text-xs text-[#111111] mt-2">
                   — {heroReview.name}, verified {heroReview.platform} client
                 </p>
               </div>

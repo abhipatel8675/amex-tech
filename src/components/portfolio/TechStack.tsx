@@ -70,7 +70,7 @@ export default function TechStack({ technologies }: { technologies: string[] }) 
       {technologies.map((t) => (
         <li
           key={t}
-          className="inline-flex items-center gap-2.5 rounded-full bg-white pl-2.5 pr-4 py-2 text-sm font-medium text-[#3d453b] ring-1 ring-[#dadcd1] shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
+          className="inline-flex items-center gap-2.5 rounded-full bg-white pl-2.5 pr-4 py-2 text-sm font-medium text-[#111111] ring-1 ring-[#dadcd1] shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
         >
           <TechIcon name={t} />
           {t}

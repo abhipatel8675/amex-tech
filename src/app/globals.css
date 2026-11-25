@@ -202,14 +202,14 @@
 .blog-content h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #1E293B;
+  color: #111111;
   letter-spacing: -0.02em;
   line-height: 1.4;
   margin-top: 2.25rem;
   margin-bottom: 0.75rem;
 }
 .blog-content p {
-  color: #334155;
+  color: #111111;
   font-size: 1rem;
   line-height: 1.9;
   margin-top: 0;
@@ -219,19 +219,19 @@
   list-style-type: disc;
   padding-left: 1.5rem;
   margin-bottom: 1.35rem;
-  color: #334155;
+  color: #111111;
 }
 .blog-content ol {
   list-style-type: decimal;
   padding-left: 1.5rem;
   margin-bottom: 1.35rem;
-  color: #334155;
+  color: #111111;
 }
 .blog-content li {
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 0.4rem;
-  color: #334155;
+  color: #111111;
 }
 .blog-content strong {
   color: #111111;
@@ -300,14 +300,14 @@
   background: rgba(17,17,17,0.04);
 }
 .blog-content th {
-  color: #1E293B;
+  color: #111111;
   font-weight: 600;
   text-align: left;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid rgba(17,17,17,0.08);
 }
 .blog-content td {
-  color: #334155;
+  color: #111111;
   padding: 0.65rem 1rem;
   border-bottom: 1px solid rgba(17,17,17,0.05);
   line-height: 1.6;
@@ -342,7 +342,7 @@
   padding: 8px 16px 10px;
   font-size: 12.5px;
   font-style: italic;
-  color: #475569;
+  color: #111111;
   text-align: center;
   background: #F8FAFC;
 }
@@ -359,7 +359,7 @@
 }
 .blog-table th {
   background: rgba(154,114,42,0.12);
-  color: #1E293B;
+  color: #111111;
   font-weight: 600;
   padding: 11px 16px;
   text-align: left;
@@ -367,7 +367,7 @@
 }
 .blog-table td {
   padding: 10px 16px;
-  color: #334155;
+  color: #111111;
   border-bottom: 1px solid rgba(17,17,17,0.05);
 }
 .blog-table tr.hl td { border-left: 3px solid #9a722a; }
@@ -384,7 +384,7 @@
 }
 .blog-checklist__title {
   font-weight: 700;
-  color: #1E293B;
+  color: #111111;
   margin-bottom: 12px;
   font-size: 14.5px;
 }
@@ -393,7 +393,7 @@
   padding: 7px 0;
   font-size: 13.5px;
   border-bottom: 1px solid rgba(17,17,17,0.05);
-  color: #475569;
+  color: #111111;
 }
 .blog-checklist li:last-child { border-bottom: none; }
 .blog-checklist li.done { color: #059669; }

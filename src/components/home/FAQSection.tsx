@@ -53,7 +53,7 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: {
               : "border-slate-200 bg-slate-50 group-hover:border-[#B8860B]/40 group-hover:bg-[#B8860B]/5 group-hover:ring-2 group-hover:ring-[#B8860B]/10"
           }`}
         >
-          <Plus className={`w-3.5 h-3.5 transition-colors ${isOpen ? "text-[#7A5807]" : "text-slate-600 group-hover:text-[#7A5807]"}`} />
+          <Plus className={`w-3.5 h-3.5 transition-colors ${isOpen ? "text-[#7A5807]" : "text-[#111111] group-hover:text-[#7A5807]"}`} />
         </motion.div>
       </button>
       <AnimatePresence initial={false}>
@@ -65,7 +65,7 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: {
             transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="overflow-hidden"
           >
-            <p className="pb-5 px-3 pl-12 text-slate-600 leading-7 text-[14px]">{faq.answer}</p>
+            <p className="pb-5 px-3 pl-12 text-[#111111] leading-7 text-[14px]">{faq.answer}</p>
           </motion.div>
         )}
       </AnimatePresence>

@@ -2,18 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { projects, projectsForCategoryGroup, categoryGroups } from "@/data/projects";
-import { testimonials } from "@/data/testimonials";
 import { blogPosts } from "@/data/blog";
 import {
   AgencyCTA,
   AgencyFAQ,
   HirePreview,
-  OffersSection,
   Process,
   ServiceGrid,
 } from "./AgencySections";
 import StackExplorer from "./StackExplorer";
 import HeroSlider from "./HeroSlider";
+import HomeReviews from "./HomeReviews";
+import { clientReviews } from "@/data/reviews";
 import s from "./agency.module.css";
 
 export default function AgencyHome() {
@@ -27,8 +27,6 @@ export default function AgencyHome() {
   const stackShowcase =categoryGroups
     .map((g) => ({ name: g.name as string, list: projectsForCategoryGroup(projects, g.name) }))
     .filter((g) => g.list.length > 0);
-  const review =
-    testimonials.find((t) => t.name === "sarah_m_uk") ?? testimonials[0];
   return (
     <div className={s.site}>
       <section className={s.hero}>
@@ -65,24 +63,24 @@ export default function AgencyHome() {
               <HeroSlider slides={heroSlides} />
             </div>
           </div>
-          <div className={s.trust}>
-            <div className={s.marquee}>
-              <div className={s.marqueeTrack}>
-                {[0, 1].map((copy) =>
-                  [
-                    "Websites",
-                    "Mobile apps",
-                    "AI & automation",
-                    "Online payments",
-                    "Google search",
-                    "Hosting",
-                  ].map((name) => (
-                    <span key={`${copy}-${name}`} aria-hidden={copy === 1}>
-                      {name}
-                    </span>
-                  )),
-                )}
-              </div>
+        </div>
+        <div className={s.trust}>
+          <div className={s.marquee}>
+            <div className={s.marqueeTrack}>
+              {[0, 1, 2, 3].map((copy) =>
+                [
+                  "Websites",
+                  "Mobile apps",
+                  "AI & automation",
+                  "Online payments",
+                  "Google search",
+                  "Hosting",
+                ].map((name) => (
+                  <span key={`${copy}-${name}`} aria-hidden={copy > 0}>
+                    {name}
+                  </span>
+                )),
+              )}
             </div>
           </div>
         </div>
@@ -178,31 +176,7 @@ export default function AgencyHome() {
         </div>
       </section>
       <HirePreview />
-      <section className={s.quote}>
-        <div className={`${s.wrap} ${s.quoteGrid}`}>
-          <div>
-            <p className={s.eyebrow}>Client reviews</p>
-            <h2 className="text-2xl tracking-tight">
-              What clients say
-              <br />
-              after the project.
-            </h2>
-            <p
-              className={s.stars}
-              aria-label={`${review.rating} out of 5 stars`}
-            >
-              ★★★★★
-            </p>
-          </div>
-          <div>
-            <blockquote>&ldquo;{review.content}&rdquo;</blockquote>
-            <cite>
-              {review.name} <span aria-hidden="true">—</span> {review.platform}{" "}
-              client
-            </cite>
-          </div>
-        </div>
-      </section>
+      <HomeReviews reviews={clientReviews} />
       <section className={s.section}>
         <div className={s.wrap}>
           <div className={s.sectionHead}>
@@ -261,7 +235,6 @@ export default function AgencyHome() {
           </div>
         </div>
       </section>
-      <OffersSection />
       <AgencyFAQ />
       <AgencyCTA />
     </div>

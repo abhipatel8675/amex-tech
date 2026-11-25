@@ -51,7 +51,7 @@ export default function Logo({
         >
           Amex
         </span>
-        <span className={`text-slate-700 font-semibold tracking-tight ${textClassName}`}>
+        <span className={`text-[#111111] font-semibold tracking-tight ${textClassName}`}>
           Technology
         </span>
       </span>

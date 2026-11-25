@@ -36,7 +36,7 @@ export default function FixItCTA({ topic, source, variant, showHowItWorks = true
       <div className="mb-12 flex flex-col sm:flex-row sm:items-center gap-4 p-5 rounded-2xl border border-[#9a722a]/20 bg-[#9a722a]/[0.05]">
         <div className="flex items-start gap-3 flex-1">
           <Wrench className="w-5 h-5 text-[#7A5807] shrink-0 mt-0.5" />
-          <p className="text-[#3d453b] leading-relaxed">
+          <p className="text-[#111111] leading-relaxed">
             <strong className="text-[#111111]">No time to debug {topic === "app" ? "your app issue" : `this ${topic} issue`}?</strong>{" "}Tell us what&apos;s broken and
             our developers will get it working, usually within 24 hours.
           </p>
@@ -50,13 +50,13 @@ export default function FixItCTA({ topic, source, variant, showHowItWorks = true
     <div className="mt-14 p-8 rounded-2xl border border-[#9a722a]/20 bg-[#9a722a]/[0.05]">
       <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-wider mb-3">{FIX_OFFER.name}</p>
       <h3 className="text-2xl font-bold text-[#111111] mb-3">Still stuck? We&apos;ll fix your {topic} error for you.</h3>
-      <p className="text-[#3d453b] mb-6 leading-relaxed">
+      <p className="text-[#111111] mb-6 leading-relaxed">
         Skip the hours of trial and error. Send us the error and access to your project, and a senior developer
         will get it working, usually within 24 hours. We&apos;ll review it for free before any work starts.
       </p>
       <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-7">
         {FIX_OFFER.includes.map((item) => (
-          <li key={item} className="flex items-start gap-2 text-sm text-[#3d453b]">
+          <li key={item} className="flex items-start gap-2 text-sm text-[#111111]">
             <Check className="w-4 h-4 text-[#7A5807] shrink-0 mt-0.5" /> {item}
           </li>
         ))}
@@ -64,11 +64,11 @@ export default function FixItCTA({ topic, source, variant, showHowItWorks = true
       <div className="flex flex-wrap items-center gap-4">
         {contactButton}
         {showHowItWorks && (
-          <Link href="/fix" className="text-sm font-medium text-[#4d554b] hover:text-[#111111] transition-colors">
+          <Link href="/fix" className="text-sm font-medium text-[#111111] hover:text-[#111111] transition-colors">
             How it works
           </Link>
         )}
-        <Link href="/contact" className="text-sm font-medium text-[#4d554b] hover:text-[#111111] transition-colors">
+        <Link href="/contact" className="text-sm font-medium text-[#111111] hover:text-[#111111] transition-colors">
           Bigger project? Get a free quote
         </Link>
       </div>

@@ -263,7 +263,7 @@ export default function WhyChooseUs() {
                           boxShadow: i === arr.length - 1 ? "0 0 8px rgba(184,134,11,0.6)" : "none",
                         }}
                       />
-                      <span className="text-xs text-slate-600 font-mono">{year}</span>
+                      <span className="text-xs text-[#111111] font-mono">{year}</span>
                     </div>
                     {i < arr.length - 1 && (
                       <motion.div

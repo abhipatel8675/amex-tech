@@ -45,25 +45,25 @@ export default function LoginPage() {
             Amex<span className="text-[#7A5807]">Technology</span>
           </a>
           <h1 className="text-2xl font-bold mt-4">{isSignup ? "Create Account" : "Welcome Back"}</h1>
-          <p className="text-[#4d554b] text-sm mt-1">
+          <p className="text-[#111111] text-sm mt-1">
             {isSignup ? "Sign up to track your orders" : "Sign in to your dashboard"}
           </p>
         </div>
 
         <form onSubmit={handle} className="bg-white border border-[#dadcd1] rounded-2xl p-6 space-y-4">
           <div>
-            <label className="text-sm text-[#4d554b] mb-1.5 block">Email</label>
+            <label className="text-sm text-[#111111] mb-1.5 block">Email</label>
             <input
               required
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full bg-white border border-[#dadcd1] rounded-lg px-3 py-2.5 text-base text-[#111111] placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#9a722a]/50 transition-colors"
+              className="w-full bg-white border border-[#dadcd1] rounded-lg px-3 py-2.5 text-base text-[#111111] placeholder:text-[#111111] focus:outline-none focus:border-[#9a722a]/50 transition-colors"
             />
           </div>
           <div>
-            <label className="text-sm text-[#4d554b] mb-1.5 block">Password</label>
+            <label className="text-sm text-[#111111] mb-1.5 block">Password</label>
             <div className="relative">
               <input
                 required
@@ -71,12 +71,12 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-white border border-[#dadcd1] rounded-lg px-3 py-2.5 pr-10 text-base text-[#111111] placeholder:text-[#3f3f3f] focus:outline-none focus:border-[#9a722a]/50 transition-colors"
+                className="w-full bg-white border border-[#dadcd1] rounded-lg px-3 py-2.5 pr-10 text-base text-[#111111] placeholder:text-[#111111] focus:outline-none focus:border-[#9a722a]/50 transition-colors"
               />
               <button
                 type="button"
                 onClick={() => setShowPass(!showPass)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#4d554b] hover:text-[#111111]"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#111111] hover:text-[#111111]"
               >
                 {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
@@ -95,7 +95,7 @@ export default function LoginPage() {
             {loading ? "Please wait..." : isSignup ? "Create Account" : "Sign In"}
           </button>
 
-          <p className="text-center text-sm text-[#4d554b]">
+          <p className="text-center text-sm text-[#111111]">
             {isSignup ? "Already have an account?" : "No account yet?"}{" "}
             <button
               type="button"

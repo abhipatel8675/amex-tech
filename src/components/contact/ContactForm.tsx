@@ -19,7 +19,7 @@ const services = [
 // service names; map them to an option in the list so the select is prefilled.
 const SERVICE_ALIASES: Record<string, string> = {
   "Law firm website": "Websites & Web Apps",
-  "Google Business Profile setup": "SEO & Getting Found Online",
+  "Google Business Profile setup": "SEO, AEO & GEO",
   Website: "Websites & Web Apps",
 };
 
@@ -168,7 +168,7 @@ function ContactFormFields({
           <CheckCircle2 className="w-8 h-8 text-[#7A5807]" />
         </div>
         <h3 className="text-2xl font-bold text-[#111111]">Message Received</h3>
-        <p className="text-base text-[#4d554b] max-w-xs leading-7">
+        <p className="text-base text-[#111111] max-w-xs leading-7">
           We&apos;ll review your project details and reply with practical next
           steps.
         </p>
@@ -182,7 +182,7 @@ function ContactFormFields({
         <div>
           <label
             htmlFor="contact-name"
-            className="block text-sm font-medium text-[#4d554b] mb-2.5"
+            className="block text-sm font-medium text-[#111111] mb-2.5"
           >
             Full Name <span className="text-[#7A5807]">*</span>
           </label>
@@ -201,7 +201,7 @@ function ContactFormFields({
         <div>
           <label
             htmlFor="contact-email"
-            className="block text-sm font-medium text-[#4d554b] mb-2.5"
+            className="block text-sm font-medium text-[#111111] mb-2.5"
           >
             Email <span className="text-[#7A5807]">*</span>
           </label>
@@ -223,7 +223,7 @@ function ContactFormFields({
       <div>
         <label
           htmlFor="contact-company"
-          className="block text-sm font-medium text-[#4d554b] mb-2.5"
+          className="block text-sm font-medium text-[#111111] mb-2.5"
         >
           Company / Project Name
         </label>
@@ -242,7 +242,7 @@ function ContactFormFields({
       <div>
         <label
           htmlFor="contact-service"
-          className="block text-sm font-medium text-[#4d554b] mb-2.5"
+          className="block text-sm font-medium text-[#111111] mb-2.5"
         >
           Project Type <span className="text-[#7A5807]">*</span>
         </label>
@@ -267,7 +267,7 @@ function ContactFormFields({
 
       <div>
         <label
-          className="block text-sm font-medium text-[#4d554b] mb-3.5"
+          className="block text-sm font-medium text-[#111111] mb-3.5"
           id="budget-label"
         >
           Project Size
@@ -286,7 +286,7 @@ function ContactFormFields({
               className={`text-sm font-medium px-4 py-2 rounded-[5px] border transition-all duration-200 ${
                 form.budget === b
                   ? "bg-[#1a1a1a] border-[#1a1a1a] text-white"
-                  : "border-[#dadcd1] bg-white text-[#4d554b] hover:border-[#9a722a] hover:text-[#111111]"
+                  : "border-[#dadcd1] bg-white text-[#111111] hover:border-[#9a722a] hover:text-[#111111]"
               }`}
             >
               {b}
@@ -298,7 +298,7 @@ function ContactFormFields({
       <div>
         <label
           htmlFor="contact-message"
-          className="block text-sm font-medium text-[#4d554b] mb-2.5"
+          className="block text-sm font-medium text-[#111111] mb-2.5"
         >
           Project Details <span className="text-[#7A5807]">*</span>
         </label>

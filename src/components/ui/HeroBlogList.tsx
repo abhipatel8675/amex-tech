@@ -65,7 +65,7 @@ export function HeroBlogList({ posts }: { posts: HeroBlogPost[] }) {
             <FileText className="h-4 w-4 text-[#7A5807]" />
           </div>
           <div className="min-w-0 flex-1">
-            <div className="mb-1 flex items-center gap-2 text-xs text-[#4d554b]">
+            <div className="mb-1 flex items-center gap-2 text-xs text-[#111111]">
               <span>{post.category}</span>
               <span className="text-[#c9cbbf]">·</span>
               <span className="flex items-center gap-1">
@@ -83,7 +83,7 @@ export function HeroBlogList({ posts }: { posts: HeroBlogPost[] }) {
 
       <Link
         href="/blog"
-        className="group mt-1 flex items-center justify-center gap-1.5 rounded-xl border-t border-[#dadcd1] px-3.5 py-3 text-sm font-semibold text-[#4d554b] transition-colors duration-300 hover:bg-[#efeee6] hover:text-[#7A5807]"
+        className="group mt-1 flex items-center justify-center gap-1.5 rounded-xl border-t border-[#dadcd1] px-3.5 py-3 text-sm font-semibold text-[#111111] transition-colors duration-300 hover:bg-[#efeee6] hover:text-[#7A5807]"
       >
         View All Articles
         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

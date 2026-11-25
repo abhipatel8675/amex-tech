@@ -314,7 +314,7 @@ export default function ProjectCarousel({
                         className={`truncate px-0.5 text-xs ${
                           isActive
                             ? "font-bold text-[#7a5807]"
-                            : "font-medium text-[#444444] group-hover/thumb:text-[#7a5807]"
+                            : "font-medium text-[#111111] group-hover/thumb:text-[#7a5807]"
                         }`}
                       >
                         {label}

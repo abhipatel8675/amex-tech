@@ -11,11 +11,11 @@ export default function Footer() {
           <span>Amex<span className="text-[#7A5807]">Technology</span></span>
         </div>
 
-        <p className="text-xs text-[#4d554b] text-center">
+        <p className="text-xs text-[#111111] text-center">
           Full Stack Development · Bug Fixes · Deployment · Mobile Apps · AI App Fix
         </p>
 
-        <p className="text-xs text-[#4d554b]">
+        <p className="text-xs text-[#111111]">
           © {new Date().getFullYear()} Amex Technology. All rights reserved.
         </p>
       </div>

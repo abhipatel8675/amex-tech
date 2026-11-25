@@ -76,7 +76,7 @@ export default function BlogPage() {
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mb-6 leading-tight">
             Fix Guides for Supabase, Firebase, Lovable & Next.js
           </h1>
-          <p className="text-[#3d453b] text-xl max-w-xl leading-8">
+          <p className="text-[#111111] text-xl max-w-xl leading-8">
             Step-by-step fixes for the errors we solve every week on client projects, plus setup guides for the tools
             around them.
           </p>
@@ -125,17 +125,17 @@ export default function BlogPage() {
                 <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-5">
-                      <span className="text-sm text-[#4d554b] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg">
+                      <span className="text-sm text-[#111111] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg">
                         {featured.category}
                       </span>
-                      <span className="text-sm text-[#4d554b] flex items-center gap-1.5">
+                      <span className="text-sm text-[#111111] flex items-center gap-1.5">
                         <Clock className="w-3.5 h-3.5" /> {featured.readTime}
                       </span>
                     </div>
                     <h2 className="text-2xl md:text-3xl font-bold text-[#111111] mb-4 group-hover:text-[#7A5807] transition-colors leading-snug">
                       {featured.title}
                     </h2>
-                    <p className="text-base text-[#4d554b] leading-7">{featured.excerpt}</p>
+                    <p className="text-base text-[#111111] leading-7">{featured.excerpt}</p>
                   </div>
                   <div className="flex items-center gap-2 text-base font-semibold text-[#7A5807] mt-7 group-hover:text-[#7A5807] transition-colors">
                     Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -187,17 +187,17 @@ export default function BlogPage() {
                 {/* Content */}
                 <div className="p-6 flex flex-col gap-3.5 flex-1">
                   <div className="flex items-center gap-2.5">
-                    <span className="text-sm text-[#4d554b] bg-[#efeee6] border border-[#dadcd1] px-2.5 py-1 rounded-lg">
+                    <span className="text-sm text-[#111111] bg-[#efeee6] border border-[#dadcd1] px-2.5 py-1 rounded-lg">
                       {post.category}
                     </span>
-                    <span className="text-sm text-[#4d554b] flex items-center gap-1.5">
+                    <span className="text-sm text-[#111111] flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5" /> {post.readTime}
                     </span>
                   </div>
                   <h3 className="text-base font-semibold text-[#111111] group-hover:text-[#7A5807] transition-colors leading-snug">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-[#4d554b] leading-relaxed flex-1">{post.excerpt}</p>
+                  <p className="text-sm text-[#111111] leading-relaxed flex-1">{post.excerpt}</p>
                   <div className="flex items-center gap-1.5 text-sm font-medium text-[#7A5807] group-hover:text-[#7A5807] transition-colors mt-1">
                     Read <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>

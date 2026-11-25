@@ -47,8 +47,8 @@ export default function TermsPage() {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             Terms of Service
           </h1>
-          <p className="text-[#4d554b] text-base leading-7">
-            Last updated: <span className="text-[#3d453b]">{LAST_UPDATED}</span>
+          <p className="text-[#111111] text-base leading-7">
+            Last updated: <span className="text-[#111111]">{LAST_UPDATED}</span>
           </p>
         </section>
 
@@ -283,7 +283,7 @@ export default function TermsPage() {
               <p>
                 If you have any questions about these Terms of Service, please contact us:
               </p>
-              <div className="mt-4 p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] text-sm leading-7 text-[#3d453b]">
+              <div className="mt-4 p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] text-sm leading-7 text-[#111111]">
                 <p className="font-semibold text-[#111111] mb-1">Amex Technology</p>
                 <p>
                   Email:{" "}
@@ -301,7 +301,7 @@ export default function TermsPage() {
 
             {/* Related links */}
             <div className="pt-4 border-t border-[#dadcd1]">
-              <p className="text-sm text-[#4d554b]">
+              <p className="text-sm text-[#111111]">
                 Also see our{" "}
                 <Link href="/privacy" className="text-[#7A5807] hover:text-[#7A5807] transition-colors">
                   Privacy Policy
@@ -333,7 +333,7 @@ function Section({
       <h2 className="text-xl font-bold text-[#111111]" style={{ letterSpacing: "-0.015em" }}>
         {title}
       </h2>
-      <div className="flex flex-col gap-4 text-base leading-8 text-[#4d554b] [&_strong]:text-[#3d453b] [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7A5807]">
+      <div className="flex flex-col gap-4 text-base leading-8 text-[#111111] [&_strong]:text-[#111111] [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7A5807]">
         {children}
       </div>
     </section>

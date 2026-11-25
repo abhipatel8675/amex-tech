@@ -16,15 +16,15 @@ export function LegalPage({ title, updated, children }: { title: string; updated
         <section className="pt-8 pb-10 max-w-[92rem] mx-auto px-6">
           <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-widest mb-5">Legal</p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">{title}</h1>
-          <p className="text-[#4d554b] text-base leading-7">
-            Last updated: <span className="text-[#3d453b]">{updated}</span>
+          <p className="text-[#111111] text-base leading-7">
+            Last updated: <span className="text-[#111111]">{updated}</span>
           </p>
         </section>
         <article className="pb-28 max-w-[92rem] mx-auto px-6">
           <div className="border-t border-[#dadcd1] pt-10 flex flex-col gap-12">
             {children}
             <div className="pt-4 border-t border-[#dadcd1]">
-              <p className="text-sm text-[#4d554b]">
+              <p className="text-sm text-[#111111]">
                 Also see our{" "}
                 <Link href="/terms" className="text-[#7A5807]">Terms of Service</Link>,{" "}
                 <Link href="/privacy" className="text-[#7A5807]">Privacy Policy</Link>,{" "}
@@ -44,7 +44,7 @@ export function Section({ id, title, children }: { id: string; title: string; ch
   return (
     <section id={id} className="flex flex-col gap-4 scroll-mt-24">
       <h2 className="text-xl font-bold text-[#111111]" style={{ letterSpacing: "-0.015em" }}>{title}</h2>
-      <div className="flex flex-col gap-4 text-base leading-8 text-[#4d554b] [&_strong]:text-[#3d453b] [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7A5807]">
+      <div className="flex flex-col gap-4 text-base leading-8 text-[#111111] [&_strong]:text-[#111111] [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7A5807]">
         {children}
       </div>
     </section>
@@ -53,7 +53,7 @@ export function Section({ id, title, children }: { id: string; title: string; ch
 
 export function ContactBlock() {
   return (
-    <div className="mt-2 p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] text-sm leading-7 text-[#3d453b]">
+    <div className="mt-2 p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] text-sm leading-7 text-[#111111]">
       <p className="font-semibold text-[#111111] mb-1">Amex Technology</p>
       <p>
         Email: <a href={`mailto:${LEGAL_EMAIL}`} className="text-[#7A5807]">{LEGAL_EMAIL}</a>

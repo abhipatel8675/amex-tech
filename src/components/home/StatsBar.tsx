@@ -105,8 +105,8 @@ function StatCard({
       >
         {count}{stat.suffix}
       </p>
-      <p className="text-sm font-semibold text-slate-700 mb-1">{stat.label}</p>
-      <p className="text-xs text-slate-600">{stat.detail}</p>
+      <p className="text-sm font-semibold text-[#111111] mb-1">{stat.label}</p>
+      <p className="text-xs text-[#111111]">{stat.detail}</p>
     </motion.div>
   );
 }

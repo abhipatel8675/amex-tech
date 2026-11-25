@@ -73,7 +73,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto mb-10"
+          className="text-xl md:text-2xl text-[#111111] max-w-2xl mx-auto mb-10"
         >
           Full-Stack Engineering for Founders & Product Teams. Any language, any framework,
           any stack — from idea to production-ready in days, not months.
@@ -113,7 +113,7 @@ export default function Hero() {
               className="bg-white border border-slate-200 rounded-2xl p-4 text-center"
             >
               <div className="text-3xl md:text-4xl font-bold text-indigo-400">{s.value}</div>
-              <div className="text-sm text-slate-600 mt-1">{s.label}</div>
+              <div className="text-sm text-[#111111] mt-1">{s.label}</div>
             </div>
           ))}
         </motion.div>

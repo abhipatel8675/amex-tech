@@ -16,6 +16,7 @@ export const OFFICE_HOURS_IST = "7:00 AM–7:00 PM IST";
 export const OFFICE_HOURS_NOTE = "we arrange calls at times that suit your time zone";
 
 export const CLUTCH_URL = "https://clutch.co/profile/amex-technology";
+export const FIVERR_URL = "https://www.fiverr.com/abhipatel956";
 export const UPWORK_URL = "https://www.upwork.com/agencies/2067871097204619852/";
 
 export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(COMPANY_ADDRESS_LINE)}&output=embed`;

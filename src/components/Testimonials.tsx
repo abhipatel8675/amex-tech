@@ -61,7 +61,7 @@ export default function Testimonials() {
           Reviews
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-4">What Clients Say</h2>
-        <p className="text-slate-600">100% Job Success Score on Upwork. 5 stars across all platforms.</p>
+        <p className="text-[#111111]">100% Job Success Score on Upwork. 5 stars across all platforms.</p>
       </motion.div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -78,14 +78,14 @@ export default function Testimonials() {
               {Array.from({ length: r.stars }).map((_, j) => (
                 <Star key={j} className="w-3.5 h-3.5 fill-[#B8860B] text-indigo-400" />
               ))}
-              <span className="ml-2 text-xs text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">
+              <span className="ml-2 text-xs text-[#111111] bg-slate-100 px-2 py-0.5 rounded-full">
                 {r.platform}
               </span>
             </div>
-            <p className="text-base text-slate-600 leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
+            <p className="text-base text-[#111111] leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
             <div>
               <div className="text-base font-semibold">{r.name}</div>
-              <div className="text-sm text-slate-600">{r.role}</div>
+              <div className="text-sm text-[#111111]">{r.role}</div>
             </div>
           </motion.div>
         ))}
@@ -107,7 +107,7 @@ export default function Testimonials() {
         ].map(([val, label]) => (
           <div key={label} className="text-center">
             <div className="text-xl font-bold text-indigo-400">{val}</div>
-            <div className="text-sm text-slate-600">{label}</div>
+            <div className="text-sm text-[#111111]">{label}</div>
           </div>
         ))}
       </motion.div>

@@ -49,7 +49,7 @@ export default function CTASection() {
               {/* Status badge */}
               <div className="inline-flex items-center gap-2.5 bg-[#efeee6] border border-[#dadcd1] rounded-full px-5 py-2 mb-10">
                 <Clock className="w-4 h-4 text-[#7A5807]" />
-                <span className="text-sm font-medium text-[#3d453b]">Free quote, practical next steps</span>
+                <span className="text-sm font-medium text-[#111111]">Free quote, practical next steps</span>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#111111] mb-6 max-w-3xl mx-auto leading-tight">
@@ -58,7 +58,7 @@ export default function CTASection() {
                   digital product?
                 </span>
               </h2>
-              <p className="text-[#3d453b] text-xl max-w-xl mx-auto mb-10 leading-8">
+              <p className="text-[#111111] text-xl max-w-xl mx-auto mb-10 leading-8">
                 Tell us what you&apos;re building. We&apos;ll respond with a clear plan, honest scope estimate,
                 and a timeline — no obligations.
               </p>
@@ -74,7 +74,7 @@ export default function CTASection() {
                     <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#9a722a]/15 border border-[#9a722a]/30">
                       <Check className="w-3 h-3 text-[#7A5807]" strokeWidth={2.5} />
                     </span>
-                    <span className="text-sm text-[#3d453b]">{item}</span>
+                    <span className="text-sm text-[#111111]">{item}</span>
                   </div>
                 ))}
               </div>
@@ -93,7 +93,7 @@ export default function CTASection() {
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center gap-2 text-base font-semibold text-[#3d453b] px-8 py-4 rounded-xl border border-[#c9cbbf] hover:border-[#c9cbbf] hover:bg-[#efeee6] hover:text-[#111111] transition-all duration-200"
+                  className="inline-flex items-center gap-2 text-base font-semibold text-[#111111] px-8 py-4 rounded-xl border border-[#c9cbbf] hover:border-[#c9cbbf] hover:bg-[#efeee6] hover:text-[#111111] transition-all duration-200"
                 >
                   View Our Work
                 </Link>
@@ -108,7 +108,7 @@ export default function CTASection() {
                 ].map((item) => (
                   <div key={item.label} className="flex items-baseline gap-2">
                     <span className="text-base font-semibold text-[#111111]">{item.value}</span>
-                    <span className="text-sm text-[#4d554b]">{item.label}</span>
+                    <span className="text-sm text-[#111111]">{item.label}</span>
                   </div>
                 ))}
               </div>

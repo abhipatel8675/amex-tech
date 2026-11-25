@@ -82,7 +82,7 @@ export default function AboutPageContent() {
               works in the real world.
             </span>
           </h1>
-          <p className="text-slate-700 text-xl md:text-2xl leading-9 max-w-2xl mb-8">
+          <p className="text-[#111111] text-xl md:text-2xl leading-9 max-w-2xl mb-8">
             Amex Technology is an independent AI and software agency founded by Abhi Patel in 2019. We build AI agents, websites, web and mobile apps and SaaS products for startups and growing businesses, and make sure their customers can find them on Google and in AI assistants.
           </p>
 
@@ -97,7 +97,7 @@ export default function AboutPageContent() {
                 className="flex items-baseline gap-2"
               >
                 <span className="text-3xl font-bold text-slate-900" style={{ background: "linear-gradient(135deg, #CC9A1A, #B8860B)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{s.value}</span>
-                <span className="text-sm text-slate-600 font-medium">{s.label}</span>
+                <span className="text-sm text-[#111111] font-medium">{s.label}</span>
               </motion.div>
             ))}
           </div>
@@ -132,7 +132,7 @@ export default function AboutPageContent() {
               <div className="absolute top-0 inset-x-8 h-px" style={{ background: `linear-gradient(90deg, transparent, ${item.accent}80, transparent)` }} />
               <p className="text-sm font-semibold uppercase tracking-widest mb-5" style={{ color: item.accent }}>{item.label}</p>
               <h2 className="text-2xl font-bold text-slate-900 mb-5 leading-snug">{item.heading}</h2>
-              <p className="text-base text-slate-700 leading-7">{item.body}</p>
+              <p className="text-base text-[#111111] leading-7">{item.body}</p>
             </motion.div>
           ))}
         </div>
@@ -157,7 +157,7 @@ export default function AboutPageContent() {
                     <div className="w-6 h-6 rounded-full bg-[#B8860B]/15 border border-[#B8860B]/25 flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="w-3 h-3 text-[#7A5807]" />
                     </div>
-                    <span className="text-base text-slate-700 leading-7">{item}</span>
+                    <span className="text-base text-[#111111] leading-7">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -183,7 +183,7 @@ export default function AboutPageContent() {
                       </div>
                       <div>
                         <h3 className="text-base font-semibold text-slate-900 mb-2">{value.title}</h3>
-                        <p className="text-sm text-slate-600 leading-7">{value.desc}</p>
+                        <p className="text-sm text-[#111111] leading-7">{value.desc}</p>
                       </div>
                     </div>
                   );
@@ -206,7 +206,7 @@ export default function AboutPageContent() {
           >
             <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-widest mb-4">How We Work</p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">From idea to live product.</h2>
-            <p className="text-slate-600 text-lg max-w-xl mx-auto leading-8">
+            <p className="text-[#111111] text-lg max-w-xl mx-auto leading-8">
               A straightforward process built around transparency, fast feedback loops, and zero surprises.
             </p>
           </motion.div>
@@ -231,7 +231,7 @@ export default function AboutPageContent() {
                     <span className="text-4xl font-bold tabular-nums" style={{ color: `${step.color}20` }}>{step.step}</span>
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                  <p className="text-sm text-slate-600 leading-7">{step.desc}</p>
+                  <p className="text-sm text-[#111111] leading-7">{step.desc}</p>
                   {i < processSteps.length - 1 && (
                     <div className="hidden md:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
                       <ArrowRight className="w-5 h-5 text-slate-900/10" />
@@ -256,7 +256,7 @@ export default function AboutPageContent() {
           >
             <p className="text-sm font-semibold text-[#7A5807] uppercase tracking-widest mb-4">Technology</p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">Our technology stack.</h2>
-            <p className="text-slate-700 text-lg max-w-xl leading-8">
+            <p className="text-[#111111] text-lg max-w-xl leading-8">
               Modern, battle-tested tools chosen for reliability and long-term viability — not whatever is trending this week.
             </p>
           </motion.div>
@@ -268,7 +268,7 @@ export default function AboutPageContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25, delay: i * 0.02 }}
-                className="text-sm font-medium text-slate-700 bg-slate-50 border border-slate-200 px-4 py-2 rounded-xl hover:border-[#B8860B]/30 hover:text-slate-800 hover:bg-[#B8860B]/5 transition-all duration-200 cursor-default"
+                className="text-sm font-medium text-[#111111] bg-slate-50 border border-slate-200 px-4 py-2 rounded-xl hover:border-[#B8860B]/30 hover:text-slate-800 hover:bg-[#B8860B]/5 transition-all duration-200 cursor-default"
               >
                 {tech}
               </motion.span>
@@ -293,7 +293,7 @@ export default function AboutPageContent() {
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6 leading-tight relative">
               Let's turn your idea into a product<br className="hidden md:block" /> people actually use.
             </h2>
-            <p className="text-slate-600 text-lg max-w-xl mx-auto mb-10 leading-8 relative">
+            <p className="text-[#111111] text-lg max-w-xl mx-auto mb-10 leading-8 relative">
               Tell us what you're working on. We'll come back within 4 hours with an honest plan — no obligations, no sales pitch.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative">
@@ -307,7 +307,7 @@ export default function AboutPageContent() {
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-2 text-base font-semibold text-slate-700 hover:text-slate-900 px-8 py-4 rounded-xl border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 transition-all duration-200"
+                className="inline-flex items-center gap-2 text-base font-semibold text-[#111111] hover:text-slate-900 px-8 py-4 rounded-xl border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 transition-all duration-200"
               >
                 View Our Work
               </Link>

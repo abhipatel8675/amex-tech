@@ -155,38 +155,38 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="max-w-7xl mx-auto px-6">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm text-[#4d554b] hover:text-[#111111] transition-colors mb-8"
+              className="inline-flex items-center gap-1.5 text-sm text-[#111111] hover:text-[#111111] transition-colors mb-8"
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to Blog
             </Link>
 
             <div className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="text-sm text-[#3d453b] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg">
+              <span className="text-sm text-[#111111] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg">
                 {post.category}
               </span>
-              <span className="text-sm text-[#4d554b] flex items-center gap-1.5">
+              <span className="text-sm text-[#111111] flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5" /> {readingMinutes} min read
               </span>
-              <time className="text-sm text-[#4d554b]" dateTime={post.publishedAt}>
+              <time className="text-sm text-[#111111]" dateTime={post.publishedAt}>
                 {new Date(post.publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
               </time>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">{post.title}</h1>
-            <p className="text-[#3d453b] text-xl leading-8 mb-5">{post.excerpt}</p>
+            <p className="text-[#111111] text-xl leading-8 mb-5">{post.excerpt}</p>
             {post.author?.name === "Abhi Patel" ? (
-              <p className="text-sm text-[#4d554b]">
+              <p className="text-sm text-[#111111]">
                 By{" "}
                 <Link
                   href={post.author.url?.replace("https://amextechnology.com", "") || "/about"}
-                  className="font-semibold text-[#4d554b] underline-offset-2 hover:text-[#7a5807] hover:underline"
+                  className="font-semibold text-[#111111] underline-offset-2 hover:text-[#7a5807] hover:underline"
                 >
                   {post.author.name}
                 </Link>
                 , founder of Amex Technology
               </p>
             ) : (
-              <p className="text-sm text-[#4d554b]">By the <strong className="text-[#4d554b]">Amex Technology</strong> Team</p>
+              <p className="text-sm text-[#111111]">By the <strong className="text-[#111111]">Amex Technology</strong> Team</p>
             )}
           </div>
         </section>
@@ -219,7 +219,7 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Related Services */}
             {getRelatedServices(post.tags, post.category).length > 0 && (
               <div className="mt-14 pt-8 border-t border-[#dadcd1]">
-                <h3 className="text-sm font-semibold text-[#4d554b] uppercase tracking-wider mb-5">
+                <h3 className="text-sm font-semibold text-[#111111] uppercase tracking-wider mb-5">
                   Related Services
                 </h3>
                 <div className="flex flex-wrap gap-3">
@@ -241,7 +241,7 @@ export default async function BlogPostPage({ params }: Props) {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center gap-1.5 text-sm text-[#3d453b] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg"
+                  className="inline-flex items-center gap-1.5 text-sm text-[#111111] bg-[#efeee6] border border-[#dadcd1] px-3 py-1 rounded-lg"
                 >
                   <Tag className="w-3.5 h-3.5" /> {tag}
                 </span>
@@ -254,7 +254,7 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Related posts */}
           {relatedPosts.length > 0 && (
             <div className="mt-14">
-              <h3 className="text-sm font-semibold text-[#4d554b] uppercase tracking-wider mb-6">
+              <h3 className="text-sm font-semibold text-[#111111] uppercase tracking-wider mb-6">
                 Related Articles
               </h3>
               <div className="grid sm:grid-cols-2 gap-4">
@@ -267,7 +267,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <p className="text-base font-semibold text-[#111111] group-hover:text-[#7A5807] transition-colors mb-2 leading-snug">
                       {related.title}
                     </p>
-                    <p className="text-sm text-[#4d554b] flex items-center gap-1.5">
+                    <p className="text-sm text-[#111111] flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5" /> {related.readTime}
                     </p>
                   </Link>

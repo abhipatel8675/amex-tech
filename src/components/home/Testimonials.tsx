@@ -46,7 +46,7 @@ export default function Testimonials() {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             Trusted by teams who ship.
           </h2>
-          <p className="text-slate-600 text-lg max-w-md mx-auto leading-7">
+          <p className="text-[#111111] text-lg max-w-md mx-auto leading-7">
             Don&apos;t take our word for it — here&apos;s what our clients say.
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Quote */}
-                <p className="text-[15px] text-slate-700 leading-7 flex-1 relative z-10">
+                <p className="text-[15px] text-[#111111] leading-7 flex-1 relative z-10">
                   &ldquo;{t.content}&rdquo;
                 </p>
 
@@ -108,12 +108,12 @@ export default function Testimonials() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-slate-900 leading-tight">{t.name}</p>
-                      <p className="text-xs text-slate-600 mt-0.5">
+                      <p className="text-xs text-[#111111] mt-0.5">
                         {t.role} &middot; {t.company}
                       </p>
                     </div>
                   </div>
-                  <span className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-md shrink-0">
+                  <span className="text-xs text-[#111111] bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-md shrink-0">
                     {t.platform}
                   </span>
                 </div>
@@ -146,7 +146,7 @@ export default function Testimonials() {
               {i > 0 && <span className="hidden sm:block w-px h-10 bg-slate-100 mx-10" />}
               <div className="text-center">
                 <p className="text-3xl font-bold mb-1" style={{ color: m.color }}>{m.value}</p>
-                <p className="text-sm text-slate-600">{m.label}</p>
+                <p className="text-sm text-[#111111]">{m.label}</p>
               </div>
             </div>
           ))}

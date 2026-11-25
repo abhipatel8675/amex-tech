@@ -50,7 +50,7 @@ function TechChips({ items, max = 4, dark = false }: { items: string[]; max?: nu
   const rest = items.length - shown.length;
   const chip = dark
     ? "bg-white/12 text-white/90 ring-1 ring-white/15"
-    : "bg-[#efeee6] text-[#4d554b] ring-1 ring-[#dadcd1]";
+    : "bg-[#efeee6] text-[#111111] ring-1 ring-[#dadcd1]";
   return (
     <ul className="flex flex-wrap gap-1.5">
       {shown.map((t) => (
@@ -197,13 +197,13 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
             <h3 className="text-[17px] font-medium text-[#111111] tracking-[-0.01em] truncate">
               {project.title}
             </h3>
-            <span className="shrink-0 text-xs text-[#444444]">{categoryLabel(project.category)}</span>
+            <span className="shrink-0 text-xs text-[#111111]">{categoryLabel(project.category)}</span>
           </div>
           {canHover ? (
-            <p className="mt-1 text-sm text-[#444444] truncate">{project.tags.slice(0, 2).join(" · ")}</p>
+            <p className="mt-1 text-sm text-[#111111] truncate">{project.tags.slice(0, 2).join(" · ")}</p>
           ) : (
             <div className="mt-2 space-y-3">
-              <p className="text-sm leading-relaxed text-[#4d554b]">{project.shortDesc}</p>
+              <p className="text-sm leading-relaxed text-[#111111]">{project.shortDesc}</p>
               <TechChips items={project.technologies} />
             </div>
           )}
@@ -291,7 +291,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                   onClick={() => chooseCategory(name)}
                   aria-pressed={active}
                   className={`relative shrink-0 whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-medium transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
-                    active ? "text-[#111111]" : "text-[#444444] hover:text-[#111111]"
+                    active ? "text-[#111111]" : "text-[#111111] hover:text-[#111111]"
                   }`}
                 >
                   {active && (
@@ -303,7 +303,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                   )}
                   <span className="relative">
                     {name}
-                    <span className={`ml-1.5 text-xs ${active ? "text-[#7a5807]" : "text-[#555555]"}`}>{count}</span>
+                    <span className={`ml-1.5 text-xs ${active ? "text-[#7a5807]" : "text-[#111111]"}`}>{count}</span>
                   </span>
                 </button>
               );
@@ -314,8 +314,8 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
         {/* Technology filter */}
         <div>
           <div className="mb-3 flex items-center justify-between gap-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#444444]">Filter by technology</p>
-            <p className="text-sm text-[#444444]" aria-live="polite">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#111111]">Filter by technology</p>
+            <p className="text-sm text-[#111111]" aria-live="polite">
               {filtered.length} project{filtered.length !== 1 ? "s" : ""}
               {isFiltered && (
                 <>
@@ -345,7 +345,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
             <svg
               aria-hidden="true"
               viewBox="0 0 20 20"
-              className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#444444]"
+              className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#111111]"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -367,11 +367,11 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                   className={`inline-flex min-h-[40px] items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
                     active
                       ? "border-[#1a1a1a] bg-[#1a1a1a] text-white"
-                      : "border-[#dadcd1] bg-white text-[#3d453b] hover:border-[#9a722a] hover:text-[#111111]"
+                      : "border-[#dadcd1] bg-white text-[#111111] hover:border-[#9a722a] hover:text-[#111111]"
                   }`}
                 >
                   {name === "All" ? "All technologies" : name}
-                  <span className={`text-xs ${active ? "text-[#e7c98a]" : "text-[#555555]"}`}>{count}</span>
+                  <span className={`text-xs ${active ? "text-[#e7c98a]" : "text-[#111111]"}`}>{count}</span>
                 </button>
               );
             })}
@@ -380,7 +380,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
       </div>
 
       {filtered.length === 0 && (
-        <p className="mb-12 text-[#444444]">
+        <p className="mb-12 text-[#111111]">
           No projects match these filters yet.{" "}
           <button type="button" className="font-medium text-[#7a5807] underline" onClick={clearAll}>
             Clear filters

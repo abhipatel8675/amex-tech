@@ -7,7 +7,7 @@ import type { GradePreview } from "@/lib/siteGrader/grade";
 const BOOKING_URL = process.env.NEXT_PUBLIC_CAL_LINK || "/contact?service=Website";
 const STEPS = ["Loading your homepage", "Checking phone and speed basics", "Checking what Google sees", "Scoring"];
 const inputCls =
-  "min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#555555] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50";
+  "min-w-0 px-4 py-3 rounded-xl border border-[#c9cbbf] bg-white text-[#111111] placeholder:text-[#111111] focus:outline-none focus:ring-2 focus:ring-[#9a722a]/50";
 const btnCls =
   "inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3 rounded-xl transition-all btn-glow disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap";
 const btnStyle = { background: "linear-gradient(135deg, #9a722a 0%, #9C7208 100%)" };
@@ -101,7 +101,7 @@ export default function WebsiteGrader({ initialUrl = "" }: { initialUrl?: string
             {loading ? "Grading…" : "Grade my website"}
           </button>
         </div>
-        {loading && <p className="mt-4 text-sm text-[#4d554b]">{STEPS[step]}… about 10 seconds.</p>}
+        {loading && <p className="mt-4 text-sm text-[#111111]">{STEPS[step]}… about 10 seconds.</p>}
         {error && <p className="mt-4 text-sm text-red-700">{error}</p>}
       </form>
 
@@ -110,14 +110,14 @@ export default function WebsiteGrader({ initialUrl = "" }: { initialUrl?: string
           <div className="p-6 md:p-8 rounded-2xl border border-[#dadcd1] bg-white grid md:grid-cols-[auto_1fr] gap-6 items-center">
             <div className="flex flex-col items-center justify-center w-32 h-32 rounded-full border-8 mx-auto" style={{ borderColor: scoreColor(result.score) }}>
               <span className="text-4xl font-bold" style={{ color: scoreColor(result.score) }}>{result.score}</span>
-              <span className="text-xs text-[#4d554b]">Grade {result.grade}</span>
+              <span className="text-xs text-[#111111]">Grade {result.grade}</span>
             </div>
             <div>
-              <p className="text-sm text-[#4d554b] mb-1 break-all">{result.host}</p>
+              <p className="text-sm text-[#111111] mb-1 break-all">{result.host}</p>
               <h2 className="text-2xl font-bold text-[#111111] mb-2">
                 {result.failedCount === 0 ? "Your site passed every check" : `${result.failedCount} things are costing you customers`}
               </h2>
-              <p className="text-sm text-[#4d554b]">
+              <p className="text-sm text-[#111111]">
                 {result.passed} checks passed · responded in {(result.stats.responseMs / 1000).toFixed(1)}s
                 {result.stats.builder ? ` · built with ${result.stats.builder}` : ""}
               </p>
@@ -131,9 +131,9 @@ export default function WebsiteGrader({ initialUrl = "" }: { initialUrl?: string
                 <div key={c.id} className="p-5 rounded-2xl border border-[#dadcd1] bg-white flex gap-3">
                   <XCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-xs text-[#444444] uppercase tracking-wider mb-1">{c.group}</p>
+                    <p className="text-xs text-[#111111] uppercase tracking-wider mb-1">{c.group}</p>
                     <p className="font-semibold text-[#111111] mb-1">{c.title}</p>
-                    <p className="text-sm text-[#3d453b] leading-relaxed">{c.why}</p>
+                    <p className="text-sm text-[#111111] leading-relaxed">{c.why}</p>
                   </div>
                 </div>
               ))}
@@ -145,7 +145,7 @@ export default function WebsiteGrader({ initialUrl = "" }: { initialUrl?: string
               <Mail className="w-5 h-5 text-[#7A5807] shrink-0 mt-1" />
               <div>
                 <h3 className="text-xl font-bold text-[#111111]">Get the full report with every fix, free</h3>
-                <p className="text-[#3d453b] mt-1">All {result.passed + result.failedCount} checks, why each one matters, and exactly how to fix it.</p>
+                <p className="text-[#111111] mt-1">All {result.passed + result.failedCount} checks, why each one matters, and exactly how to fix it.</p>
               </div>
             </div>
             {sent ? (
@@ -165,7 +165,7 @@ export default function WebsiteGrader({ initialUrl = "" }: { initialUrl?: string
                   <input type="text" autoComplete="organization" placeholder="Business name (optional)" value={form.business} onChange={set("business")} aria-label="Business name" className={inputCls} />
                   <input type="tel" autoComplete="tel" placeholder="Phone (optional)" value={form.phone} onChange={set("phone")} aria-label="Phone" className={inputCls} />
                 </div>
-                <label className="flex items-start gap-2 text-sm text-[#3d453b] cursor-pointer">
+                <label className="flex items-start gap-2 text-sm text-[#111111] cursor-pointer">
                   <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-0.5 accent-[#9C7208]" />
                   <span>Email me the report. I may get one personal reply about these results; unsubscribe anytime.</span>
                 </label>

@@ -139,7 +139,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {/* Header */}
           <header className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-10">
             <div>
-              <p className="mb-3 text-sm text-[#444444]">
+              <p className="mb-3 text-sm text-[#111111]">
                 {categoryLabel(project.category)} · {project.tags.slice(0, 2).join(" · ")}
               </p>
               <h1
@@ -152,7 +152,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-2 text-sm">
                   {factItems.map(([label, value]) => (
                     <div key={label} className="flex gap-2">
-                      <dt className="text-[#444444]">{label}</dt>
+                      <dt className="text-[#111111]">{label}</dt>
                       <dd className="font-medium text-[#111111]">{value}</dd>
                     </div>
                   ))}
@@ -195,7 +195,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {/* Tech stack */}
           {project.technologies.length > 0 && (
             <section className="mt-14 md:mt-16" aria-labelledby="stack-heading">
-              <h2 id="stack-heading" className="mb-5 text-sm font-medium text-[#444444]">
+              <h2 id="stack-heading" className="mb-5 text-sm font-medium text-[#111111]">
                 Tools used
               </h2>
               <TechStack technologies={project.technologies} />
@@ -212,7 +212,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 >
                   About the project
                 </h2>
-                <p className="text-lg leading-8 text-[#4d554b]">{project.description}</p>
+                <p className="text-lg leading-8 text-[#111111]">{project.description}</p>
               </section>
 
               {project.solution && (
@@ -223,7 +223,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                   >
                     What we built
                   </h2>
-                  <p className="text-lg leading-8 text-[#4d554b]">{project.solution}</p>
+                  <p className="text-lg leading-8 text-[#111111]">{project.solution}</p>
                 </section>
               )}
             </div>
@@ -237,7 +237,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                   >
                     The problem
                   </h2>
-                  <p className="text-base leading-7 text-[#444444]">{project.problem}</p>
+                  <p className="text-base leading-7 text-[#111111]">{project.problem}</p>
                 </section>
               )}
 
@@ -253,7 +253,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                     {project.results.map((r) => (
                       <li key={r} className="flex items-start gap-3 py-4">
                         <Check className="mt-1 w-4 h-4 shrink-0 text-emerald-600" />
-                        <span className="text-[15px] leading-7 text-[#3d453b]">{r}</span>
+                        <span className="text-[15px] leading-7 text-[#111111]">{r}</span>
                       </li>
                     ))}
                   </ul>
@@ -265,7 +265,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {facts.quote && (
             <figure className="mt-16 md:mt-20 max-w-3xl border-l-2 border-[#CC9A1A] pl-6">
               <blockquote className="text-xl leading-8 text-[#111111]">&ldquo;{facts.quote.text}&rdquo;</blockquote>
-              <figcaption className="mt-3 text-sm text-[#444444]">
+              <figcaption className="mt-3 text-sm text-[#111111]">
                 {facts.quote.name}
                 {facts.quote.role ? `, ${facts.quote.role}` : ""}
               </figcaption>
@@ -293,7 +293,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           <div className="mt-20 md:mt-28 pt-8 border-t border-[#dadcd1]">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#4d554b] transition-colors hover:text-[#111111]"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#111111] transition-colors hover:text-[#111111]"
             >
               <ArrowLeft className="w-4 h-4" /> All projects
             </Link>

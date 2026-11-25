@@ -46,8 +46,8 @@ export default function PrivacyPage() {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             Privacy Policy
           </h1>
-          <p className="text-[#4d554b] text-base leading-7">
-            Last updated: <span className="text-[#3d453b]">{LAST_UPDATED}</span>
+          <p className="text-[#111111] text-base leading-7">
+            Last updated: <span className="text-[#111111]">{LAST_UPDATED}</span>
           </p>
         </section>
 
@@ -187,9 +187,9 @@ export default function PrivacyPage() {
                 <table className="w-full text-sm border-collapse">
                   <thead>
                     <tr className="border-b border-[#dadcd1]">
-                      <th className="text-left py-3 pr-6 text-[#4d554b] font-semibold">Service</th>
-                      <th className="text-left py-3 pr-6 text-[#4d554b] font-semibold">Purpose</th>
-                      <th className="text-left py-3 text-[#4d554b] font-semibold">Policy</th>
+                      <th className="text-left py-3 pr-6 text-[#111111] font-semibold">Service</th>
+                      <th className="text-left py-3 pr-6 text-[#111111] font-semibold">Purpose</th>
+                      <th className="text-left py-3 text-[#111111] font-semibold">Policy</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#dadcd1]">
@@ -232,8 +232,8 @@ export default function PrivacyPage() {
                       },
                     ].map((row) => (
                       <tr key={row.name}>
-                        <td className="py-3 pr-6 text-[#3d453b] font-medium">{row.name}</td>
-                        <td className="py-3 pr-6 text-[#4d554b]">{row.purpose}</td>
+                        <td className="py-3 pr-6 text-[#111111] font-medium">{row.name}</td>
+                        <td className="py-3 pr-6 text-[#111111]">{row.purpose}</td>
                         <td className="py-3">
                           <a
                             href={row.url}
@@ -341,7 +341,7 @@ export default function PrivacyPage() {
                 If you have any questions or concerns about this Privacy Policy or our data practices, please
                 contact us:
               </p>
-              <div className="mt-4 p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] text-sm leading-7 text-[#3d453b]">
+              <div className="mt-4 p-6 rounded-2xl border border-[#dadcd1] bg-[#f7f6f2] text-sm leading-7 text-[#111111]">
                 <p className="font-semibold text-[#111111] mb-1">Amex Technology</p>
                 <p>
                   Email:{" "}
@@ -380,7 +380,7 @@ function Section({
       <h2 className="text-xl font-bold text-[#111111]" style={{ letterSpacing: "-0.015em" }}>
         {title}
       </h2>
-      <div className="flex flex-col gap-4 text-base leading-8 text-[#4d554b] [&_strong]:text-[#3d453b] [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7a5807] [&_code]:text-[#CC9A1A] [&_code]:bg-[#9a722a]/[0.08] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm">
+      <div className="flex flex-col gap-4 text-base leading-8 text-[#111111] [&_strong]:text-[#111111] [&_a]:underline-offset-2 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:marker:text-[#7a5807] [&_code]:text-[#CC9A1A] [&_code]:bg-[#9a722a]/[0.08] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm">
         {children}
       </div>
     </section>
@@ -390,7 +390,7 @@ function Section({
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-3">
-      <h3 className="text-base font-semibold text-[#3d453b]">{title}</h3>
+      <h3 className="text-base font-semibold text-[#111111]">{title}</h3>
       {children}
     </div>
   );
