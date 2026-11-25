@@ -22,6 +22,132 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "website-redesign-ahmedabad-checklist",
+    title: "Planning a Website Redesign in Ahmedabad? What to Prepare Before You Hire",
+    excerpt: "Planning a website redesign in Ahmedabad? Learn what to fix, which pages to protect, and what to share with your web developer. Includes a copyable brief.",
+    category: "Business",
+    tags: ["Web Design", "Ahmedabad", "SEO"],
+    readTime: "5 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#B8860B",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Website Redesign in Ahmedabad | What to Prepare",
+    metaDescription: "Planning a website redesign in Ahmedabad? Learn what to fix, which pages to protect, and what to share with your web developer. Includes a copyable brief.",
+    keywords: ["website redesign services in Ahmedabad", "Ahmedabad business technology"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+Your website looks dated on a phone, your team struggles to update it, or customers keep calling to ask questions the site should answer. If you’re comparing website redesign services in Ahmedabad, start by identifying where customers get stuck and what you want them to do next. That gives your developer something concrete to assess in the first conversation.
+
+Bring your website URL, two or three examples of problems you’ve noticed, and one business goal. “Help customers find the right service and send an enquiry from their phone” is a useful starting point because you can test it before and after launch.
+
+## Do you need a full redesign or a few targeted fixes?
+
+**Improve a few pages** if the site is easy to update and the problems are concentrated. A confusing homepage, outdated service descriptions, or a contact form that’s awkward on mobile can often be tackled directly. Start with the pages customers use to decide whether to call, book, or send an enquiry.
+
+**Consider a full redesign** if the same problems repeat throughout the site. Your mobile navigation may be difficult to use, your services may need a new page structure, or your team may depend on a developer for every routine edit. Review the page structure, design, and editing tools together. Ask the developer to show how your team would update a service page after launch. [Amex website and web app development](/services/web-development)
+
+## Walk through your website like a customer
+
+Open the site on your phone and start on a service page. Customers who find you through Google, Maps, or a shared link can land deep inside your site. Try to work out what the business offers, where it operates, and how to get in touch. Then submit a test enquiry. Note the page, what happened, and what you expected.
+
+| Check | What to record |
+|---|---|
+| Important pages | List your homepage, main service pages, contact page, and any pages staff regularly share. Add pages that bring visitors from Google if you have Search Console access. |
+| Enquiry channels | List forms, phone buttons, WhatsApp links, and booking tools. Record who receives each enquiry and what happens next. |
+| Mobile problems | Capture screenshots of text that’s hard to read, buttons that are difficult to tap, or forms that are awkward to complete. |
+| Routine edits | List what staff need to change, such as service descriptions, opening hours, and photos. |
+
+**Hypothetical example.** An Ahmedabad interior design studio finds that visitors can browse its gallery on a phone, then have to open the menu to find the enquiry form. The form asks for a long description before the visitor has spoken with anyone. The studio could add a visible **Request a consultation** button to project pages, shorten the form, and route replies to the person who handles new enquiries. Amex used a similar principle for Portland Web Designing Studio by making consultation booking available from every page. [Portland Web Designing Studio case study](/portfolio/portland-web-designing-studio)
+
+## Gather what your developer will need
+
+- **Website and account ownership.** Bring your live URL and identify who controls the domain, hosting, website editor, and enquiry inbox. Share access through account invitations when needed. Keep passwords out of the brief.
+- **Brand assets and service information.** Gather logo files, recent photos, and current service descriptions. Include the areas you actually serve across Ahmedabad, Gujarat, or elsewhere in India.
+- **A snapshot of performance.** If you have Analytics or Search Console, bring a recent view of your most visited pages and the enquiries you already track. Record observations from your own walkthrough as well. [Amex Website Grader](/tools/website-grader)
+- **Your enquiry process.** Write down where each form, call, or message goes, who responds, and what information they need. Decide who will approve content and test the new site.
+
+## Protect your Google visibility and enquiries at launch
+
+**Keep important page addresses where practical.** A URL is a page’s web address. If a page needs a new address, match its old URL to its closest new equivalent and set up a permanent redirect. Test important URLs from Google, your Business Profile, and links your team shares. [Google’s guide to site moves](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes) · [Google’s redirect guidance](https://developers.google.com/search/docs/crawling-indexing/301-redirects)
+
+**Check that Google can find the public pages.** If the preview was hidden from search, confirm those restrictions have been removed from pages you want indexed. Submit the updated sitemap, which lists your pages, and use Search Console to spot unexpected errors. Search visibility can fluctuate while Google processes changed URLs. [Google’s guide to site moves](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes)
+
+**Follow a test enquiry all the way through.** Submit the live form on a phone. Confirm that the visitor sees a success message, the right person receives it, and the submission appears in analytics if you track it. Repeat the test for booking and WhatsApp links your customers rely on.
+
+## Copy this one-page redesign brief
+
+- Business name and current website URL —
+- Main services and areas we serve —
+- What we want more visitors to do —
+- Three problems we can show on the current site —
+- Pages or links customers already rely on —
+- Where enquiries go today and who responds —
+- What our team needs to edit after launch —
+- Available brand assets, website access, and analytics —
+- Who will approve the site and test enquiries —
+- How we’ll tell whether the redesign helped —
+
+## Discuss your redesign with Amex Technology
+
+**Send us your current website URL and tell us what you want to improve.** A screenshot or a short description is enough to start. We can discuss whether a few targeted changes would solve it or whether it’s worth reviewing the whole site. Contact our Ahmedabad office or work with us remotely from anywhere in India. [Contact Amex Technology](/contact)
+`,
+  },
+  {
+    slug: "ahmedabad-business-google-maps-visibility",
+    title: "Why Your Ahmedabad Business Isn’t Showing Up on Google Maps",
+    excerpt: "Can’t find your Ahmedabad business on Google Maps? Check verification, eligibility, profile details, and local ranking before deciding what to fix.",
+    category: "Marketing",
+    tags: ["Local SEO", "Ahmedabad", "Google Business Profile"],
+    readTime: "4 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#047857",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Why Your Ahmedabad Business Is Missing From Google Maps",
+    metaDescription: "Can’t find your Ahmedabad business on Google Maps? Check verification, eligibility, profile details, and local ranking before deciding what to fix.",
+    keywords: ["why is my business not showing up on Google Maps", "Ahmedabad business technology", "local SEO services Ahmedabad"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+Search for your Ahmedabad business by its exact name first. Then try the service a customer would search for, such as “physiotherapist near Navrangpura.” Those searches help distinguish two problems. Your profile may be missing altogether, or it may be visible by name and appear less often for searches by service.
+
+Write down what you searched, roughly where you searched from, and what appeared. A customer near your office and someone across the city can see different results. One search from your own phone is a starting point.
+
+## Check whether your profile is verified and visible
+
+Open the Google account that manages your Business Profile and check its status. If Google asks for verification, follow the method shown in your account. If the profile is suspended or disabled, read the notice and check which details may conflict with Google’s rules before trying to create a replacement. If someone else manages the profile, ask them to invite you with the appropriate role. [Google’s profile visibility guidance](https://support.google.com/business/answer/145585)
+
+If you can find two profiles for the same business, record both Maps links and see which one carries the correct contact details and reviews. A former address on a second listing can send customers to the wrong place. Google has a process for duplicate profiles and ownership issues. [Google’s duplicate-profile guidance](https://support.google.com/business/answer/12756178)
+
+## Make the profile match the way customers reach you
+
+Use the name you use in the real world. Choose a primary category that describes the main business, and fill in contact details, opening hours, and services accurately. Check the phone number by calling it and open the website link on a phone. If customers visit an office, verify that the map pin leads them to the entrance they use.
+
+If your team travels to customers and has no staffed location where it serves them, check Google’s service-area rules. Configure the profile around how you actually deliver the service. Adding Ahmedabad neighbourhood names to the business name or listing locations you don’t operate can create problems with the profile. [Google’s Business Profile guidelines](https://support.google.com/business/answer/3038177)
+
+## If customers can find you by name, check searches by service
+
+Google says local results primarily depend on relevance, distance, and prominence. You can clarify which services you provide and keep the profile accurate. The searcher’s location also matters. For an Ahmedabad business, that can affect whether someone near the office sees the same results as a customer in another part of the city. [Google’s local ranking guidance](https://support.google.com/business/answer/7091)
+
+Start with service pages customers can understand. A dedicated page should explain who the service is for, where you provide it, and how someone can enquire. Keep your website’s contact information consistent with your profile. Ask customers for honest reviews through Google’s review link and respond professionally where appropriate. [Google’s business details guide](https://developers.google.com/search/docs/appearance/establish-business-details) · [Google’s review guidance](https://support.google.com/business/answer/3474122)
+
+**Hypothetical example.** An Ahmedabad repair business appears for its name, but customers frequently ask whether it serves their neighbourhood. The owner can check that its service area is accurate and publish a clear service page explaining where technicians can visit. The next useful measure is whether the business receives more enquiries it can actually handle.
+
+## Keep a simple record of what changed
+
+- Record the profile link, search terms you tried, and date of the check.
+- Save the current profile details and the website page it links to.
+- Record the changes you made and recheck after they appear publicly.
+- Look at profile interactions alongside website enquiries and notes from staff. A call-button click shows interest. Your team can confirm whether it led to a conversation.
+
+If one service is hard to find and another brings steady enquiries, start by checking whether customers can understand the weaker service from your listing and website. Give each change enough time to become visible before comparing results.
+
+## Ask Amex for a local search review
+
+Send us your Google Maps listing link, your website URL, and one service you want more people to find. Our Ahmedabad office can help you identify whether the next step is fixing profile details, improving a service page, or making enquiries easier to track. [Contact Amex Technology](/contact) · [SEO services](/services/seo-services)
+`,
+  },
+  {
     "slug": "hire-nextjs-developer-india-cost",
     "title": "Cost to Hire a Next.js Developer in India (2026)",
     "excerpt": "What a Next.js developer in India costs in 2026: hourly rates by level, monthly budgets, the costs the rate leaves out and how to vet who you hire.",
