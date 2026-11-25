@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import ProjectGrid from "@/components/portfolio/ProjectGrid";
 import { AgencyCTA } from "@/components/agency/AgencySections";
 import s from "@/components/agency/agency.module.css";
-import { categories, type Project } from "@/data/projects";
+import type { Project } from "@/data/projects";
 import { getProjects } from "@/lib/portfolio/data";
 
 export const revalidate = 3600;
@@ -64,18 +64,8 @@ const collectionSchema = (projects: Project[]) => ({
   },
 });
 
-const getStats = (projects: Project[]) => [
-  { value: `${projects.length}`, label: "Case studies" },
-  { value: `${categories.length - 1}`, label: "Disciplines" },
-  {
-    value: `${projects.filter((p) => p.liveUrl).length}`,
-    label: "Live products",
-  },
-];
-
 export default async function PortfolioPage() {
   const projects = await getProjects();
-  const stats = getStats(projects);
   return (
     <div className="bg-[#f7f6f2] text-[#111111] min-h-screen antialiased">
       <script
@@ -102,16 +92,6 @@ export default async function PortfolioPage() {
               Explore the products we&apos;ve designed and built across web, mobile,
               software, and AI, with the story and results behind each one.
             </p>
-            <dl className="mt-10 grid grid-cols-3 border-t border-[#d8dbce]">
-              {stats.map((stat) => (
-                <div key={stat.label} className="pt-6 pr-3">
-                  <dt className="text-xs text-[#444444]">{stat.label}</dt>
-                  <dd className="text-3xl font-medium tracking-tight mt-2">
-                    {stat.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </section>
         <section className={s.section}>

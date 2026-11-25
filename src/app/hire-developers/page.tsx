@@ -182,6 +182,11 @@ export default function HireDevelopersPage() {
                     </div>
                     <h3>{role.title}</h3>
                     <p>{role.desc}</p>
+                    <div className={s.tags}>
+                      {role.tech.map((tech) => (
+                        <span key={tech}>{tech}</span>
+                      ))}
+                    </div>
                     <Link className={s.textLink} href={hireLink(role.skill)}>
                       Discuss this skill <ArrowUpRight size={15} />
                       <span className="sr-only">: {role.title}</span>

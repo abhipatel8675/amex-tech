@@ -6,8 +6,8 @@ import {
   Bot,
   Smartphone,
   Layers,
-  Cloud,
-  Globe,
+  Monitor,
+  Server,
 } from "lucide-react";
 import { services } from "@/data/services";
 import { serviceIcon } from "@/components/services/serviceIcons";
@@ -18,37 +18,43 @@ export const roles = [
     title: "Website developers",
     skill: "Website development",
     icon: Code2,
-    desc: "Fast websites, customer portals and web apps built with care.",
+    desc: "Fast, search-friendly websites and customer portals built with care.",
+    tech: ["Next.js", "React", "WordPress", "HTML & CSS", "Tailwind CSS"],
   },
   {
-    title: "Web app developers",
-    skill: "Web apps",
+    title: "Frontend developers",
+    skill: "Frontend development",
+    icon: Monitor,
+    desc: "Everything your customers see and click, built to be fast and easy to use on any screen.",
+    tech: ["React", "Angular", "Vue.js", "Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    title: "Backend developers",
+    skill: "Backend development",
+    icon: Server,
+    desc: "The logic, databases and integrations behind your product, built to be secure and reliable.",
+    tech: ["Node.js", "Python", "PHP", "PostgreSQL", "MySQL", "REST & GraphQL APIs"],
+  },
+  {
+    title: "Full stack developers",
+    skill: "Full stack development",
     icon: Layers,
-    desc: "Everything customers see and everything behind the scenes, built to work together as one product.",
-  },
-  {
-    title: "AI & automation specialists",
-    skill: "AI & Automation",
-    icon: Bot,
-    desc: "Practical AI assistants and automations for your daily operations.",
+    desc: "One developer for both the screens customers see and the systems behind them.",
+    tech: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "Supabase"],
   },
   {
     title: "Mobile app developers",
     skill: "Mobile App Development",
     icon: Smartphone,
     desc: "Apps that work on both iPhone and Android.",
+    tech: ["React Native", "Expo", "iOS & Android", "App store launch"],
   },
   {
-    title: "Hosting & maintenance specialists",
-    skill: "Hosting & Maintenance",
-    icon: Cloud,
-    desc: "Reliable hosting, monitoring and ongoing maintenance for your website or app.",
-  },
-  {
-    title: "Business website developers",
-    skill: "Websites & Web Apps",
-    icon: Globe,
-    desc: "Conversion-focused business websites and improvements to your existing site.",
+    title: "AI & automation specialists",
+    skill: "AI & Automation",
+    icon: Bot,
+    desc: "Practical AI assistants and automations for your daily operations.",
+    tech: ["OpenAI", "AI voice agents", "Workflow automation", "CRM integrations"],
   },
 ];
 export function hireLink(skill: string) {
@@ -166,7 +172,7 @@ export function HirePreview() {
           </p>
           <div className={s.actions}>
             <Link href="/hire-developers" className={s.button}>
-              Explore developer hiring <ArrowRight size={16} />
+              Hire a developer <ArrowRight size={16} />
             </Link>
           </div>
           <div className={s.checkList}>
@@ -182,18 +188,23 @@ export function HirePreview() {
           </div>
         </div>
         <div>
-          {roles.slice(0, 5).map((role, i) => (
-            <Link
-              className={s.roleRow}
-              key={role.title}
-              href={hireLink(role.skill)}
-            >
-              <span>
-                <small>0{i + 1}</small>
-                {role.title}
-              </span>
-              <ArrowRight size={17} />
-            </Link>
+          {roles.map((role, i) => (
+            <div className={s.roleItem} key={role.title}>
+              <Link className={s.roleRow} href={hireLink(role.skill)}>
+                <span>
+                  <small>0{i + 1}</small>
+                  {role.title}
+                </span>
+                <ArrowRight size={17} />
+              </Link>
+              <div className={s.roleTech} aria-label={`${role.title} work with`}>
+                <div>
+                  {role.tech.map((tech) => (
+                    <span key={tech}>{tech}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

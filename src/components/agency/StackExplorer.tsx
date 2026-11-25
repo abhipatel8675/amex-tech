@@ -47,14 +47,16 @@ export default function StackExplorer({ groups }: { groups: ExplorerGroup[] }) {
               href={`/portfolio/${p.slug}`}
               className={`${s.shot} ${i === 0 ? s.shotMain : ""}`}
             >
-              {p.image ? (
-                <Image
-                  src={p.image}
-                  alt=""
-                  fill
-                  sizes={i === 0 ? "(max-width: 900px) 100vw, 34vw" : "(max-width: 900px) 50vw, 17vw"}
-                />
-              ) : null}
+              <span className={s.shotImg}>
+                {p.image ? (
+                  <Image
+                    src={p.image}
+                    alt=""
+                    fill
+                    sizes={i === 0 ? "(max-width: 900px) 100vw, 34vw" : "(max-width: 900px) 50vw, 17vw"}
+                  />
+                ) : null}
+              </span>
               <span className={s.shotTitle}>{p.title}</span>
             </Link>
           ))}

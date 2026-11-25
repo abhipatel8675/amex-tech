@@ -523,31 +523,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "emigo",
-    title: "EmiGo",
-    category: "Mobile App",
-    tags: ["Mobile App", "Accessibility", "Events"],
-    shortDesc:
-      "An events app that helps people find and RSVP to genuinely accessible experiences.",
-    description:
-      "EmiGo is a mobile app that makes accessibility a central part of finding local events. Attendees browse, search and filter events by accessibility features such as wheelchair access, sign-language interpretation, sensory-friendly settings and free admission, RSVP with their specific needs and group size, and save favorites. Organizers get their own side of the app to publish events and manage RSVPs.",
-    problem:
-      "Finding events that genuinely meet accessibility needs is hard. Standard event apps rarely say whether a venue is wheelchair accessible, has sign-language interpreters, is sensory-friendly or is free, leaving people to guess, call ahead or miss out.",
-    solution:
-      "We built EmiGo around accessibility information instead of treating it as an afterthought. Every event shows accessibility badges and can be filtered by them, attendees RSVP with specific requests and group details, and organizers publish events and receive those requests directly, all in a fast mobile app.",
-    results: [
-      "Search by accessibility: wheelchair access, sign language, sensory-friendly, free and more",
-      "Group RSVPs that capture each person's accessibility needs and notes",
-      "Organizer area to create events and manage incoming RSVPs",
-      "Built-in maps, saved events and an upcoming-events view"
-    ],
-    technologies: ["React Native", "Expo", "TypeScript", "Firebase", "React Query"],
-    gradientFrom: "#38bdf8",
-    gradientTo: "#6366f1",
-    featured: false,
-    image: "/images/portfolio/emigo/mockup-cover.webp",
-  },
-  {
     slug: "wolfe-property",
     title: "Wolfe Property Portal",
     category: "Web",
@@ -763,60 +738,6 @@ export const projects: Project[] = [
         src: "/images/portfolio/buttercream-bus/mockup-5.webp",
         alt: "Buttercream Bus AI cake design architect",
         caption: "AI Cake Architect turning custom prompts into visual cake concepts",
-      },
-    ],
-  },
-  {
-    slug: "hoursheets",
-    title: "HourSheets",
-    category: "SaaS",
-    tags: ["Software", "Time Tracking", "Project Management"],
-    shortDesc:
-      "Time tracking and project management built for small architecture firms.",
-    description:
-      "HourSheets is a clean, focused workspace for small architecture firms to log time, monitor project progress and keep the studio on schedule. Administrators manage projects, the team list and firm-wide reports, while team members log their own hours against the projects they work on.",
-    problem:
-      "Small architecture studios lose billable time. Hours get tracked in scattered spreadsheets, project budgets drift without anyone noticing, and partners have no live view of where staff time is going, which makes it hard to price work, catch overruns or bill accurately.",
-    solution:
-      "We built HourSheets as a fast web app that is easy to use from the keyboard. Every hour is logged against a project and an employee, dashboards add up firm-wide totals automatically, and admins get budget-versus-spent tracking, a step-by-step approval process, daily task assignment and breakdowns by project and by employee, all in one clean interface.",
-    results: [
-      "Firm-wide dashboard showing active projects, staff count and hours logged this week and month at a glance",
-      "Budget, spent and remaining for each project, with fee, cost and profit tracked automatically",
-      "Step-by-step project approval with sub-tasks and a named person for each stage",
-      "Filterable time log and separate access for admins and team members"
-    ],
-    technologies: [
-      "React",
-      "TypeScript",
-      "Vite",
-      "Express",
-      "PostgreSQL",
-      "Drizzle ORM",
-      "TanStack Query",
-    ],
-    gradientFrom: "#f59e0b",
-    gradientTo: "#b45309",
-    featured: false,
-    liveUrl: "https://www.hoursheets.org",
-    image: "/images/portfolio/hoursheets/mockup-cover.webp",
-    gallery: [
-      {
-        src: "/images/portfolio/hoursheets/ss-1.png",
-        alt: "HourSheets — Projects list with budget, spent, remaining, fee, cost and profit per project",
-        caption:
-          "Every project tracked from budget to profit — spent, remaining, fee, cost and margin at a glance",
-      },
-      {
-        src: "/images/portfolio/hoursheets/ss-2.png",
-        alt: "HourSheets — Daily Task Assignment view with status, assignee, priority and deadline per project",
-        caption:
-          "Assign today's work to the team — status, assignee, priority and deadline per project",
-      },
-      {
-        src: "/images/portfolio/hoursheets/ss-3.png",
-        alt: "HourSheets — Project Approval Process with staged progress and nested sub-tasks",
-        caption:
-          "A staged approval workflow with nested sub-tasks and per-stage assignees",
       },
     ],
   },
@@ -2178,38 +2099,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "amex-website",
-    title: "Amex Technology - Agency Website & Blog",
-    category: "Web",
-    tags: ["Web Design", "Website", "Web"],
-    shortDesc: "The Amex Technology website itself: services, trust figures, a portfolio and a blog written to be found on Google.",
-    description: "I designed and built amextechnology.com, my own agency's website: a homepage covering services, trust figures and a portfolio, plus a blog built without a separate content management system. The content approach deliberately targets specific, low-competition searches around AI app builders (Bolt, Lovable, Replit) and the tools used with them, putting the agency in front of the people most likely to need help.",
-    problem: "A small agency needs a website that explains its services, shows its work and brings in the right visitors from Google.",
-    solution: "We built a homepage covering services, trust figures and a portfolio, plus a blog written around specific, low-competition searches about AI app builders such as Bolt, Lovable and Replit.",
-    results: [
-      "A homepage with services, trust figures and a portfolio",
-      "A blog built without a separate content management system",
-      "Content targeting specific searches around AI app builders"
-    ],
-    technologies: ["Next.js", "React"],
-    gradientFrom: "#ffca28",
-    gradientTo: "#ffb300",
-    featured: false,
-    image: "/images/portfolio/amex-website/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/amex-website/mockup-1.webp", alt: "Amex Technology — Agency Website & SEO Blog Platform screenshot 1", caption: "Amex Technology — Agency Website & SEO Blog Platform - View 1" },
-    { src: "/images/portfolio/amex-website/mockup-2.webp", alt: "Amex Technology — Agency Website & SEO Blog Platform screenshot 2", caption: "Amex Technology — Agency Website & SEO Blog Platform - View 2" },
-    { src: "/images/portfolio/amex-website/mockup-3.webp", alt: "Amex Technology — Agency Website & SEO Blog Platform screenshot 3", caption: "Amex Technology — Agency Website & SEO Blog Platform - View 3" },
-    { src: "/images/portfolio/amex-website/mockup-4.webp", alt: "Amex Technology — Agency Website & SEO Blog Platform screenshot 4", caption: "Amex Technology — Agency Website & SEO Blog Platform - View 4" },
-    { src: "/images/portfolio/amex-website/mockup-5.webp", alt: "Amex Technology — Agency Website & SEO Blog Platform screenshot 5", caption: "Amex Technology — Agency Website & SEO Blog Platform - View 5" },
-    { src: "/images/portfolio/amex-website/mockup-6.webp", alt: "Amex Technology — Agency Website & SEO Blog Platform screenshot 6", caption: "Amex Technology — Agency Website & SEO Blog Platform - View 6" },
-    { src: "/images/portfolio/amex-website/mockup-7.webp", alt: "Amex Technology — Agency Website & SEO Blog Platform screenshot 7", caption: "Amex Technology — Agency Website & SEO Blog Platform - View 7" },
-    { src: "/images/portfolio/amex-website/mockup-8.webp", alt: "Amex Technology — Agency Website & SEO Blog Platform screenshot 8", caption: "Amex Technology — Agency Website & SEO Blog Platform - View 8" },
-    { src: "/images/portfolio/amex-website/mockup-9.webp", alt: "Amex Technology — Agency Website & SEO Blog Platform screenshot 9", caption: "Amex Technology — Agency Website & SEO Blog Platform - View 9" },
-    { src: "/images/portfolio/amex-website/mockup-10.webp", alt: "Amex Technology — Agency Website & SEO Blog Platform screenshot 10", caption: "Amex Technology — Agency Website & SEO Blog Platform - View 10" }
-    ],
-  },
-  {
     slug: "bukky-osifeso",
     title: "Bukky Osifeso - Personal & Speaker Website",
     category: "Web",
@@ -2390,13 +2279,13 @@ export const stackGroups = [
   { name: "Apps with customer accounts", match: ["Supabase"] },
   { name: "Online services", match: ["Node.js", "Express"] },
   { name: "Data-driven platforms", match: ["PostgreSQL", "Neon Postgres", "MySQL", "Drizzle ORM", "Prisma"] },
-  { name: "AI tools", match: ["OpenAI", "AI Voice Agents"] },
+  { name: "AI & automation", match: ["OpenAI", "AI Voice Agents"] },
   { name: "Mobile apps", match: ["React Native", "Expo"] },
-  { name: "WordPress", match: ["WordPress", "Elementor Pro"] },
-  { name: "PHP", match: ["PHP"] },
+  { name: "WordPress websites", match: ["WordPress", "Elementor Pro"] },
+  { name: "PHP development", match: ["PHP"] },
   { name: "Hand-built websites", match: ["HTML", "CSS"] },
-  { name: "GoHighLevel", match: ["GoHighLevel", "GoHighLevel API"] },
-  { name: "Lovable", match: ["Lovable"] },
+  { name: "CRM & marketing automation", match: ["GoHighLevel", "GoHighLevel API"] },
+  { name: "AI-built apps", match: ["Lovable"] },
 ] as const;
 export type StackName = (typeof stackGroups)[number]["name"];
 

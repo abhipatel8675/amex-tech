@@ -184,7 +184,7 @@ export const servicePages: Record<string, ServicePage> = {
       { title: "Build with weekly demos", body: "Short cycles with a preview link, so you can test with early users as we go." },
       { title: "Launch and improve", body: "Live hosting, monitoring and reporting, then improvements based on real use." },
     ],
-    projectSlugs: ["hoursheets", "hmd", "periscope-email", "goswiftfund"],
+    projectSlugs: ["hmd", "periscope-email", "goswiftfund"],
     blogSlugs: ["web-app-development-cost", "bolt-new-review", "how-to-export-code-from-lovable"],
     faq: [
       {
@@ -444,7 +444,7 @@ export const servicePages: Record<string, ServicePage> = {
       { title: "Build and test", body: "Test versions on your own phone before anything goes live." },
       { title: "Publish", body: "Store submission, review fixes and launch, then updates as you grow." },
     ],
-    projectSlugs: ["emigo", "herruby-app"],
+    projectSlugs: ["herruby-app"],
     blogSlugs: [],
     faq: [
       {

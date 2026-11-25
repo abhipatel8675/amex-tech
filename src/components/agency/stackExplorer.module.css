@@ -79,6 +79,12 @@
   gap: 12px;
 }
 .shot {
+  display: block;
+  min-width: 0;
+  text-decoration: none;
+  animation: shotIn 0.4s ease both;
+}
+.shotImg {
   position: relative;
   display: block;
   aspect-ratio: 4 / 3;
@@ -86,7 +92,6 @@
   border-radius: 6px;
   background: #ffffff0f;
   border: 1px solid #ffffff1f;
-  animation: shotIn 0.4s ease both;
 }
 .shot:nth-child(2) {
   animation-delay: 0.05s;
@@ -96,25 +101,18 @@
 }
 .shotMain {
   grid-column: 1 / -1;
-  aspect-ratio: 16 / 9;
 }
-.shot img {
-  object-fit: cover;
-  object-position: top;
-  transition: transform 0.5s ease;
-}
-.shot:hover img {
-  transform: scale(1.04);
+.shotImg img {
+  object-fit: contain;
 }
 .shotTitle {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 28px 14px 12px;
+  display: block;
+  padding: 10px 2px 0;
   font-size: 15.5px;
   color: #f7f5ed;
-  background: linear-gradient(transparent, #000000d9);
+}
+.shot:hover .shotTitle {
+  color: #e7c98a;
 }
 .viewAll {
   display: inline-flex;
@@ -152,7 +150,6 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .shot,
-  .shot img,
   .row,
   .arrow {
     animation: none;

@@ -24,7 +24,7 @@ import type { Project } from "@/data/projects";
 import type { HeroWork } from "@/components/home/Hero";
 
 const SHOWCASE = ["molar-ai", "periscope-email"];
-const RECENT = ["molar-ai", "periscope-email", "hoursheets", "zenscroll", "hmd"];
+const RECENT = ["molar-ai", "periscope-email", "zenscroll", "hmd"];
 
 // Hero project picks, trimmed to the few fields the hero renders.
 export function pickHeroWork(all: Project[]): { showcase: HeroWork[]; recentWork: HeroWork[] } {

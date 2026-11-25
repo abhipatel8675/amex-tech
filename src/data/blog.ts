@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
-    "image": "/images/blog/hire-nextjs-developer-india-cost/cover.webp",
+    "image": "/images/blog/hire-nextjs-developer-india-cost/cover-v4.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"
@@ -94,7 +94,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
-    "image": "/images/blog/offshore-vs-local-web-agency/cover.webp",
+    "image": "/images/blog/offshore-vs-local-web-agency/cover-v4.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"
@@ -149,7 +149,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
-    "image": "/images/blog/mvp-development-cost/cover.webp",
+    "image": "/images/blog/mvp-development-cost/cover-v4.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"
@@ -204,7 +204,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
-    "image": "/images/blog/lovable-app-to-production-cost/cover.webp",
+    "image": "/images/blog/lovable-app-to-production-cost/cover-v4.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"
@@ -261,7 +261,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
-    "image": "/images/blog/fix-stripe-webhook-no-signatures-found-matching-expected-signature/cover.webp",
+    "image": "/images/blog/fix-stripe-webhook-no-signatures-found-matching-expected-signature/cover-v4.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"
@@ -317,7 +317,7 @@ export const blogPosts: BlogPost[] = [
     "gradientFrom": "#B8860B",
     "gradientTo": "#111827",
     "featured": false,
-    "image": "/images/blog/web-app-development-cost/cover-2.webp",
+    "image": "/images/blog/web-app-development-cost/cover-v4.webp",
     "author": {
       "name": "Abhi Patel",
       "url": "https://amextechnology.com/about"

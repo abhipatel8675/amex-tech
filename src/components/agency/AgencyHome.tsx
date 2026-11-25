@@ -77,7 +77,7 @@ export default function AgencyHome() {
                   [
                     "Websites",
                     "Mobile apps",
-                    "AI tools",
+                    "AI & automation",
                     "Online payments",
                     "Google search",
                     "Hosting",
@@ -161,16 +161,16 @@ export default function AgencyHome() {
           <div className="mt-20 border-t border-[#ffffff1f] pt-14">
             <div className={s.sectionHead}>
               <div>
-                <p className={s.eyebrow}>Projects by tool</p>
+                <p className={s.eyebrow}>Projects by type</p>
                 <h2 className={s.heading}>
-                  Pick a tool.
+                  Pick a service.
                   <br />
-                  <em>See what we&apos;ve built with it.</em>
+                  <em>See what we&apos;ve built.</em>
                 </h2>
               </div>
               <p className={s.sectionText}>
                 Every project below was delivered by our team. Choose a
-                tool to see the matching projects.
+                service to see the matching projects.
               </p>
             </div>
             <StackExplorer

@@ -384,18 +384,59 @@
 .hireGrid .heading {
   margin-bottom: 22px;
 }
+.roleItem {
+  border-bottom: 1px solid #dadcd1;
+}
+.roleItem:first-child {
+  border-top: 1px solid #dadcd1;
+}
 .roleRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   padding: 19px 0;
-  border-bottom: 1px solid #dadcd1;
   font-size: 16px;
   letter-spacing: -0.025em;
 }
-.roleRow:first-child {
-  border-top: 1px solid #dadcd1;
+.roleTech {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+}
+.roleTech > div {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 0;
+}
+.roleTech span {
+  padding: 5px 12px;
+  border: 1px solid #d4d8ca;
+  border-radius: 999px;
+  background: #fffdf7;
+  color: #3d453b;
+  font-size: 13.5px;
+}
+.roleItem:hover .roleTech,
+.roleItem:focus-within .roleTech {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding-bottom: 18px;
+}
+@media (hover: none) {
+  .roleTech {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    padding-bottom: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .roleTech {
+    transition: none;
+  }
 }
 .roleRow span {
   display: flex;
