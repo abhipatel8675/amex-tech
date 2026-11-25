@@ -21,7 +21,7 @@ export function GET() {
     "",
     "## Offers",
     "",
-    `- [AI Operations Assistant for manufacturers](${BASE_URL}/ai-operations-agent): AI assistant connected to a small manufacturer's tools (monday.com, Smartsheet, Google Sheets, inFlow, QuickBooks, email) for order status, daily exceptions and system sync.`,
+    `- [AI Assistant for your business](${BASE_URL}/ai-operations-agent): AI assistant connected to a business's existing tools (spreadsheets, project boards, accounting, CRM, email) for status answers, daily exceptions and system sync.`,
     `- [Hire Developers](${BASE_URL}/hire-developers): Developer support for websites, web apps, AI, mobile apps and maintenance, as a defined project, an extension of your team or ongoing work.`,
     "",
     "## Industries and offers",

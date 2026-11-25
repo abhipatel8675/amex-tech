@@ -289,9 +289,9 @@ export function AgencyFAQ({ hiring = false }: { hiring?: boolean }) {
   );
 }
 export const aiAgentExample = {
-  question: "Where is order 1042 for Harbor Kitchens?",
+  question: "What needs my attention today?",
   answer:
-    "Order 1042 is in finishing. 9 of 12 cabinet boxes are done; 3 are waiting on hinges that are on back order until Thursday. The ship date in your production schedule is the 18th, but the customer was quoted the 15th. Want me to draft an update to the customer?",
+    "Three things. Invoice 2087 for Northwind is 9 days overdue. The Harlow project is due on the 18th in your schedule, but the customer was told the 15th. Two new enquiries from yesterday haven't had a reply yet. Want me to draft the follow-ups?",
 };
 export function AiAgentChat() {
   return (
@@ -307,12 +307,12 @@ export function AiAgentFeature() {
     <div className={`${s.panel} ${s.featurePanel}`}>
       <div>
         <span className={s.badge}>New</span>
-        <h3>AI Assistant for small manufacturers</h3>
+        <h3>AI Assistant for your business</h3>
         <p>
-          Ask your factory anything. An AI assistant connected to the tools you
-          already use (monday.com, Smartsheet, Google Sheets, inFlow,
-          QuickBooks, email) that answers order-status questions, flags late
-          orders and mismatched dates, and keeps your systems in sync.
+          Ask your business anything. An AI assistant connected to the tools you
+          already use (spreadsheets, project boards, accounting, CRM, email)
+          that answers status questions, flags overdue items and mismatched
+          dates, and keeps your systems in sync.
         </p>
         <Link className={s.textLink} href="/ai-operations-agent">
           See how it works <ArrowRight size={15} />

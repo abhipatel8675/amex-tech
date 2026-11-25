@@ -231,7 +231,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               href="/ai-operations-agent"
               className="inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-[#7a5807] hover:underline"
             >
-              For manufacturers: AI Operations Assistant
+              AI Assistant for your business
               <span aria-hidden="true">→</span>
             </Link>
           </section>

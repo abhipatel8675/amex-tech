@@ -15,9 +15,9 @@ import { AiAgentChat } from "@/components/agency/AgencySections";
 import s from "@/components/agency/agency.module.css";
 
 const url = "https://amextechnology.com/ai-operations-agent";
-const title = "AI Operations Assistant for Manufacturers";
+const title = "AI Assistant for Your Business";
 const description =
-  "Ask your factory anything. An AI assistant connected to monday.com, Smartsheet, Google Sheets, inFlow, QuickBooks and email: order status, daily exceptions and system sync. Fixed written quote before we start.";
+  "Ask your business anything. An AI assistant connected to the tools you already use (spreadsheets, project boards, accounting, CRM and email) that answers status questions, flags what needs attention and keeps your systems in sync. Fixed written quote before we start.";
 
 export const metadata: Metadata = {
   title: { absolute: `${title} | Amex Technology` },
@@ -32,72 +32,74 @@ export const metadata: Metadata = {
   twitter: { title: `${title} | Amex Technology`, description },
 };
 
-const contactHref = `/contact?service=${encodeURIComponent("AI Operations Assistant")}&message=${encodeURIComponent(
-  "I'd like to talk about the AI Operations Assistant founding-client pilot.\n\nCompany:\nWhat we make:\nNumber of staff:\nTools we use today (monday.com, Smartsheet, Google Sheets, inFlow, QuickBooks, other):\nBiggest order-status headache:",
+const contactHref = `/contact?service=${encodeURIComponent("AI Assistant")}&message=${encodeURIComponent(
+  "I'd like to talk about the AI Assistant founding-client pilot.\n\nCompany:\nWhat we do:\nNumber of staff:\nTools we use today (spreadsheets, project boards, accounting, CRM, email, other):\nBiggest time-waster we want to fix:",
 )}`;
 
 const problems = [
-  "“Where’s my order?” calls and emails that take 20 minutes to answer",
-  "The same job entered in two or three systems by hand",
-  "Ship dates that don’t match between the schedule and what the customer was told",
-  "Missing parts discovered on the day a job should start",
+  "“Where does this stand?” questions that take 20 minutes to answer",
+  "The same information entered in two or three systems by hand",
+  "Dates and numbers that don’t match between your tools and what the customer was told",
+  "Problems discovered on the day something is due, not before",
 ];
 
 const features = [
   {
     icon: MessageSquare,
-    title: "Order status on demand",
-    body: "Ask in chat, email or Slack: “Where is order 1042?” The assistant checks your schedule, inventory and email and replies with one plain-English answer, with links back to the source.",
+    title: "Answers on demand",
+    body: "Ask in chat, email or Slack: “Where does the Harlow project stand?” The assistant checks your tools and email and replies with one plain-English answer, with links back to the source.",
   },
   {
     icon: ClipboardList,
     title: "Daily exceptions report",
-    body: "Every morning, a short list of what needs attention: late orders, missing or back-ordered parts, and dates that don’t match between systems. Your team starts the day on problems, not on searching.",
+    body: "Every morning, a short list of what needs attention: overdue items, missing information, and dates that don’t match between systems. Your team starts the day on problems, not on searching.",
   },
   {
     icon: RefreshCw,
     title: "Automatic sync between tools",
-    body: "When a job moves in one system, the change is copied to the others, so nobody types the same order twice and the boards stay consistent.",
+    body: "When a job moves in one system, the change is copied to the others, so nobody types the same thing twice and your tools stay consistent.",
   },
   {
     icon: Send,
-    title: "Customer and dealer updates",
-    body: "Status updates for customers and dealers, drafted or sent automatically when an order reaches a milestone or a date changes. You decide which messages need a human to approve them.",
+    title: "Customer and team updates",
+    body: "Status updates for customers, partners and your team, drafted or sent automatically when something reaches a milestone or a date changes. You decide which messages need a human to approve them.",
   },
 ];
 
 const tools = [
+  "Google Sheets",
   "monday.com",
   "Smartsheet",
-  "Google Sheets",
-  "inFlow Inventory",
   "QuickBooks",
+  "Inventory software",
+  "Your CRM",
   "Gmail / Outlook",
   "Slack",
 ];
 
 const industries = [
-  "Cabinets",
-  "Millwork",
-  "Countertops",
-  "Metal fabrication",
-  "Signage",
-  "Furniture",
-  "Packaging",
+  "Service businesses",
+  "Agencies",
+  "E-commerce",
+  "Manufacturing",
+  "Logistics",
+  "Healthcare practices",
+  "Real estate",
+  "Professional services",
 ];
 
 const steps = [
   {
     title: "Discovery call",
-    body: "We learn how an order moves through your shop, which tools hold which data, and the questions your team answers most often.",
+    body: "We learn how work moves through your business, which tools hold which data, and the questions your team answers most often.",
   },
   {
     title: "Map your systems",
-    body: "We connect to your tools with read-only access first and map how the same job appears in each one.",
+    body: "We connect to your tools with read-only access first and map how the same item appears in each one.",
   },
   {
     title: "Build and test",
-    body: "We set up order-status answers and the daily exceptions report, then test them against your real orders with your team.",
+    body: "We set up status answers and the daily exceptions report, then test them against your real work with your team.",
   },
   {
     title: "Pilot and improve",
@@ -107,14 +109,14 @@ const steps = [
 
 const faqs = [
   {
-    question: "What tools can the AI Operations Assistant connect to?",
+    question: "What tools can the AI Assistant connect to?",
     answer:
-      "It works with monday.com, Smartsheet, Google Sheets, inventory software like inFlow and QuickBooks, email (Gmail or Outlook) and Slack. Other tools can usually be connected if they can share their data automatically or export it regularly; we confirm this on the first call.",
+      "It works with tools like Google Sheets, monday.com, Smartsheet, QuickBooks, inventory software, your CRM, email (Gmail or Outlook) and Slack. Other tools can usually be connected if they can share their data automatically or export it regularly; we confirm this on the first call.",
   },
   {
     question: "Do we have to change how we work or move to new software?",
     answer:
-      "No. The assistant sits on top of the tools you already use. Your team keeps working in the same boards and sheets, and asks the assistant questions in chat, email or Slack.",
+      "No. The assistant sits on top of the tools you already use. Your team keeps working in the same tools, and asks the assistant questions in chat, email or Slack.",
   },
   {
     question: "Is our data safe?",
@@ -129,7 +131,7 @@ const faqs = [
   {
     question: "What is the founding-client pilot?",
     answer:
-      "We are onboarding a small number of manufacturers as founding clients. You work directly with the founder, the assistant is set up around your real orders, and your feedback shapes what it does next. Scope and price are agreed before we begin.",
+      "We are onboarding a small number of businesses as founding clients. You work directly with the founder, the assistant is set up around your real work, and your feedback shapes what it does next. Scope and price are agreed before we begin.",
   },
 ];
 
@@ -137,7 +139,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${url}#service`,
-  name: "AI Operations Assistant for Small Manufacturers",
+  name: "AI Assistant for Your Business",
   serviceType: "AI operations assistant and workflow automation",
   description,
   url,
@@ -145,7 +147,7 @@ const serviceSchema = {
   areaServed: { "@type": "Country", name: "United States" },
   audience: {
     "@type": "BusinessAudience",
-    audienceType: "Small and mid-sized manufacturers (20–200 employees)",
+    audienceType: "Small and mid-sized businesses",
   },
 };
 
@@ -169,7 +171,7 @@ const breadcrumbSchema = {
       name: "Home",
       item: "https://amextechnology.com",
     },
-    { "@type": "ListItem", position: 2, name: "AI Operations Assistant", item: url },
+    { "@type": "ListItem", position: 2, name: "AI Assistant", item: url },
   ],
 };
 
@@ -195,26 +197,25 @@ export default function AiOperationsAgentPage() {
                 </li>
                 <li aria-hidden="true">/</li>
                 <li>
-                  <span aria-current="page">AI Operations Assistant</span>
+                  <span aria-current="page">AI Assistant</span>
                 </li>
               </ol>
             </nav>
             <div className={s.heroGrid}>
               <div>
                 <p className={s.eyebrow}>
-                  AI Operations Assistant · For small manufacturers
+                  AI Assistant · For any business
                 </p>
                 <h1>
-                  Ask your factory anything.
+                  Ask your business anything.
                   <br />
                   <em>Get the answer in seconds.</em>
                 </h1>
                 <p className={s.intro}>
-                  An AI assistant connected to the tools your shop already runs
-                  on (monday.com, Smartsheet, Google Sheets, inventory software
-                  like inFlow or QuickBooks, and email). Ask where an order
-                  stands and get one answer from every system, without opening
-                  five tabs or walking the floor.
+                  An AI assistant connected to the tools your business already
+                  runs on (spreadsheets, project boards, accounting, CRM and
+                  email). Ask where something stands and get one answer from
+                  every system, without opening five tabs or chasing people.
                 </p>
                 <div className={s.actions}>
                   <Link className={s.button} href={contactHref}>
@@ -237,14 +238,14 @@ export default function AiOperationsAgentPage() {
               <div>
                 <p className={s.eyebrow}>The problem</p>
                 <h2 className={s.heading}>
-                  Your order status lives <em>in five places.</em>
+                  Your business status lives <em>in five places.</em>
                 </h2>
               </div>
               <p className={s.sectionText}>
-                The schedule is in one tool, inventory in another, customer
+                The schedule is in one tool, the numbers in another, customer
                 promises in email, and the real answer is in someone&apos;s
                 head. So the same questions get asked all day, the same data
-                gets typed twice, and a late order is noticed when the customer
+                gets typed twice, and a problem is noticed when the customer
                 calls.
               </p>
             </div>
@@ -322,13 +323,13 @@ export default function AiOperationsAgentPage() {
               <div>
                 <p className={s.eyebrow}>Who it&apos;s for</p>
                 <h2 className={s.heading}>
-                  Built for small <em>and mid-sized shops.</em>
+                  Built for small <em>and mid-sized businesses.</em>
                 </h2>
               </div>
               <p className={s.sectionText}>
-                Manufacturers with roughly 20 to 200 people, made-to-order or
-                short-run work, and an office team that spends too much time
-                chasing status.
+                Any business with a team that spends too much time chasing
+                status, answering the same questions and copying data between
+                tools. It works the same whatever you sell or make.
               </p>
             </div>
             <div className={s.chips}>
@@ -368,13 +369,13 @@ export default function AiOperationsAgentPage() {
               <div>
                 <p className={s.eyebrow}>Why us</p>
                 <h2 className={s.heading}>
-                  Built for a real <em>production workflow.</em>
+                  Built around your <em>real workflow.</em>
                 </h2>
               </div>
               <div>
                 <p className={s.sectionText}>
-                  This assistant was built for a real manufacturer&apos;s production
-                  workflow, not a demo. Amex Technology is an independent
+                  We build the assistant around your real workflow, not a
+                  demo. Amex Technology is an independent
                   website, app and AI company: our founder, Abhi Patel, leads every
                   project, and we are Top Rated Plus on Upwork with
                   5 years of experience building for clients.
@@ -416,7 +417,7 @@ export default function AiOperationsAgentPage() {
                 <ul>
                   <li>Discovery and system mapping</li>
                   <li>Connections to your tools</li>
-                  <li>Order-status answers and daily exceptions report</li>
+                  <li>Status answers and daily exceptions report</li>
                   <li>Testing with your team</li>
                 </ul>
               </article>
@@ -434,7 +435,7 @@ export default function AiOperationsAgentPage() {
             <div className={`${s.panel} mt-5`}>
               <span className={s.badge}>Founding-client pilot</span>
               <h3 className="mt-4 mb-3 text-[22px] font-medium tracking-[-0.03em]">
-                Be one of our first manufacturers.
+                Be one of our first clients.
               </h3>
               <p className="max-w-[720px] text-[15px] leading-[1.8] text-[#444444]">
                 We are onboarding a small number of founding clients. Pilot
@@ -482,12 +483,12 @@ export default function AiOperationsAgentPage() {
             <div>
               <p className={s.eyebrow}>Founding-client pilot</p>
               <h2 className={s.heading}>
-                Stop chasing order status.
+                Stop chasing status.
                 <br />
                 Start asking.
               </h2>
               <p>
-                Tell us what you make and which tools you use. We&apos;ll reply
+                Tell us what you do and which tools you use. We&apos;ll reply
                 with next steps and a time for a short call.
               </p>
             </div>
