@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, Braces } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { projects, projectsForStack, stackGroups } from "@/data/projects";
 import { testimonials } from "@/data/testimonials";
 import { blogPosts } from "@/data/blog";
@@ -13,13 +13,18 @@ import {
   ServiceGrid,
 } from "./AgencySections";
 import StackExplorer from "./StackExplorer";
+import HeroSlider from "./HeroSlider";
 import s from "./agency.module.css";
 
 export default function AgencyHome() {
   const featured = ["portland-web-designing-studio", "goswiftfund", "island-traffic-defense", "molar-ai"]
     .map((slug) => projects.find((p) => p.slug === slug))
     .filter((p): p is (typeof projects)[number] => Boolean(p?.image));
-  const stackShowcase = stackGroups
+  const heroSlides = ["firmsledger", ...featured.map((p) => p.slug)]
+    .map((slug) => projects.find((p) => p.slug === slug))
+    .filter((p): p is (typeof projects)[number] => Boolean(p?.image))
+    .map((p) => ({ src: p.image as string, alt: `${p.title}, a project we built` }));
+  const stackShowcase =stackGroups
     .map((g) => ({ name: g.name, list: projectsForStack(projects, g.name) }))
     .filter((g) => g.list.length > 0);
   const review =
@@ -57,31 +62,7 @@ export default function AgencyHome() {
               </p>
             </div>
             <div className={s.heroVisual}>
-              <Link
-                href="/portfolio/firmsledger"
-                className={s.art}
-                aria-label="FirmsLedger case study"
-              >
-                <span className={s.artTag}>Recent work · FirmsLedger</span>
-                <Image
-                  src="/images/portfolio/firmsledger/mockup-1.webp"
-                  alt="FirmsLedger, a manufacturer directory we built, shown on a laptop and phone"
-                  fill
-                  sizes="(max-width: 800px) 100vw, 45vw"
-                  preload
-                />
-                <div className={s.artBottom}>
-                  <span>
-                    View case study <ArrowUpRight size={14} className="inline" />
-                  </span>
-                </div>
-              </Link>
-              <div className={s.heroCard}>
-                <small>PROJECTS DELIVERED</small>
-                <strong>
-                  <Braces size={22} /> {projects.length}+ websites, apps &amp; AI tools
-                </strong>
-              </div>
+              <HeroSlider slides={heroSlides} />
             </div>
           </div>
           <div className={s.trust}>
@@ -90,30 +71,25 @@ export default function AgencyHome() {
               <br />
               with every day
             </p>
-            <div className={s.stack}>
-              {[
-                "Websites",
-                "Mobile apps",
-                "AI tools",
-                "Online payments",
-                "Google search",
-                "Hosting",
-              ].map((name) => (
-                <span key={name}>{name}</span>
-              ))}
+            <div className={s.marquee}>
+              <div className={s.marqueeTrack}>
+                {[0, 1].map((copy) =>
+                  [
+                    "Websites",
+                    "Mobile apps",
+                    "AI tools",
+                    "Online payments",
+                    "Google search",
+                    "Hosting",
+                  ].map((name) => (
+                    <span key={`${copy}-${name}`} aria-hidden={copy === 1}>
+                      {name}
+                    </span>
+                  )),
+                )}
+              </div>
             </div>
           </div>
-          <p className={s.proofLine}>
-            Top Rated Plus on{" "}
-            <a
-              href="https://www.upwork.com/agencies/2067871097204619852/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Upwork
-            </a>{" "}
-            · 5 years in business
-          </p>
         </div>
       </section>
       <section className={s.section}>

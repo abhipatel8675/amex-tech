@@ -1,5 +1,5 @@
 export const COMPANY_ADDRESS = {
-  street: "Ganesh Glory 11, D/1003, SG Highway, near BSNL Office, Jagatpur",
+  street: "Ganesh Glory 11, D/1003, Sarkhej - Gandhinagar Hwy, near Bsnl Office, Jagatpur",
   locality: "Ahmedabad",
   region: "Gujarat",
   postalCode: "382470",
@@ -7,7 +7,7 @@ export const COMPANY_ADDRESS = {
 };
 
 // One string everywhere (footer, Contact, map) so it matches the listings character for character.
-export const COMPANY_ADDRESS_LINE = `${COMPANY_ADDRESS.street}, ${COMPANY_ADDRESS.locality}, ${COMPANY_ADDRESS.region} ${COMPANY_ADDRESS.postalCode}`;
+export const COMPANY_ADDRESS_LINE = `Amex Technology, ${COMPANY_ADDRESS.street}, ${COMPANY_ADDRESS.locality}, ${COMPANY_ADDRESS.region} ${COMPANY_ADDRESS.postalCode}`;
 
 export const OFFICE_PHONE = { display: "+91 87993 31867", tel: "+918799331867", schema: "+91-8799331867" };
 export const US_PHONE = { display: "+1 (623) 301-2035", tel: "+16233012035", schema: "+1-623-301-2035" };
