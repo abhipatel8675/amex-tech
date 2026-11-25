@@ -3609,6 +3609,111 @@ Explore our [software development services](/services), see our [Portfolio](/por
     ],
   },
   {
+    slug: "google-ai-search-visibility-enquiry-tracking",
+    title: "How to Track Google AI Search Visibility and Website Enquiries",
+    excerpt: "Build a simple report that combines Search Console visibility, landing-page visits, and website enquiries while recognising attribution limits.",
+    category: "Marketing",
+    tags: ["SEO", "Google Search Console", "Analytics", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#047857",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Track Google AI Search Visibility and Website Enquiries",
+    metaDescription: "Build a simple report that combines Search Console visibility, landing-page visits, and website enquiries while recognising attribution limits.",
+    keywords: ["Google Search Console AI tracking"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+If your Ahmedabad business appears in a Google AI Overview, you may want to know whether that visibility brings the right customers to your website. Start by separating three questions. How often is Google showing your pages in AI features? Are people reaching those pages from Google? Are those pages helping people enquire?
+
+Each question needs a different measurement. You can put the results together in one report without claiming that a specific enquiry came from an AI Overview.
+
+## Check visibility in Google Search Console
+
+Search Console gives you reports on how your site appears in Google Search. Google announced dedicated generative AI performance reports for Search and Discover in June 2026 and reported a worldwide rollout by August 31. Open the report for the property that covers your site and record the visibility metrics it provides for the period you are reviewing. Keep the report type and filters with the export. [Google’s generative AI reporting announcement](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports)
+
+Pick three pages that make sense for the business, such as a service page, a FAQ that answers a buyer question, and a local page. Compare those pages over the same period. Where your reports offer a country filter, use consistent settings if India is your main market.
+
+## See which pages attract Google visitors
+
+In your analytics tool, look for visits from Google organic search and the pages people landed on. Google's November 12 documentation explains that web referrers normally identify the source origin rather than the full Google results address. That makes the referrer useful for identifying Google Search traffic overall, with limited detail about whether a particular visit came from an AI feature. [Google’s search traffic documentation](https://developers.google.com/search/docs/monitor-debug/identify-google-search-traffic)
+
+Keep the measurement period the same between platforms. Search Console and web analytics collect data in different ways, and their totals can differ. Check definitions and filters before investigating an apparent discrepancy.
+
+## Measure an enquiry as a separate event
+
+Choose what counts as an enquiry. A successfully submitted form is different from a click on a phone or WhatsApp link. Track them separately so you can distinguish a confirmed submission from an intent to contact. Test that the form event fires after success, reaches the intended analytics property, and matches what the team sees in its inbox or CRM. Avoid including names, phone numbers, or email addresses in event data.
+
+| Report column | What it tells you |
+|---|---|
+| Page and date range | Which pages you compared and when |
+| Google AI feature impressions | Visibility in the relevant Search Console report |
+| Google organic visits | Visits attributed to Google Search overall in site analytics |
+| Successful form enquiries | Completed actions recorded by your website |
+| Phone and WhatsApp link taps | Contact intent, which your team can compare with actual conversations |
+
+## Turn the report into a decision
+
+**Hypothetical example.** An Ahmedabad accounting practice sees visibility for a service guide and visits to that page from Google. Few readers reach the enquiry form. The practice could add a clearer service summary and show readers how to request a consultation. Review the same measures after the change, including whether the enquiries suit the business.
+
+If a service page receives useful enquiries, document what it does well before making wide changes. If visibility is growing but visitors still struggle to find key details, use that evidence to improve the page.
+
+Share a service page and describe how you currently track enquiries. Amex can help connect search reporting with on-site measurements for businesses in Ahmedabad and across India. [Amex SEO services](/services/seo-services) · [Discuss your reporting](/contact)
+`,
+  },
+  {
+    slug: "choose-website-development-company-ahmedabad",
+    title: "How to Choose a Website Development Company in Ahmedabad for Your First Business Site",
+    excerpt: "Compare Ahmedabad website development teams using mobile demos, enquiry handling, account ownership, and a clear launch and handover plan.",
+    category: "Business",
+    tags: ["Website Development", "Ahmedabad", "Small Business"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#B8860B",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Choosing a Website Development Company in Ahmedabad",
+    metaDescription: "Compare Ahmedabad website development teams using mobile demos, enquiry handling, account ownership, and a clear launch and handover plan.",
+    keywords: ["website development company in Ahmedabad", "Ahmedabad business technology"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+Your first business website gives customers somewhere to check what you do, where you work, and how to reach you. The agency you hire should be able to show how the site will support those tasks and how your team will maintain it. You can learn more from a practical conversation about your business than from a generic list of technologies.
+
+Before speaking to a website development company in Ahmedabad, write down your main service, the type of customer you want to reach, and what you want them to do on the site. Bring two websites you find easy to use and explain which details work for you.
+
+## Ask to see a relevant mobile journey
+
+A portfolio screenshot can help you judge design. Ask to open a completed site on your phone and follow a task from a service page to a call, booking, or contact form. Notice how quickly you can find location details, working hours, and the next step. Ask what the agency delivered and which parts a client or another team maintains.
+
+If your customers are likely to use Maps or forward your link on WhatsApp, discuss those routes too. The service page someone lands on should make sense on its own and tell them how to enquire. Google documents ways business owners can supply and maintain their business information across Maps and Search. [Google’s business details guide](https://developers.google.com/search/docs/appearance/establish-business-details)
+
+## Ask the same questions of each company
+
+| Ask | What a practical answer should cover |
+|---|---|
+| Which pages would you suggest for our first release? | How each page supports a customer decision or a business task. |
+| How will enquiries reach our team? | Who gets form submissions, calls, or bookings and how you test delivery. |
+| How do we update the site? | Which changes staff can make and an example of the editing process. |
+| Who owns the domain and other accounts? | The business owner’s access to the domain, hosting, site editor, analytics, and enquiry inbox. |
+| How will you prepare for launch? | Mobile testing, search visibility checks, and an agreed person to approve the final site. |
+| What happens after launch? | Handover notes, support contacts, and the process for requesting a change. |
+
+**Hypothetical example.** A training centre in Ahmedabad wants people to see available courses, choose one, and request a callback. An agency might propose a short course overview, individual course pages, and one clearly labelled form. The centre can compare proposals by asking how a staff member would add a new date and where submissions would arrive.
+
+## Agree on the content and proof you’ll need
+
+List the materials you can supply, including service descriptions, staff or location photos, contact information, and examples of common questions. Confirm who will review the content and how approval works. If you serve customers in more than one language, agree which pages should be translated and who will keep those versions current.
+
+Decide how you will know the site is helping. For a small first release, that could be whether people can complete a form and whether staff receive useful enquiries. Google’s own traffic guidance can help your team understand how visits from organic search appear in analytics. [Google’s search traffic guidance](https://developers.google.com/search/docs/monitor-debug/identify-google-search-traffic)
+
+## Make the handover part of the project
+
+Before launch, ask for one walkthrough of the live editing process, one test enquiry, and a list of accounts your business owns. Choose who will look after the site after the first release, including updates, monitoring, and access when staff change.
+
+If you’re planning a first business website in Ahmedabad, send Amex a short description of your services and what customers should be able to do online. We can help define a first release and discuss how your team will take it over. [Amex website development](/services/web-development) · [Contact our Ahmedabad office](/contact)
+`,
+  },
+  {
     slug: "how-to-setup-resend-email",
     title: "How to Set Up Resend Transactional Email in Next.js (2026 Guide)",
     excerpt:
