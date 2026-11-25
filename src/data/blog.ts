@@ -1186,6 +1186,107 @@ Setting up transactional email correctly the first time saves hours of debugging
       { question: "Will switching to custom SMTP fix delayed or spam-filtered emails too?", answer: "Yes, in most cases. The default email service is both rate-limited and more likely to be flagged as spam. A verified custom domain with proper SPF/DKIM records generally resolves both issues at once." },
     ],
   },
+  {
+    slug: "mobile-app-or-mobile-website-ahmedabad",
+    title: "Does Your Ahmedabad Business Need a Mobile App or a Better Mobile Website?",
+    excerpt: "Use customer tasks, repeat visits, offline needs, and device features to decide whether your business should improve its website or build an app.",
+    category: "Business",
+    tags: ["Mobile Development", "React Native", "Ahmedabad"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#B8860B",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Mobile App or Mobile Website for Ahmedabad Businesses?",
+    metaDescription: "Use customer tasks, repeat visits, offline needs, and device features to decide whether your business should improve its website or build an app.",
+    keywords: ["mobile app development company in Ahmedabad", "Ahmedabad business technology"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+If customers struggle to book, call, or read your services on a phone, someone may suggest building a mobile app. Start by watching how people reach you and what they try to do. For an Ahmedabad business, a customer might arrive from a Google Maps listing, a WhatsApp link, or a QR code at the front desk. The best format depends on the job they need to finish.
+
+## Start with a mobile website for quick visits
+
+A mobile-friendly site opens in a browser and can be shared as a link. It fits tasks such as checking opening hours, browsing services, sending a first enquiry, or booking an occasional appointment. You can improve the path without asking someone to install anything.
+
+Start with a service page on an ordinary phone. Can you read the main details, see the business’s service area, and reach a working contact button? Try it on mobile data as well as office Wi-Fi. If the problems are confined to page speed, the layout, or the form, a targeted website update is a sensible first project. [Amex Website Grader](/tools/website-grader)
+
+## Consider an app for frequent or device-specific work
+
+An app can make sense when customers or staff return often, depend on notifications, need access to device features, or work where connectivity is unreliable. A staff app could let a technician capture photos and finish a checklist during a visit. A members’ app could show upcoming sessions and membership details after sign-in.
+
+Write down the device feature you actually need. Ask if it has to work offline, if someone must receive time-sensitive notifications, and what happens when they switch phones. Test those requirements on both platforms if you serve both. Expo SDK 58, for example, introduced features targeting native platforms, such as App Intents on iOS and home-screen widgets on Android. These features matter when they support a task customers will use. [Expo SDK 58](https://expo.dev/sdk/58)
+
+## Check whether a web app can serve the same job
+
+A web app adds an interactive task or signed-in workspace to a website. A progressive web app can also support installation or offline behaviour on supported devices when those features are implemented. Check your users’ browsers and devices before relying on them. [MDN guide to progressive web apps](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
+
+| Customer task | A format to evaluate |
+|---|---|
+| Find hours or book an occasional appointment | Mobile website |
+| View invoices or update an existing booking | Signed-in web app |
+| Complete recurring visits with offline records | Mobile app or a tested offline-capable web app |
+| Open an enquiry form from a Maps or WhatsApp link | Mobile website |
+
+## Use a sample journey to make the decision
+
+**Hypothetical example.** An Ahmedabad fitness studio wants members to find class times, book a place, and receive reminders. It could publish schedules on its existing site and add a member booking flow. If regular users start asking for a better check-in process or reminders that fit a daily habit, the studio has evidence to evaluate an app.
+
+Before approving a build, agree on the first task, the devices to test, and who will update or support it. If an app is the right format, ask how accounts, release signing, store submissions, and updates will be handled after handover.
+
+Tell Amex what your customers need to do from a phone and how often they do it. Our Ahmedabad team can help compare a mobile website, web app, or mobile app and plan a first release. [Amex mobile development](/services/mobile-app-development) · [Contact Amex Technology](/contact)
+`,
+  },
+  {
+    slug: "react-native-app-takeover-checklist",
+    title: "Taking Over a React Native App? What to Check Before the Next Release",
+    excerpt: "Take over a React Native app safely. Verify account ownership, reproduce the build, test critical user flows, and prepare a release fallback.",
+    category: "Engineering",
+    tags: ["React Native", "Expo", "App Support", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#4F46E5",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "React Native App Takeover Checklist Before Release",
+    metaDescription: "Take over a React Native app safely. Verify account ownership, reproduce the build, test critical user flows, and prepare a release fallback.",
+    keywords: ["React Native app takeover"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+Taking over an existing React Native app starts with proving that your team can build and release what is already live. A repository on its own does not tell you which branch matches the store version, where the API runs, or who approves a release. Getting those answers early makes small fixes easier to ship safely.
+
+Ask for the current iOS and Android store links and the version numbers you see there. Identify who owns the Apple and Google developer accounts and which company should control the source code and deployment services.
+
+## Reproduce the current build
+
+Locate the commit used for the last live release and note the React Native or Expo version, package manager, and lockfile. If the app uses Expo Application Services, record the project owner and the development, preview, and production profiles. Build an internal version first and install it on a real device. [Expo EAS build configuration](https://docs.expo.dev/build/eas-json/)
+
+List the environment variables and connected systems by name. Check which environment the build talks to, and confirm you can build against test services before triggering emails, payments, or notifications. Keep credentials in the appropriate account or secret store.
+
+## Verify that release access belongs to the business
+
+- Check the bundle identifier on iOS and application ID on Android against the existing store listings.
+- Verify who can create and submit builds, manage signing, and change configuration.
+- Find the code-signing and release workflow records. Ask account owners to grant access through their provider.
+- Confirm ownership of crash reporting, push notifications, analytics, and production API access.
+- Document who can approve a rollout and respond if it fails.
+
+If the app uses Expo Updates, check the deployment channels, branches, and runtime version before making an update. A JavaScript update needs a compatible native build. Plan a new binary when a change requires native code the installed app lacks. [Expo runtime versions](https://docs.expo.dev/eas-update/runtime-versions/)
+
+## Test what existing customers rely on
+
+Create a small release checklist covering sign-in, password reset, deep links, stored sessions, and the core task. Repeat the tests with a fresh installation and an upgrade from the current version. Include a weak connection, an expired session, and denied notification or photo permissions if those affect the product.
+
+**Hypothetical example.** A home-services app receives a new booking link. A fresh install should open the intended booking screen after login. During an upgrade, an existing customer should still recognise their current booking and see a clear prompt if they need to sign in again.
+
+## Roll out in a way you can monitor
+
+Choose testers who can complete the actual workflow. After an internal build passes, decide whether a gradual rollout is available for the planned release. Agree on what counts as a rollback trigger, who checks crash reports, and what customers will see if a problem needs time to fix.
+
+Keep a handover note with the repo, current release commit, build instructions, account owners, monitoring links, and emergency contact. If a new developer joins, they should be able to make a preview build using that note.
+
+If your React Native app is difficult to release, send Amex the store links, the problem you need to fix, and which accounts your team controls. We can work with your team from Ahmedabad or remotely across India. [Amex mobile development](/services/mobile-app-development) · [Discuss an app takeover](/contact)
+`,
+  },
 {
     slug: "fix-firestore-missing-or-insufficient-permissions",
     title: "Fix: Firestore 'Missing or Insufficient Permissions'",
