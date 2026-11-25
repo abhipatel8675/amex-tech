@@ -160,15 +160,6 @@
   align-items: center;
   gap: 30px;
 }
-.trust p {
-  color: var(--muted);
-  font-size: 13.5px;
-  max-width: 170px;
-  line-height: 1.6;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  flex-shrink: 0;
-}
 .marquee {
   flex: 1;
   min-width: 0;
@@ -804,9 +795,6 @@
     flex-direction: column;
     gap: 16px;
     padding: 21px 0;
-  }
-  .trust p {
-    max-width: none;
   }
   .marquee {
     width: 100%;

@@ -13,7 +13,7 @@ export default function StackExplorer({ groups }: { groups: ExplorerGroup[] }) {
   const current = groups[active] ?? groups[0];
   const withImage = current.projects.filter((p) => p.image);
   const shown = (withImage.length ? withImage : current.projects).slice(0, 3);
-  const href = (name: string) => `/portfolio?stack=${encodeURIComponent(name)}`;
+  const href = (name: string) => `/portfolio?category=${encodeURIComponent(name)}`;
 
   return (
     <div className={s.explorer}>
@@ -62,7 +62,7 @@ export default function StackExplorer({ groups }: { groups: ExplorerGroup[] }) {
           ))}
         </div>
         <Link href={href(current.name)} className={s.viewAll}>
-          View all {current.name.toLowerCase()} <ArrowRight size={15} />
+          View all {current.name} <ArrowRight size={15} />
         </Link>
       </div>
     </div>

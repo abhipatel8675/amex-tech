@@ -8,5 +8,18 @@
       "Bash(npm uninstall *)",
       "Bash(grep -iE \"\\\\.\\(png|jpg|jpeg|webp|gif\\)$\")"
     ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/status-reminder.mjs\""
+          }
+        ]
+      }
+    ]
   }
 }

@@ -26,6 +26,8 @@ export default function ProjectCarousel({
   const [index, setIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [isAutoplay, setIsAutoplay] = useState(false);
+  // Natural aspect ratio per slide so the stage always hugs the image with no gaps
+  const [ratios, setRatios] = useState<Record<string, number>>({});
   const filmstripRef = useRef<HTMLDivElement>(null);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const isInitialMount = useRef(true);
@@ -69,11 +71,16 @@ export default function ProjectCarousel({
     const container = filmstripRef.current;
     const activeThumb = thumbnailRefs.current[index];
     if (container && activeThumb) {
-      const containerRect = container.getBoundingClientRect();
-      const thumbRect = activeThumb.getBoundingClientRect();
-      const offsetLeft = thumbRect.left - containerRect.left + container.scrollLeft;
-      const targetScroll = offsetLeft - (container.clientWidth / 2) + (activeThumb.clientWidth / 2);
-      container.scrollTo({ left: Math.max(0, targetScroll), behavior: "smooth" });
+      const vertical = container.scrollHeight > container.clientHeight + 2 && container.scrollWidth <= container.clientWidth + 2;
+      const c = container.getBoundingClientRect();
+      const th = activeThumb.getBoundingClientRect();
+      if (vertical) {
+        const top = th.top - c.top + container.scrollTop - container.clientHeight / 2 + activeThumb.clientHeight / 2;
+        container.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      } else {
+        const left = th.left - c.left + container.scrollLeft - container.clientWidth / 2 + activeThumb.clientWidth / 2;
+        container.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+      }
     }
   }, [index]);
 
@@ -115,77 +122,76 @@ export default function ProjectCarousel({
   };
 
   return (
-    <div className="group/studio max-w-5xl xl:max-w-[1100px] mx-auto space-y-3 sm:space-y-4">
-      {/* ─── 1. HERO STAGE VIEWPORT (AMEX GOLD LOGO BRANDED) ─── */}
-      <div className="relative">
-        {/* Ambient Backlight: Rich Amex Gold Brand Glow */}
+    <div className="group/studio mx-auto max-w-6xl">
+      <div className="grid gap-3 sm:gap-4 lg:grid-cols-[minmax(0,1fr)_200px] lg:items-stretch">
+        {/* ─── 1. MAIN STAGE ─── */}
         <div
-          aria-hidden
-          className="absolute -inset-2 sm:-inset-3 rounded-[32px] sm:rounded-[40px] opacity-60 blur-2xl transition-all duration-700 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, rgba(245, 196, 81, 0.32), rgba(204, 154, 26, 0.2), rgba(154, 114, 42, 0.1), transparent 70%)",
-          }}
-        />
-
-        {/* Stage Container: Clamped height, warm studio frame with gold border accent */}
-        <div
-          className="relative w-full h-[260px] xs:h-[320px] sm:h-[390px] md:h-[470px] lg:h-[520px] max-h-[58vh] overflow-hidden rounded-[20px] sm:rounded-[24px] md:rounded-[28px] bg-[#0f0f0f] ring-1 ring-[#f5c451]/30 shadow-[0_20px_50px_-15px_rgba(154,114,42,0.25)] cursor-pointer select-none"
+          className="relative w-full cursor-pointer select-none overflow-hidden rounded-[18px] bg-[#e9e6da] ring-1 ring-[#dadcd1] shadow-[0_18px_40px_-20px_rgba(60,50,20,0.35)] sm:rounded-[22px]"
+          style={{ aspectRatio: String(ratios[currentSlide.src] ?? 4 / 3) }}
           onClick={() => setLightboxOpen(true)}
           role="region"
-          aria-label="Project images hero stage"
+          aria-label="Project images"
         >
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.985 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.01 }}
-              transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-0"
             >
+              {/* Soft blurred copy fills any space the screenshot doesn't cover */}
+              <Image
+                src={currentSlide.src}
+                alt=""
+                aria-hidden
+                fill
+                unoptimized
+                sizes="200px"
+                className="scale-125 object-cover opacity-70 blur-2xl"
+              />
               <Image
                 src={currentSlide.src}
                 alt={currentSlide.alt || `Project mockup ${index + 1}`}
                 fill
                 unoptimized
                 priority={index === 0}
-                sizes="(min-width: 1280px) 1100px, 100vw"
+                sizes="(min-width: 1280px) 980px, 100vw"
                 draggable={false}
-                className={
-                  contain
-                    ? "object-contain p-4 sm:p-8 md:p-10"
-                    : "object-contain p-2 sm:p-3 md:p-4"
-                }
+                onLoad={(e) => {
+                  const img = e.currentTarget;
+                  if (!img.naturalWidth || !img.naturalHeight) return;
+                  const ratio = Math.min(2, Math.max(1, img.naturalWidth / img.naturalHeight));
+                  setRatios((r) => (r[currentSlide.src] === ratio ? r : { ...r, [currentSlide.src]: ratio }));
+                }}
+                className={contain ? "object-contain p-3 sm:p-6" : "object-contain"}
               />
             </motion.div>
           </AnimatePresence>
 
-          {/* Top Controls Overlay */}
-          <div className="absolute top-3 sm:top-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between pointer-events-none z-10">
-            {/* Screen Index Counter Badge in Amex Gold */}
-            <div className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-[#161616]/90 px-3.5 py-1.5 text-xs font-semibold text-[#f5c451] backdrop-blur-md ring-1 ring-[#f5c451]/35 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#f5c451] shadow-[0_0_8px_#f5c451] animate-pulse" />
+          {/* Counter + expand */}
+          <div className="pointer-events-none absolute left-3 right-3 top-3 z-10 flex items-center justify-between sm:left-4 sm:right-4 sm:top-4">
+            <div className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-[#161616]/85 px-3.5 py-1.5 text-xs font-semibold text-[#f5c451] ring-1 ring-[#f5c451]/35 backdrop-blur-md">
+              <span className="h-2 w-2 rounded-full bg-[#f5c451] shadow-[0_0_8px_#f5c451]" />
               <span>
-                Screen {index + 1} of {count}
+                {index + 1} / {count}
               </span>
             </div>
-
-            {/* Expand / Lightbox Button in Amex Gold */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 setLightboxOpen(true);
               }}
               aria-label="Expand image to fullscreen"
-              className="pointer-events-auto grid place-items-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#161616]/90 text-[#f5c451] backdrop-blur-md ring-1 ring-[#f5c451]/35 hover:bg-[#f5c451] hover:text-[#0f0f0f] hover:scale-105 transition-all shadow-sm"
-              title="Click to view full screen"
+              className="pointer-events-auto grid h-9 w-9 place-items-center rounded-full bg-[#161616]/85 text-[#f5c451] ring-1 ring-[#f5c451]/35 backdrop-blur-md transition-all hover:scale-105 hover:bg-[#f5c451] hover:text-[#0f0f0f]"
+              title="View full screen"
             >
-              <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <Maximize2 className="h-4 w-4" />
             </button>
           </div>
 
-          {/* Left / Right Arrow Navigation Overlays with Gold Accents */}
+          {/* Arrows */}
           {count > 1 && (
             <>
               <button
@@ -194,9 +200,9 @@ export default function ProjectCarousel({
                   prev();
                 }}
                 aria-label="Previous image"
-                className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 grid place-items-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#161616]/90 text-[#f5c451] ring-1 ring-[#f5c451]/40 shadow-lg backdrop-blur-md transition-all duration-300 hover:bg-[#f5c451] hover:text-[#0f0f0f] hover:scale-110 opacity-80 sm:opacity-0 sm:group-hover/studio:opacity-100 focus-visible:opacity-100 focus:outline-none z-10"
+                className="absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-[#161616]/85 text-[#f5c451] opacity-90 ring-1 ring-[#f5c451]/40 backdrop-blur-md transition-all hover:scale-110 hover:bg-[#f5c451] hover:text-[#0f0f0f] focus:outline-none focus-visible:opacity-100 sm:left-4 sm:h-11 sm:w-11 lg:opacity-0 lg:group-hover/studio:opacity-100"
               >
-                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                <ChevronLeft className="h-5 w-5" />
               </button>
               <button
                 onClick={(e) => {
@@ -204,155 +210,123 @@ export default function ProjectCarousel({
                   next();
                 }}
                 aria-label="Next image"
-                className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 grid place-items-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#161616]/90 text-[#f5c451] ring-1 ring-[#f5c451]/40 shadow-lg backdrop-blur-md transition-all duration-300 hover:bg-[#f5c451] hover:text-[#0f0f0f] hover:scale-110 opacity-80 sm:opacity-0 sm:group-hover/studio:opacity-100 focus-visible:opacity-100 focus:outline-none z-10"
+                className="absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-[#161616]/85 text-[#f5c451] opacity-90 ring-1 ring-[#f5c451]/40 backdrop-blur-md transition-all hover:scale-110 hover:bg-[#f5c451] hover:text-[#0f0f0f] focus:outline-none focus-visible:opacity-100 sm:right-4 sm:h-11 sm:w-11 lg:opacity-0 lg:group-hover/studio:opacity-100"
               >
-                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                <ChevronRight className="h-5 w-5" />
               </button>
             </>
           )}
 
-          {/* Floating Caption Badge (Hover only, zero image obstruction) */}
           {currentSlide.caption && (
-            <div className="pointer-events-none absolute bottom-3 sm:bottom-4 left-3 sm:left-4 z-10 transition-all duration-300 opacity-90 sm:opacity-0 sm:group-hover/studio:opacity-100">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#161616]/90 px-3.5 py-1.5 text-xs font-medium text-white backdrop-blur-md ring-1 ring-[#f5c451]/30 shadow-sm max-w-[85vw] sm:max-w-md">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#f5c451] shadow-[0_0_6px_#f5c451]" />
+            <div className="pointer-events-none absolute bottom-3 left-3 z-10 max-w-[85%] sm:bottom-4 sm:left-4">
+              <div className="inline-flex max-w-full items-center gap-2 rounded-full bg-[#161616]/85 px-3.5 py-1.5 text-xs font-medium text-white ring-1 ring-[#f5c451]/30 backdrop-blur-md">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#f5c451]" />
                 <span className="truncate">{currentSlide.caption}</span>
               </div>
             </div>
           )}
         </div>
-      </div>
 
-      {/* ─── 2. VISUAL THUMBNAIL FILMSTRIP ─── */}
-      {count > 1 && (
-        <div className="space-y-1 pt-0.5">
-          {/* Filmstrip Header & Controls */}
-          <div className="flex items-center justify-between px-1">
-            <div className="flex items-center gap-2 min-w-0">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#7a5807] shrink-0">
-                All Project Screens
+        {/* ─── 2. THUMBNAILS: side rail on desktop, row below on mobile ─── */}
+        {count > 1 && (
+          <div className="flex min-h-0 flex-col gap-2 lg:relative">
+            <div className="flex items-center justify-between gap-2 px-0.5 lg:hidden">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#7a5807]">
+                All screens ({count})
               </span>
-              <span className="text-xs font-semibold text-[#CC9A1A]/80 shrink-0">
-                ({count} total)
-              </span>
-              {currentSlide.caption && (
-                <>
-                  <span className="text-xs text-[#7a5807]/40 hidden md:inline">·</span>
-                  <span className="text-xs text-[#444444] font-medium truncate hidden md:inline max-w-sm">
-                    {currentSlide.caption}
-                  </span>
-                </>
-              )}
-            </div>
-
-            <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-              {/* Autoplay Toggle in Amex Gold */}
               <button
                 onClick={() => setIsAutoplay(!isAutoplay)}
-                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold transition-all ${
+                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold transition-all ${
                   isAutoplay
-                    ? "bg-[#9a722a] text-white shadow-sm ring-1 ring-[#f5c451]/50"
+                    ? "bg-[#9a722a] text-white"
+                    : "bg-[#9a722a]/10 text-[#7a5807] ring-1 ring-[#9a722a]/30"
+                }`}
+              >
+                {isAutoplay ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
+                {isAutoplay ? "Playing" : "Auto-play"}
+              </button>
+            </div>
+
+            <div className="hidden items-center justify-between gap-2 px-0.5 lg:flex">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#7a5807]">
+                Screens ({count})
+              </span>
+              <button
+                onClick={() => setIsAutoplay(!isAutoplay)}
+                aria-label={isAutoplay ? "Pause slideshow" : "Play slideshow automatically"}
+                title={isAutoplay ? "Pause slideshow" : "Play slideshow automatically"}
+                className={`grid h-7 w-7 place-items-center rounded-full transition-all ${
+                  isAutoplay
+                    ? "bg-[#9a722a] text-white"
                     : "bg-[#9a722a]/10 text-[#7a5807] ring-1 ring-[#9a722a]/30 hover:bg-[#9a722a]/20"
                 }`}
-                title={isAutoplay ? "Pause slideshow" : "Play slideshow automatically"}
               >
-                {isAutoplay ? (
-                  <>
-                    <Pause className="w-3 h-3 text-[#f5c451]" />
-                    <span className="hidden xs:inline">Auto-playing</span>
-                  </>
-                ) : (
-                  <>
-                    <Play className="w-3 h-3 text-[#7a5807]" />
-                    <span className="hidden xs:inline">Auto-cycle</span>
-                  </>
-                )}
+                {isAutoplay ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
               </button>
+            </div>
 
-              <span className="text-[13px] text-[#555555] hidden lg:inline">
-                Use ← → keys
-              </span>
+            <div className="lg:relative lg:min-h-0 lg:flex-1">
+              <div
+                ref={filmstripRef}
+                className="flex items-stretch gap-2.5 overflow-x-auto pb-1 [scrollbar-width:thin] lg:absolute lg:inset-0 lg:flex-col lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0 lg:pr-1"
+                role="tablist"
+                aria-label="Project screen thumbnails"
+              >
+                {slides.map((slide, i) => {
+                  const isActive = i === index;
+                  const label = getThumbnailLabel(slide, i);
+                  return (
+                    <button
+                      key={slide.src}
+                      ref={(el) => {
+                        thumbnailRefs.current[i] = el;
+                      }}
+                      onClick={() => goTo(i)}
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-label={`View ${label} (Screen ${i + 1})`}
+                      className={`group/thumb w-28 shrink-0 rounded-xl p-1.5 text-left transition-all duration-300 sm:w-36 lg:w-full ${
+                        isActive
+                          ? "border-2 border-[#f5c451] bg-white shadow-[0_6px_18px_-4px_rgba(245,196,81,0.5)]"
+                          : "border border-[#dadcd1] bg-[#fbfaf6] opacity-85 hover:border-[#CC9A1A]/50 hover:bg-white hover:opacity-100"
+                      }`}
+                    >
+                      <div className="relative mb-1.5 aspect-[4/3] overflow-hidden rounded-lg bg-[#e9e6da]">
+                        <Image
+                          src={slide.src}
+                          alt={slide.alt || `Thumbnail ${i + 1}`}
+                          fill
+                          unoptimized
+                          sizes="180px"
+                          className="object-contain"
+                        />
+                        <span
+                          className={`absolute left-1 top-1 rounded px-1.5 py-0.5 text-[12px] font-bold tabular-nums ${
+                            isActive
+                              ? "bg-[#f5c451] text-[#0f0f0f]"
+                              : "bg-[#161616]/85 text-[#f5c451] ring-1 ring-[#f5c451]/25"
+                          }`}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                      <p
+                        className={`truncate px-0.5 text-xs ${
+                          isActive
+                            ? "font-bold text-[#7a5807]"
+                            : "font-medium text-[#444444] group-hover/thumb:text-[#7a5807]"
+                        }`}
+                      >
+                        {label}
+                      </p>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
-
-          {/* 
-            Scrollable Filmstrip Strip:
-            - pt-3 pb-3 provides ample vertical clearance so borders/shadows are never cut off.
-            - Horizontal container scrolling is handled exclusively via container.scrollTo
-              so the window/document never scrolls unexpectedly.
-          */}
-          <div
-            ref={filmstripRef}
-            className="flex items-stretch gap-3 overflow-x-auto pt-3 pb-3 px-1 scroll-smooth focus:outline-none"
-            role="tablist"
-            aria-label="Project screen thumbnails"
-          >
-            {slides.map((slide, i) => {
-              const isActive = i === index;
-              const label = getThumbnailLabel(slide, i);
-
-              return (
-                <button
-                  key={slide.src}
-                  ref={(el) => {
-                    thumbnailRefs.current[i] = el;
-                  }}
-                  onClick={() => goTo(i)}
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-label={`View ${label} (Screen ${i + 1})`}
-                  className={`group/thumb shrink-0 text-left rounded-xl transition-all duration-300 p-1.5 w-28 sm:w-36 md:w-44 ${
-                    isActive
-                      ? "bg-white border-2 border-[#f5c451] shadow-[0_6px_20px_-3px_rgba(245,196,81,0.45)] -translate-y-0.5"
-                      : "bg-[#fbfaf6] border border-[#dadcd1] hover:border-[#CC9A1A]/50 hover:bg-white hover:shadow-sm opacity-80 hover:opacity-100"
-                  }`}
-                >
-                  {/* Thumbnail Image Container */}
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#161616] mb-1.5">
-                    <Image
-                      src={slide.src}
-                      alt={slide.alt || `Thumbnail ${i + 1}`}
-                      fill
-                      unoptimized
-                      sizes="180px"
-                      className="object-contain p-0.5"
-                    />
-
-                    {/* Active highlight inner ring */}
-                    {isActive && (
-                      <div className="absolute inset-0 ring-1 ring-inset ring-[#f5c451]/40 rounded-lg pointer-events-none" />
-                    )}
-
-                    {/* Step number badge in logo gold */}
-                    <span
-                      className={`absolute top-1 left-1 px-1.5 py-0.5 rounded text-[12px] font-bold tabular-nums shadow-xs ${
-                        isActive
-                          ? "bg-[#f5c451] text-[#0f0f0f]"
-                          : "bg-[#161616]/85 text-[#f5c451] ring-1 ring-[#f5c451]/25 backdrop-blur-sm"
-                      }`}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-
-                  {/* Thumbnail Label */}
-                  <div className="px-0.5">
-                    <p
-                      className={`text-xs truncate ${
-                        isActive
-                          ? "text-[#7a5807] font-bold"
-                          : "text-[#444444] font-medium group-hover/thumb:text-[#7a5807]"
-                      }`}
-                    >
-                      {label}
-                    </p>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* ─── 3. FULLSCREEN IMMERSIVE LIGHTBOX MODAL (LOGO THEME ACCENTS) ─── */}
       <AnimatePresence>

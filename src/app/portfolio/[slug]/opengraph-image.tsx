@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getProject } from "@/lib/portfolio/data";
+import { categoryLabel } from "@/data/categories";
 
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
@@ -9,7 +10,7 @@ export default async function OgImage({ params }: { params: Promise<{ slug: stri
   const { slug } = await params;
   const project = await getProject(slug);
   const title = project?.title ?? "Case Study";
-  const category = project?.category ?? "Project";
+  const category = project ? categoryLabel(project.category) : "Project";
 
   return new ImageResponse(
     (

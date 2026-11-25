@@ -14,7 +14,14 @@ import {
 } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { isDeviceMockup } from "@/lib/portfolioImages";
-import { categories, projectsForStack, stackGroups, type Category, type Project } from "@/data/projects";
+import {
+  categoryGroups,
+  categoryLabel,
+  projectsForCategoryGroup,
+  projectsForStack,
+  stackGroups,
+  type Project,
+} from "@/data/projects";
 
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -190,7 +197,7 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
             <h3 className="text-[17px] font-medium text-[#111111] tracking-[-0.01em] truncate">
               {project.title}
             </h3>
-            <span className="shrink-0 text-xs text-[#444444]">{project.category}</span>
+            <span className="shrink-0 text-xs text-[#444444]">{categoryLabel(project.category)}</span>
           </div>
           {canHover ? (
             <p className="mt-1 text-sm text-[#444444] truncate">{project.tags.slice(0, 2).join(" · ")}</p>
@@ -207,110 +214,176 @@ function ProjectCard({ project, index, animateIn }: { project: Project; index: n
 }
 
 export default function ProjectGrid({ projects }: { projects: Project[] }) {
-  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [activeCategory, setActiveCategory] = useState<string>("All");
   const [activeStack, setActiveStack] = useState<string>("All");
   const [hasFiltered, setHasFiltered] = useState(false);
 
-  // Homepage stack links arrive as /portfolio?stack=Modern websites
+  // Homepage links arrive as /portfolio?category=Websites (and ?stack=Node.js & APIs)
   useEffect(() => {
-    const stack = new URLSearchParams(window.location.search).get("stack");
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+    const stack = params.get("stack");
+    /* eslint-disable react-hooks/set-state-in-effect -- sync filters from the URL after hydration */
+    if (category && categoryGroups.some((g) => g.name === category)) {
+      setActiveCategory(category);
+      setHasFiltered(true);
+    }
     if (stack && stackGroups.some((g) => g.name === stack)) {
       setActiveStack(stack);
       setHasFiltered(true);
     }
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
+  function updateUrl(key: "category" | "stack", value: string) {
+    const url = new URL(window.location.href);
+    if (value === "All") url.searchParams.delete(key);
+    else url.searchParams.set(key, value);
+    window.history.replaceState(null, "", url);
+  }
+  function chooseCategory(category: string) {
+    setHasFiltered(true);
+    setActiveCategory(category);
+    updateUrl("category", category);
+  }
   function chooseStack(stack: string) {
     setHasFiltered(true);
     setActiveStack(stack);
-    const url = new URL(window.location.href);
-    if (stack === "All") url.searchParams.delete("stack");
-    else url.searchParams.set("stack", stack);
-    window.history.replaceState(null, "", url);
+    updateUrl("stack", stack);
+  }
+  function clearAll() {
+    chooseCategory("All");
+    chooseStack("All");
   }
 
+  const categoryOptions = [
+    { name: "All", count: projects.length },
+    ...categoryGroups
+      .map((g) => ({ name: g.name as string, count: projectsForCategoryGroup(projects, g.name).length }))
+      .filter((g) => g.count > 0),
+  ];
   const stacks = stackGroups
-    .map((g) => ({ name: g.name, count: projectsForStack(projects, g.name).length }))
+    .map((g) => ({ name: g.name as string, count: projectsForStack(projects, g.name).length }))
     .filter((g) => g.count > 0);
+  const stackOptions = [{ name: "All", count: projects.length }, ...stacks];
 
-  const byCategory =
-    activeCategory === "All" ? projects : projects.filter((p) => p.category === activeCategory);
+  const byCategory = activeCategory === "All" ? projects : projectsForCategoryGroup(projects, activeCategory);
   const filtered = activeStack === "All" ? byCategory : projectsForStack(byCategory, activeStack);
+  const isFiltered = activeCategory !== "All" || activeStack !== "All";
 
   return (
     <>
-      {/* Segmented filter */}
-      <div className="flex flex-wrap items-center gap-4 mb-12">
-        <div className="inline-flex flex-wrap gap-1 p-1 rounded-full bg-[#efeee6] ring-1 ring-[#dadcd1]/70">
-          {categories.map((cat) => {
-            const active = activeCategory === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => {
-                  setHasFiltered(true);
-                  setActiveCategory(cat);
-                }}
-                aria-pressed={active}
-                className={`relative text-sm font-medium px-4 py-2 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
-                  active ? "text-[#111111]" : "text-[#444444] hover:text-[#111111]"
-                }`}
-              >
-                {active && (
-                  <motion.span
-                    layoutId="portfolio-filter-pill"
-                    className="absolute inset-0 rounded-full bg-white shadow-[0_1px_3px_rgba(15,23,42,0.12)]"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                  />
-                )}
-                <span className="relative">
-                  {cat}
-                  <span className={`ml-1.5 text-xs ${active ? "text-[#7a5807]" : "text-[#555555]"}`}>
-                    {cat === "All" ? projects.length : projects.filter((p) => p.category === cat).length}
+      {/* Filters */}
+      <div className="mb-12 space-y-6">
+        {/* Service filter: scrolls sideways on small screens */}
+        <div className="-mx-5 overflow-x-auto px-5 pb-1 [scrollbar-width:none] sm:mx-0 sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden">
+          <div
+            role="group"
+            aria-label="Filter by service"
+            className="inline-flex gap-1 rounded-full bg-[#efeee6] p-1 ring-1 ring-[#dadcd1]/70"
+          >
+            {categoryOptions.map(({ name, count }) => {
+              const active = activeCategory === name;
+              return (
+                <button
+                  key={name}
+                  type="button"
+                  onClick={() => chooseCategory(name)}
+                  aria-pressed={active}
+                  className={`relative shrink-0 whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-medium transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
+                    active ? "text-[#111111]" : "text-[#444444] hover:text-[#111111]"
+                  }`}
+                >
+                  {active && (
+                    <motion.span
+                      layoutId="portfolio-filter-pill"
+                      className="absolute inset-0 rounded-full bg-white shadow-[0_1px_3px_rgba(15,23,42,0.12)]"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                  <span className="relative">
+                    {name}
+                    <span className={`ml-1.5 text-xs ${active ? "text-[#7a5807]" : "text-[#555555]"}`}>{count}</span>
                   </span>
-                </span>
-              </button>
-            );
-          })}
+                </button>
+              );
+            })}
+          </div>
         </div>
-        <span className="ml-auto text-sm text-[#444444]">
-          {filtered.length} project{filtered.length !== 1 ? "s" : ""}
-        </span>
-      </div>
 
-      {/* Tech stack filter */}
-      <div className="-mt-6 mb-12">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#444444]">
-          Filter by type of work
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {[{ name: "All", count: projects.length }, ...stacks].map(({ name, count }) => {
-            const active = activeStack === name;
-            return (
-              <button
-                key={name}
-                type="button"
-                onClick={() => chooseStack(name)}
-                aria-pressed={active}
-                className={`inline-flex min-h-[40px] items-center gap-2 rounded-[5px] border px-3.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
-                  active
-                    ? "border-[#1a1a1a] bg-[#1a1a1a] text-white"
-                    : "border-[#dadcd1] bg-white text-[#3d453b] hover:border-[#9a722a] hover:text-[#111111]"
-                }`}
-              >
-                {name}
-                <span className={`text-xs ${active ? "text-[#e7c98a]" : "text-[#555555]"}`}>{count}</span>
-              </button>
-            );
-          })}
+        {/* Technology filter */}
+        <div>
+          <div className="mb-3 flex items-center justify-between gap-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#444444]">Filter by technology</p>
+            <p className="text-sm text-[#444444]" aria-live="polite">
+              {filtered.length} project{filtered.length !== 1 ? "s" : ""}
+              {isFiltered && (
+                <>
+                  {" · "}
+                  <button type="button" onClick={clearAll} className="font-medium text-[#7a5807] underline underline-offset-2">
+                    Clear
+                  </button>
+                </>
+              )}
+            </p>
+          </div>
+
+          {/* Mobile: native dropdown */}
+          <div className="relative sm:hidden">
+            <select
+              aria-label="Filter by technology"
+              value={activeStack}
+              onChange={(e) => chooseStack(e.target.value)}
+              className="h-12 w-full appearance-none rounded-lg border border-[#dadcd1] bg-white pl-4 pr-11 text-[15px] font-medium text-[#111111] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a]"
+            >
+              {stackOptions.map(({ name, count }) => (
+                <option key={name} value={name}>
+                  {name === "All" ? "All technologies" : name} ({count})
+                </option>
+              ))}
+            </select>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 20 20"
+              className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#444444]"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="m5 8 5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+
+          {/* Desktop: pills */}
+          <div role="group" aria-label="Filter by technology" className="hidden flex-wrap gap-2 sm:flex">
+            {stackOptions.map(({ name, count }) => {
+              const active = activeStack === name;
+              return (
+                <button
+                  key={name}
+                  type="button"
+                  onClick={() => chooseStack(name)}
+                  aria-pressed={active}
+                  className={`inline-flex min-h-[40px] items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a722a] ${
+                    active
+                      ? "border-[#1a1a1a] bg-[#1a1a1a] text-white"
+                      : "border-[#dadcd1] bg-white text-[#3d453b] hover:border-[#9a722a] hover:text-[#111111]"
+                  }`}
+                >
+                  {name === "All" ? "All technologies" : name}
+                  <span className={`text-xs ${active ? "text-[#e7c98a]" : "text-[#555555]"}`}>{count}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
       {filtered.length === 0 && (
         <p className="mb-12 text-[#444444]">
-          No {activeCategory} projects with {activeStack} yet.{" "}
-          <button type="button" className="font-medium text-[#7a5807] underline" onClick={() => { setActiveCategory("All"); chooseStack(activeStack); }}>
-            Show all {activeStack} projects
+          No projects match these filters yet.{" "}
+          <button type="button" className="font-medium text-[#7a5807] underline" onClick={clearAll}>
+            Clear filters
           </button>
         </p>
       )}

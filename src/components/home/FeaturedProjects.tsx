@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import type { Project } from "@/data/projects";
+import { categoryLabel } from "@/data/categories";
 
 export type FeaturedProject = Pick<
   Project,
@@ -94,7 +95,7 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
               background: `rgba(11,15,25,0.65)`,
             }}
           >
-            {project.category}
+            {categoryLabel(project.category)}
           </span>
         </div>
 

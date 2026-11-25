@@ -24,6 +24,55 @@ const quickLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+const iconProps = {
+  width: 18,
+  height: 18,
+  viewBox: "0 0 24 24",
+  "aria-hidden": true,
+} as const;
+
+const socials = [
+  {
+    label: "Amex Technology on Upwork",
+    href: UPWORK_URL,
+    icon: (
+      <svg {...iconProps} fill="currentColor">
+        <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06a2.834 2.834 0 0 1 2.833 2.833 2.834 2.834 0 0 1-2.834 2.572zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.15-4.036-2.699-5.892H7.548v7.112c-.002 1.406-1.144 2.548-2.55 2.548-1.405 0-2.547-1.142-2.549-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.283 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.557l1.213-5.71c1.063.679 2.285 1.109 3.664 1.109h.02c3.045-.028 5.526-2.53 5.526-5.582 0-3.061-2.481-5.577-5.526-5.577z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Amex Technology on Clutch",
+    href: CLUTCH_URL,
+    icon: (
+      <svg {...iconProps} fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
+        <path d="M18.4 7.2A8 8 0 1 0 18.4 16.8" />
+        <circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    label: "Amex Technology on LinkedIn",
+    href: "https://www.linkedin.com/company/amex-technology/",
+    icon: (
+      <svg {...iconProps} fill="currentColor">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.114 20.452H3.558V9h3.556v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Amex Technology on Instagram",
+    href: "https://www.instagram.com/amextechnology/",
+    icon: (
+      <svg {...iconProps} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      </svg>
+    ),
+  },
+];
+
 const linkClass =
   "inline-flex min-h-[32px] items-center text-sm text-[#444444] transition-colors hover:text-[#7a5807]";
 const headingClass =
@@ -107,7 +156,7 @@ export default function Footer() {
                   setEmail(e.target.value);
                   if (status !== "idle") setStatus("idle");
                 }}
-                placeholder="you@example.com"
+                placeholder="abhi@amextech.org"
                 required
                 disabled={status === "loading"}
                 aria-label="Email address"
@@ -157,26 +206,22 @@ export default function Footer() {
             <address className="mb-2 max-w-[260px] text-sm not-italic leading-6 text-[#444444]">
               {COMPANY_ADDRESS_LINE}
             </address>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <a
-                href={UPWORK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Amex Technology on Upwork, Top Rated Plus"
-                className="inline-flex items-center rounded-full border border-[#dadcd1] bg-white px-3 py-1.5 text-xs font-medium text-[#3d453b] transition-colors hover:border-[#9a722a] hover:text-[#7a5807]"
-              >
-                Upwork · Top Rated Plus
-              </a>
-              <a
-                href={CLUTCH_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Amex Technology on Clutch"
-                className="inline-flex items-center rounded-full border border-[#dadcd1] bg-white px-3 py-1.5 text-xs font-medium text-[#3d453b] transition-colors hover:border-[#9a722a] hover:text-[#7a5807]"
-              >
-                Clutch · Our profile
-              </a>
-            </div>
+            <ul className="mt-5 flex flex-wrap items-center gap-2.5" aria-label="Amex Technology profiles">
+              {socials.map(({ label, href, icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    title={label}
+                    className="grid h-10 w-10 place-items-center rounded-full border border-[#dadcd1] bg-white text-[#3d453b] transition-colors hover:border-[#9a722a] hover:text-[#7a5807] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#936a20]"
+                  >
+                    {icon}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <LinkColumn title="Company" links={quickLinks} />
@@ -217,76 +262,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-[#dadcd1] pt-7 sm:flex-row">
-          <div className="flex flex-wrap items-center gap-3">
-            <p className="text-xs text-[#444444]">
-              © {new Date().getFullYear()} Amex Technology. An independent agency, not affiliated with American Express.
-            </p>
-            <span className="text-xs text-[#444444]" aria-hidden="true">·</span>
-              <a
-                href="https://www.instagram.com/amextechnology/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Amex Technology on Instagram"
-                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#444444] transition-colors hover:text-[#7a5807]"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </a>
-              <a
-                href="https://www.upwork.com/agencies/2067871097204619852/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Amex Technology on Upwork"
-                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#444444] transition-colors hover:text-[#7a5807]"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06a2.834 2.834 0 0 1 2.833 2.833 2.834 2.834 0 0 1-2.834 2.572zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.15-4.036-2.699-5.892H7.548v7.112c-.002 1.406-1.144 2.548-2.55 2.548-1.405 0-2.547-1.142-2.549-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.283 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.557l1.213-5.71c1.063.679 2.285 1.109 3.664 1.109h.02c3.045-.028 5.526-2.53 5.526-5.582 0-3.061-2.481-5.577-5.526-5.577z" />
-                </svg>
-              </a>
-              <a
-                href="https://www.linkedin.com/company/amex-technology/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Amex Technology on LinkedIn"
-                className="inline-flex min-h-[32px] min-w-[32px] items-center justify-center text-[#444444] transition-colors hover:text-[#7a5807]"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.114 20.452H3.558V9h3.556v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
-          </div>
-          <div className="flex flex-wrap items-center gap-6">
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-[#dadcd1] pt-7 sm:flex-row">
+          <p className="text-xs text-[#444444]">© {new Date().getFullYear()} Amex Technology.</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6">
             {[
               ["Privacy Policy", "/privacy"],
               ["Terms of Service", "/terms"],
-              ["Refund Policy", "/refund-policy"],
-              ["Delivery Policy", "/delivery-policy"],
             ].map(([label, href]) => (
               <Link
                 key={href}

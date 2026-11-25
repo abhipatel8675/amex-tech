@@ -1,3 +1,4 @@
+import { categoryLabel } from "@/data/categories";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -139,7 +140,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           <header className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-10">
             <div>
               <p className="mb-3 text-sm text-[#444444]">
-                {project.category} · {project.tags.slice(0, 2).join(" · ")}
+                {categoryLabel(project.category)} · {project.tags.slice(0, 2).join(" · ")}
               </p>
               <h1
                 className="font-semibold text-[#111111] leading-[1.05]"

@@ -2270,22 +2270,25 @@ export const projects: Project[] = [
 
 export const categories = ["All", "Web", "Mobile App", "SaaS", "AI", "Automation"] as const;
 
-// Groups used to showcase projects by type of work (portfolio filter and
-// homepage). A project belongs to a group when any of its technologies match.
+import { categoryGroups, categoryLabel, type CategoryGroupName } from "./categories";
+export { categoryGroups, categoryLabel };
+export type { CategoryGroupName };
+
+export function projectsForCategoryGroup(list: Project[], group: string): Project[] {
+  const g = categoryGroups.find((x) => x.name === group);
+  if (!g) return list;
+  return list.filter((p) => (g.categories as readonly string[]).includes(p.category));
+}
+
+// Technology groups used as the second portfolio filter. A project belongs to
+// a group when any of its technologies match.
 export const stackGroups = [
-  { name: "Modern websites", match: ["Next.js"] },
-  { name: "Web apps", match: ["React", "Vite"] },
-  { name: "Custom software", match: ["TypeScript"] },
-  { name: "Apps with customer accounts", match: ["Supabase"] },
-  { name: "Online services", match: ["Node.js", "Express"] },
-  { name: "Data-driven platforms", match: ["PostgreSQL", "Neon Postgres", "MySQL", "Drizzle ORM", "Prisma"] },
-  { name: "AI & automation", match: ["OpenAI", "AI Voice Agents"] },
-  { name: "Mobile apps", match: ["React Native", "Expo"] },
-  { name: "WordPress websites", match: ["WordPress", "Elementor Pro"] },
-  { name: "PHP development", match: ["PHP"] },
-  { name: "Hand-built websites", match: ["HTML", "CSS"] },
-  { name: "CRM & marketing automation", match: ["GoHighLevel", "GoHighLevel API"] },
-  { name: "AI-built apps", match: ["Lovable"] },
+  { name: "Next.js & React", match: ["Next.js", "React", "Vite", "TypeScript"] },
+  { name: "Node.js & APIs", match: ["Node.js", "Express"] },
+  { name: "Databases & Auth", match: ["Supabase", "PostgreSQL", "Neon Postgres", "MySQL", "Drizzle ORM", "Prisma"] },
+  { name: "React Native", match: ["React Native", "Expo"] },
+  { name: "WordPress & PHP", match: ["WordPress", "Elementor Pro", "PHP"] },
+  { name: "AI & CRM Platforms", match: ["OpenAI", "AI Voice Agents", "GoHighLevel", "GoHighLevel API", "Lovable"] },
 ] as const;
 export type StackName = (typeof stackGroups)[number]["name"];
 

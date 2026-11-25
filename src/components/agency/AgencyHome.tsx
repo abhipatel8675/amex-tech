@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
-import { projects, projectsForStack, stackGroups } from "@/data/projects";
+import { projects, projectsForCategoryGroup, categoryGroups } from "@/data/projects";
 import { testimonials } from "@/data/testimonials";
 import { blogPosts } from "@/data/blog";
 import {
@@ -24,8 +24,8 @@ export default function AgencyHome() {
     .map((slug) => projects.find((p) => p.slug === slug))
     .filter((p): p is (typeof projects)[number] => Boolean(p?.image))
     .map((p) => ({ src: p.image as string, alt: `${p.title}, a project we built` }));
-  const stackShowcase =stackGroups
-    .map((g) => ({ name: g.name, list: projectsForStack(projects, g.name) }))
+  const stackShowcase =categoryGroups
+    .map((g) => ({ name: g.name as string, list: projectsForCategoryGroup(projects, g.name) }))
     .filter((g) => g.list.length > 0);
   const review =
     testimonials.find((t) => t.name === "sarah_m_uk") ?? testimonials[0];
@@ -66,11 +66,6 @@ export default function AgencyHome() {
             </div>
           </div>
           <div className={s.trust}>
-            <p>
-              Tools we work
-              <br />
-              with every day
-            </p>
             <div className={s.marquee}>
               <div className={s.marqueeTrack}>
                 {[0, 1].map((copy) =>
