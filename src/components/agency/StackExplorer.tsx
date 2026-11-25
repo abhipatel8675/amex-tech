@@ -13,6 +13,8 @@ export default function StackExplorer({ groups }: { groups: ExplorerGroup[] }) {
   const current = groups[active] ?? groups[0];
   const withImage = current.projects.filter((p) => p.image);
   const shown = (withImage.length ? withImage : current.projects).slice(0, 3);
+  // Small project image shown beside each row on phones, where the preview panel is hidden
+  const thumbFor = (g: ExplorerGroup) => g.projects.find((p) => p.image)?.image;
   const href = (name: string) => `/portfolio?category=${encodeURIComponent(name)}`;
 
   return (
@@ -27,6 +29,11 @@ export default function StackExplorer({ groups }: { groups: ExplorerGroup[] }) {
               onFocus={() => setActive(i)}
             >
               <span className={s.num}>{String(i + 1).padStart(2, "0")}</span>
+              <span className={s.thumb} aria-hidden="true">
+                {thumbFor(g) ? (
+                  <Image src={thumbFor(g) as string} alt="" fill sizes="72px" />
+                ) : null}
+              </span>
               <span className={s.name}>{g.name}</span>
               <span className={s.count}>{g.projects.length}</span>
               <ArrowUpRight size={22} className={s.arrow} aria-hidden="true" />

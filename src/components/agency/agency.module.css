@@ -113,14 +113,6 @@
 .textLink:hover {
   color: #7a5807;
 }
-.heroNote {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-top: 26px;
-  color: #111111;
-  font-size: 13.5px;
-}
 .heroVisual {
   position: relative;
   min-width: 0;
@@ -710,6 +702,20 @@
 .article:hover h3 {
   color: #97712d;
 }
+.pageHero .hireHero h1 {
+  font-size: clamp(40px, 4.6vw, 64px);
+}
+.hireHeroImage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #e9e6da;
+  box-shadow: 0 18px 40px -22px rgba(31, 37, 23, 0.45);
+}
+.hireHeroImage img {
+  object-fit: cover;
+}
 .pageHero {
   padding: 145px 0 65px;
   border-bottom: 1px solid #d8dbce;
@@ -897,9 +903,6 @@
     font-size: 15.5px;
     gap: 16px;
     padding-inline: 17px;
-  }
-  .heroNote {
-    font-size: 13.5px;
   }
   .trust {
     flex-direction: column;

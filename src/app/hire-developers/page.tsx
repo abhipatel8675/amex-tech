@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, Check } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
@@ -118,39 +119,52 @@ export default function HireDevelopersPage() {
       <main id="main-content" className={s.site}>
         <section className={s.pageHero}>
           <div className={s.wrap}>
-            <p className={s.eyebrow}>Good people. Careful work.</p>
-            <h1>
-              The expertise you need.
-              <br />
-              <em>The collaboration you want.</em>
-            </h1>
-            <p className={s.intro}>
-              Bring the right skills into your next project. Tell us
-              what you&apos;re building and we&apos;ll discuss how our
-              developers can help, from one focused project to ongoing product
-              development.
-            </p>
-            <div className={s.actions}>
-              <Link
-                className={s.button}
-                href={hireLink("a developer or development team")}
-              >
-                Discuss your hiring needs <ArrowUpRight size={17} />
-              </Link>
-              <Link className={s.textLink} href="#developer-skills">
-                Explore our expertise <ArrowRight size={16} />
-              </Link>
-            </div>
-            <div className={s.checkList}>
-              <span>
-                <Check size={14} /> Real project experience
-              </span>
-              <span>
-                <Check size={14} /> Direct communication
-              </span>
-              <span>
-                <Check size={14} /> Clear engagement terms
-              </span>
+            <div className={`${s.heroGrid} ${s.hireHero}`}>
+              <div>
+                <p className={s.eyebrow}>Good people. Careful work.</p>
+                <h1>
+                  The expertise you need.
+                  <br />
+                  <em>The collaboration you want.</em>
+                </h1>
+                <p className={s.intro}>
+                  Bring the right skills into your next project. Tell us
+                  what you&apos;re building and we&apos;ll discuss how our
+                  developers can help, from one focused project to ongoing product
+                  development.
+                </p>
+                <div className={s.actions}>
+                  <Link
+                    className={s.button}
+                    href={hireLink("a developer or development team")}
+                  >
+                    Discuss your hiring needs <ArrowUpRight size={17} />
+                  </Link>
+                  <Link className={s.textLink} href="#developer-skills">
+                    Explore our expertise <ArrowRight size={16} />
+                  </Link>
+                </div>
+                <div className={s.checkList}>
+                  <span>
+                    <Check size={14} /> Real project experience
+                  </span>
+                  <span>
+                    <Check size={14} /> Direct communication
+                  </span>
+                  <span>
+                    <Check size={14} /> Clear engagement terms
+                  </span>
+                </div>
+              </div>
+              <div className={s.hireHeroImage}>
+                <Image
+                  src="/images/hire/team-at-work.webp"
+                  alt="Two developers pair-programming at a desk while a client joins on a video call"
+                  fill
+                  preload
+                  sizes="(max-width: 900px) 100vw, 50vw"
+                />
+              </div>
             </div>
           </div>
         </section>

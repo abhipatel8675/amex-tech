@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projects, projectsForCategoryGroup, categoryGroups } from "@/data/projects";
 import { blogPosts } from "@/data/blog";
 import {
@@ -33,9 +33,6 @@ export default function AgencyHome() {
         <div className={s.wrap}>
           <div className={s.heroGrid}>
             <div>
-              <p className={s.eyebrow}>
-                Websites, apps &amp; AI for businesses · Worldwide
-              </p>
               <h1>
                 Websites, apps and AI tools
                 <br />
@@ -55,9 +52,6 @@ export default function AgencyHome() {
                   See our work <ArrowRight size={16} />
                 </Link>
               </div>
-              <p className={s.heroNote}>
-                <Check size={13} /> Working with clients worldwide
-              </p>
             </div>
             <div className={s.heroVisual}>
               <HeroSlider slides={heroSlides} />

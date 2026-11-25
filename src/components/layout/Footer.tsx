@@ -271,9 +271,6 @@ export default function Footer() {
               <p className="mt-2 text-sm leading-6 text-[#111111]">
                 Office: Monday–Saturday, {OFFICE_HOURS_IST}
               </p>
-              <p className="text-sm leading-6 text-[#111111]">
-                US line: Monday–Saturday, US business hours
-              </p>
               <Link
                 href="/contact"
                 className="mt-3 inline-flex min-h-[32px] items-center gap-1.5 text-sm font-semibold text-[#7a5807] hover:underline"
