@@ -1948,6 +1948,106 @@ Deployment issues are frustrating because everything looks fine locally. Explore
 
 
   {
+    slug: "shopify-launch-checklist-ahmedabad",
+    title: "Launching a Shopify Store in Ahmedabad? What to Get Right Before Launch",
+    excerpt: "Test your product catalogue, delivery zones, checkout, and fulfilment before opening your Shopify store to customers in Ahmedabad and beyond.",
+    category: "Business",
+    tags: ["Shopify", "E-commerce", "Ahmedabad"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#B8860B",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Shopify Store Launch Checklist for Ahmedabad Retailers",
+    metaDescription: "Test your product catalogue, delivery zones, checkout, and fulfilment before opening your Shopify store to customers in Ahmedabad and beyond.",
+    keywords: ["Shopify development company Ahmedabad", "Ahmedabad business technology"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+Your Shopify store can look ready while an Ahmedabad customer still hits a dead end at checkout. A product variant might be unavailable, a delivery option may disappear for their PIN code, or a paid order may reach the wrong person. Before opening the store, run one genuine customer journey with a test order and trace it through fulfilment.
+
+## Prepare products as customers will see them
+
+Start with a small representative set. Include a simple item, an item with size or colour variants, and an item with limited stock. Check that product photos match the selected variant, descriptions answer common questions, and store inventory reflects the way you actually sell.
+
+Assign someone to keep product details current. If an item sells both in-store and online, clarify where inventory lives and what staff should do when an order arrives just as the item sells in person.
+
+## Test delivery to the places you serve
+
+List the PIN codes or regions you plan to cover from day one. Decide whether you offer pickup, local delivery, or shipping outside the city. Shopify’s shipping configurations use zones and profiles, with local delivery and pickup handled through their own setup options. Verify which options appear for real addresses before launch. [Shopify shipping and delivery documentation](https://help.shopify.com/en/manual/fulfillment/setup/shipping-rates)
+
+Use three test scenarios. Try an address close to your Ahmedabad location, one elsewhere in Gujarat, and one outside the area you serve. Verify the delivery information customers see before placing an order. If pickup is available, test the confirmation message and how staff know an order is ready.
+
+## Complete a checkout on a real phone
+
+Place a test order using your payment provider’s supported test workflow. Check that the product, shipping option, and contact details reach the order record. Confirm the customer receives an acknowledgement and that staff know who packs the order and where they update its status. [Shopify test order guidance](https://help.shopify.com/en/manual/checkout-settings/test-orders)
+
+Also test a failed payment, a cancelled order, and a sample return. Staff should know whether inventory needs updating and which system records the result. Create one short checklist they can follow without contacting the developer.
+
+## Decide which parts actually need custom development
+
+A theme and existing integrations may cover your first store. Consider custom work when customers need a particular product selector, a different ordering experience, or a storefront connected to another system. Shopify’s October 2026 Hydrogen release expanded the options for connecting Shopify commerce to an existing frontend. Ask what the customization improves and who will maintain it when the catalogue or checkout changes. [Shopify Hydrogen release notes](https://shopify.dev/changelog/blog/hydrogen-2026-10-is-now-available)
+
+One published Amex example is Buttercream Bus, an e-commerce project you can review when thinking about the storefront experience. Use your own products and delivery requirements to decide what your store needs. [Buttercream Bus case study](/portfolio/buttercream-bus)
+
+## Run one final handover
+
+Give a staff member a test order and ask them to find it, fulfil it, and handle a change. Capture anything they need help with in a short operating guide. Check who owns the store, domain, payment account, and support inbox before announcing the launch.
+
+Share your store URL or catalogue and describe how you plan to deliver orders. Amex can help you plan and test the storefront with your Ahmedabad team or work remotely across India. [Amex web development](/services/web-development) · [Discuss your store](/contact)
+`,
+  },
+  {
+    slug: "razorpay-nextjs-integration-checklist",
+    title: "Razorpay Integration in Next.js: A Checklist for a Reliable Checkout",
+    excerpt: "Plan order creation, payment verification, webhooks, and test cases when adding Razorpay checkout to a Next.js application.",
+    category: "Engineering",
+    tags: ["Razorpay", "Next.js", "Payments", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#4F46E5",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Razorpay Integration in Next.js for a Reliable Checkout",
+    metaDescription: "Plan order creation, payment verification, webhooks, and test cases when adding Razorpay checkout to a Next.js application.",
+    keywords: ["Razorpay integration Next.js"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+Razorpay Checkout can collect payment inside a Next.js app. Your application still needs a clear way to connect the payment to the right order and decide when to activate a booking, subscription, or account. Design that handoff before wiring the checkout button.
+
+A useful first step is to draw three separate records: the order in your application, the order and payment in Razorpay, and the access or fulfilment action your business performs after confirmation. Every retry should lead back to the correct order.
+
+## Start the order on the server
+
+When the customer checks out, your server should determine what they are buying and create the Razorpay order using your stored product and order data. Store the Razorpay order ID with your internal order. Your frontend can open Checkout with the returned order ID and the publishable key. Keep the key secret on the server. [Razorpay Standard Checkout documentation](https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/)
+
+That separation matters when a customer refreshes after opening Checkout or tries again later. Use a stable internal order reference and decide when the customer can resume an existing order or needs a new one.
+
+## Verify the callback and confirm the payment state
+
+When Checkout sends its response, send the payment ID, order ID, and signature to your server. Follow Razorpay’s verification instructions and use the order ID your server originally stored. Check that the records belong to the same customer or transaction. Keep the application’s order pending until it reaches the provider state your business requires, such as a captured payment before fulfilment. [Razorpay payment integration guide](https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/)
+
+## Handle events when the customer closes the page
+
+A webhook is a message Razorpay sends to your server when a payment event occurs. Verify the signature against the original request body and the webhook secret. Record processed event IDs or use another stable key for deduplication. A repeat delivery should leave the business action, such as booking a slot or activating access, completed once. [Razorpay webhook validation](https://razorpay.com/docs/webhooks/validate-test/)
+
+Design for the callback and webhook to arrive in either order. If the browser closes after payment, the server should still be able to update the correct order. A pending page can tell the customer where to check confirmation or how to contact support.
+
+## Run this test matrix before going live
+
+| Test | Expected result |
+|---|---|
+| Successful test payment | The correct order is confirmed and fulfilment runs once. |
+| Cancelled Checkout | The order can be found again and no paid access is granted. |
+| Delayed webhook | The page can show a pending state and the record catches up later. |
+| Duplicate delivery | The same payment does not create a second booking or entitlement. |
+| Browser closed before return | The server can still reconcile the order with Razorpay. |
+
+Check test and live variables separately and review logs without recording sensitive payment details. Give your support team a way to find an order by reference and see what step is pending.
+
+If you need Razorpay integrated into a Next.js site or want help fixing an existing checkout, send Amex a description of the workflow and where it breaks. Our Ahmedabad team works with businesses across India. [Amex web development](/services/web-development) · [Discuss your checkout](/contact)
+`,
+  },
+  {
     slug: "fix-new-row-violates-row-level-security-policy-supabase",
     title: "Fix: \"new row violates row-level security policy\" in Supabase",
     excerpt:
