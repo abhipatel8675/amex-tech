@@ -1582,6 +1582,107 @@ If Firebase setup issues keep slowing down your Next.js builds, we can restructu
       { question: "Is it safe to call getApps() on every import?", answer: "Yes, getApps() is a cheap synchronous lookup against Firebase's internal registry and is the recommended pattern for this exact scenario." },
     ],
   },
+  {
+    slug: "website-migration-seo-checklist",
+    title: "Website Migration SEO Checklist for a Redesign or Domain Move",
+    excerpt: "Plan redirects, indexing, analytics, and enquiry tests before moving a business website to a new platform or domain.",
+    category: "Marketing",
+    tags: ["SEO", "Website Migration", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#047857",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Website Migration SEO Checklist for Redesigns and Domain Moves",
+    metaDescription: "Plan redirects, indexing, analytics, and enquiry tests before moving a business website to a new platform or domain.",
+    keywords: ["website migration SEO checklist"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+A website move can break a service page link customers have been using for years. It can also publish a site that looks right while its enquiry form sends messages to a test inbox. Treat the migration as a transfer of traffic and customer workflows as well as a launch of new pages.
+
+Start by identifying what changes. A visual redesign can keep the same addresses. A move to another host can also keep the domain and paths. A new domain or page structure changes the addresses people and search engines use. Each type of move needs a different checklist. [Google’s hosting migration guide](https://developers.google.com/search/docs/crawling-indexing/site-move-no-url-changes) · [Google’s URL migration guide](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes)
+
+## Before the move, record the pages and actions that matter
+
+Gather existing URLs from your sitemap, Search Console, analytics, and pages linked from your Google Business Profile and email templates. Include important PDFs or files people link to. Put them into a sheet with the current address, intended destination, reason to keep it, and owner who will test it.
+
+Save a baseline for Google clicks, enquiry submissions, bookings, and any other actions you care about. Keep the date range and measurement definitions so you can compare the same numbers after launch. Mark the pages that generate business even if they receive few visits.
+
+## Match old addresses to the right new pages
+
+Keep useful addresses if the new platform can serve them. Where a page moves permanently, set up a permanent redirect, typically an HTTP 301 or 308. Send the old address directly to its closest replacement. If a page is removed without a relevant replacement, return the appropriate missing-page status instead of sending every visitor to the homepage. [Google redirect guidance](https://developers.google.com/search/docs/crawling-indexing/301-redirects)
+
+**Example.** If an old appointment page moves from /book-visit to /appointments, redirect it directly and update the site’s own menus, Maps profile link where applicable, and email templates. Test the old and new page on a phone. Confirm the old page leads to the new one and the new form still works.
+
+## Make the launch checklist someone’s job
+
+- Verify that important public pages can be reached and that preview-only indexing restrictions are removed where appropriate.
+- Update internal links, preferred page addresses, and the sitemap so they point to the intended live URLs.
+- Test redirects for priority pages and check they lead directly to the correct destinations.
+- Submit a test enquiry and verify delivery, customer confirmation, and analytics on the live site.
+- Check payment or booking handoffs if visitors depend on them.
+- Ask the developer to check server responses during a hosting or CDN switch. Google notes that a new CDN can cause a temporary rise in crawler requests. [Google’s CDN migration guidance](https://developers.google.com/search/blog/2026/11/crawling-cdn)
+
+## Monitor the first weeks
+
+Submit the new sitemap in Search Console and monitor indexing, crawl errors, Google clicks, and the high-priority URLs in your sheet. If the domain changes, review Google’s Change of Address instructions for the affected properties. Keep redirects in place for at least a year when possible, as Google advises. A temporary shift in search traffic can happen while Google processes changed pages. [Google’s URL migration guide](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes)
+
+Keep a record of issues, affected pages, and who resolved them. If enquiries drop while traffic looks steady, investigate the contact flow before assuming the change is a search issue.
+
+If you are moving a website for an Ahmedabad or India-wide business, send Amex the current URL, the planned launch date, and what’s changing. We can help map priority pages and check the customer journey before deployment. [Amex SEO services](/services/seo-services) · [Discuss your migration](/contact)
+`,
+  },
+  {
+    slug: "wordpress-to-nextjs-business-website",
+    title: "WordPress to Next.js: When a Business Website Is Ready to Move",
+    excerpt: "Decide whether to rebuild a WordPress site in Next.js. Audit editing needs, plugins, page addresses, and the handover before choosing a platform.",
+    category: "Engineering",
+    tags: ["WordPress", "Next.js", "Web Development", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#4F46E5",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "WordPress to Next.js Migration for Business Websites",
+    metaDescription: "Decide whether to rebuild a WordPress site in Next.js. Audit editing needs, plugins, page addresses, and the handover before choosing a platform.",
+    keywords: ["WordPress to Next.js migration"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+A slow WordPress site can make a Next.js rebuild sound like the obvious next step. Start by asking what is slow and what your staff need the platform to do. Improving hosting, images, or a heavy theme may solve a problem without replacing the editor. A rebuild becomes more compelling when the site needs interactive workflows, deeper integrations, or a new structure that your current setup makes difficult.
+
+The trade-off matters for Ahmedabad businesses and remote teams across India. A fast new site still needs a clear way for staff to publish a page, adjust opening hours, or replace a photo.
+
+## List the jobs WordPress already handles
+
+Review the site with one person who edits it and one person who receives enquiries. Record who updates pages, how previews are approved, where forms send messages, which plugins add important behaviour, and who resolves site errors. Include redirects, bilingual content, media files, and any integrations that run in the background.
+
+Separate the experience visitors see from the work staff do. A plugin may supply a booking widget, send a confirmation email, and store the record for staff. Each of those jobs needs an owner in the new setup.
+
+## Compare three paths
+
+| Path | When to consider it |
+|---|---|
+| Keep WordPress and improve it | Staff like the editor, the site is mostly information, and the problems are concentrated in hosting, page weight, or the theme. |
+| Keep WordPress as the content editor and use Next.js for the site | Staff rely on WordPress editing, while the public site needs a different frontend or more interactive pages. Plan how drafts, previews, and publishing work. |
+| Rebuild with Next.js and a different editor | Content and workflows have changed enough to justify a new setup, and the team can test the new editing experience and own the handover. |
+
+Next.js provides features for rendering, data fetching, and caching. How fast the result feels depends on the pages, assets, and implementation. Ask to see one real page and one real editing workflow before making the platform decision. [Next.js documentation](https://nextjs.org/docs/app/getting-started)
+
+## Prototype one page and one operational task
+
+Choose a page with representative content, such as a service page with photos and a contact form. Ask the developer to build it with the proposed editor and test it with someone who will actually edit it. Have that person change a heading, preview it, and publish a test update.
+
+Then check what the visitor sees on a phone and what staff receive after a form submission. If the site supports more than one language, repeat the test with an alternate language and ask how translators will edit each version.
+
+## Set conditions for a safe migration
+
+Create an inventory of posts, images, files, and page addresses. Keep important URLs where practical and match changed pages to relevant destinations. Run the old site and new preview long enough to test forms, editing, and the mobile journey before switching traffic. Verify the sitemap and indexing settings after launch. [Google’s migration guidance](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes)
+
+Agree on who controls the domain, code repository, hosting, editor, and analytics accounts. Ask for a short handover showing how to edit content, release an update, and recover the previous version if something goes wrong.
+
+If you are unsure whether to repair WordPress or move to Next.js, send Amex your URL and describe what staff or customers struggle to do. We can review the options with your Ahmedabad team or remotely across India. [Amex web development](/services/web-development) · [Discuss your website](/contact)
+`,
+  },
 {
     slug: "fix-firebase-auth-invalid-api-key",
     title: "Fix: Firebase auth/invalid-api-key Error",
