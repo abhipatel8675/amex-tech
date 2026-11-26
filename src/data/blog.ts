@@ -315,6 +315,105 @@ Send us your Google Maps listing link, your website URL, and one service you wan
     ]
   },
   {
+    slug: "whatsapp-crm-integration-ahmedabad-india",
+    title: "How Ahmedabad and Indian Businesses Can Connect WhatsApp Enquiries to a CRM",
+    excerpt: "Design a WhatsApp-to-CRM workflow that captures enquiries, assigns an owner, and lets your team follow up without duplicate customer records.",
+    category: "Business",
+    tags: ["WhatsApp", "CRM", "Ahmedabad", "Automation"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#B8860B",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "WhatsApp CRM Integration for Ahmedabad and Indian Businesses",
+    metaDescription: "Design a WhatsApp-to-CRM workflow that captures enquiries, assigns an owner, and lets your team follow up without duplicate customer records.",
+    keywords: ["WhatsApp CRM integration India", "CRM integration", "Ahmedabad business technology"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+A new customer messages your Ahmedabad office on WhatsApp asking about an appointment. One person answers, another opens a sales record, and a third follows up a day later without seeing the reply. The customer hears from three people, and nobody knows who owns the next action. A WhatsApp CRM integration is useful when it gives the whole team a shared record and a clear owner.
+
+Start with one type of conversation and one team. Write down what happens from first message to confirmed booking. Then decide which steps an integration should perform and which a person should handle.
+
+## Choose what the CRM should remember
+
+A CRM is the shared record your team uses to track customers and enquiries. For a first integration, capture the customer’s number in a consistent format, the enquiry source, the service they asked about, the responsible person, and the next action. Link to the conversation if your setup supports it. Keep access limited to staff who need it.
+
+Agree how to handle returning customers. A repeat message from the same number can belong to the existing enquiry or open a new one for a different service. Define that rule with the people who work the queue. Phone numbers can be shared or reassigned, so let staff correct a mistaken match.
+
+## Route a real conversation from start to finish
+
+**Hypothetical example.** An Ahmedabad tutoring centre receives a WhatsApp message about weekend classes. The integration finds or creates a contact and records the service as weekend tutoring. It assigns the enquiry to admissions and creates a task. A staff member confirms availability, offers a time, and marks the lead booked or awaiting a reply.
+
+- **Incoming.** Save the message identifier and use it to prevent duplicate processing if the same event arrives twice.
+- **Assigned.** Give the enquiry an owner and an agreed time for review. Send exceptions to a shared queue.
+- **Waiting.** Record whether the team owes a reply or the customer does. A reminder can go to the owner when an enquiry sits too long.
+- **Closed.** Record the outcome, such as booked, referred, or declined. Stop reminders when the case is closed.
+
+## Decide how to send messages and hand off to staff
+
+Use the official WhatsApp Business Platform or a supported CRM integration when you need programmatic messaging. Check Meta’s rules for opt-in, message templates, and when free-form replies are permitted. A customer providing a phone number on a website can be a useful contact record. Collect the appropriate permission before sending follow-ups on WhatsApp and respect requests to stop. [Meta WhatsApp Platform documentation](https://developers.facebook.com/documentation/business-messaging/whatsapp/overview) · [WhatsApp Business Messaging Policy](https://business.whatsapp.com/policy)
+
+Give staff a way to take over when someone asks about an unusual appointment, an existing complaint, or a sensitive issue. Define who receives an unassigned enquiry after hours and what the customer will see if a reply has to wait. If you use an automated acknowledgement, make sure it reflects the service hours and expectations your team can meet.
+
+## Test the workflow with a small set of enquiries
+
+Send a first message, a second message from the same number, and a new enquiry from a returning customer. Test a staff handoff and an opted-out customer. Simulate a temporary CRM failure and confirm someone can retry safely without creating a duplicate. Before expanding the workflow, check how many enquiries have an owner and how many reach the right person on time.
+
+If you want to connect WhatsApp to a CRM, show us your current enquiry process and where it breaks. Amex can help you design and implement a workflow with your Ahmedabad team or work remotely across India. [Amex CRM automation](/services/crm-automation) · [Discuss your enquiry workflow](/contact)
+`,
+  },
+  {
+    slug: "hubspot-lead-follow-up-website-forms",
+    title: "HubSpot Lead Follow-Up: From Website Form to a Booked Call",
+    excerpt: "Set up a clear HubSpot follow-up workflow for website enquiries, including acknowledgement, owner assignment, reminders, and booking outcomes.",
+    category: "Business",
+    tags: ["HubSpot", "CRM", "Lead Follow-Up", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#B8860B",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "HubSpot Lead Follow-Up for Website Forms",
+    metaDescription: "Set up a clear HubSpot follow-up workflow for website enquiries, including acknowledgement, owner assignment, reminders, and booking outcomes.",
+    keywords: ["HubSpot lead follow up", "CRM integration"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+A visitor fills in your website form requesting a consultation. HubSpot records the form, but the notification goes to a shared inbox and nobody takes ownership. The fix starts with a clear agreement about who responds, what they can see, and when a lead moves to the next stage. Once those rules make sense, HubSpot can handle repetitive tasks.
+
+For an Ahmedabad or India-wide service business, start with a single form for new enquiries. Keep jobs, vendor requests, and customer support on separate paths or give the enquiry form a clear service selector.
+
+## Map the process before opening the workflow editor
+
+Draw five steps on paper. Start with **received**, then **assigned**, **contacted**, **booked**, and **closed**. Give each step a condition. For example, “contacted” means someone sent a personal reply or recorded a call. “Booked” means the customer has accepted a meeting time.
+
+Decide who covers each service or region. Pick a backup when the selected person is away. Add one shared queue for enquiries where the customer leaves the service blank or picks an option that needs a manual decision.
+
+## Configure the first version in HubSpot
+
+HubSpot supports simple actions after a form submission, including emails and tasks. The actions and workflow tools you can access depend on your subscription and permissions. Check your account before designing a handoff that depends on an action your plan may lack. [HubSpot form automation guide](https://knowledge.hubspot.com/forms/form-automations)
+
+1. Capture a name, contact method, service interest, and a short project description. Ask for an optional company name if it helps qualify the enquiry.
+2. Send an acknowledgement where your configuration and permissions allow it. State when the team usually replies and which details would help.
+3. Notify or assign the right person. Put the service, source, and enquiry details in one place so staff can act from the record.
+4. Create a follow-up task or reminder. Clear it when the lead receives a response or is closed.
+5. Record the outcome. Use a booking or follow-up workflow your staff can reliably maintain.
+
+**Hypothetical example.** A Gujarat design firm routes renovation enquiries to its project lead and general consultations to a shared queue. A scheduled report shows every open enquiry without an owner. The owner reviews that report at the start of each business day, with sales staff handling individual replies.
+
+## Test forms embedded outside HubSpot
+
+A custom website form may submit to its own server before it reaches HubSpot. Test the normal user flow from the live website. Confirm the submission shows up under the expected contact, preserves its service selection, and triggers the intended actions. Repeat with an existing email address and check what happens on a second submission. HubSpot’s form settings and contact matching can affect how details are recorded. [HubSpot forms documentation](https://knowledge.hubspot.com/forms/create-and-edit-forms)
+
+Test a submission that arrives outside working hours and a lead without a clear owner. A successful form submission should produce a record the team can work, even when a calendar is full or a notification is missed.
+
+## Review whether the automation is helping
+
+Track three measures that people can verify. How many enquiries got an owner? How long did the first human response take? How many reached a booked call? Review them by service if volume permits. If people still chase leads in a separate spreadsheet, find out what’s missing from the HubSpot record before adding more workflow steps.
+
+Share your current form URL, the services you route, and what happens after someone clicks Submit. Amex can help you connect the website to HubSpot and test a follow-up flow with your team in Ahmedabad or remotely across India. [Amex CRM automation](/services/crm-automation) · [Talk to Amex](/contact)
+`,
+  },
+  {
     "slug": "lovable-app-to-production-cost",
     "title": "Lovable App to Production: What It Costs",
     "excerpt": "What it costs to take a Lovable app to production: audit, harden, port or rebuild price ranges, what usually breaks and how to decide repair or rebuild.",
