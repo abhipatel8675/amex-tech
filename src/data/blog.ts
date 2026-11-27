@@ -584,6 +584,106 @@ Share your current form URL, the services you route, and what happens after some
     ]
   },
 
+  {
+    slug: "lovable-app-launch-checklist",
+    title: "The Lovable App Launch Checklist Before Your First Paying Customer",
+    excerpt: "Test authentication, account access, payments, backups, and rollback before launching a Lovable app to paying customers.",
+    category: "Tutorial",
+    tags: ["Lovable", "SaaS", "App Launch", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#0F766E",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Lovable App Launch Checklist for First Customers",
+    metaDescription: "Test authentication, account access, payments, backups, and rollback before launching a Lovable app to paying customers.",
+    keywords: ["Lovable app launch checklist", "app launch checklist"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+The first time a customer relies on your Lovable app is a good test of everything the preview skipped. Can they reset a password? Can their teammate see the right account? What happens when a payment succeeds but the confirmation callback takes longer than expected? Run through these questions before opening the app to paying customers.
+
+Write down the path you’re promising a customer. An illustrative subscription app might require signing up, confirming an email address, starting a plan, inviting a colleague, and downloading a report. Use that path to organise your launch tests.
+
+## Separate test work from the live customer experience
+
+Lovable introduced Drafts for exploring changes while a published app stays live. Confirm which backend, email sender, payment account, and external integrations the version you are testing points to. Pay particular attention when a copy shares any resources with production. Use test data and test payment modes for checks that would otherwise affect real accounts. [Lovable Drafts announcement](https://lovable.dev/blog/introducing-drafts)
+
+Record which project, database, and payment configuration you plan to ship. A developer joining the project should be able to see what is used in development and production and who owns the accounts.
+
+## Test account access with two customers
+
+Create two sample accounts. One should represent a normal customer and the other should own separate records. Sign in as each user on an actual device and confirm they only see the data and actions you intend. Repeat with a teammate or administrator if your app supports role differences.
+
+Check account signup, sign-in, password reset, and any invitation flow. Test an expired invitation and a fresh one. Confirm email links land on the expected live domain. If you use Supabase, verify access controls at the data layer as well as what the interface displays. [Supabase production checklist](https://supabase.com/docs/guides/platform/going-into-prod)
+
+## Rehearse payments and recovery
+
+Test a successful payment, a failed or cancelled payment, and a delayed confirmation. Confirm the customer only receives paid access after your server has checked payment status. If a notification can be delivered twice, access should still be granted once. Check what the customer sees when payment has completed but access is still pending.
+
+Open your backup settings and choose a safe place to practise restoring sample data. Document a recovery owner and record which changes can be rolled back independently. Reverting an app deployment can restore code while leaving a database change in place. Test both sides if the release changes the schema.
+
+## Set a pass condition for launch
+
+- A new customer can sign up, reset their password, and complete the main task from a phone.
+- Two separate accounts see only the data and settings they should have access to.
+- A successful test payment unlocks access once, and failed or cancelled payments leave access unchanged.
+- The team knows where to look when the live site reports an error and who owns the first response.
+- Someone can explain how to restore data or return to an earlier working version.
+
+Pick a small group for the first rollout. Send them a link, make clear where to report trouble, and watch how they move through the workflow. Use their questions to improve onboarding before inviting more people.
+
+If your prototype works but a launch check fails, share the app URL and the step that breaks. Amex helps founders in Ahmedabad and across India diagnose and repair existing apps. [Amex app fixes](/fix) · [Share your app with Amex](/contact)
+`,
+  },
+  {
+    slug: "supabase-permission-denied-for-table",
+    title: "Supabase “Permission Denied for Table”: How to Diagnose It",
+    excerpt: "Diagnose Supabase table permission errors by checking the Data API, the request role, table grants, and row-level security separately.",
+    category: "Engineering",
+    tags: ["Supabase", "PostgreSQL", "Data API", "RLS"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#4F46E5",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Fix Supabase “Permission Denied for Table”",
+    metaDescription: "Diagnose Supabase table permission errors by checking the Data API, the request role, table grants, and row-level security separately.",
+    keywords: ["Supabase permission denied for table"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+If your app can read older Supabase tables and gets “permission denied for table” on a new one, check the table’s privileges first. Supabase changed how newly created tables are exposed to the hosted Data API. The change was enforced on existing projects from October 30, 2026, and new tables in the public schema need explicit grants for the roles that use them. [Supabase changelog](https://supabase.com/changelog/45329-breaking-change-tables-not-exposed-to-data-and-graphql-api-automatically)
+
+Start with the exact error text and the operation that failed. PostgreSQL error code 42501 can also appear in row-level security errors. The wording helps you decide which check to run first.
+
+## Identify the request, role, and table
+
+Reproduce the failure in a test environment with an account like the one seeing the problem. Record the table, action, and whether the request ran before or after sign-in. A browser request without a valid user session normally runs with the anonymous role. An authenticated client request normally uses the authenticated role.
+
+Confirm the app is connected to the expected Supabase project. Preview and production may use separate environments and migrations. A SQL editor query as an administrator can succeed even when the regular app role lacks access. The app request is the test that matters.
+
+## Check the grant and the row policy separately
+
+A **grant** controls which operations a database role can attempt on a table. A **row-level security policy**, or RLS policy, controls which rows that role can see or change. Check both layers for the same request. [Supabase API security guidance](https://supabase.com/docs/guides/api/securing-your-api) · [Supabase row-level security documentation](https://supabase.com/docs/guides/database/postgres/row-level-security)
+
+- If the error says **permission denied for table**, check that the role has the grant for the exact operation.
+- If the error says **new row violates row-level security policy**, review the policy for the write and the row’s ownership fields. [Amex RLS troubleshooting guide](/blog/fix-new-row-violates-row-level-security-policy-supabase)
+- If an insert requests the inserted row back or uses an upsert, review the permissions required by the full operation.
+
+**Example.** Suppose authenticated customers should read their own documents from a new public.documents table. Confirm that the authenticated role has SELECT permission and that a read policy limits results to documents the signed-in customer owns. Keep writes and anonymous access unavailable unless the product specifically needs them. Put the required grant and policy in the same reviewed migration.
+
+## Retest like the customer
+
+Apply the migration to a test project, sign in with one sample account, and read a record that belongs to it. Then sign in as a second account and confirm it cannot see the first account’s record. Sign out and check the anonymous behaviour. Repeat the original failure through the application so your test covers its environment and session handling.
+
+Keep secret keys on the server. A service-role credential can bypass row-level security and gives a misleading result when you’re trying to test a customer’s actual permissions. [Supabase API keys guide](https://supabase.com/docs/guides/api/api-keys)
+
+## Prevent the next table from breaking
+
+Include the required role, operations, and RLS policies in each table’s migration. Document which actions use the browser client and which are handled by a trusted server. When you review a new migration, test one allowed operation and one operation that should be denied using sample accounts.
+
+If a Lovable or Next.js app is blocked by a permissions error, share the exact message and the action that triggers it. Amex can help diagnose the data and authentication flow with teams in Ahmedabad or remotely across India. [Amex app fixes](/fix) · [Contact Amex Technology](/contact)
+`,
+  },
 {
     slug: "fix-supabase-invalid-api-key",
     title: "Fix: Invalid API Key Error in Supabase",
