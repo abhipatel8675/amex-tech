@@ -1789,35 +1789,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "custom-ink-and-thread",
-    title: "Custom Ink & Thread - Apparel Ordering Platform Takeover & Improvements",
-    category: "SaaS",
-    tags: ["Software", "Web App", "Website"],
-    shortDesc: "I took over a live custom apparel ordering website and fixed and extended it, including QuickBooks and UPS connections.",
-    description: "I took over a live custom apparel ordering platform built by a previous developer. I reviewed 17 owner-reported issues, then added order syncing to QuickBooks Online, cleaner UPS shipping labels and tracking, fixes to embroidery and DTF pricing, capture of guest customers with staff alerts and cart reminders, re-ordering from the same cart, a \"New today\" admin inbox, and search and error-page fixes. A fix to make the database connection more resilient is prepared separately and not yet applied.",
-    problem: "The owner had 17 reported problems with a live ordering platform, and the previous developer was no longer maintaining it.",
-    solution: "We reviewed all 17 owner-reported issues and then fixed and extended the platform: order syncing to QuickBooks Online, cleaner UPS labels and tracking, corrected embroidery and DTF pricing, guest customer capture with staff alerts and cart reminders, re-ordering from the same cart, a \"New today\" admin inbox and search and error-page fixes.",
-    results: [
-      "17 owner-reported issues reviewed",
-      "Orders sync to QuickBooks Online",
-      "Cleaner UPS labels and tracking",
-      "Embroidery and DTF pricing fixed",
-      "Guest customers captured, with staff alerts and cart reminders"
-    ],
-    technologies: ["Next.js", "Supabase", "Clerk", "Stripe", "UPS", "QuickBooks"],
-    gradientFrom: "#a1c4fd",
-    gradientTo: "#c2e9fb",
-    featured: false,
-    image: "/images/portfolio/custom-ink-and-thread/mockup-1.webp",
-    gallery: [
-    { src: "/images/portfolio/custom-ink-and-thread/mockup-1.webp", alt: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration screenshot 1", caption: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration - View 1" },
-    { src: "/images/portfolio/custom-ink-and-thread/mockup-2.webp", alt: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration screenshot 2", caption: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration - View 2" },
-    { src: "/images/portfolio/custom-ink-and-thread/mockup-3.webp", alt: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration screenshot 3", caption: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration - View 3" },
-    { src: "/images/portfolio/custom-ink-and-thread/mockup-4.webp", alt: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration screenshot 4", caption: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration - View 4" },
-    { src: "/images/portfolio/custom-ink-and-thread/mockup-5.webp", alt: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration screenshot 5", caption: "Custom Ink & Thread — Apparel Ordering Platform Takeover & Integration - View 5" }
-    ],
-  },
-  {
     slug: "fine-eat-ap",
     title: "Fina Eat - AI Kitchen Assistant for Instant Recipes & Shopping Lists",
     category: "AI",
