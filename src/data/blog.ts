@@ -1098,6 +1098,109 @@ If migrations and schema exposure keep tripping up your Supabase project, we can
       },
     ],
   },
+  {
+    slug: "saas-mvp-first-customers-india",
+    title: "Building a SaaS MVP in Ahmedabad? What to Ship for Your First 10 Customers",
+    excerpt: "Turn your prototype into one workflow real customers can complete. Plan onboarding, account access, support, and the handover to production.",
+    category: "Business",
+    tags: ["SaaS", "MVP", "Ahmedabad", "India"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#B8860B",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "SaaS MVP Checklist for Ahmedabad and Indian Founders",
+    metaDescription: "Turn your prototype into one workflow real customers can complete. Plan onboarding, account access, support, and the handover to production.",
+    keywords: ["SaaS MVP development Ahmedabad", "Ahmedabad business technology"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+A clickable prototype can show what your product might do. Your first customers need something narrower and sturdier. They need to sign in, complete one important job, and know where to turn when they get stuck. For a founder in Ahmedabad or elsewhere in India, the first SaaS MVP is a way to learn whether customers will use that workflow repeatedly.
+
+Write one sentence before you start a feature list. “A design studio can invite a client, collect feedback on a revision, and mark it approved” gives the team a path to build and test. Replace the example with your own customer and task.
+
+## Pick one job and put the whole journey on paper
+
+List the steps someone must take from receiving an invitation to seeing a result. Include the screens the founder rarely thinks about, such as an expired invitation or an empty dashboard. Mark who owns each step. If the customer needs a colleague’s approval, show what that colleague sees and when they are notified.
+
+Define a clear end state. A studio manager should be able to tell that a revision is approved, see who approved it, and find the approved version later. A button labelled “Done” can be sufficient if it does those jobs.
+
+## Split launch work from work you can do by hand
+
+For the first ten customers, onboarding can be partly manual. A founder may create the first workspace, import sample data with permission, and run a short walkthrough. Record which steps you perform so you can automate them after seeing where customers struggle.
+
+| Build for the first release | Handle manually while you learn |
+|---|---|
+| Sign-in, account recovery, and access for the required roles | Inviting the first customer groups |
+| The workflow customers came to complete | Walking new customers through unusual cases |
+| A way to see the result and report a problem | Collecting interview notes and scheduling follow-ups |
+| A record the team can use to diagnose a failure | Reviewing requests for extra reports or integrations |
+
+When you scope account access, describe who can view, create, edit, or approve records. If a customer can invite colleagues, test that everyone sees the workspace they were invited to. Keep test and production data separate so a demo or migration rehearsal leaves customer records alone. [Supabase deployment and branching guide](https://supabase.com/docs/guides/deployment)
+
+## Prepare a handover from prototype to production
+
+Bring the current prototype URL, any repository you own, a list of third-party tools, and the people who control each account. Document where login emails, payments, files, and support messages go. Ask who owns monitoring and backup recovery after launch. A short handover note should tell a second developer where to look when an important flow fails.
+
+Run through the core job with sample data before onboarding each early group. Test the happy path, an expired link, a duplicate action, and a member of a second workspace. If there is a subscription, verify access and cancellation behaviour in the payment provider’s test environment.
+
+## Decide what you want to learn in the first month
+
+Watch how many invited buyers complete the workflow, where they ask for help, and whether they return. Interview a customer who completed it and one who stopped. Use what you learn to decide whether to improve onboarding, expand the workflow, or revisit the problem.
+
+If you have an idea or a prototype, send Amex a link and the job your first customers need to complete. We can help define a first release with your Ahmedabad team or work remotely across India. [Amex SaaS development](/services/saas-development) · [Share your product brief](/contact)
+`,
+  },
+  {
+    slug: "customer-portal-development-ahmedabad",
+    title: "When Your Ahmedabad Business Needs a Client Portal for Bookings and Documents",
+    excerpt: "Decide when to move repeat bookings, documents, or updates into a client portal. Includes a simple first-release plan and handover checks.",
+    category: "Business",
+    tags: ["Customer Portals", "Web Development", "Ahmedabad"],
+    readTime: "3 min read",
+    publishedAt: "2026-11-24",
+    gradientFrom: "#B8860B",
+    gradientTo: "#111827",
+    featured: false,
+    metaTitle: "Client Portal Development for Ahmedabad Businesses",
+    metaDescription: "Decide when to move repeat bookings, documents, or updates into a client portal. Includes a simple first-release plan and handover checks.",
+    keywords: ["customer portal development Ahmedabad", "customer portal development", "Ahmedabad business technology"],
+    author: {"name": "Amex Technology Team", "url": "https://amextechnology.com/about"},
+    content: `
+A customer asks for the latest document in WhatsApp. A teammate sends an older version from email. The customer replies in a third thread, and by the time the team finds the correct file, the same question has been answered twice. If this happens frequently, a customer portal can give clients one place to see what is current and what they should do next.
+
+A portal is a private website customers sign in to use. It can sit alongside your normal website and handle repeat tasks such as bookings, document approvals, or project updates.
+
+## Decide whether clients need a portal
+
+A clearer contact form or a shared team inbox may be enough if the problem is missed first enquiries. A portal starts to make sense when the same customers return, access should differ by account, and people need to see a current version or status without asking a staff member.
+
+Write down three recent repeat requests. Did customers ask to reschedule a slot, download a file, or check what happens next? Count which requests recur and how staff answer them today. Choose the request with a clear owner, a source of accurate data, and an action customers can complete on their own.
+
+## Give the first release one purpose
+
+**Hypothetical example.** An Ahmedabad architecture practice sends drawings to customers for review. In its first portal, an invited client signs in, opens the latest drawing, and either approves it or requests a change. Staff upload a new version and get a reminder when feedback is overdue. Project notes and internal drafts stay with the team.
+
+A booking business might choose another starting point. Give existing customers a list of upcoming appointments and a way to request a change. Let a person handle unusual requests until the booking rules are clear enough to automate.
+
+## Put access and ownership into the brief
+
+- **Customer:** Which records can a client view, download, or change?
+- **Staff:** Who can create a booking, publish a document, or invite a customer?
+- **Source:** Which calendar, document store, or staff record is the source of truth?
+- **Notifications:** Who gets an email when something changes, and what information can safely appear in the message?
+- **Departures:** Who removes access when a staff member leaves or a customer account closes?
+
+An engineer can use those decisions to design roles and data access rules. Test with two sample clients and confirm each sees only the expected records. Use a separate test environment for migrations, email, and notifications where practical. [Supabase deployment and branching guide](https://supabase.com/docs/guides/deployment)
+
+## Test it with existing customers
+
+Invite a small group and give each one a task to complete from their phone. Ask them to find a document, book an appointment, or check a status. Observe where they pause. Check whether the task reaches the right member of staff and whether customers can tell what happens next.
+
+Keep an email or phone route available for people who need help. Where possible, let staff resolve an incomplete portal action in the same system. That gives the team a reliable record even when the customer chooses to call.
+
+If your customers keep asking for the same booking, document, or status update, send Amex one example of that workflow. We can help you decide what a first portal should include and which existing systems it needs to connect to. [Amex web app development](/services/web-development) · [Talk to our Ahmedabad office](/contact)
+`,
+  },
 {
     slug: "fix-supabase-failed-to-fetch",
     title: "Fix: Supabase 'Failed to fetch' Error",
